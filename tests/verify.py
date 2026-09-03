@@ -15,6 +15,7 @@ import tempfile
 ROOT = Path(__file__).resolve().parents[1]
 HOSTS = {"codex-cli": ".codex/skills", "codex-app": ".agents/skills", "claude-code": ".claude/skills"}
 CLASSIC_SKILLS = ("aif-warmup", "aif-plan", "aif-improve", "aif-implement", "aif-verify", "aif-security", "aif-review", "aif-commit")
+IMPROVE_REFERENCES = ("LIST-MODE.md", "CHECK-MODE.md", "EXAMPLES.md", "VALIDATOR.md")
 PROFILE_CAPTURES = {
     "fast": {"kind": "exact_file", "path": ".ai-factory/PLAN.md"},
     "full": {"kind": "direct_child_file", "path": ".ai-factory/plans"},
@@ -54,6 +55,12 @@ def prepare_repository(binary, root):
             path = repository / skills_root / skill / "SKILL.md"
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(f"# {skill}\n")
+        # A skill's own reference files are not carried by pinning the skill,
+        # so the package pins each one and the host root must hold them.
+        for reference in IMPROVE_REFERENCES:
+            path = repository / skills_root / "aif-improve" / "references" / reference
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(f"# {reference}\n")
     profile = (repository / ".prifly" / "project.yaml").read_text()
     profile = profile.replace("packages: {}\n", "packages:\n  aif-classic:\n    source: .prifly/workflows/aif-classic\n  aif-fanout:\n    source: .prifly/workflows/aif-fanout\n")
     profile = profile.replace(
@@ -91,10 +98,12 @@ def check_classic(binary, authority, repository, root):
 
     output = root / "classic"
     result, documents = compile_package(binary, authority, repository, "aif-classic", output)
-    assert result["package"]["id"] == "aif:package/classic" and len(result["components"]) == 34, result["package"]
+    assert result["package"]["id"] == "aif:package/classic" and len(result["components"]) == 39, result["package"]
     catalog = json.loads((output / "decisions.json").read_text())["decisions"]
-    assert len(catalog) == 8 and catalog[0]["destination"]["kind"] == "package_profile", catalog[0]
-    assert catalog[5].get("when", {}).get("answers") and catalog[7]["id"] == "commit_grouping" and catalog[7]["phase"] == "runtime", catalog
+    assert len(catalog) == 9 and catalog[0]["destination"]["kind"] == "package_profile", catalog[0]
+    assert catalog[5].get("when", {}).get("answers"), catalog
+    runtime = {entry["id"]: entry for entry in catalog if entry["phase"] == "runtime"}
+    assert set(runtime) == {"improve_apply", "commit_grouping"}, sorted(runtime)
 
     for step_id in PLAN_STEPS:
         step = documents[step_id]

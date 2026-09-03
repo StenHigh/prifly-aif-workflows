@@ -1,0 +1,14 @@
+authoring: prifly-run-decision/1
+id: improve_apply
+title: Apply the proposed plan improvements
+description: >-
+  Decide what aif-improve does with the refinements it just presented. The
+  upstream skill asks this before it edits anything; declared here, the answer
+  is recorded in the Run instead of living only in a chat window.
+phase: runtime
+choices:
+  - {id: all, title: Apply all improvements, value: all}
+  - {id: select, title: Choose which ones to apply, value: select}
+  - {id: none, title: Keep the plan as it is, value: none}
+sensitivity: scope-changing
+destination: {kind: session_context, name: improve_apply}

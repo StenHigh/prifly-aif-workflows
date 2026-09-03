@@ -14,6 +14,20 @@ Pinned sources:
   `aaad2183c302ead1d2ac7ddf216ad1259ef53b72f7b1d9d9214f84dcb235998a`.
 - `aif-commit/SKILL.md` — SHA-256
   `3dbeec8295c3cc592faf67d1669295803d472944c30ee7daeb8d330b0c9c9028`.
+- `aif-improve/SKILL.md` (upstream `2.x`) — SHA-256
+  `6b61bd2986166a93879b0496991bbe1696f15a7cf4894de3b4b2e0ca4976f25c`. Its
+  `references/LIST-MODE.md`, `CHECK-MODE.md`, `EXAMPLES.md` and `VALIDATOR.md`
+  are pinned as their own contexts, because a skill's own reference file is not
+  carried by pinning the skill.
+
+## aif-improve
+
+Step 5 ends with the exact question “Apply these improvements?” and three
+options, and the skill edits nothing before it is answered. That question is
+declared as the `improve_apply` runtime decision, so the answer is recorded in
+the Run rather than living in a chat window that no later step can see. The
+`select` option still needs the upstream free-form follow-up about which
+findings to take.
 
 ## aif-plan
 

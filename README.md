@@ -83,7 +83,12 @@ launches:
   `aif-review`, `aif-commit` для `aif-classic` и `aif-improve` для
   `aif-fanout`. Context YAML закрепляет bytes только из skills root того host,
   который передан compiler-у (`.codex/skills`, `.agents/skills` или
-  `.claude/skills`); host не угадывается по папкам.
+  `.claude/skills`); host не угадывается по папкам. Закрепление навыка не тянет
+  за собой его собственные `references/**`, поэтому `aif-improve/references/`
+  (`LIST-MODE.md`, `CHECK-MODE.md`, `EXAMPLES.md`, `VALIDATOR.md`) закреплены
+  отдельными контекстами и обязаны присутствовать в skills root: иначе
+  компиляция отказывает сразу, а не исполнитель упирается в отсутствующий файл
+  посреди прогона.
 - Runner `prifly-run`, созданный `prifly project init`. Он спрашивает
   `worktree` или `checkout`, package profile `fast|full|ultra`, declared
   preflight decisions и policy, затем вызывает `project start`.
