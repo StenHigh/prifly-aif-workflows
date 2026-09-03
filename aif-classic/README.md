@@ -52,7 +52,9 @@ dialogs: raw `AskUserQuestion` не выдаётся за захваченный
 Verify, security и review — read-only gates. Blocking result завершает путь
 typed artifact `gate` с `suggested_next: /aif-fix`; fix step сам не запускается.
 Команда может исключить `improve`, `verify`, `security` или `review` через
-`extend.yaml`, не редактируя graph.
+`extend.yaml`, не редактируя graph. Тем же файлом команда может и добавить
+собственный шаг: `extensions` вставляет его в объявленное ребро маршрута.
+Форма и её правила — в комментарии рядом с `extensions` в `extend.yaml`.
 
 Каждый skill context использует `source: {root: host_skills, ...}`. Host
 launcher передаёт `--host codex-cli`, `codex-app` или `claude-code`; compiler

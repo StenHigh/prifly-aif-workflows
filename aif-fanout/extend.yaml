@@ -1,4 +1,6 @@
 # This optional workflow has no automatic model selection. Its two branches
 # are independent review perspectives, and every accepted suggestion is chosen
 # explicitly before it is applied.
+# `extensions` adds a step of your own into one exact route of this graph. See
+# the commented example in aif-classic/extend.yaml for the form and its rules.
 extensions: []

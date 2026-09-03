@@ -5,4 +5,19 @@ settings:
   improve-batch: {improve_round_limit: 3}
   improve-series: {improve_batch_limit: 3}
 exclude: []
+# `extensions` adds a step of your own; this file is not only for subtracting.
+# `workflow` and `step` are short component names — the file name without its
+# directory — never the full `id:` written inside those files. The insertion
+# names the route it replaces, so the tail of the graph cannot be silently
+# detached: `from` routes to your step and your step routes on to `to`. An
+# inserted step declares no inputs; a step that needs them belongs in a workflow
+# graph you write yourself. Worked reference: examples/authoring/
+# extension-authoring-reference.yaml in the Pri-Fly repository.
+#
+# extensions:
+#   - id: merge-request
+#     workflow: classic
+#     step: merge-request
+#     between: {from: commit, to: done}
+#     on: {pass: done}
 extensions: []

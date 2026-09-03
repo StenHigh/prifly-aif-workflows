@@ -97,6 +97,18 @@ launches:
 установки; `prifly project workflows update` сохраняет его byte-for-byte.
 В `aif-classic` доступны `profile: fast|full|ultra` (reviewed default),
 `settings` для лимитов improve и `exclude: [improve, verify, security, review]`.
+
+`extend.yaml` не только вычитает: `extensions` добавляет ваш собственный шаг в
+маршрут, не форкая пакет, поэтому `project workflows update` продолжает
+приезжать. Вставка объявляется в ребро графа — `between: {from: X, to: Y}`, —
+и это сильнее, чем «после X»: нельзя молча оторвать хвост графа, потому что вы
+обязаны назвать, что было дальше. `workflow` и `step` — короткие имена
+компонентов, то есть имя файла без каталога, а не полный `id:` из самого файла;
+подстановка `id` — естественная догадка, и она неверна. Вставляемый шаг не
+имеет входов: шагу со входами нужен собственный workflow graph. Полный рабочий
+пример — `examples/authoring/extension-authoring-reference.yaml` в репозитории
+Pri-Fly, а с Pri-Fly новее `v0.7.0` форму отдаёт `prifly schema extension-v1`.
+
 Подробности — в [`aif-classic/README.md`](aif-classic/README.md).
 
 ## Версии
