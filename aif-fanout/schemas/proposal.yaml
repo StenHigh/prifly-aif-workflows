@@ -1,0 +1,20 @@
+id: aif:schema/proposal
+version: 1.0.0
+$schema: https://json-schema.org/draft/2020-12/schema
+type: object
+required: [profile, verdict, suggestions]
+additionalProperties: false
+properties:
+  profile: {type: string, minLength: 1, maxLength: 128}
+  verdict: {enum: [no_changes_needed, changes_suggested]}
+  suggestions:
+    type: array
+    maxItems: 40
+    items:
+      type: object
+      required: [id, description, rationale]
+      additionalProperties: false
+      properties:
+        id: {type: string, minLength: 1, maxLength: 128}
+        description: {type: string, minLength: 1, maxLength: 4000}
+        rationale: {type: string, minLength: 1, maxLength: 4000}

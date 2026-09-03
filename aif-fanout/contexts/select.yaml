@@ -1,0 +1,6 @@
+id: aif:context/fanout-select
+version: 1.0.0
+media_type: text/markdown; charset=utf-8
+text: |
+  Show the independent plan-improvement proposals to the developer.
+  Ask which suggestions to accept, then return only the declared JSON selection.

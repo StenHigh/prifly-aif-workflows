@@ -1,0 +1,54 @@
+authoring: prifly-workflow/1
+id: aif:workflow/improve-batch
+version: 1.0.0
+title: Run one bounded plan-improvement batch
+refs:
+  schema_plan_manifest: "{{workspace_tree_manifest}}"
+  schema_round-limit: "{{schema_round-limit}}"
+  workflow_improve-once: "{{workflow_improve-once}}"
+  step_continue-improve: "{{step_continue-improve}}"
+  local_policy: "{{local_policy}}"
+inputs:
+  plan: schema_plan_manifest
+  improve_round_limit:
+    schema_ref: schema_round-limit
+    required: false
+    configuration: {scope: project, default: 3}
+outputs:
+  plan: {schema_ref: schema_plan_manifest, required_for: [succeeded, partial]}
+limits: {max_step_instances: 16, max_control_transitions: 128, max_parallelism: 1, max_child_depth: 2}
+policy_ref: local_policy
+entry: improve
+stages:
+  improve:
+    kind: repeat
+    body_workflow_ref: workflow_improve-once
+    initial_bindings: {plan: $inputs.plan}
+    next_bindings: {plan: $iteration.plan}
+    continue_on: [partial]
+    until: false
+    max_iterations: 3
+    limit_configuration: improve_round_limit
+    on_complete: {succeeded: passed}
+    on_limit: ask
+  ask:
+    kind: step
+    step_ref: step_continue-improve
+    on: {pass: answer}
+  answer:
+    kind: choice
+    selection: exclusive
+    branches:
+      - id: "yes"
+        predicate: {op: eq, left: $stages.ask.answer#/continue, right: true}
+        next: again
+    default: stopped
+  passed:
+    kind: finish
+    outcome: succeeded
+    output_bindings: {plan: $stages.improve.plan}
+  again:
+    kind: finish
+    outcome: partial
+    output_bindings: {plan: $stages.improve.plan}
+  stopped: {kind: finish, outcome: rejected}

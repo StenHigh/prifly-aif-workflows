@@ -1,0 +1,9 @@
+authoring: prifly-step/1
+id: aif:step/warmup
+version: 1.0.0
+title: Run aif-warmup in the claimed worktree
+kind: worker
+executor: {adapter_ref: "{{assisted_adapter}}", operation: session}
+instructions_ref: "{{context_aif-warmup}}"
+effects: {class: none, retry_class: never}
+result_schema_ref: "{{step_result_schema}}"

@@ -1,0 +1,58 @@
+authoring: prifly-workflow/1
+id: aif:workflow/improve-pass
+version: 1.0.0
+title: Fan out independent plan-review perspectives once
+refs:
+  schema_plan: "{{schema_plan}}"
+  schema_profile: "{{schema_profile}}"
+  workflow_improve-branch: "{{workflow_fanout-branch}}"
+  step_choose: "{{step_fanout-choose}}"
+  step_apply: "{{step_fanout-apply}}"
+  local_policy: "{{local_policy}}"
+inputs: {plan: schema_plan}
+outputs:
+  plan: {schema_ref: schema_plan, required_for: [succeeded]}
+limits: {max_step_instances: 4, max_control_transitions: 32, max_parallelism: 2, max_child_depth: 1}
+policy_ref: local_policy
+entry: refine
+stages:
+  refine:
+    kind: parallel
+    max_parallelism: 2
+    branches:
+      - id: coverage
+        workflow_ref: workflow_improve-branch
+        input_bindings:
+          plan: $inputs.plan
+          profile:
+            from: literal
+            schema_ref: schema_profile
+            value: {name: coverage, instruction: Check whether the plan covers all requested outcomes.}
+      - id: risk
+        workflow_ref: workflow_improve-branch
+        input_bindings:
+          plan: $inputs.plan
+          profile:
+            from: literal
+            schema_ref: schema_profile
+            value: {name: risk, instruction: Find implementation and delivery risks in the plan.}
+    join: {mode: all, accept_outcomes: [succeeded], selection: all, remainder: wait}
+    on: {satisfied: done, unsatisfied: choose}
+  choose:
+    kind: step
+    step_ref: step_choose
+    input_bindings: {proposals: $stages.refine.results}
+    on: {pass: apply}
+  apply:
+    kind: step
+    step_ref: step_apply
+    input_bindings: {plan: $inputs.plan, selection: $stages.choose.selection}
+    on: {pass: changed}
+  done:
+    kind: finish
+    outcome: succeeded
+    output_bindings: {plan: $inputs.plan}
+  changed:
+    kind: finish
+    outcome: succeeded
+    output_bindings: {plan: $stages.apply.plan}

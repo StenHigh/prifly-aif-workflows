@@ -1,0 +1,20 @@
+id: aif:context/aif-commit-bridge
+version: 1.0.0
+media_type: text/markdown; charset=utf-8
+text: |
+  # Pri-Fly adapter for the pinned aif-commit skill
+
+  The following supporting context is the pinned upstream `aif-commit` skill.
+  It may make local commits only in the claimed repository workspace; never
+  push, because remote publication needs a separately admitted Pri-Fly effect.
+
+  When the upstream skill reaches its exact “Commit Plan grouping” question,
+  first use `decision_context.commit_grouping` if it exists. Otherwise request
+  the declared `commit_grouping` runtime decision through the generated
+  `prifly-run` host instructions, then stop without staging, committing, or
+  continuing. On the redelivered same Attempt, apply `follow`, `together`, or
+  `adjust`. `adjust` may still need the upstream free-form clarification.
+
+  Other native upstream dialogs, including a generated commit-message edit or
+  push choice, are not declared by this adapter. Keep them as normal attended
+  interaction and never label their answers as Pri-Fly decisions.

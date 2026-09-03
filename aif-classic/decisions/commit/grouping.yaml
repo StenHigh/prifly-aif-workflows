@@ -1,0 +1,11 @@
+authoring: prifly-run-decision/1
+id: commit_grouping
+title: Commit grouping
+description: Select how an active AI Factory Commit Plan groups staged changes.
+phase: runtime
+choices:
+  - {id: follow, title: Follow Commit Plan, value: follow}
+  - {id: together, title: Commit everything together, value: together}
+  - {id: adjust, title: Adjust grouping, value: adjust}
+sensitivity: scope-changing
+destination: {kind: session_context, name: commit_grouping}

@@ -1,0 +1,19 @@
+id: aif:schema/plan
+version: 1.0.0
+$schema: https://json-schema.org/draft/2020-12/schema
+type: object
+required: [summary, tasks]
+additionalProperties: false
+properties:
+  summary: {type: string, minLength: 1, maxLength: 4000}
+  tasks:
+    type: array
+    minItems: 1
+    maxItems: 40
+    items:
+      type: object
+      required: [id, description]
+      additionalProperties: false
+      properties:
+        id: {type: string, minLength: 1, maxLength: 128}
+        description: {type: string, minLength: 1, maxLength: 4000}

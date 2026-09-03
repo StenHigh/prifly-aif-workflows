@@ -1,0 +1,4 @@
+# This optional workflow has no automatic model selection. Its two branches
+# are independent review perspectives, and every accepted suggestion is chosen
+# explicitly before it is applied.
+extensions: []

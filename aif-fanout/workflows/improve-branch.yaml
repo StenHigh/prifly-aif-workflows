@@ -1,0 +1,32 @@
+authoring: prifly-workflow/1
+id: aif:workflow/fanout-branch
+version: 1.0.0
+title: Produce one independent plan proposal
+refs:
+  schema_plan: "{{schema_plan}}"
+  schema_profile: "{{schema_profile}}"
+  schema_proposal: "{{schema_proposal}}"
+  step_improve: "{{step_fanout-improve}}"
+  local_policy: "{{local_policy}}"
+inputs:
+  plan: schema_plan
+  profile: schema_profile
+outputs:
+  proposal: {schema_ref: schema_proposal, required_for: [succeeded, partial]}
+limits: {max_step_instances: 1, max_control_transitions: 8, max_parallelism: 1, max_child_depth: 1}
+policy_ref: local_policy
+entry: improve
+stages:
+  improve:
+    kind: step
+    step_ref: step_improve
+    input_bindings: {plan: $inputs.plan, profile: $inputs.profile}
+    on: {pass: unchanged, needs_revision: changed}
+  unchanged:
+    kind: finish
+    outcome: succeeded
+    output_bindings: {proposal: $stages.improve.proposal}
+  changed:
+    kind: finish
+    outcome: partial
+    output_bindings: {proposal: $stages.improve.proposal}

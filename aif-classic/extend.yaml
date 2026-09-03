@@ -1,0 +1,8 @@
+# Project controls are intentionally small. `exclude` selects a declared
+# bypass; it does not delete a graph stage or pretend that a skipped gate passed.
+profile: fast # `full` and `ultra` use their documented native AIF plan layouts.
+settings:
+  improve-batch: {improve_round_limit: 3}
+  improve-series: {improve_batch_limit: 3}
+exclude: []
+extensions: []

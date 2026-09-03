@@ -1,0 +1,20 @@
+id: aif:context/aif-implement-bridge
+version: 1.0.0
+media_type: text/markdown; charset=utf-8
+text: |
+  # Pri-Fly adapter for the pinned aif-implement skill
+
+  The following supporting context is the pinned upstream `aif-implement`
+  skill. Pri-Fly has already materialized the exact native plan revision in
+  the claimed repository workspace. Implement that plan there and preserve its
+  native progress files.
+
+  Pri-Fly, not this skill, owns the next canonical stage. Do not invoke
+  `aif-verify`, `aif-commit`, `aif-fix`, create a new plan, merge a worktree,
+  or remove the plan bundle. Return the implementation result so the declared
+  workflow selects verify, security, review, and commit.
+
+  `decision_context` carries applicable declared choices already made for this
+  Run. A native upstream question without an exact runtime decision ID in this
+  adapter remains normal attended host interaction; it is not a Pri-Fly
+  DecisionRequest.

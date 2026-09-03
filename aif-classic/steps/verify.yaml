@@ -1,0 +1,13 @@
+authoring: prifly-step/1
+id: aif:step/verify
+version: 1.0.0
+title: Run read-only aif-verify over the implementation
+kind: worker
+inputs:
+  implementation: {schema_ref: "{{schema_implementation}}"}
+outputs:
+  gate: {schema_ref: "{{schema_gate-result}}", required_for: [pass]}
+executor: {adapter_ref: "{{assisted_adapter}}", operation: session}
+instructions_ref: "{{context_aif-verify}}"
+effects: {class: none, retry_class: never}
+result_schema_ref: "{{step_result_schema}}"

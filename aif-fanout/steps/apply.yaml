@@ -1,0 +1,14 @@
+authoring: prifly-step/1
+id: aif:step/fanout-apply
+version: 1.0.0
+title: Apply only accepted plan improvements
+kind: worker
+inputs:
+  plan: {schema_ref: "{{schema_plan}}"}
+  selection: {schema_ref: "{{schema_selection}}"}
+outputs:
+  plan: {schema_ref: "{{schema_plan}}", required_for: [pass]}
+executor: {adapter_ref: "{{assisted_adapter}}", operation: session}
+instructions_ref: "{{context_aif-improve}}"
+effects: {class: workspace_write, retry_class: never}
+result_schema_ref: "{{step_result_schema}}"
