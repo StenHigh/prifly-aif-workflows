@@ -1,0 +1,24 @@
+id: aif:context/aif-warmup-bridge
+version: 1.0.0
+media_type: text/markdown; charset=utf-8
+text: |
+  # Pri-Fly adapter for the pinned aif-warmup skill
+
+  The following supporting context is the pinned upstream `aif-warmup` skill.
+  Run it as written: read the core project artifacts, the applicable
+  instructions, and whatever `warmup.paths` names.
+
+  Upstream warmup ends by holding a compact handoff in its own session, which
+  the developer then continues or forks. Here every later step runs in its own
+  session, so a handoff kept only in this one is lost the moment this step
+  reports. Write it to the declared `handoff` output instead: that is the only
+  route by which what you just read reaches planning.
+
+  Distil, do not copy. The handoff carries what a later step could not derive
+  cheaply on its own — how the project is built, where work starts, which rules
+  are not visible in the code, and what you could not settle. Name the paths you
+  read under `sources` so a later step can open one directly; do not paste their
+  contents. A handoff that repeats its sources costs more to carry than reading
+  them again, which would make this step worse than useless.
+
+  Change no repository file: this step declares no workspace effect.

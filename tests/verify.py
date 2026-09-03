@@ -91,7 +91,7 @@ def check_classic(binary, authority, repository, root):
 
     output = root / "classic"
     result, documents = compile_package(binary, authority, repository, "aif-classic", output)
-    assert result["package"]["id"] == "aif:package/classic" and len(result["components"]) == 32, result["package"]
+    assert result["package"]["id"] == "aif:package/classic" and len(result["components"]) == 34, result["package"]
     catalog = json.loads((output / "decisions.json").read_text())["decisions"]
     assert len(catalog) == 8 and catalog[0]["destination"]["kind"] == "package_profile", catalog[0]
     assert catalog[5].get("when", {}).get("answers") and catalog[7]["id"] == "commit_grouping" and catalog[7]["phase"] == "runtime", catalog
