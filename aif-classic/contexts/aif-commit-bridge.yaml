@@ -1,5 +1,5 @@
 id: aif:context/aif-commit-bridge
-version: 1.0.0
+version: 1.1.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-commit skill
@@ -18,3 +18,10 @@ text: |
   Other native upstream dialogs, including a generated commit-message edit or
   push choice, are not declared by this adapter. Keep them as normal attended
   interaction and never label their answers as Pri-Fly decisions.
+
+  The fast-mode plan file is working state, not project history. Do not stage
+  or commit `.ai-factory/PLAN.md`, and delete it once the implementation it
+  described is committed. A plan left in the repository makes the next Run's
+  plan step refuse to start: that step is declared as creating the file, so
+  Pri-Fly will not overwrite bytes it cannot attribute to that step
+  (`workspace_tree_output_exists`).
