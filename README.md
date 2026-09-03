@@ -1,7 +1,31 @@
-# Pri-Fly workflows for AI Factory
+<h1 align="center">Pri-Fly workflows for AI Factory</h1>
 
-Два Project workflow folder для [Pri-Fly](https://gitlab.com/stenhigh/prifly),
-которые ведут разработку по практике [AI Factory](https://github.com/StenHigh):
+<p align="center">
+  Два Project workflow folder для <a href="https://gitlab.com/stenhigh/prifly">Pri-Fly</a>,
+  которые ведут разработку по практике AI Factory: канонический путь
+  <code>aif-classic</code> и веер ракурсов <code>aif-fanout</code>.
+</p>
+
+<p align="center">
+  <a href="https://github.com/StenHigh/prifly-aif-workflows/actions/workflows/verify.yml"><img src="https://github.com/StenHigh/prifly-aif-workflows/actions/workflows/verify.yml/badge.svg" alt="verify"></a>
+  <a href="https://github.com/StenHigh/prifly-aif-workflows/tags"><img src="https://img.shields.io/github/v/tag/StenHigh/prifly-aif-workflows?label=release&amp;color=1f6feb" alt="latest tag"></a>
+  <img src="https://img.shields.io/badge/pri--fly-%E2%89%A5%200.5.0-00ADD8" alt="Pri-Fly ≥ 0.5.0">
+  <img src="https://img.shields.io/badge/hosts-codex--cli%20%C2%B7%20codex--app%20%C2%B7%20claude--code-4b5563" alt="hosts">
+</p>
+
+<p align="center">
+  <a href="#установка-в-проект">Установка</a> ·
+  <a href="#что-нужно-целевому-проекту">Требования</a> ·
+  <a href="#настройка-командой">Настройка</a> ·
+  <a href="#версии">Версии</a> ·
+  <a href="#проверки">Проверки</a> ·
+  <a href="https://github.com/StenHigh/prifly-workflows">Каталог сценариев</a> ·
+  <a href="https://gitlab.com/stenhigh/prifly">Pri-Fly</a>
+</p>
+
+<p align="center">
+  <img src="assets/readme/hero.jpg" alt="Шаги AI Factory от aif-plan до aif-commit грузятся на борт: каждый шаг — sealed package Pri-Fly" width="100%">
+</p>
 
 | Папка | Назначение |
 |---|---|
