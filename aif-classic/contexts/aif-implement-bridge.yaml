@@ -1,5 +1,5 @@
 id: aif:context/aif-implement-bridge
-version: 1.1.0
+version: 1.2.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-implement skill
@@ -20,6 +20,28 @@ text: |
   own discovery and treat it as already established. Open a path it lists only
   when this step actually needs that file; the handoff exists so the reading
   warmup already did is not repeated in every later session.
+
+  `decision_sheet.decision_policy` says whether a person is at the keyboard for
+  this Run. When it is `autonomous`, pass the caller values this skill reads —
+  it accepts them as text here rather than from the environment:
+
+      HANDOFF_MODE=1
+      HANDOFF_TASK_ID=
+      HANDOFF_SKIP_REVIEW=0
+
+  It is the truthful value: Pri-Fly records status itself, so the skill must not
+  call the Handoff MCP tools, which this session does not have, and must not ask
+  a question nobody is there to answer. The empty task id keeps its plan
+  annotation off, because there is no Handoff task.
+
+  That mode carries its own defaults for the questions it stops asking. Those
+  defaults never override a declared answer: `decision_context` wins wherever
+  both speak. The mode decides only what happens where this adapter declared
+  nothing.
+
+  When the policy is `attended`, do not set the mode. An undeclared question
+  then stays normal host interaction; never pretend it was a Pri-Fly
+  DecisionRequest.
 
   `decision_context` carries applicable declared choices already made for this
   Run. A native upstream question without an exact runtime decision ID in this
