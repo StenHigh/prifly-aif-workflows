@@ -108,6 +108,11 @@ def check_classic(binary, authority, repository, root):
         assert "handoff" in documents[step_id]["inputs"], step_id
     runtime = {entry["id"]: entry for entry in catalog if entry["phase"] == "runtime"}
     assert set(runtime) == {"improve_apply"}, sorted(runtime)
+    # An unattended Run answers this itself, and the engine only does that for an
+    # automatic ordinary decision carrying a recommendation. Without all three it
+    # stalls at the question until the handoff expires.
+    improve = runtime["improve_apply"]
+    assert improve["automatic"] and improve["sensitivity"] == "ordinary" and improve["recommendation"] == "all", improve
 
     for step_id in PLAN_STEPS:
         step = documents[step_id]

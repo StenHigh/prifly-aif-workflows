@@ -1,5 +1,5 @@
 id: aif:context/aif-warmup-bridge
-version: 1.0.0
+version: 1.1.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-warmup skill
@@ -20,5 +20,15 @@ text: |
   read under `sources` so a later step can open one directly; do not paste their
   contents. A handoff that repeats its sources costs more to carry than reading
   them again, which would make this step worse than useless.
+
+  Write the handoff as a JSON object matching its declared schema. The port is
+  a JSON port, so bytes that are not that object are refused at intake and the
+  step is reported back to you, not silently accepted.
+
+  Include the project's own skill overlays among the entry points. A repository
+  may carry instructions that override or extend a skill — the AI Factory
+  layout keeps them under `.ai-factory/skill-context/<skill>/` — and a skill
+  can mark its overlay mandatory. A later step that never learns such a file
+  exists produces work that is missing a section its own instructions required.
 
   Change no repository file: this step declares no workspace effect.

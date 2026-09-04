@@ -1,5 +1,5 @@
 id: aif:context/aif-improve-bridge
-version: 1.1.0
+version: 1.2.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-improve skill
@@ -15,7 +15,9 @@ text: |
   ends, and nobody would see the question.
 
   So at that exact point, first use `decision_context.improve_apply` when it
-  exists. Otherwise request the declared `improve_apply` runtime decision
+  exists. On an unattended Run it will: the decision carries `all` as its
+  recommendation and Pri-Fly answers with it, so the question never reaches a
+  room with nobody in it. Otherwise request the declared `improve_apply` runtime decision
   through the generated `prifly-run` host instructions, then stop without
   editing the plan, without applying a single improvement, and without
   reporting. On the redelivered same Attempt, apply the answer: `all` performs

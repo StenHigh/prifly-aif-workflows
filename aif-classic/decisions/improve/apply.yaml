@@ -4,11 +4,21 @@ title: Apply the proposed plan improvements
 description: >-
   Decide what aif-improve does with the refinements it just presented. The
   upstream skill asks this before it edits anything; declared here, the answer
-  is recorded in the Run instead of living only in a chat window.
+  is recorded in the Run instead of living only in a chat window. An
+  unattended Run answers it with the recommendation, because a question raised
+  where nobody is listening stops the Run until its handoff expires: a first
+  night stalled here with nine verified defects left in a report and the plan
+  untouched. The refinements this step proposes are about the task already
+  planned, and the skill keeps what it judges out of scope in a separate group
+  it does not apply, so taking them does not widen the work the developer
+  asked for.
 phase: runtime
+required: false
+automatic: true
 choices:
   - {id: all, title: Apply all improvements, value: all}
   - {id: select, title: Choose which ones to apply, value: select}
   - {id: none, title: Keep the plan as it is, value: none}
-sensitivity: scope-changing
+recommendation: all
+sensitivity: ordinary
 destination: {kind: session_context, name: improve_apply}

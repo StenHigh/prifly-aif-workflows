@@ -29,6 +29,14 @@ the Run rather than living in a chat window that no later step can see. The
 `select` option still needs the upstream free-form follow-up about which
 findings to take.
 
+It carries `all` as an automatic recommendation of ordinary sensitivity, which
+is what lets an unattended Run answer it. That label was `scope-changing` until
+1.8.0, and the first night proved the cost: the engine answers automatically
+only for an ordinary automatic decision, so the Run stalled at the question with
+nine verified defects left unapplied. Ordinary is also the truthful label —
+these refinements are about the task already planned, and the skill keeps what
+it judges out of scope in a group it does not apply.
+
 ## aif-plan
 
 Preflight YAML records plan depth, tests, Full/Ultra logging, Full/Ultra

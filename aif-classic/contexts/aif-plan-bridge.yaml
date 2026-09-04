@@ -1,5 +1,5 @@
 id: aif:context/aif-plan-bridge
-version: 1.1.0
+version: 1.2.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-plan skill
@@ -10,10 +10,19 @@ text: |
 
   `decision_sheet.package_profile` is the selected leading AIF mode: invoke
   the skill as `aif-plan fast`, `aif-plan full`, or `aif-plan ultra` for that
-  exact value. `decision_context` contains any applicable preflight values:
-  `plan_tests`, `plan_logging`, `plan_docs`, `roadmap_linkage`,
-  `roadmap_milestone`, and `plan_constraints`. They are choices already made
-  for this Run. Use them and do not repeat the corresponding native questions.
+  exact value.
+
+  Every value in `decision_context` is a choice already made for this Run. Use
+  them and do not repeat the corresponding native question. Read the whole map
+  rather than a list of names: a value this adapter forgot to name is still the
+  developer's answer, and dropping it loses the answer silently.
+
+  The `handoff` input is what the warmup step distilled about this project:
+  how it is built, where work starts, which rules are not visible in the code,
+  what it could not settle, and the paths it read. Read it before the skill's
+  own discovery and treat it as already established. Open a path it lists only
+  when this step actually needs that file; the handoff exists so the reading
+  warmup already did is not repeated in every later session.
 
   `decision_sheet.decision_policy` says whether a person is at the keyboard for
   this Run. When it is `autonomous`, pass the caller values this skill reads —

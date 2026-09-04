@@ -6,6 +6,10 @@ description: >-
   review findings that do not block. Without a person at the keyboard the choice is
   not between a human deciding and a machine deciding: it is between a rule
   declared in advance and work that stands still until morning.
+
+  `fix` is safe only where a gate's warnings are limited to the change being
+  made. A gate that reports a standing project-wide warning would send an
+  unattended Run to work far outside the task it was given.
 phase: preflight
 required: true
 choices:
