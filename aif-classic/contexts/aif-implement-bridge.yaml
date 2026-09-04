@@ -1,5 +1,5 @@
 id: aif:context/aif-implement-bridge
-version: 1.0.0
+version: 1.1.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-implement skill
@@ -13,6 +13,13 @@ text: |
   `aif-verify`, `aif-commit`, `aif-fix`, create a new plan, merge a worktree,
   or remove the plan bundle. Return the implementation result so the declared
   workflow selects verify, security, review, and commit.
+
+  The `handoff` input is what the warmup step distilled about this project:
+  how it is built, where work starts, which rules are not visible in the code,
+  what it could not settle, and the paths it read. Read it before the skill's
+  own discovery and treat it as already established. Open a path it lists only
+  when this step actually needs that file; the handoff exists so the reading
+  warmup already did is not repeated in every later session.
 
   `decision_context` carries applicable declared choices already made for this
   Run. A native upstream question without an exact runtime decision ID in this

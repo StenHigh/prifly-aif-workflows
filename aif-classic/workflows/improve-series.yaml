@@ -1,14 +1,16 @@
 authoring: prifly-workflow/1
 id: aif:workflow/improve-series
-version: 1.0.0
+version: 1.1.0
 title: Continue only developer-approved improvement batches
 refs:
   schema_plan_manifest: "{{workspace_tree_manifest}}"
+  schema_warmup-handoff: "{{schema_warmup-handoff}}"
   schema_round-limit: "{{schema_round-limit}}"
   workflow_improve-batch: "{{workflow_improve-batch}}"
   local_policy: "{{local_policy}}"
 inputs:
   plan: schema_plan_manifest
+  handoff: schema_warmup-handoff
   improve_batch_limit:
     schema_ref: schema_round-limit
     required: false
@@ -22,8 +24,8 @@ stages:
   improve:
     kind: repeat
     body_workflow_ref: workflow_improve-batch
-    initial_bindings: {plan: $inputs.plan}
-    next_bindings: {plan: $iteration.plan}
+    initial_bindings: {plan: $inputs.plan, handoff: $inputs.handoff}
+    next_bindings: {plan: $iteration.plan, handoff: $inputs.handoff}
     continue_on: [partial]
     until: false
     max_iterations: 3

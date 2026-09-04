@@ -102,6 +102,10 @@ def check_classic(binary, authority, repository, root):
     catalog = json.loads((output / "decisions.json").read_text())["decisions"]
     assert len(catalog) == 8 and catalog[0]["destination"]["kind"] == "package_profile", catalog[0]
     assert catalog[5].get("when", {}).get("answers"), catalog
+    # What warmup distilled has to reach the steps that plan and build, or the
+    # step that produced it is a session spent on nothing.
+    for step_id in ("aif:step/plan", "aif:step/improve", "aif:step/implement"):
+        assert "handoff" in documents[step_id]["inputs"], step_id
     runtime = {entry["id"]: entry for entry in catalog if entry["phase"] == "runtime"}
     assert set(runtime) == {"improve_apply"}, sorted(runtime)
 

@@ -1,5 +1,5 @@
 id: aif:context/aif-improve-bridge
-version: 1.0.0
+version: 1.1.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-improve skill
@@ -22,6 +22,13 @@ text: |
   Step 6 for every finding, `none` leaves the plan untouched and reports
   `pass` with the plan unchanged, and `select` still needs the upstream
   free-form follow-up about which findings to take.
+
+  The `handoff` input is what the warmup step distilled about this project:
+  how it is built, where work starts, which rules are not visible in the code,
+  what it could not settle, and the paths it read. Read it before the skill's
+  own discovery and treat it as already established. Open a path it lists only
+  when this step actually needs that file; the handoff exists so the reading
+  warmup already did is not repeated in every later session.
 
   Other native upstream dialogs are not declared by this adapter. Keep them as
   normal attended interaction and never label their answers as Pri-Fly

@@ -1,10 +1,11 @@
 authoring: prifly-step/1
 id: aif:step/implement
-version: 1.0.0
+version: 1.1.0
 title: Run aif-implement against the accepted plan
 kind: worker
 inputs:
   plan: {schema_ref: "{{workspace_tree_manifest}}"}
+  handoff: {schema_ref: "{{schema_warmup-handoff}}"}
 outputs:
   implementation: {schema_ref: "{{schema_implementation}}", required_for: [pass]}
   plan: {schema_ref: "{{workspace_tree_manifest}}", required_for: [pass]}

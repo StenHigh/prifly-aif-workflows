@@ -1,7 +1,7 @@
 authoring: prifly-project-workflow/1
 package:
   id: aif:package/classic
-  version: 1.4.0
+  version: 1.5.0
   description: Canonical AI Factory development workflow with bounded plan improvement.
   requires_core_protocol: "1"
   profiles:
@@ -19,10 +19,11 @@ package:
     step_result_schema: core:schema/step-result@1.0.0
     workspace_tree_manifest: core:schema/workspace-tree-manifest@1.0.0
 id: aif:workflow/classic
-version: 1.4.0
+version: 1.5.0
 title: AI Factory classic development workflow
 refs:
   schema_task: "{{schema_task}}"
+  schema_warmup-handoff: "{{schema_warmup-handoff}}"
   schema_plan_manifest: "{{workspace_tree_manifest}}"
   schema_implementation: "{{schema_implementation}}"
   schema_gate-result: "{{schema_gate-result}}"
@@ -83,12 +84,12 @@ stages:
   improve:
     kind: call
     workflow_ref: workflow_improve-or-pass
-    input_bindings: {plan: $stages.plan.plan}
+    input_bindings: {plan: $stages.plan.plan, handoff: $stages.warmup.handoff}
     on: {succeeded: implement, rejected: abandoned}
   implement:
     kind: step
     step_ref: step_implement
-    input_bindings: {plan: $stages.improve.plan}
+    input_bindings: {plan: $stages.improve.plan, handoff: $stages.warmup.handoff}
     on: {pass: choose-verify}
   choose-verify:
     kind: choice
