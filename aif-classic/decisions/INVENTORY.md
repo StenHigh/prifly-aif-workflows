@@ -29,13 +29,14 @@ the Run rather than living in a chat window that no later step can see. The
 `select` option still needs the upstream free-form follow-up about which
 findings to take.
 
-It carries `all` as an automatic recommendation of ordinary sensitivity, which
-is what lets an unattended Run answer it. That label was `scope-changing` until
-1.8.0, and the first night proved the cost: the engine answers automatically
-only for an ordinary automatic decision, so the Run stalled at the question with
-nine verified defects left unapplied. Ordinary is also the truthful label —
-these refinements are about the task already planned, and the skill keeps what
-it judges out of scope in a group it does not apply.
+It stays `scope-changing` and not automatic: taking a refinement changes what
+the Run was planned to build. 1.8.0 relabelled it ordinary and automatic so an
+unattended Run could answer it — the first night had stalled there with nine
+verified defects left unapplied — and 1.10.0 put the label back. Pri-Fly 0.9.0
+made the trade unnecessary: the owner seals an answer before the Run starts
+with `project start --runtime-answer improve_apply=<choice>`, and the bridge
+applies it when the step asks. The night is covered by the owner's own answer
+instead of by calling a scope-changing question ordinary for every Run.
 
 ## aif-plan
 

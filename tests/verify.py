@@ -108,11 +108,12 @@ def check_classic(binary, authority, repository, root):
         assert "handoff" in documents[step_id]["inputs"], step_id
     runtime = {entry["id"]: entry for entry in catalog if entry["phase"] == "runtime"}
     assert set(runtime) == {"improve_apply"}, sorted(runtime)
-    # An unattended Run answers this itself, and the engine only does that for an
-    # automatic ordinary decision carrying a recommendation. Without all three it
-    # stalls at the question until the handoff expires.
+    # Taking a refinement changes what the Run was planned to build, so no policy
+    # answers this one: an unattended Run is covered by the owner sealing an
+    # answer at start. Relabelling it ordinary and automatic would buy the night
+    # by dropping the same guard on every attended Run.
     improve = runtime["improve_apply"]
-    assert improve["automatic"] and improve["sensitivity"] == "ordinary" and improve["recommendation"] == "all", improve
+    assert not improve["automatic"] and improve["sensitivity"] == "scope-changing" and "recommendation" not in improve, improve
 
     for step_id in PLAN_STEPS:
         step = documents[step_id]
