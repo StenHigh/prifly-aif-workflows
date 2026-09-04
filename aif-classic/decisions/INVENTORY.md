@@ -46,16 +46,22 @@ does not currently emit a DecisionRequest for them.
 
 ## aif-commit
 
-`commit_grouping` is the one current dynamic bridge mapping. When the pinned
-skill asks how an active Commit Plan should group staged changes, the package
-adapter emits `DecisionRequest/1` for the declared `follow`, `together` or
-`adjust` value. Pri-Fly records the answer, waits, and redelivers the same
-Attempt with `decision_context.commit_grouping`.
+This route declares no commit-time decision. `commit_grouping` was declared
+until 1.4.0 and never fired once: the implementation skill commits at its own
+checkpoints, so the commit step always receives a clean workspace and the
+upstream skill stops before its grouping question. A declared choice the
+developer is never shown is worse than an honest absence, so it was removed
+rather than left as evidence of a mechanism nobody exercised.
 
-Native dialogs can still concern free-form adjusted groups, confirming or
-editing a generated commit message, splitting unrelated staged changes and
-pushing a completed commit. Push is an external effect and remains subject to
-its own Pri-Fly authorization; a preference is not an Approval or Grant.
+The step still exists for the case where work is left uncommitted, and its
+adapter now says to skip the skill entirely when nothing is staged instead of
+spending a session on a "nothing staged" warning.
+
+Native dialogs can concern grouping an active Commit Plan, free-form adjusted
+groups, confirming or editing a generated commit message, splitting unrelated
+staged changes and pushing a completed commit. Push is an external effect and
+remains subject to its own Pri-Fly authorization; a preference is not an
+Approval or Grant.
 
 An upstream native `AskUserQuestion` is not a Pri-Fly decision. It remains a
 normal attended host interaction until the executor emits `DecisionRequest/1`.

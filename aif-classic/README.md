@@ -39,12 +39,12 @@ leading mode вызову `aif-plan` и все preflight context values как �
 отклоняет до создания sealed package.
 
 [`decisions/`](decisions/) содержит pinned inventory вопросов upstream
-`aif-plan`, `aif-implement` и `aif-commit`. YAML описывает известную
-preflight-часть, включая ветку `roadmap_linkage → roadmap_milestone`, а также
-один runtime выбор `commit_grouping`. Primary context каждого изменяемого AIF
-шага — package adapter; исходный upstream skill закреплён отдельным supporting
-context. Adapter передаёт выбранный profile и preflight values без повтора
-диалога, а `commit_grouping` отправляет через universal Decision Bridge и
+`aif-plan`, `aif-improve`, `aif-implement` и `aif-commit`. YAML описывает
+известную preflight-часть, включая ветку `roadmap_linkage → roadmap_milestone`,
+а также один runtime выбор `improve_apply`. Primary context каждого изменяемого
+AIF шага — package adapter; исходный upstream skill закреплён отдельным
+supporting context. Adapter передаёт выбранный profile и preflight values без
+повтора диалога, а `improve_apply` отправляет через universal Decision Bridge и
 ждёт тот же Attempt. Markdown явно перечисляет остальные поздние native
 dialogs: raw `AskUserQuestion` не выдаётся за захваченный Pri-Fly decision,
 поэтому этот package пока не обещает полностью autonomous выполнение.

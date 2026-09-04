@@ -100,10 +100,10 @@ def check_classic(binary, authority, repository, root):
     result, documents = compile_package(binary, authority, repository, "aif-classic", output)
     assert result["package"]["id"] == "aif:package/classic" and len(result["components"]) == 39, result["package"]
     catalog = json.loads((output / "decisions.json").read_text())["decisions"]
-    assert len(catalog) == 9 and catalog[0]["destination"]["kind"] == "package_profile", catalog[0]
+    assert len(catalog) == 8 and catalog[0]["destination"]["kind"] == "package_profile", catalog[0]
     assert catalog[5].get("when", {}).get("answers"), catalog
     runtime = {entry["id"]: entry for entry in catalog if entry["phase"] == "runtime"}
-    assert set(runtime) == {"improve_apply", "commit_grouping"}, sorted(runtime)
+    assert set(runtime) == {"improve_apply"}, sorted(runtime)
 
     for step_id in PLAN_STEPS:
         step = documents[step_id]
