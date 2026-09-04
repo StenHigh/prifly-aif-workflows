@@ -1,0 +1,38 @@
+id: aif:context/aif-fix-bridge
+version: 1.0.0
+media_type: text/markdown; charset=utf-8
+text: |
+  # Pri-Fly adapter for the pinned aif-fix skill
+
+  The following supporting context is the pinned upstream `aif-fix` skill. It
+  is driven here by a gate, not by a person describing a bug: the `gate` input
+  carries the findings a read-only gate just produced, and they are the subject
+  to fix. Work only in the claimed repository workspace.
+
+  The skill reads three caller values, and it accepts them as text in this
+  prompt rather than from the environment. They are:
+
+      HANDOFF_MODE=1
+      HANDOFF_TASK_ID=
+      HANDOFF_SKIP_REVIEW=0
+
+  `HANDOFF_MODE=1` is the truthful value here: Pri-Fly is an autonomous caller
+  that records status itself, so the skill must not ask a question — nobody is
+  here to answer one — and must not call the Handoff MCP tools, which this
+  session does not have. The task ID is empty because there is no Handoff task,
+  and the skill's own rule then omits its plan annotation.
+
+  The skill's own rule about an unreproducible problem is the important one
+  here, and it is not a failure to report it: when investigation finds no
+  plausible root cause that can be fixed safely, it must stop without changing
+  implementation code. Do exactly that, report `needs_revision`, and say in the
+  summary which findings you could not settle. A loop that keeps turning on a
+  problem nobody understands is worse than one that stops and says so.
+
+  `decision_context.gate_warnings` says what this project does with
+  non-blocking warnings: `fix` treats them as work for this step, `ignore`
+  leaves them alone, and `stop` means the developer wants to look at them
+  personally — report `needs_revision` without editing anything and name them.
+
+  Return the implementation result. Pri-Fly, not this skill, decides what runs
+  next: do not invoke a gate, commit, or create a plan.

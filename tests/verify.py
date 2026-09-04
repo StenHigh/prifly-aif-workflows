@@ -14,7 +14,7 @@ import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
 HOSTS = {"codex-cli": ".codex/skills", "codex-app": ".agents/skills", "claude-code": ".claude/skills"}
-CLASSIC_SKILLS = ("aif-warmup", "aif-plan", "aif-improve", "aif-implement", "aif-verify", "aif-security", "aif-review", "aif-commit")
+CLASSIC_SKILLS = ("aif-warmup", "aif-plan", "aif-improve", "aif-implement", "aif-verify", "aif-security", "aif-review", "aif-commit", "aif-fix",)
 IMPROVE_REFERENCES = ("LIST-MODE.md", "CHECK-MODE.md", "EXAMPLES.md", "VALIDATOR.md")
 PROFILE_CAPTURES = {
     "fast": {"kind": "exact_file", "path": ".ai-factory/PLAN.md"},
@@ -89,7 +89,7 @@ def check_classic(binary, authority, repository, root):
     listed = run(binary, "--project", authority, "project", "workflows", "--repository", repository)
     assert [launch["id"] for launch in listed["launches"]] == ["aif-classic", "aif-fanout"], listed
     questionnaire = run(binary, "--project", authority, "project", "questionnaire", "--repository", repository, "--package", "aif-classic")
-    assert len(questionnaire["profiles"]) == 3 and len(questionnaire["preflight"]) == 7, questionnaire
+    assert len(questionnaire["profiles"]) == 3 and len(questionnaire["preflight"]) == 8, questionnaire
     assert questionnaire["preflight"][5].get("when", {}).get("answers"), questionnaire["preflight"][5]
 
     extend_path = repository / ".prifly" / "workflows" / "aif-classic" / "extend.yaml"
@@ -98,9 +98,9 @@ def check_classic(binary, authority, repository, root):
 
     output = root / "classic"
     result, documents = compile_package(binary, authority, repository, "aif-classic", output)
-    assert result["package"]["id"] == "aif:package/classic" and len(result["components"]) == 39, result["package"]
+    assert result["package"]["id"] == "aif:package/classic" and len(result["components"]) == 48, result["package"]
     catalog = json.loads((output / "decisions.json").read_text())["decisions"]
-    assert len(catalog) == 8 and catalog[0]["destination"]["kind"] == "package_profile", catalog[0]
+    assert len(catalog) == 9 and catalog[0]["destination"]["kind"] == "package_profile", catalog[0]
     assert catalog[5].get("when", {}).get("answers"), catalog
     # What warmup distilled has to reach the steps that plan and build, or the
     # step that produced it is a session spent on nothing.
@@ -131,9 +131,17 @@ def check_classic(binary, authority, repository, root):
     root_stages = stages("aif:workflow/classic")
     assert root_stages["warmup"]["on"]["pass"] == "plan"
     assert root_stages["improve"]["workflow_ref"]["id"] == "aif:workflow/improve-or-pass"
-    for stage, step_id in (("verify", "aif:step/verify"), ("security", "aif:step/security"), ("review", "aif:step/review"), ("commit", "aif:step/commit")):
+    for stage, step_id in (("security", "aif:step/security"), ("commit", "aif:step/commit")):
         assert root_stages[stage]["step_ref"]["id"] == step_id, stage
-    for decision, terminal in (("verify-decision", "fix-after-verify"), ("security-decision", "fix-after-security"), ("review-decision", "fix-after-review")):
+    # Review is a bounded loop, not a single step: it reviews, fixes what blocks
+    # and reviews again, and an exhausted limit is still reported honestly.
+    assert root_stages["review"]["workflow_ref"]["id"] == "aif:workflow/review-batch"
+    assert root_stages["review"]["on"] == {"succeeded": "commit", "partial": "fix-after-review"}
+    assert root_stages["verify"]["workflow_ref"]["id"] == "aif:workflow/verify-batch"
+    assert root_stages["verify"]["on"] == {"succeeded": "choose-security", "partial": "fix-after-verify"}
+    for terminal in ("fix-after-review", "fix-after-verify"):
+        assert root_stages[terminal]["outcome"] == "partial", terminal
+    for decision, terminal in (("security-decision", "fix-after-security"),):
         assert root_stages[decision]["branches"][0]["next"] == terminal and root_stages[terminal]["outcome"] == "partial", decision
     for workflow_id, input_name in (
         ("aif:workflow/improve-or-pass", "improve_enabled"),
@@ -149,7 +157,14 @@ def check_classic(binary, authority, repository, root):
             assert '"kind":"parallel"' not in json.dumps(workflow, separators=(",", ":")), workflow_id
     for step_id in ("aif:step/verify", "aif:step/security", "aif:step/review"):
         assert documents[step_id]["effects"]["class"] == "none", step_id
-    assert "aif:step/fix" not in documents, "classic package must propose /aif-fix, not invoke it"
+    # The package now runs /aif-fix, but only inside the bounded review loop and
+    # never as a gate's own doing: a gate that could fix what it found would be
+    # marking its own work.
+    assert documents["aif:step/fix"]["effects"]["class"] == "workspace_write"
+    for gate in ("verify", "review"):
+        assert set(stages(f"aif:workflow/{gate}-once")) >= {gate, "fix", "clean", "fixed", "unresolved"}, gate
+        assert stages(f"aif:workflow/{gate}-batch")["round"]["continue_on"] == ["partial"], gate
+        assert stages(f"aif:workflow/{gate}-batch")["exhausted"]["outcome"] == "partial", "an exhausted limit stays honest"
 
     for profile, expected in PROFILE_CAPTURES.items():
         _, profiled = compile_package(binary, authority, repository, "aif-classic", root / f"classic-{profile}", profile=profile)

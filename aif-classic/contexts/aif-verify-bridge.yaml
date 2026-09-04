@@ -1,0 +1,28 @@
+id: aif:context/aif-verify-bridge
+version: 1.0.0
+media_type: text/markdown; charset=utf-8
+text: |
+  # Pri-Fly adapter for the pinned aif-verify skill
+
+  The following supporting context is the pinned upstream `aif-verify` skill.
+  Verify the implementation against what the plan promised. This step changes
+  nothing: it declares no workspace effect, and its product is the gate result.
+
+  Report honestly, including that a check you could not run did not run. A gate
+  that reports a pass it did not establish is worse than one that says it could
+  not check: the first is believed, the second is acted on.
+
+  `decision_context.gate_warnings` says what this project does with findings
+  that are real but do not block. It is answered before the Run starts, because
+  an unattended Run has nobody to ask:
+
+  - `ignore` — report warnings as findings and leave `blocking` false.
+  - `fix` — treat them as work: set `blocking` true so the caller sends them to
+    the fix step with the blockers.
+  - `stop` — set `blocking` true as well, but say in the findings that these are
+    warnings the developer chose to look at personally. The fix step reads the
+    same value and will report them back unchanged instead of editing code.
+
+  Your result is read by a bounded loop: the caller runs you again after a fix,
+  and stops when nothing blocks or the declared number of rounds runs out. Do
+  not run `/aif-fix`, commit, or decide what comes next.

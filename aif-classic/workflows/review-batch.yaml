@@ -1,0 +1,50 @@
+authoring: prifly-workflow/1
+id: aif:workflow/review-batch
+version: 1.0.0
+title: Review and fix until nothing blocks or the declared limit is reached
+refs:
+  schema_implementation: "{{schema_implementation}}"
+  schema_gate-result: "{{schema_gate-result}}"
+  schema_warmup-handoff: "{{schema_warmup-handoff}}"
+  schema_round-limit: "{{schema_round-limit}}"
+  workflow_review-once: "{{workflow_review-once}}"
+  local_policy: "{{local_policy}}"
+inputs:
+  implementation: schema_implementation
+  handoff: schema_warmup-handoff
+  review_round_limit:
+    schema_ref: schema_round-limit
+    required: false
+    configuration: {scope: project, default: 3}
+outputs:
+  implementation: {schema_ref: schema_implementation, required_for: [succeeded]}
+  gate: {schema_ref: schema_gate-result, required_for: [partial]}
+limits: {max_step_instances: 16, max_control_transitions: 128, max_parallelism: 1, max_child_depth: 2}
+policy_ref: local_policy
+entry: round
+stages:
+  round:
+    kind: repeat
+    body_workflow_ref: workflow_review-once
+    initial_bindings: {implementation: $inputs.implementation, handoff: $inputs.handoff}
+    next_bindings: {implementation: $iteration.implementation, handoff: $inputs.handoff}
+    continue_on: [partial]
+    until: false
+    max_iterations: 3
+    limit_configuration: review_round_limit
+    on_complete: {succeeded: passed, rejected: standing}
+    on_limit: exhausted
+  passed:
+    kind: finish
+    outcome: succeeded
+    output_bindings: {implementation: $stages.round.implementation}
+  exhausted:
+    kind: finish
+    outcome: partial
+    output_bindings: {gate: $stages.round.gate}
+    description: The declared number of review rounds ran out with blockers still open.
+  standing:
+    kind: finish
+    outcome: partial
+    output_bindings: {gate: $stages.round.gate}
+    description: A round found no safe fix, so the findings are reported unchanged.
