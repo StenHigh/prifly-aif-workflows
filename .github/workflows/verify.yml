@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Install Pri-Fly from the latest stable release
         run: |
           install_file="$(mktemp)"
@@ -20,6 +22,8 @@ jobs:
           sh "$install_file"
           rm -f "$install_file"
           "$HOME/.local/bin/prifly" version
+      - name: Released versions moved with the bytes
+        run: python3 -B tests/test_versions.py
       - name: Static folder contract
         run: python3 -B tests/test_folders.py
       - name: Compile both packages with the installed Pri-Fly
