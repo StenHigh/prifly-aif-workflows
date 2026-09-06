@@ -1,6 +1,7 @@
 authoring: prifly-workflow/1
+schema_version: "4"
 id: aif:workflow/fanout-branch
-version: 1.0.0
+version: 1.1.0
 title: Produce one independent plan proposal
 refs:
   schema_plan: "{{schema_plan}}"
@@ -21,7 +22,7 @@ stages:
     kind: step
     step_ref: step_improve
     input_bindings: {plan: $inputs.plan, profile: $inputs.profile}
-    on: {pass: unchanged, needs_revision: changed}
+    on: {pass: unchanged, needs_revision: changed, fail: stopped, no_work: stopped}
   unchanged:
     kind: finish
     outcome: succeeded
@@ -30,3 +31,4 @@ stages:
     kind: finish
     outcome: partial
     output_bindings: {proposal: $stages.improve.proposal}
+  stopped: {kind: finish, outcome: no_work}

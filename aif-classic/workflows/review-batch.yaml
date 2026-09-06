@@ -1,6 +1,7 @@
 authoring: prifly-workflow/1
+schema_version: "4"
 id: aif:workflow/review-batch
-version: 1.0.0
+version: 1.1.0
 title: Review and fix until nothing blocks or the declared limit is reached
 refs:
   schema_implementation: "{{schema_implementation}}"
@@ -32,7 +33,7 @@ stages:
     until: false
     max_iterations: 3
     limit_configuration: review_round_limit
-    on_complete: {succeeded: passed, rejected: standing}
+    on_complete: {succeeded: passed, rejected: standing, no_work: unstarted}
     on_limit: exhausted
   passed:
     kind: finish
@@ -48,3 +49,7 @@ stages:
     outcome: partial
     output_bindings: {gate: $stages.round.gate}
     description: A round found no safe fix, so the findings are reported unchanged.
+  unstarted:
+    kind: finish
+    outcome: no_work
+    description: A round could not run its step, so there is no gate result to report.

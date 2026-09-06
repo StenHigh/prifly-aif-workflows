@@ -23,6 +23,8 @@ PROFILE_CAPTURES = {
 }
 PLAN_STEPS = ("aif:step/plan", "aif:step/improve", "aif:step/implement")
 THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1000
+# WorkflowRevision v4 closes the verdict set; a stage answers for all of it.
+STEP_VERDICTS = ("pass", "fail", "needs_revision", "no_work")
 CLASSIC_DECISIONS = {
     "plan_profile": "preflight",
     "plan_tests": "preflight",
@@ -163,11 +165,16 @@ def check_classic(binary, authority, repository, root):
     # A verdict with no declared handler ends the whole Run. The gates are the
     # steps most likely to report one that is not `pass`, so every stage that
     # runs a gate routes `needs_revision` somewhere instead of dying on it.
+    # Falling back to an earlier revision would silently drop the completeness
+    # the compiler now enforces, so the revision itself is pinned.
+    for name, document in documents.items():
+        if name.startswith("aif:workflow/"):
+            assert document["schema_version"] == "4", (name, document["schema_version"])
     for workflow_id in ("aif:workflow/verify-once", "aif:workflow/review-once", "aif:workflow/classic"):
         for name, stage in documents[workflow_id]["definition"]["stages"].items():
             if stage["kind"] != "step":
                 continue
-            assert set(stage["on"]) == {"pass", "needs_revision"}, (workflow_id, name, stage["on"])
+            assert set(stage["on"]) == set(STEP_VERDICTS), (workflow_id, name, stage["on"])
     # A loop that keeps turning after the answer is known spends rounds it
     # cannot win, so the gate declares whether one more could change anything
     # and the two loops branch on it.

@@ -19,7 +19,9 @@ import tempfile
 from verify import HOSTS, git, prepare_repository, run
 
 # A project owner's own extend.yaml: a setting the package did not default to,
-# a declared feature switched off, and a step inserted into one exact route. Its
+# a declared feature switched off, and a step inserted into one exact route.
+# Against a WorkflowRevision v4 package the insertion answers for every verdict
+# too, exactly as the package's own stages do. Its
 # profile is not the package's own default, so a launch that names none proves
 # the owner's tracked choice is what applies.
 TRACKED_PROFILE = "full"
@@ -32,7 +34,7 @@ extensions:
     workflow: classic
     step: continue-improve
     between: {from: commit, to: done}
-    on: {pass: done}
+    on: {pass: done, needs_revision: abandoned, fail: abandoned, no_work: abandoned}
 """
 # An inserted stage is named by the step it inserts, not by the extension id.
 EXTENSION_STAGE = "continue-improve"

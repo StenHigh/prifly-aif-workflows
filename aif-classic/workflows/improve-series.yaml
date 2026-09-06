@@ -1,6 +1,7 @@
 authoring: prifly-workflow/1
+schema_version: "4"
 id: aif:workflow/improve-series
-version: 1.1.0
+version: 1.2.0
 title: Continue only developer-approved improvement batches
 refs:
   schema_plan_manifest: "{{workspace_tree_manifest}}"
@@ -30,7 +31,7 @@ stages:
     until: false
     max_iterations: 3
     limit_configuration: improve_batch_limit
-    on_complete: {succeeded: done, rejected: stopped}
+    on_complete: {succeeded: done, no_work: stopped}
     on_limit: stopped
   done:
     kind: finish
