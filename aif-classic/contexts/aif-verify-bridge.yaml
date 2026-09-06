@@ -1,5 +1,5 @@
 id: aif:context/aif-verify-bridge
-version: 1.2.0
+version: 1.3.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-verify skill
@@ -26,6 +26,14 @@ text: |
   Your result is read by a bounded loop: the caller runs you again after a fix,
   and stops when nothing blocks or the declared number of rounds runs out. Do
   not run `/aif-fix`, commit, or decide what comes next.
+
+  Two things follow from the graph and cannot be read off this step. A `pass`
+  carrying `blocking: true` is what starts the fix round; `needs_revision` skips
+  it — the caller reports your findings and stops. So the cautious-looking
+  verdict is the one that turns remediation off, which is the opposite of how it
+  reads. And a plan file the fix step commits does not survive the route: the
+  commit step deletes `.ai-factory/PLAN.md` as Run working state, so never treat
+  its presence or absence in history as a finding.
 
   Your verdict for this step is `pass` whatever you find. Blocking does not
   travel in the verdict: it travels in the `blocking` field of the `gate`

@@ -1,5 +1,5 @@
 id: aif:context/aif-fix-bridge
-version: 1.1.0
+version: 1.2.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-fix skill
@@ -35,6 +35,24 @@ text: |
   non-blocking warnings: `fix` treats them as work for this step, `ignore`
   leaves them alone, and `stop` means the developer wants to look at them
   personally — report `needs_revision` without editing anything and name them.
+
+  Report `pass` when you changed something and `needs_revision` only when no
+  safe change exists. `needs_revision` here ends the whole Run: the caller
+  finishes as `partial` with the gate reported, and every stage after it —
+  security, review, commit, and anything a project inserted after them — does
+  not run. It is the right answer when the problem is not understood, and an
+  expensive one when it merely looks safer.
+
+  What you commit invalidates what the plan says about the diff. A plan section
+  that enumerates the surface — file counts, changed paths, per-file line
+  numbers — was written before your commit existed and is stale the moment you
+  make one, including for the plan file and any note you add. Re-derive those
+  numbers from the tree instead of trusting the section, and say in your summary
+  that you did.
+
+  `.ai-factory/PLAN.md` is Run working state, not project history: the commit
+  step deletes it. Do not commit it to preserve a record — the record is the
+  gate result and your own summary, both of which Pri-Fly keeps.
 
   Return the implementation result. Pri-Fly, not this skill, decides what runs
   next: do not invoke a gate, commit, or create a plan.

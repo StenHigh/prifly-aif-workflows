@@ -1,5 +1,5 @@
 id: aif:context/aif-plan-bridge
-version: 1.4.0
+version: 1.5.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-plan skill
@@ -16,6 +16,12 @@ text: |
   them and do not repeat the corresponding native question. Read the whole map
   rather than a list of names: a value this adapter forgot to name is still the
   developer's answer, and dropping it loses the answer silently.
+
+  A section that enumerates the diff — how many files it touches, which paths,
+  how many lines each — is stale as soon as this route commits anything, and it
+  commits during the fix rounds. Write such a section as something the reader
+  re-derives from the tree, with the command that derives it, rather than as
+  transcribed numbers that were true once.
 
   A key that starts with `core:` comes from Pri-Fly itself, not from this
   package's decision catalog: do not look for a declared decision behind it.
