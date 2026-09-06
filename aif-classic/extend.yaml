@@ -14,10 +14,18 @@ exclude: []
 # graph you write yourself. Worked reference: examples/authoring/
 # extension-authoring-reference.yaml in the Pri-Fly repository.
 #
+# A stage answers for every verdict its step can return, this one included:
+# the packages are on WorkflowRevision v4, and an insertion that names only
+# `pass` is refused by name (`missing_handler at .../on/fail`). Send the three
+# unhappy verdicts where the Run should end rather than to your `to` stage —
+# `abandoned` finishes the classic route with a stated reason, while `done`
+# would claim success. There is no repair stage after `commit`: the fix step
+# lives inside the verify and review loops, earlier.
+#
 # extensions:
 #   - id: merge-request
 #     workflow: classic
 #     step: merge-request
 #     between: {from: commit, to: done}
-#     on: {pass: done}
+#     on: {pass: done, needs_revision: abandoned, fail: abandoned, no_work: abandoned}
 extensions: []
