@@ -130,16 +130,24 @@ Pri-Fly, а с Pri-Fly новее `v0.7.0` форму отдаёт `prifly schem
 ## Проверки
 
 ```sh
+python3 -B tests/test_versions.py                         # версия сдвинулась вместе с байтами
 python3 -B tests/test_folders.py                          # статический контракт папок
 python3 -B tests/verify.py --binary "$HOME/.local/bin/prifly"   # compile обоих package настоящим Pri-Fly
+python3 -B tests/compatibility.py --binary "$HOME/.local/bin/prifly"  # import и start всех profile в одной authority
 ```
 
 `tests/verify.py` создаёт временный Git-репозиторий, ставит обе папки, пишет
 stub skills и проверяет questionnaire, sealed decision catalog, profiles
 Fast/Full/Ultra, `exclude`/`settings`, порядок classic route, read-only gates,
-parallel fan-out и оба host roots. Сеть, AI Factory runtime и LLM не нужны.
-GitHub Actions выполняет то же самое после установки Pri-Fly официальным
-installer.
+parallel fan-out и оба host roots. Он ничего не импортирует и не запускает.
+
+`tests/compatibility.py` идёт дальше: в одной authority он ведёт Classic по
+Fast → Full → Ultra → default → Fast с собственным `extend.yaml` владельца и
+разными байтами host skills, каждый вариант импортирует и запускает. Каждый Run
+доходит до выданного assisted handoff и там останавливается: живого AI-хоста
+здесь нет, и всё, что за этой границей, проверкой не заявлено. Сеть,
+AI Factory runtime и LLM не нужны ни одной проверке. GitHub Actions выполняет
+то же самое после установки Pri-Fly официальным installer.
 
 ## Backlog
 

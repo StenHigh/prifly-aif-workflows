@@ -22,6 +22,24 @@ PROFILE_CAPTURES = {
     "ultra": {"kind": "direct_child_tree", "path": ".ai-factory/plans", "entrypoint": "index.md"},
 }
 PLAN_STEPS = ("aif:step/plan", "aif:step/improve", "aif:step/implement")
+CLASSIC_DECISIONS = {
+    "plan_profile": "preflight",
+    "plan_tests": "preflight",
+    "plan_logging": "preflight",
+    "plan_docs": "preflight",
+    "roadmap_linkage": "preflight",
+    "roadmap_milestone": "preflight",
+    "plan_constraints": "preflight",
+    "improve_apply": "runtime",
+    "gate_warnings": "preflight",
+}
+# `fast` keeps the whole plan in one file, so how logging and documentation are
+# split across plan files is not a question anybody has to answer under it.
+FAST_APPLICABILITY = {"plan_logging": "inactive", "plan_docs": "inactive", "roadmap_milestone": "conditional"}
+
+
+def by_id(entries, key="id"):
+    return {entry[key]: entry for entry in entries}
 
 
 def run(binary, *arguments, expect_ok=True):
@@ -47,7 +65,10 @@ def prepare_repository(binary, root):
     authority = root / "authority"
     repository.mkdir()
     git("-C", repository, "init", "-q", "-b", "main")
-    run(binary, "project", "init", "--repository", repository, "--state-root", authority)
+    # `prifly-project-profile/3` initialises host-neutral: a host the package
+    # compiles for has to be attached on purpose.
+    hosts = [argument for host in HOSTS for argument in ("--host", host)]
+    run(binary, "project", "init", "--repository", repository, "--state-root", authority, *hosts)
     for name in ("aif-classic", "aif-fanout"):
         shutil.copytree(ROOT / name, repository / ".prifly" / "workflows" / name)
     for skills_root in HOSTS.values():
@@ -85,12 +106,47 @@ def compile_package(binary, authority, repository, package, output, host="codex-
     return result, documents
 
 
+def applicability_under(binary, authority, repository, package_profile=None):
+    arguments = ["--project", authority, "project", "questionnaire", "--repository", repository, "--package", "aif-classic"]
+    if package_profile:
+        arguments += ["--package-profile", package_profile]
+    questionnaire = run(binary, *arguments)
+    states = by_id(questionnaire["decision_states"], "decision_id")
+    assert {name: state["phase"] for name, state in states.items()} == CLASSIC_DECISIONS, questionnaire["decision_states"]
+    applicability = {name: state["applicability"] for name, state in states.items()}
+    # A decision the profile switched off is left out of the phase lists, so the
+    # two lists together must still account for every declared decision.
+    for phase in ("preflight", "runtime"):
+        expected = {name for name, state in applicability.items() if state != "inactive" and CLASSIC_DECISIONS[name] == phase}
+        assert set(by_id(questionnaire[phase])) == expected, (phase, questionnaire[phase])
+    return questionnaire, applicability
+
+
+def expected_applicability(**overrides):
+    return {name: overrides.get(name, FAST_APPLICABILITY.get(name, "applicable")) for name in CLASSIC_DECISIONS}
+
+
+def check_questionnaire(binary, authority, repository):
+    questionnaire, applicability = applicability_under(binary, authority, repository)
+    assert questionnaire["schema_version"] == "project-questionnaire/3", questionnaire["schema_version"]
+    assert questionnaire["project_profile_version"] == "prifly-project-profile/3", questionnaire["project_profile_version"]
+    # The form reports what it read from the sealed catalog; a question a skill
+    # invents mid-Run is not covered by it and must not look answered here.
+    assert questionnaire["known_questions_only"] is True, questionnaire
+    assert [(entry["id"], entry["default"]) for entry in questionnaire["profiles"]] == [("fast", True), ("full", False), ("ultra", False)], questionnaire["profiles"]
+    assert applicability == expected_applicability(), applicability
+    milestone = by_id(questionnaire["preflight"])["roadmap_milestone"]
+    assert milestone["when"]["answers"] == {"roadmap_linkage": "link"}, milestone
+    # The two questions `fast` switches off are not gone, they belong to the
+    # deeper plan layouts; asking under `full` is what tells the two apart.
+    _, deeper = applicability_under(binary, authority, repository, "full")
+    assert deeper == expected_applicability(plan_logging="applicable", plan_docs="applicable"), deeper
+
+
 def check_classic(binary, authority, repository, root):
     listed = run(binary, "--project", authority, "project", "workflows", "--repository", repository)
     assert [launch["id"] for launch in listed["launches"]] == ["aif-classic", "aif-fanout"], listed
-    questionnaire = run(binary, "--project", authority, "project", "questionnaire", "--repository", repository, "--package", "aif-classic")
-    assert len(questionnaire["profiles"]) == 3 and len(questionnaire["preflight"]) == 8, questionnaire
-    assert questionnaire["preflight"][5].get("when", {}).get("answers"), questionnaire["preflight"][5]
+    check_questionnaire(binary, authority, repository)
 
     extend_path = repository / ".prifly" / "workflows" / "aif-classic" / "extend.yaml"
     reviewed_extend = extend_path.read_text()
@@ -99,20 +155,19 @@ def check_classic(binary, authority, repository, root):
     output = root / "classic"
     result, documents = compile_package(binary, authority, repository, "aif-classic", output)
     assert result["package"]["id"] == "aif:package/classic" and len(result["components"]) == 48, result["package"]
-    catalog = json.loads((output / "decisions.json").read_text())["decisions"]
-    assert len(catalog) == 9 and catalog[0]["destination"]["kind"] == "package_profile", catalog[0]
-    assert catalog[5].get("when", {}).get("answers"), catalog
+    catalog = by_id(json.loads((output / "decisions.json").read_text())["decisions"])
+    assert {name: entry["phase"] for name, entry in catalog.items()} == CLASSIC_DECISIONS, sorted(catalog)
+    assert catalog["plan_profile"]["destination"]["kind"] == "package_profile", catalog["plan_profile"]
+    assert catalog["roadmap_milestone"]["when"]["answers"] == {"roadmap_linkage": "link"}, catalog["roadmap_milestone"]
     # What warmup distilled has to reach the steps that plan and build, or the
     # step that produced it is a session spent on nothing.
     for step_id in ("aif:step/plan", "aif:step/improve", "aif:step/implement"):
         assert "handoff" in documents[step_id]["inputs"], step_id
-    runtime = {entry["id"]: entry for entry in catalog if entry["phase"] == "runtime"}
-    assert set(runtime) == {"improve_apply"}, sorted(runtime)
     # Taking a refinement changes what the Run was planned to build, so no policy
     # answers this one: an unattended Run is covered by the owner sealing an
     # answer at start. Relabelling it ordinary and automatic would buy the night
     # by dropping the same guard on every attended Run.
-    improve = runtime["improve_apply"]
+    improve = catalog["improve_apply"]
     assert not improve["automatic"] and improve["sensitivity"] == "scope-changing" and "recommendation" not in improve, improve
 
     for step_id in PLAN_STEPS:
