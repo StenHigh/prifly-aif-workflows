@@ -160,6 +160,17 @@ def check_classic(binary, authority, repository, root):
     assert {name: entry["phase"] for name, entry in catalog.items()} == CLASSIC_DECISIONS, sorted(catalog)
     assert catalog["plan_profile"]["destination"]["kind"] == "package_profile", catalog["plan_profile"]
     assert catalog["roadmap_milestone"]["when"]["answers"] == {"roadmap_linkage": "link"}, catalog["roadmap_milestone"]
+    # A verdict with no declared handler ends the whole Run. The gates are the
+    # steps most likely to report one that is not `pass`, so every stage that
+    # runs a gate routes `needs_revision` somewhere instead of dying on it.
+    for workflow_id in ("aif:workflow/verify-once", "aif:workflow/review-once", "aif:workflow/classic"):
+        for name, stage in documents[workflow_id]["definition"]["stages"].items():
+            if stage["kind"] != "step":
+                continue
+            assert set(stage["on"]) == {"pass", "needs_revision"}, (workflow_id, name, stage["on"])
+    for gate in ("aif:step/verify", "aif:step/review", "aif:step/security"):
+        assert documents[gate]["outputs"]["gate"]["required_for"] == ["pass", "needs_revision"], gate
+
     # What warmup distilled has to reach the steps that plan and build, or the
     # step that produced it is a session spent on nothing.
     for step_id in ("aif:step/plan", "aif:step/improve", "aif:step/implement"):

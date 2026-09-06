@@ -1,5 +1,5 @@
 id: aif:context/aif-security-bridge
-version: 1.0.0
+version: 1.1.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-security skill
@@ -32,3 +32,11 @@ text: |
   there is no empty value to fall back on. Pri-Fly decides what runs next from
   `blocking`, not from this field: do not run `/aif-fix`, commit, or start any
   other stage yourself.
+
+  Your verdict for this step is `pass` whatever you find. Blocking does not
+  travel in the verdict: it travels in the `blocking` field of the `gate`
+  artifact, and the stage after you reads it there to decide whether the fix
+  step runs. Reporting `needs_revision` because findings block is the one
+  mistake this step can make that costs the whole Run: it says you could not
+  establish a result at all, so no fix round happens and the Run ends reporting
+  your findings unchanged. Use it only when that is literally true.
