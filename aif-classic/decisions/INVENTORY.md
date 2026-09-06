@@ -74,3 +74,17 @@ Approval or Grant.
 
 An upstream native `AskUserQuestion` is not a Pri-Fly decision. It remains a
 normal attended host interaction until the executor emits `DecisionRequest/1`.
+
+## aif-security
+
+The step ran without an adapter until 1.11.0: its instructions pointed straight
+at the pinned skill, so nothing told it about `gate_warnings`, about reporting
+rather than saving, or about who decides the next stage. The skill's own
+`allowed-tools` carry `Write` and `Edit` and it saves a report and an
+ignored-item artifact when a person runs it, while the step declares no
+workspace effect — bytes written there would be refused, not kept.
+
+`gate_warnings: fix` and `stop` do the same thing at this gate, and the adapter
+says so rather than implying a repair that cannot happen: no fix round is wired
+after security, so a blocking result finishes the Run as `partial` with the
+findings reported unchanged. Verify and review are the gates that loop.
