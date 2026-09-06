@@ -22,6 +22,7 @@ PROFILE_CAPTURES = {
     "ultra": {"kind": "direct_child_tree", "path": ".ai-factory/plans", "entrypoint": "index.md"},
 }
 PLAN_STEPS = ("aif:step/plan", "aif:step/improve", "aif:step/implement")
+THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1000
 CLASSIC_DECISIONS = {
     "plan_profile": "preflight",
     "plan_tests": "preflight",
@@ -170,10 +171,16 @@ def check_classic(binary, authority, repository, root):
     improve = catalog["improve_apply"]
     assert not improve["automatic"] and improve["sensitivity"] == "scope-changing" and "recommendation" not in improve, improve
 
+    # Every step declares its own work allowance, which is what carries them to
+    # StepDefinition v6; the hour a v5 step inherited is far under the Runs this
+    # route actually does.
+    for step in (item for name, item in documents.items() if name.startswith("aif:step/")):
+        assert step["schema_version"] == "6" and step["session_limits"]["active_timeout_ms"] == THIRTY_DAYS_MS, step["id"]
+        assert step["session_limits"]["decision_wait_timeout_ms"] is None, step["id"]
     for step_id in PLAN_STEPS:
         step = documents[step_id]
         capture = step["workspace_trees"][0]["capture"]
-        assert capture["kind"] == "exact_file" and capture["path"] == ".ai-factory/PLAN.md" and step["schema_version"] == "5", step_id
+        assert capture["kind"] == "exact_file" and capture["path"] == ".ai-factory/PLAN.md", step_id
     assert "plan" not in documents["aif:step/plan"]["inputs"], "aif-plan must create, not consume, the first native plan"
     for step_id in ("aif:step/improve", "aif:step/implement"):
         binding = documents[step_id]["workspace_trees"][0]

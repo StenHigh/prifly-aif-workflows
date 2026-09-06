@@ -1,6 +1,6 @@
-authoring: prifly-step/1
+authoring: prifly-step/2
 id: aif:step/implement
-version: 1.1.0
+version: 1.2.0
 title: Run aif-implement against the accepted plan
 kind: worker
 inputs:
@@ -13,6 +13,7 @@ executor: {adapter_ref: "{{assisted_adapter}}", operation: session}
 instructions_ref: "{{context_aif-implement-bridge}}"
 context_refs: ["{{context_aif-implement}}"]
 effects: {class: workspace_write, retry_class: never}
+session_limits: {active_timeout_ms: 2592000000}
 result_schema_ref: "{{step_result_schema}}"
 workspace_trees:
   - input_port: plan

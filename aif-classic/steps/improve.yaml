@@ -1,6 +1,6 @@
-authoring: prifly-step/1
+authoring: prifly-step/2
 id: aif:step/improve
-version: 1.2.0
+version: 1.3.0
 title: Run aif-improve and apply the developer's accepted plan changes
 kind: worker
 inputs:
@@ -17,6 +17,7 @@ context_refs:
   - "{{context_aif-improve-examples}}"
   - "{{context_aif-improve-validator}}"
 effects: {class: workspace_write, retry_class: never}
+session_limits: {active_timeout_ms: 2592000000}
 result_schema_ref: "{{step_result_schema}}"
 workspace_trees:
   - input_port: plan
