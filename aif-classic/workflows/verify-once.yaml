@@ -1,6 +1,6 @@
 authoring: prifly-workflow/1
 id: aif:workflow/verify-once
-version: 1.1.0
+version: 1.2.0
 title: Verify the implementation once and fix what blocks it
 refs:
   schema_implementation: "{{schema_implementation}}"
@@ -28,6 +28,9 @@ stages:
     kind: choice
     selection: exclusive
     branches:
+      - id: owner
+        predicate: {op: eq, left: $stages.verify.gate#/blocking_owner_only, right: true}
+        next: owner-decides
       - id: blocking
         predicate: {op: eq, left: $stages.verify.gate#/blocking, right: true}
         next: fix
@@ -59,3 +62,8 @@ stages:
     outcome: rejected
     output_bindings: {gate: $stages.verify.gate}
     description: The gate could not establish a result; its findings stand and no fix round runs.
+  owner-decides:
+    kind: finish
+    outcome: rejected
+    output_bindings: {gate: $stages.verify.gate}
+    description: What still blocks is the developer's to decide, so another fix round would spend a turn it cannot win.

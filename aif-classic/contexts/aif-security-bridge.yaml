@@ -1,5 +1,5 @@
 id: aif:context/aif-security-bridge
-version: 1.1.0
+version: 1.2.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-security skill
@@ -26,6 +26,13 @@ text: |
     no fix round is wired after security. A blocking result here ends the Run
     as `partial` with your findings reported unchanged, so `fix` cannot mean
     "and then repair it" the way it does at verify and review.
+
+  `blocking_owner_only` is declared for every gate result. Set it true when
+  every blocker still standing is outside what any fix step may touch — a
+  decision the developer owns, a rule that is itself wrong, access this Run does
+  not have. At this gate it changes no routing, because no fix round follows
+  security either way; it is read by whoever opens the result, so answer it
+  honestly rather than by habit.
 
   `suggested_next` is reported, never obeyed. Say `/aif-fix` when the findings
   are work for a fix and `continue` otherwise; the field is always present, so
