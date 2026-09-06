@@ -60,7 +60,7 @@ def launch_answers(binary, authority, repository, package_profile):
     if package_profile:
         arguments += ["--package-profile", package_profile]
     questionnaire = run(binary, *arguments)
-    waiting = {state["decision_id"] for state in questionnaire["decision_states"] if state.get("wait_reason") == "required_before_start"}
+    waiting = {state["id"] for state in questionnaire["decision_states"] if state.get("wait_reason") == "required_before_start"}
     answers = []
     for decision in questionnaire["preflight"]:
         if decision["id"] not in waiting:

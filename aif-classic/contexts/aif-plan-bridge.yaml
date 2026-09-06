@@ -1,5 +1,5 @@
 id: aif:context/aif-plan-bridge
-version: 1.3.0
+version: 1.4.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-plan skill
@@ -16,6 +16,12 @@ text: |
   them and do not repeat the corresponding native question. Read the whole map
   rather than a list of names: a value this adapter forgot to name is still the
   developer's answer, and dropping it loses the answer silently.
+
+  A key that starts with `core:` comes from Pri-Fly itself, not from this
+  package's decision catalog: do not look for a declared decision behind it.
+  `core:package_profile` is the same answer as `decision_sheet.package_profile`
+  rather than a second one, so read either and never treat them as two choices
+  that could disagree.
 
   A command you write into the plan as an acceptance check must be run once, on
   the tree you are writing it for, before the plan carries it. Read what it

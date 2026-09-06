@@ -111,7 +111,7 @@ def applicability_under(binary, authority, repository, package_profile=None):
     if package_profile:
         arguments += ["--package-profile", package_profile]
     questionnaire = run(binary, *arguments)
-    states = by_id(questionnaire["decision_states"], "decision_id")
+    states = by_id(questionnaire["decision_states"])
     assert {name: state["phase"] for name, state in states.items()} == CLASSIC_DECISIONS, questionnaire["decision_states"]
     applicability = {name: state["applicability"] for name, state in states.items()}
     # A decision the profile switched off is left out of the phase lists, so the
@@ -128,7 +128,7 @@ def expected_applicability(**overrides):
 
 def check_questionnaire(binary, authority, repository):
     questionnaire, applicability = applicability_under(binary, authority, repository)
-    assert questionnaire["schema_version"] == "project-questionnaire/3", questionnaire["schema_version"]
+    assert questionnaire["schema_version"] == "project-questionnaire/4", questionnaire["schema_version"]
     assert questionnaire["project_profile_version"] == "prifly-project-profile/3", questionnaire["project_profile_version"]
     # The form reports what it read from the sealed catalog; a question a skill
     # invents mid-Run is not covered by it and must not look answered here.

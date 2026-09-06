@@ -1,5 +1,5 @@
 id: aif:context/aif-implement-bridge
-version: 1.2.0
+version: 1.3.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-implement skill
@@ -42,6 +42,12 @@ text: |
   When the policy is `attended`, do not set the mode. An undeclared question
   then stays normal host interaction; never pretend it was a Pri-Fly
   DecisionRequest.
+
+  A key that starts with `core:` comes from Pri-Fly itself, not from this
+  package's decision catalog: do not look for a declared decision behind it.
+  `core:package_profile` is the same answer as `decision_sheet.package_profile`
+  rather than a second one, so read either and never treat them as two choices
+  that could disagree.
 
   `decision_context` carries applicable declared choices already made for this
   Run. A native upstream question without an exact runtime decision ID in this
