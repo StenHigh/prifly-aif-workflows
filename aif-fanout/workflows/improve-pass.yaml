@@ -1,6 +1,7 @@
 authoring: prifly-workflow/1
+schema_version: "4"
 id: aif:workflow/improve-pass
-version: 1.0.0
+version: 1.1.0
 title: Fan out independent plan-review perspectives once
 refs:
   schema_plan: "{{schema_plan}}"
@@ -42,12 +43,12 @@ stages:
     kind: step
     step_ref: step_choose
     input_bindings: {proposals: $stages.refine.results}
-    on: {pass: apply}
+    on: {pass: apply, needs_revision: stopped, fail: stopped, no_work: stopped}
   apply:
     kind: step
     step_ref: step_apply
     input_bindings: {plan: $inputs.plan, selection: $stages.choose.selection}
-    on: {pass: changed}
+    on: {pass: changed, needs_revision: stopped, fail: stopped, no_work: stopped}
   done:
     kind: finish
     outcome: succeeded
@@ -56,3 +57,4 @@ stages:
     kind: finish
     outcome: succeeded
     output_bindings: {plan: $stages.apply.plan}
+  stopped: {kind: finish, outcome: no_work}

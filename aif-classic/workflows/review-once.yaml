@@ -1,6 +1,7 @@
 authoring: prifly-workflow/1
+schema_version: "4"
 id: aif:workflow/review-once
-version: 1.2.0
+version: 1.3.0
 title: Review the implementation once and fix what blocks it
 refs:
   schema_implementation: "{{schema_implementation}}"
@@ -23,7 +24,7 @@ stages:
     kind: step
     step_ref: step_review
     input_bindings: {implementation: $inputs.implementation}
-    on: {pass: decide, needs_revision: inconclusive}
+    on: {pass: decide, needs_revision: inconclusive, fail: stopped, no_work: stopped}
   decide:
     kind: choice
     selection: exclusive
@@ -42,7 +43,7 @@ stages:
       gate: $stages.review.gate
       implementation: $inputs.implementation
       handoff: $inputs.handoff
-    on: {pass: fixed, needs_revision: unresolved}
+    on: {pass: fixed, needs_revision: unresolved, fail: stopped, no_work: stopped}
   clean:
     kind: finish
     outcome: succeeded
@@ -67,3 +68,7 @@ stages:
     outcome: rejected
     output_bindings: {gate: $stages.review.gate}
     description: What still blocks is the developer's to decide, so another fix round would spend a turn it cannot win.
+  stopped:
+    kind: finish
+    outcome: no_work
+    description: A step of this round could not do its work, so the round ends without a result to report.

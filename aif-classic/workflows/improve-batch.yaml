@@ -1,6 +1,7 @@
 authoring: prifly-workflow/1
+schema_version: "4"
 id: aif:workflow/improve-batch
-version: 1.1.0
+version: 1.2.0
 title: Run one bounded plan-improvement batch
 refs:
   schema_plan_manifest: "{{workspace_tree_manifest}}"
@@ -36,7 +37,7 @@ stages:
   ask:
     kind: step
     step_ref: step_continue-improve
-    on: {pass: answer}
+    on: {pass: answer, needs_revision: stopped, fail: stopped, no_work: stopped}
   answer:
     kind: choice
     selection: exclusive
@@ -53,4 +54,4 @@ stages:
     kind: finish
     outcome: partial
     output_bindings: {plan: $stages.improve.plan}
-  stopped: {kind: finish, outcome: rejected}
+  stopped: {kind: finish, outcome: no_work}

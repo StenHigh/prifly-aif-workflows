@@ -1,7 +1,7 @@
 authoring: prifly-project-workflow/1
 package:
   id: aif:package/classic
-  version: 1.17.0
+  version: 1.18.0
   description: Canonical AI Factory development workflow with bounded plan improvement.
   requires_core_protocol: "1"
   profiles:
@@ -19,7 +19,8 @@ package:
     step_result_schema: core:schema/step-result@1.0.0
     workspace_tree_manifest: core:schema/workspace-tree-manifest@1.0.0
 id: aif:workflow/classic
-version: 1.17.0
+schema_version: "4"
+version: 1.18.0
 title: AI Factory classic development workflow
 refs:
   schema_task: "{{schema_task}}"
@@ -78,12 +79,12 @@ stages:
   warmup:
     kind: step
     step_ref: step_warmup
-    on: {pass: plan, needs_revision: abandoned}
+    on: {pass: plan, needs_revision: abandoned, fail: abandoned, no_work: abandoned}
   plan:
     kind: step
     step_ref: step_plan
     input_bindings: {task: $inputs.task, handoff: $stages.warmup.handoff}
-    on: {pass: improve, needs_revision: abandoned}
+    on: {pass: improve, needs_revision: abandoned, fail: abandoned, no_work: abandoned}
   improve:
     kind: call
     workflow_ref: workflow_improve-or-pass
@@ -93,7 +94,7 @@ stages:
     kind: step
     step_ref: step_implement
     input_bindings: {plan: $stages.improve.plan, handoff: $stages.warmup.handoff}
-    on: {pass: choose-verify, needs_revision: abandoned}
+    on: {pass: choose-verify, needs_revision: abandoned, fail: abandoned, no_work: abandoned}
   choose-verify:
     kind: choice
     selection: exclusive
@@ -121,7 +122,7 @@ stages:
     kind: step
     step_ref: step_security
     input_bindings: {implementation: $stages.implement.implementation}
-    on: {pass: security-decision, needs_revision: fix-after-security}
+    on: {pass: security-decision, needs_revision: fix-after-security, fail: abandoned, no_work: abandoned}
   security-decision:
     kind: choice
     selection: exclusive
@@ -149,7 +150,7 @@ stages:
     kind: step
     step_ref: step_commit
     input_bindings: {implementation: $stages.implement.implementation}
-    on: {pass: done, needs_revision: abandoned}
+    on: {pass: done, needs_revision: abandoned, fail: abandoned, no_work: abandoned}
   done:
     kind: finish
     outcome: succeeded
