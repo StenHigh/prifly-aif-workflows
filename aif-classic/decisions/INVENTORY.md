@@ -6,7 +6,13 @@ plus one declared runtime choice. They become a sealed Pri-Fly Decision Sheet.
 The rest of the list is an inventory, not a claim that Core intercepts a native
 chat dialog.
 
-Pinned sources:
+Pinned sources — a record of the bytes this adapter was written against, not a
+guard. The host supplies whatever revision it has, and nothing in this package
+compares the two: the skills are not in this repository, and CI compiles against
+stubs. A hash below that no longer matches a host's skill means the bridges were
+written for a different revision, which is worth knowing but is not an error
+anything here can raise.
+
 
 - `aif-plan/SKILL.md` v1.0.0 — SHA-256
   `3be3c17f5478d15196832762d565c1d8d792666af4733f02b1d1d9bcf9002dbb`.

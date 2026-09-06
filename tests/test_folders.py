@@ -27,7 +27,10 @@ class WorkflowFolderTest(unittest.TestCase):
                 self.assertTrue(line.startswith("  - .prifly/workflows/aif-classic/decisions/"), line)
                 self.assertTrue((CLASSIC / line.split("aif-classic/", 1)[1]).is_file(), line)
 
-    def test_classic_inventory_pins_upstream_skills(self):
+    def test_classic_inventory_records_the_skill_revisions_it_was_written_against(self):
+        # This compares the document with itself on purpose: the skills live on
+        # the host, not here, so the only thing a static gate can hold is that
+        # the provenance record was not quietly dropped.
         inventory = (CLASSIC / "decisions" / "INVENTORY.md").read_text()
         for skill_hash in (
             "3be3c17f5478d15196832762d565c1d8d792666af4733f02b1d1d9bcf9002dbb",
