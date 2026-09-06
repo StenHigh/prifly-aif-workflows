@@ -1,6 +1,6 @@
 authoring: prifly-workflow/1
 id: aif:workflow/verify-once
-version: 1.0.0
+version: 1.1.0
 title: Verify the implementation once and fix what blocks it
 refs:
   schema_implementation: "{{schema_implementation}}"
@@ -23,7 +23,7 @@ stages:
     kind: step
     step_ref: step_verify
     input_bindings: {implementation: $inputs.implementation}
-    on: {pass: decide}
+    on: {pass: decide, needs_revision: inconclusive}
   decide:
     kind: choice
     selection: exclusive
@@ -54,3 +54,8 @@ stages:
     outcome: rejected
     output_bindings: {gate: $stages.verify.gate}
     description: The fix step found no safe change it could make; the findings stand.
+  inconclusive:
+    kind: finish
+    outcome: rejected
+    output_bindings: {gate: $stages.verify.gate}
+    description: The gate could not establish a result; its findings stand and no fix round runs.

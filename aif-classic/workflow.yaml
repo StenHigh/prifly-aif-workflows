@@ -1,7 +1,7 @@
 authoring: prifly-project-workflow/1
 package:
   id: aif:package/classic
-  version: 1.14.0
+  version: 1.15.0
   description: Canonical AI Factory development workflow with bounded plan improvement.
   requires_core_protocol: "1"
   profiles:
@@ -19,7 +19,7 @@ package:
     step_result_schema: core:schema/step-result@1.0.0
     workspace_tree_manifest: core:schema/workspace-tree-manifest@1.0.0
 id: aif:workflow/classic
-version: 1.14.0
+version: 1.15.0
 title: AI Factory classic development workflow
 refs:
   schema_task: "{{schema_task}}"
@@ -78,12 +78,12 @@ stages:
   warmup:
     kind: step
     step_ref: step_warmup
-    on: {pass: plan}
+    on: {pass: plan, needs_revision: abandoned}
   plan:
     kind: step
     step_ref: step_plan
     input_bindings: {task: $inputs.task, handoff: $stages.warmup.handoff}
-    on: {pass: improve}
+    on: {pass: improve, needs_revision: abandoned}
   improve:
     kind: call
     workflow_ref: workflow_improve-or-pass
@@ -93,7 +93,7 @@ stages:
     kind: step
     step_ref: step_implement
     input_bindings: {plan: $stages.improve.plan, handoff: $stages.warmup.handoff}
-    on: {pass: choose-verify}
+    on: {pass: choose-verify, needs_revision: abandoned}
   choose-verify:
     kind: choice
     selection: exclusive
@@ -121,7 +121,7 @@ stages:
     kind: step
     step_ref: step_security
     input_bindings: {implementation: $stages.implement.implementation}
-    on: {pass: security-decision}
+    on: {pass: security-decision, needs_revision: fix-after-security}
   security-decision:
     kind: choice
     selection: exclusive
@@ -149,7 +149,7 @@ stages:
     kind: step
     step_ref: step_commit
     input_bindings: {implementation: $stages.implement.implementation}
-    on: {pass: done}
+    on: {pass: done, needs_revision: abandoned}
   done:
     kind: finish
     outcome: succeeded
@@ -169,4 +169,7 @@ stages:
     outcome: partial
     output_bindings: {gate: $stages.review.gate}
     description: Review rounds ended with blockers still open; the findings are reported unchanged.
+  # A step that cannot finish its work has nowhere to go on this route: there
+  # is no revision loop outside the gates. Ending here reports that plainly,
+  # where an undeclared verdict would end the Run as an engine failure.
   abandoned: {kind: finish, outcome: rejected}

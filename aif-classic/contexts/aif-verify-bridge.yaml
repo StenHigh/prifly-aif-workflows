@@ -1,5 +1,5 @@
 id: aif:context/aif-verify-bridge
-version: 1.1.0
+version: 1.2.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-verify skill
@@ -26,6 +26,14 @@ text: |
   Your result is read by a bounded loop: the caller runs you again after a fix,
   and stops when nothing blocks or the declared number of rounds runs out. Do
   not run `/aif-fix`, commit, or decide what comes next.
+
+  Your verdict for this step is `pass` whatever you find. Blocking does not
+  travel in the verdict: it travels in the `blocking` field of the `gate`
+  artifact, and the stage after you reads it there to decide whether the fix
+  step runs. Reporting `needs_revision` because findings block is the one
+  mistake this step can make that costs the whole Run: it says you could not
+  establish a result at all, so no fix round happens and the Run ends reporting
+  your findings unchanged. Use it only when that is literally true.
 
   `suggested_next` is reported, never obeyed. Say `/aif-fix` when the findings
   are work for the fix step and `continue` otherwise. The skill computes a wider
