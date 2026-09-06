@@ -41,6 +41,14 @@ class WorkflowFolderTest(unittest.TestCase):
         self.assertIn("not a Pri-Fly decision", inventory)
         self.assertIn("when: {answers: {roadmap_linkage: link}}", (CLASSIC / "decisions" / "plan" / "roadmap-milestone.yaml").read_text())
 
+    def test_the_commented_extension_example_would_compile(self):
+        # A commented example is invisible to the compiler, so it rots while the
+        # contract moves. The pilot uncommented this one and was refused.
+        example = [line for line in (CLASSIC / "extend.yaml").read_text().splitlines() if line.startswith("#     on: {")]
+        self.assertEqual(len(example), 1, example)
+        for verdict in ("pass", "fail", "needs_revision", "no_work"):
+            self.assertIn(verdict + ":", example[0], example[0])
+
     def test_classic_is_sequential_and_fanout_is_parallel(self):
         classic_workflows = sorted((CLASSIC / "workflows").rglob("*.yaml"))
         # The plan is what a repeat carries forward; everything else it binds is
