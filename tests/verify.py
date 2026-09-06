@@ -154,7 +154,7 @@ def check_classic(binary, authority, repository, root):
 
     output = root / "classic"
     result, documents = compile_package(binary, authority, repository, "aif-classic", output)
-    assert result["package"]["id"] == "aif:package/classic" and len(result["components"]) == 48, result["package"]
+    assert result["package"]["id"] == "aif:package/classic" and len(result["components"]) == 49, result["package"]
     catalog = by_id(json.loads((output / "decisions.json").read_text())["decisions"])
     assert {name: entry["phase"] for name, entry in catalog.items()} == CLASSIC_DECISIONS, sorted(catalog)
     assert catalog["plan_profile"]["destination"]["kind"] == "package_profile", catalog["plan_profile"]

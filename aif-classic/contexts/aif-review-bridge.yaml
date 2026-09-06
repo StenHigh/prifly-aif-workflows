@@ -1,5 +1,5 @@
 id: aif:context/aif-review-bridge
-version: 1.0.0
+version: 1.1.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-review skill
@@ -26,3 +26,13 @@ text: |
   Your result is read by a bounded loop: the caller runs you again after a fix,
   and stops when nothing blocks or the declared number of rounds runs out. Do
   not run `/aif-fix`, commit, or decide what comes next.
+
+  This is one session. Where the skill reaches for a separate reviewer session,
+  use one only if the host platform actually provides it; where it does not,
+  do the work here. Never report a pass you could not establish because a
+  session you expected was not there.
+
+  `suggested_next` is reported, never obeyed. Say `/aif-fix` when the findings
+  are work for the fix step and `continue` otherwise. The skill computes a wider
+  set of commands of its own — rules, architecture, roadmap, commit — and none of
+  them name a stage of this route, so they have no value here to report.

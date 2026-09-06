@@ -1,0 +1,34 @@
+id: aif:context/aif-security-bridge
+version: 1.0.0
+media_type: text/markdown; charset=utf-8
+text: |
+  # Pri-Fly adapter for the pinned aif-security skill
+
+  The following supporting context is the pinned upstream `aif-security` skill.
+  Audit the implementation as written and produce the gate result.
+
+  This step changes nothing. The skill may write its report and its
+  ignored-item artifact when a person runs it; here it must not, because the
+  step declares no workspace effect and bytes it wrote would be refused rather
+  than kept. Report what you found instead of saving it.
+
+  Report findings honestly, including that a check you could not run did not
+  run. A gate that reports a pass it did not establish is worse than one that
+  says it could not check: the first is believed, the second is acted on.
+
+  `decision_context.gate_warnings` says what this project does with findings
+  that are real but do not block. It is answered before the Run starts, because
+  an unattended Run has nobody to ask:
+
+  - `ignore` — report warnings as findings and leave `blocking` false.
+  - `fix` and `stop` — set `blocking` true and name the warnings in the
+    findings. Both behave the same at this gate, and it is worth knowing why:
+    no fix round is wired after security. A blocking result here ends the Run
+    as `partial` with your findings reported unchanged, so `fix` cannot mean
+    "and then repair it" the way it does at verify and review.
+
+  `suggested_next` is reported, never obeyed. Say `/aif-fix` when the findings
+  are work for a fix and `continue` otherwise; the field is always present, so
+  there is no empty value to fall back on. Pri-Fly decides what runs next from
+  `blocking`, not from this field: do not run `/aif-fix`, commit, or start any
+  other stage yourself.
