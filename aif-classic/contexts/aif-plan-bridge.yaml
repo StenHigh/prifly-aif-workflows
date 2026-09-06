@@ -1,5 +1,5 @@
 id: aif:context/aif-plan-bridge
-version: 1.5.0
+version: 1.6.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-plan skill
@@ -22,6 +22,12 @@ text: |
   commits during the fix rounds. Write such a section as something the reader
   re-derives from the tree, with the command that derives it, rather than as
   transcribed numbers that were true once.
+
+  When a number in that section has to be pinned anyway, pin it over a closed
+  range or a fixed set — two named commits, an explicit list of paths — never
+  over `base..HEAD` or anything else whose far end moves. A pin taken over a
+  moving end is wrong as soon as this route commits; a pin over two fixed hashes
+  survives the commit that follows it and can be re-checked by anyone.
 
   A key that starts with `core:` comes from Pri-Fly itself, not from this
   package's decision catalog: do not look for a declared decision behind it.

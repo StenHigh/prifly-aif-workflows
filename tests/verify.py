@@ -168,6 +168,14 @@ def check_classic(binary, authority, repository, root):
             if stage["kind"] != "step":
                 continue
             assert set(stage["on"]) == {"pass", "needs_revision"}, (workflow_id, name, stage["on"])
+    # A loop that keeps turning after the answer is known spends rounds it
+    # cannot win, so the gate declares whether one more could change anything
+    # and the two loops branch on it.
+    for workflow_id, stage in (("aif:workflow/verify-once", "verify"), ("aif:workflow/review-once", "review")):
+        branches = documents[workflow_id]["definition"]["stages"]["decide"]["branches"]
+        assert [branch["id"] for branch in branches] == ["owner", "blocking"], (workflow_id, branches)
+        reference = branches[0]["predicate"]["left"]["ref"]
+        assert reference["stage_id"] == stage and reference["port"] == "gate" and reference["pointer"] == "/blocking_owner_only", branches[0]
     for gate in ("aif:step/verify", "aif:step/review", "aif:step/security"):
         assert documents[gate]["outputs"]["gate"]["required_for"] == ["pass", "needs_revision"], gate
 

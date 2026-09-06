@@ -1,5 +1,5 @@
 id: aif:context/aif-verify-bridge
-version: 1.3.0
+version: 1.4.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-verify skill
@@ -42,6 +42,15 @@ text: |
   mistake this step can make that costs the whole Run: it says you could not
   establish a result at all, so no fix round happens and the Run ends reporting
   your findings unchanged. Use it only when that is literally true.
+
+  `blocking_owner_only` says whether another fix round could change anything.
+  Set it true only when every blocker still standing is outside what any fix
+  step may touch: a decision the developer owns, a rule that is itself wrong,
+  access this Run does not have. One blocker a fix round could close makes it
+  false. Getting this wrong in the safe direction stops the loop and puts the
+  findings in front of a person; getting it wrong the other way spends rounds
+  that cannot succeed, which is what a real Run did — two rounds and forty
+  minutes after the answer was already known.
 
   `suggested_next` is reported, never obeyed. Say `/aif-fix` when the findings
   are work for the fix step and `continue` otherwise. The skill computes a wider
