@@ -1,5 +1,5 @@
 id: aif:context/aif-security-bridge
-version: 1.4.0
+version: 1.5.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-security skill
@@ -21,11 +21,10 @@ text: |
   does not block: there is no fix round after this gate, so a blocking result
   ends the Run and hands the findings to a person.
 
-  The pinned skill sets the same field by its own test — whether a finding is
-  production-blocking — and ties it to its own `status`. Where the two disagree
-  this adapter governs: `status` is reported and read by nothing here, and
-  `blocking` decides only whether this Run stops for a person to read the
-  findings.
+  The supporting skill above sets this field by a rule of its own. Where that
+  rule and this paragraph disagree, this adapter governs: `status` is reported
+  here and read by nothing, while `blocking` decides only whether this Run stops
+  for a person to read the findings.
 
   `decision_context.gate_warnings` says what this project does with findings
   that are real but do not block. It is answered before the Run starts, because

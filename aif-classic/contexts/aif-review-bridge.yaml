@@ -1,5 +1,5 @@
 id: aif:context/aif-review-bridge
-version: 1.6.0
+version: 1.7.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-review skill
@@ -20,14 +20,16 @@ text: |
   a decision and not a default: `blocking` is the only way this route can reach
   a repair, so a gate that never sets it turns the fix step off for good.
 
-  The pinned skill is stricter with the same word: it sets `blocking` true only
-  when its own `status` is `fail`, and reaches `fail` only for criteria the user
-  or a review policy asked for by name. Follow this adapter instead. Here
-  `status` is reported and read by nothing — no route in this workflow branches
-  on it — while `blocking` decides only whether a fix round runs. A result
-  carrying `status: warnings` together with `blocking: true` is correct here,
-  and under `gate_warnings: fix` or `stop` it is required, though the skill's
-  rule alone would never produce one.
+  The supporting skill above sets this field by a rule of its own. Where that
+  rule and this paragraph disagree, this adapter governs — and the reason is
+  worth more than the authority: `status` is reported here and read by nothing,
+  no route in this workflow branches on it, while `blocking` decides only
+  whether a fix round runs, which is a smaller and cheaper thing than any
+  question about holding a merge. So a result carrying `status: warnings`
+  together with `blocking: true` is correct here, and under `gate_warnings: fix`
+  or `stop` it is required — even where the supporting skill's own rule would
+  never produce such a result, which is a difference to follow rather than a
+  contradiction to repair.
 
   `decision_context.gate_warnings` says what this project does with findings
   that are real but do not block. It is answered before the Run starts, because
