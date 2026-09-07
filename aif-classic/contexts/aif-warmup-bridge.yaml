@@ -1,5 +1,5 @@
 id: aif:context/aif-warmup-bridge
-version: 1.1.0
+version: 1.2.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-warmup skill
@@ -24,6 +24,15 @@ text: |
   Write the handoff as a JSON object matching its declared schema. The port is
   a JSON port, so bytes that are not that object are refused at intake and the
   step is reported back to you, not silently accepted.
+
+  Its bounds are part of the contract and are not visible from the task, so they
+  are written here rather than discovered by refusal. `summary` is one prose
+  string of at most 4000 characters. `entry_points`, `conventions`, `sources`
+  and `open_questions` are arrays of strings, **each entry at most 400
+  characters**, with at most 24, 24, 64 and 16 entries. One long sentence per
+  entry, not a paragraph: an entry that needs more than 400 characters is
+  usually two entries, or belongs in `summary`. Only `open_questions` may be
+  omitted; the other four are required.
 
   Include the project's own skill overlays among the entry points. A repository
   may carry instructions that override or extend a skill — the AI Factory
