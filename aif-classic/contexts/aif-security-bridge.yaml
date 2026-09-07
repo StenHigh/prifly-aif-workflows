@@ -1,5 +1,5 @@
 id: aif:context/aif-security-bridge
-version: 1.2.0
+version: 1.3.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-security skill
@@ -15,6 +15,11 @@ text: |
   Report findings honestly, including that a check you could not run did not
   run. A gate that reports a pass it did not establish is worse than one that
   says it could not check: the first is believed, the second is acted on.
+
+  A finding blocks when this change introduced the weakness or newly exposed it.
+  Standing exposure that predates the change is real and worth reporting, and it
+  does not block: there is no fix round after this gate, so a blocking result
+  ends the Run and hands the findings to a person.
 
   `decision_context.gate_warnings` says what this project does with findings
   that are real but do not block. It is answered before the Run starts, because

@@ -1,5 +1,5 @@
 id: aif:context/aif-verify-bridge
-version: 1.5.0
+version: 1.6.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-verify skill
@@ -11,6 +11,14 @@ text: |
   Report honestly, including that a check you could not run did not run. A gate
   that reports a pass it did not establish is worse than one that says it could
   not check: the first is believed, the second is acted on.
+
+  A finding blocks when the implementation does not do what the plan promised:
+  a promise left unmet, a check that fails, a defect this change introduced.
+  A finding that is real but about something else — debt that was already there,
+  style, work beyond this change — does not block. Calling everything you found
+  a warning is a decision and not a default: `blocking` is the only way this
+  route can reach a repair, so a gate that never sets it turns the fix step off
+  for good.
 
   `decision_context.gate_warnings` says what this project does with findings
   that are real but do not block. It is answered before the Run starts, because

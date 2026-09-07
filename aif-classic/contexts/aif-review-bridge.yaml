@@ -1,5 +1,5 @@
 id: aif:context/aif-review-bridge
-version: 1.4.0
+version: 1.5.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-review skill
@@ -11,6 +11,14 @@ text: |
   Report findings honestly, including that a gate you could not run did not
   run. A gate that reports a pass it did not establish is worse than one that
   reports it could not check.
+
+  A finding blocks when the change under review is wrong on its own terms: it
+  does not do what the plan promised, it breaks something that worked, or it
+  leaves the tree in a state the next reader cannot rely on. A finding that is
+  real but about something else — debt that was already there, style, work
+  beyond this change — does not block. Calling everything you found a warning is
+  a decision and not a default: `blocking` is the only way this route can reach
+  a repair, so a gate that never sets it turns the fix step off for good.
 
   `decision_context.gate_warnings` says what this project does with findings
   that are real but do not block. It is answered before the Run starts, because
