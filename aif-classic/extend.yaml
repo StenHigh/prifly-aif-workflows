@@ -14,6 +14,13 @@ exclude: []
 # graph you write yourself. Worked reference: examples/authoring/
 # extension-authoring-reference.yaml in the Pri-Fly repository.
 #
+# An insertion routes forward only. Naming an earlier stage — sending `fail`
+# back into the verify loop, say — is refused as `cycle at /definition/stages:
+# stage graph contains a cycle; repeats require an explicit supported operator`,
+# because a loop is a `repeat` node and an insertion cannot declare one. If a
+# step of yours needs a repair round, it belongs before the gates, not after
+# them: put it where a gate already loops rather than trying to loop yourself.
+#
 # A stage answers for every verdict its step can return, this one included:
 # the packages are on WorkflowRevision v4, and an insertion that names only
 # `pass` is refused by name (`missing_handler at .../on/fail`). Send the three

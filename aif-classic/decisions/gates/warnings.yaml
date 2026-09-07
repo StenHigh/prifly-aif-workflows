@@ -10,6 +10,12 @@ description: >-
   `fix` is safe only where a gate's warnings are limited to the change being
   made. A gate that reports a standing project-wide warning would send an
   unattended Run to work far outside the task it was given.
+
+  `stop` ends an unattended Run whenever any warning exists at all, and on a
+  real project one nearly always does: measured on a pilot, a Run chose `stop`
+  and its review blocked with zero blockers and warnings only. Choose it when a
+  person is at the keyboard and means to look; for an unattended Run it is the
+  answer that guarantees nothing finishes.
 phase: preflight
 required: true
 choices:
