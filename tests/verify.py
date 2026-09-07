@@ -198,15 +198,16 @@ def check_classic(binary, authority, repository, root):
     # A loop that keeps turning after the answer is known spends rounds it
     # cannot win, so the gate declares whether one more could change anything
     # and the two loops branch on it.
-    # `blocking_owner_only` implies `blocking`, so under `exclusive` selection the
-    # two branches must not both be satisfiable: two true branches are an error
-    # and the owner branch would never be reached. Order does not fix that, which
-    # is what the first version of this assertion wrongly checked.
+    # `blocking_owner_only` implies `blocking`, so both branches are true at once
+    # and only the order separates them. `first_match` stops at the first branch
+    # that is not false and keeps the declared order, so the owner branch has to
+    # stand first; under `exclusive` the same pair is an error rather than a
+    # choice, which is what once made `owner-decides` unreachable.
     for workflow_id, stage in (("aif:workflow/verify-once", "verify"), ("aif:workflow/review-once", "review")):
         choice = documents[workflow_id]["definition"]["stages"]["decide"]
-        assert choice["selection"] == "exclusive", choice
+        assert choice["selection"] == "first_match", choice
         branches = {branch["id"]: branch for branch in choice["branches"]}
-        assert set(branches) == {"owner", "blocking"}, sorted(branches)
+        assert [branch["id"] for branch in choice["branches"]] == ["owner", "blocking"], (workflow_id, choice["branches"])
 
         def constrains(predicate, pointer, value):
             for clause in predicate.get("args", [predicate]):
@@ -217,8 +218,7 @@ def check_classic(binary, authority, repository, root):
             return False
 
         assert constrains(branches["owner"]["predicate"], "/blocking_owner_only", True), branches["owner"]
-        assert constrains(branches["blocking"]["predicate"], "/blocking_owner_only", False), (
-            f"{workflow_id}: the blocking branch must exclude the owner case, or both branches are true at once")
+        assert constrains(branches["blocking"]["predicate"], "/blocking", True), branches["blocking"]
     for gate in ("aif:step/verify", "aif:step/review", "aif:step/security"):
         assert documents[gate]["outputs"]["gate"]["required_for"] == ["pass", "needs_revision"], gate
 
