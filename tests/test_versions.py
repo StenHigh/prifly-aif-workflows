@@ -55,6 +55,37 @@ class ReleasedVersionTest(unittest.TestCase):
                 continue  # Decision definitions are identified by their digest.
             self.assertNotEqual(before, after, f"{path} changed since {self.tag} while it still declares {before}")
 
+    def test_a_referencing_component_follows_the_one_it_names(self):
+        # A step is sealed with the bytes of what it references, so bumping a
+        # bridge and leaving the step alone makes the step's version name two
+        # different documents. Authorities on prifly-project-profile/2 key their
+        # inventory on exactly that version and refuse the second one.
+        moved = set()
+        for path in self.changed:
+            if not path.endswith(".yaml") or "/contexts/" not in path and "/schemas/" not in path:
+                continue
+            released, current = released_source(self.tag, path), (ROOT / path)
+            if released is None or not current.is_file():
+                continue
+            if declared_version(released) != declared_version(current.read_text()):
+                moved.add("{{%s_%s}}" % (Path(path).parent.name.rstrip("s"), Path(path).stem))
+        if not moved:
+            return
+        for package in PACKAGES:
+            for kind in ("steps", "workflows"):
+                for path in sorted((ROOT / package / kind).glob("*.yaml")):
+                    text = path.read_text()
+                    named = sorted(alias for alias in moved if alias in text)
+                    if not named:
+                        continue
+                    relative = str(path.relative_to(ROOT))
+                    released = released_source(self.tag, relative)
+                    if released is None:
+                        continue
+                    self.assertNotEqual(declared_version(released), declared_version(text),
+                                        f"{relative} references {named} whose version moved since {self.tag}, "
+                                        f"so its own version has to move too")
+
     def test_a_changed_package_declares_a_new_package_version(self):
         for package in PACKAGES:
             if not any(path.startswith(f"{package}/") and path.endswith(".yaml") for path in self.changed):
