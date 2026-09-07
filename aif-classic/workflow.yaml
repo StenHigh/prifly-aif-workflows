@@ -1,7 +1,7 @@
 authoring: prifly-project-workflow/1
 package:
   id: aif:package/classic
-  version: 1.19.0
+  version: 1.20.0
   description: Canonical AI Factory development workflow with bounded plan improvement.
   requires_core_protocol: "1"
   profiles:
@@ -20,7 +20,7 @@ package:
     workspace_tree_manifest: core:schema/workspace-tree-manifest@1.0.0
 id: aif:workflow/classic
 schema_version: "4"
-version: 1.19.0
+version: 1.20.0
 title: AI Factory classic development workflow
 refs:
   schema_task: "{{schema_task}}"
@@ -68,7 +68,7 @@ outputs:
   implementation: {schema_ref: schema_implementation, required_for: [succeeded]}
   plan: {schema_ref: schema_plan_manifest, required_for: [succeeded]}
   gate: {schema_ref: schema_gate-result, required_for: [partial]}
-limits: {max_step_instances: 64, max_control_transitions: 512, max_parallelism: 1, max_child_depth: 4}
+limits: {max_step_instances: 200, max_control_transitions: 1000, max_parallelism: 1, max_child_depth: 4}
 policy_ref: local_policy
 features:
   verify: {input: verify_enabled}

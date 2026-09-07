@@ -1,7 +1,7 @@
 authoring: prifly-workflow/1
 schema_version: "4"
 id: aif:workflow/verify-batch
-version: 1.1.0
+version: 1.2.0
 title: Verify and fix until nothing blocks or the declared limit is reached
 refs:
   schema_implementation: "{{schema_implementation}}"
@@ -20,7 +20,7 @@ inputs:
 outputs:
   implementation: {schema_ref: schema_implementation, required_for: [succeeded]}
   gate: {schema_ref: schema_gate-result, required_for: [partial]}
-limits: {max_step_instances: 16, max_control_transitions: 128, max_parallelism: 1, max_child_depth: 2}
+limits: {max_step_instances: 20, max_control_transitions: 160, max_parallelism: 1, max_child_depth: 2}
 policy_ref: local_policy
 entry: round
 stages:
@@ -31,7 +31,7 @@ stages:
     next_bindings: {implementation: $iteration.implementation, handoff: $inputs.handoff}
     continue_on: [partial]
     until: false
-    max_iterations: 3
+    max_iterations: 8
     limit_configuration: verify_round_limit
     on_complete: {succeeded: passed, rejected: standing, no_work: unstarted}
     on_limit: exhausted

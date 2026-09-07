@@ -25,6 +25,7 @@ PLAN_STEPS = ("aif:step/plan", "aif:step/improve", "aif:step/implement")
 THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1000
 # WorkflowRevision v4 closes the verdict set; a stage answers for all of it.
 STEP_VERDICTS = ("pass", "fail", "needs_revision", "no_work")
+ROUND_CEILING = 8
 CLASSIC_DECISIONS = {
     "plan_profile": "preflight",
     "plan_tests": "preflight",
@@ -162,6 +163,15 @@ def check_classic(binary, authority, repository, root):
     assert {name: entry["phase"] for name, entry in catalog.items()} == CLASSIC_DECISIONS, sorted(catalog)
     assert catalog["plan_profile"]["destination"]["kind"] == "package_profile", catalog["plan_profile"]
     assert catalog["roadmap_milestone"]["when"]["answers"] == {"roadmap_linkage": "link"}, catalog["roadmap_milestone"]
+    # Run 6 converged 28 → 24 → 9 findings and then ran out of rounds at three,
+    # a ceiling the project could not lift. Eight has to stay reachable, and the
+    # loops have to allow what the schema permits.
+    limit = json.loads((ROOT / "aif-classic" / "schemas" / "round-limit.yaml").read_text().split("maximum:")[1])
+    assert limit == ROUND_CEILING, limit
+    for workflow_id in ("aif:workflow/verify-batch", "aif:workflow/review-batch", "aif:workflow/improve-batch"):
+        repeat = next(stage for stage in documents[workflow_id]["definition"]["stages"].values() if stage["kind"] == "repeat")
+        assert repeat["max_iterations"] == ROUND_CEILING, (workflow_id, repeat["max_iterations"])
+
     # A verdict with no declared handler ends the whole Run. The gates are the
     # steps most likely to report one that is not `pass`, so every stage that
     # runs a gate routes `needs_revision` somewhere instead of dying on it.
