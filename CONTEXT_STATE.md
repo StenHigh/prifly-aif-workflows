@@ -583,9 +583,12 @@ aif:package/classic@1.27.1` → `package_component_not_found`, хотя паке
   достигается не количеством улучшений, а `improve-batch:
   {improve_round_limit: 1}` плюс один круг, где `improve` вернул
   `needs_revision`;
-- `fix` требует `blocking: true` **и** `blocking_owner_only: false`; их
-  `gate_warnings=stop` даёт как раз owner-маршрут, поэтому нужен либо
-  `gate_warnings: fix`, либо блокер, который починка закрывает за круг;
+- `fix` требует `blocking: true` **и** `blocking_owner_only: false`. Под
+  `gate_warnings=stop` шаг починки **исполняется** и возвращает находки
+  нетронутыми (так написано в мосте) — то есть маршрут покрывается, а поведение
+  нет; чинит починка только под `gate_warnings: fix`. Owner-маршрут не даёт ни
+  один из двух: `blocking_owner_only` ставится, только когда каждый оставшийся
+  блокер вне досягаемости любой починки;
 - `security` после находки уходит в `fix-after-security` — `outcome: partial`
   by design, автоматической починки за ним нет.
 
