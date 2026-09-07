@@ -1,7 +1,7 @@
 authoring: prifly-workflow/1
 schema_version: "4"
 id: aif:workflow/review-once
-version: 1.3.0
+version: 1.4.0
 title: Review the implementation once and fix what blocks it
 refs:
   schema_implementation: "{{schema_implementation}}"
@@ -33,7 +33,14 @@ stages:
         predicate: {op: eq, left: $stages.review.gate#/blocking_owner_only, right: true}
         next: owner-decides
       - id: blocking
-        predicate: {op: eq, left: $stages.review.gate#/blocking, right: true}
+        # `blocking_owner_only` implies `blocking`, so this branch has to exclude
+        # it in the graph: under `exclusive` two true branches are an error, not
+        # a first-match, and the owner branch above would never be reached.
+        predicate:
+          op: all
+          args:
+            - {op: eq, left: $stages.review.gate#/blocking, right: true}
+            - {op: eq, left: $stages.review.gate#/blocking_owner_only, right: false}
         next: fix
     default: clean
   fix:
