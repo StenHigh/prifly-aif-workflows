@@ -1,5 +1,5 @@
 id: aif:context/aif-verify-bridge
-version: 1.6.0
+version: 1.7.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-verify skill
@@ -19,6 +19,15 @@ text: |
   a warning is a decision and not a default: `blocking` is the only way this
   route can reach a repair, so a gate that never sets it turns the fix step off
   for good.
+
+  The pinned skill spends the same word on a different question: it ties
+  `blocking` to its own `status` and to whether a result should stop commit or
+  merge. Here `status` is reported and read by nothing — no route in this
+  workflow branches on it — while `blocking` is read, and what it decides is
+  only whether a fix round runs, which is a smaller and cheaper thing than
+  holding a merge. Where the two disagree this adapter governs, so a result
+  carrying `status: warnings` together with `blocking: true` is correct here
+  even though the skill would not write one.
 
   `decision_context.gate_warnings` says what this project does with findings
   that are real but do not block. It is answered before the Run starts, because

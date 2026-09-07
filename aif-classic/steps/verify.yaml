@@ -1,6 +1,6 @@
 authoring: prifly-step/2
 id: aif:step/verify
-version: 1.5.0
+version: 1.6.0
 title: Run read-only aif-verify over the implementation
 kind: worker
 inputs:
