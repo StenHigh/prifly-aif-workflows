@@ -26,7 +26,11 @@ THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1000
 # How many step files carry that compensation today. The debt is a quantity, and
 # a check that only visits each site cannot see it grow: an eleventh site would
 # pass every assertion below. Pinning the count makes growth something a person
-# has to write down rather than something that happens.
+# has to write down rather than something that happens. The number is a mark of
+# what is, never a target — the target is zero, reachable the day the engine
+# accepts a step with no deadline. Equality is deliberate: a drop has to move
+# this pin down too, or the first honest removal leaves the guard watching a
+# ceiling nobody is near.
 TIMEOUT_COMPENSATION_SITES = 13
 # WorkflowRevision v4 closes the verdict set; a stage answers for all of it.
 STEP_VERDICTS = ("pass", "fail", "needs_revision", "no_work")
