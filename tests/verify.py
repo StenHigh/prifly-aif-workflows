@@ -50,7 +50,13 @@ def run(binary, *arguments, expect_ok=True):
     result = subprocess.run([str(binary), "--json", *map(str, arguments)], capture_output=True, text=True, timeout=120)
     if expect_ok:
         assert result.returncode == 0, f"{arguments}: {result.stderr}"
-        return json.loads(result.stdout)
+        document = json.loads(result.stdout)
+        # A refused control command can still exit zero: the refusal is recorded
+        # in its receipt. Reading only the status made this fixture count one
+        # such refusal as a success for as long as it existed.
+        rejection = (document.get("receipt") or {}).get("rejection")
+        assert not rejection, f"{arguments}: refused in its receipt: {rejection}"
+        return document
     assert result.returncode != 0, f"{arguments} unexpectedly succeeded: {result.stdout}"
     # The whole stream, deliberately: a refusal ends stderr with the Problem
     # envelope, but a command that already wrote a pre-dispatch summary leaves it
