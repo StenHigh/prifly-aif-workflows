@@ -23,6 +23,11 @@ PROFILE_CAPTURES = {
 }
 PLAN_STEPS = ("aif:step/plan", "aif:step/improve", "aif:step/implement")
 THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1000
+# How many step files carry that compensation today. The debt is a quantity, and
+# a check that only visits each site cannot see it grow: an eleventh site would
+# pass every assertion below. Pinning the count makes growth something a person
+# has to write down rather than something that happens.
+TIMEOUT_COMPENSATION_SITES = 13
 # WorkflowRevision v4 closes the verdict set; a stage answers for all of it.
 STEP_VERDICTS = ("pass", "fail", "needs_revision", "no_work")
 ROUND_CEILING = 8
@@ -240,7 +245,8 @@ def check_classic(binary, authority, repository, root):
     # are both refused by the schema, and omitting the field defaults to one
     # hour. Asked the engine on 2026-09-08 for `null`, the way
     # `decision_wait_timeout_ms` already accepts it. When it lands, this number
-    # and the ten step files that carry it come out.
+    # and the thirteen step files that carry it come out; how many that is is
+    # pinned in TIMEOUT_COMPENSATION_SITES, because a debt nobody counts grows.
     for step in (item for name, item in documents.items() if name.startswith("aif:step/")):
         assert step["schema_version"] == "6" and step["session_limits"]["active_timeout_ms"] == THIRTY_DAYS_MS, step["id"]
         assert step["session_limits"]["decision_wait_timeout_ms"] is None, step["id"]
@@ -338,6 +344,10 @@ def main():
         check_fanout(binary, authority, repository, root)
         after = run(binary, "--project", authority, "package", "list")
         assert before == after, "compile must not import or trust a package"
+    sites = sorted(path.relative_to(ROOT).as_posix() for path in ROOT.glob("*/steps/*.yaml")
+                   if "active_timeout_ms" in path.read_text())
+    assert len(sites) == TIMEOUT_COMPENSATION_SITES, (
+        f"the thirty-day timeout now stands in {len(sites)} step files, not {TIMEOUT_COMPENSATION_SITES}: {sites}")
     version = run(binary, "version")
     print(json.dumps({"outcome": "passed", "prifly": version["version"], "packages": ["aif-classic", "aif-fanout"]}))
 
