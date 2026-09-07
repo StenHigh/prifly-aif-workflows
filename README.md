@@ -100,6 +100,15 @@ launches:
 
 `extend.yaml` каждой папки — единственный файл, который команда правит после
 установки; `prifly project workflows update` сохраняет его byte-for-byte.
+
+**Но `remove` его удаляет, и молча.** Измерено: `project workflows remove`
+сносит папку целиком вместе с вашим `extend.yaml`, а следующий `add` кладёт
+шаблон пакета. `add` поверх объявленной папки при этом отказывает
+(`project_workflow_exists`) — то есть сам по себе он ничего не затирает, потеря
+происходит на `remove`. Это важно для тех, кому `update` недоступен: он
+отказывает `project_workflow_modified`, если вы накладываете на папку свои
+файлы, и тогда единственный путь обновления — `remove` + `add`. **Сохраняйте
+`extend.yaml` до `remove`**, копию делают только те, кто знает.
 В `aif-classic` доступны `profile: fast|full|ultra` (reviewed default),
 `settings` для лимитов improve и `exclude: [improve, verify, security, review]`.
 
