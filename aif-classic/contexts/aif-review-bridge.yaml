@@ -1,5 +1,5 @@
 id: aif:context/aif-review-bridge
-version: 1.3.0
+version: 1.4.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-review skill
@@ -48,6 +48,14 @@ text: |
   findings in front of a person; getting it wrong the other way spends rounds
   that cannot succeed, which is what a real Run did — two rounds and forty
   minutes after the answer was already known.
+
+  Warnings you are reporting because `gate_warnings` said to are not out of
+  reach. `stop` means the developer means to read them, not that no fix step may
+  touch them: the fix step is given them and reports them back unchanged, which
+  is the whole of what `stop` does. A real Run set this field true on three such
+  warnings and ended there, unattended, with nobody to decide. When you do set it
+  true, name in the findings which blocker is out of reach and what puts it out
+  of reach; a `true` nobody can check is how a Run stops for no reason.
 
   `suggested_next` is reported, never obeyed. Say `/aif-fix` when the findings
   are work for the fix step and `continue` otherwise. The skill computes a wider
