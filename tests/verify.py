@@ -52,6 +52,10 @@ def run(binary, *arguments, expect_ok=True):
         assert result.returncode == 0, f"{arguments}: {result.stderr}"
         return json.loads(result.stdout)
     assert result.returncode != 0, f"{arguments} unexpectedly succeeded: {result.stdout}"
+    # The whole stream, deliberately: a refusal ends stderr with the Problem
+    # envelope, but a command that already wrote a pre-dispatch summary leaves it
+    # in front. Callers here match on the stable code; anything parsing this must
+    # take the last document, not the stream.
     return result.stderr
 
 
