@@ -235,7 +235,12 @@ def check_classic(binary, authority, repository, root):
 
     # Every step declares its own work allowance, which is what carries them to
     # StepDefinition v6; the hour a v5 step inherited is far under the Runs this
-    # route actually does.
+    # route actually does. Thirty days is a compensation, not a measurement:
+    # `active_timeout_ms` has no form that means "no deadline" — `null` and `0`
+    # are both refused by the schema, and omitting the field defaults to one
+    # hour. Asked the engine on 2026-09-08 for `null`, the way
+    # `decision_wait_timeout_ms` already accepts it. When it lands, this number
+    # and the ten step files that carry it come out.
     for step in (item for name, item in documents.items() if name.startswith("aif:step/")):
         assert step["schema_version"] == "6" and step["session_limits"]["active_timeout_ms"] == THIRTY_DAYS_MS, step["id"]
         assert step["session_limits"]["decision_wait_timeout_ms"] is None, step["id"]

@@ -11,8 +11,13 @@ exclude: []
 # names the route it replaces, so the tail of the graph cannot be silently
 # detached: `from` routes to your step and your step routes on to `to`. An
 # inserted step declares no inputs; a step that needs them belongs in a workflow
-# graph you write yourself. Worked reference: examples/authoring/
-# extension-authoring-reference.yaml in the Pri-Fly repository.
+# graph you write yourself. Read that literally before you write the step: an
+# insertion receives neither what `warmup` distilled nor the output of the stage
+# in front of it. So whatever your executor has to know stands in its own bridge,
+# and an artifact of an earlier step is something it goes and finds rather than
+# something bound to a name. A bridge that sends the executor elsewhere for the
+# truth inherits every ambiguity of elsewhere. Worked reference: examples/
+# authoring/extension-authoring-reference.yaml in the Pri-Fly repository.
 #
 # An insertion routes forward only. Naming an earlier stage — sending `fail`
 # back into the verify loop, say — is refused as `cycle at /definition/stages:
