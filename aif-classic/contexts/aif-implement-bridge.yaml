@@ -1,5 +1,5 @@
 id: aif:context/aif-implement-bridge
-version: 1.4.0
+version: 1.5.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-implement skill
@@ -21,6 +21,14 @@ text: |
   than a fault. What the line above forbids is invoking the separate
   `aif-commit` skill, which is a stage this workflow schedules itself — running
   it from here would commit outside the sequence Pri-Fly recorded.
+
+  The skill's checkbox rule is not yours. It lives in the branch for a manual
+  session linked to a Handoff task — `HANDOFF_MODE` not `1` and a task id set —
+  where the skill builds synthetic plan content, pushes it, and flips `- [ ]` to
+  `- [x]` in that text. Here the mode is `1` and the task id is empty, so that
+  branch never applies, and the skill's own prohibition holds instead: do not
+  search for or modify plan checkboxes on disk. The captured plan file is not
+  required to contain any.
 
   The `handoff` input is what the warmup step distilled about this project:
   how it is built, where work starts, which rules are not visible in the code,
