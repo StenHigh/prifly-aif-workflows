@@ -339,7 +339,12 @@ def main():
     # a deadline: a step that names a number instead of null is the debt coming
     # back, and it would otherwise pass every assertion above by never compiling
     # into this fixture's packages.
-    timed = sorted(path.relative_to(ROOT).as_posix() for path in ROOT.glob("*/steps/*.yaml")
+    steps = sorted(ROOT.glob("*/steps/*.yaml"))
+    # A guard that finds nothing to look at passes for the wrong reason. The
+    # pilot lost half a day to one of these: it read a directory that had been
+    # deleted and reported zero problems out of zero measurements.
+    assert steps, f"no step files under {ROOT}: this guard measured nothing"
+    timed = sorted(path.relative_to(ROOT).as_posix() for path in steps
                    if "active_timeout_ms" in path.read_text() and "active_timeout_ms: null" not in path.read_text())
     assert not timed, f"these steps declare a work deadline again: {timed}"
     version = run(binary, "version")
