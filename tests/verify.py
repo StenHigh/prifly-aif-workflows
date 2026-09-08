@@ -193,6 +193,11 @@ def check_classic(binary, authority, repository, root):
     for name, document in documents.items():
         if name.startswith("aif:workflow/"):
             assert document["schema_version"] == "4", (name, document["schema_version"])
+    # A guard on someone else's regression, not on this package: the compiler
+    # requires the full verdict set itself, so no edit here can make this fire
+    # first — a cutting pass confirmed it catches nothing the engine lets
+    # through. It is kept for the day the engine relaxes the requirement, and
+    # then its silence over all the months before is what it was written for.
     for workflow_id in ("aif:workflow/verify-once", "aif:workflow/review-once", "aif:workflow/classic"):
         for name, stage in documents[workflow_id]["definition"]["stages"].items():
             if stage["kind"] != "step":
