@@ -22,16 +22,7 @@ PROFILE_CAPTURES = {
     "ultra": {"kind": "direct_child_tree", "path": ".ai-factory/plans", "entrypoint": "index.md"},
 }
 PLAN_STEPS = ("aif:step/plan", "aif:step/improve", "aif:step/implement")
-THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1000
-# How many step files carry that compensation today. The debt is a quantity, and
-# a check that only visits each site cannot see it grow: an eleventh site would
-# pass every assertion below. Pinning the count makes growth something a person
-# has to write down rather than something that happens. The number is a mark of
-# what is, never a target — the target is zero, reachable the day the engine
-# accepts a step with no deadline. Equality is deliberate: a drop has to move
-# this pin down too, or the first honest removal leaves the guard watching a
-# ceiling nobody is near.
-TIMEOUT_COMPENSATION_SITES = 13
+
 # WorkflowRevision v4 closes the verdict set; a stage answers for all of it.
 STEP_VERDICTS = ("pass", "fail", "needs_revision", "no_work")
 ROUND_CEILING = 8
@@ -242,17 +233,13 @@ def check_classic(binary, authority, repository, root):
     improve = catalog["improve_apply"]
     assert not improve["automatic"] and improve["sensitivity"] == "scope-changing" and "recommendation" not in improve, improve
 
-    # Every step declares its own work allowance, which is what carries them to
-    # StepDefinition v6; the hour a v5 step inherited is far under the Runs this
-    # route actually does. Thirty days is a compensation, not a measurement:
-    # `active_timeout_ms` has no form that means "no deadline" — `null` and `0`
-    # are both refused by the schema, and omitting the field defaults to one
-    # hour. Asked the engine on 2026-09-08 for `null`, the way
-    # `decision_wait_timeout_ms` already accepts it. When it lands, this number
-    # and the thirteen step files that carry it come out; how many that is is
-    # pinned in TIMEOUT_COMPENSATION_SITES, because a debt nobody counts grows.
+    # No step here carries a work deadline. The hour a v5 step inherited is far
+    # under the Runs this route does, and thirty days used to stand in for a
+    # word the schema did not have; 0.12.8 gave it one, so the number is gone
+    # rather than raised. Declaring it is what puts a step on StepDefinition v7.
     for step in (item for name, item in documents.items() if name.startswith("aif:step/")):
-        assert step["schema_version"] == "6" and step["session_limits"]["active_timeout_ms"] == THIRTY_DAYS_MS, step["id"]
+        assert step["schema_version"] == "7", (step["id"], step["schema_version"])
+        assert step["session_limits"]["active_timeout_ms"] is None, step["id"]
         assert step["session_limits"]["decision_wait_timeout_ms"] is None, step["id"]
     for step_id in PLAN_STEPS:
         step = documents[step_id]
@@ -348,10 +335,13 @@ def main():
         check_fanout(binary, authority, repository, root)
         after = run(binary, "--project", authority, "package", "list")
         assert before == after, "compile must not import or trust a package"
-    sites = sorted(path.relative_to(ROOT).as_posix() for path in ROOT.glob("*/steps/*.yaml")
-                   if "active_timeout_ms" in path.read_text())
-    assert len(sites) == TIMEOUT_COMPENSATION_SITES, (
-        f"the thirty-day timeout now stands in {len(sites)} step files, not {TIMEOUT_COMPENSATION_SITES}: {sites}")
+    # The compensation is gone, so what is counted now is that nobody reintroduces
+    # a deadline: a step that names a number instead of null is the debt coming
+    # back, and it would otherwise pass every assertion above by never compiling
+    # into this fixture's packages.
+    timed = sorted(path.relative_to(ROOT).as_posix() for path in ROOT.glob("*/steps/*.yaml")
+                   if "active_timeout_ms" in path.read_text() and "active_timeout_ms: null" not in path.read_text())
+    assert not timed, f"these steps declare a work deadline again: {timed}"
     version = run(binary, "version")
     print(json.dumps({"outcome": "passed", "prifly": version["version"], "packages": ["aif-classic", "aif-fanout"]}))
 
