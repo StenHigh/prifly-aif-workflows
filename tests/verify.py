@@ -8,6 +8,7 @@ nothing is imported into an authority or started as a Run.
 import argparse
 import hashlib
 import json
+import platform
 from pathlib import Path
 import shutil
 import subprocess
@@ -360,6 +361,7 @@ def main():
         "outcome": "passed",
         "prifly": version["version"],
         "binary_sha256": "sha256:" + hashlib.sha256(binary.read_bytes()).hexdigest(),
+        "platform": f"{platform.system().lower()}/{platform.machine()}",
         "packages": ["aif-classic", "aif-fanout"],
         "components_read": components_read,
         "steps_read": len(sorted(ROOT.glob("*/steps/*.yaml"))),
