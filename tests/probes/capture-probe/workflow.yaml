@@ -1,0 +1,46 @@
+authoring: prifly-project-workflow/1
+package:
+  id: probe:package/capture
+  version: 1.0.0
+  description: Shapes no product package carries — two captures on one step, and a step whose only output is captured.
+  requires_core_protocol: "1"
+  profiles:
+    default: plain
+    values:
+      plain:
+        plan_capture: {kind: exact_file, path: probe/PLAN.md}
+  references:
+    assisted_adapter: core:adapter/assisted-session@1.0.0
+    local_policy: core:policy/local@3.0.0
+    step_result_schema: core:schema/step-result@1.0.0
+    workspace_tree_manifest: core:schema/workspace-tree-manifest@1.0.0
+id: probe:workflow/capture
+schema_version: "4"
+version: 1.0.0
+title: Capture shape probe
+refs:
+  schema_manifest: "{{workspace_tree_manifest}}"
+  step_only: "{{step_only-capture}}"
+  step_two: "{{step_two-captures}}"
+  local_policy: "{{local_policy}}"
+inputs: {}
+outputs:
+  plan: {schema_ref: schema_manifest, required_for: [succeeded]}
+  notes: {schema_ref: schema_manifest, required_for: [succeeded]}
+limits: {max_step_instances: 4, max_control_transitions: 16, max_parallelism: 1, max_child_depth: 1}
+policy_ref: local_policy
+entry: only
+stages:
+  only:
+    kind: step
+    step_ref: step_only
+    on: {pass: two, needs_revision: stopped, fail: stopped, no_work: stopped}
+  two:
+    kind: step
+    step_ref: step_two
+    on: {pass: done, needs_revision: stopped, fail: stopped, no_work: stopped}
+  done:
+    kind: finish
+    outcome: succeeded
+    output_bindings: {plan: $stages.two.plan, notes: $stages.two.notes}
+  stopped: {kind: finish, outcome: rejected}

@@ -1,0 +1,6 @@
+id: probe:context/brief
+version: 1.0.0
+media_type: text/markdown; charset=utf-8
+text: |
+  Produce the declared results at their capture paths. Nothing here is answered
+  by an AI host: this package exists so a fixture can look at the envelope.

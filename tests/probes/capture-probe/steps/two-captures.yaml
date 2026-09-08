@@ -1,0 +1,18 @@
+authoring: prifly-step/2
+id: probe:step/two-captures
+version: 1.0.0
+title: A step that captures two ports at once
+kind: worker
+outputs:
+  plan: {schema_ref: "{{workspace_tree_manifest}}", required_for: [pass]}
+  notes: {schema_ref: "{{workspace_tree_manifest}}", required_for: [pass]}
+executor: {adapter_ref: "{{assisted_adapter}}", operation: session}
+instructions_ref: "{{context_brief}}"
+effects: {class: workspace_write, retry_class: never}
+session_limits: {active_timeout_ms: null}
+result_schema_ref: "{{step_result_schema}}"
+workspace_trees:
+  - output_port: plan
+    capture: "{{plan_capture}}"
+  - output_port: notes
+    capture: {kind: direct_child_file, path: probe/notes}
