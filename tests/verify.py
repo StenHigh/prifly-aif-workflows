@@ -35,6 +35,7 @@ CLASSIC_DECISIONS = {
     "roadmap_milestone": "preflight",
     "plan_constraints": "preflight",
     "improve_apply": "runtime",
+    "gate_checks": "preflight",
     "gate_warnings": "preflight",
 }
 # `fast` keeps the whole plan in one file, so how logging and documentation are

@@ -1,5 +1,5 @@
 id: aif:context/aif-verify-bridge
-version: 1.8.0
+version: 1.9.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-verify skill
@@ -30,6 +30,16 @@ text: |
   or `stop` it is required — even where the supporting skill's own rule would
   never produce such a result, which is a difference to follow rather than a
   contradiction to repair.
+
+  `decision_context.gate_checks` names the checks this project expects of this
+  gate, one per line and in the project's own words. When it is not empty it is
+  the whole composition: run those, and treat a document in the tree that lists
+  a different set as out of date rather than as a second opinion. A gate whose
+  composition lives only in project prose grows with the prose — a real Run took
+  22 minutes against a usual 7 because a section still described a script that
+  had been deleted, and nobody had lied: the document was simply older than the
+  tree. When the value is empty, this project has declared no composition and
+  the pinned skill's own procedure stands.
 
   `decision_context.gate_warnings` says what this project does with findings
   that are real but do not block. It is answered before the Run starts, because
