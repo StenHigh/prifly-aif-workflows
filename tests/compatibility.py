@@ -12,6 +12,7 @@ handoff needs a real host and is not claimed by this check.
 """
 
 import argparse
+import hashlib
 import json
 from pathlib import Path
 import tempfile
@@ -183,6 +184,7 @@ def main():
     print(json.dumps({
         "outcome": "passed",
         "prifly": version["version"],
+        "binary_sha256": "sha256:" + hashlib.sha256(binary.read_bytes()).hexdigest(),
         "launches": len(SEQUENCE),
         "distinct_builds": len(set(builds.values())),
         "trusted_packages": len(imported),

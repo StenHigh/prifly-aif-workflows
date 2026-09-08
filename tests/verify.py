@@ -6,6 +6,7 @@ nothing is imported into an authority or started as a Run.
 """
 
 import argparse
+import hashlib
 import json
 from pathlib import Path
 import shutil
@@ -312,6 +313,7 @@ def check_classic(binary, authority, repository, root):
     extend_path.write_text(reviewed_extend)
     for host in HOSTS:
         compile_package(binary, authority, repository, "aif-classic", root / f"classic-{host}", host=host)
+    return len(documents)
 
 
 def check_fanout(binary, authority, repository, root):
@@ -319,6 +321,7 @@ def check_fanout(binary, authority, repository, root):
     assert result["package"]["id"] == "aif:package/fanout", result["package"]
     improve_pass = json.dumps(documents["aif:workflow/improve-pass"], separators=(",", ":"))
     assert '"kind":"parallel"' in improve_pass and "opus" not in improve_pass and "sonnet" not in improve_pass
+    return len(documents)
 
 
 def main():
@@ -332,8 +335,8 @@ def main():
         root = Path(temporary)
         repository, authority = prepare_repository(binary, root)
         before = run(binary, "--project", authority, "package", "list")
-        check_classic(binary, authority, repository, root)
-        check_fanout(binary, authority, repository, root)
+        components_read = check_classic(binary, authority, repository, root)
+        components_read += check_fanout(binary, authority, repository, root)
         after = run(binary, "--project", authority, "package", "list")
         assert before == after, "compile must not import or trust a package"
     # The compensation is gone, so what is counted now is that nobody reintroduces
@@ -349,7 +352,18 @@ def main():
                    if "active_timeout_ms" in path.read_text() and "active_timeout_ms: null" not in path.read_text())
     assert not timed, f"these steps declare a work deadline again: {timed}"
     version = run(binary, "version")
-    print(json.dumps({"outcome": "passed", "prifly": version["version"], "packages": ["aif-classic", "aif-fanout"]}))
+    # A report that names only the version cannot tell two assets of one tag
+    # apart, nor a rebuilt one from the original; the digest pins the file that
+    # actually ran. The counts say how much was read, so a later run that reads
+    # less is visible without anyone cutting anything out.
+    print(json.dumps({
+        "outcome": "passed",
+        "prifly": version["version"],
+        "binary_sha256": "sha256:" + hashlib.sha256(binary.read_bytes()).hexdigest(),
+        "packages": ["aif-classic", "aif-fanout"],
+        "components_read": components_read,
+        "steps_read": len(sorted(ROOT.glob("*/steps/*.yaml"))),
+    }))
 
 
 if __name__ == "__main__":
