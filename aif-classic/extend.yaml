@@ -22,9 +22,19 @@ exclude: []
 # An insertion routes forward only. Naming an earlier stage — sending `fail`
 # back into the verify loop, say — is refused as `cycle at /definition/stages:
 # stage graph contains a cycle; repeats require an explicit supported operator`,
-# because a loop is a `repeat` node and an insertion cannot declare one. If a
-# step of yours needs a repair round, it belongs before the gates, not after
-# them: put it where a gate already loops rather than trying to loop yourself.
+# because a loop is a `repeat` node and an insertion cannot declare one. Nor can
+# you insert into the loop itself: only this package's root workflow can be
+# named, and `workflow: verify-once` is refused as
+# `project_extension_unknown_workflow: verify-once (known: classic)`.
+#
+# So a step of yours that needs a repair round goes in front of the gates, and
+# sends its unhappy verdicts onward to them rather than to a finish. Measured:
+# `between: {from: implement, to: choose-verify}` with
+# `on: {pass: choose-verify, fail: choose-verify, ...}` compiles. A failure then
+# reaches a gate that does loop, the gate reports it as a blocker — a check that
+# fails is one by this package's own definition — and the fix round repairs it.
+# Ending your own step at `abandoned` instead spends the whole Run on the first
+# red result.
 #
 # A stage answers for every verdict its step can return, this one included:
 # the packages are on WorkflowRevision v4, and an insertion that names only
