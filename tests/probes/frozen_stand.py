@@ -98,6 +98,25 @@ def rendered(text, paths=frozenset()):
         return text.splitlines()
 
 
+def fingerprint(binary, authority, run_id):
+    """What must not move: the Run, not the authority.
+
+    The authority records a receipt even for a refusal, so its cut advances by
+    design; a guard on the store would cry every run and be switched off within
+    a week. The subject of "nothing changed" is the Run.
+    """
+    state = json.loads(read(binary, authority, run_id, ("run", "status", "{run}")))
+    run = state["run"]
+    return {
+        "run_version": state["run_version"],
+        "status": run["status"],
+        "outcome": run.get("outcome"),
+        "attempts": len(run.get("attempts") or {}),
+        "stops": len(run.get("stops") or []),
+        "control_epoch": run["control_epoch"],
+    }
+
+
 def compare(binaries, at):
     stand = json.loads((at / "stand.json").read_text())
     authority, run_id = Path(stand["authority"]), stand["run"]
@@ -119,6 +138,7 @@ def compare(binaries, at):
     # Say so before the results rather than after.
     assert versions[0] != versions[1], (
         f"both binaries report {versions[0]}: this compares a binary with itself and can only say 'same'")
+    before_run = fingerprint(old, authority, run_id)
     for label, arguments in READS:
         # Read the old binary twice first: whatever moves between those two
         # reads is a clock or an id, and comparing it across versions would
@@ -141,6 +161,15 @@ def compare(binaries, at):
         for line in difflib.unified_diff(before, after, "old", "new", lineterm="", n=0):
             if line.startswith(("+", "-")) and not line.startswith(("+++", "---")):
                 print("     ", line[:200])
+
+
+    # Read-only is a claim until it is measured: the engine session found four
+    # of their eight probes could have written to the stand had a release moved
+    # a check. Ours refuse on paths that cannot succeed — this says so after the
+    # fact instead of trusting the choice.
+    after_run = fingerprint(old, authority, run_id)
+    assert after_run == before_run, f"the stand moved while being read: {before_run} → {after_run}"
+    print(f"  stand unchanged: {json.dumps(after_run)}")
 
 
 def main():
