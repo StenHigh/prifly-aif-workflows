@@ -37,6 +37,34 @@ under noise nobody hand-listed. And it reads `version` first, where two
 different binaries must differ: a report whose every line says "same", including
 that one, is comparing a binary with itself and is not evidence.
 
+## What the frozen stand does not reach
+
+One stand holds one shape, and a report of "nothing changed" is only as wide as
+that shape. Written down so the silence is not read as more than it is.
+
+The Run in it: `aif-classic`, default profile, host `codex-cli`, workspace
+`worktree`, driven to the first assisted handoff and then cancelled — so the
+attempt is **assisted and settled, with no observed process start**. That is
+why 0.13.4's `dispatch_latency` change showed here at all.
+
+Not reached by it, and therefore not covered by any comparison it reports:
+
+- every step after `warmup` — nothing answers a handoff here, so no gate result,
+  no plan capture, no fix round, no commit;
+- a Run that finishes: outcomes `succeeded`, `partial` and their output
+  bindings are never read;
+- the profiles `full` and `ultra`, and the hosts `codex-app` and `claude-code`;
+- an attempt whose process start *is* observed — the engine session's stand
+  covers that branch, and the two together showed 0.13.4 changed the assisted
+  case and left the local one alone;
+- runtime decisions, waivers, parallel stages (`aif-fanout`), more than one
+  package edition in the authority, and anything reached only under a capacity
+  or claim conflict.
+
+A change to any of those can pass this comparison in silence. When one of them
+starts mattering, the answer is another stand with its own list, not a wider
+claim about this one.
+
 They live here rather than in a scratch directory because a scratch directory is
 cleared between sessions, and these were once rewritten from nothing for that
 reason.
