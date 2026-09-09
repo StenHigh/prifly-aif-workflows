@@ -186,6 +186,7 @@ def compare(binaries, at):
     assert not state.get("code"), (
         f"the stand no longer holds {run_id} ({state.get('code')}): rebuild it before comparing")
     before_run = fingerprint(old, authority, run_id, live)
+    compared = differed = 0
     for label, arguments in READS + (LIVE_READS if live else ()):
         arguments = arguments or tuple(stand["start_again"])
         # Read the old binary twice first: whatever moves between those two
@@ -209,6 +210,7 @@ def compare(binaries, at):
             assert seen == expected, f"{label} reaches {seen}, not {expected}: it is comparing the wrong refusal"
         before = rendered(reads[old][1], paths)
         after = rendered(reads[new][1], paths)
+        compared += 1
         if before == after:
             print(f"  same      {label}   ({len(paths)} field(s) vary between reads)")
             continue
@@ -229,6 +231,7 @@ def compare(binaries, at):
         if before == after:
             print(f"  same      {label}   (a first reading differed and did not repeat; {len(paths)} field(s) vary)")
             continue
+        differed += 1
         print(f"  DIFFERS   {label}")
         for line in difflib.unified_diff(before, after, "old", "new", lineterm="", n=0):
             if line.startswith(("+", "-")) and not line.startswith(("+++", "---")):
@@ -239,6 +242,9 @@ def compare(binaries, at):
     # of their eight probes could have written to the stand had a release moved
     # a check. Ours refuse on paths that cannot succeed — this says so after the
     # fact instead of trusting the choice.
+    # The denominator beside the result: "nothing differed" and "nothing was
+    # read" look the same in a report that only prints differences.
+    print(f"  {differed} of {compared} reads differed")
     after_run = fingerprint(old, authority, run_id, live)
     assert after_run == before_run, f"the stand moved while being read: {before_run} → {after_run}"
     print(f"  stand unchanged: {json.dumps(after_run)}")
