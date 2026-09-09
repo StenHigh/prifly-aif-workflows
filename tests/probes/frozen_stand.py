@@ -28,6 +28,13 @@ READS = (
     ("run timing", ("run", "timing", "{run}")),
     ("run events", ("run", "events", "{run}")),
     ("package list", ("package", "list")),
+    # Refusals are what the last several releases actually changed, and nothing
+    # here compared them: every read above succeeds. These three refuse for a
+    # different reason each, and all three only read — a command that could
+    # succeed would mutate the stand it is meant to keep frozen.
+    ("refusal: unknown run", ("run", "status", "run:0000000000000000000000000000000000000000000000000000000000000000")),
+    ("refusal: unknown component", ("package", "inspect", "--component", "aif:step/nothing-here")),
+    ("refusal: unknown package version", ("package", "inspect", "--component", "aif:step/warmup", "--package", "aif:package/classic@9.9.9")),
 )
 
 
