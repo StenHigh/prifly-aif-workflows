@@ -204,6 +204,23 @@ def compare(binaries, at):
         if before == after:
             print(f"  same      {label}   ({len(paths)} field(s) vary between reads)")
             continue
+        # A field that varies only sometimes escapes a mask sampled twice, and
+        # the escape looks exactly like a real difference. Ask again before
+        # reporting: noise rarely repeats, a change always does. Measured on the
+        # live stand, where the varying-field count itself moves between runs
+        # (44, 56, 44) and one comparison reported a difference three others
+        # did not.
+        again = {binary: [read(binary, authority, run_id, arguments, repository) for _ in range(2)]
+                 for binary in (old, new)}
+        for pair in again.values():
+            try:
+                paths |= volatile_paths(json.loads(pair[0]), json.loads(pair[1]))
+            except Exception:
+                pass
+        before, after = rendered(again[old][1], paths), rendered(again[new][1], paths)
+        if before == after:
+            print(f"  same      {label}   (a first reading differed and did not repeat; {len(paths)} field(s) vary)")
+            continue
         print(f"  DIFFERS   {label}")
         for line in difflib.unified_diff(before, after, "old", "new", lineterm="", n=0):
             if line.startswith(("+", "-")) and not line.startswith(("+++", "---")):
