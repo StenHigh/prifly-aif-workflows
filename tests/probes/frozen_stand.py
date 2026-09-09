@@ -177,6 +177,14 @@ def compare(binaries, at):
     # Say so before the results rather than after.
     assert versions[0] != versions[1], (
         f"both binaries report {versions[0]}: this compares a binary with itself and can only say 'same'")
+    # The fingerprint proves the reads did not damage the stand. It does not
+    # prove the stand is still the stand: the engine session lost the Run of
+    # theirs between sessions, every probe answered `not_found` under both
+    # binaries, and eleven lines read as "same". Ask first whether the Run is
+    # still there, and refuse rather than compare an empty authority.
+    state = json.loads(read(old, authority, run_id, ("run", "status", "{run}")))
+    assert not state.get("code"), (
+        f"the stand no longer holds {run_id} ({state.get('code')}): rebuild it before comparing")
     before_run = fingerprint(old, authority, run_id, live)
     for label, arguments in READS + (LIVE_READS if live else ()):
         arguments = arguments or tuple(stand["start_again"])
