@@ -37,6 +37,14 @@ under noise nobody hand-listed. And it reads `version` first, where two
 different binaries must differ: a report whose every line says "same", including
 that one, is comparing a binary with itself and is not evidence.
 
+The stand also has a `--live` mode: the same Run, left open at the handoff
+instead of cancelled, so its attempt holds the admission slot. It compares the
+same reads on a different shape, and it costs accuracy — a live Run puts far
+more into the output from clocks, so far more is masked: 6 and 3 fields vary
+between reads on the settled stand against 56 and 42 on the live one. A live
+`same` therefore covers less than a settled one. It is another instrument, not
+a better one.
+
 ## What the frozen stand does not reach
 
 One stand holds one shape, and a report of "nothing changed" is only as wide as
@@ -58,8 +66,14 @@ Not reached by it, and therefore not covered by any comparison it reports:
   covers that branch, and the two together showed 0.13.4 changed the assisted
   case and left the local one alone;
 - runtime decisions, waivers, parallel stages (`aif-fanout`), more than one
-  package edition in the authority, and anything reached only under a capacity
-  or claim conflict.
+  package edition in the authority;
+- `capacity_conflict` and `active_stop`. Both were tried and both are out of
+  reach of anything that must leave the stand alone: a second `project start`
+  does reach `capacity_conflict`, but the refusal creates and queues the Run —
+  `capacity show` listed one more `waiting` entry after each attempt, measured
+  10 → 11 — so the probe grows the stand it is meant to freeze. The fingerprint
+  is what caught it. They stay uncompared until there is a read-only way to ask
+  whether a start would be admitted.
 
 A change to any of those can pass this comparison in silence. When one of them
 starts mattering, the answer is another stand with its own list, not a wider

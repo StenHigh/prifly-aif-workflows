@@ -36,9 +36,22 @@ READS = (
     ("refusal: unknown component", ("package", "inspect", "--component", "aif:step/nothing-here")),
     ("refusal: unknown package version", ("package", "inspect", "--component", "aif:step/warmup", "--package", "aif:package/classic@9.9.9")),
 )
+# Only a live stand can hold the admission slot, and only an assisted step
+# leaves an attempt open without a driver holding the lock — which is why this
+# probe lives here and not in the engine's own stands. It could succeed if the
+# slot were free, so the fingerprint below is what makes it admissible.
+# There is no capacity probe here, and the reason is worth keeping. A second
+# `project start` on a full authority does reach `capacity_conflict` — but the
+# refusal is not a no-op: the Run is created and queued, and `capacity show`
+# lists one more entry under `waiting` every time. Measured: 10 waiting before,
+# 11 after, the new id named. So the probe grows the stand it is supposed to
+# freeze, and the fingerprint below is what caught it. `capacity_conflict` and
+# `active_stop` stay outside what a frozen stand can compare until the engine
+# offers a read-only way to ask whether a start would be admitted.
+LIVE_READS = ()
 
 
-def build(binary, at):
+def build(binary, at, live=False):
     shutil.rmtree(at, ignore_errors=True)
     at.mkdir(parents=True)
     repository, authority = verify.prepare_repository(binary, at)
@@ -51,17 +64,26 @@ def build(binary, at):
     verify.run(binary, "--project", authority, "package", "import", "--dir", output, "--reason", "frozen stand")
     started = compatibility.start_launch(binary, authority, repository, task, "codex-cli", None)
     run_id = started["run"]["run"]["id"]
-    compatibility.stop_at_handoff(binary, authority, run_id, started["workspace"])
+    if not live:
+        compatibility.stop_at_handoff(binary, authority, run_id, started["workspace"])
+    answers, digest = compatibility.launch_answers(binary, authority, repository, None)
+    start_again = ["project", "start", "--repository", str(repository), "--launch", "aif-classic",
+                   "--host", "codex-cli", "--workspace", "worktree", "--input", f"task={task}",
+                   "--expected-decision-catalog-digest", digest, *[str(part) for part in answers]]
     (at / "stand.json").write_text(json.dumps({
+        "start_again": start_again,
         "run": run_id,
+        "mode": "live" if live else "settled",
+        "repository": str(repository),
         "built_with": verify.run(binary, "version")["version"],
         "authority": str(authority),
     }, indent=2))
     print(json.dumps({"outcome": "built", "at": str(at), "run": run_id}))
 
 
-def read(binary, authority, run_id, arguments):
-    call = [str(binary), "--json", "--project", str(authority), *(part.format(run=run_id) for part in arguments)]
+def read(binary, authority, run_id, arguments, repository=""):
+    call = [str(binary), "--json", "--project", str(authority),
+            *(part.format(run=run_id, repository=repository) for part in arguments)]
     done = subprocess.run(call, capture_output=True, text=True, timeout=120)
     return (done.stdout or done.stderr).strip()
 
@@ -98,7 +120,7 @@ def rendered(text, paths=frozenset()):
         return text.splitlines()
 
 
-def fingerprint(binary, authority, run_id):
+def fingerprint(binary, authority, run_id, live=False):
     """What must not move: the Run, not the authority.
 
     The authority records a receipt even for a refusal, so its cut advances by
@@ -114,12 +136,17 @@ def fingerprint(binary, authority, run_id):
         "attempts": len(run.get("attempts") or {}),
         "stops": len(run.get("stops") or []),
         "control_epoch": run["control_epoch"],
+        # A probe that could start a second Run would show up here before it
+        # showed up anywhere else: the slot is held by whoever was admitted.
+        "capacity": json.loads(read(binary, authority, run_id, ("capacity", "show"))) if live else None,
     }
 
 
 def compare(binaries, at):
     stand = json.loads((at / "stand.json").read_text())
     authority, run_id = Path(stand["authority"]), stand["run"]
+    live = stand.get("mode") == "live"
+    repository = stand.get("repository", "")
     old, new = binaries
     versions = [json.loads(read(binary, authority, run_id, ("version",)))["version"] for binary in (old, new)]
     # A stand written by a newer binary can carry state neither of these two
@@ -138,12 +165,13 @@ def compare(binaries, at):
     # Say so before the results rather than after.
     assert versions[0] != versions[1], (
         f"both binaries report {versions[0]}: this compares a binary with itself and can only say 'same'")
-    before_run = fingerprint(old, authority, run_id)
-    for label, arguments in READS:
+    before_run = fingerprint(old, authority, run_id, live)
+    for label, arguments in READS + (LIVE_READS if live else ()):
+        arguments = arguments or tuple(stand["start_again"])
         # Read the old binary twice first: whatever moves between those two
         # reads is a clock or an id, and comparing it across versions would
         # bury the change under noise. Nothing is masked by hand.
-        reads = {binary: [read(binary, authority, run_id, arguments) for _ in range(2)]
+        reads = {binary: [read(binary, authority, run_id, arguments, repository) for _ in range(2)]
                  for binary in (old, new)}
         paths = set()
         for pair in reads.values():
@@ -167,7 +195,7 @@ def compare(binaries, at):
     # of their eight probes could have written to the stand had a release moved
     # a check. Ours refuse on paths that cannot succeed — this says so after the
     # fact instead of trusting the choice.
-    after_run = fingerprint(old, authority, run_id)
+    after_run = fingerprint(old, authority, run_id, live)
     assert after_run == before_run, f"the stand moved while being read: {before_run} → {after_run}"
     print(f"  stand unchanged: {json.dumps(after_run)}")
 
@@ -177,10 +205,11 @@ def main():
     parser.add_argument("mode", choices=("build", "compare"))
     parser.add_argument("--binary", required=True, action="append", type=Path)
     parser.add_argument("--at", default=DEFAULT, type=Path)
+    parser.add_argument("--live", action="store_true", help="leave the Run open, holding its admission slot")
     arguments = parser.parse_args()
     binaries = [binary.resolve(strict=True) for binary in arguments.binary]
     if arguments.mode == "build":
-        build(binaries[0], arguments.at.resolve())
+        build(binaries[0], arguments.at.resolve(), arguments.live)
     else:
         assert len(binaries) == 2, "compare needs --binary twice: the old one and the candidate"
         compare(binaries, arguments.at.resolve())
