@@ -96,6 +96,15 @@ def compare(binaries, at):
     authority, run_id = Path(stand["authority"]), stand["run"]
     old, new = binaries
     versions = [json.loads(read(binary, authority, run_id, ("version",)))["version"] for binary in (old, new)]
+    # A stand written by a newer binary can carry state neither of these two
+    # knows how to read, and the difference would then be about the stand
+    # rather than about the release. Rebuild it instead of reasoning about it.
+    def ordered(text):
+        return tuple(int(part) for part in text.split("-")[0].split(".") if part.isdigit())
+    built = ordered(stand["built_with"])
+    assert all(built <= ordered(version) for version in versions), (
+        f"the stand was built with {stand['built_with']}, newer than {min(versions, key=ordered)}: "
+        "rebuild it with the oldest binary you mean to compare")
     print(f"stand built with {stand['built_with']}, run {run_id}")
     print(f"  reading it with {versions[0]} and {versions[1]}")
     # The comparison cannot show a difference between two copies of one binary,
