@@ -49,6 +49,18 @@ READS = (
 # `active_stop` stay outside what a frozen stand can compare until the engine
 # offers a read-only way to ask whether a start would be admitted.
 LIVE_READS = ()
+# What each refusal probe is aimed at. A probe that reaches a different refusal
+# compares that one instead, under the name of the one it claims — and says
+# "same" for as long as the wrong refusal stays put. Building the capacity probe
+# cost three attempts for exactly this reason: it reached the questionnaire, then
+# the missing input, and only then the admission boundary. Checked against the
+# old binary, so a code that moves in the candidate still shows up as a
+# difference rather than an error.
+EXPECTED_REFUSALS = {
+    "refusal: unknown run": "not_found",
+    "refusal: unknown component": "package_component_not_found",
+    "refusal: unknown package version": "package_not_installed",
+}
 
 
 def build(binary, at, live=False):
@@ -180,6 +192,13 @@ def compare(binaries, at):
             except Exception:
                 pass
         paths = frozenset(paths)
+        expected = EXPECTED_REFUSALS.get(label)
+        if expected:
+            try:
+                seen = json.loads(reads[old][1]).get("code")
+            except Exception:
+                seen = None
+            assert seen == expected, f"{label} reaches {seen}, not {expected}: it is comparing the wrong refusal"
         before = rendered(reads[old][1], paths)
         after = rendered(reads[new][1], paths)
         if before == after:
