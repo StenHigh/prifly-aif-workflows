@@ -48,7 +48,12 @@ READS = (
 # freeze, and the fingerprint below is what caught it. `capacity_conflict` and
 # `active_stop` stay outside what a frozen stand can compare until the engine
 # offers a read-only way to ask whether a start would be admitted.
-LIVE_READS = ()
+# 0.13.10 made the admission boundary readable: `capacity show` reports
+# `available` and `would_refuse` without a start, so the refusal a full
+# authority would give is finally comparable between releases. It needs nothing
+# — no launch, no host, no repository — and the fingerprint below proves it
+# leaves the queue alone, which the old probe did not.
+LIVE_READS = (("capacity, slot held", ("capacity", "show")),)
 # What each refusal probe is aimed at. A probe that reaches a different refusal
 # compares that one instead, under the name of the one it claims — and says
 # "same" for as long as the wrong refusal stays put. Building the capacity probe
