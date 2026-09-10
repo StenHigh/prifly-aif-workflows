@@ -79,6 +79,24 @@ A change to any of those can pass this comparison in silence. When one of them
 starts mattering, the answer is another stand with its own list, not a wider
 claim about this one.
 
+### Not reached by any stand, ours or the engine's
+
+Four stands exist: these two, and the engine session's settled and paused ones
+on their own deterministic fixture. What none of the four reads is worth
+keeping in one place, because a release touching only these areas is verified
+by its author alone:
+
+- the run monitor and its maintenance requests — 0.13.9 fixed a refused
+  request blanking a source's Run list (188 of 200 listings showed 0 of 6 Runs)
+  and no stand could have seen it;
+- `capacity_conflict` and `active_stop`, for the reasons above;
+- anything a Run reaches only after an assisted step is answered.
+
+Two releases in a row landed a change nobody's stand could see, which is why
+this list is kept rather than remembered. A stand's silence about what it does
+not read is not evidence: "one of nine reads differed" is a complete statement
+about those nine, and says nothing about the rest of a release.
+
 They live here rather than in a scratch directory because a scratch directory is
 cleared between sessions, and these were once rewritten from nothing for that
 reason.
