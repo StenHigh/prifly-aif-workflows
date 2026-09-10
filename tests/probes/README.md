@@ -88,9 +88,16 @@ by its author alone:
 
 - the run monitor and its maintenance requests — 0.13.9 fixed a refused
   request blanking a source's Run list (188 of 200 listings showed 0 of 6 Runs)
-  and no stand could have seen it;
-- `capacity_conflict` and `active_stop`, for the reasons above;
+  and no stand could have seen it; the engine session watches that side;
+- `active_stop`, which only a mutating command reaches;
 - anything a Run reaches only after an assisted step is answered.
+
+`capacity_conflict` left this list in 0.13.10. It sat here for four releases
+because reaching it meant starting a Run, and the refusal created and queued
+one; `capacity show` now reports `available` and `would_refuse` without a
+launch, so the live stand compares that refusal and the fingerprint shows the
+queue untouched. That is the shape of a way out of this list: not a cleverer
+probe, but a read-only way to ask the question.
 
 Two releases in a row landed a change nobody's stand could see, which is why
 this list is kept rather than remembered. A stand's silence about what it does
