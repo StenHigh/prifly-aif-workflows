@@ -18,7 +18,7 @@ import platform
 from pathlib import Path
 import tempfile
 
-from verify import HOSTS, git, prepare_repository, run
+from verify import HOSTS, forget_authority, git, prepare_repository, run
 
 # A project owner's own extend.yaml: a setting the package did not default to,
 # a declared feature switched off, and a step inserted into one exact route.
@@ -105,32 +105,6 @@ def compile_and_import(binary, authority, repository, output, host, package_prof
     check_customisation(documents)
     run(binary, "--project", authority, "package", "import", "--dir", output, "--reason", f"compatibility sequence {host}")
     return result
-
-
-REGISTRY = Path.home() / ".prifly" / "monitor" / "sources"
-
-
-def forget_authority(authority):
-    """Drop the monitor's registry entry for an authority this run created.
-
-    Every `run start` registers its authority for the user's monitor, and a
-    fixture that builds its authority in a temporary directory leaves that
-    entry pointing at nothing once the directory is gone. The owner's rule is
-    that a test Run is cleaned up by whoever started it, and the registry is
-    part of what a Run leaves behind.
-    """
-    if not REGISTRY.is_dir():
-        return 0
-    # The engine records the real path; a temporary directory on macOS is
-    # handed out as /var/... and lives at /private/var/... — comparing the
-    # unresolved string removed nothing and reported zero, which read as clean.
-    wanted = Path(authority).resolve()
-    removed = 0
-    for entry in REGISTRY.iterdir():
-        if entry.is_file() and Path(entry.read_text().strip()).resolve() == wanted:
-            entry.unlink()
-            removed += 1
-    return removed
 
 
 def start_launch(binary, authority, repository, task, host, package_profile):

@@ -29,8 +29,8 @@ exclude: []
 #
 # So a step of yours that needs a repair round goes in front of the gates, and
 # sends its unhappy verdicts onward to them rather than to a finish. Measured:
-# `between: {from: implement, to: choose-verify}` with
-# `on: {pass: choose-verify, fail: choose-verify, ...}` compiles. A failure then
+# `between: {from: implement, to: verify}` with
+# `on: {pass: verify, fail: verify, ...}` compiles. A failure then
 # reaches a gate that does loop, the gate reports it as a blocker — a check that
 # fails is one by this package's own definition — and the fix round repairs it.
 # Ending your own step at `abandoned` instead spends the whole Run on the first

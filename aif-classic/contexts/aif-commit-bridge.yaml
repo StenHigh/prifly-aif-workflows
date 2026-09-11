@@ -1,5 +1,5 @@
 id: aif:context/aif-commit-bridge
-version: 1.3.0
+version: 1.4.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-commit skill
@@ -25,11 +25,14 @@ text: |
   4. If uncommitted changes remain, run the skill on them.
   5. Either way, the implementation you report is read from the tree, never
      copied from the input: `base_commit` is the input's, `head_commit` is
-     `git rev-parse HEAD`, `changed_files` is `git diff --name-only
-     <base_commit>..HEAD`. The input names the head some earlier step saw; fix
-     rounds commit after that, and this artifact is the Run's final word on
-     what was built. A real Run passed the input through and reported a head
-     two commits behind its own tree.
+     `git rev-parse HEAD`, `changed_files` is
+     `git -c core.quotepath=off diff --name-only <base_commit>..HEAD`. The
+     input names the head some earlier step saw; fix rounds commit after that,
+     and this artifact is the Run's final word on what was built. A real Run
+     passed the input through and reported a head two commits behind its own
+     tree. The `-c core.quotepath=off` is not optional: git's default quotes
+     and octal-escapes any non-ASCII path, so such a file would enter the
+     artifact as `"\320\262..."` — a string no later reader can open.
 
   Native upstream dialogs — grouping an active Commit Plan, confirming or
   editing a generated commit message, splitting unrelated staged changes, or

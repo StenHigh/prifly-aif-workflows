@@ -270,7 +270,7 @@ def main():
         # it — the directory and the monitor registry entry its start left.
         at = arguments.at.resolve()
         stand = json.loads((at / "stand.json").read_text())
-        forgotten = compatibility.forget_authority(stand["authority"])
+        forgotten = verify.forget_authority(stand["authority"])
         shutil.rmtree(at)
         print(json.dumps({"outcome": "destroyed", "at": str(at), "registry_entries_removed": forgotten}))
         return

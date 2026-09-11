@@ -71,7 +71,7 @@ def main():
     print("\nre-issue after park:")
     print(f"  pause  rc={rc} {document.get('code') or 'ok'}")
     if rc:
-        compatibility.forget_authority(authority); shutil.rmtree(root)
+        verify.forget_authority(authority); shutil.rmtree(root)
         return
     after = verify.run(binary, "--project", authority, "run", "status", run_id)
     for stop in after["run"].get("stops") or []:
@@ -82,14 +82,14 @@ def main():
                         "--reason", "shapes: resume", ok=False)
     print(f"  resume rc={rc} {document.get('code') or 'ok'}")
     if rc:
-        compatibility.forget_authority(authority); shutil.rmtree(root)
+        verify.forget_authority(authority); shutil.rmtree(root)
         return
     call(binary, authority, "run", "drive", run_id, ok=False)
     again, memo_again = envelope(authority)
     print("  outputs after re-issue :", json.dumps(again["outputs"]))
     print("  memo after re-issue    :", [p["output_port"] for p in memo_again["ports"]] if memo_again else "<absent>")
     print("  envelope unchanged     :", again == context and memo_again == memo)
-    forgotten = compatibility.forget_authority(authority)
+    forgotten = verify.forget_authority(authority)
     shutil.rmtree(root)
     print(f"  cleaned: stand removed, {forgotten} registry entries removed")
 

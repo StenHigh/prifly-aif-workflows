@@ -2,6 +2,7 @@
 """Static contract of the AI Factory workflow folders: YAML only, distinct roles, pinned inventory."""
 
 from pathlib import Path
+import re
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -48,6 +49,16 @@ class WorkflowFolderTest(unittest.TestCase):
         self.assertEqual(len(example), 1, example)
         for verdict in ("pass", "fail", "needs_revision", "no_work"):
             self.assertIn(verdict + ":", example[0], example[0])
+        # The prose example rots the same way: it named `choose-verify` for a
+        # release after that stage was gone, and a reader copying it was refused
+        # `project_extension_unknown_stage`. Every stage a `between` names,
+        # commented or not, has to exist in the root graph it points at.
+        stages = {line[2:-1] for line in (CLASSIC / "workflow.yaml").read_text().splitlines() if re.fullmatch(r"  [a-z-]+:", line)}
+        named = re.findall(r"between: \{from: ([a-z-]+), to: ([a-z-]+)\}", (CLASSIC / "extend.yaml").read_text())
+        self.assertGreaterEqual(len(named), 2, named)
+        for pair in named:
+            for stage in pair:
+                self.assertIn(stage, stages, f"extend.yaml names stage {stage!r}, which the root graph does not have")
 
     def test_classic_is_sequential_and_fanout_is_parallel(self):
         classic_workflows = sorted((CLASSIC / "workflows").rglob("*.yaml"))

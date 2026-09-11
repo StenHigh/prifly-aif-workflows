@@ -111,6 +111,33 @@ def prepare_repository(binary, root):
     return repository, authority
 
 
+REGISTRY = Path.home() / ".prifly" / "monitor" / "sources"
+
+
+def forget_authority(authority):
+    """Drop the monitor's registry entry for an authority this run created.
+
+    `project init` and every `run start` register the authority for the
+    user's monitor, and a
+    fixture that builds its authority in a temporary directory leaves that
+    entry pointing at nothing once the directory is gone. The owner's rule is
+    that a test Run is cleaned up by whoever started it, and the registry is
+    part of what a Run leaves behind.
+    """
+    if not REGISTRY.is_dir():
+        return 0
+    # The engine records the real path; a temporary directory on macOS is
+    # handed out as /var/... and lives at /private/var/... — comparing the
+    # unresolved string removed nothing and reported zero, which read as clean.
+    wanted = Path(authority).resolve()
+    removed = 0
+    for entry in REGISTRY.iterdir():
+        if entry.is_file() and Path(entry.read_text().strip()).resolve() == wanted:
+            entry.unlink()
+            removed += 1
+    return removed
+
+
 def compile_package(binary, authority, repository, package, output, host="codex-cli", profile=None):
     arguments = ["--project", authority, "project", "compile", "--repository", repository, "--package", package, "--host", host, "--output", output]
     if profile:
@@ -365,6 +392,12 @@ def main():
         components_read += check_fanout(binary, authority, repository, root)
         after = run(binary, "--project", authority, "package", "list")
         assert before == after, "compile must not import or trust a package"
+        # No Run was started here, but `project init` registered the authority
+        # all the same; the entry outlives the directory unless its creator
+        # removes it. One is this fixture's own; zero would mean the engine
+        # stopped registering, or this stopped reading the right registry.
+        forgotten = forget_authority(authority)
+        assert forgotten == 1, f"expected to remove this fixture's one registry entry, removed {forgotten}"
     # The compensation is gone, so what is counted now is that nobody reintroduces
     # a deadline: a step that names a number instead of null is the debt coming
     # back, and it would otherwise pass every assertion above by never compiling
@@ -390,6 +423,7 @@ def main():
         "packages": ["aif-classic", "aif-fanout"],
         "components_read": components_read,
         "steps_read": len(sorted(ROOT.glob("*/steps/*.yaml"))),
+        "registry_entries_removed": forgotten,
     }))
 
 
