@@ -27,8 +27,13 @@ the old binary and the candidate.
     python3 tests/probes/frozen_stand.py build   --binary /path/to/prifly
     python3 tests/probes/frozen_stand.py compare --binary /old --binary /new
 
-The stand lives outside the repository, at `~/.prifly-stands/aif-classic`,
-because it is an authority with absolute paths and a settled Run inside it.
+The stand lives outside the repository, at `~/.prifly/stands/aif-classic`,
+because it is an authority with absolute paths and a settled Run inside it. It
+sits under `~/.prifly/` on purpose: since 0.13.16 that is the one place for
+everything Pri-Fly keeps for a user, and the owner's cleanup is `rm -rf
+~/.prifly`. A stand deleted that way is rebuilt in a minute with `build`; a
+stand kept somewhere the cleanup cannot reach would outlive the decision that
+everything lives in one place.
 
 Two things it does to keep its own answer honest. It reads each command twice
 with *both* binaries and masks whatever moved between two reads of the same one

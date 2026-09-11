@@ -15,7 +15,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import compatibility, verify
 
-DEFAULT = Path.home() / ".prifly-stands" / "aif-classic"
+DEFAULT = Path.home() / ".prifly" / "stands" / "aif-classic"
 # Read-only commands whose output a candidate may change. `run status` carries
 # the timing tree, which is where the engine's reading changes land.
 READS = (
