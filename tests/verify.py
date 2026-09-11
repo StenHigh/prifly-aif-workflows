@@ -275,6 +275,26 @@ def check_classic(binary, authority, repository, root):
         assert root_stages[stage]["step_ref"]["id"] == step_id, stage
     # Review is a bounded loop, not a single step: it reviews, fixes what blocks
     # and reviews again, and an exhausted limit is still reported honestly.
+    # The implementation a stage reads is the one the stage before it returned.
+    # A live Run found the alternative: every stage after a gate read the
+    # implement step's artifact, so a fix round's commit reached neither review
+    # nor the final output, and the Run named a head two commits behind its
+    # tree. The gates are called on every path — their batches pass the input
+    # through when switched off — which is what makes this chain bindable.
+    def reads_implementation_from(stage_name):
+        binding = root_stages[stage_name]["input_bindings"]["implementation"]
+        assert binding["from"] == "stage_output" and binding["port"] == "implementation", (stage_name, binding)
+        return binding["stage_id"]
+
+    assert reads_implementation_from("verify") == "implement"
+    assert reads_implementation_from("security") == "verify"
+    assert reads_implementation_from("review") == "verify"
+    assert reads_implementation_from("commit") == "review"
+    assert root_stages["done"]["output_bindings"]["implementation"]["stage_id"] == "commit"
+    for gate in ("verify", "review"):
+        batch = stages(f"aif:workflow/{gate}-batch")
+        assert batch["choose"]["default"] == "unchanged" and batch["unchanged"]["outcome"] == "succeeded", gate
+        assert batch["unchanged"]["output_bindings"]["implementation"]["from"] == "workflow_input", gate
     assert root_stages["review"]["workflow_ref"]["id"] == "aif:workflow/review-batch"
     assert root_stages["review"]["on"] == {"succeeded": "commit", "partial": "fix-after-review"}
     assert root_stages["verify"]["workflow_ref"]["id"] == "aif:workflow/verify-batch"
@@ -285,9 +305,9 @@ def check_classic(binary, authority, repository, root):
         assert root_stages[decision]["branches"][0]["next"] == terminal and root_stages[terminal]["outcome"] == "partial", decision
     for workflow_id, input_name in (
         ("aif:workflow/improve-or-pass", "improve_enabled"),
-        ("aif:workflow/classic", "verify_enabled"),
+        ("aif:workflow/verify-batch", "verify_enabled"),
         ("aif:workflow/classic", "security_enabled"),
-        ("aif:workflow/classic", "review_enabled"),
+        ("aif:workflow/review-batch", "review_enabled"),
     ):
         assert documents[workflow_id]["inputs"][input_name]["configuration"]["default"] is False, (workflow_id, input_name)
     assert documents["aif:workflow/improve-batch"]["inputs"]["improve_round_limit"]["configuration"]["default"] == 2

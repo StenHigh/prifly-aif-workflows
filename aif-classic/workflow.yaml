@@ -1,7 +1,7 @@
 authoring: prifly-project-workflow/1
 package:
   id: aif:package/classic
-  version: 1.34.0
+  version: 1.35.0
   description: Canonical AI Factory development workflow with bounded plan improvement.
   requires_core_protocol: "1"
   profiles:
@@ -20,7 +20,7 @@ package:
     workspace_tree_manifest: core:schema/workspace-tree-manifest@1.0.0
 id: aif:workflow/classic
 schema_version: "4"
-version: 1.34.0
+version: 1.35.0
 title: AI Factory classic development workflow
 refs:
   schema_task: "{{schema_task}}"
@@ -42,15 +42,7 @@ refs:
   local_policy: "{{local_policy}}"
 inputs:
   task: {schema_ref: schema_task}
-  verify_enabled:
-    schema_ref: schema_feature-enabled
-    required: false
-    configuration: {scope: project, default: true}
   security_enabled:
-    schema_ref: schema_feature-enabled
-    required: false
-    configuration: {scope: project, default: true}
-  review_enabled:
     schema_ref: schema_feature-enabled
     required: false
     configuration: {scope: project, default: true}
@@ -72,9 +64,7 @@ outputs:
 limits: {max_step_instances: 200, max_control_transitions: 1000, max_parallelism: 1, max_child_depth: 4}
 policy_ref: local_policy
 features:
-  verify: {input: verify_enabled}
   security: {input: security_enabled}
-  review: {input: review_enabled}
 entry: warmup
 stages:
   warmup:
@@ -95,15 +85,12 @@ stages:
     kind: step
     step_ref: step_implement
     input_bindings: {plan: $stages.improve.plan, handoff: $stages.warmup.handoff}
-    on: {pass: choose-verify, needs_revision: abandoned, fail: abandoned, no_work: abandoned}
-  choose-verify:
-    kind: choice
-    selection: exclusive
-    branches:
-      - id: enabled
-        predicate: {op: eq, left: $inputs.verify_enabled, right: true}
-        next: verify
-    default: choose-security
+    on: {pass: verify, needs_revision: abandoned, fail: abandoned, no_work: abandoned}
+  # Every stage after a gate reads the implementation the gate returned, not the
+  # one the implement step produced: a fix round commits, and the artifact that
+  # names the head has to follow the tree. The batches are called on every path
+  # and pass the input through when their gate is off, which is what lets these
+  # bindings be guaranteed.
   verify:
     kind: call
     workflow_ref: workflow_verify-batch
@@ -118,11 +105,11 @@ stages:
       - id: enabled
         predicate: {op: eq, left: $inputs.security_enabled, right: true}
         next: security
-    default: choose-review
+    default: review
   security:
     kind: step
     step_ref: step_security
-    input_bindings: {implementation: $stages.implement.implementation}
+    input_bindings: {implementation: $stages.verify.implementation}
     on: {pass: security-decision, needs_revision: fix-after-security, fail: abandoned, no_work: abandoned}
   security-decision:
     kind: choice
@@ -131,26 +118,18 @@ stages:
       - id: blockers
         predicate: {op: eq, left: $stages.security.gate#/blocking, right: true}
         next: fix-after-security
-    default: choose-review
-  choose-review:
-    kind: choice
-    selection: exclusive
-    branches:
-      - id: enabled
-        predicate: {op: eq, left: $inputs.review_enabled, right: true}
-        next: review
-    default: commit
+    default: review
   review:
     kind: call
     workflow_ref: workflow_review-batch
     input_bindings:
-      implementation: $stages.implement.implementation
+      implementation: $stages.verify.implementation
       handoff: $stages.warmup.handoff
     on: {succeeded: commit, partial: fix-after-review}
   commit:
     kind: step
     step_ref: step_commit
-    input_bindings: {implementation: $stages.implement.implementation}
+    input_bindings: {implementation: $stages.review.implementation}
     on: {pass: done, needs_revision: abandoned, fail: abandoned, no_work: abandoned}
   done:
     kind: finish

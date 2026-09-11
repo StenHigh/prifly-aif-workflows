@@ -1,5 +1,5 @@
 id: aif:context/aif-commit-bridge
-version: 1.2.0
+version: 1.3.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-commit skill
@@ -19,11 +19,17 @@ text: |
   2. Read whether anything is left to commit. The implementation step's own
      skill commits at its checkpoints, so a clean workspace here is the normal
      case, not a fault.
-  3. If nothing is uncommitted, do not run the skill at all. Report `pass` and
-     pass the implementation input through as the output. Running a commit
-     skill with nothing staged only produces its "nothing staged" warning at
-     the cost of a whole session.
+  3. If nothing is uncommitted, do not run the skill at all. Report `pass`.
+     Running a commit skill with nothing staged only produces its "nothing
+     staged" warning at the cost of a whole session.
   4. If uncommitted changes remain, run the skill on them.
+  5. Either way, the implementation you report is read from the tree, never
+     copied from the input: `base_commit` is the input's, `head_commit` is
+     `git rev-parse HEAD`, `changed_files` is `git diff --name-only
+     <base_commit>..HEAD`. The input names the head some earlier step saw; fix
+     rounds commit after that, and this artifact is the Run's final word on
+     what was built. A real Run passed the input through and reported a head
+     two commits behind its own tree.
 
   Native upstream dialogs — grouping an active Commit Plan, confirming or
   editing a generated commit message, splitting unrelated staged changes, or
