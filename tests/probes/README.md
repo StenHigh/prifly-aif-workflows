@@ -109,6 +109,19 @@ this list is kept rather than remembered. A stand's silence about what it does
 not read is not evidence: "one of nine reads differed" is a complete statement
 about those nine, and says nothing about the rest of a release.
 
+## A test Run is removed by whoever started it
+
+Every probe here that starts a Run removes what the Run left: its directory and
+the entry its `run start` wrote into the monitor registry
+(`~/.prifly/monitor/sources`). `capture_check.py` and `shapes_check.py` do it
+on exit and print how many entries they removed; the compatibility gate does
+the same and reports `registry_entries_removed` beside its result. A stand kept
+on purpose is removed with `frozen_stand.py destroy --at DIR`, never with
+`rm -rf`, so its registry entry goes with it. The registry compares real paths:
+a temporary directory is handed out as `/var/...` and recorded as
+`/private/var/...`, and matching the unresolved string removed nothing while
+reporting zero.
+
 They live here rather than in a scratch directory because a scratch directory is
 cleared between sessions, and these were once rewritten from nothing for that
 reason.

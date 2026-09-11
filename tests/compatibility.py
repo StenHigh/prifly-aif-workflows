@@ -107,6 +107,32 @@ def compile_and_import(binary, authority, repository, output, host, package_prof
     return result
 
 
+REGISTRY = Path.home() / ".prifly" / "monitor" / "sources"
+
+
+def forget_authority(authority):
+    """Drop the monitor's registry entry for an authority this run created.
+
+    Every `run start` registers its authority for the user's monitor, and a
+    fixture that builds its authority in a temporary directory leaves that
+    entry pointing at nothing once the directory is gone. The owner's rule is
+    that a test Run is cleaned up by whoever started it, and the registry is
+    part of what a Run leaves behind.
+    """
+    if not REGISTRY.is_dir():
+        return 0
+    # The engine records the real path; a temporary directory on macOS is
+    # handed out as /var/... and lives at /private/var/... — comparing the
+    # unresolved string removed nothing and reported zero, which read as clean.
+    wanted = Path(authority).resolve()
+    removed = 0
+    for entry in REGISTRY.iterdir():
+        if entry.is_file() and Path(entry.read_text().strip()).resolve() == wanted:
+            entry.unlink()
+            removed += 1
+    return removed
+
+
 def start_launch(binary, authority, repository, task, host, package_profile):
     answers, catalog_digest = launch_answers(binary, authority, repository, package_profile)
     arguments = [
@@ -181,6 +207,7 @@ def main():
         task = root / "task.json"
         task.write_text(json.dumps({"title": "Compatibility sequence", "description": "Carry one authority across every declared plan profile."}))
         builds, imported = check_sequence(binary, authority, repository, root, task)
+        forgotten = forget_authority(authority)
     version = run(binary, "version")
     print(json.dumps({
         "outcome": "passed",
@@ -191,6 +218,7 @@ def main():
         "distinct_builds": len(set(builds.values())),
         "trusted_packages": len(imported),
         "boundary": "assisted handoff dispatched; no AI host answers it here",
+        "registry_entries_removed": forgotten,
     }))
 
 

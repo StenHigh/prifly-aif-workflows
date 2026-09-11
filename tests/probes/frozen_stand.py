@@ -257,12 +257,23 @@ def compare(binaries, at):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("mode", choices=("build", "compare"))
-    parser.add_argument("--binary", required=True, action="append", type=Path)
+    parser.add_argument("mode", choices=("build", "compare", "destroy"))
+    parser.add_argument("--binary", action="append", type=Path, help="required for build and compare")
     parser.add_argument("--at", default=DEFAULT, type=Path)
     parser.add_argument("--live", action="store_true", help="leave the Run open, holding its admission slot")
     arguments = parser.parse_args()
-    binaries = [binary.resolve(strict=True) for binary in arguments.binary]
+    binaries = [binary.resolve(strict=True) for binary in arguments.binary or []]
+    if arguments.mode != "destroy":
+        assert binaries, "build and compare need --binary"
+    if arguments.mode == "destroy":
+        # A stand is a test Run, and a test Run is removed by whoever started
+        # it — the directory and the monitor registry entry its start left.
+        at = arguments.at.resolve()
+        stand = json.loads((at / "stand.json").read_text())
+        forgotten = compatibility.forget_authority(stand["authority"])
+        shutil.rmtree(at)
+        print(json.dumps({"outcome": "destroyed", "at": str(at), "registry_entries_removed": forgotten}))
+        return
     if arguments.mode == "build":
         build(binaries[0], arguments.at.resolve(), arguments.live)
     else:

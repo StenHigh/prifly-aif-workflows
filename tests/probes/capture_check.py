@@ -65,6 +65,11 @@ def main():
         print(f"  memo keys                 : {sorted(memo['ports'][0]) if memo else '-'}")
         print(f"  ordinary ports            : {ordinary[name]}")
     print(f"\nordinary ports identical across all four stands: {all(v == ordinary['nocapture'] for v in ordinary.values())}")
+    # Four Runs were started to answer this; a test Run is removed by whoever
+    # started it — the directories and the registry entries their starts left.
+    forgotten = sum(compatibility.forget_authority(path) for path in base.glob("*/authority"))
+    shutil.rmtree(base)
+    print(f"cleaned: 4 stands removed, {forgotten} registry entries removed")
 
 if __name__ == "__main__":
     main()
