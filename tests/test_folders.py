@@ -19,10 +19,10 @@ class WorkflowFolderTest(unittest.TestCase):
             # Since Pri-Fly 0.13.24 `project/` inside a package folder is the
             # project's own subtree, carried across `workflows update` like
             # extend.yaml. An upstream package that ships one is refused by
-            # `workflows add` and `workflows update` from the tag after 0.13.24
-            # (on 0.13.24 itself only `update`, and only once the project has a
-            # `project/` of its own — `add` installed it silently as the team's
-            # files, and `update` then never touched it). `compile` never
+            # `workflows add` and `workflows update` since 0.13.25 (on 0.13.24
+            # only `update`, and only once the project has a `project/` of its
+            # own — `add` installed it silently as the team's files, and
+            # `update` then never touched it). `compile` never
             # refuses: in an installed copy the folder is exactly where it
             # belongs, so this guard is what stands between the source tree and
             # that refusal.
