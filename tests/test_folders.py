@@ -16,6 +16,10 @@ class WorkflowFolderTest(unittest.TestCase):
             workflow = (folder / "workflow.yaml").read_text()
             self.assertTrue(workflow.startswith("authoring: prifly-project-workflow/1\n"), folder)
             self.assertTrue((folder / "extend.yaml").is_file(), folder)
+            # Since Pri-Fly 0.13.24 `project/` inside a package folder is the
+            # project's own subtree, carried across `workflows update` like
+            # extend.yaml; an upstream package that ships one is refused.
+            self.assertFalse((folder / "project").exists(), f"{folder} ships a project/ subtree, which belongs to the installing project")
             self.assertEqual(list(folder.rglob("*.yaml.tmpl")), [])
             yaml_sources = [item.read_text() for item in folder.rglob("*.yaml")]
             self.assertFalse(any(line.strip() == "---" for source in yaml_sources for line in source.splitlines()), folder)
