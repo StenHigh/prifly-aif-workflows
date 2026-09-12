@@ -95,7 +95,20 @@ by its author alone:
   request blanking a source's Run list (188 of 200 listings showed 0 of 6 Runs)
   and no stand could have seen it; the engine session watches that side;
 - `active_stop`, which only a mutating command reaches;
-- anything a Run reaches only after an assisted step is answered.
+- anything a Run reaches only after an assisted step is answered — since
+  0.13.19 that includes `effect_not_permitted`, the refusal of a report from a
+  step that declared no workspace effect and changed the tree: the fixture
+  dispatches the first handoff and nobody answers it, so the first reader of
+  that refusal is a live pilot Run;
+- the text of a compile-time refusal. The stands compile a valid package, so
+  the wording of `unavailable_output`, `schema_invalid` and their kin never
+  enters a comparison — 0.13.18 and 0.13.22 changed only such text and both
+  stands reported `1 of 9`. That class is read outside the stands: break the
+  package in one known way per cause, compile on the published binary, and
+  assert each refusal's own words and the absence of another cause's words —
+  after running the same cuts on the previous release, where they must be red.
+  Those cuts have been kept as throwaway scripts so far; a change of that kind
+  is verified only if someone runs them.
 
 `capacity_conflict` left this list in 0.13.10. It sat here for four releases
 because reaching it meant starting a Run, and the refusal created and queued

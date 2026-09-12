@@ -646,6 +646,30 @@ aif:package/classic@1.27.1` → `package_component_not_found`, хотя паке
   `git -c core.quotepath=off`, бридж и шаг commit 1.4.0. `extra_filters`
   500 — схема их `tests`-шага, не наша. Адреса сменились: движок `github-99`,
   пилот `backend-81`, эта сессия `github-07`.
+- **v1.36.0 выпущен 2026-09-12** (`10c5772`, каталог `d46e3a9`), граф = 1.35.0:
+  `gate_checks` 16000; commit-bridge/шаг 1.4.0 с `-c core.quotepath=off`;
+  шаблон `extend.yaml` + сторож имён стадий; `verify.py` снимает свою
+  запись реестра — раньше оставлял мёртвую после **каждого** прогона, а
+  подметалка 0.13.17 убирала её при следующей регистрации, так что счётчик
+  после `compatibility.py` всегда показывал чистоту. Поймано счётом реестра
+  **между** воротами, не после; `forget_authority` переехал в `verify.py`,
+  пробы берут его оттуда. Пилот на первом `succeeded` проверяет пять
+  кириллических путей в `done.implementation.changed_files` и три числа.
+- **Пробы этого окна живут в scratchpad сессии и пропадут с ней** — каждая
+  ~50 строк на `verify.prepare_repository` + одноразовая authority +
+  `forget_authority` в `finally`: `refusal_cuts.py` (два вырезания →
+  `unavailable_output`: необязательный вход без default; `commit.gate ←
+  security.gate` за `choose-security`; утверждает свои слова и отсутствие
+  чужих); `busy_probe.py` (второй поток держит `BEGIN IMMEDIATE` на
+  `state.sqlite3` 12 с, `package import` → код/exit/retryable);
+  `runners_probe.py` (репозиторий от старого бинаря, один раннер удалён,
+  `project runners update` новым → `updated_hosts`/`missing_hosts`);
+  `gate_checks_probe.py` (read-only анкета с `--preflight-answer
+  gate_checks=<N символов>`); `insertion_probe.py` (компиляция `extend.yaml`
+  со вставкой `between: {from: implement, to: X}`). Слепой список в
+  `tests/probes/README.md` теперь называет оба класса, которые они читают, а
+  стенды нет; переносить ли их в `tests/probes/` — вопрос владельца, не
+  задан повторно.
 - **Ожидание от пилота** на следующем заходе с починкой (v1.35.0 + 0.13.18):
   review получил head после verify-fix; commit — head после review-fix;
   `done.implementation.head_commit == git rev-parse HEAD`. Заход #107 идёт на
