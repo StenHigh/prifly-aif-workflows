@@ -670,10 +670,12 @@ aif:package/classic@1.27.1` → `package_component_not_found`, хотя паке
   `tests/probes/README.md` теперь называет оба класса, которые они читают, а
   стенды нет; переносить ли их в `tests/probes/` — вопрос владельца, не
   задан повторно.
-- **Ожидание от пилота** на следующем заходе с починкой (v1.35.0 + 0.13.18):
-  review получил head после verify-fix; commit — head после review-fix;
-  `done.implementation.head_commit == git rev-parse HEAD`. Заход #107 идёт на
-  запечатанном старом пакете — переключать нельзя, не сломав дорожку.
+- **Закрыто заходом пилота #123 на 1.36.0 — первый `succeeded` после
+  починки, 11 шагов, без ручных доделок.** Три числа: review ← verify head ✓;
+  review круга 2 ← fix head ✓; `done.implementation.head_commit ==
+  git rev-parse HEAD` ✓ (37 файлов). Пять не-ASCII путей в `changed_files` —
+  читаемые пути (commit-bridge 1.4.0). Круг verify→fix→review штатно, их
+  `tests` после review мерил финальное дерево. Замечаний к пакету нет.
 
 ## 0.13.15–0.13.17: всё пользовательское в `~/.prifly/`, тестовые прогоны убирают за собой
 
