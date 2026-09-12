@@ -1,5 +1,5 @@
 id: aif:context/aif-implement-bridge
-version: 1.5.0
+version: 1.6.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-implement skill
@@ -69,3 +69,15 @@ text: |
   Run. A native upstream question without an exact runtime decision ID in this
   adapter remains normal attended host interaction; it is not a Pri-Fly
   DecisionRequest.
+
+  The skill's requirement consistency gate runs before each behavior-changing
+  task. A clear conflict between the task and a cited requirement is
+  `ERROR [requirement-conflict]`: the skill leaves the task pending and, under
+  `HANDOFF_MODE=1`, returns `handoff_outcome: blocked_external` without
+  signalling completion. Report that as `fail`, naming the task and the
+  requirement it conflicts with, and say which tasks were already done — their
+  checkpoint commits stand in the workspace. Every verdict but `pass` ends this
+  Run at `abandoned` with your report as the reason, which is what a conflict
+  no step here may resolve deserves. Never implement first and rewrite the
+  requirement afterwards, and never report `pass` with the task left pending:
+  verify would then measure a plan against a tree that stopped short of it.

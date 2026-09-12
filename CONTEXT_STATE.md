@@ -4,10 +4,10 @@
 Нормативная правда — в самих YAML и в `aif-classic/decisions/INVENTORY.md`;
 этот файл только ориентирует.
 
-Обновлено: 2026-09-12. Выпущенный пакет — тег `v1.36.0`; коммит смотреть
-через `git rev-parse v1.36.0`, а не переписывать сюда; каталог
+Обновлено: 2026-09-12. Выпущенный пакет — тег `v1.37.0`; коммит смотреть
+через `git rev-parse v1.37.0`, а не переписывать сюда; каталог
 `StenHigh/prifly-workflows` держит на нём обе записи. Все четверо ворот
-выверены против выпущенного Pri-Fly `v0.13.22`. Адреса сессий: движок
+выверены против выпущенного Pri-Fly `v0.13.23`. Адреса сессий: движок
 `github-99`, пилот `backend-81`, эта сессия `github-07` (меняются при
 перезапуске — сверять `ListAgents`).
 
@@ -498,6 +498,59 @@ aif:package/classic@1.27.1` → `package_component_not_found`, хотя паке
 наблюдаемую картину, а лечатся противоположно: первое чинят, второе не
 исполняют и не компенсируют. Пилот ошибся на этом дважды подряд, потому что шёл
 от признака сразу к выводу. Признак — повод открыть источник, а не заключение.
+
+## AI Factory 2.19.0 → пакет 1.37.0 (2026-09-12)
+
+Upstream — npm `ai-factory` (github.com/lee-to/ai-factory). Пакет до 1.37.0 был
+написан против **2.18.1** (все хэши INVENTORY совпали побайтно с тарболом);
+**2.19.0** вышла 2026-09-10. Диффы сняты с тарболов (`npm pack`), не с чьего-то
+хоста. Из 13 закреплённых файлов изменились `aif-plan`, `aif-implement`,
+`aif-verify`, `aif-improve`; `aif-warmup` появился в upstream; commit, fix,
+review и `references/*` improve — байт в байт.
+
+- **Одна тема нового — Requirements Reconciliation.** plan: гейт согласования
+  требований, секция `## Requirements Reconciliation` в плане, конфликт
+  источников под `HANDOFF_MODE=1` → `ERROR [requirement-conflict]`,
+  `handoff_outcome: blocked_external`, STOP без плана. implement: шаг 3.1.1 —
+  тот же гейт перед каждой задачей, задача остаётся pending. verify: раздел
+  3.0 — `[requirement-conflict]` блокирует даже при согласии плана/кода/тестов,
+  `[requirement-ambiguity]` WARN/ERROR по `workflow.verify_mode`. improve:
+  читает architecture/roadmap/rules, шаг 3.4, секцию сохраняет. Вопрос
+  «Apply these improvements?» на месте.
+- **Мосты называют вердикт для нового стопа** (правило «мост говорит, что
+  стоит вердикт»): plan и implement — `fail` с названными источниками, любой
+  не-`pass` в корне ведёт в `abandoned`, выбирать источник самому нельзя,
+  `pass` без плана / с pending-задачей — ложь; verify —
+  `[requirement-conflict]`/`[requirement-ambiguity]` это `blocking: true` и
+  `blocking_owner_only: true` (fix не выбирает между двумя документами), и это
+  держится даже при `gate_warnings: fix`. Условные абзацы: на хосте с 2.18.1
+  не срабатывают — пакет обязан работать с обеими.
+- **Warmup upstream:** `allowed-tools: Read Glob Grep`,
+  `disable-model-invocation: true`, читает `config.yaml` (новое `warmup.paths`,
+  `workflow.verify_mode`, git), handoff из секций Configuration / Project /
+  Architecture / Direction / Rules / Gaps / Loaded / Ready. Мост отображает
+  секции на поля нашего handoff (Configuration и Rules → `conventions`,
+  Direction → `summary`, Gaps → `open_questions`, Loaded → `sources`) и
+  говорит, что закреплённому тексту следуют, а не вызывают его.
+- **`aif-security` никогда не было в upstream** (проверено 2.13.2, 2.16.0,
+  2.18.1, 2.19.0): канонический навык — `aif-security-checklist`, verify сам
+  передаёт ему после себя (docs/workflow.md автора: verify → security-checklist
+  → review → commit). Строка 177 «only production-blocking findings», которую
+  пилот цитировал как `aif-security:177`, — это она же: у пилота навык лежит под
+  своим именем. Пин переименован на upstream-имя (контекст 1.1.0, мост 1.6.0,
+  шаг 1.8.0, стаб фикстуры, README, INVENTORY, сторож в `test_folders.py`);
+  проект с чистым upstream компилируется, проекту с копией под старым именем
+  нужен ещё и upstream-файл. Навык не менялся между 2.18.1 и 2.19.0, gate
+  block (`status`/`blocking`/`blockers`) — тот, что читает наш шаг; его
+  `ignore <item>` flow пишет `SECURITY.md` — мост теперь запрещает его явно.
+- **INVENTORY.md** — хэши 2.19.0 семи файлов (+ warmup, verify, checklist),
+  версия upstream названа; `test_folders` держит plan/implement/commit.
+- **Не закреплено и не было:** `aif-plan/references/{TASK,ULTRA}-FORMAT.md`,
+  `aif-implement/references/*`, `aif-verify/references/*` исполнитель читает
+  живьём с хоста (закреплены только `aif-improve/references/*`). В 2.19.0
+  `TASK-FORMAT.md` получил шаблон секции Requirements Reconciliation — доедет
+  с хостом. Закреплять ли их — вопрос владельцу, не ставился.
+- Четверо ворот зелены на 0.13.23; граф и схемы не менялись.
 
 ## v1.35.0 на 0.13.18–0.13.22: артефакт следует за деревом; отказы называют причину и границу; дерево гейта меряется (2026-09-11)
 

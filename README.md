@@ -79,7 +79,7 @@ launches:
 ## Что нужно целевому проекту
 
 - Навыки AI Factory, установленные для выбранного host: `aif-warmup`,
-  `aif-plan`, `aif-improve`, `aif-implement`, `aif-verify`, `aif-security`,
+  `aif-plan`, `aif-improve`, `aif-implement`, `aif-verify`, `aif-security-checklist`,
   `aif-review`, `aif-commit` для `aif-classic` и `aif-improve` для
   `aif-fanout`. Context YAML закрепляет bytes только из skills root того host,
   который передан compiler-у (`.codex/skills`, `.agents/skills` или

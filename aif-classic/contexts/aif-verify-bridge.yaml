@@ -1,5 +1,5 @@
 id: aif:context/aif-verify-bridge
-version: 1.9.0
+version: 1.10.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-verify skill
@@ -88,6 +88,17 @@ text: |
   warnings and ended there, unattended, with nobody to decide. When you do set it
   true, name in the findings which blocker is out of reach and what puts it out
   of reach; a `true` nobody can check is how a Run stops for no reason.
+
+  The skill's requirements consistency gate is the clearest case of a blocker
+  out of reach. `ERROR [requirement-conflict]` — the implementation contradicts
+  a higher-priority requirement even where plan, code and tests agree — and
+  `[requirement-ambiguity]` — sources conflict and nobody declared which wins
+  — are findings about the requirements, not about the code. Report them as
+  blockers with `blocking_owner_only` true, naming the sources: a fix step
+  cannot choose between two authoritative documents, and a round spent trying
+  is a round the developer has to read anyway. This holds when the skill
+  raised the ambiguity as a warning too, whatever `gate_warnings` says about
+  warnings in general — `fix` cannot mean "resolve the requirement".
 
   `suggested_next` is reported, never obeyed. Say `/aif-fix` when the findings
   are work for the fix step and `continue` otherwise. The skill computes a wider

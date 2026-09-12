@@ -33,12 +33,16 @@ class WorkflowFolderTest(unittest.TestCase):
         # the host, not here, so the only thing a static gate can hold is that
         # the provenance record was not quietly dropped.
         inventory = (CLASSIC / "decisions" / "INVENTORY.md").read_text()
+        # ai-factory 2.19.0: plan, implement, commit (unchanged since 2.18.1).
         for skill_hash in (
-            "3be3c17f5478d15196832762d565c1d8d792666af4733f02b1d1d9bcf9002dbb",
-            "aaad2183c302ead1d2ac7ddf216ad1259ef53b72f7b1d9d9214f84dcb235998a",
+            "086d68806b9c8a27d8de51ae6389492715e9b4caa5abb277f9bc02fde047fe9d",
+            "0269d7931c6a0c001c1fe6c99fec98b0a466e177259c302033fd4f02e5f8ae19",
             "3dbeec8295c3cc592faf67d1669295803d472944c30ee7daeb8d330b0c9c9028",
         ):
             self.assertIn(skill_hash, inventory)
+        # The security step pins the skill under the name upstream ships, not
+        # the one a host may have copied it to.
+        self.assertIn("path: aif-security-checklist/SKILL.md", (CLASSIC / "contexts" / "aif-security.yaml").read_text())
         self.assertIn("not a Pri-Fly decision", inventory)
         self.assertIn("when: {answers: {roadmap_linkage: link}}", (CLASSIC / "decisions" / "plan" / "roadmap-milestone.yaml").read_text())
 

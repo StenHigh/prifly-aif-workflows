@@ -1,11 +1,14 @@
 id: aif:context/aif-security-bridge
-version: 1.5.0
+version: 1.6.0
 media_type: text/markdown; charset=utf-8
 text: |
-  # Pri-Fly adapter for the pinned aif-security skill
+  # Pri-Fly adapter for the pinned aif-security-checklist skill
 
-  The following supporting context is the pinned upstream `aif-security` skill.
-  Audit the implementation as written and produce the gate result.
+  The following supporting context is the pinned upstream `aif-security-checklist`
+  skill — the security step of the canonical AI Factory route, which runs it
+  after verify and before review. Run its full audit as written and produce the
+  gate result; never its `ignore <item>` flow, which exists for a person
+  deciding what the project tolerates and writes that decision to the tree.
 
   This step changes nothing. The skill may write its report and its
   ignored-item artifact when a person runs it; here it must not, because the

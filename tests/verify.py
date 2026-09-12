@@ -16,7 +16,7 @@ import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
 HOSTS = {"codex-cli": ".codex/skills", "codex-app": ".agents/skills", "claude-code": ".claude/skills"}
-CLASSIC_SKILLS = ("aif-warmup", "aif-plan", "aif-improve", "aif-implement", "aif-verify", "aif-security", "aif-review", "aif-commit", "aif-fix",)
+CLASSIC_SKILLS = ("aif-warmup", "aif-plan", "aif-improve", "aif-implement", "aif-verify", "aif-security-checklist", "aif-review", "aif-commit", "aif-fix",)
 IMPROVE_REFERENCES = ("LIST-MODE.md", "CHECK-MODE.md", "EXAMPLES.md", "VALIDATOR.md")
 PROFILE_CAPTURES = {
     "fast": {"kind": "exact_file", "path": ".ai-factory/PLAN.md"},

@@ -1,6 +1,6 @@
 authoring: prifly-step/2
 id: aif:step/plan
-version: 1.4.0
+version: 1.5.0
 title: Run aif-plan for the declared task
 kind: worker
 inputs:

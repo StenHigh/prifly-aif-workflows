@@ -1,5 +1,5 @@
 id: aif:context/aif-plan-bridge
-version: 1.6.0
+version: 1.7.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-plan skill
@@ -73,3 +73,15 @@ text: |
   When the policy is `attended`, do not set the mode. An undeclared question
   then stays normal host interaction; never pretend it was a Pri-Fly
   DecisionRequest.
+
+  The skill's requirements reconciliation gate can end the step before a plan
+  exists: an unresolved conflict between authoritative sources is
+  `ERROR [requirement-conflict]`, and under `HANDOFF_MODE=1` the skill returns
+  `handoff_outcome: blocked_external` and stops without a plan. Report that as
+  `fail`, naming the sources and the conflict. It is the right verdict and the
+  only honest one: `pass` promises a plan that was not written, and every
+  verdict but `pass` ends this Run at `abandoned` with your report as the
+  reason — there is no stage after this one that could resolve the conflict.
+  Do not pick a source to keep going: the skill refuses to choose silently,
+  and so does this route. Under `attended`, the skill asks the person instead,
+  and that stays normal host interaction.
