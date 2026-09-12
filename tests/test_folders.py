@@ -18,7 +18,14 @@ class WorkflowFolderTest(unittest.TestCase):
             self.assertTrue((folder / "extend.yaml").is_file(), folder)
             # Since Pri-Fly 0.13.24 `project/` inside a package folder is the
             # project's own subtree, carried across `workflows update` like
-            # extend.yaml; an upstream package that ships one is refused.
+            # extend.yaml. An upstream package that ships one is refused by
+            # `workflows add` and `workflows update` from the tag after 0.13.24
+            # (on 0.13.24 itself only `update`, and only once the project has a
+            # `project/` of its own — `add` installed it silently as the team's
+            # files, and `update` then never touched it). `compile` never
+            # refuses: in an installed copy the folder is exactly where it
+            # belongs, so this guard is what stands between the source tree and
+            # that refusal.
             self.assertFalse((folder / "project").exists(), f"{folder} ships a project/ subtree, which belongs to the installing project")
             self.assertEqual(list(folder.rglob("*.yaml.tmpl")), [])
             yaml_sources = [item.read_text() for item in folder.rglob("*.yaml")]
