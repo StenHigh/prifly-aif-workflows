@@ -605,6 +605,50 @@ review и `references/*` improve — байт в байт.
   обязателен, поиск по `producer.run_id` снят, их счётчик компенсаций —
   0/0, компиляция на 1.37.0 + 0.13.27 без нарушений. Проект пилота больше
   не обходит ни пакет, ни движок нигде — первый раз с начала пилота.
+- **Заход пилота #139 (0.13.30 + 1.37.0), `succeeded`, диагностик 0:** маршрут warmup → plan → improve → implement → verify (4
+  блокера: контейнер вместо явного пина redis, три PHPStan) → fix (один
+  коммит) → verify-2. Компенсации 0/0. verify: чек-лист по 16 задачам плана
+  из контекста сессии (14 complete / 2 partial), отсутствие PLAN.md в дереве
+  находкой не отмечено, `blocking` **по правилу моста** (`status=failed`,
+  `blocking=true`, `verdict=pass`), `gate_checks` применён целиком
+  (pint, rector, пины 2408 тестов с `baseline_source=rerun`, реестры,
+  инвентарь, guards-map); PHPStan прогнан как суждение исполнителя вне состава
+  и так назван в findings — **пилот просит в мосте verify явную строку:
+  проверка сверх `gate_checks` (например, статанализ навыка) — суждение
+  исполнителя, а не состав, называть её так.** Захват плана: три артефакта,
+  все revision 1 — после plan, после improve, после implement; пост-implement
+  захват — **новый artifact_id при байтах, идентичных пост-improve** (69955
+  байт, `cmp` identical: implement PLAN.md не правил, мост запрещает чекбоксы)
+  — замысел движка, не находка: identity выхода = «кто произвёл»
+  (`outputArtifactID` = sha256(attempt_id + "/" + порт)), байты хранятся по
+  digest один раз (`BlobStore.Put` через `Link`), обратное — тот же
+  artifact_id с другими байтами — `ErrArtifactIdentity`. Следствие для нас:
+  **сравнивать `input_manifest` у verify по digest записи, не по artifact_id.**
+  Standing-ответы на 0.13.30: старт без флагов, `plan_docs`/`plan_logging`
+  inactive без отказа, источники `project_default` × 5 и `autonomous_policy` у
+  `plan_constraints`; `roadmap_linkage`/`roadmap_milestone` не заданы и не
+  спрошены — по замыслу (`required: false`). Времена: warmup 4:39, plan
+  15:04, improve 3:41, **implement 68:03**, verify 25:44 (gate.sh ≈ 22 мин),
+  fix 3:44 — довод «без предела времени» держится. Мосты, по словам пилота:
+  plan (acceptance-команды один раз на дереве) — полезно; improve
+  (`improve_apply` из `decision_context`) — верно; implement (checkpoint
+  commits, 7 штук) — верно; fix (числа диффа по дереву) — сделано.
+  **Терминал: `outcome: succeeded`, 15 шагов, диагностик 0, компенсаций
+  0/0, MR !1166 черновиком** (push и `glab mr create` — руками, по замыслу их
+  программы merge-request). Маршрут после verify-2: review → fix → review →
+  fix → review (22 → 2.9 → 1.2 → 0.8 → 0.5 мин) → tests 16.6 → commit 4.9 →
+  merge-request 0.1. `tests`: `effect_not_permitted` ушёл (QA-байпродукты в
+  .gitignore, коммит в базе захода), `baseline_source=cache`, 6853 теста,
+  new_failures 0, preexisting 12 (живая прокси-фикстура без сети),
+  `measured_tree == HEAD^{tree}`. commit-мост как написан: PLAN.md в дереве
+  нет, копия чиста, навык не запускался, `implementation` из дерева (`head ==
+  git rev-parse HEAD`, 65 файлов через `-c core.quotepath=off`, побайтно равен
+  входу от последнего fix — отставания головы нет); кириллицы в диффе не было.
+  `core.quotepath=off` у пилота есть в tests.sh, **нет** в gate.sh и
+  merge-request.sh (#145 не доехал). Три их замечания — все к своим
+  программам (тело MR из склейки коммитов, строка «push руками» в summary,
+  quotepath в gate.sh); пакета не касаются. Переезд на 0.13.31 + 1.38.0 — по
+  слову владельца напрямую.
 - **0.13.31** (тег на `7233285`, проверен на ассетах 2026-09-17: шесть
   ассетов, обе подписи и оба дайджеста сходятся, darwin-arm64
   `sha256:88b02609…` = уже обновлённый `~/.local/bin/prifly`; стенды `1 of 9` /
