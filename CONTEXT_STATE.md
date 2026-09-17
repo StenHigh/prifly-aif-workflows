@@ -4,10 +4,10 @@
 Нормативная правда — в самих YAML и в `aif-classic/decisions/INVENTORY.md`;
 этот файл только ориентирует.
 
-Обновлено: 2026-09-17. Выпущенный пакет — тег `v1.37.0`; коммит смотреть
-через `git rev-parse v1.37.0`, а не переписывать сюда; каталог
+Обновлено: 2026-09-17. Выпущенный пакет — тег `v1.38.0`; коммит смотреть
+через `git rev-parse v1.38.0`, а не переписывать сюда; каталог
 `StenHigh/prifly-workflows` держит на нём обе записи. Все четверо ворот
-выверены против выпущенного Pri-Fly `v0.13.30`. Адреса сессий: движок
+выверены против выпущенного Pri-Fly `v0.13.31`. Адреса сессий: движок
 `Dev [2ffd3f]`, эта сессия `prifly-aif-workflows [08b163]` (меняются при
 перезапуске — сверять `ListAgents`; пилот на 2026-09-17 в списке не опознан —
 `backend-81` исчез, есть `backend-01` и `backend-3b`).
@@ -605,6 +605,47 @@ review и `references/*` improve — байт в байт.
   обязателен, поиск по `producer.run_id` снят, их счётчик компенсаций —
   0/0, компиляция на 1.37.0 + 0.13.27 без нарушений. Проект пилота больше
   не обходит ни пакет, ни движок нигде — первый раз с начала пилота.
+- **0.13.31** (тег на `7233285`, проверен на ассетах 2026-09-17: шесть
+  ассетов, обе подписи и оба дайджеста сходятся, darwin-arm64
+  `sha256:88b02609…` = уже обновлённый `~/.local/bin/prifly`; стенды `1 of 9` /
+  `1 of 10` против 0.13.30; **четверо ворот зелены с деревом 1.38.0** —
+  49 компонентов, 5 запусков / 4 сборки): StepDefinition v8 — materialise-only
+  binding для read-only шага (capabilities `materialize_only_workspace_tree`,
+  `run_failure_named`, `core-state/30`, `core-read/30`; `failure {code,
+  diagnostic_id, attempt_id, step_instance_id}` в view только у Run под /30,
+  старые — прежняя форма, поэтому осевший стенд его не видит); текст раннера
+  сменился (`attempts[].id`) — `project runners update`. У движка 1.37.0
+  `--prepare` проходит с прежним ключом сборки. Движок предложил после
+  выпуска 1.38.0 обновить свой стенд и дойти до verify — первое чтение
+  материализованного плана вне пилота; по слову владельца.
+- **v1.38.0 выпущен 2026-09-17** (подготовлен на кандидате v8 — движок `7233285` из
+  дерева, `go build -ldflags -X …runtime.Version=0.13.31-rc.7233285` — без
+  штампа `frozen_stand` отказывает сравнивать «0.2.0-dev.5» со стендом
+  0.13.3):** verify 1.10.0 и review 1.9.0 — `inputs.plan` (manifest) +
+  `workspace_trees: [{input_port: plan, capture: "{{plan_capture}}"}]` без
+  `output_port` → StepDefinition v8 (компилятор lower-ит сам); `verify-once`/
+  `review-once` 1.6.0 и `verify-batch`/`review-batch` 1.4.0 — вход `plan`,
+  round передаёт `$inputs.plan` в обе привязки (fix план не захватывает);
+  корень 1.38.0 — `verify`/`review` ← `$stages.implement.plan`; мосты verify
+  1.11.0 / review 1.8.0 — абзац «план лежит read-only там, где ищет навык;
+  читать, не объявлять, не отчитываться, присутствие — не находка, запись —
+  `effect_not_permitted`». `verify.py`: `READ_STEPS`, v8 у гейтов, binding без
+  `output_port` с тем же `capture`, что у implement (все три профиля), сторож
+  `verify`/`review` ← `implement.plan` — проверен вырезанием (привязка к
+  `improve.plan` красна своим утверждением). Четверо ворот зелены на
+  кандидате (49 компонентов, 5 запусков / 4 сборки); стенды `1 of 9` /
+  `1 of 10` против 0.13.30 — `failure {}` в view cancelled-Run на осевшем
+  стенде не проявился. Обе стороны совместимости замерены: **1.37.0 на
+  кандидате компилируется** (49, verify v7); **1.38.0 на 0.13.30 —
+  `schema_invalid at /workspace_trees/0 … requires output_port`** (README
+  «Версии» называет минимум 0.13.31). Не выпущено: CI ставит latest stable, с
+  1.38.0 на main он красный до тега 0.13.31 — пушить после тега и ворот на
+  опубликованном ассете; затем `v1.38.0`, каталог, пилот (`project runners
+  update` у них — текст раннера сменился, `attempts[].id`). Что видит
+  исполнитель на verify (`repository_workspace`, `workspace_trees[0]` с
+  `input_manifest`/`input_location`/`materialized_entries`,
+  `workspace-tree-guide/2`) — ни один наш стенд не читает; первый чужой —
+  пилот или стенд движка.
 - **0.13.30** (проверен на ассетах 2026-09-17, тег `a2f0699`: шесть ассетов,
   обе подписи и оба дайджеста сходятся; стенды `1 of 9` / `1 of 10`; ворота
   зелены на `sha256:0e353942…`; управляемый бинарь в `~/.local/bin` уже был
@@ -737,8 +778,8 @@ review и `references/*` improve — байт в байт.
   Проводка на нашей стороне после биндинга: root `verify ← $stages.implement.plan`,
   `verify-batch`/`verify-once` вход `plan`, шаг verify `inputs.plan` +
   `workspace_trees` — пять файлов и версии. **Решение владельца 2026-09-17:
-  делать** — и v8 у движка, и проводку у нас; движку передано. Ждём форму
-  binding'а и кандидата; тогда: root `verify`/`review` ← `$stages.implement.plan`
+  делать** — и v8 у движка, и проводку у нас; движку передано. **Сделано на
+  кандидате `7233285`, см. запись «v1.38.0 подготовлен» выше.** План был: root `verify`/`review` ← `$stages.implement.plan`
   (пост-implement захват), входы `verify-batch`/`verify-once`/`review-batch`/
   `review-once`, шаги verify (1.9.0→) и review (1.8.0→) `inputs.plan` +
   `workspace_trees`, абзац в мостах verify/review (план лежит read-only там,
