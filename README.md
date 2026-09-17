@@ -112,6 +112,15 @@ launches:
 В `aif-classic` доступны `profile: fast|full|ultra` (reviewed default),
 `settings` для лимитов improve и `exclude: [improve, verify, security, review]`.
 
+Состав гейта (`gate_checks` в `answers.preflight` или на старте) исполняется в
+рабочей копии захода — новом worktree по базовому коммиту. В ней есть только
+tracked-файлы: всё из `.gitignore` (каталог с инструментами, кэши, vendor,
+`node_modules`, локальные бинари) отсутствует. Проверка, которая берёт
+инструмент из такого каталога, останавливается до первой проверки с
+`Error 127` — измерено на `make ci-check` с компилятором из `.tools/`.
+Называйте инструмент в `gate_checks` так же, как это делает ваш CI, либо
+ставьте зависимости в дереве захода до проверки.
+
 `extend.yaml` не только вычитает: `extensions` добавляет ваш собственный шаг в
 маршрут, не форкая пакет, поэтому `project workflows update` продолжает
 приезжать. Вставка объявляется в ребро графа — `between: {from: X, to: Y}`, —
