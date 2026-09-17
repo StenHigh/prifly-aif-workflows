@@ -24,6 +24,9 @@ PROFILE_CAPTURES = {
     "ultra": {"kind": "direct_child_tree", "path": ".ai-factory/plans", "entrypoint": "index.md"},
 }
 PLAN_STEPS = ("aif:step/plan", "aif:step/improve", "aif:step/implement")
+# The gates read the plan without writing it: a materialise-only binding, which
+# is what puts a read-only step on StepDefinition v8 (0.13.31).
+READ_STEPS = ("aif:step/verify", "aif:step/review")
 
 # WorkflowRevision v4 closes the verdict set; a stage answers for all of it.
 STEP_VERDICTS = ("pass", "fail", "needs_revision", "no_work")
@@ -273,7 +276,7 @@ def check_classic(binary, authority, repository, root):
     # word the schema did not have; 0.12.8 gave it one, so the number is gone
     # rather than raised. Declaring it is what puts a step on StepDefinition v7.
     for step in (item for name, item in documents.items() if name.startswith("aif:step/")):
-        assert step["schema_version"] == "7", (step["id"], step["schema_version"])
+        assert step["schema_version"] == ("8" if step["id"] in READ_STEPS else "7"), (step["id"], step["schema_version"])
         assert step["session_limits"]["active_timeout_ms"] is None, step["id"]
         assert step["session_limits"]["decision_wait_timeout_ms"] is None, step["id"]
     for step_id in PLAN_STEPS:
@@ -284,6 +287,14 @@ def check_classic(binary, authority, repository, root):
     for step_id in ("aif:step/improve", "aif:step/implement"):
         binding = documents[step_id]["workspace_trees"][0]
         assert binding["input_port"] == "plan" and binding["output_port"] == "plan", step_id
+    # The gates get the plan laid out where the pinned skill looks for it, and
+    # nothing back: the implement step's capture had taken it out of the tree,
+    # and until 1.38.0 verify judged "what the plan promised" from whatever the
+    # host session still remembered. No output port, so nothing is captured.
+    for step_id in READ_STEPS:
+        binding = documents[step_id]["workspace_trees"][0]
+        assert binding["input_port"] == "plan" and "output_port" not in binding, (step_id, binding)
+        assert binding["capture"] == documents["aif:step/implement"]["workspace_trees"][0]["capture"], step_id
     for step_id, primary, upstream in (
         ("aif:step/plan", "aif:context/aif-plan-bridge", "aif:context/aif-plan"),
         ("aif:step/implement", "aif:context/aif-implement-bridge", "aif:context/aif-implement"),
@@ -317,6 +328,12 @@ def check_classic(binary, authority, repository, root):
     assert reads_implementation_from("security") == "verify"
     assert reads_implementation_from("review") == "verify"
     assert reads_implementation_from("commit") == "review"
+    # Both gates judge against the plan implement handed back — the capture
+    # taken after implementation, which is what the skill would have read from
+    # the tree — not the one improve accepted before any code was written.
+    for gate in ("verify", "review"):
+        binding = root_stages[gate]["input_bindings"]["plan"]
+        assert binding["from"] == "stage_output" and binding["port"] == "plan" and binding["stage_id"] == "implement", (gate, binding)
     assert root_stages["done"]["output_bindings"]["implementation"]["stage_id"] == "commit"
     for gate in ("verify", "review"):
         batch = stages(f"aif:workflow/{gate}-batch")
@@ -355,7 +372,7 @@ def check_classic(binary, authority, repository, root):
 
     for profile, expected in PROFILE_CAPTURES.items():
         _, profiled = compile_package(binary, authority, repository, "aif-classic", root / f"classic-{profile}", profile=profile)
-        for step_id in PLAN_STEPS:
+        for step_id in PLAN_STEPS + READ_STEPS:
             capture = profiled[step_id]["workspace_trees"][0]["capture"]
             for key, value in expected.items():
                 assert capture.get(key) == value, (profile, step_id, capture)

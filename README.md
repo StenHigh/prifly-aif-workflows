@@ -135,6 +135,10 @@ Pri-Fly, а с Pri-Fly новее `v0.7.0` форму отдаёт `prifly schem
   который уже seal-ил прежнюю версию.
 - Совместимость с Pri-Fly: папки проверяются CI против latest stable release
   Pri-Fly; изменение YAML authoring contract Pri-Fly требует новой версии здесь.
+  С `v1.38.0` нужен Pri-Fly не ниже `0.13.31`: шаги `verify` и `review` несут
+  materialise-only binding плана (StepDefinition v8), и более старый движок
+  отказывает на compile — `schema_invalid at /workspace_trees/0 … requires
+  output_port`.
 
 ## Вердикты и WorkflowRevision v4
 
