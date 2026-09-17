@@ -605,6 +605,25 @@ review и `references/*` improve — байт в байт.
   обязателен, поиск по `producer.run_id` снят, их счётчик компенсаций —
   0/0, компиляция на 1.37.0 + 0.13.27 без нарушений. Проект пилота больше
   не обходит ни пакет, ни движок нигде — первый раз с начала пилота.
+- **Первый заход пилота на 0.13.32 + 1.38.0 — #140, `succeeded` до done без
+  доделок, MR !1170 (2026-09-17).** Первое живое «файла нет → положил →
+  снял»: движок выкладывает `.ai-factory/PLAN.md` для verify/review и забирает
+  после. Побочно у пилота: их gate.sh на verify/review видит его как untracked
+  → «дерево грязное» → `baseline_source: skipped`, прирост разбирали руками;
+  чинят у себя (игнорировать путь в предикате). Движку передана форма, не
+  запрос: на время материализации вписывать `input_location` в
+  `.git/info/exclude` worktree'а claim'а. Два других наблюдения — их grep
+  инвентаря и PROJECT.md про `run drive` под nohup (движок закрыл
+  `stage_work` в 0.13.32). Факты из их `session task` на обоих verify и обоих
+  review: `workspace_trees[0] = {input_port: plan, input_location:
+  .ai-factory/PLAN.md, materialized_entries: [.ai-factory/PLAN.md], capture:
+  exact_file, input_manifest: artifact…, revision 1}` — непустой, тот же путь
+  во всех четырёх; `workspace-trees.json` — `workspace-tree-guide/2`; файл
+  байт-в-байт равен плану после improve (`cmp`), после каждого шага снят, на
+  fix и commit его не было. **«Нашёл ли `aif-verify` сам» по-прежнему не
+  измерено:** план писала та же сессия, чек-лист строился по её контексту, из
+  файла проверено только наличие по `paths.plan` и совпадение. Измерит первый
+  заход, где план и verify разведены по сессиям.
 - **1.38.0 прогнан движком на своём стенде до конца (2026-09-17, по слову
   владельца):** `completed / succeeded`, восемь шагов (warmup, plan, improve,
   implement, verify, security, review, commit), диагностик 0, вопросов не
