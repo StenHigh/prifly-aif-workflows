@@ -7,7 +7,7 @@
 Обновлено: 2026-09-17. Выпущенный пакет — тег `v1.38.0`; коммит смотреть
 через `git rev-parse v1.38.0`, а не переписывать сюда; каталог
 `StenHigh/prifly-workflows` держит на нём обе записи. Все четверо ворот
-выверены против выпущенного Pri-Fly `v0.13.31`. Адреса сессий: движок
+выверены против выпущенного Pri-Fly `v0.13.32`. Адреса сессий: движок
 `Dev [2ffd3f]`, эта сессия `prifly-aif-workflows [08b163]` (меняются при
 перезапуске — сверять `ListAgents`; пилот на 2026-09-17 в списке не опознан —
 `backend-81` исчез, есть `backend-01` и `backend-3b`).
@@ -605,6 +605,41 @@ review и `references/*` improve — байт в байт.
   обязателен, поиск по `producer.run_id` снят, их счётчик компенсаций —
   0/0, компиляция на 1.37.0 + 0.13.27 без нарушений. Проект пилота больше
   не обходит ни пакет, ни движок нигде — первый раз с начала пилота.
+- **1.38.0 прогнан движком на своём стенде до конца (2026-09-17, по слову
+  владельца):** `completed / succeeded`, восемь шагов (warmup, plan, improve,
+  implement, verify, security, review, commit), диагностик 0, вопросов не
+  поднималось. Что видит verify — ради чего делали v8: `repository_workspace`
+  = claim-worktree того же Run (раньше null), `workspace_mode: worktree`,
+  `permitted_effects: [write_inside_declared_output_slot]` (права записи в
+  дерево гейт не получил), `workspace_trees[0] = {input_port: plan, capture:
+  {exact_file, .ai-factory/PLAN.md}, input_manifest: {artifact, revision 1,
+  digest}, input_location: .ai-factory/PLAN.md}` без `output_port`, рядом
+  `workspace-trees.json` (`workspace-tree-guide/2`); `context.json` — входы
+  `implementation` + `plan`, выход только `gate`. review — то же, тот же
+  манифест. `materialized_entries` пусты в обоих — правильный случай:
+  исполнитель закоммитил план на claim-ветке в implement, файл уже лежал по
+  объявленному пути теми же байтами, класть и снимать было нечего; после
+  verify `git status --porcelain` пуст. Случай «файла нет → положил → снял»
+  у движка закрыт тестом (`TestMaterializeOnlyTreeHandsAReadOnlyStepTheCapturedPlan`),
+  живьём его даст первый заход, где implement план не коммитит — у пилота
+  (PLAN.md там untracked, захват снимает). **«Нашёл ли `aif-verify` план
+  сам» — не проверено:** хостом был движок-сессия, не модель со своей
+  discovery; файл лежал ровно там, где ищет навык. Первый ответ — заход
+  пилота на 1.38.0. Побочно у движка: их `gate_checks` (`make ci-check`) в
+  claim-worktree падает — Makefile берёт компилятор из `.tools/`, а `.tools`
+  в gitignore, worktree его не содержит (Error 127 до первого теста) —
+  предложено предупредить в README потребителей, чей состав гейта зовёт
+  `make` с локальными инструментами; решение владельца.
+- **0.13.32** (проверен на ассетах 2026-09-17: обе подписи и дайджест
+  darwin-arm64 сходятся — `sha256:a975394b…` = уже обновлённый `~/.local/bin`;
+  linux-архив не докачан — первая загрузка убита системой при 7.3 ГБ
+  занятого swap'а из 8, повтор только darwin + манифест; стенды `1 of 9` /
+  `1 of 10`; ворота зелены с 1.38.0): `stage_work` (`assisted_session` /
+  `program` / `control`) в ответе о следующем действии при `action: stage`,
+  необязательное, `core-read/31`, прежние bundle'ы байт в байт — на старом
+  живом стенде `run explain` не сдвинулся; `workflows update` перестал снимать
+  бит исполнения с `project/` проекта (сторона потребителей с воркерами —
+  пилот). `core-read/30` у нас нигде не закреплено. Пакета не касается.
 - **Заход пилота #139 (0.13.30 + 1.37.0), `succeeded`, диагностик 0:** маршрут warmup → plan → improve → implement → verify (4
   блокера: контейнер вместо явного пина redis, три PHPStan) → fix (один
   коммит) → verify-2. Компенсации 0/0. verify: чек-лист по 16 задачам плана
