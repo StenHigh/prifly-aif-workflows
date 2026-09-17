@@ -655,6 +655,40 @@ review и `references/*` improve — байт в байт.
   установленные файлы на обоих хостах (sha256 установленного = `contexts/NNN.txt`
   скомпилированного), шесть сборок claude-code × codex-app × fast/full/ultra
   компилируются по 61 источнику, захват плана объявлен как обещано.
+- **Первый заход aif-classic на настоящем хосте вне пилота (2026-09-17, стенд
+  движка, по слову владельца):** `fast`, `claude-code`, `worktree`, attended,
+  до захвата плана; Run `run:43576dcc…`, сборка `fcb3af8b…`, движок — локальная
+  сборка с `fb939e6` + починка ниже. Что увидел исполнитель: warmup — задача
+  `assisted-session/7`, `context.json` (`local-context/1`: `inputs {}`,
+  `outputs {handoff}`), два пина (мост + `aif-warmup ad7fd1bd…`), handoff
+  8129 байт по `aif:schema/warmup-handoff`, submit принят с первого раза,
+  0 диагностик. plan — `inputs/{handoff,task}` материализованы, `outputs {}`
+  (порт `plan` в слотах **не** объявлен), рядом `workspace-trees.json`
+  (`workspace-tree-guide/1`): `plan ← exact_file .ai-factory/PLAN.md` и
+  предупреждение не объявлять порт в submission; `permitted_effects`
+  `[write_inside_claimed_workspace, local_git_commit_on_claimed_workspace]`.
+  PLAN.md записан в claim (untracked), submit с `outputs {}` принят. Захват:
+  `accepted.outputs.plan` = артефакт `workspace-tree-manifest/1` `{root
+  ".ai-factory", entrypoint "PLAN.md", files [PLAN.md → артефакт, digest]}`,
+  digest = sha256 файла на диске, `artifact export` побайтно равен файлу;
+  improve получил `inputs/plan` (манифест, 313 байт) + `workspace-trees.json`
+  с `input_port plan → output_port plan`, файл остался в claim, HEAD claim не
+  двигался. Остановка на выданном improve: `run cancel` →
+  `uncertain/has_unresolved_effects`, `run resolve --outcome not_applied` →
+  `cancelled` (`run_cancelled` + `resolved_not_applied`), `claim release` снял
+  worktree и ветку, репозиторий не тронут. **Закрывает обещание по
+  `local-context/3` для `fast`**: деревья приехали не третьей версией
+  `local-context`, а отдельным `workspace-trees.json`. `full`/`ultra`
+  (`direct_child_file`/`direct_child_tree`) живьём по-прежнему не измерены;
+  `changed_files` — поле implementation, до него не дошли.
+- **Побочный дефект standing-ответов (0.13.23+), найден там же:**
+  `answers.preflight.plan_docs`/`plan_logging` в `extend.yaml` при
+  `--package-profile fast` давали `project_start_unknown_decision` «(from
+  extend.yaml) does not apply to this launch» — один `extend.yaml` не мог
+  служить двум профилям. Починено у движка (standing-ответ вне вопросов этого
+  Run отбрасывается; флаг — по-прежнему отказ), не выпущено, пойдёт в один тег
+  с `fb939e6`. Пакета не касается: `answers` — блок проекта, в нашем
+  `extend.yaml` его нет.
 - **`frozen_stand.py build` под `~/.prifly/stands/` невозможен, замерено:**
   `project init --state-root` там отвечает `unsafe_authority_root` и на
   0.13.29, и на 0.13.28 — discovery берёт `~/.prifly` за `.prifly` предка, и
@@ -1503,9 +1537,10 @@ ask.answer#/continue
 ## Открыто
 
 - **Обещано движковой сессии:** прогнать их кандидат `local-context/3` на всех
-  трёх профилях пакета и сказать, что видит исполнитель. С 2026-09-17 у движка
-  есть свой стенд с настоящими хостами и AI Factory 2.19.0 (см. запись выше) —
-  что видит исполнитель, теперь измеримо там, а не только у пилота. Манифест рабочей копии
+  трёх профилях пакета и сказать, что видит исполнитель. **`fast` закрыт
+  2026-09-17** живым заходом на стенде движка (см. запись выше: деревья едут
+  отдельным `workspace-trees.json`, не `local-context/3`); `full` и `ultra`
+  остаются — каждый живой заход на хостах владельца только по его слову. Манифест рабочей копии
   получит объявленные `workspace_trees` целиком — `kind`, `path`, `entrypoint`
   и имена портов, — потому что сегодня там только `outputs.<slot>.path`, и для
   `direct_child_file`/`direct_child_tree` он указывает не туда. Наш пакет —
