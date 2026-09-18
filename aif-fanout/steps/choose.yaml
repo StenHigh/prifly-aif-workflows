@@ -1,6 +1,6 @@
 authoring: prifly-step/2
 id: aif:step/fanout-choose
-version: 1.2.0
+version: 1.3.0
 title: Let the developer choose fan-out suggestions
 kind: worker
 inputs:
@@ -9,6 +9,6 @@ outputs:
   selection: {schema_ref: "{{schema_selection}}", required_for: [pass]}
 executor: {adapter_ref: "{{assisted_adapter}}", operation: session}
 instructions_ref: "{{context_fanout-select}}"
-effects: {class: none, retry_class: never}
+effects: {class: none, retry_class: pure}
 session_limits: {active_timeout_ms: null}
 result_schema_ref: "{{step_result_schema}}"

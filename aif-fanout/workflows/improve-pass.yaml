@@ -1,7 +1,7 @@
 authoring: prifly-workflow/1
 schema_version: "4"
 id: aif:workflow/improve-pass
-version: 1.1.0
+version: 1.2.0
 title: Fan out independent plan-review perspectives once
 refs:
   schema_plan: "{{schema_plan}}"

@@ -361,6 +361,14 @@ def check_classic(binary, authority, repository, root):
             assert '"kind":"parallel"' not in json.dumps(workflow, separators=(",", ":")), workflow_id
     for step_id in ("aif:step/verify", "aif:step/security", "aif:step/review"):
         assert documents[step_id]["effects"]["class"] == "none", step_id
+    # A step that changes nothing can be run again exactly as it was run the
+    # first time, and 0.13.34 lets a graph give such a step a retry budget for
+    # technical failures. A step that writes cannot claim that: a second edit
+    # by a model over a half-finished first one is not the first run, and the
+    # compiler would accept the claim, so this is where it is held.
+    for step in (item for name, item in documents.items() if name.startswith("aif:step/")):
+        expected = "pure" if step["effects"]["class"] == "none" else "never"
+        assert step["effects"]["retry_class"] == expected, (step["id"], step["effects"])
     # The package now runs /aif-fix, but only inside the bounded review loop and
     # never as a gate's own doing: a gate that could fix what it found would be
     # marking its own work.
@@ -391,6 +399,9 @@ def check_fanout(binary, authority, repository, root):
     assert result["package"]["id"] == "aif:package/fanout", result["package"]
     improve_pass = json.dumps(documents["aif:workflow/improve-pass"], separators=(",", ":"))
     assert '"kind":"parallel"' in improve_pass and "opus" not in improve_pass and "sonnet" not in improve_pass
+    for step in (item for name, item in documents.items() if name.startswith("aif:step/")):
+        expected = "pure" if step["effects"]["class"] == "none" else "never"
+        assert step["effects"]["retry_class"] == expected, (step["id"], step["effects"])
     return len(documents)
 
 

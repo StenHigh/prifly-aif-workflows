@@ -1,7 +1,7 @@
 authoring: prifly-workflow/1
 schema_version: "4"
 id: aif:workflow/fanout-branch
-version: 1.1.0
+version: 1.2.0
 title: Produce one independent plan proposal
 refs:
   schema_plan: "{{schema_plan}}"
