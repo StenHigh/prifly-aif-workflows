@@ -1,5 +1,5 @@
 id: aif:context/aif-review-bridge
-version: 1.8.0
+version: 1.9.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-review skill
@@ -27,6 +27,17 @@ text: |
   beyond this change — does not block. Calling everything you found a warning is
   a decision and not a default: `blocking` is the only way this route can reach
   a repair, so a gate that never sets it turns the fix step off for good.
+
+  Your tree is the whole branch, base included; the diff is only the part of
+  it this Run changed. A finding about anything outside the diff — a method
+  you did not see, a norm the change seems to break, a caller you expected —
+  does not exist until you have looked for it in the tree and in the recent
+  history of the touched paths (`git log` on them): cite the file or the
+  commit that bears it out, or drop it. Absence from the diff is not absence
+  from the project, and a base that moved an hour ago is still the base you
+  judge against. Two fresh reviewers in a row reported as missing what the base
+  had received two hours earlier, and read a deliberate exception to a norm as
+  a defect; both were outside the diff, and both were in the tree.
 
   The supporting skill above sets this field by a rule of its own. Where that
   rule and this paragraph disagree, this adapter governs — and the reason is
