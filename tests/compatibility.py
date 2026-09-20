@@ -165,6 +165,45 @@ def check_sequence(binary, authority, repository, root, task):
     return builds, imported
 
 
+# A profiled Run carries fields the older state contracts do not have. 0.13.41
+# and 0.13.43 declared the states for them and never sealed a Run under them:
+# a Run with a translation went out as core-state/31, a contract without the
+# field, which bundle 31 itself rejects. The engine has no assisted stand to
+# see this, so the first Run with a declared profile is measured here.
+PROFILED_SEAL_STATE = 35
+
+
+def check_profiled_seal(binary, authority, repository, root, task):
+    """Start aif-profiled once and read what the authority sealed it under."""
+    output = root / "seal-profiled"
+    run(binary, "--project", authority, "project", "compile", "--repository", repository, "--package", "aif-profiled", "--host", "codex-cli", "--output", output)
+    run(binary, "--project", authority, "package", "import", "--dir", output, "--reason", "compatibility: profiled seal")
+    questionnaire = run(binary, "--project", authority, "project", "questionnaire", "--repository", repository, "--package", "aif-profiled")
+    waiting = {state["id"] for state in questionnaire["decision_states"] if state.get("wait_reason") == "required_before_start"}
+    answers = []
+    for decision in questionnaire["preflight"]:
+        if decision["id"] in waiting:
+            value = decision["choices"][0]["value"] if "choices" in decision else ""
+            answers += ["--preflight-answer", f"{decision['id']}={json.dumps(value)}"]
+    started = run(binary, "--project", authority, "project", "start", "--repository", repository, "--launch", "aif-profiled", "--host", "codex-cli",
+                  "--input", f"task={task}", "--workspace", "worktree", "--expected-decision-catalog-digest", questionnaire["catalog_digest"], *answers)
+    run_id = started["run"]["run"]["id"]
+    try:
+        state = run(binary, "--project", authority, "run", "status", run_id)["run"]
+        family, _, number = state["schema_version"].partition("/")
+        assert family == "core-state" and int(number) >= PROFILED_SEAL_STATE, f"a profiled Run was sealed under {state['schema_version']}, a contract without its fields"
+        tasks = run(binary, "--project", authority, "session", "task", "--run", run_id, "--all")
+        first = tasks[0] if isinstance(tasks, list) else (tasks.get("tasks") or [tasks])[0]
+        # The template translates every profile for codex-cli, so the first
+        # handoff must carry both the declaration and the sealed translation.
+        assert first["model_profile"]["requested"] == "fast-draft", first.get("model_profile")
+        translation = first["model_profile_translation"]
+        assert translation["source"] == "project_default" and translation["values"], translation
+    finally:
+        stop_at_handoff(binary, authority, run_id, started["workspace"])
+    return state["schema_version"]
+
+
 def main():
     if not __debug__:
         raise RuntimeError("Verification requires enabled Python assertions")
@@ -180,8 +219,12 @@ def main():
         git("-C", repository, "commit", "-q", "-m", "compatibility fixture")
         task = root / "task.json"
         task.write_text(json.dumps({"title": "Compatibility sequence", "description": "Carry one authority across every declared plan profile."}))
-        builds, imported = check_sequence(binary, authority, repository, root, task)
-        forgotten = forget_authority(authority)
+        try:
+            builds, imported = check_sequence(binary, authority, repository, root, task)
+            profiled_seal = check_profiled_seal(binary, authority, repository, root, task)
+        finally:
+            # A red gate still removes what its Runs left in the registry.
+            forgotten = forget_authority(authority)
     version = run(binary, "version")
     print(json.dumps({
         "outcome": "passed",
@@ -191,6 +234,7 @@ def main():
         "launches": len(SEQUENCE),
         "distinct_builds": len(set(builds.values())),
         "trusted_packages": len(imported),
+        "profiled_sealed_as": profiled_seal,
         "boundary": "assisted handoff dispatched; no AI host answers it here",
         "registry_entries_removed": forgotten,
     }))
