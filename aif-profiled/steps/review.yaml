@@ -1,11 +1,12 @@
 authoring: prifly-step/2
 id: aif-profiled:step/review
-version: 1.11.0
+version: 1.12.0
 title: Run read-only aif-review over the implementation
 kind: worker
 inputs:
   implementation: {schema_ref: "{{schema_implementation}}"}
   plan: {schema_ref: "{{workspace_tree_manifest}}"}
+  challenge: {schema_ref: "{{schema_challenge-findings}}"}
 outputs:
   gate: {schema_ref: "{{schema_gate-result}}", required_for: [pass, needs_revision]}
 executor: {adapter_ref: "{{assisted_adapter}}", operation: session}

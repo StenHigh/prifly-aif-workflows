@@ -60,7 +60,10 @@ class ReleasedVersionTest(unittest.TestCase):
         # bridge and leaving the step alone makes the step's version name two
         # different documents. Authorities on prifly-project-profile/2 key their
         # inventory on exactly that version and refuse the second one.
-        moved = set()
+        # A placeholder names a file of its own package: aif-profiled's
+        # `{{context_aif-implement-bridge}}` is not aif-classic's, so what moved
+        # is kept per package.
+        moved = {package: set() for package in PACKAGES}
         for path in self.changed:
             if not path.endswith(".yaml") or "/contexts/" not in path and "/schemas/" not in path:
                 continue
@@ -68,14 +71,14 @@ class ReleasedVersionTest(unittest.TestCase):
             if released is None or not current.is_file():
                 continue
             if declared_version(released) != declared_version(current.read_text()):
-                moved.add("{{%s_%s}}" % (Path(path).parent.name.rstrip("s"), Path(path).stem))
-        if not moved:
+                moved[path.split("/")[0]].add("{{%s_%s}}" % (Path(path).parent.name.rstrip("s"), Path(path).stem))
+        if not any(moved.values()):
             return
         for package in PACKAGES:
             for kind in ("steps", "workflows"):
                 for path in sorted((ROOT / package / kind).glob("*.yaml")):
                     text = path.read_text()
-                    named = sorted(alias for alias in moved if alias in text)
+                    named = sorted(alias for alias in moved[package] if alias in text)
                     if not named:
                         continue
                     relative = str(path.relative_to(ROOT))

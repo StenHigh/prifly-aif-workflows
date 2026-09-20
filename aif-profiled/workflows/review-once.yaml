@@ -1,13 +1,15 @@
 authoring: prifly-workflow/1
 schema_version: "4"
 id: aif-profiled:workflow/review-once
-version: 1.8.0
+version: 1.9.0
 title: Review the implementation once and fix what blocks it
 refs:
   schema_implementation: "{{schema_implementation}}"
   schema_gate-result: "{{schema_gate-result}}"
   schema_warmup-handoff: "{{schema_warmup-handoff}}"
   schema_plan_manifest: "{{workspace_tree_manifest}}"
+  schema_challenge-findings: "{{schema_challenge-findings}}"
+  step_review-challenge: "{{step_review-challenge}}"
   step_review: "{{step_review}}"
   step_fix: "{{step_fix}}"
   local_policy: "{{local_policy}}"
@@ -18,14 +20,22 @@ inputs:
 outputs:
   implementation: {schema_ref: schema_implementation, required_for: [succeeded, partial]}
   gate: {schema_ref: schema_gate-result, required_for: [partial, rejected]}
-limits: {max_step_instances: 2, max_control_transitions: 16, max_parallelism: 1, max_child_depth: 1}
+limits: {max_step_instances: 3, max_control_transitions: 16, max_parallelism: 1, max_child_depth: 1}
 policy_ref: local_policy
-entry: review
+entry: challenge
 stages:
+  # A second reviewer reads the change first, in a session of its own; the
+  # review step checks its findings and decides. Sequential on purpose: one
+  # gate document, written by the reader who verified everything in it.
+  challenge:
+    kind: step
+    step_ref: step_review-challenge
+    input_bindings: {implementation: $inputs.implementation, plan: $inputs.plan}
+    on: {pass: review, needs_revision: review, fail: stopped, no_work: stopped}
   review:
     kind: step
     step_ref: step_review
-    input_bindings: {implementation: $inputs.implementation, plan: $inputs.plan}
+    input_bindings: {implementation: $inputs.implementation, plan: $inputs.plan, challenge: $stages.challenge.challenge}
     on: {pass: decide, needs_revision: inconclusive, fail: stopped, no_work: stopped}
   decide:
     kind: choice

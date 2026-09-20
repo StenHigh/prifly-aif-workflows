@@ -28,7 +28,7 @@ PROFILE_CAPTURES = {
 PLAN_STEPS = ("aif:step/plan", "aif:step/improve", "aif:step/implement")
 # The gates read the plan without writing it: a materialise-only binding, which
 # is what puts a read-only step on StepDefinition v8 (0.13.31).
-READ_STEPS = ("aif:step/verify", "aif:step/review")
+READ_STEPS = ("aif:step/verify", "aif:step/review", "aif:step/review-challenge")
 
 # WorkflowRevision v4 closes the verdict set; a stage answers for all of it.
 STEP_VERDICTS = ("pass", "fail", "needs_revision", "no_work")
@@ -204,7 +204,8 @@ def check_classic(binary, authority, repository, root):
 
     output = root / "classic"
     result, documents = compile_package(binary, authority, repository, "aif-classic", output)
-    assert result["package"]["id"] == "aif:package/classic" and len(result["components"]) == 49, result["package"]
+    # 49 until 1.41.0; the second reviewer added a step, its findings schema and its bridge.
+    assert result["package"]["id"] == "aif:package/classic" and len(result["components"]) == 52, (result["package"], len(result["components"]))
     catalog = by_id(json.loads((output / "decisions.json").read_text())["decisions"])
     assert {name: entry["phase"] for name, entry in catalog.items()} == CLASSIC_DECISIONS, sorted(catalog)
     assert catalog["plan_profile"]["destination"]["kind"] == "package_profile", catalog["plan_profile"]
@@ -362,7 +363,7 @@ def check_classic(binary, authority, repository, root):
     for workflow_id, workflow in documents.items():
         if workflow_id.startswith("aif:workflow/"):
             assert '"kind":"parallel"' not in json.dumps(workflow, separators=(",", ":")), workflow_id
-    for step_id in ("aif:step/verify", "aif:step/security", "aif:step/review"):
+    for step_id in ("aif:step/verify", "aif:step/security", "aif:step/review", "aif:step/review-challenge"):
         assert documents[step_id]["effects"]["class"] == "none", step_id
     # A step that changes nothing can be run again exactly as it was run the
     # first time, and 0.13.34 lets a graph give such a step a retry budget for
@@ -380,6 +381,18 @@ def check_classic(binary, authority, repository, root):
         assert set(stages(f"aif:workflow/{gate}-once")) >= {gate, "fix", "clean", "fixed", "unresolved"}, gate
         assert stages(f"aif:workflow/{gate}-batch")["round"]["continue_on"] == ["partial"], gate
         assert stages(f"aif:workflow/{gate}-batch")["exhausted"]["outcome"] == "partial", "an exhausted limit stays honest"
+    # A second reviewer reads the change first, in a session of its own, and the
+    # review step checks what it found: the round has one gate document, written
+    # by the reader who verified everything in it, so the challenger's output is
+    # findings and never a gate, and blocking is decided once.
+    once = stages("aif:workflow/review-once")
+    assert documents["aif:workflow/review-once"]["definition"]["entry"] == "challenge", documents["aif:workflow/review-once"]["definition"]["entry"]
+    assert once["challenge"]["step_ref"]["id"] == "aif:step/review-challenge" and once["challenge"]["on"]["pass"] == "review", once["challenge"]
+    challenge_binding = once["review"]["input_bindings"]["challenge"]
+    assert challenge_binding["from"] == "stage_output" and challenge_binding["stage_id"] == "challenge" and challenge_binding["port"] == "challenge", challenge_binding
+    challenger = documents["aif:step/review-challenge"]
+    assert set(challenger["outputs"]) == {"challenge"} and "gate" not in challenger["outputs"], challenger["outputs"]
+    assert challenger["outputs"]["challenge"]["required_for"] == ["pass", "needs_revision"], challenger["outputs"]["challenge"]
 
     for profile, expected in PROFILE_CAPTURES.items():
         _, profiled = compile_package(binary, authority, repository, "aif-classic", root / f"classic-{profile}", profile=profile)

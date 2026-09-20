@@ -1,5 +1,5 @@
 id: aif:context/aif-review-bridge
-version: 1.9.0
+version: 1.10.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-review skill
@@ -19,6 +19,17 @@ text: |
   Report findings honestly, including that a gate you could not run did not
   run. A gate that reports a pass it did not establish is worse than one that
   reports it could not check.
+
+  A second reviewer read this change before you, in a session of its own, and
+  its findings are your `challenge` input. They are claims, not findings, until
+  you have checked each one against the tree — or better, by running it —
+  and set its severity yourself: raise, lower or drop, collapse the ones that
+  duplicate yours, and carry the ones that stand into `findings` marked as
+  the second reviewer's. Its `checked` list is part of what this gate covered;
+  say so. On a live Run the second reader found the real blocker of a round
+  and three defects in the fix that followed, and invented nothing in nine
+  findings — because every one was checked, not summed. `blocking` stays
+  yours alone.
 
   A finding blocks when the change under review is wrong on its own terms: it
   does not do what the plan promised, it breaks something that worked, or it

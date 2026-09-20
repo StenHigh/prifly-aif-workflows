@@ -6,8 +6,9 @@ settings:
   improve-series: {improve_batch_limit: 3}
 exclude: []
 # `extensions` adds a step of your own; this file is not only for subtracting.
-# `workflow` and `step` are short component names — the file name without its
-# directory — never the full `id:` written inside those files. The insertion
+# `workflow` and `step` are short component names — the tail of the component's
+# `id:` after the last `/`, which in this package is also its file name without
+# the directory — never the full `id:`. The insertion
 # names the route it replaces, so the tail of the graph cannot be silently
 # detached: `from` routes to your step and your step routes on to `to`. An
 # inserted step declares no inputs; a step that needs them belongs in a workflow

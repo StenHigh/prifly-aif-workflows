@@ -1,5 +1,5 @@
-id: aif:context/aif-warmup-bridge
-version: 1.3.0
+id: aif-profiled:context/aif-warmup-bridge
+version: 1.4.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-warmup skill
@@ -7,6 +7,18 @@ text: |
   The following supporting context is the pinned upstream `aif-warmup` skill.
   Run it as written: read the core project artifacts, the applicable
   instructions, and whatever `warmup.paths` names.
+
+  This step is meant to run in a session of its own. On a host that can start
+  one — a subagent, a forked session — start it with the model profile this
+  task requests, hand it only this task's `workspace/` (the pinned skill, the
+  sealed context, the inputs) and nothing from your own context, let it do the
+  step, and submit its report unchanged. Measured on live Runs, a fresh session
+  did the heaviest steps on a fraction of the context a long session carries,
+  with no loss at the gates that followed, and a small step earns the cheaper
+  model its profile names only when it runs apart from the host's own session.
+  Answer `model_profile` with the model that session actually ran on; a host
+  that cannot start one does the step here and answers `unavailable`, which is
+  a true record and not a failure.
 
   Upstream warmup ends by holding a compact handoff in its own session, which
   the developer then continues or forks. Here every later step runs in its own

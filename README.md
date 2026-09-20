@@ -29,7 +29,7 @@
 
 | Папка | Назначение |
 |---|---|
-| [`aif-classic/`](aif-classic/) | Канонический последовательный путь автора AI Factory: `warmup → plan → improve → implement → verify → security → review → commit`. Improve передаёт исправленный native plan в следующий круг; блокирующий verify/security/review возвращает typed gate с `suggested_next: /aif-fix` и ничего не чинит сам. |
+| [`aif-classic/`](aif-classic/) | Канонический последовательный путь автора AI Factory: `warmup → plan → improve → implement → verify → security → review → commit`. Improve передаёт исправленный native plan в следующий круг; блокирующий verify/security/review возвращает typed gate с `suggested_next: /aif-fix` и ничего не чинит сам. Круг review открывает второй читатель в своей сессии (`review-challenge`), чьи находки review проверяет и сливает. |
 | [`aif-fanout/`](aif-fanout/) | Отдельная доработка существующего плана двумя независимыми ракурсами review → выбор разработчика → применение принятого. Это веер задач, не выбор модели. |
 | [`aif-profiled/`](aif-profiled/) | Тот же classic, порождённый из него `tools/derive_profiled.py`: каждый шаг объявляет профиль модели (`model_profile`), `plan` и `implement` просят отдельную сессию. Перевод профиля в модель и effort задаёт проект — дефолты в `extend.yaml`, переопределение в `.prifly/local.yaml`; движок доставляет и не выбирает. Pri-Fly ≥ 0.13.43. |
 

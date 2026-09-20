@@ -1,6 +1,6 @@
 authoring: prifly-step/2
 id: aif-profiled:step/warmup
-version: 1.6.0
+version: 1.7.0
 title: Run aif-warmup and hand its compact reading forward
 kind: worker
 outputs:
