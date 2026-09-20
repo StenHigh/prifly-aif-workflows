@@ -4,8 +4,8 @@
 Нормативная правда — в самих YAML и в `aif-classic/decisions/INVENTORY.md`;
 этот файл только ориентирует.
 
-Обновлено: 2026-09-20. Выпущенный пакет — тег `v1.42.0`; коммит смотреть
-через `git rev-parse v1.42.0`, а не переписывать сюда; каталог
+Обновлено: 2026-09-20. Выпущенный пакет — тег `v1.43.0`; коммит смотреть
+через `git rev-parse v1.43.0`, а не переписывать сюда; каталог
 `StenHigh/prifly-workflows` держит на нём три записи (classic, fanout,
 profiled). Все четверо ворот
 выверены против выпущенного Pri-Fly `v0.13.43`. Адреса сессий: движок
@@ -713,6 +713,90 @@ review и `references/*` improve — байт в байт.
   «not a host this build knows; keyed by codex-cli, codex-app or
   claude-code». **Выпущен 2026-09-20 по слову владельца: profiled 1.41.0**
   (дефолты + README), тег репозитория `v1.42.0`, classic/fanout без изменений.
+  **Пилот переехал (по слову владельца «обновить для актуальности, прогон
+  позже»):** движок 0.13.43, aif-profiled 1.42.0 вторым запуском рядом с
+  classic, тот же слой проекта (tests/merge-request, gate.sh, ответы,
+  worktree, preflight) — парный замер сравнит только профили; их
+  `model_profiles` — наш шаблон, но `fast-draft` на claude-code — **sonnet,
+  не haiku** (warmup пишет handoff, который читают все шаги захода) —
+  кандидат на смену дефолта в шаблоне, решение владельца. Две заметки
+  поставки: `workflows update` на 1.42.0 отказал `project_workflow_modified`
+  из-за README (последствие промаха v1.41.0, вернули байт-в-байт);
+  `questionnaire --prepare` перевод не показывает — просьба к движку показать
+  в launch-summary (передана). Задача-кандидат для замера classic vs
+  profiled — #151; запуск по слову владельца. **Разбор движка:** (1) перевод
+  не в summary — **дефект**, дыра в гарантии `--expected-launch-digest`:
+  `review_digest` считается по summary и сверяется при старте
+  (`project_start_stale_launch`), а перевод запечатывается при старте и в
+  summary не входит — правка `local.yaml` между `--prepare` и `start` digest
+  не ломает; чинят. (2) `project_workflow_modified` — движок прав (README
+  руками в установленной папке = локальное изменение; дайджест установленной
+  копии), но совет отказа «remove и add» опасен: `remove` сносит папку с
+  `extend.yaml` (там теперь `model_profiles` и `settings` команды) — чинят,
+  `remove` будет беречь командные файлы; до правки — копия `extend.yaml`
+  перед `remove` (наш README это говорит с 1.36.0). Пилоту передано.
+- **Первый живой заход aif-profiled — #151 у пилота (1.42.0 + 0.13.43),
+  `succeeded`, 13 попыток, 257 мин, MR !1186.** Профили по шагам: warmup
+  `fast-draft` хост → **`unavailable`** 4,6 мин; plan `deep-reasoning`
+  свежий субагент opus → `honoured` 47,8; improve `careful-review` хост →
+  `honoured` 6,0; implement `deep-reasoning` субагент opus → `honoured`
+  86,4 (84 файла, 6 коммитов); verify хост → `honoured` 11,0; review ×3 хост
+  → `honoured` 27,6 / 28,8 / 3,8; fix ×2 хост → `honoured` 14,4 / 7,6; tests
+  (программа) 16,2; commit `fast-draft` хост → **`unavailable`** 0,4. Итог
+  замера «сколько `unavailable`»: 2 из 11 assisted — ровно шаги `fast-draft`
+  в сессии хоста (сессия модель не меняет; `careful-review` = opus совпал с
+  моделью хоста). Три круга review: челленджер (sonnet, свежая сессия, дифф
+  + история базы по путям + дерево) нашёл настоящий блокер (gate:run без
+  обработки сигналов → phpunit-сироты на общей тестовой БД) и 3 major в
+  fix-1; **выдуманных находок вне диффа 0 из 9 за три круга** — первый счёт
+  по правилу 1.40.0. Три предложения пилота, решение владельца: (1)
+  `fast-draft` у host-session-шагов не исполним — либо объявить warmup (и
+  commit, continue-improve) «своя сессия», либо считать `unavailable`
+  ожидаемым; (2) челленджер как объявленный под-шаг review в своей сессии с
+  другой моделью (сейчас — инициатива хоста, пакет о нём не знает); (3)
+  контракты, о которые споткнулся хост: `suggested_next ∈ {continue,
+  /aif-fix}` и «verdict всегда pass, решает blocking» — мост review это уже
+  говорит (строки 68 и 98), хост читал не его; commit-bridge п.1 «если
+  PLAN.md есть — удалить» — файла на commit давно нет (захват implement
+  снимает), прозу свести к «нормально, что файла нет» — в следующий текстовый
+  выпуск classic вместе с комментарием extend.yaml про короткие имена
+  (движок исправил справочник: хвост id, не имя файла). Обвязка гейта у
+  пилота после #151: `gate.sh` в обоих пакетах — одна строка `php artisan
+  gate:run --json`, состав — `.prifly/gate.yaml`.
+  **Решения владельца 2026-09-20: «classic менять можно, лучше сразу всё
+  сделать хорошо»; дефолт `fast-draft` на claude-code — sonnet.** Сделано в
+  дереве, не выпущено: (а) **второй читатель в classic** — шаг
+  `review-challenge` (read-only, `pure`, входы `implementation` + `plan`
+  materialise-only — даёт дерево claim'а; выход `challenge` по новой схеме
+  `challenge-findings` — findings с severity/location/claim/evidence/
+  `checked_against: tree|diff` + `checked`; `required_for: [pass,
+  needs_revision]`), мост `aif-review-challenge-bridge` (рецепт пилота:
+  дифф app/tests, `git log` затронутых путей, правило 1.40.0, RULES проекта,
+  только чтение, без полных прогонов, ничего вне дерева и запечатанного
+  контекста; «своя сессия и другая модель» — в самом мосте, потому что в
+  этом суть шага), `review-once`: `challenge → review → decide`
+  последовательно (параллель — если время окажется важным), review получил
+  вход `challenge`, мост review — «claims, not findings: проверить по дереву
+  или исполнением, severity свой, дубли схлопнуть, `blocking` только твой»;
+  `review-batch` `max_step_instances` 20 → 24 (компилятор: `limit_exceeded …
+  cannot cover every permitted nested path` — 8 кругов × 3 шага); classic 52
+  компонента (было 49), корень 1.41.0. (б) Тексты classic: commit-bridge
+  «PLAN.md к commit обычно уже нет», комментарий extend.yaml про короткие
+  имена = хвост id. (в) profiled: `independent-review` у второго читателя
+  (шаблон: claude-code sonnet/medium, codex gpt-5-mini/medium), warmup в
+  `FRESH_SESSION`, sonnet для `fast-draft`, абзац про свою сессию переписан
+  общо; корень profiled 1.42.0 (HEAD 1.41.0). **Генератор теперь берёт
+  базу версий из HEAD (`git show`), не из рабочего дерева** — пять
+  перегенераций в одном цикле давали корень 1.48.0; теперь ровно +1 minor к
+  HEAD, идемпотентно. `test_versions`: `moved` считается **по пакетам** —
+  `{{context_aif-implement-bridge}}` profiled не classic (ложный красный).
+  `verify.py`: `READ_STEPS` + review-challenge, форма второго читателя (entry
+  `challenge`, `review ← challenge`, выход не gate), счётчик 52; ворота 1–3
+  зелены на 0.13.43 (46 компонентов / 25 шагов), компатибилити — прогнать
+  перед выпуском. Вырезание: `required_for: [pass]` у challenge —
+  `unavailable_output` компилятором на маршруте `needs_revision → review`.
+  **Выпущен 2026-09-20 по слову владельца: тег `v1.43.0`** — classic 1.41.0,
+  profiled 1.42.0, fanout без изменений; каталог — три записи.
   Генератор: блок ляжет в `transform` для `extend.yaml` — менять и
   перегенерировать **только после их тега**, иначе текущий движок отвергнет
   extend.yaml как неизвестный блок, а `test_folders` — расхождение. **До их
