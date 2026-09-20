@@ -57,6 +57,9 @@ class WorkflowFolderTest(unittest.TestCase):
         generated = set(files)
         for path in PROFILED.rglob("*.yaml"):
             self.assertIn(path.relative_to(PROFILED), generated, f"{path} is not derived from aif-classic")
+        # The README is the one file written by hand, and a regeneration from an
+        # empty folder does not bring it back: v1.41.0 shipped without it.
+        self.assertIn("model_profiles", (PROFILED / "README.md").read_text())
         # Every step carries a profile, and a profile names work, not a product.
         for name, (requested, reason) in module.PROFILES.items():
             step = (PROFILED / "steps" / f"{name}.yaml").read_text()

@@ -61,6 +61,37 @@ FRESH_SESSION_PARAGRAPH = """\
   answers `unavailable`, which is a true record and not a failure.
 """
 
+# The team's defaults for turning a profile into a model and an effort, per
+# host Pri-Fly knows (0.13.43: `model_profiles` in extend.yaml, keyed by the
+# hosts the engine knows, not the ones a project declares — a shared package
+# has to carry all three). The values are the host's own words; Pri-Fly
+# carries them into the task as `model_profile_translation` and reads none of
+# them. A developer overrides a whole entry on their machine with
+# `project local set --model-profile "HOST NAME key=value"`.
+MODEL_PROFILES_BLOCK = """\
+# How this project turns a step's model profile into a model and an effort,
+# per host. Pri-Fly carries the entry into the step's task as
+# `model_profile_translation` and reads none of it: the words are the host's
+# own. Edit for your team; a developer overrides an entry on their machine
+# with `prifly project local set --model-profile "claude-code deep-reasoning model=opus effort=high"`
+# (the local entry replaces the whole entry, keys are not merged). A profile
+# with no entry for the host you start on travels without a translation, and
+# the host answers `unavailable` — a true record, not a failure.
+model_profiles:
+  claude-code:
+    deep-reasoning: {model: opus, effort: high}
+    careful-review: {model: opus, effort: medium}
+    fast-draft: {model: haiku, effort: low}
+  codex-cli:
+    deep-reasoning: {model: gpt-5, reasoning_effort: high}
+    careful-review: {model: gpt-5, reasoning_effort: medium}
+    fast-draft: {model: gpt-5-mini, reasoning_effort: low}
+  codex-app:
+    deep-reasoning: {model: gpt-5, reasoning_effort: high}
+    careful-review: {model: gpt-5, reasoning_effort: medium}
+    fast-draft: {model: gpt-5-mini, reasoning_effort: low}
+"""
+
 PACKAGE_TITLE = "AI Factory profiled development workflow"
 PACKAGE_DESCRIPTION = "The classic AI Factory route with every step declaring the model profile it wants; plan and implement run in a session of their own."
 
@@ -93,7 +124,12 @@ def transform(relative, text):
     if relative.name == "README.md":
         return None  # written by hand for the derived package
     if parts[0] == "extend.yaml":
-        return text.replace("aif-classic", "aif-profiled")
+        text = text.replace("aif-classic", "aif-profiled")
+        # The block goes in after the team's own knobs and before the
+        # `extensions` commentary that classic's template ends with.
+        marker = "# `extensions` adds a step of your own"
+        assert text.count(marker) == 1, "classic's extend.yaml no longer introduces `extensions` where this expects it"
+        return text.replace(marker, MODEL_PROFILES_BLOCK + marker)
     if parts[0] == "workflow.yaml":
         text = text.replace("id: aif:package/classic\n", "id: aif-profiled:package/classic\n")
         text = text.replace("id: aif:workflow/classic\n", "id: aif-profiled:workflow/classic\n")

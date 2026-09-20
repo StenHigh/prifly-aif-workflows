@@ -5,6 +5,27 @@ settings:
   improve-batch: {improve_round_limit: 3}
   improve-series: {improve_batch_limit: 3}
 exclude: []
+# How this project turns a step's model profile into a model and an effort,
+# per host. Pri-Fly carries the entry into the step's task as
+# `model_profile_translation` and reads none of it: the words are the host's
+# own. Edit for your team; a developer overrides an entry on their machine
+# with `prifly project local set --model-profile "claude-code deep-reasoning model=opus effort=high"`
+# (the local entry replaces the whole entry, keys are not merged). A profile
+# with no entry for the host you start on travels without a translation, and
+# the host answers `unavailable` — a true record, not a failure.
+model_profiles:
+  claude-code:
+    deep-reasoning: {model: opus, effort: high}
+    careful-review: {model: opus, effort: medium}
+    fast-draft: {model: haiku, effort: low}
+  codex-cli:
+    deep-reasoning: {model: gpt-5, reasoning_effort: high}
+    careful-review: {model: gpt-5, reasoning_effort: medium}
+    fast-draft: {model: gpt-5-mini, reasoning_effort: low}
+  codex-app:
+    deep-reasoning: {model: gpt-5, reasoning_effort: high}
+    careful-review: {model: gpt-5, reasoning_effort: medium}
+    fast-draft: {model: gpt-5-mini, reasoning_effort: low}
 # `extensions` adds a step of your own; this file is not only for subtracting.
 # `workflow` and `step` are short component names — the file name without its
 # directory — never the full `id:` written inside those files. The insertion
