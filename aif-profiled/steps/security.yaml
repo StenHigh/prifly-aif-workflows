@@ -1,0 +1,19 @@
+authoring: prifly-step/2
+id: aif-profiled:step/security
+version: 1.9.0
+title: Run read-only aif-security-checklist over the implementation
+kind: worker
+inputs:
+  implementation: {schema_ref: "{{schema_implementation}}"}
+outputs:
+  gate: {schema_ref: "{{schema_gate-result}}", required_for: [pass, needs_revision]}
+executor: {adapter_ref: "{{assisted_adapter}}", operation: session}
+instructions_ref: "{{context_aif-security-bridge}}"
+context_refs: ["{{context_aif-security}}"]
+effects: {class: none, retry_class: pure}
+session_limits: {active_timeout_ms: null}
+result_schema_ref: "{{step_result_schema}}"
+model_profile:
+  requested: careful-review
+  reason: >-
+    A security checklist is read against the change and the tree; care over speed, and no writes.

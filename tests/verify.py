@@ -12,9 +12,11 @@ import platform
 from pathlib import Path
 import shutil
 import subprocess
+import sys
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
+PACKAGES = ("aif-classic", "aif-fanout", "aif-profiled")
 HOSTS = {"codex-cli": ".codex/skills", "codex-app": ".agents/skills", "claude-code": ".claude/skills"}
 CLASSIC_SKILLS = ("aif-warmup", "aif-plan", "aif-improve", "aif-implement", "aif-verify", "aif-security-checklist", "aif-review", "aif-commit", "aif-fix",)
 IMPROVE_REFERENCES = ("LIST-MODE.md", "CHECK-MODE.md", "EXAMPLES.md", "VALIDATOR.md")
@@ -89,7 +91,7 @@ def prepare_repository(binary, root):
     # compiles for has to be attached on purpose.
     hosts = [argument for host in HOSTS for argument in ("--host", host)]
     run(binary, "project", "init", "--repository", repository, "--state-root", authority, *hosts)
-    for name in ("aif-classic", "aif-fanout"):
+    for name in PACKAGES:
         shutil.copytree(ROOT / name, repository / ".prifly" / "workflows" / name)
     for skills_root in HOSTS.values():
         for skill in CLASSIC_SKILLS:
@@ -103,12 +105,13 @@ def prepare_repository(binary, root):
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(f"# {reference}\n")
     profile = (repository / ".prifly" / "project.yaml").read_text()
-    profile = profile.replace("packages: {}\n", "packages:\n  aif-classic:\n    source: .prifly/workflows/aif-classic\n  aif-fanout:\n    source: .prifly/workflows/aif-fanout\n")
+    profile = profile.replace("packages: {}\n", "packages:\n" + "".join(f"  {name}:\n    source: .prifly/workflows/{name}\n" for name in PACKAGES))
     profile = profile.replace(
         "launches: {}\n",
         "launches:\n"
         "  aif-classic:\n    title: AI Factory classic development workflow\n    description: Canonical AI Factory development workflow with bounded plan improvement.\n    kind: workflow\n    workflow: .prifly/workflows/aif-classic/workflow.yaml\n"
-        "  aif-fanout:\n    title: AI Factory fan-out plan refinement\n    description: Optional AI Factory plan refinement with independent review perspectives.\n    kind: workflow\n    workflow: .prifly/workflows/aif-fanout/workflow.yaml\n",
+        "  aif-fanout:\n    title: AI Factory fan-out plan refinement\n    description: Optional AI Factory plan refinement with independent review perspectives.\n    kind: workflow\n    workflow: .prifly/workflows/aif-fanout/workflow.yaml\n"
+        "  aif-profiled:\n    title: AI Factory profiled development workflow\n    description: The classic route with every step declaring the model profile it wants.\n    kind: workflow\n    workflow: .prifly/workflows/aif-profiled/workflow.yaml\n",
     )
     (repository / ".prifly" / "project.yaml").write_text(profile)
     return repository, authority
@@ -192,7 +195,7 @@ def check_questionnaire(binary, authority, repository):
 
 def check_classic(binary, authority, repository, root):
     listed = run(binary, "--project", authority, "project", "workflows", "--repository", repository)
-    assert [launch["id"] for launch in listed["launches"]] == ["aif-classic", "aif-fanout"], listed
+    assert [launch["id"] for launch in listed["launches"]] == list(PACKAGES), listed
     check_questionnaire(binary, authority, repository)
 
     extend_path = repository / ".prifly" / "workflows" / "aif-classic" / "extend.yaml"
@@ -394,6 +397,54 @@ def check_classic(binary, authority, repository, root):
     return len(documents)
 
 
+def by_reference_id(value):
+    """The same document with every compiled reference reduced to the id it names."""
+    if isinstance(value, dict):
+        if {"id", "version", "digest"} <= set(value):
+            return value["id"]
+        return {key: by_reference_id(item) for key, item in value.items()}
+    if isinstance(value, list):
+        return [by_reference_id(item) for item in value]
+    return value
+
+
+def check_profiled(binary, authority, repository, root):
+    """aif-profiled is aif-classic derived by tools/derive_profiled.py: the same
+    route with every step declaring the model profile it wants. The derivation
+    itself is held by test_folders.py; what is read here is what the compiler
+    made of it."""
+    sys.path.insert(0, str(ROOT / "tools"))
+    from derive_profiled import PROFILES, FRESH_SESSION  # noqa: E402
+    result, documents = compile_package(binary, authority, repository, "aif-profiled", root / "profiled")
+    assert result["package"]["id"] == "aif-profiled:package/classic", result["package"]
+    classic_result, classic = compile_package(binary, authority, repository, "aif-classic", root / "classic-for-profiled")
+    assert len(result["components"]) == len(classic_result["components"]), (len(result["components"]), len(classic_result["components"]))
+    steps = {name: item for name, item in documents.items() if name.startswith("aif-profiled:step/")}
+    assert sorted(steps) == sorted(f"aif-profiled:step/{name}" for name in PROFILES), sorted(steps)
+    for name, (requested, reason) in PROFILES.items():
+        step = steps[f"aif-profiled:step/{name}"]
+        # Declaring a profile is what puts a step on StepDefinition v9; a step
+        # that lost its profile would compile fine one revision lower.
+        assert step["schema_version"] == "9", (step["id"], step["schema_version"])
+        assert step["model_profile"] == {"requested": requested, "reason": reason}, (step["id"], step["model_profile"])
+        # Everything else is the classic step under another name. A compiled
+        # reference carries the build's own key and digest, so refs are
+        # compared by the component they name.
+        twin = classic[f"aif:step/{name}"]
+        for field in ("inputs", "outputs", "effects", "workspace_trees", "session_limits"):
+            assert by_reference_id(step.get(field)) == by_reference_id(twin.get(field)), (step["id"], field)
+    for bridge, step_name in FRESH_SESSION.items():
+        assert steps[f"aif-profiled:step/{step_name}"]["instructions_ref"]["id"] == f"aif-profiled:context/{bridge}", step_name
+    # The route is the classic route: the same stages bound the same way.
+    for workflow_id, document in documents.items():
+        if workflow_id.startswith("aif-profiled:workflow/"):
+            twin_id = workflow_id.replace("aif-profiled:", "aif:")
+            assert sorted(document["definition"]["stages"]) == sorted(classic[twin_id]["definition"]["stages"]), workflow_id
+    questionnaire = run(binary, "--project", authority, "project", "questionnaire", "--repository", repository, "--package", "aif-profiled")
+    assert {state["id"]: state["phase"] for state in questionnaire["decision_states"]} == CLASSIC_DECISIONS, questionnaire["decision_states"]
+    return len(documents)
+
+
 def check_fanout(binary, authority, repository, root):
     result, documents = compile_package(binary, authority, repository, "aif-fanout", root / "fanout")
     assert result["package"]["id"] == "aif:package/fanout", result["package"]
@@ -418,6 +469,7 @@ def main():
         before = run(binary, "--project", authority, "package", "list")
         components_read = check_classic(binary, authority, repository, root)
         components_read += check_fanout(binary, authority, repository, root)
+        components_read += check_profiled(binary, authority, repository, root)
         after = run(binary, "--project", authority, "package", "list")
         assert before == after, "compile must not import or trust a package"
         # No Run was started here, but `project init` registered the authority
@@ -448,7 +500,7 @@ def main():
         "prifly": version["version"],
         "binary_sha256": "sha256:" + hashlib.sha256(binary.read_bytes()).hexdigest(),
         "platform": f"{platform.system().lower()}/{platform.machine()}",
-        "packages": ["aif-classic", "aif-fanout"],
+        "packages": list(PACKAGES),
         "components_read": components_read,
         "steps_read": len(sorted(ROOT.glob("*/steps/*.yaml"))),
         "registry_entries_removed": forgotten,

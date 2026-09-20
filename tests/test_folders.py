@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Static contract of the AI Factory workflow folders: YAML only, distinct roles, pinned inventory."""
 
+import importlib.util
 from pathlib import Path
 import re
 import unittest
@@ -8,11 +9,12 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 CLASSIC = ROOT / "aif-classic"
 FANOUT = ROOT / "aif-fanout"
+PROFILED = ROOT / "aif-profiled"
 
 
 class WorkflowFolderTest(unittest.TestCase):
     def test_folders_are_marked_yaml_only_workflow_folders(self):
-        for folder in (CLASSIC, FANOUT):
+        for folder in (CLASSIC, FANOUT, PROFILED):
             workflow = (folder / "workflow.yaml").read_text()
             self.assertTrue(workflow.startswith("authoring: prifly-project-workflow/1\n"), folder)
             self.assertTrue((folder / "extend.yaml").is_file(), folder)
@@ -32,12 +34,35 @@ class WorkflowFolderTest(unittest.TestCase):
             self.assertFalse(any(line.strip() == "---" for source in yaml_sources for line in source.splitlines()), folder)
 
     def test_classic_decision_catalog_names_its_own_install_path(self):
-        workflow = (CLASSIC / "workflow.yaml").read_text()
-        self.assertIn("decision_catalog:", workflow)
-        for line in workflow.splitlines():
-            if line.startswith("  - .prifly/workflows/"):
-                self.assertTrue(line.startswith("  - .prifly/workflows/aif-classic/decisions/"), line)
-                self.assertTrue((CLASSIC / line.split("aif-classic/", 1)[1]).is_file(), line)
+        for folder in (CLASSIC, PROFILED):
+            workflow = (folder / "workflow.yaml").read_text()
+            self.assertIn("decision_catalog:", workflow)
+            for line in workflow.splitlines():
+                if line.startswith("  - .prifly/workflows/"):
+                    self.assertTrue(line.startswith(f"  - .prifly/workflows/{folder.name}/decisions/"), line)
+                    self.assertTrue((folder / line.split(f"{folder.name}/", 1)[1]).is_file(), line)
+
+    def test_profiled_is_classic_derived_by_the_tool_and_nothing_else(self):
+        # aif-profiled is not edited by hand: it is what tools/derive_profiled.py
+        # writes from aif-classic, so a fix to a classic bridge reaches it by
+        # regeneration and a hand edit here is a divergence the gate names.
+        spec = importlib.util.spec_from_file_location("derive_profiled", ROOT / "tools" / "derive_profiled.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        files = module.derive()
+        self.assertGreater(len(files), 50, "the derivation produced almost nothing")
+        for relative, text in files.items():
+            with self.subTest(file=str(relative)):
+                self.assertEqual((PROFILED / relative).read_text(), text, f"aif-profiled/{relative} is not what tools/derive_profiled.py writes")
+        generated = set(files)
+        for path in PROFILED.rglob("*.yaml"):
+            self.assertIn(path.relative_to(PROFILED), generated, f"{path} is not derived from aif-classic")
+        # Every step carries a profile, and a profile names work, not a product.
+        for name, (requested, reason) in module.PROFILES.items():
+            step = (PROFILED / "steps" / f"{name}.yaml").read_text()
+            self.assertIn(f"requested: {requested}\n", step)
+            self.assertNotRegex(requested, r"claude|gpt|opus|sonnet|haiku|gemini", requested)
+            self.assertTrue(0 < len(reason) <= 512, name)
 
     def test_classic_inventory_records_the_skill_revisions_it_was_written_against(self):
         # This compares the document with itself on purpose: the skills live on

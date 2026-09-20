@@ -31,6 +31,7 @@
 |---|---|
 | [`aif-classic/`](aif-classic/) | Канонический последовательный путь автора AI Factory: `warmup → plan → improve → implement → verify → security → review → commit`. Improve передаёт исправленный native plan в следующий круг; блокирующий verify/security/review возвращает typed gate с `suggested_next: /aif-fix` и ничего не чинит сам. |
 | [`aif-fanout/`](aif-fanout/) | Отдельная доработка существующего плана двумя независимыми ракурсами review → выбор разработчика → применение принятого. Это веер задач, не выбор модели. |
+| [`aif-profiled/`](aif-profiled/) | Тот же classic, порождённый из него `tools/derive_profiled.py`: каждый шаг объявляет профиль модели (`model_profile`, Pri-Fly ≥ 0.13.41), `plan` и `implement` просят отдельную сессию. Хост переводит профиль в модель и effort и отвечает в отчёте; движок не выбирает. |
 
 Этот репозиторий — workflow repository для каталога
 [`StenHigh/prifly-workflows`](https://github.com/StenHigh/prifly-workflows).
@@ -148,6 +149,10 @@ Pri-Fly, а с Pri-Fly новее `v0.7.0` форму отдаёт `prifly schem
   materialise-only binding плана (StepDefinition v8), и более старый движок
   отказывает на compile — `schema_invalid at /workspace_trees/0 … requires
   output_port`.
+  `aif-profiled` нужен Pri-Fly не ниже `0.13.41` (`model_profile`, v9).
+- `aif-profiled/` не правится руками: `python3 tools/derive_profiled.py`
+  переписывает его из `aif-classic/`, `--check` говорит, разошлись ли они;
+  `tests/test_folders.py` держит то же самое.
 
 ## Вердикты и WorkflowRevision v4
 
