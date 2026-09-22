@@ -113,6 +113,15 @@ class WorkflowFolderTest(unittest.TestCase):
         self.assertTrue(any("kind: parallel" in item.read_text() for item in fanout_workflows))
         self.assertFalse(any("opus" in item.read_text() or "sonnet" in item.read_text() for item in fanout_workflows))
 
+    def test_gate_needs_revision_reaches_the_existing_decision(self):
+        for name in ("verify-once.yaml", "review-once.yaml"):
+            workflow = (CLASSIC / "workflows" / name).read_text()
+            self.assertIn("needs_revision: decide", workflow, name)
+            self.assertNotIn("needs_revision: inconclusive", workflow, name)
+        for name in ("aif-verify-bridge.yaml", "aif-review-bridge.yaml"):
+            bridge = (CLASSIC / "contexts" / name).read_text()
+            self.assertIn("with a usable gate takes that\n  same decision", bridge, name)
+
 
 if __name__ == "__main__":
     unittest.main()

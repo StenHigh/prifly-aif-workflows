@@ -49,8 +49,11 @@ supporting context. Adapter передаёт выбранный profile и prefl
 dialogs: raw `AskUserQuestion` не выдаётся за захваченный Pri-Fly decision,
 поэтому этот package пока не обещает полностью autonomous выполнение.
 
-Verify, security и review — read-only gates. Blocking result завершает путь
-typed artifact `gate` с `suggested_next: /aif-fix`; fix step сам не запускается.
+Verify, security и review — read-only gates. Их typed artifact `gate` ведёт
+bounded round: пригодный blocking gate запускает отдельный `aif-fix`, затем
+тот же gate проверяет исправление снова. Исполнитель гейта возвращает только
+свой Attempt и не запускает `/aif-fix`, commit или следующий gate вручную;
+`blocking_owner_only` завершает путь с находками для разработчика.
 Круг review начинается со **второго читателя** (`review-challenge`): шаг в
 своей сессии, по замыслу на другой модели, читает дифф, дерево и недавнюю
 историю затронутых путей и отдаёт не gate, а список находок с доказательствами

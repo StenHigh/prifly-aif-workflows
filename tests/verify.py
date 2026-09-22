@@ -246,6 +246,7 @@ def check_classic(binary, authority, repository, root):
     # stand first; under `exclusive` the same pair is an error rather than a
     # choice, which is what once made `owner-decides` unreachable.
     for workflow_id, stage in (("aif:workflow/verify-once", "verify"), ("aif:workflow/review-once", "review")):
+        assert documents[workflow_id]["definition"]["stages"][stage]["on"]["needs_revision"] == "decide", (workflow_id, documents[workflow_id]["definition"]["stages"][stage])
         choice = documents[workflow_id]["definition"]["stages"]["decide"]
         assert choice["selection"] == "first_match", choice
         branches = {branch["id"]: branch for branch in choice["branches"]}

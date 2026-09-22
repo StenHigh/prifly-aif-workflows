@@ -1,7 +1,7 @@
 authoring: prifly-project-workflow/1
 package:
   id: aif-profiled:package/classic
-  version: 1.42.0
+  version: 1.43.0
   description: The classic AI Factory route with every step declaring the model profile it wants; plan and implement run in a session of their own.
   requires_core_protocol: "1"
   profiles:
@@ -20,7 +20,7 @@ package:
     workspace_tree_manifest: core:schema/workspace-tree-manifest@1.0.0
 id: aif-profiled:workflow/classic
 schema_version: "4"
-version: 1.42.0
+version: 1.43.0
 title: AI Factory profiled development workflow
 refs:
   schema_task: "{{schema_task}}"
