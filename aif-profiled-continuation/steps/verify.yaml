@@ -1,0 +1,26 @@
+authoring: prifly-step/2
+id: aif-profiled-continuation:step/verify
+version: 1.13.0
+title: Run read-only aif-verify over the implementation
+kind: worker
+inputs:
+  implementation: {schema_ref: "{{schema_implementation}}"}
+  plan: {schema_ref: "{{workspace_tree_manifest}}"}
+outputs:
+  gate: {schema_ref: "{{schema_gate-result}}", required_for: [pass, needs_revision]}
+executor: {adapter_ref: "{{assisted_adapter}}", operation: session}
+instructions_ref: "{{context_aif-verify-bridge}}"
+context_refs: ["{{context_aif-verify}}"]
+effects: {class: none, retry_class: pure}
+session_limits: {active_timeout_ms: null}
+result_schema_ref: "{{step_result_schema}}"
+# Read-only materialisation: the engine lays the plan out where the pinned
+# skill's own discovery looks and takes it back after the step. No
+# `output_port`, so nothing is captured and a write to it is refused.
+workspace_trees:
+  - input_port: plan
+    capture: "{{plan_capture}}"
+model_profile:
+  requested: careful-review
+  reason: >-
+    A gate's product is a judgement about what the plan promised; it needs care and honesty, and it must look past the diff before it reports anything outside it.

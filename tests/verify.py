@@ -16,7 +16,7 @@ import sys
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
-PACKAGES = ("aif-classic", "aif-fanout", "aif-profiled")
+PACKAGES = ("aif-classic", "aif-classic-continuation", "aif-fanout", "aif-profiled", "aif-profiled-continuation")
 HOSTS = {"codex-cli": ".codex/skills", "codex-app": ".agents/skills", "claude-code": ".claude/skills"}
 CLASSIC_SKILLS = ("aif-warmup", "aif-plan", "aif-improve", "aif-implement", "aif-verify", "aif-security-checklist", "aif-review", "aif-commit", "aif-fix",)
 IMPROVE_REFERENCES = ("LIST-MODE.md", "CHECK-MODE.md", "EXAMPLES.md", "VALIDATOR.md")
@@ -111,7 +111,9 @@ def prepare_repository(binary, root):
         "launches:\n"
         "  aif-classic:\n    title: AI Factory classic development workflow\n    description: Canonical AI Factory development workflow with bounded plan improvement.\n    kind: workflow\n    workflow: .prifly/workflows/aif-classic/workflow.yaml\n"
         "  aif-fanout:\n    title: AI Factory fan-out plan refinement\n    description: Optional AI Factory plan refinement with independent review perspectives.\n    kind: workflow\n    workflow: .prifly/workflows/aif-fanout/workflow.yaml\n"
-        "  aif-profiled:\n    title: AI Factory profiled development workflow\n    description: The classic route with every step declaring the model profile it wants.\n    kind: workflow\n    workflow: .prifly/workflows/aif-profiled/workflow.yaml\n",
+        "  aif-profiled:\n    title: AI Factory profiled development workflow\n    description: The classic route with every step declaring the model profile it wants.\n    kind: workflow\n    workflow: .prifly/workflows/aif-profiled/workflow.yaml\n"
+        "  aif-classic-continuation:\n    title: AI Factory continuation quality tail\n    description: Resume the quality gates for an existing implementation.\n    kind: workflow\n    workflow: .prifly/workflows/aif-classic-continuation/workflow.yaml\n"
+        "  aif-profiled-continuation:\n    title: AI Factory profiled continuation quality tail\n    description: Resume the quality gates with declared model profiles.\n    kind: workflow\n    workflow: .prifly/workflows/aif-profiled-continuation/workflow.yaml\n",
     )
     (repository / ".prifly" / "project.yaml").write_text(profile)
     return repository, authority
@@ -484,6 +486,12 @@ def main():
         components_read = check_classic(binary, authority, repository, root)
         components_read += check_fanout(binary, authority, repository, root)
         components_read += check_profiled(binary, authority, repository, root)
+        for package in ("aif-classic-continuation", "aif-profiled-continuation"):
+            result, documents = compile_package(binary, authority, repository, package, root / package)
+            root_graph = next(item for item in documents.values() if item["id"].endswith("classic-continuation"))
+            assert root_graph["definition"]["entry"] == "verify", root_graph
+            assert not {"warmup", "plan", "improve", "implement"} & set(root_graph["definition"]["stages"]), root_graph["definition"]["stages"]
+            components_read += len(documents)
         after = run(binary, "--project", authority, "package", "list")
         assert before == after, "compile must not import or trust a package"
         # No Run was started here, but `project init` registered the authority

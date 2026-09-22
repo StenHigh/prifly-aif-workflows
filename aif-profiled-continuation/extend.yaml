@@ -1,0 +1,19 @@
+profile: fast
+exclude: []
+model_profiles:
+  claude-code:
+    deep-reasoning: {model: opus, effort: high}
+    careful-review: {model: opus, effort: medium}
+    fast-draft: {model: sonnet, effort: low}
+    independent-review: {model: sonnet, effort: medium}
+  codex-cli:
+    deep-reasoning: {model: gpt-5, reasoning_effort: high}
+    careful-review: {model: gpt-5, reasoning_effort: medium}
+    fast-draft: {model: gpt-5-mini, reasoning_effort: low}
+    independent-review: {model: gpt-5-mini, reasoning_effort: medium}
+  codex-app:
+    deep-reasoning: {model: gpt-5, reasoning_effort: high}
+    careful-review: {model: gpt-5, reasoning_effort: medium}
+    fast-draft: {model: gpt-5-mini, reasoning_effort: low}
+    independent-review: {model: gpt-5-mini, reasoning_effort: medium}
+extensions: []

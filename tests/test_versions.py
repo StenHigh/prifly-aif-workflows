@@ -11,7 +11,7 @@ import subprocess
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-PACKAGES = ("aif-classic", "aif-fanout", "aif-profiled")
+PACKAGES = ("aif-classic", "aif-classic-continuation", "aif-fanout", "aif-profiled", "aif-profiled-continuation")
 
 
 def git(*arguments, ok=(0,)):
@@ -95,7 +95,8 @@ class ReleasedVersionTest(unittest.TestCase):
                 continue
             manifest = f"{package}/workflow.yaml"
             released = released_source(self.tag, manifest)
-            self.assertIsNotNone(released, manifest)
+            if released is None:
+                continue  # First publication of this package has no older version.
             current = (ROOT / manifest).read_text()
             for field in ("  version: ", "version: "):
                 before = next((line for line in released.splitlines() if line.startswith(field)), None)

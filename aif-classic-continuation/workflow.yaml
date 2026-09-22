@@ -1,0 +1,117 @@
+authoring: prifly-project-workflow/1
+package:
+  id: aif-continuation:package/classic
+  version: 1.0.0
+  description: Continuation of an existing implementation through the quality gates.
+  requires_core_protocol: "1"
+  profiles:
+    default: fast
+    values:
+      fast:
+        plan_capture: {kind: exact_file, path: .ai-factory/PLAN.md}
+      full:
+        plan_capture: {kind: direct_child_file, path: .ai-factory/plans}
+      ultra:
+        plan_capture: {kind: direct_child_tree, path: .ai-factory/plans, entrypoint: index.md}
+  references:
+    assisted_adapter: core:adapter/assisted-session@1.0.0
+    local_policy: core:policy/local@3.0.0
+    step_result_schema: core:schema/step-result@1.0.0
+    workspace_tree_manifest: core:schema/workspace-tree-manifest@1.0.0
+id: aif-continuation:workflow/classic-continuation
+schema_version: "4"
+version: 1.0.0
+title: AI Factory continuation quality tail
+refs:
+  schema_task: "{{schema_task}}"
+  schema_warmup-handoff: "{{schema_warmup-handoff}}"
+  schema_plan_manifest: "{{workspace_tree_manifest}}"
+  schema_implementation: "{{schema_implementation}}"
+  schema_gate-result: "{{schema_gate-result}}"
+  schema_feature-enabled: "{{schema_feature-enabled}}"
+  step_warmup: "{{step_warmup}}"
+  step_plan: "{{step_plan}}"
+  workflow_improve-or-pass: "{{workflow_improve-or-pass}}"
+  step_implement: "{{step_implement}}"
+  step_verify: "{{step_verify}}"
+  workflow_verify-batch: "{{workflow_verify-batch}}"
+  step_security: "{{step_security}}"
+  step_review: "{{step_review}}"
+  workflow_review-batch: "{{workflow_review-batch}}"
+  step_commit: "{{step_commit}}"
+  local_policy: "{{local_policy}}"
+decision_catalog:
+  - .prifly/workflows/aif-classic-continuation/decisions/gates/checks.yaml
+  - .prifly/workflows/aif-classic-continuation/decisions/gates/warnings.yaml
+inputs:
+  task: {schema_ref: schema_task}
+  handoff: {schema_ref: schema_warmup-handoff}
+  plan: {schema_ref: schema_plan_manifest}
+  implementation: {schema_ref: schema_implementation}
+  security_enabled:
+    schema_ref: schema_feature-enabled
+    required: false
+    configuration: {scope: project, default: true}
+outputs:
+  implementation: {schema_ref: schema_implementation, required_for: [succeeded]}
+  plan: {schema_ref: schema_plan_manifest, required_for: [succeeded]}
+  gate: {schema_ref: schema_gate-result, required_for: [partial]}
+limits: {max_step_instances: 160, max_control_transitions: 800, max_parallelism: 1, max_child_depth: 4}
+policy_ref: local_policy
+features:
+  security: {input: security_enabled}
+entry: verify
+stages:
+  verify:
+    kind: call
+    workflow_ref: workflow_verify-batch
+    input_bindings: {implementation: $inputs.implementation, handoff: $inputs.handoff, plan: $inputs.plan}
+    on: {succeeded: choose-security, partial: fix-after-verify}
+  choose-security:
+    kind: choice
+    selection: exclusive
+    branches:
+      - id: enabled
+        predicate: {op: eq, left: $inputs.security_enabled, right: true}
+        next: security
+    default: review
+  security:
+    kind: step
+    step_ref: step_security
+    input_bindings: {implementation: $stages.verify.implementation}
+    on: {pass: security-decision, needs_revision: fix-after-security, fail: abandoned, no_work: abandoned}
+  security-decision:
+    kind: choice
+    selection: exclusive
+    branches:
+      - id: blockers
+        predicate: {op: eq, left: $stages.security.gate#/blocking, right: true}
+        next: fix-after-security
+    default: review
+  review:
+    kind: call
+    workflow_ref: workflow_review-batch
+    input_bindings: {implementation: $stages.verify.implementation, handoff: $inputs.handoff, plan: $inputs.plan}
+    on: {succeeded: commit, partial: fix-after-review}
+  commit:
+    kind: step
+    step_ref: step_commit
+    input_bindings: {implementation: $stages.review.implementation}
+    on: {pass: done, needs_revision: abandoned, fail: abandoned, no_work: abandoned}
+  done:
+    kind: finish
+    outcome: succeeded
+    output_bindings: {implementation: $stages.commit.implementation, plan: $inputs.plan}
+  fix-after-verify:
+    kind: finish
+    outcome: partial
+    output_bindings: {gate: $stages.verify.gate}
+  fix-after-security:
+    kind: finish
+    outcome: partial
+    output_bindings: {gate: $stages.security.gate}
+  fix-after-review:
+    kind: finish
+    outcome: partial
+    output_bindings: {gate: $stages.review.gate}
+  abandoned: {kind: finish, outcome: rejected}
