@@ -67,6 +67,26 @@ class WorkflowFolderTest(unittest.TestCase):
             self.assertNotRegex(requested, r"claude|gpt|opus|sonnet|haiku|gemini", requested)
             self.assertTrue(0 < len(reason) <= 512, name)
 
+    def test_continuation_tails_are_derived_by_the_tool_and_nothing_else(self):
+        # Both tails are what tools/derive_continuation.py writes from their
+        # sources: a hand edit, or a source change nobody regenerated, is named
+        # here. Their versions live in the tool, not in the source's.
+        spec = importlib.util.spec_from_file_location("derive_continuation", ROOT / "tools" / "derive_continuation.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        files = module.derive()
+        self.assertGreater(len(files), 100, "the derivation produced almost nothing")
+        for relative, text in files.items():
+            with self.subTest(file=str(relative)):
+                self.assertEqual((ROOT / relative).read_text(), text, f"{relative} is not what tools/derive_continuation.py writes")
+        for _, name, _, version in module.TAILS:
+            for path in (ROOT / name).rglob("*"):
+                if path.is_file() and path.name != ".DS_Store":
+                    self.assertIn(path.relative_to(ROOT), files, f"{path} is not derived")
+            workflow = (ROOT / name / "workflow.yaml").read_text()
+            self.assertIn(f"\n  version: {version}\n", workflow)
+            self.assertIn(f"\nversion: {version}\n", workflow)
+
     def test_classic_inventory_records_the_skill_revisions_it_was_written_against(self):
         # This compares the document with itself on purpose: the skills live on
         # the host, not here, so the only thing a static gate can hold is that

@@ -20,6 +20,10 @@ profiled и оба continuation-хвоста, требуют Pri-Fly 0.13.46). �
 - `aif-profiled/` — classic, порождённый `tools/derive_profiled.py`: каждый шаг
   несёт `model_profile`, plan/implement просят отдельную сессию. Руками не
   правится — только перегенерацией; `test_folders.py` это держит.
+- `aif-classic-continuation/`, `aif-profiled-continuation/` — хвосты качества
+  для `project continue`, порождаются `tools/derive_continuation.py` из classic
+  и profiled; руками не правятся, `test_folders.py` держит. Версии хвостов —
+  в `TAILS` скрипта, двигаются вручную при смене байтов хвоста.
 - `tests/` — четверо ворот, те же, что гоняет `.github/workflows/verify.yml`:
   - `test_versions.py` — версии сдвинулись вместе с байтами (нужна полная
     история, в CI стоит `fetch-depth: 0`);

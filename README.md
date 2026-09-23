@@ -154,6 +154,10 @@ Pri-Fly, а с Pri-Fly новее `v0.7.0` форму отдаёт `prifly schem
 - `aif-profiled/` не правится руками: `python3 tools/derive_profiled.py`
   переписывает его из `aif-classic/`, `--check` говорит, разошлись ли они;
   `tests/test_folders.py` держит то же самое.
+- `aif-classic-continuation/` и `aif-profiled-continuation/` тоже не правятся
+  руками: `python3 tools/derive_continuation.py` пишет их из `aif-classic` и
+  `aif-profiled` (`--check` — разошлись ли). Версия хвоста своя, в `TAILS` того
+  же скрипта: сменились байты хвоста — поднять её там и перегенерировать.
 
 ## Вердикты и WorkflowRevision v4
 

@@ -1,10 +1,18 @@
 #!/usr/bin/env python3
 """Generate the two quality-tail folders from their classic counterparts."""
 
+import re
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+# (source, tail, id prefix, tail version). The version is the tail's own, not
+# its source's: bump it by hand whenever the regenerated tail's bytes change —
+# tests/test_versions.py fails a release that forgets.
+TAILS = (
+    ("aif-classic", "aif-classic-continuation", "aif-continuation", "1.0.0"),
+    ("aif-profiled", "aif-profiled-continuation", "aif-profiled-continuation", "1.0.0"),
+)
 TAIL = """inputs:
   task: {schema_ref: schema_task}
   handoff: {schema_ref: schema_warmup-handoff}
@@ -80,7 +88,7 @@ stages:
 """
 
 
-def files(source, name, prefix):
+def files(source, name, prefix, version):
     result = {}
     old = "aif-profiled" if source.name == "aif-profiled" else "aif"
     for path in sorted(source.rglob("*")):
@@ -98,8 +106,7 @@ def files(source, name, prefix):
             ) + "inputs:\n" + tail
             text = text.replace(f"id: {old}:package/classic", f"id: {prefix}:package/classic")
             text = text.replace(f"id: {old}:workflow/classic", f"id: {prefix}:workflow/classic-continuation")
-            text = text.replace("version: 1.42.0", "version: 1.0.0")
-            text = text.replace("version: 1.43.0", "version: 1.0.0")
+            text = re.sub(r"^(  )?version: \S+$", rf"\g<1>version: {version}", text, flags=re.M)
             text = text.replace("Canonical AI Factory development workflow with bounded plan improvement.", "Continuation of an existing implementation through the quality gates.")
             text = text.replace("title: AI Factory classic development workflow", "title: AI Factory continuation quality tail")
             text = text.replace("title: AI Factory profiled development workflow", "title: AI Factory profiled continuation quality tail")
@@ -120,27 +127,31 @@ def files(source, name, prefix):
     return result
 
 
+def derive():
+    """Every tail file keyed by its path from the repository root."""
+    return {
+        Path(name) / relative: text
+        for source_name, name, prefix, version in TAILS
+        for relative, text in files(ROOT / source_name, name, prefix, version).items()
+    }
+
+
 def main(check=False):
+    generated = derive()
     stale = []
-    for source_name, name, prefix in (
-        ("aif-classic", "aif-classic-continuation", "aif-continuation"),
-        ("aif-profiled", "aif-profiled-continuation", "aif-profiled-continuation"),
-    ):
-        target = ROOT / name
-        generated = files(ROOT / source_name, name, prefix)
-        for relative, text in generated.items():
-            path = target / relative
-            if check:
-                if not path.is_file() or path.read_text() != text:
-                    stale.append(str(path.relative_to(ROOT)))
-            else:
-                path.parent.mkdir(parents=True, exist_ok=True)
-                path.write_text(text)
+    for relative, text in generated.items():
+        path = ROOT / relative
         if check:
-            stale.extend(str(path.relative_to(ROOT)) for path in target.rglob("*") if path.is_file() and path.relative_to(target) not in generated)
+            if not path.is_file() or path.read_text() != text:
+                stale.append(str(relative))
+        else:
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(text)
+    if check:
+        for _, name, _, _ in TAILS:
+            stale.extend(str(path.relative_to(ROOT)) for path in (ROOT / name).rglob("*") if path.is_file() and path.relative_to(ROOT) not in generated)
     if stale:
         sys.exit("stale continuation files: " + ", ".join(stale))
-
 
 if __name__ == "__main__":
     main("--check" in sys.argv)
