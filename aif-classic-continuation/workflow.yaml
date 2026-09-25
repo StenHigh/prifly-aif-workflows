@@ -1,7 +1,7 @@
 authoring: prifly-project-workflow/1
 package:
   id: aif-continuation:package/classic
-  version: 1.0.0
+  version: 1.1.0
   description: Continuation of an existing implementation through the quality gates.
   requires_core_protocol: "1"
   profiles:
@@ -17,10 +17,11 @@ package:
     assisted_adapter: core:adapter/assisted-session@1.0.0
     local_policy: core:policy/local@3.0.0
     step_result_schema: core:schema/step-result@1.0.0
+    step_result_schema_v2: core:schema/step-result@2.0.0
     workspace_tree_manifest: core:schema/workspace-tree-manifest@1.0.0
 id: aif-continuation:workflow/classic-continuation
-schema_version: "4"
-version: 1.0.0
+schema_version: "6"
+version: 1.1.0
 title: AI Factory continuation quality tail
 refs:
   schema_task: "{{schema_task}}"
@@ -79,7 +80,7 @@ stages:
     kind: step
     step_ref: step_security
     input_bindings: {implementation: $stages.verify.implementation}
-    on: {pass: security-decision, needs_revision: fix-after-security, fail: abandoned, no_work: abandoned}
+    on: {pass: security-decision, needs_revision: fix-after-security, fail: abandoned, no_work: abandoned, blocked: security-blocked}
   security-decision:
     kind: choice
     selection: exclusive
@@ -98,6 +99,7 @@ stages:
     step_ref: step_commit
     input_bindings: {implementation: $stages.review.implementation}
     on: {pass: done, needs_revision: abandoned, fail: abandoned, no_work: abandoned}
+    impossible_verdicts: [blocked]
   done:
     kind: finish
     outcome: succeeded
@@ -110,6 +112,11 @@ stages:
     kind: finish
     outcome: partial
     output_bindings: {gate: $stages.security.gate}
+  security-blocked:
+    kind: finish
+    outcome: partial
+    output_bindings: {gate: $stages.security.gate}
+    description: A dependency the security checks need was unavailable, so the work was not judged; repeat with project continue once it is back.
   fix-after-review:
     kind: finish
     outcome: partial

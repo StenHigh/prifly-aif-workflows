@@ -30,8 +30,13 @@ PLAN_STEPS = ("aif:step/plan", "aif:step/improve", "aif:step/implement")
 # is what puts a read-only step on StepDefinition v8 (0.13.31).
 READ_STEPS = ("aif:step/verify", "aif:step/review", "aif:step/review-challenge")
 
-# WorkflowRevision v4 closes the verdict set; a stage answers for all of it.
-STEP_VERDICTS = ("pass", "fail", "needs_revision", "no_work")
+# WorkflowRevision v6 closes the verdict set, `blocked` included; a stage answers
+# for all of it, by a route or by declaring the verdict impossible.
+STEP_VERDICTS = ("pass", "fail", "needs_revision", "no_work", "blocked")
+# The graphs that run a gate are on v6, the only revision that can route
+# `blocked`; the rest stay on v4, whose four verdicts are all they can see.
+GATE_GRAPHS = ("aif:workflow/classic", "aif:workflow/verify-once", "aif:workflow/review-once")
+GATE_STEPS = ("aif:step/verify", "aif:step/review", "aif:step/security")
 ROUND_CEILING = 8
 CLASSIC_DECISIONS = {
     "plan_profile": "preflight",
@@ -228,7 +233,8 @@ def check_classic(binary, authority, repository, root):
     # the compiler now enforces, so the revision itself is pinned.
     for name, document in documents.items():
         if name.startswith("aif:workflow/"):
-            assert document["schema_version"] == "4", (name, document["schema_version"])
+            expected = "6" if name in GATE_GRAPHS else "4"
+            assert document["schema_version"] == expected, (name, document["schema_version"])
     # A guard on someone else's regression, not on this package: the compiler
     # requires the full verdict set itself, so no edit here can make this fire
     # first — a cutting pass confirmed it catches nothing the engine lets
@@ -238,7 +244,8 @@ def check_classic(binary, authority, repository, root):
         for name, stage in documents[workflow_id]["definition"]["stages"].items():
             if stage["kind"] != "step":
                 continue
-            assert set(stage["on"]) == set(STEP_VERDICTS), (workflow_id, name, stage["on"])
+            answered = set(stage["on"]) | set(stage.get("impossible_verdicts", []))
+            assert answered == set(STEP_VERDICTS), (workflow_id, name, stage)
     # A loop that keeps turning after the answer is known spends rounds it
     # cannot win, so the gate declares whether one more could change anything
     # and the two loops branch on it.
@@ -264,8 +271,17 @@ def check_classic(binary, authority, repository, root):
 
         assert constrains(branches["owner"]["predicate"], "/blocking_owner_only", True), branches["owner"]
         assert constrains(branches["blocking"]["predicate"], "/blocking", True), branches["blocking"]
-    for gate in ("aif:step/verify", "aif:step/review", "aif:step/security"):
-        assert documents[gate]["outputs"]["gate"]["required_for"] == ["pass", "needs_revision"], gate
+    for gate in GATE_STEPS:
+        assert documents[gate]["outputs"]["gate"]["required_for"] == ["pass", "needs_revision", "blocked"], gate
+    # A gate that could not judge the work ends the Run with its gate in front
+    # of the developer: no fix round, which would have nothing to fix, and no
+    # loop back onto the stage, which would burn the budget while the
+    # dependency stays down and then blame the budget.
+    for workflow_id, stage in (("aif:workflow/verify-once", "verify"), ("aif:workflow/review-once", "review"), ("aif:workflow/classic", "security")):
+        stages = documents[workflow_id]["definition"]["stages"]
+        target = stages[stages[stage]["on"]["blocked"]]
+        assert target["kind"] == "finish", (workflow_id, target)
+        assert "gate" in target.get("output_bindings", {}), (workflow_id, target)
 
     # What warmup distilled has to reach the steps that plan and build, or the
     # step that produced it is a session spent on nothing.
@@ -281,9 +297,11 @@ def check_classic(binary, authority, repository, root):
     # No step here carries a work deadline. The hour a v5 step inherited is far
     # under the Runs this route does, and thirty days used to stand in for a
     # word the schema did not have; 0.12.8 gave it one, so the number is gone
-    # rather than raised. Declaring it is what puts a step on StepDefinition v7.
+    # rather than raised. Declaring it is what puts a step on StepDefinition v7;
+    # a gate that promises its output on `blocked` is lifted to v10.
     for step in (item for name, item in documents.items() if name.startswith("aif:step/")):
-        assert step["schema_version"] == ("8" if step["id"] in READ_STEPS else "7"), (step["id"], step["schema_version"])
+        expected = "10" if step["id"] in GATE_STEPS else "8" if step["id"] in READ_STEPS else "7"
+        assert step["schema_version"] == expected, (step["id"], step["schema_version"])
         assert step["session_limits"]["active_timeout_ms"] is None, step["id"]
         assert step["session_limits"]["decision_wait_timeout_ms"] is None, step["id"]
     for step_id in PLAN_STEPS:
@@ -440,8 +458,10 @@ def check_profiled(binary, authority, repository, root):
     for name, (requested, reason) in PROFILES.items():
         step = steps[f"aif-profiled:step/{name}"]
         # Declaring a profile is what puts a step on StepDefinition v9; a step
-        # that lost its profile would compile fine one revision lower.
-        assert step["schema_version"] == "9", (step["id"], step["schema_version"])
+        # that lost its profile would compile fine one revision lower. A gate
+        # that promises its output on `blocked` sits one higher, on v10.
+        expected = "10" if f"aif:step/{name}" in GATE_STEPS else "9"
+        assert step["schema_version"] == expected, (step["id"], step["schema_version"])
         assert step["model_profile"] == {"requested": requested, "reason": reason}, (step["id"], step["model_profile"])
         # Everything else is the classic step under another name. A compiled
         # reference carries the build's own key and digest, so refs are

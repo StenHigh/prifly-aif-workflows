@@ -107,7 +107,7 @@ PACKAGE_TITLE = "AI Factory profiled development workflow"
 PACKAGE_DESCRIPTION = "The classic AI Factory route with every step declaring the model profile it wants; plan and implement run in a session of their own."
 
 VERSION_LINE = re.compile(r"^(\s*)version: (\d+)\.(\d+)\.(\d+)$", re.MULTILINE)
-PLACEHOLDER = re.compile(r"\{\{(step|workflow|context)_([A-Za-z0-9-]+)\}\}")
+PLACEHOLDER = re.compile(r"\{\{(step|workflow|context|schema)_([A-Za-z0-9-]+)\}\}")
 
 
 def bump_minor(version):
@@ -234,7 +234,7 @@ def committed_target():
 def dependencies(text):
     out = set()
     for kind, name in PLACEHOLDER.findall(text):
-        out.add(Path({"step": "steps", "workflow": "workflows", "context": "contexts"}[kind]) / f"{name}.yaml")
+        out.add(Path({"step": "steps", "workflow": "workflows", "context": "contexts", "schema": "schemas"}[kind]) / f"{name}.yaml")
     return out
 
 

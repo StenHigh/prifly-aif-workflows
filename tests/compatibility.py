@@ -22,8 +22,10 @@ from verify import HOSTS, forget_authority, git, prepare_repository, run
 
 # A project owner's own extend.yaml: a setting the package did not default to,
 # a declared feature switched off, and a step inserted into one exact route.
-# Against a WorkflowRevision v4 package the insertion answers for every verdict
-# too, exactly as the package's own stages do. Its
+# Against a WorkflowRevision v6 root the insertion answers for every verdict
+# too, exactly as the package's own stages do: a step that cannot say `blocked`
+# declares it impossible, and one that names neither is refused
+# `missing_handler … on/blocked`. Its
 # profile is not the package's own default, so a launch that names none proves
 # the owner's tracked choice is what applies.
 TRACKED_PROFILE = "full"
@@ -37,6 +39,7 @@ extensions:
     step: continue-improve
     between: {from: commit, to: done}
     on: {pass: done, needs_revision: abandoned, fail: abandoned, no_work: abandoned}
+    impossible_verdicts: [blocked]
 """
 # An inserted stage is named by the step it inserts, not by the extension id.
 EXTENSION_STAGE = "continue-improve"

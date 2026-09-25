@@ -112,6 +112,9 @@ class WorkflowFolderTest(unittest.TestCase):
         self.assertEqual(len(example), 1, example)
         for verdict in ("pass", "fail", "needs_revision", "no_work"):
             self.assertIn(verdict + ":", example[0], example[0])
+        # The root is on WorkflowRevision v6: an insertion answers for `blocked`
+        # too, and one copied without this line is refused `missing_handler`.
+        self.assertIn("#     impossible_verdicts: [blocked]\n", (CLASSIC / "extend.yaml").read_text())
         # The prose example rots the same way: it named `choose-verify` for a
         # release after that stage was gone, and a reader copying it was refused
         # `project_extension_unknown_stage`. Every stage a `between` names,

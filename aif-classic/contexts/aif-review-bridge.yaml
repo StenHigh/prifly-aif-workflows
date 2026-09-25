@@ -1,5 +1,5 @@
 id: aif:context/aif-review-bridge
-version: 1.11.0
+version: 1.12.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-review skill
@@ -82,6 +82,27 @@ text: |
   stops for the developer. Do not run `/aif-fix`, commit, or create a new gate
   yourself. Blocking travels in the `blocking` field of the `gate` artifact;
   use `needs_revision` only when no usable gate can be reported.
+
+  One result is not a judgement of the work at all: that you could not judge
+  it. Keep three states apart, because the graph routes them differently. A
+  check that ran and failed against this tree is a finding about the work:
+  `blocking` true, verdict `pass`, and the fix round takes it. Acceptance
+  evidence that is missing or incomplete — a criterion nothing demonstrates, a
+  test the change should have brought — is the same: a finding, `pass`, work
+  for the fix step. A dependency a check needs that is not there — a database
+  that does not answer, a service or network that is down, a runner that cannot
+  start — says nothing about the work: return verdict `blocked`, with a gate
+  whose `status` is `blocked`, `blocking` false, `suggested_next` `continue`,
+  and findings that name what was unavailable, the command and the output that
+  show it, and which checks it left unrun. `blocked` ends the Run with that gate
+  in front of the developer; the check is repeated by `prifly project continue`
+  once the dependency is back, not by a fix round with nothing to fix. It is not
+  for a dependency this change broke — a migration that leaves the database
+  unable to start is a finding — nor for a check you chose not to run, and
+  `needs_revision` stays for a result you could not establish for any other
+  reason. A real Run reported a database that had gone away as a failed gate
+  with zero new test failures; the fix step found nothing to fix and the Run
+  ended partial, blaming the work.
 
   This is one session. Where the skill reaches for a separate reviewer session,
   use one only if the host platform actually provides it; where it does not,

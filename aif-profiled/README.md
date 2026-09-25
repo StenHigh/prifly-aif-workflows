@@ -95,4 +95,6 @@ warmup/plan/implement, воркфлоу, корень), живёт в прост
 
 Нужен Pri-Fly не ниже `0.13.43`: `model_profile` (StepDefinition v9, 0.13.41),
 materialise-only дерево на шаге v9 (0.13.42), `model_profiles` в `extend.yaml`
-и `model_profile_translation` в задаче (0.13.43).
+и `model_profile_translation` в задаче (0.13.43). С `v1.45.0` — не ниже
+`0.13.53`: гейты возвращают `blocked`, и шаг гейта с профилем поднимается до
+StepDefinition v10 (подробности — в корневом README, «Вердикты»).

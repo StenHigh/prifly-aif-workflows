@@ -38,8 +38,13 @@ exclude: []
 # red result.
 #
 # A stage answers for every verdict its step can return, this one included:
-# the packages are on WorkflowRevision v4, and an insertion that names only
-# `pass` is refused by name (`missing_handler at .../on/fail`). Send the three
+# the root graph is on WorkflowRevision v6, and an insertion that names only
+# `pass` is refused by name (`missing_handler at .../on/fail`). v6 adds
+# `blocked` — the step could not judge, a dependency it needs was down. A step
+# on core:schema/step-result@1.0.0 cannot return it: declare it impossible, as
+# below. A check of your own that can tell "the database did not answer" from
+# "the tests failed" belongs on step-result@2.0.0, returning `blocked` and
+# routing it to where the Run should stop. Send the three
 # unhappy verdicts where the Run should end rather than to your `to` stage —
 # `abandoned` finishes the classic route with a stated reason, while `done`
 # would claim success. There is no repair stage after `commit`: the fix step
@@ -51,4 +56,5 @@ exclude: []
 #     step: merge-request
 #     between: {from: commit, to: done}
 #     on: {pass: done, needs_revision: abandoned, fail: abandoned, no_work: abandoned}
+#     impossible_verdicts: [blocked]
 extensions: []

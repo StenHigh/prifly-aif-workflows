@@ -10,8 +10,8 @@ ROOT = Path(__file__).resolve().parents[1]
 # its source's: bump it by hand whenever the regenerated tail's bytes change —
 # tests/test_versions.py fails a release that forgets.
 TAILS = (
-    ("aif-classic", "aif-classic-continuation", "aif-continuation", "1.0.0"),
-    ("aif-profiled", "aif-profiled-continuation", "aif-profiled-continuation", "1.0.0"),
+    ("aif-classic", "aif-classic-continuation", "aif-continuation", "1.1.0"),
+    ("aif-profiled", "aif-profiled-continuation", "aif-profiled-continuation", "1.1.0"),
 )
 TAIL = """inputs:
   task: {schema_ref: schema_task}
@@ -49,7 +49,7 @@ stages:
     kind: step
     step_ref: step_security
     input_bindings: {implementation: $stages.verify.implementation}
-    on: {pass: security-decision, needs_revision: fix-after-security, fail: abandoned, no_work: abandoned}
+    on: {pass: security-decision, needs_revision: fix-after-security, fail: abandoned, no_work: abandoned, blocked: security-blocked}
   security-decision:
     kind: choice
     selection: exclusive
@@ -68,6 +68,7 @@ stages:
     step_ref: step_commit
     input_bindings: {implementation: $stages.review.implementation}
     on: {pass: done, needs_revision: abandoned, fail: abandoned, no_work: abandoned}
+    impossible_verdicts: [blocked]
   done:
     kind: finish
     outcome: succeeded
@@ -80,6 +81,11 @@ stages:
     kind: finish
     outcome: partial
     output_bindings: {gate: $stages.security.gate}
+  security-blocked:
+    kind: finish
+    outcome: partial
+    output_bindings: {gate: $stages.security.gate}
+    description: A dependency the security checks need was unavailable, so the work was not judged; repeat with project continue once it is back.
   fix-after-review:
     kind: finish
     outcome: partial
