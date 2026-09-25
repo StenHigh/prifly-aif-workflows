@@ -100,7 +100,8 @@ def submit(binary, authority, run_id, task, verdict, values, bridge):
     template["result"]["summary"] = f"run probe: {bridge} -> {verdict}"
     submission = workspace / "submission.json"
     submission.write_text(json.dumps(template))
-    verify.run(binary, "--project", authority, "session", "submit", "--file", submission)
+    result = subprocess.run([str(binary), "--json", "--project", str(authority), "session", "submit", "--file", str(submission)], capture_output=True, text=True)
+    return None if result.returncode == 0 else json.loads(result.stderr or result.stdout)
 
 
 def drive(binary, authority, run_id, verdict):
@@ -115,10 +116,12 @@ def drive(binary, authority, run_id, verdict):
             return seen, None
         for task in tasks:
             bridge, step_verdict, values = answer(task, verdict)
-            seen.append({"bridge": bridge, "routed_verdicts": task["routed_verdicts"]})
+            seen.append({"bridge": bridge, "routed_verdicts": task["routed_verdicts"], "result_schema": task["result_schema_ref"]["version"]})
             if step_verdict is None:
                 return seen, None  # past verify: the gate has been answered
-            submit(binary, authority, run_id, task, step_verdict, values, bridge)
+            refused = submit(binary, authority, run_id, task, step_verdict, values, bridge)
+            if refused:
+                return seen, {**refused, "at": f"session submit ({bridge})"}
     raise AssertionError(f"no end after {MAX_TURNS} turns: {seen}")
 
 
@@ -150,10 +153,10 @@ def main():
             "package": args.tag or "working tree",
             "verify_verdict": args.verdict,
             "answered": [item["bridge"] for item in seen],
-            "verify_routed_verdicts": next((item["routed_verdicts"] for item in seen if item["bridge"] == "aif-verify-bridge"), None),
+            "verify_task": next(({"routed_verdicts": item["routed_verdicts"], "result_schema": item["result_schema"]} for item in seen if item["bridge"] == "aif-verify-bridge"), None),
             "run_status": state["status"],
             "run_outcome": state.get("outcome"),
-            "refusal": refusal and {"code": refusal.get("code"), "message": refusal.get("message"), "violations": refusal.get("violations")},
+            "refusal": refusal and {"at": refusal.get("at", "run drive"), "code": refusal.get("code"), "message": refusal.get("message"), "violations": refusal.get("violations")},
             "stand": str(root) if args.keep else None,
         }
         print(json.dumps(report, indent=2))
