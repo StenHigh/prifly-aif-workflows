@@ -163,6 +163,43 @@ Pri-Fly, а с Pri-Fly новее `v0.7.0` форму отдаёт `prifly schem
   `aif-profiled` (`--check` — разошлись ли). Версия хвоста своя, в `TAILS` того
   же скрипта: сменились байты хвоста — поднять её там и перегенерировать.
 
+## Обновление до v1.45.0: вставки из `extend.yaml`
+
+С `v1.45.0` корень `aif-classic` и `aif-profiled` — на WorkflowRevision v6, и
+каждая вставка из `extend.yaml` обязана ответить за `blocked`. Касается ли это
+проекта:
+
+```sh
+grep -c impossible_verdicts .prifly/workflows/*/extend.yaml
+```
+
+Ноль в файле, где есть `extensions:` со вставками, — `project compile` и
+`project start` после обновления откажут:
+
+```text
+missing_handler at /definition/stages/<вставка>/on/blocked: this stage does not
+say where blocked leads: add on.blocked or list blocked in impossible_verdicts
+```
+
+Ответ — строка в каждой вставке, шаг которой на `step-result@1.0.0`:
+
+```yaml
+    on: {pass: done, needs_revision: abandoned, fail: abandoned, no_work: abandoned}
+    impossible_verdicts: [blocked]
+```
+
+**Правка и обновление — один коммит, и раньше не получится.** На пакете до
+`v1.45.0` та же строка отвергается: `this workflow is at revision 4, which answers
+for pass, fail, needs_revision, no_work; "blocked" is not one of them`. Порядок:
+`prifly project workflows update <пакет>` (он сохраняет ваш `extend.yaml`), затем
+строка в каждую вставку, затем один коммит. Оба отказа замерены на Pri-Fly
+0.13.53 против `v1.44.0` и `v1.45.0`.
+
+Вставка, которая сама умеет отличить «зависимость недоступна» от «проверка
+упала», может вместо этого вернуть `blocked`: её шаг переходит на
+`core:schema/step-result@2.0.0`, а вставка ведёт `blocked` туда, где Run должен
+остановиться.
+
 ## Вердикты: WorkflowRevision v4 и v6
 
 Графы, где работает гейт (корень, `verify-once`, `review-once`), объявлены на
