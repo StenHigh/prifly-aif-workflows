@@ -12,7 +12,7 @@ with the verdict asked for, and reports where the Run ended.
 `--check` turns the report into a verdict of its own and exits non-zero when
 the Run did not get where the gate's verdict says it must: `pass` has to carry
 the Run past verify, `blocked` has to end it `partial`. CI runs `--check
---verdict pass`.
+--verdict pass` and `--check --verdict blocked`.
 
 `--tag vX.Y.Z` drives that release instead of the working tree. The Run is
 cancelled and its claim, registry entry and directory removed whatever happens;
@@ -174,6 +174,10 @@ def main():
                 assert report["answered"][-1] != "aif-verify-bridge", report["answered"]
             else:
                 assert (state["status"], state.get("outcome")) == ("completed", "partial"), (state["status"], state.get("outcome"))
+                # The developer is handed the gate that says what was down, not
+                # an empty partial: the Run's own output is those bytes.
+                submitted = "sha256:" + hashlib.sha256(json.dumps(GATE_BLOCKED).encode()).hexdigest()
+                assert state["output_artifacts"]["gate"]["digest"] == submitted, state["output_artifacts"]
     finally:
         if args.keep:
             print(f"kept: --project {authority} run {run_id}", file=sys.stderr)

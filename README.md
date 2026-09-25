@@ -31,7 +31,7 @@
 |---|---|
 | [`aif-classic/`](aif-classic/) | Канонический последовательный путь автора AI Factory: `warmup → plan → improve → implement → verify → security → review → commit`. Improve передаёт исправленный native plan в следующий круг; блокирующий verify/security/review возвращает typed gate с `suggested_next: /aif-fix` и ничего не чинит сам. Круг review открывает второй читатель в своей сессии (`review-challenge`), чьи находки review проверяет и сливает. |
 | [`aif-fanout/`](aif-fanout/) | Отдельная доработка существующего плана двумя независимыми ракурсами review → выбор разработчика → применение принятого. Это веер задач, не выбор модели. |
-| [`aif-profiled/`](aif-profiled/) | Тот же classic, порождённый из него `tools/derive_profiled.py`: каждый шаг объявляет профиль модели (`model_profile`), `plan` и `implement` просят отдельную сессию. Перевод профиля в модель и effort задаёт проект — дефолты в `extend.yaml`, переопределение в `.prifly/local.yaml`; движок доставляет и не выбирает. Pri-Fly ≥ 0.13.53. |
+| [`aif-profiled/`](aif-profiled/) | Тот же classic, порождённый из него `tools/derive_profiled.py`: каждый шаг объявляет профиль модели (`model_profile`), `plan` и `implement` просят отдельную сессию. Перевод профиля в модель и effort задаёт проект — дефолты в `extend.yaml`, переопределение в `.prifly/local.yaml`; движок доставляет и не выбирает. Pri-Fly ≥ 0.13.55. |
 
 Этот репозиторий — workflow repository для каталога
 [`StenHigh/prifly-workflows`](https://github.com/StenHigh/prifly-workflows).
@@ -151,10 +151,11 @@ Pri-Fly, а с Pri-Fly новее `v0.7.0` форму отдаёт `prifly schem
   output_port`.
   `aif-profiled` нужен Pri-Fly не ниже `0.13.43` (`model_profile`, v9,
   `model_profiles` в `extend.yaml`).
-  С `v1.45.0` все пакеты, кроме `aif-fanout`, требуют Pri-Fly не ниже `0.13.53`:
+  С `v1.45.0` все пакеты, кроме `aif-fanout`, требуют Pri-Fly не ниже `0.13.55`:
   вердикт `blocked` (WorkflowRevision v6, `core:schema/step-result@2.0.0`, шаг
   гейта на StepDefinition v10). На 0.13.50–0.13.52 шаги гейтов не собираются
-  (`schema_invalid at /outputs/gate/required_for/2`).
+  (`schema_invalid at /outputs/gate/required_for/2`), на 0.13.53–0.13.54
+  собираются, но Run не проходит verify.
 - `aif-profiled/` не правится руками: `python3 tools/derive_profiled.py`
   переписывает его из `aif-classic/`, `--check` говорит, разошлись ли они;
   `tests/test_folders.py` держит то же самое.
@@ -165,11 +166,12 @@ Pri-Fly, а с Pri-Fly новее `v0.7.0` форму отдаёт `prifly schem
 
 ## Обновление до v1.45.0: вставки из `extend.yaml`
 
-**Пока не обновляйтесь.** На Pri-Fly 0.13.53 пакет v1.45.0 собирается и
-стартует, но каждый Run с включённым verify останавливается на выдаче гейту
-Attempt: `run drive` → `schema_invalid at /output_contracts/gate/required_for/2`.
-Дефект движка, передан; каталог до исправления держит v1.44.0, который на
-0.13.53 работает. Ниже — что понадобится, когда каталог вернётся на v1.45.0.
+**Нужен Pri-Fly не ниже 0.13.55.** На 0.13.53 и 0.13.54 пакет собирается и
+стартует, но Run с включённым verify останавливается у гейта: 0.13.53 не выдаёт
+ему Attempt (`schema_invalid at /output_contracts/gate/required_for/2`), 0.13.54
+не принимает отчёт `blocked` (`schema_invalid at /verdict`). На 0.13.55 Run
+проходит verify и с `pass`, и с `blocked` — это держат пятые ворота
+(`tests/probes/run_check.py`).
 
 С `v1.45.0` корень `aif-classic` и `aif-profiled` — на WorkflowRevision v6, и
 каждая вставка из `extend.yaml` обязана ответить за `blocked`. Касается ли это

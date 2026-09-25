@@ -29,10 +29,11 @@ default) or `pass`, then prints where the Run ended and any refusal verbatim.
 It exists because 0.13.53 compiled and started v1.45.0 without a word and then
 refused to hand verify its attempt (`schema_invalid at
 /output_contracts/gate/required_for/2`): all four gates were green on a package
-whose every Run died at the gate. CI runs it as a fifth gate with `--check
---verdict pass`; `--verdict blocked` joins CI once a Pri-Fly release accepts the
-report (0.13.54 hands verify its attempt and refuses `blocked` at `session
-submit`). Run it by hand before a release that changes what a gate step
+whose every Run died at the gate. CI runs it as a fifth gate both ways: `--check
+--verdict pass` must carry the Run past verify, `--check --verdict blocked` must
+end it `partial` with the submitted gate as the Run's output, byte for byte.
+0.13.54 still refused `blocked` at `session submit`; 0.13.55 is the first release
+where both pass. Run it by hand before a release that changes what a gate step
 declares.
 
 `frozen_stand.py` is the fourth, and it answers a different question: what a
