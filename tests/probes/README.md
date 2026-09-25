@@ -19,7 +19,21 @@ step, a captured port that is the only output, and the same step handed out
 twice across a park and a resume. It needs `capture-probe/`, a throwaway package
 that exists for exactly those shapes and is never released.
 
-`frozen_stand.py` is the third, and it answers a different question: what a
+`run_check.py` goes where no gate goes: past the first handoff. It is the host
+for one real `aif-classic` Run — warmup, plan and implement answered with the
+smallest honest artifacts — and answers verify with `--verdict blocked` (the
+default) or `pass`, then prints where the Run ended and any refusal verbatim.
+
+    python3 tests/probes/run_check.py --binary /path/to/prifly [--verdict pass] [--tag v1.44.0] [--keep]
+
+It exists because 0.13.53 compiled and started v1.45.0 without a word and then
+refused to hand verify its attempt (`schema_invalid at
+/output_contracts/gate/required_for/2`): all four gates were green on a package
+whose every Run died at the gate. Run it before a release that changes what a
+gate step declares. It is a probe and not a gate while that refusal stands —
+a red CI on every push would say nothing new.
+
+`frozen_stand.py` is the fourth, and it answers a different question: what a
 candidate *prints* differently. A change to reading is cheapest to check on data
 that cannot change — build the stand once, then read the same settled Run with
 the old binary and the candidate.
