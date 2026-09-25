@@ -29,9 +29,11 @@ default) or `pass`, then prints where the Run ended and any refusal verbatim.
 It exists because 0.13.53 compiled and started v1.45.0 without a word and then
 refused to hand verify its attempt (`schema_invalid at
 /output_contracts/gate/required_for/2`): all four gates were green on a package
-whose every Run died at the gate. Run it before a release that changes what a
-gate step declares. It is a probe and not a gate while that refusal stands —
-a red CI on every push would say nothing new.
+whose every Run died at the gate. CI runs it as a fifth gate with `--check
+--verdict pass`; `--verdict blocked` joins CI once a Pri-Fly release accepts the
+report (0.13.54 hands verify its attempt and refuses `blocked` at `session
+submit`). Run it by hand before a release that changes what a gate step
+declares.
 
 `frozen_stand.py` is the fourth, and it answers a different question: what a
 candidate *prints* differently. A change to reading is cheapest to check on data

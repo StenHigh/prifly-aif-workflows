@@ -30,3 +30,5 @@ jobs:
         run: python3 -B tests/verify.py --binary "$HOME/.local/bin/prifly"
       - name: One authority carries Classic across every plan profile
         run: python3 -B tests/compatibility.py --binary "$HOME/.local/bin/prifly"
+      - name: A real Run is handed past the verify gate
+        run: python3 -B tests/probes/run_check.py --binary "$HOME/.local/bin/prifly" --check --verdict pass

@@ -9,6 +9,11 @@ with the verdict asked for, and reports where the Run ended.
 
     python3 tests/probes/run_check.py --binary /path/to/prifly [--verdict blocked|pass]
 
+`--check` turns the report into a verdict of its own and exits non-zero when
+the Run did not get where the gate's verdict says it must: `pass` has to carry
+the Run past verify, `blocked` has to end it `partial`. CI runs `--check
+--verdict pass`.
+
 `--tag vX.Y.Z` drives that release instead of the working tree. The Run is
 cancelled and its claim, registry entry and directory removed whatever happens;
 `--keep` leaves the stand for someone else to read.
@@ -139,6 +144,7 @@ def main():
     parser.add_argument("--verdict", choices=("blocked", "pass"), default="blocked")
     parser.add_argument("--tag")
     parser.add_argument("--keep", action="store_true")
+    parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
     binary = args.binary.resolve(strict=True)
     root = Path(tempfile.mkdtemp(prefix="aif-run-probe-"))
@@ -160,6 +166,14 @@ def main():
             "stand": str(root) if args.keep else None,
         }
         print(json.dumps(report, indent=2))
+        if args.check:
+            assert refusal is None, f"refused: {report['refusal']}"
+            assert "aif-verify-bridge" in report["answered"], report["answered"]
+            if args.verdict == "pass":
+                # Past verify means the next gate was handed its attempt.
+                assert report["answered"][-1] != "aif-verify-bridge", report["answered"]
+            else:
+                assert (state["status"], state.get("outcome")) == ("completed", "partial"), (state["status"], state.get("outcome"))
     finally:
         if args.keep:
             print(f"kept: --project {authority} run {run_id}", file=sys.stderr)
