@@ -161,6 +161,7 @@ def continue_tail(binary, authority, repository, source_run):
     return run_id, started, {
         "answered": [item["bridge"] for item in seen],
         "resume": resume and {"status": resume["status"], "verdict": accepted.get("verdict"), "summary": accepted.get("summary")},
+        "fork": state.get("fork") and {"source_run_id": state["fork"].get("source_run_id"), "reason": state["fork"].get("reason")},
         "run_status": state["status"],
         "run_outcome": state.get("outcome"),
         "refusal": refusal and {"at": refusal.get("at", "run drive"), "code": refusal.get("code"), "message": refusal.get("message")},
@@ -230,6 +231,7 @@ def main():
             if args.continue_tail:
                 tail = report.get("continuation")
                 assert tail and tail["refusal"] is None, tail
+                assert tail["fork"] == {"source_run_id": run_id, "reason": "project continuation"}, tail["fork"]
                 # The tail's own program accepted the tree, and its verify gate
                 # was answered and passed on to the next gate.
                 assert (tail["resume"]["status"], tail["resume"]["verdict"]) == ("completed", "pass"), tail["resume"]
