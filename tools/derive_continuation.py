@@ -10,14 +10,52 @@ ROOT = Path(__file__).resolve().parents[1]
 # its source's: bump it by hand whenever the regenerated tail's bytes change —
 # tests/test_versions.py fails a release that forgets.
 TAILS = (
-    ("aif-classic", "aif-classic-continuation", "aif-continuation", "1.1.0"),
-    ("aif-profiled", "aif-profiled-continuation", "aif-profiled-continuation", "1.1.0"),
+    ("aif-classic", "aif-classic-continuation", "aif-continuation", "1.2.0"),
+    ("aif-profiled", "aif-profiled-continuation", "aif-profiled-continuation", "1.2.0"),
 )
+RESUME = Path(__file__).resolve().parent / "continuation" / "resume.mjs"
+# Pri-Fly 0.13.56 stopped knowing any package: what a tail continues from, and
+# where each input comes from, is declared here (WorkflowRevision 7). The
+# implementation is not carried over: the resume step reads it off the tree the
+# tail is handed, which may have moved since the source Run stopped.
+CONTINUATION = """continuation:
+  from_workflows: [aif:workflow/classic, aif-profiled:workflow/classic]
+  from_outcomes: [partial, rejected]
+  from_cancelled: true
+  inputs:
+    task: {source_input: task}
+    handoff: {stage: warmup, output: handoff, verdict: pass}
+    plan: {stage: implement, output: plan, verdict: pass}
+    previous_implementation: {stage: implement, output: implementation, verdict: pass}
+"""
+BINDINGS = """execution_bindings:
+  steps:
+    {prefix}:step/resume:
+      executable: node
+      args: [resume.mjs]
+      files: {{resume.mjs: files/resume.mjs}}
+      timeout_ms: 60000
+      grace_ms: 1000
+      max_output_bytes: 65536
+"""
+RESUME_STEP = """authoring: prifly-step/1
+id: {prefix}:step/resume
+version: 1.0.0
+title: Check the handed-over tree still holds the source implementation
+kind: worker
+inputs:
+  previous_implementation: {{schema_ref: "{{{{schema_implementation}}}}"}}
+outputs:
+  implementation: {{schema_ref: "{{{{schema_implementation}}}}", required_for: [pass]}}
+executor: {{adapter_ref: "{{{{process_adapter}}}}", operation: process}}
+effects: {{class: none, retry_class: pure}}
+result_schema_ref: "{{{{step_result_schema_v2}}}}"
+"""
 TAIL = """inputs:
   task: {schema_ref: schema_task}
   handoff: {schema_ref: schema_warmup-handoff}
   plan: {schema_ref: schema_plan_manifest}
-  implementation: {schema_ref: schema_implementation}
+  previous_implementation: {schema_ref: schema_implementation}
   security_enabled:
     schema_ref: schema_feature-enabled
     required: false
@@ -30,12 +68,27 @@ limits: {max_step_instances: 160, max_control_transitions: 800, max_parallelism:
 policy_ref: local_policy
 features:
   security: {input: security_enabled}
-entry: verify
+entry: resume
 stages:
+  resume:
+    kind: step
+    step_ref: step_resume
+    input_bindings: {previous_implementation: $inputs.previous_implementation}
+    on: {pass: verify, fail: unrelated, blocked: unresumed}
+    # A program of this package, not a host: it returns what it is written to.
+    impossible_verdicts: [needs_revision, no_work]
+  unrelated:
+    kind: finish
+    outcome: rejected
+    description: The handed-over tree does not contain the implementation the source Run accepted, so there is nothing here to continue.
+  unresumed:
+    kind: finish
+    outcome: rejected
+    description: The tree could not be read — no claimed workspace or no git — so nothing was judged; the resume step names what was missing.
   verify:
     kind: call
     workflow_ref: workflow_verify-batch
-    input_bindings: {implementation: $inputs.implementation, handoff: $inputs.handoff, plan: $inputs.plan}
+    input_bindings: {implementation: $stages.resume.implementation, handoff: $inputs.handoff, plan: $inputs.plan}
     on: {succeeded: choose-security, partial: fix-after-verify}
   choose-security:
     kind: choice
@@ -103,13 +156,16 @@ def files(source, name, prefix, version):
         relative = path.relative_to(source)
         text = path.read_text()
         if relative == Path("workflow.yaml"):
-            text = text.split("\ninputs:\n", 1)[0] + "\n" + TAIL
+            text = text.split("\ninputs:\n", 1)[0] + "\n" + TAIL + BINDINGS.format(prefix=prefix)
             header, tail = text.split("inputs:\n", 1)
+            header = header.replace('schema_version: "6"', 'schema_version: "7"')
+            header = header.replace("  step_commit: \"{{step_commit}}\"\n", "  step_commit: \"{{step_commit}}\"\n  step_resume: \"{{step_resume}}\"\n")
+            header = header.replace("    step_result_schema_v2: core:schema/step-result@2.0.0\n", "    step_result_schema_v2: core:schema/step-result@2.0.0\n    process_adapter: core:adapter/local-process@2.0.0\n")
             text = header + (
                 "decision_catalog:\n"
                 f"  - .prifly/workflows/{name}/decisions/gates/checks.yaml\n"
                 f"  - .prifly/workflows/{name}/decisions/gates/warnings.yaml\n"
-            ) + "inputs:\n" + tail
+            ) + CONTINUATION + "inputs:\n" + tail
             text = text.replace(f"id: {old}:package/classic", f"id: {prefix}:package/classic")
             text = text.replace(f"id: {old}:workflow/classic", f"id: {prefix}:workflow/classic-continuation")
             text = re.sub(r"^(  )?version: \S+$", rf"\g<1>version: {version}", text, flags=re.M)
@@ -128,8 +184,13 @@ def files(source, name, prefix, version):
                 models = "model_profiles:\n" + text.split("model_profiles:\n", 1)[1].split("# `extensions`", 1)[0]
             text = "profile: fast\nexclude: []\n" + models + "extensions: []\n"
         elif relative == Path("README.md"):
-            text = f"# {name}\n\nContinuation quality tail generated from `{source.name}`. Start it with `prifly project continue`.\n"
+            text = (f"# {name}\n\nContinuation quality tail generated from `{source.name}`: `resume → verify → security → review → commit` "
+                    "over the tree a partial, rejected or cancelled classic Run left. Start it with `prifly project continue`; its first step "
+                    "is a Node program, so allow `node` in `.prifly/local.yaml` and pass `--allow-execution`. Needs Pri-Fly 0.13.58. "
+                    "See \"Продолжение\" in the repository README.\n")
         result[relative] = text
+    result[Path("steps/resume.yaml")] = RESUME_STEP.format(prefix=prefix)
+    result[Path("files/resume.mjs")] = RESUME.read_text()
     return result
 
 

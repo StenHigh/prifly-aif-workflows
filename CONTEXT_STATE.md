@@ -6,21 +6,43 @@
 движка 0.10–0.13.54, переход на AI Factory 2.19.0, WorkflowRevision v4) —
 в git: `git show d388b92:CONTEXT_STATE.md` (2330 строк, оглавление — `mdq tree`).
 
-## Состояние на 2026-09-25
+## Состояние на 2026-09-26
 
-- **Выпущено и в каталоге:** тег `v1.45.0` (`git rev-parse v1.45.0`) — вердикт
-  `blocked` у гейтов. classic 1.43.0, profiled 1.44.0, оба continuation-хвоста
-  1.1.0, fanout 1.4.0. Каталог `StenHigh/prifly-workflows` — все пять записей
-  на v1.45.0 (откат на v1.44.0 держался, пока движок не принял `blocked` в
-  рантайме).
-- **Pri-Fly:** минимальный для v1.45.0 — **0.13.55** (кроме fanout). Пятеро
-  ворот зелены на нём, локально и в CI; пятые (`run_check.py`) — оба пути:
-  `pass` проходит verify, `blocked` кончает Run `completed/partial`, и выход Run
-  побайтно равен отправленному gate; `run explain` называет
-  `from_stage_id: verify`. На 0.13.53 гейту не выдавался Attempt, на 0.13.54 не
-  принимался отчёт `blocked`.
+- **Выпущено и в каталоге:** тег `v1.46.0` — хвосты продолжения объявляют
+  `continuation` сами (Pri-Fly 0.13.58 не знает ни одного пакета). classic 1.43.0,
+  profiled 1.44.0, fanout 1.4.0 — как в v1.45.0; оба хвоста 1.2.0.
+- **Pri-Fly:** последний стабильный 0.13.58. Минимальный: classic/profiled —
+  0.13.55 (`blocked`), хвосты — **0.13.58** (`continuation`, ревизия 7). Хвосты
+  v1.45.0 на 0.13.58 не запускаются (`project_continue_undeclared`), хвосты
+  v1.46.0 не собираются раньше 0.13.58 — движок и пакет обновляются вместе.
+- Ворота: четыре прежних, `test_resume.py` и `run_check.py` в четырёх
+  режимах (pass, blocked, blocked→continue, cancelled→continue) — все в CI.
 - **Задание пилоту** (`SMSPlace/PRIFLY-MERGE-REQUEST-STEP-PROMPT.md`, ведёт
-  движок, передаёт владелец) можно отдавать: движку сказано.
+  движок, передаёт владелец): v1.45.0 → теперь v1.46.0 и Pri-Fly 0.13.58.
+
+### Продолжение (v1.46.0)
+
+- Хвост: `continuation: {from_workflows: [aif:workflow/classic,
+  aif-profiled:workflow/classic], from_outcomes: [partial, rejected],
+  from_cancelled: true}`; входы task/handoff/plan из исходного Run,
+  `previous_implementation` — выход `implement`. Хвост получает дерево исходного
+  Run целиком (ветка + незакоммиченное).
+- Первая стадия `resume` — программа пакета (`prifly-step/1`, `local-process`,
+  Node, `tools/continuation/resume.mjs` → `files/resume.mjs` в хвосте, дерево —
+  `PRIFLY_REPOSITORY_WORKSPACE`, PATH `/usr/bin:/bin`). HEAD не содержит прежнюю
+  реализацию → `fail` → `unrelated` (rejected); нет дерева/git → `blocked` →
+  `unresumed` (rejected); иначе описывает дерево как есть (diff от base по
+  рабочему дереву + неотслеживаемые) → verify. step-result 2.0.0, прочие
+  вердикты `impossible` — наша программа.
+- Владельцу: `project local set --allow-executable node=…` один раз, `project
+  continue … --workspace worktree --allow-execution --prepare`, затем с
+  `--expected-launch-digest`. Деревья неуспешных Runs с 0.13.58 копятся —
+  `claim list` / `claim release`.
+- Не сделано и зачем: **checkpoint** (п. 1 брифа движка) — хвосту хватает
+  `implement` исходного Run и дерева; нужен, если продолжать с середины
+  implement или fix. Продолжение хвоста хвостом не объявлено (у хвоста нет
+  стадий `warmup`/`implement`). Живьём проверен classic-хвост; profiled-хвост —
+  только компиляцией.
 
 ### `blocked`: как устроено (v1.45.0)
 
@@ -51,7 +73,7 @@
 
 1. ~~Ждём выпуск движка с приёмом `blocked`~~ — закрыто 0.13.55 (2026-09-25):
    проба в обе стороны в CI, каталог на v1.45.0.
-2. **Пилот переходит на v1.45.0** одним коммитом: Pri-Fly ≥ 0.13.55,
+2. **Пилот переходит на v1.46.0** одним коммитом: Pri-Fly ≥ 0.13.58,
    `workflows update aif-classic`, `impossible_verdicts: [blocked]` во вставки
    `tests` и `merge-request`. Разбирать отказы — по дословному тексту.
 3. **Живая проверка `blocked` исполнителем** (настоящий хост, база выключена):
@@ -89,7 +111,8 @@
     байтами host skills; каждый вариант импортируется и запускается; плюс один
     старт `aif-profiled` — версия состояния запечатанного Run (≥ 35) и перевод
     профиля в первой задаче;
-  - `probes/run_check.py --check --verdict pass` — пятые ворота (с 2026-09-25):
+  - `test_resume.py` — программа `resume` хвостов: принять дерево, `fail`, `blocked`;
+  - `probes/run_check.py --check` (pass, blocked, `--continue`, cancelled→continue) — живые ворота (с 2026-09-25):
     настоящий Run, хостом выступает сам скрипт, проходит verify и получает
     следующий Attempt. Первые четыре кончаются на первом handoff и не увидели,
     что 0.13.53 не выдаёт verify задачу у v1.45.0.

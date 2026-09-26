@@ -1,0 +1,12 @@
+authoring: prifly-step/1
+id: aif-profiled-continuation:step/resume
+version: 1.0.0
+title: Check the handed-over tree still holds the source implementation
+kind: worker
+inputs:
+  previous_implementation: {schema_ref: "{{schema_implementation}}"}
+outputs:
+  implementation: {schema_ref: "{{schema_implementation}}", required_for: [pass]}
+executor: {adapter_ref: "{{process_adapter}}", operation: process}
+effects: {class: none, retry_class: pure}
+result_schema_ref: "{{step_result_schema_v2}}"

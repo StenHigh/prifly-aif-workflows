@@ -509,8 +509,21 @@ def main():
         for package in ("aif-classic-continuation", "aif-profiled-continuation"):
             result, documents = compile_package(binary, authority, repository, package, root / package)
             root_graph = next(item for item in documents.values() if item["id"].endswith("classic-continuation"))
-            assert root_graph["definition"]["entry"] == "verify", root_graph
-            assert not {"warmup", "plan", "improve", "implement"} & set(root_graph["definition"]["stages"]), root_graph["definition"]["stages"]
+            stages = root_graph["definition"]["stages"]
+            assert not {"warmup", "plan", "improve", "implement"} & set(stages), stages
+            # Since 0.13.56 the engine knows no package: the tail declares what it
+            # continues and where each input comes from (WorkflowRevision 7), and
+            # its first step — not the CLI — checks the tree it is handed.
+            assert root_graph["schema_version"] == "7", root_graph["schema_version"]
+            continuation = root_graph["continuation"]
+            assert continuation["from_workflows"] == ["aif:workflow/classic", "aif-profiled:workflow/classic"], continuation
+            assert continuation["from_outcomes"] == ["partial", "rejected"] and continuation["from_cancelled"] is True, continuation
+            assert continuation["inputs"]["previous_implementation"] == {"stage": "implement", "output": "implementation", "verdict": "pass"}, continuation["inputs"]
+            assert set(continuation["inputs"]) == {"task", "handoff", "plan", "previous_implementation"}, continuation["inputs"]
+            assert root_graph["definition"]["entry"] == "resume", root_graph["definition"]["entry"]
+            assert stages["resume"]["on"]["pass"] == "verify" and "resume" in json.dumps(stages["verify"]["input_bindings"]["implementation"]), stages["verify"]
+            resume = next(item for item in documents.values() if item["id"].endswith(":step/resume"))
+            assert resume["executor"]["operation"] == "process" and resume["effects"]["class"] == "none", resume
             components_read += len(documents)
         after = run(binary, "--project", authority, "package", "list")
         assert before == after, "compile must not import or trust a package"

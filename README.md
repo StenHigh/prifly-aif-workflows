@@ -32,6 +32,7 @@
 | [`aif-classic/`](aif-classic/) | Канонический последовательный путь автора AI Factory: `warmup → plan → improve → implement → verify → security → review → commit`. Improve передаёт исправленный native plan в следующий круг; блокирующий verify/security/review возвращает typed gate с `suggested_next: /aif-fix` и ничего не чинит сам. Круг review открывает второй читатель в своей сессии (`review-challenge`), чьи находки review проверяет и сливает. |
 | [`aif-fanout/`](aif-fanout/) | Отдельная доработка существующего плана двумя независимыми ракурсами review → выбор разработчика → применение принятого. Это веер задач, не выбор модели. |
 | [`aif-profiled/`](aif-profiled/) | Тот же classic, порождённый из него `tools/derive_profiled.py`: каждый шаг объявляет профиль модели (`model_profile`), `plan` и `implement` просят отдельную сессию. Перевод профиля в модель и effort задаёт проект — дефолты в `extend.yaml`, переопределение в `.prifly/local.yaml`; движок доставляет и не выбирает. Pri-Fly ≥ 0.13.55. |
+| [`aif-classic-continuation/`](aif-classic-continuation/), [`aif-profiled-continuation/`](aif-profiled-continuation/) | Хвост качества `resume → verify → security → review → commit` для реализации, которую оставил Run classic или profiled с исходом `partial`/`rejected` или отменённый. Запускается `prifly project continue` (см. «Продолжение»). Порождаются `tools/derive_continuation.py`. Pri-Fly ≥ 0.13.58. |
 
 Этот репозиторий — workflow repository для каталога
 [`StenHigh/prifly-workflows`](https://github.com/StenHigh/prifly-workflows).
@@ -163,6 +164,42 @@ Pri-Fly, а с Pri-Fly новее `v0.7.0` форму отдаёт `prifly schem
   руками: `python3 tools/derive_continuation.py` пишет их из `aif-classic` и
   `aif-profiled` (`--check` — разошлись ли). Версия хвоста своя, в `TAILS` того
   же скрипта: сменились байты хвоста — поднять её там и перегенерировать.
+
+## Продолжение: `project continue`
+
+С Pri-Fly 0.13.58 движок не знает ни одного пакета: от чего продолжает хвост и
+откуда берёт каждый вход, объявляет сам хвост (`continuation`, WorkflowRevision
+7). Хвосты `v1.46.0` продолжают Runs `aif:workflow/classic` и
+`aif-profiled:workflow/classic` с исходом `partial` или `rejected` и отменённые
+(`from_cancelled`: например, хост убил драйвер). Задача, handoff и план берутся
+из исходного Run; прежняя реализация — из его `implement`.
+
+Хвост получает рабочее дерево исходного Run целиком — ветку и незакоммиченные
+файлы. Его первый шаг `resume` — программа пакета, а не хост: проверяет, что
+HEAD содержит `base_commit` и `head_commit` прежней реализации, и описывает
+дерево как есть (коммиты с тех пор и незакоммиченные файлы). Не содержит —
+`fail`, Run кончается `rejected` без гейтов; дерева или git нет — `blocked`.
+
+Программа исполняется Node, поэтому один раз на машине и при каждом запуске:
+
+```sh
+prifly project local set --allow-executable "node=$(node -p process.execPath)"
+prifly project continue --repository . --launch aif-classic-continuation \
+  --source-run RUN --host HOST --workspace worktree --allow-execution --prepare
+# показать владельцу: откуда каждый вход, какое дерево передаётся
+prifly project continue … --expected-launch-digest DIGEST   # те же аргументы без --prepare
+```
+
+`--workspace-commit SHA` вместо передачи дерева заводит новое от коммита — когда
+работа доделана вне дерева исходного Run. Деревья Runs, не закончившихся
+`succeeded`, с 0.13.58 не освобождаются следующим запуском: `claim list`
+показывает их, `claim release` освобождает, когда нужное сохранено.
+
+**Хвосты до `v1.46.0` на Pri-Fly 0.13.58 не запускаются**
+(`project_continue_undeclared`), а хвосты `v1.46.0` не собираются на движке
+старше 0.13.58. Движок и пакет обновляются вместе. Живой проход — `run_check.py
+--continue`: Run кончается `blocked` на verify, продолжается в хвост, `resume`
+принимает дерево, verify хвоста пройден.
 
 ## Обновление до v1.45.0: вставки из `extend.yaml`
 
