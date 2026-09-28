@@ -33,9 +33,9 @@ whose every Run died at the gate. CI runs it as a fifth gate both ways: `--check
 --verdict pass` must carry the Run past verify, `--check --verdict blocked` must
 end it `partial` with the submitted gate as the Run's output, byte for byte.
 0.13.54 still refused `blocked` at `session submit`; 0.13.55 is the first release
-where both pass. `--continue` then continues the finished Run into
-`aif-classic-continuation` (0.13.58+, Node on PATH) and checks that the tail's
-resume program accepted the tree and its verify gate was handed on;
+where both pass. `--resume` then resumes the stopped Run with its own `aif-classic` launch
+(0.13.61+) and checks that warmup, plan and implement carried over, that verify
+was the first attempt handed out and that it was passed on to the next gate;
 `--verdict cancelled` cancels the source at verify instead, the case of a host
 that went away. CI runs both. Run it by hand before a release that changes what
 a gate step declares.

@@ -8,43 +8,34 @@
 
 ## Состояние на 2026-09-28
 
-- **Выпущено и в каталоге:** тег `v1.46.0` — хвосты продолжения объявляют
-  `continuation` сами (Pri-Fly 0.13.58 не знает ни одного пакета). classic 1.43.0,
-  profiled 1.44.0, fanout 1.4.0 — как в v1.45.0; оба хвоста 1.2.0.
-- **Pri-Fly:** последний стабильный 0.13.60; ворота (все режимы `run_check.py`)
-  зелены на нём локально 2026-09-28. 0.13.59: программный шаг может обещать
-  выход на `blocked`, `run next` передаёт Run новому исполнителю; нам не нужно. Минимальный: classic/profiled —
-  0.13.55 (`blocked`), хвосты — **0.13.58** (`continuation`, ревизия 7). Хвосты
-  v1.45.0 на 0.13.58 не запускаются (`project_continue_undeclared`), хвосты
-  v1.46.0 не собираются раньше 0.13.58 — движок и пакет обновляются вместе.
-- Ворота: четыре прежних, `test_resume.py` и `run_check.py` в четырёх
-  режимах (pass, blocked, blocked→continue, cancelled→continue) — все в CI.
+- **Выпущено и в каталоге:** тег `v1.47.0` — Run возобновляется тем же
+  workflow (`resumable`, ревизия 8). classic 1.44.0, profiled 1.45.0, fanout
+  1.4.0. Пакеты продолжения и программа `resume` на Node удалены (владелец:
+  workflow — только инструкция). Каталог — три записи.
+- **Pri-Fly:** последний стабильный 0.13.61; минимальный для classic/profiled —
+  0.13.61. Ворота зелены на нём: пять + `run_check.py` pass, blocked, `--resume`
+  (blocked→verify), `--resume --verdict cancelled`; все в CI.
 - **Задание пилоту** (`SMSPlace/PRIFLY-MERGE-REQUEST-STEP-PROMPT.md`, ведёт
-  движок, передаёт владелец): v1.45.0 → теперь v1.46.0 и Pri-Fly 0.13.58.
+  движок, передаёт владелец): v1.47.0 и Pri-Fly 0.13.61; у launch
+  `workspace: worktree` (см. ниже).
 
-### Продолжение (v1.46.0)
+### Возобновление (v1.47.0)
 
-- Хвост: `continuation: {from_workflows: [aif:workflow/classic,
-  aif-profiled:workflow/classic], from_outcomes: [partial, rejected],
-  from_cancelled: true}`; входы task/handoff/plan из исходного Run,
-  `previous_implementation` — выход `implement`. Хвост получает дерево исходного
-  Run целиком (ветка + незакоммиченное).
-- Первая стадия `resume` — программа пакета (`prifly-step/1`, `local-process`,
-  Node, `tools/continuation/resume.mjs` → `files/resume.mjs` в хвосте, дерево —
-  `PRIFLY_REPOSITORY_WORKSPACE`, PATH `/usr/bin:/bin`). HEAD не содержит прежнюю
-  реализацию → `fail` → `unrelated` (rejected); нет дерева/git → `blocked` →
-  `unresumed` (rejected); иначе описывает дерево как есть (diff от base по
-  рабочему дереву + неотслеживаемые) → verify. step-result 2.0.0, прочие
-  вердикты `impossible` — наша программа.
-- Владельцу: `project local set --allow-executable node=…` один раз, `project
-  continue … --workspace worktree --allow-execution --prepare`, затем с
-  `--expected-launch-digest`. Деревья неуспешных Runs с 0.13.58 копятся —
-  `claim list` / `claim release`.
-- Не сделано и зачем: **checkpoint** (п. 1 брифа движка) — хвосту хватает
-  `implement` исходного Run и дерева; нужен, если продолжать с середины
-  implement или fix. Продолжение хвоста хвостом не объявлено (у хвоста нет
-  стадий `warmup`/`implement`). Живьём проверен classic-хвост; profiled-хвост —
-  только компиляцией.
+- На корне classic: `resumable: {from_outcomes: [partial, rejected],
+  from_cancelled: true}`. `project continue --launch aif-classic --source-run
+  RUN`: точка — стадия, приведшая к finish (у отменённого — отменённая), префикс
+  переносится (warmup, plan, improve, implement), дерево передаётся, verify —
+  первая выданная задача. `fork.reason: resume_stopped_run`,
+  `recovery.reused`.
+- Свежесть реализации — инструкцией: мосты verify/security/review судят дерево
+  и HEAD, изменённое — `git diff <base_commit>` + неотслеживаемые.
+- **Ловушка 0.13.61 (передано движку):** возобновление отвергает `--workspace`
+  (`resume_input_override`), а без режима — `project_start_workspace_required`.
+  Обход: `workspace: worktree` у launch в `project.yaml`; проба так и делает.
+  Ещё: ответы анкеты надо передать снова (те же), с
+  `--expected-decision-catalog-digest`.
+- Механизм `continuation` (0.13.58) остаётся у движка для продолжения ДРУГИМ
+  workflow; у нас не используется. Прежняя версия с хвостами — тег v1.46.0.
 
 ### `blocked`: как устроено (v1.45.0)
 
@@ -73,29 +64,11 @@
 
 ## План
 
-0. **Продолжение внутри того же workflow — запрос движку (2026-09-28).**
-   Владелец: workflow — только инструкция, без программ и Node, и без отдельного
-   workflow для продолжения. Нынешнее `continuation` запускает другой workflow с
-   обязательными входами, `project recover` принимает только технически упавший
-   Run. Попросили: возобновление того же workflow для `partial`/`rejected`/
-   отменённого — перенос префикса стадий корня (как у recover), дерево целиком,
-   точка по умолчанию — стадия остановки (`from_stage_id`), опционально
-   `--from-stage`; объявление на корне (`resumable: {...}`). Когда выйдет:
-   удалить оба хвоста и `tools/continuation/resume.mjs`, объявить в
-   classic/profiled, абзац в мосты гейтов про свежесть `implementation` (судить
-   дерево и HEAD). До того v1.46.0 с хвостами остаётся рабочим.
-   **Движок взял в работу (2026-09-28)**, релиз назовёт. Ориентир формы: на
-   корне `resumable: {from_outcomes: [partial, rejected], from_cancelled: true}`,
-   ревизия 8 (выводится сама), маппинга входов нет. Точка — `finish.from_stage_id`
-   (у отменённого — активная стадия), `--from-stage X` — раньше; команда —
-   расширенный `project recover` или `project resume`. Условия: ответы анкеты и
-   профиль модели как у исходного Run, иначе отказ; стадия переносится, только
-   если её эффективный контракт не изменился (правка моста → переисполнение);
-   `call`/`repeat` повторяется целиком; с первой стадии — отказ (это новый
-   запуск); отменённый с неразрешённым эффектом — сначала `run resolve`.
+0. ~~Продолжение внутри того же workflow~~ — сделано в v1.47.0 на 0.13.61.
+   Остаток: убрать обход `workspace:` у launch, когда движок починит.
 1. ~~Ждём выпуск движка с приёмом `blocked`~~ — закрыто 0.13.55 (2026-09-25):
    проба в обе стороны в CI, каталог на v1.45.0.
-2. **Пилот переходит на v1.46.0** одним коммитом: Pri-Fly ≥ 0.13.58,
+2. **Пилот переходит на v1.47.0** одним коммитом: Pri-Fly ≥ 0.13.61, `workspace: worktree` у launch,
    `workflows update aif-classic`, `impossible_verdicts: [blocked]` во вставки
    `tests` и `merge-request`. Разбирать отказы — по дословному тексту.
 3. **Живая проверка `blocked` исполнителем** (настоящий хост, база выключена):
@@ -116,10 +89,6 @@
 - `aif-profiled/` — classic, порождённый `tools/derive_profiled.py`: каждый шаг
   несёт `model_profile`, plan/implement просят отдельную сессию. Руками не
   правится — только перегенерацией; `test_folders.py` это держит.
-- `aif-classic-continuation/`, `aif-profiled-continuation/` — хвосты качества
-  для `project continue`, порождаются `tools/derive_continuation.py` из classic
-  и profiled; руками не правятся, `test_folders.py` держит. Версии хвостов —
-  в `TAILS` скрипта, двигаются вручную при смене байтов хвоста.
 - `tests/` — пятеро ворот, те же, что гоняет `.github/workflows/verify.yml`:
   - `test_versions.py` — версии сдвинулись вместе с байтами (нужна полная
     история, в CI стоит `fetch-depth: 0`);
@@ -133,8 +102,7 @@
     байтами host skills; каждый вариант импортируется и запускается; плюс один
     старт `aif-profiled` — версия состояния запечатанного Run (≥ 35) и перевод
     профиля в первой задаче;
-  - `test_resume.py` — программа `resume` хвостов: принять дерево, `fail`, `blocked`;
-  - `probes/run_check.py --check` (pass, blocked, `--continue`, cancelled→continue) — живые ворота (с 2026-09-25):
+  - `probes/run_check.py --check` (pass, blocked, `--resume`, cancelled→resume) — живые ворота (с 2026-09-25):
     настоящий Run, хостом выступает сам скрипт, проходит verify и получает
     следующий Attempt. Первые четыре кончаются на первом handoff и не увидели,
     что 0.13.53 не выдаёт verify задачу у v1.45.0.
@@ -357,12 +325,9 @@
 
 ## Открыто и на заметку
 
-- **Следующий выпуск движка (объявлено 2026-09-26):** `run next` (core-next/41)
-  у завершённого или отменённого Run назовёт в `continuations` установленные
-  хвосты и даст `project.continue` в safe_next_actions (пусто, пока launch хвоста
-  ни разу не запускался); программный шаг сможет обещать выход на `blocked`
-  (контракт шага 12); `arrived_from` в `run next`. Нам менять нечего; проверить
-  `run_check.py` на выпуске.
+- С 0.13.61 `run next` завершённого или отменённого Run включает в
+  `continuations` его собственный workflow, если тот `resumable`, и предлагает
+  `project.continue`.
 - **Бюджет определений 512 у authority проекта заполняется каждой редакцией
   пакета**, чистки нет (`auto-retire-unused-package-editions` в движке не
   реализован). Обзор запуска предупреждает (`registry_budget.would_refuse`, с

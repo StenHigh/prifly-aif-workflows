@@ -26,8 +26,6 @@ jobs:
         run: python3 -B tests/test_versions.py
       - name: Static folder contract
         run: python3 -B tests/test_folders.py
-      - name: The continuation resume program
-        run: python3 -B tests/test_resume.py
       - name: Compile both packages with the installed Pri-Fly
         run: python3 -B tests/verify.py --binary "$HOME/.local/bin/prifly"
       - name: One authority carries Classic across every plan profile
@@ -36,7 +34,7 @@ jobs:
         run: python3 -B tests/probes/run_check.py --binary "$HOME/.local/bin/prifly" --check --verdict pass
       - name: A gate that could not judge ends the Run partial with its gate
         run: python3 -B tests/probes/run_check.py --binary "$HOME/.local/bin/prifly" --check --verdict blocked
-      - name: A blocked Run continues into the tail, whose resume step accepts the tree
-        run: python3 -B tests/probes/run_check.py --binary "$HOME/.local/bin/prifly" --check --continue
-      - name: A Run cancelled at the gate continues into the tail
-        run: python3 -B tests/probes/run_check.py --binary "$HOME/.local/bin/prifly" --check --continue --verdict cancelled
+      - name: A Run stopped blocked resumes with the same workflow at verify
+        run: python3 -B tests/probes/run_check.py --binary "$HOME/.local/bin/prifly" --check --resume
+      - name: A Run cancelled at the gate resumes with the same workflow
+        run: python3 -B tests/probes/run_check.py --binary "$HOME/.local/bin/prifly" --check --resume --verdict cancelled

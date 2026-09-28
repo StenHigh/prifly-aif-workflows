@@ -16,7 +16,7 @@ import sys
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
-PACKAGES = ("aif-classic", "aif-classic-continuation", "aif-fanout", "aif-profiled", "aif-profiled-continuation")
+PACKAGES = ("aif-classic", "aif-fanout", "aif-profiled")
 HOSTS = {"codex-cli": ".codex/skills", "codex-app": ".agents/skills", "claude-code": ".claude/skills"}
 CLASSIC_SKILLS = ("aif-warmup", "aif-plan", "aif-improve", "aif-implement", "aif-verify", "aif-security-checklist", "aif-review", "aif-commit", "aif-fix",)
 IMPROVE_REFERENCES = ("LIST-MODE.md", "CHECK-MODE.md", "EXAMPLES.md", "VALIDATOR.md")
@@ -33,8 +33,9 @@ READ_STEPS = ("aif:step/verify", "aif:step/review", "aif:step/review-challenge")
 # WorkflowRevision v6 closes the verdict set, `blocked` included; a stage answers
 # for all of it, by a route or by declaring the verdict impossible.
 STEP_VERDICTS = ("pass", "fail", "needs_revision", "no_work", "blocked")
-# The graphs that run a gate are on v6, the only revision that can route
-# `blocked`; the rest stay on v4, whose four verdicts are all they can see.
+# The graphs that run a gate are on v6, the first revision that can route
+# `blocked`; the root is on v8, which adds `resumable`; the rest stay on v4,
+# whose four verdicts are all they can see.
 GATE_GRAPHS = ("aif:workflow/classic", "aif:workflow/verify-once", "aif:workflow/review-once")
 GATE_STEPS = ("aif:step/verify", "aif:step/review", "aif:step/security")
 ROUND_CEILING = 8
@@ -116,9 +117,7 @@ def prepare_repository(binary, root):
         "launches:\n"
         "  aif-classic:\n    title: AI Factory classic development workflow\n    description: Canonical AI Factory development workflow with bounded plan improvement.\n    kind: workflow\n    workflow: .prifly/workflows/aif-classic/workflow.yaml\n"
         "  aif-fanout:\n    title: AI Factory fan-out plan refinement\n    description: Optional AI Factory plan refinement with independent review perspectives.\n    kind: workflow\n    workflow: .prifly/workflows/aif-fanout/workflow.yaml\n"
-        "  aif-profiled:\n    title: AI Factory profiled development workflow\n    description: The classic route with every step declaring the model profile it wants.\n    kind: workflow\n    workflow: .prifly/workflows/aif-profiled/workflow.yaml\n"
-        "  aif-classic-continuation:\n    title: AI Factory continuation quality tail\n    description: Resume the quality gates for an existing implementation.\n    kind: workflow\n    workflow: .prifly/workflows/aif-classic-continuation/workflow.yaml\n"
-        "  aif-profiled-continuation:\n    title: AI Factory profiled continuation quality tail\n    description: Resume the quality gates with declared model profiles.\n    kind: workflow\n    workflow: .prifly/workflows/aif-profiled-continuation/workflow.yaml\n",
+        "  aif-profiled:\n    title: AI Factory profiled development workflow\n    description: The classic route with every step declaring the model profile it wants.\n    kind: workflow\n    workflow: .prifly/workflows/aif-profiled/workflow.yaml\n",
     )
     (repository / ".prifly" / "project.yaml").write_text(profile)
     return repository, authority
@@ -233,8 +232,11 @@ def check_classic(binary, authority, repository, root):
     # the compiler now enforces, so the revision itself is pinned.
     for name, document in documents.items():
         if name.startswith("aif:workflow/"):
-            expected = "6" if name in GATE_GRAPHS else "4"
+            expected = "8" if name == "aif:workflow/classic" else "6" if name in GATE_GRAPHS else "4"
             assert document["schema_version"] == expected, (name, document["schema_version"])
+    # A Run that stopped resumes with this same workflow (0.13.61): no separate
+    # continuation package, no program checking the tree.
+    assert documents["aif:workflow/classic"]["resumable"] == {"from_outcomes": ["partial", "rejected"], "from_cancelled": True}, documents["aif:workflow/classic"].get("resumable")
     # A guard on someone else's regression, not on this package: the compiler
     # requires the full verdict set itself, so no edit here can make this fire
     # first — a cutting pass confirmed it catches nothing the engine lets
@@ -506,25 +508,6 @@ def main():
         components_read = check_classic(binary, authority, repository, root)
         components_read += check_fanout(binary, authority, repository, root)
         components_read += check_profiled(binary, authority, repository, root)
-        for package in ("aif-classic-continuation", "aif-profiled-continuation"):
-            result, documents = compile_package(binary, authority, repository, package, root / package)
-            root_graph = next(item for item in documents.values() if item["id"].endswith("classic-continuation"))
-            stages = root_graph["definition"]["stages"]
-            assert not {"warmup", "plan", "improve", "implement"} & set(stages), stages
-            # Since 0.13.56 the engine knows no package: the tail declares what it
-            # continues and where each input comes from (WorkflowRevision 7), and
-            # its first step — not the CLI — checks the tree it is handed.
-            assert root_graph["schema_version"] == "7", root_graph["schema_version"]
-            continuation = root_graph["continuation"]
-            assert continuation["from_workflows"] == ["aif:workflow/classic", "aif-profiled:workflow/classic"], continuation
-            assert continuation["from_outcomes"] == ["partial", "rejected"] and continuation["from_cancelled"] is True, continuation
-            assert continuation["inputs"]["previous_implementation"] == {"stage": "implement", "output": "implementation", "verdict": "pass"}, continuation["inputs"]
-            assert set(continuation["inputs"]) == {"task", "handoff", "plan", "previous_implementation"}, continuation["inputs"]
-            assert root_graph["definition"]["entry"] == "resume", root_graph["definition"]["entry"]
-            assert stages["resume"]["on"]["pass"] == "verify" and "resume" in json.dumps(stages["verify"]["input_bindings"]["implementation"]), stages["verify"]
-            resume = next(item for item in documents.values() if item["id"].endswith(":step/resume"))
-            assert resume["executor"]["operation"] == "process" and resume["effects"]["class"] == "none", resume
-            components_read += len(documents)
         after = run(binary, "--project", authority, "package", "list")
         assert before == after, "compile must not import or trust a package"
         # No Run was started here, but `project init` registered the authority

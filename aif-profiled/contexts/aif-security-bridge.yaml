@@ -1,5 +1,5 @@
 id: aif:context/aif-security-bridge
-version: 1.7.0
+version: 1.8.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-security-checklist skill
@@ -14,6 +14,14 @@ text: |
   ignored-item artifact when a person runs it; here it must not, because the
   step declares no workspace effect and bytes it wrote would be refused rather
   than kept. Report what you found instead of saving it.
+
+  The `implementation` you are given names the base and the head this Run last
+  recorded, and the tree can be ahead of it: a Run resumed where it stopped is
+  handed the same tree, with whatever the developer committed or left
+  uncommitted while it stood. Judge the tree as it is — HEAD and the working
+  tree — and take what changed from `git diff <base_commit>` plus untracked
+  files, not from the list in the artifact. A head the artifact does not name is
+  not a finding; a change you did not look at because the list omitted it is.
 
   Report findings honestly, including that a check you could not run did not
   run. A gate that reports a pass it did not establish is worse than one that

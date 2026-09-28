@@ -1,7 +1,7 @@
 authoring: prifly-project-workflow/1
 package:
   id: aif-profiled:package/classic
-  version: 1.44.0
+  version: 1.45.0
   description: The classic AI Factory route with every step declaring the model profile it wants; plan and implement run in a session of their own.
   requires_core_protocol: "1"
   profiles:
@@ -20,8 +20,8 @@ package:
     step_result_schema_v2: core:schema/step-result@2.0.0
     workspace_tree_manifest: core:schema/workspace-tree-manifest@1.0.0
 id: aif-profiled:workflow/classic
-schema_version: "6"
-version: 1.44.0
+schema_version: "8"
+version: 1.45.0
 title: AI Factory profiled development workflow
 refs:
   schema_task: "{{schema_task}}"
@@ -66,6 +66,13 @@ limits: {max_step_instances: 200, max_control_transitions: 1000, max_parallelism
 policy_ref: local_policy
 features:
   security: {input: security_enabled}
+# A Run that stopped — ended partial or rejected, or was cancelled — resumes
+# with this same workflow where it stopped: `prifly project continue --launch
+# <this launch> --source-run RUN`. The stages accepted before that point carry
+# over and the tree is handed on; the gates judge the tree as it is.
+resumable:
+  from_outcomes: [partial, rejected]
+  from_cancelled: true
 entry: warmup
 stages:
   warmup:

@@ -14,11 +14,10 @@ the Run did not get where the gate's verdict says it must: `pass` has to carry
 the Run past verify, `blocked` has to end it `partial`. CI runs `--check
 --verdict pass` and `--check --verdict blocked`.
 
-`--continue` then continues the finished Run with `prifly project continue` into
-`aif-classic-continuation`: the tail's own resume program checks the tree it
-is handed, and the tail is driven until its verify gate has been answered
-`pass` and the next gate handed out. It needs Node on PATH (the resume step's
-executable, allowed in the fixture's local.yaml the way an owner allows it).
+`--resume` then resumes the stopped Run with the same `aif-classic` launch
+(`prifly project continue`, Pri-Fly 0.13.61+): warmup, plan and implement must
+carry over, the first attempt handed out must be verify's, and the resumed
+verify is answered `pass` until the next gate is handed out.
 
 `--tag vX.Y.Z` drives that release instead of the working tree. The Run is
 cancelled and its claim, registry entry and directory removed whatever happens;
@@ -26,7 +25,6 @@ cancelled and its claim, registry entry and directory removed whatever happens;
 """
 
 import argparse
-import shutil as _which
 import hashlib
 import io
 import json
@@ -68,6 +66,13 @@ def prepare(binary, root, tag):
     # Only the verify gate is under test; improve and security would add turns
     # that answer nothing here.
     (repository / ".prifly" / "workflows" / "aif-classic" / "extend.yaml").write_text("profile: fast\nexclude: [improve, security]\nextensions: []\n")
+    # Resuming refuses --workspace (the tree is taken over) while a launch that
+    # changes the tree must name its mode, so the launch declares it: on 0.13.61
+    # that is the only way a tree-changing workflow resumes.
+    profile = repository / ".prifly" / "project.yaml"
+    marker = "    workflow: .prifly/workflows/aif-classic/workflow.yaml\n"
+    assert profile.read_text().count(marker) == 1
+    profile.write_text(profile.read_text().replace(marker, marker + "    workspace: worktree\n"))
     verify.git("-C", repository, "add", "-A")
     verify.git("-C", repository, "commit", "-q", "-m", "run probe fixture")
     output = root / "seal"
@@ -145,25 +150,23 @@ def drive(binary, authority, run_id, verdict):
     raise AssertionError(f"no end after {MAX_TURNS} turns: {seen}")
 
 
-def continue_tail(binary, authority, repository, source_run):
-    """Continue a finished classic Run into the tail and drive it past its verify gate."""
-    node = subprocess.run([_which.which("node"), "-p", "process.execPath"], capture_output=True, text=True, check=True).stdout.strip()
-    verify.run(binary, "--project", authority, "project", "local", "set", "--repository", repository, "--allow-executable", f"node={node}")
-    arguments = ["--project", authority, "project", "continue", "--repository", repository, "--launch", "aif-classic-continuation",
-                 "--source-run", source_run, "--host", "codex-cli", "--decision-policy", "autonomous", "--workspace", "worktree", "--allow-execution"]
+def resume(binary, authority, repository, source_run):
+    """Resume a stopped classic Run with its own launch and drive it past verify."""
+    # The questionnaire answers have to be the source Run's own (recover_context_changed
+    # otherwise), so they are given the way start_launch gave them.
+    answers, catalog_digest = compatibility.launch_answers(binary, authority, repository, None)
+    arguments = ["--project", authority, "project", "continue", "--repository", repository, "--launch", "aif-classic", "--source-run", source_run,
+                 "--host", "codex-cli", "--expected-decision-catalog-digest", catalog_digest, *answers]
     prepared = verify.run(binary, *arguments, "--prepare")
     started = verify.run(binary, *arguments, "--expected-launch-digest", prepared["review_digest"])
     run_id = started["run"]["run"]["id"]
     seen, refusal = drive(binary, authority, run_id, "pass")
     state = verify.run(binary, "--project", authority, "run", "status", run_id)["run"]
-    resume = next((step for step in state["steps"].values() if step["definition_ref"]["id"].endswith(":step/resume")), None)
-    accepted = resume and state["attempts"][resume["attempt_ids"][-1]].get("accepted") or {}
-    return run_id, started, {
+    return run_id, {
         "answered": [item["bridge"] for item in seen],
-        "resume": resume and {"status": resume["status"], "verdict": accepted.get("verdict"), "summary": accepted.get("summary")},
         "fork": state.get("fork") and {"source_run_id": state["fork"].get("source_run_id"), "reason": state["fork"].get("reason")},
+        "reused": sorted({item.get("stage_id") for item in (state.get("recovery") or {}).get("reused", [])} - {None}),
         "run_status": state["status"],
-        "run_outcome": state.get("outcome"),
         "refusal": refusal and {"at": refusal.get("at", "run drive"), "code": refusal.get("code"), "message": refusal.get("message")},
     }
 
@@ -188,7 +191,7 @@ def main():
     parser.add_argument("--tag")
     parser.add_argument("--keep", action="store_true")
     parser.add_argument("--check", action="store_true")
-    parser.add_argument("--continue", dest="continue_tail", action="store_true")
+    parser.add_argument("--resume", action="store_true")
     args = parser.parse_args()
     binary = args.binary.resolve(strict=True)
     root = Path(tempfile.mkdtemp(prefix="aif-run-probe-"))
@@ -210,9 +213,9 @@ def main():
             "refusal": refusal and {"at": refusal.get("at", "run drive"), "code": refusal.get("code"), "message": refusal.get("message"), "violations": refusal.get("violations")},
             "stand": str(root) if args.keep else None,
         }
-        if args.continue_tail and refusal is None and state["status"] in ("completed", "cancelled"):
-            tail_id, _, report["continuation"] = continue_tail(binary, authority, repository, run_id)
-            run_ids.append(tail_id)
+        if args.resume and refusal is None and state["status"] in ("completed", "cancelled"):
+            resumed_id, report["resumed"] = resume(binary, authority, repository, run_id)
+            run_ids.append(resumed_id)
         print(json.dumps(report, indent=2))
         if args.check:
             assert refusal is None, f"refused: {report['refusal']}"
@@ -228,14 +231,14 @@ def main():
                 # an empty partial: the Run's own output is those bytes.
                 submitted = "sha256:" + hashlib.sha256(json.dumps(GATE_BLOCKED).encode()).hexdigest()
                 assert state["output_artifacts"]["gate"]["digest"] == submitted, state["output_artifacts"]
-            if args.continue_tail:
-                tail = report.get("continuation")
-                assert tail and tail["refusal"] is None, tail
-                assert tail["fork"] == {"source_run_id": run_id, "reason": "project continuation"}, tail["fork"]
-                # The tail's own program accepted the tree, and its verify gate
-                # was answered and passed on to the next gate.
-                assert (tail["resume"]["status"], tail["resume"]["verdict"]) == ("completed", "pass"), tail["resume"]
-                assert "aif-verify-bridge" in tail["answered"] and tail["answered"][-1] != "aif-verify-bridge", tail["answered"]
+            if args.resume:
+                resumed = report.get("resumed")
+                assert resumed and resumed["refusal"] is None, resumed
+                assert resumed["fork"] == {"source_run_id": run_id, "reason": "resume_stopped_run"}, resumed["fork"]
+                # Where it stopped: nothing before verify is asked again, and
+                # the resumed gate is passed on to the next one.
+                assert {"warmup", "plan", "implement"} <= set(resumed["reused"]), resumed["reused"]
+                assert resumed["answered"][0] == "aif-verify-bridge" and len(resumed["answered"]) > 1, resumed["answered"]
     finally:
         if args.keep:
             print(f"kept: --project {authority} runs {' '.join(run_ids)}", file=sys.stderr)

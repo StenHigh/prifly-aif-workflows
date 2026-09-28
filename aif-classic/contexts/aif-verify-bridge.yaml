@@ -1,5 +1,5 @@
 id: aif:context/aif-verify-bridge
-version: 1.15.0
+version: 1.16.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-verify skill
@@ -28,6 +28,14 @@ text: |
   a warning is a decision and not a default: `blocking` is the only way this
   route can reach a repair, so a gate that never sets it turns the fix step off
   for good.
+
+  The `implementation` you are given names the base and the head this Run last
+  recorded, and the tree can be ahead of it: a Run resumed where it stopped is
+  handed the same tree, with whatever the developer committed or left
+  uncommitted while it stood. Judge the tree as it is — HEAD and the working
+  tree — and take what changed from `git diff <base_commit>` plus untracked
+  files, not from the list in the artifact. A head the artifact does not name is
+  not a finding; a change you did not look at because the list omitted it is.
 
   Your tree is the whole branch, base included; the diff is only the part of
   it this Run changed. A finding about anything outside the diff — a method

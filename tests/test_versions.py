@@ -11,7 +11,7 @@ import subprocess
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-PACKAGES = ("aif-classic", "aif-classic-continuation", "aif-fanout", "aif-profiled", "aif-profiled-continuation")
+PACKAGES = ("aif-classic", "aif-fanout", "aif-profiled")
 
 
 def git(*arguments, ok=(0,)):
