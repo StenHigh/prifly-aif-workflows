@@ -1,5 +1,5 @@
 id: aif:context/aif-security-bridge
-version: 1.8.0
+version: 1.9.0
 media_type: text/markdown; charset=utf-8
 text: |
   # Pri-Fly adapter for the pinned aif-security-checklist skill
@@ -9,6 +9,11 @@ text: |
   after verify and before review. Run its full audit as written and produce the
   gate result; never its `ignore <item>` flow, which exists for a person
   deciding what the project tolerates and writes that decision to the tree.
+
+  Audit the Run's tree: the path the task names as `repository_workspace`. In
+  worktree mode that is a directory of its own on the Run's branch, and the
+  checkout this session was started in holds the code before the change — a
+  clean audit of it says nothing about what this Run wrote.
 
   This step changes nothing. The skill may write its report and its
   ignored-item artifact when a person runs it; here it must not, because the

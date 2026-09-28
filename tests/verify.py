@@ -302,7 +302,8 @@ def check_classic(binary, authority, repository, root):
     # rather than raised. Declaring it is what puts a step on StepDefinition v7;
     # a gate that promises its output on `blocked` is lifted to v10.
     for step in (item for name, item in documents.items() if name.startswith("aif:step/")):
-        expected = "10" if step["id"] in GATE_STEPS else "8" if step["id"] in READ_STEPS else "7"
+        # security reads the Run's tree without the right to write it: v13.
+        expected = "13" if step["id"] == "aif:step/security" else "10" if step["id"] in GATE_STEPS else "8" if step["id"] in READ_STEPS else "7"
         assert step["schema_version"] == expected, (step["id"], step["schema_version"])
         assert step["session_limits"]["active_timeout_ms"] is None, step["id"]
         assert step["session_limits"]["decision_wait_timeout_ms"] is None, step["id"]
@@ -462,7 +463,7 @@ def check_profiled(binary, authority, repository, root):
         # Declaring a profile is what puts a step on StepDefinition v9; a step
         # that lost its profile would compile fine one revision lower. A gate
         # that promises its output on `blocked` sits one higher, on v10.
-        expected = "10" if f"aif:step/{name}" in GATE_STEPS else "9"
+        expected = "13" if name == "security" else "10" if f"aif:step/{name}" in GATE_STEPS else "9"
         assert step["schema_version"] == expected, (step["id"], step["schema_version"])
         assert step["model_profile"] == {"requested": requested, "reason": reason}, (step["id"], step["model_profile"])
         # Everything else is the classic step under another name. A compiled

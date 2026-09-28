@@ -1,6 +1,6 @@
 authoring: prifly-step/2
 id: aif:step/security
-version: 1.11.0
+version: 1.12.0
 title: Run read-only aif-security-checklist over the implementation
 kind: worker
 inputs:
@@ -13,3 +13,7 @@ context_refs: ["{{context_aif-security}}"]
 effects: {class: none, retry_class: pure}
 session_limits: {active_timeout_ms: null}
 result_schema_ref: "{{step_result_schema_v2}}"
+# The audit reads the code this Run wrote, which in worktree mode lives in the
+# Run's own tree, not in the checkout the host was started in. Without this the
+# task names no tree at all (0.13.64: StepDefinition v13, read without write).
+repository_workspace: read_only

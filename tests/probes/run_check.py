@@ -63,9 +63,9 @@ def prepare(binary, root, tag):
         shutil.rmtree(target)
         archive = subprocess.run(["git", "-C", verify.ROOT, "archive", tag, "aif-classic"], capture_output=True, check=True).stdout
         tarfile.open(fileobj=io.BytesIO(archive)).extractall(target.parent, filter="data")
-    # Only the verify gate is under test; improve and security would add turns
-    # that answer nothing here.
-    (repository / ".prifly" / "workflows" / "aif-classic" / "extend.yaml").write_text("profile: fast\nexclude: [improve, security]\nextensions: []\n")
+    # Improve would add turns that answer nothing here; security stays, because
+    # whether it is handed the Run's tree is one of the things checked.
+    (repository / ".prifly" / "workflows" / "aif-classic" / "extend.yaml").write_text("profile: fast\nexclude: [improve]\nextensions: []\n")
     verify.git("-C", repository, "add", "-A")
     verify.git("-C", repository, "commit", "-q", "-m", "run probe fixture")
     output = root / "seal"
@@ -94,6 +94,8 @@ def answer(task, verdict):
         return bridge, "pass", {"implementation": {"base_commit": base, "head_commit": git_out(repository, "rev-parse", "HEAD"), "changed_files": ["hello.txt"]}}
     if bridge == "aif-verify-bridge":
         return bridge, verdict, {"gate": GATE_BLOCKED if verdict == "blocked" else GATE_PASSED}
+    if bridge == "aif-security-bridge":
+        return bridge, "pass", {"gate": {**GATE_PASSED, "gate": "security"}}
     return bridge, None, None
 
 
@@ -134,7 +136,8 @@ def drive(binary, authority, run_id, verdict):
                 seen.append({"bridge": "aif-verify-bridge", "routed_verdicts": task["routed_verdicts"], "result_schema": task["result_schema_ref"]["version"]})
                 return seen, None
             bridge, step_verdict, values = answer(task, verdict)
-            seen.append({"bridge": bridge, "routed_verdicts": task["routed_verdicts"], "result_schema": task["result_schema_ref"]["version"]})
+            seen.append({"bridge": bridge, "routed_verdicts": task["routed_verdicts"], "result_schema": task["result_schema_ref"]["version"],
+                         "tree": bool(task.get("repository_workspace"))})
             if step_verdict is None:
                 return seen, None  # past verify: the gate has been answered
             refused = submit(binary, authority, run_id, task, step_verdict, values, bridge)
@@ -200,6 +203,7 @@ def main():
             "package": args.tag or "working tree",
             "verify_verdict": args.verdict,
             "answered": [item["bridge"] for item in seen],
+            "handed_a_tree": sorted({item["bridge"] for item in seen if item.get("tree")}),
             "verify_task": next(({"routed_verdicts": item["routed_verdicts"], "result_schema": item["result_schema"]} for item in seen if item["bridge"] == "aif-verify-bridge"), None),
             "run_status": state["status"],
             "run_outcome": state.get("outcome"),
@@ -216,8 +220,10 @@ def main():
             if args.verdict == "cancelled":
                 assert state["status"] == "cancelled", state["status"]
             elif args.verdict == "pass":
-                # Past verify means the next gate was handed its attempt.
+                # Past verify means the next gate was handed its attempt, and
+                # security audits the Run's tree, so it has to be told where it is.
                 assert report["answered"][-1] != "aif-verify-bridge", report["answered"]
+                assert "aif-security-bridge" in report["answered"][:-1] and "aif-security-bridge" in report["handed_a_tree"], report
             else:
                 assert (state["status"], state.get("outcome")) == ("completed", "partial"), (state["status"], state.get("outcome"))
                 # The developer is handed the gate that says what was down, not
