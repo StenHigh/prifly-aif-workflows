@@ -15,7 +15,7 @@ the Run past verify, `blocked` has to end it `partial`. CI runs `--check
 --verdict pass` and `--check --verdict blocked`.
 
 `--resume` then resumes the stopped Run with the same `aif-classic` launch
-(`prifly project continue`, Pri-Fly 0.13.61+): warmup, plan and implement must
+(`prifly project continue` with nothing but `--source-run`, Pri-Fly 0.13.62+): warmup, plan and implement must
 carry over, the first attempt handed out must be verify's, and the resumed
 verify is answered `pass` until the next gate is handed out.
 
@@ -66,13 +66,6 @@ def prepare(binary, root, tag):
     # Only the verify gate is under test; improve and security would add turns
     # that answer nothing here.
     (repository / ".prifly" / "workflows" / "aif-classic" / "extend.yaml").write_text("profile: fast\nexclude: [improve, security]\nextensions: []\n")
-    # Resuming refuses --workspace (the tree is taken over) while a launch that
-    # changes the tree must name its mode, so the launch declares it: on 0.13.61
-    # that is the only way a tree-changing workflow resumes.
-    profile = repository / ".prifly" / "project.yaml"
-    marker = "    workflow: .prifly/workflows/aif-classic/workflow.yaml\n"
-    assert profile.read_text().count(marker) == 1
-    profile.write_text(profile.read_text().replace(marker, marker + "    workspace: worktree\n"))
     verify.git("-C", repository, "add", "-A")
     verify.git("-C", repository, "commit", "-q", "-m", "run probe fixture")
     output = root / "seal"
@@ -152,11 +145,11 @@ def drive(binary, authority, run_id, verdict):
 
 def resume(binary, authority, repository, source_run):
     """Resume a stopped classic Run with its own launch and drive it past verify."""
-    # The questionnaire answers have to be the source Run's own (recover_context_changed
-    # otherwise), so they are given the way start_launch gave them.
-    answers, catalog_digest = compatibility.launch_answers(binary, authority, repository, None)
-    arguments = ["--project", authority, "project", "continue", "--repository", repository, "--launch", "aif-classic", "--source-run", source_run,
-                 "--host", "codex-cli", "--expected-decision-catalog-digest", catalog_digest, *answers]
+    # The whole command an owner types: since 0.13.62 the answers, the tree and
+    # its mode are the source Run's own. The host is not: it names who executes
+    # the resumed Run, and a package that reads host skills cannot compile
+    # without it (project_compile_host_required).
+    arguments = ["--project", authority, "project", "continue", "--repository", repository, "--launch", "aif-classic", "--source-run", source_run, "--host", "codex-cli"]
     prepared = verify.run(binary, *arguments, "--prepare")
     started = verify.run(binary, *arguments, "--expected-launch-digest", prepared["review_digest"])
     run_id = started["run"]["run"]["id"]

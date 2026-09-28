@@ -12,12 +12,14 @@
   workflow (`resumable`, ревизия 8). classic 1.44.0, profiled 1.45.0, fanout
   1.4.0. Пакеты продолжения и программа `resume` на Node удалены (владелец:
   workflow — только инструкция). Каталог — три записи.
-- **Pri-Fly:** последний стабильный 0.13.61; минимальный для classic/profiled —
-  0.13.61. Ворота зелены на нём: пять + `run_check.py` pass, blocked, `--resume`
+- **Pri-Fly:** последний стабильный 0.13.62 (ворота зелены на нём, 2026-09-28);
+  минимальный для classic/profiled — 0.13.61, для возобновления без обходов —
+  0.13.62. Ворота зелены на нём: пять + `run_check.py` pass, blocked, `--resume`
   (blocked→verify), `--resume --verdict cancelled`; все в CI.
 - **Задание пилоту** (`SMSPlace/PRIFLY-MERGE-REQUEST-STEP-PROMPT.md`, ведёт
-  движок, передаёт владелец): v1.47.0 и Pri-Fly 0.13.61; у launch
-  `workspace: worktree` (см. ниже).
+  движок, передаёт владелец): v1.47.0 и Pri-Fly 0.13.62. Возобновление:
+  `project continue --launch aif-classic --source-run RUN --host HOST`
+  (`--prepare`, затем `--expected-launch-digest`).
 
 ### Возобновление (v1.47.0)
 
@@ -29,11 +31,10 @@
   `recovery.reused`.
 - Свежесть реализации — инструкцией: мосты verify/security/review судят дерево
   и HEAD, изменённое — `git diff <base_commit>` + неотслеживаемые.
-- **Ловушка 0.13.61 (передано движку):** возобновление отвергает `--workspace`
-  (`resume_input_override`), а без режима — `project_start_workspace_required`.
-  Обход: `workspace: worktree` у launch в `project.yaml`; проба так и делает.
-  Ещё: ответы анкеты надо передать снова (те же), с
-  `--expected-decision-catalog-digest`.
+- На 0.13.61 возобновление требовало `workspace:` у launch и повторных ответов
+  анкеты; 0.13.62 берёт режим дерева и ответы из исходного Run. `--host`
+  передаётся всегда (без него `project_compile_host_required`); `--workspace`/
+  `--input` при возобновлении — `resume_input_override`.
 - Механизм `continuation` (0.13.58) остаётся у движка для продолжения ДРУГИМ
   workflow; у нас не используется. Прежняя версия с хвостами — тег v1.46.0.
 
@@ -65,12 +66,7 @@
 ## План
 
 0. ~~Продолжение внутри того же workflow~~ — сделано в v1.47.0 на 0.13.61.
-   Остаток: движок чинит ловушку `--workspace` в **0.13.62** (режим — из claim
-   исходного Run; то же для `project recover`; нет дерева у источника →
-   `recover_workspace_missing`). Тогда: убрать `workspace: worktree` из
-   `run_check.py` (проба должна пройти без него) и из README «Возобновление».
-   Ответы анкеты при возобновлении — пока передавать те же; автоподстановку
-   движок согласует с владельцем.
+   Обходы 0.13.61 сняты на 0.13.62 (проба без них зелёная).
 1. ~~Ждём выпуск движка с приёмом `blocked`~~ — закрыто 0.13.55 (2026-09-25):
    проба в обе стороны в CI, каталог на v1.45.0.
 2. **Пилот переходит на v1.47.0** одним коммитом: Pri-Fly ≥ 0.13.61, `workspace: worktree` у launch,

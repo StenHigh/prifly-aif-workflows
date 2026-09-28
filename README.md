@@ -170,11 +170,18 @@ Pri-Fly, а с Pri-Fly новее `v0.7.0` форму отдаёт `prifly schem
 Отдельных пакетов продолжения и программ больше нет.
 
 ```sh
-prifly project continue --repository . --launch aif-classic --source-run RUN \
-  --host HOST <те же ответы анкеты, что у RUN> --prepare
+prifly project continue --repository . --launch aif-classic --source-run RUN --host HOST --prepare
 # показать владельцу: откуда возобновляется, что переносится, какое дерево
-prifly project continue … --expected-launch-digest DIGEST   # те же аргументы без --prepare
+prifly project continue --repository . --launch aif-classic --source-run RUN --host HOST \
+  --expected-launch-digest DIGEST
 ```
+
+Это вся команда на Pri-Fly ≥ 0.13.62: ответы анкеты, профиль, дерево и его режим
+берутся из исходного Run. `--host` — нет: он называет, кто исполняет
+возобновлённый Run, и без него пакет, читающий навыки хоста, не собирается
+(`project_compile_host_required`). На 0.13.61 нужно было передать те же ответы и держать
+`workspace: worktree` у launch в `.prifly/project.yaml`; с 0.13.62 это не нужно
+(не мешает), а `--workspace` при возобновлении — отказ `resume_input_override`.
 
 - **Точка** — стадия, чей результат привёл Run к концу (partial у verify — сам
   `verify`), у отменённого — отменённая стадия. `--from-stage STAGE` начинает с
@@ -182,12 +189,9 @@ prifly project continue … --expected-launch-digest DIGEST   # те же арг
   контракт не менялся; `verify`/`review` повторяются целиком.
 - **Дерево** исходного Run передаётся как есть, с незакоммиченным. Гейты судят
   дерево и HEAD, а не записанную реализацию: мосты это говорят.
-- **Ответы анкеты и профиль модели** должны совпадать с исходным Run
-  (`recover_context_changed`), движок пока просит их снова.
-- **У launch в `.prifly/project.yaml` должен быть `workspace: worktree`**
-  (или `checkout`): на 0.13.61 возобновление отвергает `--workspace`
-  (`resume_input_override`), а без режима отказывает
-  `project_start_workspace_required`. Передано движку.
+- **Ответы анкеты и профиль модели** — исходного Run; переданные явно сверяются
+  с ними (`recover_context_changed` при расхождении).
+- Исходный Run без дерева, а workflow его требует — `recover_workspace_missing`.
 - Деревья Runs, не закончившихся `succeeded`, не освобождаются следующим
   запуском: `claim list` / `claim release`.
 
