@@ -14,8 +14,9 @@
   1.47.0, fanout 1.4.0 (на 3.0.0, вставок в него нет). v1.48.0 — security
   читает дерево Run (`repository_workspace: read_only`). v1.47.0 — возобновление тем же workflow (`resumable`, ревизия 8). Пакеты продолжения и программа `resume` на Node удалены (владелец:
   workflow — только инструкция). Каталог — три записи.
-- **Pri-Fly:** последний стабильный 0.13.65 (ворота зелены на нём, 2026-09-29;
-  0.13.65 — только текст про более новую версию состояния Run);
+- **Pri-Fly:** последний стабильный 0.13.66 (ворота зелены на нём, 2026-09-29):
+  программа может объявить `external_write` (контракт шага 14,
+  `program_external_write`), `retry_class: idempotent` для неё допустим;
   минимальный для classic/profiled — 0.13.64. Найдено пробой: до v1.48.0
   задача security не называла дерево Run (`repository_workspace` пуст), в
   worktree хост аудитил исходную копию. `run_check.py --verdict pass` теперь
@@ -24,9 +25,13 @@
   после обновления до v1.49.0 возобновляется отказом `recover_prefix_changed:
   effective contract changed at stage improve`; с `--from-stage improve` —
   стартует, improve и implement заново. Причина названа верно (движку сообщено).
-- **Ждём выпуск движка** с `external_write` у программ (`prifly-step/1`,
-  контракт 14, `program_external_write`): тогда пилот объявляет его в `tests`;
-  нам — прогнать ворота. Ворота зелены на нём: пять + `run_check.py` pass, blocked, `--resume`
+- **Внешняя запись проектной вставки (замер 0.13.66):** шаг-программа
+  `prifly-step/1` с `effects: {class: external_write, retry_class: idempotent}` и
+  `external_write: {system, operations, target}`, вставленный между review и
+  commit, на v1.49.0 собирается (контракт 14) и стартует; на v1.48.0 старт —
+  `…pinned policy 3.0.0 admits none, workspace_write; the workflow that admits
+  it pins core:policy/local@4.0.0 or later`. Отдельного теста нет: откат
+  политики ловит `verify.py`. Ворота зелены на нём: пять + `run_check.py` pass, blocked, `--resume`
   (blocked→verify), `--resume --verdict cancelled`; все в CI.
 - **Задание пилоту** (`SMSPlace/PRIFLY-MERGE-REQUEST-STEP-PROMPT.md`, ведёт
   движок, передаёт владелец): выполнено пилотом на v1.47.0 + 0.13.62; догоняющее
