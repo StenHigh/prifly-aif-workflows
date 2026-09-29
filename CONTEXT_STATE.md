@@ -14,7 +14,9 @@
   1.47.0, fanout 1.4.0 (на 3.0.0, вставок в него нет). v1.48.0 — security
   читает дерево Run (`repository_workspace: read_only`). v1.47.0 — возобновление тем же workflow (`resumable`, ревизия 8). Пакеты продолжения и программа `resume` на Node удалены (владелец:
   workflow — только инструкция). Каталог — три записи.
-- **Pri-Fly:** последний стабильный 0.13.66 (ворота зелены на нём, 2026-09-29):
+- **Pri-Fly:** последний стабильный 0.13.67 (ворота зелены на нём, 2026-09-29;
+  0.13.67 — отказ `recover_prefix_changed` называет первую изменившуюся стадию и
+  подсказывает `--from-stage`). С 0.13.66:
   программа может объявить `external_write` (контракт шага 14,
   `program_external_write`), `retry_class: idempotent` для неё допустим;
   минимальный для classic/profiled — 0.13.64. Найдено пробой: до v1.48.0
@@ -23,7 +25,9 @@
   проводит Run через security и требует дерево; на v1.47.0 краснеет.
 - **Смена политики и старые Run (замер 0.13.65):** Run, начатый на v1.48.0,
   после обновления до v1.49.0 возобновляется отказом `recover_prefix_changed:
-  effective contract changed at stage improve`; с `--from-stage improve` —
+  effective contract changed at stage improve` (с 0.13.67 дописано `; resume
+  with --from-stage improve to run it and everything after it again`); с
+  `--from-stage improve` —
   стартует, improve и implement заново. Причина названа верно (движку сообщено).
 - **Внешняя запись проектной вставки (замер 0.13.66):** шаг-программа
   `prifly-step/1` с `effects: {class: external_write, retry_class: idempotent}` и
