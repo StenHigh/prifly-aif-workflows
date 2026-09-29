@@ -162,6 +162,14 @@ Pri-Fly, а с Pri-Fly новее `v0.7.0` форму отдаёт `prifly schem
   (`repository_workspace: read_only`, StepDefinition v13). До этого задача
   security не называла дерево вовсе, и в режиме `worktree` хост мог проверять
   исходную копию проекта вместо кода, написанного Run.
+  С `v1.49.0` `aif-classic` и `aif-profiled` закрепляют `core:policy/local@4.0.0`
+  (есть в Pri-Fly с 0.13.56): она допускает `external_write`, и проектный шаг,
+  вставленный через `extend.yaml`, может честно объявить внешнюю запись (Docker
+  и т. п.). Собственные шаги пакета не меняются. Смена политики меняет
+  контракт каждого графа, поэтому Run, начатый на более ранней редакции,
+  после обновления возобновляется только с `--from-stage improve` (improve и
+  implement пройдут заново) — иначе `recover_prefix_changed`. Незавершённые Run
+  лучше довести или возобновить до обновления.
 - `aif-profiled/` не правится руками: `python3 tools/derive_profiled.py`
   переписывает его из `aif-classic/`, `--check` говорит, разошлись ли они;
   `tests/test_folders.py` держит то же самое.

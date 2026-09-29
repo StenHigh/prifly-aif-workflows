@@ -8,15 +8,25 @@
 
 ## Состояние на 2026-09-29
 
-- **Выпущено и в каталоге:** тег `v1.48.0` — security читает дерево Run
-  (`repository_workspace: read_only`). classic 1.45.0, profiled 1.46.0, fanout
-  1.4.0. v1.47.0 — возобновление тем же workflow (`resumable`, ревизия 8). Пакеты продолжения и программа `resume` на Node удалены (владелец:
+- **Выпущено и в каталоге:** тег `v1.49.0` — classic/profiled на
+  `core:policy/local@4.0.0` (допускает `external_write` для проектных вставок;
+  просьба движка ради шага `tests` пилота с Docker). classic 1.46.0, profiled
+  1.47.0, fanout 1.4.0 (на 3.0.0, вставок в него нет). v1.48.0 — security
+  читает дерево Run (`repository_workspace: read_only`). v1.47.0 — возобновление тем же workflow (`resumable`, ревизия 8). Пакеты продолжения и программа `resume` на Node удалены (владелец:
   workflow — только инструкция). Каталог — три записи.
-- **Pri-Fly:** последний стабильный 0.13.64 (ворота зелены на нём, 2026-09-29);
+- **Pri-Fly:** последний стабильный 0.13.65 (ворота зелены на нём, 2026-09-29;
+  0.13.65 — только текст про более новую версию состояния Run);
   минимальный для classic/profiled — 0.13.64. Найдено пробой: до v1.48.0
   задача security не называла дерево Run (`repository_workspace` пуст), в
   worktree хост аудитил исходную копию. `run_check.py --verdict pass` теперь
-  проводит Run через security и требует дерево; на v1.47.0 краснеет. Ворота зелены на нём: пять + `run_check.py` pass, blocked, `--resume`
+  проводит Run через security и требует дерево; на v1.47.0 краснеет.
+- **Смена политики и старые Run (замер 0.13.65):** Run, начатый на v1.48.0,
+  после обновления до v1.49.0 возобновляется отказом `recover_prefix_changed:
+  effective contract changed at stage improve`; с `--from-stage improve` —
+  стартует, improve и implement заново. Причина названа верно (движку сообщено).
+- **Ждём выпуск движка** с `external_write` у программ (`prifly-step/1`,
+  контракт 14, `program_external_write`): тогда пилот объявляет его в `tests`;
+  нам — прогнать ворота. Ворота зелены на нём: пять + `run_check.py` pass, blocked, `--resume`
   (blocked→verify), `--resume --verdict cancelled`; все в CI.
 - **Задание пилоту** (`SMSPlace/PRIFLY-MERGE-REQUEST-STEP-PROMPT.md`, ведёт
   движок, передаёт владелец): выполнено пилотом на v1.47.0 + 0.13.62; догоняющее

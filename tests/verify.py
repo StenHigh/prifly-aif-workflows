@@ -234,6 +234,12 @@ def check_classic(binary, authority, repository, root):
         if name.startswith("aif:workflow/"):
             expected = "8" if name == "aif:workflow/classic" else "6" if name in GATE_GRAPHS else "4"
             assert document["schema_version"] == expected, (name, document["schema_version"])
+    # A project step inserted into the root may write outside (the pilot's tests
+    # raise a Docker stack), and it can declare that only under a policy that
+    # admits external_write: 4.0.0 does, 3.0.0 did not.
+    for name, document in documents.items():
+        if name.startswith("aif:workflow/"):
+            assert (document["policy_ref"]["id"], document["policy_ref"]["version"]) == ("core:policy/local", "4.0.0"), (name, document["policy_ref"])
     # A Run that stopped resumes with this same workflow (0.13.61): no separate
     # continuation package, no program checking the tree.
     assert documents["aif:workflow/classic"]["resumable"] == {"from_outcomes": ["partial", "rejected"], "from_cancelled": True}, documents["aif:workflow/classic"].get("resumable")

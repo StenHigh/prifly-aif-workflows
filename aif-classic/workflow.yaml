@@ -1,7 +1,7 @@
 authoring: prifly-project-workflow/1
 package:
   id: aif:package/classic
-  version: 1.45.0
+  version: 1.46.0
   description: Canonical AI Factory development workflow with bounded plan improvement.
   requires_core_protocol: "1"
   profiles:
@@ -15,13 +15,17 @@ package:
         plan_capture: {kind: direct_child_tree, path: .ai-factory/plans, entrypoint: index.md}
   references:
     assisted_adapter: core:adapter/assisted-session@1.0.0
-    local_policy: core:policy/local@3.0.0
+    # 4.0.0 admits external_write beside none and workspace_write, with the same
+    # limits. None of this package's steps writes outside; a project step
+    # inserted through extend.yaml may (a Docker stack its tests raise), and it
+    # can only declare that under the policy the package pins.
+    local_policy: core:policy/local@4.0.0
     step_result_schema: core:schema/step-result@1.0.0
     step_result_schema_v2: core:schema/step-result@2.0.0
     workspace_tree_manifest: core:schema/workspace-tree-manifest@1.0.0
 id: aif:workflow/classic
 schema_version: "8"
-version: 1.45.0
+version: 1.46.0
 title: AI Factory classic development workflow
 refs:
   schema_task: "{{schema_task}}"
