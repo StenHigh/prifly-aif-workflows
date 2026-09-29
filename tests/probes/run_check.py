@@ -109,6 +109,10 @@ def submit(binary, authority, run_id, task, verdict, values, bridge):
         path.write_bytes(data)
         template["result"]["outputs"][port]["digest"] = "sha256:" + hashlib.sha256(data).hexdigest()
     template["result"]["verdict"] = verdict
+    # Since 0.13.69 a report lists the questions the step met (core-state/41);
+    # this host is a script and meets none, which it says rather than omits.
+    if task.get("question_report") == "required":
+        template["answered_questions"] = []
     template["result"]["summary"] = f"run probe: {bridge} -> {verdict}"
     submission = workspace / "submission.json"
     submission.write_text(json.dumps(template))
