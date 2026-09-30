@@ -15,6 +15,11 @@
   1.47.0, fanout 1.4.0 (на 3.0.0, вставок в него нет). v1.48.0 — security
   читает дерево Run (`repository_workspace: read_only`). v1.47.0 — возобновление тем же workflow (`resumable`, ревизия 8). Пакеты продолжения и программа `resume` на Node удалены (владелец:
   workflow — только инструкция). Каталог — три записи.
+- **Pri-Fly 0.13.70 (2026-09-30):** ворота зелены (все режимы `run_check.py`,
+  вставка с external_write). `basis: decision` принимает и ключи
+  decision_context; поле отчёта внутри `result` — отказ с `/result/<поле>`;
+  `session submit --template` пишет про answered_questions в stderr (проба
+  читает stdout — не задевает). Пакет не менялся.
 - **v1.50.0 (2026-09-30), находка пилота:** implement не сдавал правку на 282
   файла — `changed_files` maxItems 200 (`/changed_files … at most 200 items`),
   владелец сдал `fail` → `rejected`. Предел поднят до 10 000 (артефакт — файл,
