@@ -170,6 +170,11 @@ Pri-Fly, а с Pri-Fly новее `v0.7.0` форму отдаёт `prifly schem
   после обновления возобновляется только с `--from-stage improve` (improve и
   implement пройдут заново) — иначе `recover_prefix_changed`. Незавершённые Run
   лучше довести или возобновить до обновления.
+  С `v1.50.0` `changed_files` в `aif:schema/implementation` — до 10 000 путей
+  (было 200): механическая правка на 282 файла не сдавалась, и Run терялся.
+  Run, отвергнутый на `implement` из-за этого предела, после обновления
+  возобновляется тем же launch: warmup, plan, improve переносятся, implement
+  повторяется.
 - `aif-profiled/` не правится руками: `python3 tools/derive_profiled.py`
   переписывает его из `aif-classic/`, `--check` говорит, разошлись ли они;
   `tests/test_folders.py` держит то же самое.

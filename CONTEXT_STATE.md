@@ -8,12 +8,20 @@
 
 ## Состояние на 2026-09-29
 
-- **Выпущено и в каталоге:** тег `v1.49.0` — classic/profiled на
+- **Выпущено и в каталоге:** тег `v1.50.0` — `changed_files` до 10 000 путей
+  (classic 1.47.0, profiled 1.48.0). До него v1.49.0 — classic/profiled на
   `core:policy/local@4.0.0` (допускает `external_write` для проектных вставок;
   просьба движка ради шага `tests` пилота с Docker). classic 1.46.0, profiled
   1.47.0, fanout 1.4.0 (на 3.0.0, вставок в него нет). v1.48.0 — security
   читает дерево Run (`repository_workspace: read_only`). v1.47.0 — возобновление тем же workflow (`resumable`, ревизия 8). Пакеты продолжения и программа `resume` на Node удалены (владелец:
   workflow — только инструкция). Каталог — три записи.
+- **v1.50.0 (2026-09-30), находка пилота:** implement не сдавал правку на 282
+  файла — `changed_files` maxItems 200 (`/changed_files … at most 200 items`),
+  владелец сдал `fail` → `rejected`. Предел поднят до 10 000 (артефакт — файл,
+  лимит отчёта 1 МБ его не касается; гейты судят дерево). Маршрут `blocked` для
+  implement не вводили. Замер на 0.13.69: Run v1.49.0 отвергнут так же;
+  после обновления `project continue` без `--from-stage` переносит warmup/plan/
+  improve, implement сдаёт 282 файла, дальше verify/security/review.
 - **Pri-Fly 0.13.69 (2026-09-30):** Run с ассистируемым шагом — core-state/41,
   отчёт хоста обязан нести `answered_questions` (пустой список = вопросов не
   было), иначе `answered_questions_missing`; поле — на верхнем уровне отчёта, не

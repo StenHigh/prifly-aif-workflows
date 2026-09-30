@@ -1,6 +1,6 @@
 authoring: prifly-step/2
 id: aif:step/security
-version: 1.12.0
+version: 1.13.0
 title: Run read-only aif-security-checklist over the implementation
 kind: worker
 inputs:

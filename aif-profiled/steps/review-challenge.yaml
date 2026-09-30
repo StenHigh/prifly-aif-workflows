@@ -1,6 +1,6 @@
 authoring: prifly-step/2
 id: aif-profiled:step/review-challenge
-version: 1.0.0
+version: 1.1.0
 title: Read the change again as a second reviewer, in a session of its own
 kind: worker
 inputs:
