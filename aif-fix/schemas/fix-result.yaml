@@ -1,0 +1,19 @@
+id: aif-fix:schema/fix-result
+version: 1.0.0
+$schema: https://json-schema.org/draft/2020-12/schema
+type: object
+additionalProperties: false
+required: [outcome, reason, regression, work, execute_plan]
+properties:
+  execute_plan: {type: boolean}
+  outcome: {enum: [fixed, needs_planning, planned, unreproduced, owner_required, environment_unavailable]}
+  reason: {type: string, minLength: 1, maxLength: 4000}
+  work: {type: array, maxItems: 80, items: {type: string, minLength: 1, maxLength: 1000}}
+  regression:
+    type: object
+    additionalProperties: false
+    required: [check, before, after]
+    properties:
+      check: {type: string, minLength: 1, maxLength: 4000}
+      before: {type: string, minLength: 1, maxLength: 8000}
+      after: {type: string, minLength: 1, maxLength: 8000}

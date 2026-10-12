@@ -1,0 +1,85 @@
+authoring: prifly-workflow/1
+schema_version: "6"
+id: aif-fix:workflow/build
+version: 1.0.0
+title: build for aif-fix
+refs:
+  schema_task: "{{schema_task}}"
+  schema_warmup-handoff: "{{schema_warmup-handoff}}"
+  schema_implementation: "{{schema_implementation}}"
+  schema_fix-result: "{{schema_fix-result}}"
+  schema_gate-result: "{{schema_gate-result}}"
+  schema_plan: "{{workspace_tree_manifest}}"
+  schema_feature-enabled: "{{schema_feature-enabled}}"
+  schema_round-limit: "{{schema_round-limit}}"
+  local_policy: "{{local_policy}}"
+  step_fix-task: "{{step_fix-task}}"
+  step_fix-plan: "{{step_fix-plan}}"
+  step_fix-from-plan: "{{step_fix-from-plan}}"
+inputs:
+  task: schema_task
+  handoff: schema_warmup-handoff
+  implementation: schema_implementation
+outputs:
+  implementation: {schema_ref: schema_implementation, required_for: [succeeded, partial]}
+  result: {schema_ref: schema_fix-result, required_for: [succeeded, partial]}
+  fix_plan: {schema_ref: schema_plan, required_for: []}
+limits: {max_step_instances: 3, max_control_transitions: 24, max_parallelism: 1, max_child_depth: 1}
+policy_ref: local_policy
+entry: fix-task
+stages:
+  fix-task:
+    kind: step
+    step_ref: step_fix-task
+    input_bindings: {task: $inputs.task, handoff: $inputs.handoff, implementation: $inputs.implementation}
+    on: {pass: fixed, needs_revision: decide, blocked: task-stopped, fail: task-stopped, no_work: task-stopped}
+  decide:
+    kind: choice
+    selection: exclusive
+    branches:
+      - id: planning
+        predicate: {op: eq, left: $stages.fix-task.result#/outcome, right: needs_planning}
+        next: fix-plan
+    default: task-stopped
+  fix-plan:
+    kind: step
+    step_ref: step_fix-plan
+    input_bindings: {task: $inputs.task, handoff: $inputs.handoff, implementation: $stages.fix-task.implementation, result: $stages.fix-task.result}
+    on: {pass: choose-execution, needs_revision: plan-stopped, blocked: plan-stopped, fail: plan-stopped, no_work: plan-stopped}
+  choose-execution:
+    kind: choice
+    selection: exclusive
+    branches:
+      - id: execute
+        predicate: {op: eq, left: $stages.fix-plan.result#/execute_plan, right: true}
+        next: fix-from-plan
+    default: planned-stopped
+  fix-from-plan:
+    kind: step
+    step_ref: step_fix-from-plan
+    input_bindings: {task: $inputs.task, handoff: $inputs.handoff, implementation: $stages.fix-plan.implementation, result: $stages.fix-plan.result, fix_plan: $stages.fix-plan.fix_plan}
+    on: {pass: planned-fixed, needs_revision: execution-stopped, blocked: execution-stopped, fail: execution-stopped, no_work: execution-stopped}
+  fixed:
+    kind: finish
+    outcome: succeeded
+    output_bindings: {implementation: $stages.fix-task.implementation, result: $stages.fix-task.result}
+  planned-fixed:
+    kind: finish
+    outcome: succeeded
+    output_bindings: {implementation: $stages.fix-from-plan.implementation, result: $stages.fix-from-plan.result, fix_plan: $stages.fix-from-plan.fix_plan}
+  planned-stopped:
+    kind: finish
+    outcome: partial
+    output_bindings: {implementation: $stages.fix-plan.implementation, result: $stages.fix-plan.result, fix_plan: $stages.fix-plan.fix_plan}
+  task-stopped:
+    kind: finish
+    outcome: partial
+    output_bindings: {implementation: $stages.fix-task.implementation, result: $stages.fix-task.result}
+  plan-stopped:
+    kind: finish
+    outcome: partial
+    output_bindings: {implementation: $stages.fix-plan.implementation, result: $stages.fix-plan.result, fix_plan: $stages.fix-plan.fix_plan}
+  execution-stopped:
+    kind: finish
+    outcome: partial
+    output_bindings: {implementation: $stages.fix-from-plan.implementation, result: $stages.fix-from-plan.result, fix_plan: $stages.fix-from-plan.fix_plan}

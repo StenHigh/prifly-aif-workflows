@@ -6,15 +6,184 @@
 движка 0.10–0.13.54, переход на AI Factory 2.19.0, WorkflowRevision v4) —
 в git: `git show d388b92:CONTEXT_STATE.md` (2330 строк, оглавление — `mdq tree`).
 
-## Состояние на 2026-09-29
+## Состояние на 2026-10-12
 
-- **Выпущено и в каталоге:** тег `v1.50.0` — `changed_files` до 10 000 путей
+- **Выпуск v1.51.0 разрешён владельцем для пилота (2026-10-12).**
+  Latest stable Pri-Fly повторно проверен: 0.13.76, новых выпусков нет.
+  Новый aif-fix:package/fix@1.0.0; classic/profiled/fanout остаются прежними.
+  Центральный каталог получает четвертую запись aif-fix и переводит четыре
+  release pins на v1.51.0/exact commit. GitHub release — notes и ссылки на
+  результаты; пилотная инструкция — docs/pilot-aif-fix-v1.51.0.md.
+  Перед тегом: 24-case runtime matrix одним запуском, 10 static tests,
+  verify/compatibility, 4 classic probes и route probe — PASS на stable 0.13.76.
+  Issue #4 остаётся открытым на фактическую приёмку пилотом.
+
+- **Issue #4, реализация отдельного aif-fix (2026-10-12):** новый пакет
+  `aif-fix:package/fix@1.0.0` подготовлен локально, 42 файла. Основной путь:
+  warmup → fix-task → check-change → enabled security → один review-task →
+  commit. Escalation: native fix-plan → отдельное исполнение pinned aif-fix;
+  ordinary plan/improve/implement/verify/challenge не требуются. Repair —
+  отдельный workspace-write Attempt, затем повтор всех включённых гейтов;
+  предел 1..8 раундов (default 3), на исчерпании partial с последним gate.
+  Runtime decision fix_plan_execution не automatic; true/false preanswers и
+  ожидание ответа с --yield-execution/drive на том же Attempt проверены.
+  Native capture работает на каждом verdict: blocked planner оставляет
+  INCOMPLETE draft, default удаляет engine после capture, custom staged/tracked
+  сохраняется. Чужие PLAN/FIX_PLAN не удаляются и не исполняются.
+  Security bridge/step получают собственные identities: classic-инструкция
+  «нет repair после security» для нового графа непригодна. Общие upstream
+  pointers/schema bytes сохраняют прежние ids/version. Classic/profiled/fanout
+  byte-for-byte не менялись; derive_profiled --check зелёный.
+  Compile-gate включает четыре пакета/три hosts/два fix profiles и отрицательные
+  bindings/handler/effects fixtures. Compatibility и 10 static tests зелёные
+  на stable 0.13.76. Classic probes pass, blocked→resume, cancelled→resume
+  пройдены в границах существующего probe (до следующего handoff).
+  Runtime: 24 разных сценария PASS (23-case matrix + focused limit/catalog
+  checks); matrix и real-host observation см.
+  tests/probes/results/aif-fix-0.13.76.md.
+  Реальный короткий Run с AI Factory 2.19.0 дошёл до local commit/succeeded:
+  два read-only Explore и свежий reviewer без авторского разговора. Точный
+  model_profile выбрать не удалось; warning, не независимый model pass.
+  Полный LLM маршрут escalation/repair/resume и автоматический replay custom
+  tracked plan не объявлены проверенными. Два явных plan path profiles —
+  default и custom; arbitrary paths требуют нового reviewed contract.
+  catalog/aif-fix.yaml — подготовленная отдельная запись, search/add проверены
+  локальным Git-каталогом. Remote/tag/центральный каталог не опубликованы;
+  эта запись служит основанием переноса в ../prifly-workflows с release ref/commit.
+  CI дополнен fix runtime matrix. Измерений экономии токенов/времени нет.
+  Отчёт добавлен в issue #4 и сверен через API:
+  https://github.com/StenHigh/prifly-aif-workflows/issues/4#issuecomment-6129483082.
+
+- **Ворота выверены против выпущенного Pri-Fly `v0.13.76`:** до начала
+  реализации aif-fix `verify.py` и `compatibility.py` — PASS на darwin/arm64.
+  Архив проверен по release asset digest
+  `98eeae48df326eb5108493bd2e24fde5d96505b4fffd2afb67ca260ef92a299c`;
+  binary SHA-256 `5df5aceccde63c173d3f38f20426eb9dd131e6c3b0f6511a99002ad874a49f00`.
+  0.13.76 доставляет optional launch advice/native choices в generated runner;
+  public schemas, графы и Run contracts не меняются. Новому пакету нужны
+  понятные title/description, пользователю — `project runners update` после
+  binary update. Pri-Fly #3 закрыто с отчётом; Claude pagination/dismissal
+  отдельно отложены и не считаются пройденными. Обязательных поправок classic
+  нет. Владелец поручил реализацию отдельного fix workflow и runtime probes.
+
+- **Ворота выверены против выпущенного Pri-Fly `v0.13.75` (2026-10-12):**
+  `tests/verify.py` и `tests/compatibility.py` с `--binary` — PASS на
+  darwin/arm64, архив GitHub release проверен по опубликованному SHA-256.
+  Последний CI пакетов (2026-09-30) предшествует этому выпуску, поэтому
+  сверка выполнена локально. Runtime probes в этой сессии не запускались.
+- **Пропущенные Pri-Fly 0.13.72–0.13.75:** release bodies перечисляют только
+  подписанные assets; детали сверены по истории тегов и release evidence в
+  исходниках движка. 0.13.72 — прогресс программ (fd 4, `run progress`,
+  хранилище 8); 0.13.73 — opt-in `live_output` / `output_limit_bytes` у
+  executor (`execution-bindings/3`, состояние 43, хранилище 9, `run output`).
+  Наши assisted-шаги этого не требуют; включение — дело проектных программ.
+  0.13.74 — `project recover` повторно проверяет отвергнутый output по digest
+  против исправленного контракта и сразу ведёт созданный Run. 0.13.75 —
+  chained recovery/resume сохраняет унаследованные accepted evidence и outputs,
+  работает от текущего владельца claim; исправляет второй continue с
+  `resume_prefix_empty`. Новых authoring contracts/schema fields для пакетов
+  эти recovery-правки не вводят. Обязательных правок пакетов не найдено;
+  ничего не внедрено и отдельного package bump не требуется.
+- **Issue #4 (первоначальная редакция, короткий путь внутри classic):** прочитано и сопоставлено с
+  declarations; реализации нет. До реализации уточнить перенос проверки
+  конфликта с требованиями из implement в fix-task; сохранность существующего
+  `.ai-factory/PLAN.md` при общем commit; независимую сессию review-task;
+  повтор проверок после repair (включая security, если правка затронула его
+  предмет). Plan-specific preflight ответы при auto могут оказаться не
+  использованы: маршрут определяется позднее, а `when` знает только profiles
+  и preflight answers. Проверка новых bindings ниже; обе ветки до finish
+  живьём, repair, escalation и resume пока не проверены.
+- **Issue #4, сведение веток (2026-10-12):**
+  `tests/probes/route_check.py --binary <released 0.13.75>` — PASS,
+  `route-probe/` — отдельный compile-only пакет, не часть classic/profiled.
+  Child выбирает planned/local_fix: обязательный `implementation` на обоих
+  `succeeded`, native `plan` только на planned (`required_for: []` у child и
+  root). Общий tail читает implementation и optional plan. Это компилируется
+  без изменения core. Пять отрицательных вариантов — ожидаемые отказы:
+  обязательный plan у child и пропущенный implementation — `missing_binding`;
+  обязательный plan у tail/root и прямое сведение со ссылкой на producer
+  planned — `unavailable_output`. CLI-код у всех —
+  `project_compile_invalid_workflow`, flow-код и путь стоят в message.
+  Package list до/после равен, Run не создавался, одна запись monitor удалена.
+  Это не проверка отсутствия plan при runtime, capture execution или resume.
+  Замечания и результат опубликованы с разрешения владельца в комментарии
+  https://github.com/StenHigh/prifly-aif-workflows/issues/4#issuecomment-6123197914;
+  сохранённый текст сверен через API. Фикстура пока локальная, не в main.
+- **Issue #4, первоисточник aif-fix (2026-10-12):** прочитаны
+  `lee-to/ai-factory` tag `2.19.0` (`e144f95c89de0d0cb6c9b38dbe8c2907b00dc5ce`),
+  `skills/aif-fix/SKILL.md`, docs workflow/skills/plan-files/evolve.
+  Skill blob `8317c8d998f4589e4bc80234ae182558e90d61e2` одинаков на теге и
+  текущем `2.x` (`ac92bebd9bfef0f326c8581b77b29f74997e797c`). Upstream
+  предусматривает самостоятельный bug intake: Fix now без плана; Plan first
+  создаёт отдельный FIX_PLAN и останавливается; следующий aif-fix выполняет
+  его. При HANDOFF_MODE=1 — Fix now по умолчанию, без вопросов и MCP sync.
+  Существующий paths.fix_plan имеет приоритет даже над описанием новой задачи:
+  bridge fix-task обязан явно ограничить это текущей задачей, а не только
+  передать аргументы. Default FIX_PLAN удаляется после исполнения, custom —
+  сохраняется. Regression-first допускает manual/runtime reproduction и
+  safe-root-cause fallback при отсутствии полезной проверки; unconditional
+  stop на unreproduced в issue — более строгая политика пакета, не upstream.
+  Logging и self-improvement patch обязательны в base skill, project overlays
+  имеют приоритет. Fix может исследовать через 2–3 Explore sessions; отсутствие
+  plan не обещает единственную сессию. Auto triage, переход в общий planned
+  маршрут и обязательный downstream review/security — решения Pri-Fly-пакета.
+  Документация подтверждает исходное назначение Fix now для короткой ветки;
+  реализация не менялась. По последующему поручению владельца выводы и таблица
+  отличий опубликованы в issue #4:
+  https://github.com/StenHigh/prifly-aif-workflows/issues/4#issuecomment-6123338025.
+  Сохранённый текст сверен через API; ссылки закреплены на commit тега 2.19.0.
+- **Issue #4, новый комментарий (2026-10-12):**
+  https://github.com/StenHigh/prifly-aif-workflows/issues/4#issuecomment-6123457239
+  принимает направление и уточнения, но меняет исходную эскалацию: сложный баг
+  получает принадлежащий задаче fix-план (`paths.fix_plan` / FIX_PLAN или явно
+  объявленный эквивалент), который затем исполняет именно `aif-fix`.
+  Автоматического перехода fix → обычный plan/improve/aif-implement не должно
+  быть. При адаптации сохранить workspace, исходный base, сделанную работу и
+  evidence. Комментарий требует воспроизводимые runtime probes на released
+  engine: обе ветки до commit/finish с capture/materialisation; fix-plan
+  escalation; repair с актуальным implementation и повтором checks/security;
+  остановка после fix/review, blocked/cancelled и chained resume с claims/work/
+  evidence и проверкой свежести. Проектные TEST/MR вне upstream, совместимость
+  через generic extension fixtures. В чате пока поручено прочитать комментарий;
+  реализация и runtime probes этого маршрута ещё не выполнялись.
+- **Новый вариант по предложению владельца (2026-10-12):** отдельный launch /
+  пакет короткого пути вместо auto-развилки внутри classic. Предлагаемое имя
+  `aif-fix`; пользователь выбирает workflow в существующем списке prifly-run.
+  Classic/profiled остаются обычным development-маршрутом. Fix-path: warmup →
+  fix-task → short checks → enabled security → task review → commit; сложный
+  баг внутри того же fix workflow получает native fix-план и исполняется
+  aif-fix. Repair возвращает к проверкам нового дерева. Root не требует обычный
+  plan; fix-план — собственный артефакт bug workflow. Общие неизменные компоненты
+  можно переиспользовать, commit требует bridge с безопасной уборкой только
+  принадлежащих Run файлов. Рекомендация ИИ перед выбором — совет, не launch:
+  текущий released runner показывает список и ждёт точный ID; правила совета
+  можно сначала выразить в runner PROJECT.md. Последующее поручение о
+  переработке issue выполнено ниже; реализация пока не начата.
+- **Issue #4 переработано по поручению владельца (2026-10-12):**
+  https://github.com/StenHigh/prifly-aif-workflows/issues/4 — новое название
+  «Добавить отдельный workflow aif-fix с ручным выбором и советом ИИ перед
+  запуском». Основной текст заменён целиком, прежние комментарии сохранены как
+  история. Auto-selector внутри classic снят; новый пакет/launch выбирает
+  человек, classic/profiled сохраняют графы. Escalation через native fix-план
+  с исполнением aif-fix, repair с повтором checks/enabled security/review и
+  blocked/cancelled/chained resume сохранены в критериях runtime-приёмки.
+  Совет до запуска выделен в связанную задачу движка:
+  https://github.com/StenHigh/prifly/issues/3 — общий generated prifly-run,
+  current host session, declared launch metadata, короткое обоснование и
+  ожидание ручного выбора; без hardcoded AI Factory и автоматического start.
+  Обе сохранённые пары title/body сверены через API. Код workflow/runner не
+  менялся; прежние compile probes не считаются реализацией нового маршрута.
+
+- **Выпуск v1.51.0:** отдельный aif-fix 1.0.0 и четвертая запись
+  каталога; classic/profiled/fanout без изменения байтов и версий. Приёмка
+  полного LLM-маршрута — пилот.
+- **Предыдущий выпуск:** тег `v1.50.0` — `changed_files` до 10 000 путей
   (classic 1.47.0, profiled 1.48.0). До него v1.49.0 — classic/profiled на
   `core:policy/local@4.0.0` (допускает `external_write` для проектных вставок;
   просьба движка ради шага `tests` пилота с Docker). classic 1.46.0, profiled
   1.47.0, fanout 1.4.0 (на 3.0.0, вставок в него нет). v1.48.0 — security
   читает дерево Run (`repository_workspace: read_only`). v1.47.0 — возобновление тем же workflow (`resumable`, ревизия 8). Пакеты продолжения и программа `resume` на Node удалены (владелец:
-  workflow — только инструкция). Каталог — три записи.
+  workflow — только инструкция). До v1.51.0 каталог содержал три записи.
 - **Pri-Fly 0.13.71 (2026-09-30):** ворота зелены. Программы разных Run одной
   authority идут одновременно; `extend.yaml` получил `resources` (проектные
   исключительные ресурсы, `resource_busy`) — пакету объявлять нечего, пилоту

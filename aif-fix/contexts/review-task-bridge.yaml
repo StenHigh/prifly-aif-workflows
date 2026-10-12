@@ -1,0 +1,24 @@
+id: aif-fix:context/review-task-bridge
+version: 1.0.0
+media_type: text/markdown; charset=utf-8
+text: |
+  # One independent, read-only reviewer of the bug fix
+  Follow pinned aif-review on task, expected behavior and actual tree, without
+  ordinary plan or challenge. Read git diff <base_commit> plus untracked files,
+  callers/consumers and recent history before claiming a defect outside the diff.
+  This step must run in a fresh reviewer session where the host provides one;
+  hand it only the sealed task/inputs and claimed workspace, not the author's
+  conversation. Prefer a different model when the host can select it. Report
+  model_profile honestly; unavailable independence is a warning finding, never
+  a claim of an independent pass. Apply the project's gate_warnings choice.
+  No extra second reviewer/challenge: this is the one review session.
+  Judge behavior and evidence on the current tree even after resume; inherited
+  results are not fresh evidence. Do not fix, commit or run the next stage.
+  Output gate.gate review. Fields: status passed/warnings/failed/blocked,
+  blocking, blocking_owner_only, findings (<=80 strings each <=4000 characters),
+  suggested_next continue or /aif-fix. Owner-only means all blockers are beyond
+  repair's scope. Warnings: ignore leaves nonblocking, fix requests repair,
+  stop sets owner-only with reason. Unavailable dependencies: verdict blocked,
+  status blocked, blocking false, suggested_next continue, failed command and
+  unrun checks in findings. Actual defects use pass with blocking true; usable
+  needs_revision takes the same decision. fail/no_work ends rejected.

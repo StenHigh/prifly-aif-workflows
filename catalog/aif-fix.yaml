@@ -1,0 +1,15 @@
+# Standalone release entry; the central catalog adds the exact commit pin.
+schema_version: prifly-workflow-catalog/1
+title: AI Factory fix workflow catalog entry
+categories:
+  software-delivery:
+    title: Software delivery
+workflows:
+  aif-fix:
+    title: AI Factory bug fix workflow
+    description: Fix a specific bug with regression checks and one review; complex bugs use a native fix-plan executed by aif-fix. Requires Pri-Fly 0.13.76.
+    category: software-delivery
+    repository: https://github.com/StenHigh/prifly-aif-workflows.git
+    path: aif-fix
+    ref: v1.51.0
+    tags: [ai-factory, bug-fix, codex-cli, codex-app, claude-code]

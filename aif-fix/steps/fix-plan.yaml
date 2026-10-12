@@ -1,0 +1,23 @@
+authoring: prifly-step/2
+id: aif-fix:step/fix-plan
+version: 1.0.0
+title: fix-plan for the bug workflow
+kind: worker
+inputs:
+  task: {schema_ref: "{{schema_task}}"}
+  handoff: {schema_ref: "{{schema_warmup-handoff}}"}
+  implementation: {schema_ref: "{{schema_implementation}}"}
+  result: {schema_ref: "{{schema_fix-result}}"}
+outputs:
+  implementation: {schema_ref: "{{schema_implementation}}", required_for: [pass, needs_revision, blocked, fail, no_work]}
+  result: {schema_ref: "{{schema_fix-result}}", required_for: [pass, needs_revision, blocked, fail, no_work]}
+  fix_plan: {schema_ref: "{{workspace_tree_manifest}}", required_for: [pass, needs_revision, blocked, fail, no_work]}
+executor: {adapter_ref: "{{assisted_adapter}}", operation: session}
+session_limits: {active_timeout_ms: null}
+result_schema_ref: "{{step_result_schema_v2}}"
+instructions_ref: "{{context_fix-plan-bridge}}"
+context_refs: ["{{context_fix-protocol}}", "{{context_fix-path}}", "{{context_aif-fix}}"]
+effects: {class: workspace_write, retry_class: never}
+workspace_trees:
+  - output_port: fix_plan
+    capture: "{{fix_capture}}"

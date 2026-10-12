@@ -1,0 +1,27 @@
+id: aif-fix:context/aif-security-bridge
+version: 1.0.0
+media_type: text/markdown; charset=utf-8
+text: |
+  # Read-only security audit with repair routing
+  Run the pinned supporting aif-security-checklist full audit, applying project
+  config, ignore-state and skill-context overrides. Do not use its ignore writer
+  flow or save reports. Read repository_workspace, actual HEAD, dirty and
+  untracked work; scope is git diff <implementation.base_commit> plus untracked
+  files, not the old artifact path list. State which checks did not run.
+  Convert findings to gate: gate security, status passed/warnings/failed/blocked,
+  blocking, blocking_owner_only, findings (<=80 strings, <=4000 chars each),
+  suggested_next continue or /aif-fix. Output only gate; no workspace edits.
+  A weakness introduced or exposed by this change blocks. Standing exposure is
+  reported as a warning. gate_warnings ignore leaves warnings nonblocking; fix
+  makes them repair work; stop sets blocking and blocking_owner_only true and
+  names the owner's decision. Set blocking_owner_only true only when all
+  remaining blockers require owner decisions or access outside repair's scope.
+  Verdict pass carries every established audit result, including failed checks
+  and missing acceptance evidence. Pri-Fly routes repairable blocking findings
+  to a separate repair Attempt and repeats all gates; this reader never fixes.
+  An unavailable external dependency returns blocked with status blocked,
+  blocking false, suggested_next continue and command/output evidence of checks
+  left unrun. A dependency broken by this change is a repairable finding.
+  needs_revision is only for a result that cannot otherwise be established;
+  fail/no_work ends rejected. Every finding requires evidence, never a guessed
+  pass. Model limitations are reported honestly and follow gate_warnings.

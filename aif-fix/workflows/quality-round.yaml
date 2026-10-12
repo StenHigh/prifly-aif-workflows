@@ -1,0 +1,161 @@
+authoring: prifly-workflow/1
+schema_version: "6"
+id: aif-fix:workflow/quality-round
+version: 1.0.0
+title: quality-round for aif-fix
+refs:
+  schema_task: "{{schema_task}}"
+  schema_warmup-handoff: "{{schema_warmup-handoff}}"
+  schema_implementation: "{{schema_implementation}}"
+  schema_fix-result: "{{schema_fix-result}}"
+  schema_gate-result: "{{schema_gate-result}}"
+  schema_plan: "{{workspace_tree_manifest}}"
+  schema_feature-enabled: "{{schema_feature-enabled}}"
+  schema_round-limit: "{{schema_round-limit}}"
+  local_policy: "{{local_policy}}"
+  step_check-change: "{{step_check-change}}"
+  step_repair: "{{step_repair}}"
+  step_security: "{{step_security}}"
+  step_review-task: "{{step_review-task}}"
+inputs:
+  task: schema_task
+  handoff: schema_warmup-handoff
+  implementation: schema_implementation
+  result: schema_fix-result
+  security_enabled:
+    schema_ref: schema_feature-enabled
+    required: false
+    configuration: {scope: project, default: true}
+outputs:
+  implementation: {schema_ref: schema_implementation, required_for: [succeeded, partial, rejected]}
+  result: {schema_ref: schema_fix-result, required_for: [succeeded, partial, rejected]}
+  gate: {schema_ref: schema_gate-result, required_for: [succeeded, partial, rejected]}
+limits: {max_step_instances: 4, max_control_transitions: 24, max_parallelism: 1, max_child_depth: 1}
+policy_ref: local_policy
+features: {security: {input: security_enabled}}
+entry: check
+stages:
+  check:
+    kind: step
+    step_ref: step_check-change
+    input_bindings: {task: $inputs.task, handoff: $inputs.handoff, implementation: $inputs.implementation, result: $inputs.result}
+    on: {pass: decide-check, needs_revision: decide-check, blocked: blocked-check, fail: stopped, no_work: stopped}
+  decide-check:
+    kind: choice
+    selection: first_match
+    branches:
+      - id: owner
+        predicate: {op: eq, left: $stages.check.gate#/blocking_owner_only, right: true}
+        next: standing-check
+      - id: blocking
+        predicate: {op: eq, left: $stages.check.gate#/blocking, right: true}
+        next: repair-check
+    default: choose-security
+  repair-check:
+    kind: step
+    step_ref: step_repair
+    input_bindings: {task: $inputs.task, handoff: $inputs.handoff, implementation: $inputs.implementation, result: $inputs.result, gate: $stages.check.gate}
+    on: {pass: fixed-check, needs_revision: unresolved-check, blocked: unresolved-check, fail: unresolved-check, no_work: unresolved-check}
+  fixed-check:
+    kind: finish
+    outcome: partial
+    output_bindings: {implementation: $stages.repair-check.implementation, result: $stages.repair-check.result, gate: $stages.check.gate}
+  unresolved-check:
+    kind: finish
+    outcome: rejected
+    output_bindings: {implementation: $stages.repair-check.implementation, result: $stages.repair-check.result, gate: $stages.check.gate}
+  standing-check:
+    kind: finish
+    outcome: rejected
+    output_bindings: {implementation: $inputs.implementation, result: $inputs.result, gate: $stages.check.gate}
+  blocked-check:
+    kind: finish
+    outcome: rejected
+    output_bindings: {implementation: $inputs.implementation, result: $inputs.result, gate: $stages.check.gate}
+  security:
+    kind: step
+    step_ref: step_security
+    input_bindings: {implementation: $inputs.implementation}
+    on: {pass: decide-security, needs_revision: decide-security, blocked: blocked-security, fail: stopped, no_work: stopped}
+  decide-security:
+    kind: choice
+    selection: first_match
+    branches:
+      - id: owner
+        predicate: {op: eq, left: $stages.security.gate#/blocking_owner_only, right: true}
+        next: standing-security
+      - id: blocking
+        predicate: {op: eq, left: $stages.security.gate#/blocking, right: true}
+        next: repair-security
+    default: review
+  repair-security:
+    kind: step
+    step_ref: step_repair
+    input_bindings: {task: $inputs.task, handoff: $inputs.handoff, implementation: $inputs.implementation, result: $inputs.result, gate: $stages.security.gate}
+    on: {pass: fixed-security, needs_revision: unresolved-security, blocked: unresolved-security, fail: unresolved-security, no_work: unresolved-security}
+  fixed-security:
+    kind: finish
+    outcome: partial
+    output_bindings: {implementation: $stages.repair-security.implementation, result: $stages.repair-security.result, gate: $stages.security.gate}
+  unresolved-security:
+    kind: finish
+    outcome: rejected
+    output_bindings: {implementation: $stages.repair-security.implementation, result: $stages.repair-security.result, gate: $stages.security.gate}
+  standing-security:
+    kind: finish
+    outcome: rejected
+    output_bindings: {implementation: $inputs.implementation, result: $inputs.result, gate: $stages.security.gate}
+  blocked-security:
+    kind: finish
+    outcome: rejected
+    output_bindings: {implementation: $inputs.implementation, result: $inputs.result, gate: $stages.security.gate}
+  review:
+    kind: step
+    step_ref: step_review-task
+    input_bindings: {task: $inputs.task, handoff: $inputs.handoff, implementation: $inputs.implementation, result: $inputs.result}
+    on: {pass: decide-review, needs_revision: decide-review, blocked: blocked-review, fail: stopped, no_work: stopped}
+  decide-review:
+    kind: choice
+    selection: first_match
+    branches:
+      - id: owner
+        predicate: {op: eq, left: $stages.review.gate#/blocking_owner_only, right: true}
+        next: standing-review
+      - id: blocking
+        predicate: {op: eq, left: $stages.review.gate#/blocking, right: true}
+        next: repair-review
+    default: clean
+  repair-review:
+    kind: step
+    step_ref: step_repair
+    input_bindings: {task: $inputs.task, handoff: $inputs.handoff, implementation: $inputs.implementation, result: $inputs.result, gate: $stages.review.gate}
+    on: {pass: fixed-review, needs_revision: unresolved-review, blocked: unresolved-review, fail: unresolved-review, no_work: unresolved-review}
+  fixed-review:
+    kind: finish
+    outcome: partial
+    output_bindings: {implementation: $stages.repair-review.implementation, result: $stages.repair-review.result, gate: $stages.review.gate}
+  unresolved-review:
+    kind: finish
+    outcome: rejected
+    output_bindings: {implementation: $stages.repair-review.implementation, result: $stages.repair-review.result, gate: $stages.review.gate}
+  standing-review:
+    kind: finish
+    outcome: rejected
+    output_bindings: {implementation: $inputs.implementation, result: $inputs.result, gate: $stages.review.gate}
+  blocked-review:
+    kind: finish
+    outcome: rejected
+    output_bindings: {implementation: $inputs.implementation, result: $inputs.result, gate: $stages.review.gate}
+  choose-security:
+    kind: choice
+    selection: exclusive
+    branches:
+      - id: enabled
+        predicate: {op: eq, left: $inputs.security_enabled, right: true}
+        next: security
+    default: review
+  clean:
+    kind: finish
+    outcome: succeeded
+    output_bindings: {implementation: $inputs.implementation, result: $inputs.result, gate: $stages.review.gate}
+  stopped: {kind: finish, outcome: no_work}

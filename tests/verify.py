@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compile both AI Factory packages with a real Pri-Fly binary and check the sealed contracts.
+"""Compile the AI Factory packages with a real Pri-Fly binary and check the sealed contracts.
 
 No network, AI Factory runtime or LLM is involved: host skills are stubs, and
 nothing is imported into an authority or started as a Run.
@@ -16,7 +16,7 @@ import sys
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
-PACKAGES = ("aif-classic", "aif-fanout", "aif-profiled")
+PACKAGES = ("aif-classic", "aif-fanout", "aif-fix", "aif-profiled")
 HOSTS = {"codex-cli": ".codex/skills", "codex-app": ".agents/skills", "claude-code": ".claude/skills"}
 CLASSIC_SKILLS = ("aif-warmup", "aif-plan", "aif-improve", "aif-implement", "aif-verify", "aif-security-checklist", "aif-review", "aif-commit", "aif-fix",)
 IMPROVE_REFERENCES = ("LIST-MODE.md", "CHECK-MODE.md", "EXAMPLES.md", "VALIDATOR.md")
@@ -117,6 +117,7 @@ def prepare_repository(binary, root):
         "launches:\n"
         "  aif-classic:\n    title: AI Factory classic development workflow\n    description: Canonical AI Factory development workflow with bounded plan improvement.\n    kind: workflow\n    workflow: .prifly/workflows/aif-classic/workflow.yaml\n"
         "  aif-fanout:\n    title: AI Factory fan-out plan refinement\n    description: Optional AI Factory plan refinement with independent review perspectives.\n    kind: workflow\n    workflow: .prifly/workflows/aif-fanout/workflow.yaml\n"
+        "  aif-fix:\n    title: AI Factory bug fix workflow\n    description: Fix a specific bug with regression evidence; complex bugs use their own fix-plan executed by aif-fix.\n    kind: workflow\n    workflow: .prifly/workflows/aif-fix/workflow.yaml\n"
         "  aif-profiled:\n    title: AI Factory profiled development workflow\n    description: The classic route with every step declaring the model profile it wants.\n    kind: workflow\n    workflow: .prifly/workflows/aif-profiled/workflow.yaml\n",
     )
     (repository / ".prifly" / "project.yaml").write_text(profile)
@@ -511,18 +512,22 @@ def main():
     with tempfile.TemporaryDirectory(prefix="prifly-aif-") as temporary:
         root = Path(temporary)
         repository, authority = prepare_repository(binary, root)
-        before = run(binary, "--project", authority, "package", "list")
-        components_read = check_classic(binary, authority, repository, root)
-        components_read += check_fanout(binary, authority, repository, root)
-        components_read += check_profiled(binary, authority, repository, root)
-        after = run(binary, "--project", authority, "package", "list")
-        assert before == after, "compile must not import or trust a package"
-        # No Run was started here, but `project init` registered the authority
-        # all the same; the entry outlives the directory unless its creator
-        # removes it. One is this fixture's own; zero would mean the engine
-        # stopped registering, or this stopped reading the right registry.
-        forgotten = forget_authority(authority)
-        assert forgotten == 1, f"expected to remove this fixture's one registry entry, removed {forgotten}"
+        try:
+            before = run(binary, "--project", authority, "package", "list")
+            components_read = check_classic(binary, authority, repository, root)
+            components_read += check_fanout(binary, authority, repository, root)
+            components_read += check_profiled(binary, authority, repository, root)
+            from fix_contract import check_fix
+            components_read += check_fix(binary, authority, repository, root)
+            after = run(binary, "--project", authority, "package", "list")
+            assert before == after, "compile must not import or trust a package"
+        finally:
+            # No Run was started here, but `project init` registered the authority
+            # all the same; the entry outlives the directory unless its creator
+            # removes it. One is this fixture's own; zero would mean the engine
+            # stopped registering, or this stopped reading the right registry.
+            forgotten = forget_authority(authority)
+            assert forgotten == 1, f"expected to remove this fixture's one registry entry, removed {forgotten}"
     # The compensation is gone, so what is counted now is that nobody reintroduces
     # a deadline: a step that names a number instead of null is the debt coming
     # back, and it would otherwise pass every assertion above by never compiling

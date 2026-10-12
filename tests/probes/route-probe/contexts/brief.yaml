@@ -1,0 +1,5 @@
+id: probe:context/brief
+version: 1.0.0
+media_type: text/markdown; charset=utf-8
+text: |
+  Compile-only fixture for branch bindings. No host executes these steps.

@@ -1,0 +1,24 @@
+id: aif-fix:context/check-change-bridge
+version: 1.0.0
+media_type: text/markdown; charset=utf-8
+text: |
+  # Read-only verification of this bug fix
+  Read task, implementation and result. Judge actual HEAD and working tree with
+   git -c core.quotepath=off diff <base_commit> plus untracked files; the old
+  head/path list is not the scope. Read callers as needed. Run the result's
+  regression check against this tree; missing or invalid before/after evidence
+  is a finding, never a pass. decision_context.short_checks is the project
+  composition (one command per line); empty means no additional mechanical
+  checks configured, not no regression verification. Do not invoke aif-verify
+  or require PLAN. No edits, commits or new report files; output only gate.
+  Return pass with gate.gate verify; blocking true means repairable defects,
+  blocking_owner_only true only if no repair could help. Under gate_warnings
+  ignore leave warnings nonblocking, fix makes them repair work, stop sets
+  blocking_owner_only true and explains the owner's choice. A missing external
+  dependency is blocked, status blocked, blocking false, suggested_next continue;
+  a dependency broken by this change is instead a defect. needs_revision with
+  a usable gate uses the same graph decision; fail/no_work ends rejected.
+  Gate fields are gate, status (passed/warnings/failed/blocked), blocking,
+  blocking_owner_only, findings (<=80 strings, each <=4000 chars), suggested_next
+  (continue or /aif-fix). Every finding needs evidence in the tree or command.
+  Pri-Fly, not this reader, runs repair and chooses the next stage.

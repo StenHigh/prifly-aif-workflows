@@ -1,0 +1,46 @@
+authoring: prifly-workflow/1
+schema_version: "4"
+id: probe:workflow/build
+version: 1.0.0
+title: Both routes export an implementation; only planned exports a plan
+refs:
+  schema_route: "{{schema_route}}"
+  schema_implementation: "{{schema_implementation}}"
+  schema_plan: "{{workspace_tree_manifest}}"
+  step_planned: "{{step_planned}}"
+  step_fix: "{{step_fix}}"
+  local_policy: "{{local_policy}}"
+inputs:
+  route: {schema_ref: schema_route}
+outputs:
+  implementation: {schema_ref: schema_implementation, required_for: [succeeded]}
+  plan: {schema_ref: schema_plan, required_for: []}
+limits: {max_step_instances: 1, max_control_transitions: 8, max_parallelism: 1, max_child_depth: 1}
+policy_ref: local_policy
+entry: choose
+stages:
+  choose:
+    kind: choice
+    selection: exclusive
+    branches:
+      - id: local-fix
+        predicate: {op: eq, left: $inputs.route, right: local_fix}
+        next: fix
+    default: planned
+  planned:
+    kind: step
+    step_ref: step_planned
+    on: {pass: planned-done, needs_revision: stopped, fail: stopped, no_work: stopped}
+  fix:
+    kind: step
+    step_ref: step_fix
+    on: {pass: fix-done, needs_revision: stopped, fail: stopped, no_work: stopped}
+  planned-done:
+    kind: finish
+    outcome: succeeded
+    output_bindings: {implementation: $stages.planned.implementation, plan: $stages.planned.plan}
+  fix-done:
+    kind: finish
+    outcome: succeeded
+    output_bindings: {implementation: $stages.fix.implementation}
+  stopped: {kind: finish, outcome: rejected}

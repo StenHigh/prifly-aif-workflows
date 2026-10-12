@@ -1,0 +1,8 @@
+# default: native untracked FIX_PLAN; custom: retained repository fix-plan.
+profile: default
+settings:
+  quality: {repair_round_limit: 3}
+exclude: []
+extensions: []
+# Generic project insertions may use root build -> quality or commit -> done.
+# Insertion steps declare no inputs and answer pass/needs_revision/fail/no_work/blocked.

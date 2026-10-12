@@ -1,0 +1,18 @@
+authoring: prifly-step/2
+id: aif-fix:step/check-change
+version: 1.0.0
+title: check-change for the bug workflow
+kind: worker
+inputs:
+  task: {schema_ref: "{{schema_task}}"}
+  handoff: {schema_ref: "{{schema_warmup-handoff}}"}
+  implementation: {schema_ref: "{{schema_implementation}}"}
+  result: {schema_ref: "{{schema_fix-result}}"}
+outputs:
+  gate: {schema_ref: "{{schema_gate-result}}", required_for: [pass, needs_revision, blocked]}
+executor: {adapter_ref: "{{assisted_adapter}}", operation: session}
+session_limits: {active_timeout_ms: null}
+result_schema_ref: "{{step_result_schema_v2}}"
+instructions_ref: "{{context_check-change-bridge}}"
+effects: {class: none, retry_class: pure}
+repository_workspace: read_only

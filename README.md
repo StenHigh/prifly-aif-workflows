@@ -1,7 +1,7 @@
 <h1 align="center">Pri-Fly workflows for AI Factory</h1>
 
 <p align="center">
-  Два Project workflow folder для <a href="https://github.com/StenHigh/prifly">Pri-Fly</a>,
+  Project workflow folders для <a href="https://github.com/StenHigh/prifly">Pri-Fly</a>,
   которые ведут разработку по практике AI Factory: канонический путь
   <code>aif-classic</code> и веер ракурсов <code>aif-fanout</code>.
 </p>
@@ -32,6 +32,17 @@
 | [`aif-classic/`](aif-classic/) | Канонический последовательный путь автора AI Factory: `warmup → plan → improve → implement → verify → security → review → commit`. Improve передаёт исправленный native plan в следующий круг; блокирующий verify/security/review возвращает typed gate с `suggested_next: /aif-fix` и ничего не чинит сам. Круг review открывает второй читатель в своей сессии (`review-challenge`), чьи находки review проверяет и сливает. |
 | [`aif-fanout/`](aif-fanout/) | Отдельная доработка существующего плана двумя независимыми ракурсами review → выбор разработчика → применение принятого. Это веер задач, не выбор модели. |
 | [`aif-profiled/`](aif-profiled/) | Тот же classic, порождённый из него `tools/derive_profiled.py`: каждый шаг объявляет профиль модели (`model_profile`), `plan` и `implement` просят отдельную сессию. Перевод профиля в модель и effort задаёт проект — дефолты в `extend.yaml`, переопределение в `.prifly/local.yaml`; движок доставляет и не выбирает. Pri-Fly ≥ 0.13.64. |
+| [`aif-fix/`](aif-fix/) | Отдельный workflow для конкретного бага: `warmup → fix-task → checks → enabled security → один task review → commit`. Сложный баг получает native fix-план и исполняется тем же `aif-fix`; после repair вся короткая последовательность проверок повторяется. Пользователь выбирает этот launch вручную; классические графы не меняются. |
+
+`aif-fix` добавлен в набор **v1.51.0** как отдельный пакет версии **1.0.0**.
+[README пакета](aif-fix/README.md) описывает входы, решения, две политики
+fix-плана и resume; [инструкция пилоту](docs/pilot-aif-fix-v1.51.0.md) — установку
+и сценарии приёмки. Запись каталога — [catalog/aif-fix.yaml](catalog/aif-fix.yaml).
+В Pri-Fly 0.13.76 generated `prifly-run` кратко советует workflow по объявленным
+title/description, но ждёт выбора пользователя. После обновления бинаря
+выполните `prifly project runners update --repository .`; соседний `PROJECT.md`
+с критериями проекта сохраняется. Совет не создаёт Run и не заменяет просмотр
+подготовленного исполнения.
 
 Этот репозиторий — workflow repository для каталога
 [`StenHigh/prifly-workflows`](https://github.com/StenHigh/prifly-workflows).
@@ -45,6 +56,7 @@ AI Factory развиваются здесь.
 ```sh
 prifly project workflows add aif-classic          # запись официального каталога
 prifly project workflows add aif-fanout
+prifly project workflows add aif-fix              # Pri-Fly >= 0.13.76
 # или напрямую из этого репозитория
 prifly project workflows add StenHigh/prifly-aif-workflows --path aif-classic --ref v1.0.0
 ```
@@ -82,7 +94,8 @@ launches:
 - Навыки AI Factory, установленные для выбранного host: `aif-warmup`,
   `aif-plan`, `aif-improve`, `aif-implement`, `aif-verify`, `aif-security-checklist`,
   `aif-review`, `aif-commit` для `aif-classic` и `aif-improve` для
-  `aif-fanout`. Context YAML закрепляет bytes только из skills root того host,
+  `aif-fanout`. Для `aif-fix`: `aif-warmup`, `aif-fix`,
+  `aif-security-checklist`, `aif-review`, `aif-commit` (AI Factory 2.19.0). Context YAML закрепляет bytes только из skills root того host,
   который передан compiler-у (`.codex/skills`, `.agents/skills` или
   `.claude/skills`); host не угадывается по папкам. Закрепление навыка не тянет
   за собой его собственные `references/**`, поэтому `aif-improve/references/`

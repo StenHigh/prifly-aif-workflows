@@ -1,0 +1,67 @@
+{
+  "run": "run:d5b043d167a4a457fa8e710bfcb6bde18f765ed612032d5b6e798eabca2efc85",
+  "trace": [
+    {
+      "bridge": "warmup-bridge",
+      "attempt": "attempt:968402b88c5ada914c3b6d445fb65b08",
+      "values_sha256": "9741927e27868a2c0031e8267b472c3760529b87886dd3f21b192ad56d7c6055"
+    },
+    {
+      "bridge": "fix-task-bridge",
+      "attempt": "attempt:1047e3ab3b8c5d82ee841f4691b197aa",
+      "values_sha256": "171fb45d3bc519d083251c153cff393261e7c18fe6fb6c5e122c62eb4f311ef9"
+    },
+    {
+      "bridge": "check-change-bridge",
+      "attempt": "attempt:9d956787b05994da866ff2fe583a63cb",
+      "values_sha256": "890ac0fda23f3e446362621b3823edc50d073ffa285f9e675c0de263fa58c406"
+    },
+    {
+      "bridge": "aif-security-bridge",
+      "attempt": "attempt:7e7f013063617869038e73c790db8d1a",
+      "values_sha256": "9f73e79501f145783eac9ed3c7b63ec934e9cd2f21caca472807ff80e7627beb"
+    },
+    {
+      "bridge": "review-task-bridge",
+      "attempt": "attempt:3fc060db12485d820f62d94302b7c12a",
+      "values_sha256": "b77c00994ec8c663b381c3ad8ba6cf93fc5981e9a21e7f87d7280f723f6a93c8"
+    },
+    {
+      "bridge": "commit-bridge",
+      "attempt": "attempt:e9bcaadbf5dc4d1d402af7349a0a5636",
+      "values_sha256": "23997af74e625bc6752a1885e606683b13630d8074289c7a7fb0168d42a513bd"
+    }
+  ],
+  "outcome": "succeeded",
+  "output_artifacts": {
+    "gate": {
+      "artifact_id": "artifact:2954485d8140a83b82ec70c75b581e00fb69930a916d4c6c160c5bd6fce59888",
+      "revision": 1,
+      "digest": "sha256:fbe40bd8b0c3212ad8eb4434f9497fde337f5fc2cb2ac9f831e66aeb6a454a9a"
+    },
+    "implementation": {
+      "artifact_id": "artifact:9e3e9459409e81ce41b5c0ca6387c7b9f86450e7cf629ff28f09ca5d8570d28d",
+      "revision": 1,
+      "digest": "sha256:864040b96136ec7e87c51ff70b81d3ddfee0e1af964e9837b0ae89a03748fb37"
+    },
+    "result": {
+      "artifact_id": "artifact:2d04b4918834b222ab1ddbb9b31671bb8f01a0efb855ea335fb01610c7d91157",
+      "revision": 1,
+      "digest": "sha256:638dcf6a82ff2ca5cd3ea213e1973bc50330fadd14cf8e524de0007611ba5d3d"
+    }
+  },
+  "prifly": "0.13.76",
+  "host": "codex-app",
+  "skills_source": "lee-to/ai-factory@2.19.0",
+  "base_commit": "66db190b388046db122857bad71449f5ad565193",
+  "head_commit": "3fc1d0e09aa4d6d7b1cf00bd4fc3343a49d386a9",
+  "boundary": "Observed direct route with actual skills and fresh reviewer context; no exact model selection, no LLM escalation/repair/resume observation. Security bridge was split after this Run was pinned.",
+  "cleaned": true,
+  "skills_sha256": {
+    "aif-fix": "018267ccbe8eda03d3ebc006529b4db8482884458d0acca5d12e0ffda8b21ee1",
+    "aif-security-checklist": "3d9c4993ca6ed6cc83142ac481a672dc78dfefc2d73489496e58e8320b3e97ca",
+    "aif-commit": "3dbeec8295c3cc592faf67d1669295803d472944c30ee7daeb8d330b0c9c9028",
+    "aif-review": "fe231edfc738ee488a4f1c341e32c12217f4c7b2aa7c2215b2fd53530d0eeaac",
+    "aif-warmup": "ad7fd1bdb62d97881b190ed596a175fdf02e9e92b38c2ad7b941a68a84ffb8b2"
+  }
+}

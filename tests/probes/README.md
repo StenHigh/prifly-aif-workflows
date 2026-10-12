@@ -1,5 +1,24 @@
 # Probes
 
+`fix_check.py` drives the separate `aif-fix` package with a deterministic
+synthetic host on a released binary. It executes actual regression commands,
+Git changes and native plan capture/materialisation through commit/finish.
+The matrix covers direct fix on three hosts, local-source installation,
+security exclusion, a generic extension, default/custom plan handling, blocked
+planning/execution, timed decision wait on the same Attempt, repair after
+check/security/review and its iteration limit, owner stops, cancellation,
+chained resume with intervening edits, foreign plans and output/effect refusals.
+It asserts final implementation freshness, one transferred claim, generations,
+source/working-tree immutability during prepare and cleanup. This is runtime
+wiring evidence with skill stubs, not an LLM or independent-review observation.
+
+    python3 -B tests/probes/fix_check.py --binary /path/to/released/prifly --report /tmp/fix-results.json
+
+[Recorded 0.13.76 results](results/aif-fix-0.13.76.md) separate runtime evidence
+from the real host observation and list the remaining limits.
+
+CI runs this matrix. Use `--case NAME` for a focused diagnostic run.
+
 Not gates. The four gates in `tests/` say whether this package is sound; these
 two say what a Pri-Fly candidate hands an executor, and they are run by hand
 against a candidate binary when the engine changes that path.
@@ -7,6 +26,23 @@ against a candidate binary when the engine changes that path.
     python3 tests/probes/capture_check.py --binary /path/to/prifly
     python3 tests/probes/shapes_check.py  --binary /path/to/prifly
     python3 tests/probes/shapes_check.py  --binary /path/to/prifly --entry two
+
+`route_check.py` is a compile-only probe for issue #4, with `route-probe/` as
+its throwaway package. A child chooses planned or local_fix, exports an
+implementation on both successful routes and a native captured plan only on
+planned. The common tail consumes the required implementation and optional
+plan; the root also exports the plan optionally. Five negative variants must
+be refused for the intended binding error: a required child plan, a required
+tail plan, a missing implementation export, a direct merge referencing just
+one producer, and a required root plan. Compilation imports no package and
+starts no Run. It does not test capture execution, repair, escalation or resume.
+
+    python3 tests/probes/route_check.py --binary /path/to/prifly
+
+Verified on released Pri-Fly 0.13.75 (darwin/arm64); binary SHA-256:
+`debc809779336c5ef7ba514c0bbb718ad44b10293c458f7942d5aeb39cee270e`.
+The CLI wraps these flow errors as `project_compile_invalid_workflow`; the
+message starts with `missing_binding` or `unavailable_output` and its path.
 
 `capture_check.py` dispatches one Run per capture kind plus one step with no
 capture, and reports whether the captured port still appears as a writable slot

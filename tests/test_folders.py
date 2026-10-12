@@ -10,11 +10,12 @@ ROOT = Path(__file__).resolve().parents[1]
 CLASSIC = ROOT / "aif-classic"
 FANOUT = ROOT / "aif-fanout"
 PROFILED = ROOT / "aif-profiled"
+FIX = ROOT / "aif-fix"
 
 
 class WorkflowFolderTest(unittest.TestCase):
     def test_folders_are_marked_yaml_only_workflow_folders(self):
-        for folder in (CLASSIC, FANOUT, PROFILED):
+        for folder in (CLASSIC, FANOUT, FIX, PROFILED):
             workflow = (folder / "workflow.yaml").read_text()
             self.assertTrue(workflow.startswith("authoring: prifly-project-workflow/1\n"), folder)
             self.assertTrue((folder / "extend.yaml").is_file(), folder)
@@ -34,7 +35,7 @@ class WorkflowFolderTest(unittest.TestCase):
             self.assertFalse(any(line.strip() == "---" for source in yaml_sources for line in source.splitlines()), folder)
 
     def test_classic_decision_catalog_names_its_own_install_path(self):
-        for folder in (CLASSIC, PROFILED):
+        for folder in (CLASSIC, FIX, PROFILED):
             workflow = (folder / "workflow.yaml").read_text()
             self.assertIn("decision_catalog:", workflow)
             for line in workflow.splitlines():

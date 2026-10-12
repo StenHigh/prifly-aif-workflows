@@ -1,0 +1,11 @@
+authoring: prifly-run-decision/1
+id: fix_plan_execution
+title: Execute this task's fix-plan if planning becomes necessary
+description: This is conditional permission for aif-fix to execute a plan prepared within this Run; it does not allow a new task, unrelated work or a switch to classic. Stop retains the prepared plan for owner review.
+phase: runtime
+choices:
+  - {id: execute, title: Execute the fix-plan, value: true}
+  - {id: stop, title: Stop after preparing the fix-plan, value: false}
+automatic: false
+sensitivity: scope-changing
+destination: {kind: session_context, name: fix_plan_execution}

@@ -1,0 +1,50 @@
+authoring: prifly-project-workflow/1
+package:
+  id: probe:package/route
+  version: 1.0.0
+  description: Compile-only branch merge with an optional native plan.
+  requires_core_protocol: "1"
+  references:
+    assisted_adapter: core:adapter/assisted-session@1.0.0
+    local_policy: core:policy/local@4.0.0
+    step_result_schema: core:schema/step-result@1.0.0
+    workspace_tree_manifest: core:schema/workspace-tree-manifest@1.0.0
+id: probe:workflow/route
+schema_version: "4"
+version: 1.0.0
+title: Branch merge probe
+refs:
+  schema_route: "{{schema_route}}"
+  schema_implementation: "{{schema_implementation}}"
+  schema_plan: "{{workspace_tree_manifest}}"
+  workflow_build: "{{workflow_build}}"
+  step_tail: "{{step_tail}}"
+  local_policy: "{{local_policy}}"
+inputs:
+  route: {schema_ref: schema_route}
+outputs:
+  implementation: {schema_ref: schema_implementation, required_for: [succeeded]}
+  plan: {schema_ref: schema_plan, required_for: []}
+limits: {max_step_instances: 2, max_control_transitions: 16, max_parallelism: 1, max_child_depth: 1}
+policy_ref: local_policy
+entry: build
+stages:
+  build:
+    kind: call
+    workflow_ref: workflow_build
+    input_bindings: {route: $inputs.route}
+    on: {succeeded: tail, rejected: stopped}
+  tail:
+    kind: step
+    step_ref: step_tail
+    input_bindings:
+      implementation: $stages.build.implementation
+      plan: $stages.build.plan
+    on: {pass: done, needs_revision: stopped, fail: stopped, no_work: stopped}
+  done:
+    kind: finish
+    outcome: succeeded
+    output_bindings:
+      implementation: $stages.tail.implementation
+      plan: $stages.build.plan
+  stopped: {kind: finish, outcome: rejected}

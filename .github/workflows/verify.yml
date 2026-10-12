@@ -26,7 +26,7 @@ jobs:
         run: python3 -B tests/test_versions.py
       - name: Static folder contract
         run: python3 -B tests/test_folders.py
-      - name: Compile both packages with the installed Pri-Fly
+      - name: Compile all packages with the installed Pri-Fly
         run: python3 -B tests/verify.py --binary "$HOME/.local/bin/prifly"
       - name: One authority carries Classic across every plan profile
         run: python3 -B tests/compatibility.py --binary "$HOME/.local/bin/prifly"
@@ -38,3 +38,5 @@ jobs:
         run: python3 -B tests/probes/run_check.py --binary "$HOME/.local/bin/prifly" --check --resume
       - name: A Run cancelled at the gate resumes with the same workflow
         run: python3 -B tests/probes/run_check.py --binary "$HOME/.local/bin/prifly" --check --resume --verdict cancelled
+      - name: Bug workflow finishes direct, planned, repaired and resumed Runs
+        run: python3 -B tests/probes/fix_check.py --binary "$HOME/.local/bin/prifly" --report /tmp/aif-fix-results.json
