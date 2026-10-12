@@ -8,6 +8,9 @@ security exclusion, a generic extension, default/custom plan handling, blocked
 planning/execution, timed decision wait on the same Attempt, repair after
 check/security/review and its iteration limit, owner stops, cancellation,
 chained resume with intervening edits, foreign plans and output/effect refusals.
+Pilot regressions cover pass + blocked gate on check/security/review (partial
+with the exact gate, then resume), and the empty question-answer refusal plus
+its accepted explanation with an unchanged typed short_checks decision.
 It asserts final implementation freshness, one transferred claim, generations,
 source/working-tree immutability during prepare and cleanup. This is runtime
 wiring evidence with skill stubs, not an LLM or independent-review observation.

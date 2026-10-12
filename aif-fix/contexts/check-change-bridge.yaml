@@ -1,5 +1,5 @@
 id: aif-fix:context/check-change-bridge
-version: 1.0.0
+version: 1.0.1
 media_type: text/markdown; charset=utf-8
 text: |
   # Read-only verification of this bug fix
@@ -22,3 +22,8 @@ text: |
   blocking_owner_only, findings (<=80 strings, each <=4000 chars), suggested_next
   (continue or /aif-fix). Every finding needs evidence in the tree or command.
   Pri-Fly, not this reader, runs repair and chooses the next stage.
+  status blocked means a required in-scope check could not run; it stops
+  quality even with a usable pass/needs_revision report. Never use pass plus
+  blocked to bypass dependency availability. Optional out-of-scope external
+  acceptance left for later is a warning finding, governed by gate_warnings;
+  distinguish it from a required check and never claim it ran.

@@ -1,6 +1,6 @@
 authoring: prifly-step/2
 id: aif-fix:step/fix-from-plan
-version: 1.0.0
+version: 1.0.1
 title: fix-from-plan for the bug workflow
 kind: worker
 inputs:
@@ -17,7 +17,7 @@ executor: {adapter_ref: "{{assisted_adapter}}", operation: session}
 session_limits: {active_timeout_ms: null}
 result_schema_ref: "{{step_result_schema_v2}}"
 instructions_ref: "{{context_fix-from-plan-bridge}}"
-context_refs: ["{{context_fix-protocol}}", "{{context_fix-path}}", "{{context_aif-fix}}"]
+context_refs: ["{{context_fix-protocol}}", "{{context_fix-path}}", "{{context_aif-fix}}", "{{context_session-report}}"]
 effects: {class: workspace_write, retry_class: never}
 workspace_trees:
   - input_port: fix_plan

@@ -21,3 +21,8 @@ HANDOFF_MODE=1, empty task ID and no MCP sync are truthful for these Attempts.
 Undeclared native questions are not a Pri-Fly decision. Supplemental test
 suggestions are recorded, not a question a finished Attempt cannot deliver.
 Project skill overlays win over the base skill's logging/patch defaults.
+
+The session-report supporting context distinguishes typed values from human
+question explanations: a legal empty short_checks answer remains empty in the
+decision sheet, while answered_questions.answer uses nonempty descriptive text.
+Report basis instructions does not replace the fix_plan_execution decision.

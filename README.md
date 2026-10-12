@@ -34,7 +34,8 @@
 | [`aif-profiled/`](aif-profiled/) | Тот же classic, порождённый из него `tools/derive_profiled.py`: каждый шаг объявляет профиль модели (`model_profile`), `plan` и `implement` просят отдельную сессию. Перевод профиля в модель и effort задаёт проект — дефолты в `extend.yaml`, переопределение в `.prifly/local.yaml`; движок доставляет и не выбирает. Pri-Fly ≥ 0.13.64. |
 | [`aif-fix/`](aif-fix/) | Отдельный workflow для конкретного бага: `warmup → fix-task → checks → enabled security → один task review → commit`. Сложный баг получает native fix-план и исполняется тем же `aif-fix`; после repair вся короткая последовательность проверок повторяется. Пользователь выбирает этот launch вручную; классические графы не меняются. |
 
-`aif-fix` добавлен в набор **v1.51.0** как отдельный пакет версии **1.0.0**.
+`aif-fix` добавлен в v1.51.0; **v1.51.1 / пакет 1.0.1** исправляет
+маршрутизацию usable blocked gate и объясняет формат пустых declared answers.
 [README пакета](aif-fix/README.md) описывает входы, решения, две политики
 fix-плана и resume; [инструкция пилоту](docs/pilot-aif-fix-v1.51.0.md) — установку
 и сценарии приёмки. Запись каталога — [catalog/aif-fix.yaml](catalog/aif-fix.yaml).

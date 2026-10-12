@@ -1,6 +1,6 @@
 authoring: prifly-step/2
 id: aif-fix:step/check-change
-version: 1.0.0
+version: 1.0.1
 title: check-change for the bug workflow
 kind: worker
 inputs:
@@ -14,5 +14,6 @@ executor: {adapter_ref: "{{assisted_adapter}}", operation: session}
 session_limits: {active_timeout_ms: null}
 result_schema_ref: "{{step_result_schema_v2}}"
 instructions_ref: "{{context_check-change-bridge}}"
+context_refs: ["{{context_session-report}}"]
 effects: {class: none, retry_class: pure}
 repository_workspace: read_only

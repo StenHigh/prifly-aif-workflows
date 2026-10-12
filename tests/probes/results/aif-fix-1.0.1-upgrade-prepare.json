@@ -1,0 +1,18 @@
+{
+  "prifly": "0.13.76",
+  "source": "v1.51.0 / aif-fix 1.0.0",
+  "target": "aif-fix 1.0.1 working tree",
+  "returncode": 3,
+  "prepare": {
+    "schema_version": "1",
+    "code": "recover_prefix_changed",
+    "message": "effective contract changed at stage warmup; resume with --from-stage warmup to run it and everything after it again",
+    "retryable": false,
+    "violations": [],
+    "safe_next_actions": [
+      "doctor",
+      "run.status"
+    ]
+  },
+  "source_and_claim_unchanged": true
+}

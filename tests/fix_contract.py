@@ -31,6 +31,15 @@ def check_fix(binary, authority, repository, root):
     catalog = {entry["id"]: entry for entry in json.loads((root / "fix/decisions.json").read_text())["decisions"]}
     assert not catalog["fix_plan_execution"]["automatic"]
     assert catalog["fix_plan_execution"]["destination"] == {"kind": "session_context", "name": "fix_plan_execution"}
+    for name in ('check', 'security', 'review'):
+        branches = documents['aif-fix:workflow/quality-round']['definition']['stages'][f'decide-{name}']['branches']
+        predicate = branches[0]['predicate']
+        assert predicate['op'] == 'eq' and predicate['right'] == {'kind': 'literal', 'value': 'blocked'}
+        assert predicate['left']['ref'] == {'from': 'stage_output', 'stage_id': name, 'port': 'gate', 'pointer': '/status'}
+        assert branches[0]['next'] == f'blocked-{name}'
+    for name in ('warmup', 'fix-task', 'fix-plan', 'fix-from-plan', 'check-change', 'security', 'review-task', 'repair', 'commit'):
+        refs = documents[f'aif-fix:step/{name}']['context_refs']
+        assert any(ref['id'] == 'aif-fix:context/session-report' for ref in refs), name
     for host in HOSTS:
         compile_package(binary, authority, repository, "aif-fix", root / f"fix-{host}", host=host)
     _, custom = compile_package(binary, authority, repository, "aif-fix", root / "fix-custom", profile="custom")

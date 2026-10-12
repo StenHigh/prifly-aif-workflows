@@ -1,7 +1,7 @@
 authoring: prifly-workflow/1
 schema_version: "6"
 id: aif-fix:workflow/quality-round
-version: 1.0.0
+version: 1.0.1
 title: quality-round for aif-fix
 refs:
   schema_task: "{{schema_task}}"
@@ -44,6 +44,9 @@ stages:
     kind: choice
     selection: first_match
     branches:
+      - id: unavailable
+        predicate: {op: eq, left: $stages.check.gate#/status, right: blocked}
+        next: blocked-check
       - id: owner
         predicate: {op: eq, left: $stages.check.gate#/blocking_owner_only, right: true}
         next: standing-check
@@ -81,6 +84,9 @@ stages:
     kind: choice
     selection: first_match
     branches:
+      - id: unavailable
+        predicate: {op: eq, left: $stages.security.gate#/status, right: blocked}
+        next: blocked-security
       - id: owner
         predicate: {op: eq, left: $stages.security.gate#/blocking_owner_only, right: true}
         next: standing-security
@@ -118,6 +124,9 @@ stages:
     kind: choice
     selection: first_match
     branches:
+      - id: unavailable
+        predicate: {op: eq, left: $stages.review.gate#/status, right: blocked}
+        next: blocked-review
       - id: owner
         predicate: {op: eq, left: $stages.review.gate#/blocking_owner_only, right: true}
         next: standing-review

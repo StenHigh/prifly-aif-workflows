@@ -71,3 +71,26 @@ Issue для приёмки: [#4](https://github.com/StenHigh/prifly-aif-workflo
 короткий путь; полное LLM escalation/repair/resume остаётся задачей пилота.
 Экономия времени/токенов не измерена; для сравнения нужны одинаковые задачи
 и фактические метрики, число этапов её не доказывает.
+
+## Уточнение после живого отчёта: aif-fix 1.0.1
+
+Gate status blocked останавливает quality даже при usable pass и blocking=false.
+Если внешняя QA оставлена на последующую публикацию и не входит в обязательные
+проверки этого workflow, обозначить её как warning с точной границей проверки;
+не смешивать это с недоступной обязательной зависимостью.
+
+В answered_questions.answer нельзя передавать пустой текст: для short_checks=""
+дать объяснение «Пустая строка: дополнительных checks не настроено», basis
+decision и decision_id short_checks. Typed decision остаётся пустой строкой.
+Report с basis instructions сам не фиксирует runtime fix_plan_execution.
+
+Continue не принимает --workspace. После cancel сначала довести Run штатным
+drive до terminal, затем prepare; persistence_unavailable требует доступа CLI
+к authority, а не ручной правки её хранилища. Не выдавать npm audit, не запущенный
+в PHP-контейнере без npm, за выполненный; подобрать применимое окружение проверки.
+
+Переход остановленного v1.51.0 на исправленные контракты даёт
+recover_prefix_changed на warmup. Закончить старый Run на его установленной
+версии до update либо отдельно просмотреть предложенный engine полный replay
+с --from-stage warmup. Автоматический перенос старого accepted prefix здесь
+не обещан; работа/source Run при prepare не меняются. Не выполнять reset/clean.

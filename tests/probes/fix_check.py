@@ -8,6 +8,7 @@ Every stand, Run, claim and monitor entry created here is cleaned on exit.
 import argparse
 import hashlib
 import json
+import re
 from pathlib import Path
 import shutil
 import subprocess
@@ -24,7 +25,7 @@ INCOMPLETE = 'def total(value):\n    return value\n'
 CASES = ('direct', 'install', 'security-off', 'extension', 'escalation', 'decision-wait', 'custom', 'blocked-plan', 'blocked-execution', 'repair-review', 'repair-check', 'repair-limit',
          'repair-security', 'blocked-chain', 'cancel-check', 'cancel-review',
          'blocked-fix', 'owner-review', 'foreign-plan', 'plan-stop',
-         'effect-refusal', 'missing-output')
+         'effect-refusal', 'missing-output', 'blocked-pass-check', 'blocked-pass-security', 'blocked-pass-review', 'empty-question-answer')
 
 
 def command(tree, review=False):
@@ -76,11 +77,16 @@ class Host:
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(raw)
             template['result']['outputs'][port]['digest'] = 'sha256:' + hashlib.sha256(raw).hexdigest()
-        if omit:
+        if omit and self.case == 'missing-output':
             template['result']['outputs'].pop('implementation', None)
         template['result']['verdict'] = verdict
         template['result']['summary'] = f'Synthetic host {self.case}: {self.seen[-1]["step"]}'
         template['answered_questions'] = []
+        if self.case == 'empty-question-answer' and self.seen[-1]['step'] == 'check-change':
+            assert task['decision_context']['short_checks'] == ''
+            template['answered_questions'] = [{'question': 'Which additional checks?',
+                'answer': '' if omit else 'Empty string: no additional checks configured.',
+                'basis': 'decision', 'decision_id': 'short_checks'}]
         if task.get('model_profile'):
             template['model_profile'] = {'outcome': 'unavailable', 'reason': 'Synthetic host; no model/session independence claimed.'}
         report = Path(task['workspace']) / 'submission.json'
@@ -178,6 +184,12 @@ class Host:
             rc, after = command(tree); assert rc == 0
             path.write_text(path.read_text() + '\nExecuted and checked.\n')
             return 'pass', {'implementation': implementation(tree, self.base), 'result': {**prior, 'outcome': 'fixed', 'regression': {**prior['regression'], 'after': after}}}
+        if self.case.startswith('blocked-pass-') and self.blocked == 0:
+            target = {'check': 'check-change', 'security': 'aif-security', 'review': 'review-task'}[self.case.removeprefix('blocked-pass-')]
+            if step == target:
+                self.blocked += 1
+                return 'pass', {'gate': gate('verify' if step == 'check-change' else 'security' if step == 'aif-security' else 'review',
+                    blocked=True, findings=['Required fixture dependency unavailable; usable blocked gate reported with pass.'])}
         if step == 'check-change':
             rc, observed = command(tree)
             if self.case == 'effect-refusal': (tree / 'calc.py').write_text(BAD)
@@ -238,9 +250,9 @@ class Host:
                     self.call('run', 'drive', run_id)
                     return self.call('run', 'status', run_id)['run']
                 verdict, values = self.answer(task, step)
-                refused = self.submit(run_id, task, verdict, values, omit=self.case == 'missing-output' and step == 'fix-task')
+                refused = self.submit(run_id, task, verdict, values, omit=(self.case == 'missing-output' and step == 'fix-task') or (self.case == 'empty-question-answer' and step == 'check-change'))
                 if refused:
-                    if self.case in ('effect-refusal', 'missing-output'):
+                    if self.case in ('effect-refusal', 'missing-output', 'empty-question-answer'):
                         if self.case == 'effect-refusal': Path(task['repository_workspace'], 'calc.py').write_text(GOOD)
                         accepted = self.submit(run_id, task, verdict, values)
                         assert not accepted, accepted
@@ -278,7 +290,8 @@ def run_case(binary, case, host='codex-cli'):
                 source = root / 'workflow-source'
                 source.mkdir()
                 shutil.copytree(package, source / 'aif-fix')
-                catalog = (verify.ROOT / 'catalog/aif-fix.yaml').read_text().replace('https://github.com/StenHigh/prifly-aif-workflows.git', source.as_uri()).replace('ref: v1.51.0', 'ref: main')
+                catalog = (verify.ROOT / 'catalog/aif-fix.yaml').read_text().replace('https://github.com/StenHigh/prifly-aif-workflows.git', source.as_uri())
+                catalog = re.sub(r'(?m)^    ref: .+$', '    ref: main', catalog)
                 (source / 'catalog.yaml').write_text(catalog)
                 verify.git('-C', source, 'init', '-q', '-b', 'main')
                 verify.git('-C', source, 'add', '-A')
@@ -332,8 +345,15 @@ extensions:
             run_id = started['run']['run']['id']; probe.runs.append(run_id)
             cancel = 'check-change' if case == 'cancel-check' else 'review-task' if case == 'cancel-review' else None
             state = probe.drive(run_id, cancel)
-            if case in ('blocked-chain', 'cancel-check', 'cancel-review', 'blocked-fix', 'blocked-plan', 'blocked-execution', 'owner-review'):
-                assert state['status'] == 'cancelled' if cancel else state['outcome'] == 'partial', state
+            if case in ('blocked-chain', 'cancel-check', 'cancel-review', 'blocked-fix', 'blocked-plan', 'blocked-execution', 'owner-review', 'blocked-pass-check', 'blocked-pass-security', 'blocked-pass-review'):
+                assert state['status'] == 'cancelled' if cancel else state['outcome'] == 'partial', {key: state.get(key) for key in ('id', 'status', 'outcome')}
+                if case.startswith('blocked-pass-'):
+                    assert 'gate' in state['output_artifacts']
+                    expected_kind = 'verify' if case.endswith('check') else 'security' if case.endswith('security') else 'review'
+                    raw_gate = json.dumps(gate(expected_kind, blocked=True,
+                        findings=['Required fixture dependency unavailable; usable blocked gate reported with pass.'])).encode()
+                    assert state['output_artifacts']['gate']['digest'] == 'sha256:' + hashlib.sha256(raw_gate).hexdigest()
+                    assert not any(entry['step'] in ('repair', 'commit') for entry in probe.seen)
                 if case == 'blocked-chain': (probe.tree / 'calc.py').write_text(BAD)
                 resumed = probe.resume(repository, run_id, host); state = probe.drive(resumed)
                 if case == 'blocked-chain':
@@ -347,10 +367,14 @@ extensions:
             elif case in ('foreign-plan', 'plan-stop'):
                 assert state['outcome'] == 'partial'
                 assert 'gate' not in state['output_artifacts']
-            elif case in ('effect-refusal', 'missing-output'):
+            elif case in ('effect-refusal', 'missing-output', 'empty-question-answer'):
                 assert probe.refusals
-                expected = 'effect_not_permitted' if case == 'effect-refusal' else 'output'
+                expected = 'effect_not_permitted' if case == 'effect-refusal' else 'answered_questions_invalid' if case == 'empty-question-answer' else 'output'
                 assert expected in json.dumps(probe.refusals), probe.refusals
+                if case == 'empty-question-answer':
+                    assert '/answered_questions/0/answer' in json.dumps(probe.refusals)
+                    ledger = probe.call('run', 'decisions', run_id)
+                    assert next(record for record in ledger['records'] if record['definition_id'] == 'short_checks')['value'] == ''
             else:
                 assert (state['status'], state['outcome']) == ('completed', 'succeeded'), state
                 assert 'implementation' in state['output_artifacts']
@@ -379,7 +403,7 @@ extensions:
             return {'case': case, 'host': host, 'outcome': state.get('outcome'), 'status': state['status'],
                     'steps': [entry['step'] for entry in probe.seen], 'runs': len(probe.runs),
                     'claim_generations': sorted(set(probe.generations)), 'captures': probe.captures,
-                    'refusals': [{'code': p['code'], 'message': p['message']} for p in probe.refusals]}
+                    'refusals': [{'code': p['code'], 'message': p['message'], 'violations': p.get('violations', [])} for p in probe.refusals]}
         finally:
             clean(binary, authority, probe.runs)
             # A failed probe may leave a workspace-write delivery uncertain.

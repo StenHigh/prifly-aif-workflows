@@ -1,6 +1,6 @@
 authoring: prifly-step/2
 id: aif-fix:step/review-task
-version: 1.0.0
+version: 1.0.1
 title: review-task for the bug workflow
 kind: worker
 inputs:
@@ -14,7 +14,7 @@ executor: {adapter_ref: "{{assisted_adapter}}", operation: session}
 session_limits: {active_timeout_ms: null}
 result_schema_ref: "{{step_result_schema_v2}}"
 instructions_ref: "{{context_review-task-bridge}}"
-context_refs: ["{{context_aif-review}}"]
+context_refs: ["{{context_aif-review}}", "{{context_session-report}}"]
 effects: {class: none, retry_class: pure}
 repository_workspace: read_only
 model_profile: {requested: independent-review, reason: "One reviewer session without the author conversation; report unavailable when the host cannot provide it."}

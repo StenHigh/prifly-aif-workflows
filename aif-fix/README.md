@@ -60,8 +60,12 @@ is on by default; `exclude: [security]` is the explicit project bypass.
 `settings.quality.repair_round_limit` defaults to 3 and can be 1..8. A repair
 is a separate workspace-write Attempt; it then repeats checks, enabled security
 and review, with the current implementation and regression evidence. All
-blockers beyond repair's scope, unavailable dependencies or an exhausted limit
-finish partial with the real gate. A dependency broken by the change is a defect.
+blockers beyond repair's scope, unavailable required dependencies or an exhausted limit
+finish partial with the real gate. A dependency broken by the change is a defect. A usable pass/needs_revision
+report whose gate.status is blocked also stops partial with that exact gate;
+blocking=false does not turn unrun required checks into success. Optional external
+acceptance deferred outside this workflow is a warning under gate_warnings,
+with its missing evidence stated explicitly.
 
 Every fix result is a sealed JSON artifact with outcome/reason, work, execute_plan
 and regression `{check,before,after}`. A stopped fix returns current implementation
@@ -106,11 +110,44 @@ host is deterministic code using skill stubs: it does not prove an LLM follows
 the adapters or establish independent model review. Those need separate real
 host observations; the probe reports independence unavailable rather than pass.
 
-The first release is repository tag v1.51.0, package version 1.0.0. Install
+The first release was v1.51.0 (package 1.0.0). The pilot correction is
+v1.51.1 (package 1.0.1). Install
 with `prifly project workflows add aif-fix`, or directly from
-`StenHigh/prifly-aif-workflows --path aif-fix --ref v1.51.0`.
+`StenHigh/prifly-aif-workflows --path aif-fix --ref v1.51.1`.
 The central catalog pins the release tag and commit. Local catalog search/add
 and completion are probe-covered. See `../docs/pilot-aif-fix-v1.51.0.md`
 for pilot acceptance scenarios.
 The recorded verification and real host observation are in
 [`../tests/probes/results/aif-fix-0.13.76.md`](../tests/probes/results/aif-fix-0.13.76.md).
+
+## Pilot corrections in v1.51.1 / aif-fix 1.0.1
+
+The live pilot confirmed escalation through aif-fix, separate repair and chained
+resume on released Pri-Fly 0.13.76; its product path included a real repair,
+so it did not establish a clean direct LLM route without repair. Its remaining
+limits are recorded in [the pilot report](https://github.com/StenHigh/prifly-aif-workflows/issues/4#issuecomment-6132513896).
+
+The shared session-report context explains every Attempt's question report.
+answered_questions.answer is nonempty prose; it is not the typed decision.
+For short_checks="", report for example "Empty string: no additional checks
+configured", basis decision, decision_id short_checks. Preserve the original
+empty typed value and report only questions this Attempt actually met.
+Pri-Fly 0.13.76 refuses the literal empty answer; the runtime fixture verifies
+both that refusal and acceptance of the explanation without changing the ledger.
+A basis instructions question entry alone is not a declared runtime decision.
+
+Continue does not accept --workspace overrides; use the inherited claim mode.
+After cancel, drive to settled terminal state before prepare. CLI access to the
+authority must be available; persistence_unavailable is not cured by editing
+its files. A supporting audit script missing npm in a PHP environment requires
+an applicable read-only audit environment and honest coverage reporting, not
+dependency edits in this package. Existing advisories remain standing warnings
+unless this change introduced/exposed them.
+
+Updating an already stopped v1.51.0 Run to these contracts was checked with
+continue --prepare: Pri-Fly 0.13.76 refuses recover_prefix_changed at warmup
+because the report context changed. Prepare leaves the source Run and claim
+work untouched. Finish old Runs on their installed v1.51.0 before updating,
+or review an explicit --from-stage warmup replay; do not assume an accepted
+old prefix carries across this contract change. That full cross-version replay
+was not executed by the probe. Same-version chained resume remains covered.

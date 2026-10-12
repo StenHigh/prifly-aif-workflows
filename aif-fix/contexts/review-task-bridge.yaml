@@ -1,5 +1,5 @@
 id: aif-fix:context/review-task-bridge
-version: 1.0.0
+version: 1.0.1
 media_type: text/markdown; charset=utf-8
 text: |
   # One independent, read-only reviewer of the bug fix
@@ -22,3 +22,8 @@ text: |
   status blocked, blocking false, suggested_next continue, failed command and
   unrun checks in findings. Actual defects use pass with blocking true; usable
   needs_revision takes the same decision. fail/no_work ends rejected.
+  status blocked means a required in-scope check could not run; it stops
+  quality even with a usable pass/needs_revision report. Never use pass plus
+  blocked to bypass dependency availability. Optional out-of-scope external
+  acceptance left for later is a warning finding, governed by gate_warnings;
+  distinguish it from a required check and never claim it ran.

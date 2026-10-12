@@ -1,6 +1,6 @@
 authoring: prifly-step/2
 id: aif-fix:step/commit
-version: 1.0.0
+version: 1.0.1
 title: commit for the bug workflow
 kind: worker
 inputs:
@@ -16,5 +16,5 @@ executor: {adapter_ref: "{{assisted_adapter}}", operation: session}
 session_limits: {active_timeout_ms: null}
 result_schema_ref: "{{step_result_schema_v2}}"
 instructions_ref: "{{context_commit-bridge}}"
-context_refs: ["{{context_fix-path}}", "{{context_aif-commit}}"]
+context_refs: ["{{context_fix-path}}", "{{context_aif-commit}}", "{{context_session-report}}"]
 effects: {class: workspace_write, retry_class: never}

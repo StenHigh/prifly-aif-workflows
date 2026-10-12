@@ -1,5 +1,5 @@
 id: aif-fix:context/aif-security-bridge
-version: 1.0.0
+version: 1.0.1
 media_type: text/markdown; charset=utf-8
 text: |
   # Read-only security audit with repair routing
@@ -25,3 +25,8 @@ text: |
   needs_revision is only for a result that cannot otherwise be established;
   fail/no_work ends rejected. Every finding requires evidence, never a guessed
   pass. Model limitations are reported honestly and follow gate_warnings.
+  status blocked means a required in-scope check could not run; it stops
+  quality even with a usable pass/needs_revision report. Never use pass plus
+  blocked to bypass dependency availability. Optional out-of-scope external
+  acceptance left for later is a warning finding, governed by gate_warnings;
+  distinguish it from a required check and never claim it ran.

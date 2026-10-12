@@ -6,7 +6,38 @@
 движка 0.10–0.13.54, переход на AI Factory 2.19.0, WorkflowRevision v4) —
 в git: `git show d388b92:CONTEXT_STATE.md` (2330 строк, оглавление — `mdq tree`).
 
-## Состояние на 2026-10-12
+## Состояние на 2026-10-13
+
+- **Живой отчёт пилота #4 и исправления (2026-10-13):**
+  https://github.com/StenHigh/prifly-aif-workflows/issues/4#issuecomment-6132513896.
+  Released Pri-Fly 0.13.76 по-прежнему latest stable, новых выпусков нет.
+  Пилот реально подтвердил escalation pinned aif-fix, отдельный repair и
+  partial→cancelled→succeeded chained resume на одном claim 1→2→3; продуктовый
+  короткий путь включал repair. Прямой LLM путь без repair, custom/negative
+  случаи, intervening edit и отличающаяся модель этим отчётом не подтверждены.
+  Подтверждена дыра aif-fix 1.0.0: usable verdict pass + gate.status blocked
+  игнорировался choice и приводил к succeeded. Регрессия RED на stable.
+  В aif-fix 1.0.1 status blocked имеет приоритет в checks/security/review:
+  partial с точным исходным gate, без repair/commit; после восстановления —
+  same-version resume и finish, regression GREEN. Внешняя optional QA после
+  публикации — warning, не blocked обязательной проверки и не полная приёмка.
+  Literal answered_questions.answer="" воспроизводит answered_questions_invalid
+  /answered_questions/0/answer на stable; непустое объяснение проходит, typed
+  short_checks и ledger остаются "". Новый session-report context у всех 9
+  Attempts документирует это и отличает report basis от runtime permission.
+  Core/report API не меняли. Отказы --workspace resume override, prepare до
+  settled cancel и sandbox authority access — ожидаемые условия, не bug графа.
+  audit.sh без npm в PHP environment — проектная интеграция, standing npm
+  advisories не исправляются под видом работы над workflow.
+  Версии изменённых bridges/9 steps/4 workflows и package/root подняты;
+  classic/profiled/fanout byte-for-byte не менялись. Static10, verify, compatibility
+  и derive_profiled — PASS. Classic pass/blocked-resume/cancelled-resume
+  probes — PASS в прежней границе до следующего handoff.
+  Новые runtime cases покрывают 3 blocked usable
+  reports и empty-answer отказ/объяснение; полная расширенная матрица запускается.
+  Cross-version continue prepare (v1.51.0→1.0.1) — ожидаемый recover_prefix_changed
+  at warmup; source run_version и claim tree неизменны. Full explicit replay
+  --from-stage warmup не исполнялся, automatic prefix migration не обещается.
 
 - **v1.51.0 опубликован для пилота (2026-10-12):** подписанный commit
   `b3ca8d2a31e9cd2e3da36b38205316f86d6be912`, подписанный annotated tag и
