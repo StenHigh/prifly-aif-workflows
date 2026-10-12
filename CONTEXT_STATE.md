@@ -8,6 +8,20 @@
 
 ## Состояние на 2026-10-13
 
+- **Pilot fixes опубликованы v1.51.1 (2026-10-13):** aif-fix 1.0.1,
+  подписанный commit `2be86bf1683951f71c1606f3fb3930ac16af23db` и annotated tag,
+  https://github.com/StenHigh/prifly-aif-workflows/releases/tag/v1.51.1.
+  Центральный каталог commit `564adde734b4fa1a0573ab7ec3e813d00eb81230`:
+  4 entries exact pinned на этот tag/source commit. Published catalog install
+  и полный synthetic smoke Run — PASS/succeeded, claims/стенд очищены;
+  tests/probes/results/aif-fix-published-v1.51.1.json.
+  Разбор и исправления опубликованы в issue #4:
+  https://github.com/StenHigh/prifly-aif-workflows/issues/4#issuecomment-6132816375.
+  CI tag: https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38309753196.
+  До update завершить остановленные v1.51.0 на старом installed contract либо
+  отдельно рассмотреть explicit replay по engine prepare; recover_prefix_changed
+  at warmup проверен, полного cross-version replay не было. Issue открыт.
+
 - **Живой отчёт пилота #4 и исправления (2026-10-13):**
   https://github.com/StenHigh/prifly-aif-workflows/issues/4#issuecomment-6132513896.
   Released Pri-Fly 0.13.76 по-прежнему latest stable, новых выпусков нет.

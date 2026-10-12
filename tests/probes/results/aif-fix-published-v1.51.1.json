@@ -1,0 +1,17 @@
+{
+  "outcome": "passed",
+  "prifly": "0.13.76",
+  "catalog_commit": "564adde734b4fa1a0573ab7ec3e813d00eb81230",
+  "source_commit": "2be86bf1683951f71c1606f3fb3930ac16af23db",
+  "release": "v1.51.1",
+  "workflow_outcome": "succeeded",
+  "steps": [
+    "warmup",
+    "fix-task",
+    "check-change",
+    "aif-security",
+    "review-task",
+    "commit"
+  ],
+  "boundary": "Published catalog/tag, real installation and complete Run; synthetic host."
+}
