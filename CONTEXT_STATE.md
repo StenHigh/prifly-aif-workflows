@@ -33,7 +33,17 @@
   tests/probes/results/aif-fix-bridge-1.0.2.md и JSON рядом.
   Собственные tests — synthetic host + released CLI/Git/capture, нового LLM
   пилота/модельной независимости не заявляем. 1.0.0→1.0.1 full warmup replay
-  остаётся непроверенным. Выпуск и published catalog smoke — следующий шаг.
+  остаётся непроверенным. Выпущен signed v1.51.2, source commit
+  `0e93c36672e23ac404463f815cb89c7c3ffe31fe`:
+  https://github.com/StenHigh/prifly-aif-workflows/releases/tag/v1.51.2.
+  Центральный каталог `e11069d467d67567ad224089556aa955461579b5` меняет только
+  aif-fix exact pin; остальные 3 записи остались на v1.51.1. После публикации
+  standard catalog search/add, exact origin и 4 полных synthetic Runs — PASS:
+  direct, fix-plan, repair-review и blocked-review/resume → succeeded; cleanup
+  claims/monitor завершён. tests/probes/results/aif-fix-published-v1.51.2.json.
+  CI main green: https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38318122211.
+  CI tag green: https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38318683722.
+  Issue #4 остаётся открытым на остальные границы живой приёмки.
 
 - **Pilot fixes опубликованы v1.51.1 (2026-10-13):** aif-fix 1.0.1,
   подписанный commit `2be86bf1683951f71c1606f3fb3930ac16af23db` и annotated tag,

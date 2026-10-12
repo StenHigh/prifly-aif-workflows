@@ -77,3 +77,22 @@ The 1.0.0→1.0.1 full warmup replay remains outside this test.
 Every temporary Run, claim and monitor entry created by these tests is cleaned.
 [Runtime matrix](aif-fix-bridge-1.0.2-runtime.json),
 [gate summary](aif-fix-bridge-1.0.2-gates.json).
+
+## Published release
+
+Signed v1.51.2 source commit `0e93c36672e23ac404463f815cb89c7c3ffe31fe`.
+Central catalog commit `e11069d467d67567ad224089556aa955461579b5` changes only
+the aif-fix pin; the other three entries remain on v1.51.1.
+
+After publication, four fresh repositories installed aif-fix through standard
+catalog search/add with exact tag/commit verification. Direct, native fix-plan,
+repair after review and blocked review → reviewed resume all ended succeeded.
+The blocked source ended partial without repair/commit; resumed quality gates
+ran again, on the same claim 1→2. All temporary claims/monitor entries cleaned.
+These are synthetic-host integration tests of the actual published package.
+See [data](aif-fix-published-v1.51.2.json).
+
+CI main and release tag both passed on latest stable Pri-Fly, including all 28
+runtime cases on Linux:
+[main](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38318122211),
+[tag](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38318683722).

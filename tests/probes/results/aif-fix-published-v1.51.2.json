@@ -1,0 +1,124 @@
+{
+  "outcome": "passed",
+  "prifly": "0.13.76",
+  "release": "v1.51.2",
+  "source_commit": "0e93c36672e23ac404463f815cb89c7c3ffe31fe",
+  "cases": [
+    {
+      "case": "direct",
+      "outcome": "passed",
+      "workflow_outcome": "succeeded",
+      "origin": {
+        "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+        "path": "aif-fix",
+        "ref": "v1.51.2",
+        "commit": "0e93c36672e23ac404463f815cb89c7c3ffe31fe",
+        "digest": "sha256:9d848751afd0c12505d357fa3c9ed8590420a4959b3f735d33957653315635cc",
+        "extend_digest": "sha256:e0eac5faca12afb288167035fb55e11100968c3c01ddfd320948f4acf198d649",
+        "catalog": "https://github.com/StenHigh/prifly-workflows.git"
+      },
+      "catalog_commit": "e11069d467d67567ad224089556aa955461579b5",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "commit"
+      ],
+      "claim_generations": [
+        1
+      ]
+    },
+    {
+      "case": "escalation",
+      "outcome": "passed",
+      "workflow_outcome": "succeeded",
+      "origin": {
+        "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+        "path": "aif-fix",
+        "ref": "v1.51.2",
+        "commit": "0e93c36672e23ac404463f815cb89c7c3ffe31fe",
+        "digest": "sha256:9d848751afd0c12505d357fa3c9ed8590420a4959b3f735d33957653315635cc",
+        "extend_digest": "sha256:e0eac5faca12afb288167035fb55e11100968c3c01ddfd320948f4acf198d649",
+        "catalog": "https://github.com/StenHigh/prifly-workflows.git"
+      },
+      "catalog_commit": "e11069d467d67567ad224089556aa955461579b5",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "fix-plan",
+        "fix-from-plan",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "commit"
+      ],
+      "claim_generations": [
+        1
+      ]
+    },
+    {
+      "case": "repair-review",
+      "outcome": "passed",
+      "workflow_outcome": "succeeded",
+      "origin": {
+        "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+        "path": "aif-fix",
+        "ref": "v1.51.2",
+        "commit": "0e93c36672e23ac404463f815cb89c7c3ffe31fe",
+        "digest": "sha256:9d848751afd0c12505d357fa3c9ed8590420a4959b3f735d33957653315635cc",
+        "extend_digest": "sha256:e0eac5faca12afb288167035fb55e11100968c3c01ddfd320948f4acf198d649",
+        "catalog": "https://github.com/StenHigh/prifly-workflows.git"
+      },
+      "catalog_commit": "e11069d467d67567ad224089556aa955461579b5",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "repair",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "commit"
+      ],
+      "claim_generations": [
+        1
+      ]
+    },
+    {
+      "case": "blocked-pass-review",
+      "outcome": "passed",
+      "workflow_outcome": "succeeded",
+      "origin": {
+        "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+        "path": "aif-fix",
+        "ref": "v1.51.2",
+        "commit": "0e93c36672e23ac404463f815cb89c7c3ffe31fe",
+        "digest": "sha256:9d848751afd0c12505d357fa3c9ed8590420a4959b3f735d33957653315635cc",
+        "extend_digest": "sha256:e0eac5faca12afb288167035fb55e11100968c3c01ddfd320948f4acf198d649",
+        "catalog": "https://github.com/StenHigh/prifly-workflows.git"
+      },
+      "catalog_commit": "e11069d467d67567ad224089556aa955461579b5",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "commit"
+      ],
+      "claim_generations": [
+        1,
+        2
+      ],
+      "partial_gate_digest": "sha256:bef71d5a6c9617344f9eebffda7c43b174a0fdfd8427317cfe8d03a1df2b403c"
+    }
+  ],
+  "boundary": "Actual central catalog installation with exact published tag/commit; real runtime/Git/capture/commit; synthetic host, no new LLM pilot claim."
+}
