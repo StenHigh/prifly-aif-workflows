@@ -8,6 +8,22 @@
 
 ## Состояние на 2026-10-12
 
+- **v1.51.0 опубликован для пилота (2026-10-12):** подписанный commit
+  `b3ca8d2a31e9cd2e3da36b38205316f86d6be912`, подписанный annotated tag и
+  https://github.com/StenHigh/prifly-aif-workflows/releases/tag/v1.51.0.
+  Центральный каталог опубликован commit
+  `18b873edb1dbe2b331753d94e9f33e669630e341`: четыре записи pinned на v1.51.0
+  и exact package-source commit, новая запись aif-fix доступна по имени.
+  Published catalog search/add + полный synthetic smoke Run — PASS/succeeded
+  на released Pri-Fly 0.13.76; стенд/claim/monitor entry удалены.
+  Артефакт: tests/probes/results/aif-fix-published-v1.51.0.json.
+  Пилотные действия владелец передаёт сам по docs/pilot-aif-fix-v1.51.0.md;
+  никаких сообщений или изменений в проекте пилота из этой сессии нет.
+  Публикация отмечена в issue #4:
+  https://github.com/StenHigh/prifly-aif-workflows/issues/4#issuecomment-6130768067.
+  CI release tag: https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38294848148.
+  Issue #4 остаётся открытым до фактической приёмки пилотом.
+
 - **Выпуск v1.51.0 разрешён владельцем для пилота (2026-10-12).**
   Latest stable Pri-Fly повторно проверен: 0.13.76, новых выпусков нет.
   Новый aif-fix:package/fix@1.0.0; classic/profiled/fanout остаются прежними.
