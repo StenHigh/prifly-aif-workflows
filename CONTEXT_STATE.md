@@ -8,6 +8,33 @@
 
 ## Состояние на 2026-10-13
 
+- **Уточнение bridge к v1.51.2 / aif-fix 1.0.2 (2026-10-13):**
+  выверены против выпущенного Pri-Fly `v0.13.76`; новых stable нет.
+  Живой повторный пилот v1.51.1 подтвердил blocked pass во всех трёх readers,
+  пустой short_checks report и chained resume:
+  https://github.com/StenHigh/prifly-aif-workflows/issues/4#issuecomment-6133548812.
+  Уточнены только check/security/review bridges: verdict — пригодность отчёта,
+  gate.status — доступность/результат проверки. Установленная required missing
+  dependency: usable pass + blocked gate; verdict blocked — невозможность
+  пригодной оценки с обязательным diagnostic gate. Usable needs_revision
+  маршрутизируется так же. 3 contexts/3 steps/2 quality workflows/root/package
+  версии 1.0.2; graph/effects/schemas/warmup/build и classic/profiled/fanout
+  byte-for-byte не менялись. Static10, derive, verify (59 components/34 steps),
+  compatibility, 28 runtime cases и 4 classic probes — PASS; ещё 3 blocked
+  needs_revision/resume cases — PASS. Собственная проверка real add/update из
+  local Git origin: partial blocked quality 1.0.1→1.0.2 prepare accepted,
+  frontier quality/reuse warmup+build, fresh gates/commit succeeded. Partial
+  на deliberately withheld commit после accepted quality: recover_prefix_changed
+  at quality, reviewed --from-stage quality → succeeded. В обоих один claim 1→2,
+  base/owner work сохранены, source/tree при prepare не меняются. Exploratory
+  cancel delivered writable commit: resolve not_applied settles failed with
+  active cancel, prepare recover_source_unsettled; это source guard, не bug
+  пакета. Стенды/claims/monitor очищены. Evidence:
+  tests/probes/results/aif-fix-bridge-1.0.2.md и JSON рядом.
+  Собственные tests — synthetic host + released CLI/Git/capture, нового LLM
+  пилота/модельной независимости не заявляем. 1.0.0→1.0.1 full warmup replay
+  остаётся непроверенным. Выпуск и published catalog smoke — следующий шаг.
+
 - **Pilot fixes опубликованы v1.51.1 (2026-10-13):** aif-fix 1.0.1,
   подписанный commit `2be86bf1683951f71c1606f3fb3930ac16af23db` и annotated tag,
   https://github.com/StenHigh/prifly-aif-workflows/releases/tag/v1.51.1.

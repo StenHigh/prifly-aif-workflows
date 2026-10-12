@@ -1,0 +1,36 @@
+{
+  "outcome": "passed",
+  "prifly": "0.13.76",
+  "source": "v1.51.1 / 1.0.1",
+  "target": "v1.51.2 / 1.0.2 working tree in local Git origin",
+  "source_and_claim_unchanged_during_prepare": true,
+  "final_outcome": "succeeded",
+  "resumed_steps": [
+    "check-change",
+    "aif-security",
+    "review-task",
+    "commit"
+  ],
+  "claim_generations": [
+    1,
+    2
+  ],
+  "original_base_preserved": true,
+  "owner_work_hashes": {
+    "owner.txt": "6aacb66fa88970f66e96ef3ae2e09bf026a9f3f7b841c27bfc8edf8cc3a51e5d",
+    "owner-scratch.txt": "73214eb63f7477fc71e3084519ae424e1839d41a766076a3595c68c2ebe65d94"
+  },
+  "boundary": "Synthetic host, actual workflows add/update from isolated local Git tags, real runtime/Git; no LLM or independent reviewer claim.",
+  "initial_prepare_outcome": "accepted",
+  "frontier_stage_id": "quality",
+  "reused_stages": [
+    "warmup",
+    "build",
+    "fix-task",
+    "fixed"
+  ],
+  "review_digest": "sha256:4b804b6a56718c31a97f7ca3ffdd2b0aac6aa1d4b6c961ef1132513a225911e3",
+  "source_run_id": "run:ce95aa929a66eaf5bd828a592692c6469a952503c6e6590ae199194495504312",
+  "source_run_version": 31,
+  "source_stop": "partial at blocked quality"
+}

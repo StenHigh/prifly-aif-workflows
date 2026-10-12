@@ -1,6 +1,6 @@
 authoring: prifly-step/2
 id: aif-fix:step/review-task
-version: 1.0.1
+version: 1.0.2
 title: review-task for the bug workflow
 kind: worker
 inputs:

@@ -1,0 +1,54 @@
+{
+  "prifly": "0.13.76",
+  "binary_sha256": "sha256:5df5aceccde63c173d3f38f20426eb9dd131e6c3b0f6511a99002ad874a49f00",
+  "static_tests": 10,
+  "verify": {
+    "outcome": "passed",
+    "prifly": "0.13.76",
+    "binary_sha256": "sha256:5df5aceccde63c173d3f38f20426eb9dd131e6c3b0f6511a99002ad874a49f00",
+    "platform": "darwin/arm64",
+    "packages": [
+      "aif-classic",
+      "aif-fanout",
+      "aif-fix",
+      "aif-profiled"
+    ],
+    "components_read": 59,
+    "steps_read": 34,
+    "registry_entries_removed": 1
+  },
+  "compatibility": {
+    "outcome": "passed",
+    "prifly": "0.13.76",
+    "binary_sha256": "sha256:5df5aceccde63c173d3f38f20426eb9dd131e6c3b0f6511a99002ad874a49f00",
+    "platform": "darwin/arm64",
+    "launches": 5,
+    "distinct_builds": 4,
+    "trusted_packages": 4,
+    "profiled_sealed_as": "core-state/41",
+    "boundary": "assisted handoff dispatched; no AI host answers it here",
+    "registry_entries_removed": 1
+  },
+  "classic": {
+    "pass": {
+      "outcome": "passed"
+    },
+    "blocked": {
+      "outcome": "passed"
+    },
+    "blocked-resume": {
+      "outcome": "passed"
+    },
+    "cancelled-resume": {
+      "outcome": "passed"
+    }
+  },
+  "unmodified_packages": [
+    "aif-classic",
+    "aif-profiled",
+    "aif-fanout"
+  ],
+  "runtime_cases": 28,
+  "usable_needs_revision_cases": 3,
+  "boundary": "Synthetic host runtime/Git tests; no new LLM or independent-review observation."
+}

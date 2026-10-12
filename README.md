@@ -36,6 +36,9 @@
 
 `aif-fix` добавлен в v1.51.0; **v1.51.1 / пакет 1.0.1** исправляет
 маршрутизацию usable blocked gate и объясняет формат пустых declared answers.
+**v1.51.2 / пакет 1.0.2** уточняет: verdict описывает пригодность отчёта,
+а `gate.status` — результат и доступность проверок. Usable blocked gate
+возвращается с `pass` и останавливает Run как `partial`.
 [README пакета](aif-fix/README.md) описывает входы, решения, две политики
 fix-плана и resume; [инструкция пилоту](docs/pilot-aif-fix-v1.51.0.md) — установку
 и сценарии приёмки. Запись каталога — [catalog/aif-fix.yaml](catalog/aif-fix.yaml).

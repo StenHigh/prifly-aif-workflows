@@ -1,7 +1,7 @@
 authoring: prifly-workflow/1
 schema_version: "6"
 id: aif-fix:workflow/quality
-version: 1.0.1
+version: 1.0.2
 title: quality for aif-fix
 refs:
   schema_task: "{{schema_task}}"

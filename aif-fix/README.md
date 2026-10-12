@@ -63,6 +63,10 @@ and review, with the current implementation and regression evidence. All
 blockers beyond repair's scope, unavailable required dependencies or an exhausted limit
 finish partial with the real gate. A dependency broken by the change is a defect. A usable pass/needs_revision
 report whose gate.status is blocked also stops partial with that exact gate;
+pass means the report is usable, not that checks passed. For a required check
+prevented by an unavailable external dependency, return pass with status blocked
+and command/unrun-check evidence. Verdict blocked is for an Attempt that cannot
+produce a usable assessment; it must still supply the required diagnostic gate.
 blocking=false does not turn unrun required checks into success. Optional external
 acceptance deferred outside this workflow is a warning under gate_warnings,
 with its missing evidence stated explicitly.

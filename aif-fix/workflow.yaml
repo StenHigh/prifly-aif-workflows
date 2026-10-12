@@ -1,7 +1,7 @@
 authoring: prifly-project-workflow/1
 package:
   id: aif-fix:package/fix
-  version: 1.0.1
+  version: 1.0.2
   description: Fix a specific bug with regression evidence and one review; complex bugs use their own fix-plan executed by aif-fix, not feature implementation.
   requires_core_protocol: "1"
   profiles:
@@ -20,7 +20,7 @@ package:
     workspace_tree_manifest: core:schema/workspace-tree-manifest@1.0.0
 id: aif-fix:workflow/fix
 schema_version: "8"
-version: 1.0.1
+version: 1.0.2
 title: AI Factory bug fix workflow
 refs:
   schema_task: "{{schema_task}}"

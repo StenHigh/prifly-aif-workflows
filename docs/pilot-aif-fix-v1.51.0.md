@@ -1,6 +1,6 @@
-# Пилот: отдельный aif-fix в v1.51.0
+# Пилот: отдельный aif-fix (актуально для v1.51.2)
 
-Новый пакет `aif-fix:package/fix@1.0.0` не меняет classic/profiled/fanout.
+Пакет `aif-fix:package/fix@1.0.2` не меняет classic/profiled/fanout.
 Нужен выпущенный Pri-Fly **0.13.76 или новее** и AI Factory **2.19.0**:
 `aif-warmup`, `aif-fix`, `aif-security-checklist`, `aif-review`, `aif-commit`
 в skills root выбранного host. Проверьте версию бинаря, которым пользуется
@@ -16,11 +16,11 @@ prifly project workflows add aif-fix --repository .
 prifly project workflows --repository .
 ```
 
-Если пакет уже установлен, используйте `project workflows update aif-fix`,
+Если пакет уже установлен, используйте `project workflows update aif-fix --ref v1.51.2`,
 сохранив проектный extend.yaml. Прямая установка закреплённого выпуска:
 
 ```sh
-prifly project workflows add StenHigh/prifly-aif-workflows --path aif-fix --ref v1.51.0 --repository .
+prifly project workflows add StenHigh/prifly-aif-workflows --path aif-fix --ref v1.51.2 --repository .
 ```
 
 После установки новый launch должен появиться в обычном списке prifly-run.
@@ -94,3 +94,19 @@ recover_prefix_changed на warmup. Закончить старый Run на е�
 версии до update либо отдельно просмотреть предложенный engine полный replay
 с --from-stage warmup. Автоматический перенос старого accepted prefix здесь
 не обещан; работа/source Run при prepare не меняются. Не выполнять reset/clean.
+
+## Уточнение bridge: aif-fix 1.0.2 / v1.51.2
+
+Verdict — пригодность отчёта, gate.status — результат и доступность проверки.
+Для установленной недоступности обязательной внешней зависимости вернуть pass
+с status blocked и доказательствами: Run остановится partial без repair/commit.
+Verdict blocked оставить для Attempt, который не может сформировать пригодную
+оценку; обязательный диагностический gate всё равно нужен. Не заменять required
+blocked на passed/warnings. Usable needs_revision маршрутизируется так же.
+
+Изменились контракты quality, а не warmup/build. Проверенный переход partial
+на blocked quality из v1.51.1 в v1.51.2: prepare принимается с frontier quality,
+reuse warmup/build; после reviewed continue все quality gates исполняются заново.
+Для partial на commit после принятого quality проверен отказ
+recover_prefix_changed на quality; reviewed --from-stage quality повторяет все
+гейты и commit до succeeded. Перед replay просмотреть prepare и точный digest.

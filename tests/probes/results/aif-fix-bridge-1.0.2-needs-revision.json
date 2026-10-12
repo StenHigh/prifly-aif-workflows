@@ -1,0 +1,76 @@
+{
+  "outcome": "passed",
+  "prifly": "0.13.76",
+  "cases": [
+    {
+      "case": "blocked-needs_revision-check",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "status": "completed",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "check-change",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "commit"
+      ],
+      "runs": 2,
+      "claim_generations": [
+        1,
+        2
+      ],
+      "captures": [],
+      "refusals": []
+    },
+    {
+      "case": "blocked-needs_revision-security",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "status": "completed",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "check-change",
+        "aif-security",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "commit"
+      ],
+      "runs": 2,
+      "claim_generations": [
+        1,
+        2
+      ],
+      "captures": [],
+      "refusals": []
+    },
+    {
+      "case": "blocked-needs_revision-review",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "status": "completed",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "commit"
+      ],
+      "runs": 2,
+      "claim_generations": [
+        1,
+        2
+      ],
+      "captures": [],
+      "refusals": []
+    }
+  ],
+  "boundary": "Synthetic host; same blocked-gate assertions and actual resume, using usable needs_revision instead of pass."
+}

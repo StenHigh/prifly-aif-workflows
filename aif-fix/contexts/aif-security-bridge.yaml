@@ -1,5 +1,5 @@
 id: aif-fix:context/aif-security-bridge
-version: 1.0.1
+version: 1.0.2
 media_type: text/markdown; charset=utf-8
 text: |
   # Read-only security audit with repair routing
@@ -16,17 +16,22 @@ text: |
   makes them repair work; stop sets blocking and blocking_owner_only true and
   names the owner's decision. Set blocking_owner_only true only when all
   remaining blockers require owner decisions or access outside repair's scope.
-  Verdict pass carries every established audit result, including failed checks
-  and missing acceptance evidence. Pri-Fly routes repairable blocking findings
-  to a separate repair Attempt and repeats all gates; this reader never fixes.
-  An unavailable external dependency returns blocked with status blocked,
-  blocking false, suggested_next continue and command/output evidence of checks
-  left unrun. A dependency broken by this change is a repairable finding.
-  needs_revision is only for a result that cannot otherwise be established;
-  fail/no_work ends rejected. Every finding requires evidence, never a guessed
-  pass. Model limitations are reported honestly and follow gate_warnings.
-  status blocked means a required in-scope check could not run; it stops
-  quality even with a usable pass/needs_revision report. Never use pass plus
-  blocked to bypass dependency availability. Optional out-of-scope external
-  acceptance left for later is a warning finding, governed by gate_warnings;
-  distinguish it from a required check and never claim it ran.
+  Pri-Fly routes repairable blocking findings to a separate repair Attempt and
+  repeats all gates; this reader never fixes.
+  A dependency broken by this change is a repairable finding.
+  Every finding requires evidence; never guess that checks passed.
+  Model limitations are reported honestly and follow gate_warnings.
+  Verdict describes report usability; gate.status describes check results and
+  availability. Return pass for a usable, evidence-backed gate, including failed
+  or blocked checks; pass does not mean the checks passed. When an unavailable
+  external dependency prevents a required in-scope check, return pass with
+  status blocked, blocking false, suggested_next continue, the failed command
+  and unrun checks in findings. Pri-Fly stops partial with that exact gate,
+  without repair or commit. If this Attempt cannot produce a usable assessment,
+  return verdict blocked with the required diagnostic gate explaining why.
+  A usable needs_revision follows the same graph decision; fail/no_work ends
+  rejected. Status blocked takes priority for every usable verdict; never
+  relabel a required blocked check as passed or warnings to continue.
+  Optional out-of-scope external acceptance left for later is a warning finding,
+  governed by gate_warnings. Distinguish it from a required check and never
+  claim it ran.

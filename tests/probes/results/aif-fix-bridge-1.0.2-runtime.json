@@ -1,0 +1,694 @@
+{
+  "outcome": "passed",
+  "prifly": "0.13.76",
+  "binary_sha256": "sha256:5df5aceccde63c173d3f38f20426eb9dd131e6c3b0f6511a99002ad874a49f00",
+  "boundary": "Synthetic host, real runtime/Git/captures; no LLM or independent reviewer session claimed.",
+  "cases": [
+    {
+      "case": "direct",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "status": "completed",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "commit"
+      ],
+      "runs": 1,
+      "claim_generations": [
+        1
+      ],
+      "captures": [],
+      "refusals": []
+    },
+    {
+      "case": "install",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "status": "completed",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "commit"
+      ],
+      "runs": 1,
+      "claim_generations": [
+        1
+      ],
+      "captures": [],
+      "refusals": []
+    },
+    {
+      "case": "security-off",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "status": "completed",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "check-change",
+        "review-task",
+        "commit"
+      ],
+      "runs": 1,
+      "claim_generations": [
+        1
+      ],
+      "captures": [],
+      "refusals": []
+    },
+    {
+      "case": "extension",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "status": "completed",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "commit",
+        "extension"
+      ],
+      "runs": 1,
+      "claim_generations": [
+        1
+      ],
+      "captures": [],
+      "refusals": []
+    },
+    {
+      "case": "escalation",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "status": "completed",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "fix-plan",
+        "fix-from-plan",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "commit"
+      ],
+      "runs": 1,
+      "claim_generations": [
+        1
+      ],
+      "captures": [
+        {
+          "stage": "create",
+          "digest": "d1b6e7ff8cdffd3b4d55295bc25cccd51e7329af2f5608500029c5d0c8752ebd"
+        },
+        {
+          "stage": "materialize",
+          "digest": "d1b6e7ff8cdffd3b4d55295bc25cccd51e7329af2f5608500029c5d0c8752ebd"
+        }
+      ],
+      "refusals": []
+    },
+    {
+      "case": "decision-wait",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "status": "completed",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "fix-plan",
+        "fix-from-plan",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "commit"
+      ],
+      "runs": 1,
+      "claim_generations": [
+        1
+      ],
+      "captures": [
+        {
+          "stage": "create",
+          "digest": "d1b6e7ff8cdffd3b4d55295bc25cccd51e7329af2f5608500029c5d0c8752ebd"
+        },
+        {
+          "stage": "materialize",
+          "digest": "d1b6e7ff8cdffd3b4d55295bc25cccd51e7329af2f5608500029c5d0c8752ebd"
+        }
+      ],
+      "refusals": []
+    },
+    {
+      "case": "custom",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "status": "completed",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "fix-plan",
+        "fix-from-plan",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "commit"
+      ],
+      "runs": 1,
+      "claim_generations": [
+        1
+      ],
+      "captures": [
+        {
+          "stage": "create",
+          "digest": "d1b6e7ff8cdffd3b4d55295bc25cccd51e7329af2f5608500029c5d0c8752ebd"
+        },
+        {
+          "stage": "materialize",
+          "digest": "d1b6e7ff8cdffd3b4d55295bc25cccd51e7329af2f5608500029c5d0c8752ebd"
+        }
+      ],
+      "refusals": []
+    },
+    {
+      "case": "blocked-plan",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "status": "completed",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "fix-plan",
+        "fix-task",
+        "fix-plan",
+        "fix-from-plan",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "commit"
+      ],
+      "runs": 2,
+      "claim_generations": [
+        1,
+        2
+      ],
+      "captures": [
+        {
+          "stage": "create",
+          "digest": "d1b6e7ff8cdffd3b4d55295bc25cccd51e7329af2f5608500029c5d0c8752ebd"
+        },
+        {
+          "stage": "create",
+          "digest": "d1b6e7ff8cdffd3b4d55295bc25cccd51e7329af2f5608500029c5d0c8752ebd"
+        },
+        {
+          "stage": "materialize",
+          "digest": "d1b6e7ff8cdffd3b4d55295bc25cccd51e7329af2f5608500029c5d0c8752ebd"
+        }
+      ],
+      "refusals": []
+    },
+    {
+      "case": "blocked-execution",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "status": "completed",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "fix-plan",
+        "fix-from-plan",
+        "fix-task",
+        "fix-plan",
+        "fix-from-plan",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "commit"
+      ],
+      "runs": 2,
+      "claim_generations": [
+        1,
+        2
+      ],
+      "captures": [
+        {
+          "stage": "create",
+          "digest": "d1b6e7ff8cdffd3b4d55295bc25cccd51e7329af2f5608500029c5d0c8752ebd"
+        },
+        {
+          "stage": "materialize",
+          "digest": "d1b6e7ff8cdffd3b4d55295bc25cccd51e7329af2f5608500029c5d0c8752ebd"
+        },
+        {
+          "stage": "create",
+          "digest": "d1b6e7ff8cdffd3b4d55295bc25cccd51e7329af2f5608500029c5d0c8752ebd"
+        },
+        {
+          "stage": "materialize",
+          "digest": "d1b6e7ff8cdffd3b4d55295bc25cccd51e7329af2f5608500029c5d0c8752ebd"
+        }
+      ],
+      "refusals": []
+    },
+    {
+      "case": "repair-review",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "status": "completed",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "repair",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "commit"
+      ],
+      "runs": 1,
+      "claim_generations": [
+        1
+      ],
+      "captures": [],
+      "refusals": []
+    },
+    {
+      "case": "repair-check",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "status": "completed",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "check-change",
+        "repair",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "commit"
+      ],
+      "runs": 1,
+      "claim_generations": [
+        1
+      ],
+      "captures": [],
+      "refusals": []
+    },
+    {
+      "case": "repair-limit",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "status": "completed",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "check-change",
+        "repair"
+      ],
+      "runs": 1,
+      "claim_generations": [
+        1
+      ],
+      "captures": [],
+      "refusals": []
+    },
+    {
+      "case": "repair-security",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "status": "completed",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "check-change",
+        "aif-security",
+        "repair",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "commit"
+      ],
+      "runs": 1,
+      "claim_generations": [
+        1
+      ],
+      "captures": [],
+      "refusals": []
+    },
+    {
+      "case": "blocked-chain",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "status": "completed",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "check-change",
+        "check-change",
+        "repair",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "commit"
+      ],
+      "runs": 3,
+      "claim_generations": [
+        1,
+        2,
+        3
+      ],
+      "captures": [],
+      "refusals": []
+    },
+    {
+      "case": "cancel-check",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "status": "completed",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "check-change",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "commit"
+      ],
+      "runs": 2,
+      "claim_generations": [
+        1,
+        2
+      ],
+      "captures": [],
+      "refusals": []
+    },
+    {
+      "case": "cancel-review",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "status": "completed",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "commit"
+      ],
+      "runs": 2,
+      "claim_generations": [
+        1,
+        2
+      ],
+      "captures": [],
+      "refusals": []
+    },
+    {
+      "case": "blocked-fix",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "status": "completed",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "fix-task",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "commit"
+      ],
+      "runs": 2,
+      "claim_generations": [
+        1,
+        2
+      ],
+      "captures": [],
+      "refusals": []
+    },
+    {
+      "case": "owner-review",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "status": "completed",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "commit"
+      ],
+      "runs": 2,
+      "claim_generations": [
+        1,
+        2
+      ],
+      "captures": [],
+      "refusals": []
+    },
+    {
+      "case": "foreign-plan",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "status": "completed",
+      "steps": [
+        "warmup",
+        "fix-task"
+      ],
+      "runs": 1,
+      "claim_generations": [
+        1
+      ],
+      "captures": [],
+      "refusals": []
+    },
+    {
+      "case": "plan-stop",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "status": "completed",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "fix-plan"
+      ],
+      "runs": 1,
+      "claim_generations": [
+        1
+      ],
+      "captures": [
+        {
+          "stage": "create",
+          "digest": "d1b6e7ff8cdffd3b4d55295bc25cccd51e7329af2f5608500029c5d0c8752ebd"
+        }
+      ],
+      "refusals": []
+    },
+    {
+      "case": "effect-refusal",
+      "host": "codex-cli",
+      "outcome": null,
+      "status": "ready",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "check-change"
+      ],
+      "runs": 1,
+      "claim_generations": [
+        1
+      ],
+      "captures": [],
+      "refusals": [
+        {
+          "code": "effect_not_permitted",
+          "message": "this step may write only inside its declared output slot, and the workspace at /private/var/folders/ww/psgy9dw96sv7qfbj2s8nyhs40000gn/T/aif-fix-probe-ntm2u7qf/authority/.prifly/work/claims/18ac29536fde171827b2e31f0e81858eab797b6842c562fb97f644b7e816d9e7 changed while it ran: alc.py. Put the workspace back as it was handed over (git status --porcelain --untracked-files=all must match) and report again. If the named paths are byproducts of a build or a test run, list them in .gitignore -- the mark respects it, and a gate must not be given workspace_write to make room for its own cache. Declare effects.class: workspace_write only for a step that is meant to change the tree",
+          "violations": []
+        }
+      ]
+    },
+    {
+      "case": "missing-output",
+      "host": "codex-cli",
+      "outcome": null,
+      "status": "ready",
+      "steps": [
+        "warmup",
+        "fix-task"
+      ],
+      "runs": 1,
+      "claim_generations": [
+        1
+      ],
+      "captures": [],
+      "refusals": [
+        {
+          "code": "output_required_missing",
+          "message": "this output port is required for the reported verdict and was not reported",
+          "violations": [
+            {
+              "pointer": "/result/outputs/implementation",
+              "reason": "this output port is required for the reported verdict and was not reported"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "blocked-pass-check",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "status": "completed",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "check-change",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "commit"
+      ],
+      "runs": 2,
+      "claim_generations": [
+        1,
+        2
+      ],
+      "captures": [],
+      "refusals": []
+    },
+    {
+      "case": "blocked-pass-security",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "status": "completed",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "check-change",
+        "aif-security",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "commit"
+      ],
+      "runs": 2,
+      "claim_generations": [
+        1,
+        2
+      ],
+      "captures": [],
+      "refusals": []
+    },
+    {
+      "case": "blocked-pass-review",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "status": "completed",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "commit"
+      ],
+      "runs": 2,
+      "claim_generations": [
+        1,
+        2
+      ],
+      "captures": [],
+      "refusals": []
+    },
+    {
+      "case": "empty-question-answer",
+      "host": "codex-cli",
+      "outcome": null,
+      "status": "ready",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "check-change"
+      ],
+      "runs": 1,
+      "claim_generations": [
+        1
+      ],
+      "captures": [],
+      "refusals": [
+        {
+          "code": "answered_questions_invalid",
+          "message": "this field is required and cannot be blank",
+          "violations": [
+            {
+              "pointer": "/answered_questions/0/answer",
+              "reason": "this field is required and cannot be blank"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "direct",
+      "host": "codex-app",
+      "outcome": "succeeded",
+      "status": "completed",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "commit"
+      ],
+      "runs": 1,
+      "claim_generations": [
+        1
+      ],
+      "captures": [],
+      "refusals": []
+    },
+    {
+      "case": "direct",
+      "host": "claude-code",
+      "outcome": "succeeded",
+      "status": "completed",
+      "steps": [
+        "warmup",
+        "fix-task",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "commit"
+      ],
+      "runs": 1,
+      "claim_generations": [
+        1
+      ],
+      "captures": [],
+      "refusals": []
+    }
+  ]
+}
