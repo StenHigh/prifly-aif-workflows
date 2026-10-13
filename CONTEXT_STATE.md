@@ -8,6 +8,28 @@
 
 ## Состояние на 2026-10-13
 
+- **Живая приёмка трёх bridge v1.51.2 (2026-10-13) — PASS:**
+  Latest stable проверен: Pri-Fly v0.13.76, новых выпусков нет.
+  Пользователь подтвердил остальные пункты финальной приёмки; в этой сессии
+  проверяли только естественный verdict при required dependency unavailable.
+  3 изолированных Run, 15 уникальных accepted fresh Codex CLI reader sessions,
+  настоящие AI Factory 2.19.0 skills/scripts/references. Checks/security/review
+  сами выбрали pass + blocked, blocking=false; root partial с exact исходным
+  gate, без repair/commit. После восстановления original dependency bytes
+  reviewed continue → новые checks/security/review → local commit/succeeded.
+  Один claim 1→2, source/base/owner work сохранены; все стенды/claims/monitor
+  очищены. Full security audit реально исполнился во всех 5 security Attempts.
+  Controller не редактировал ни verdict/gate, ни summary; expected verdict
+  и asserts оставались вне host prompt. Первоначальный resumed review draft
+  checks-фикстуры был отвергнут model_profile_reason_missing; сохранён отдельно,
+  стенд очищен. Уточнён только neutral report schema context (dedicated reason),
+  checks case повторён fresh hosts и прошёл. Это оформление report, не новый
+  дефект routing/пакета. Warmup/fix/commit — deterministic setup, live evidence
+  относится к readers; другая модель не заявлена. Пакеты не изменены, bump нет.
+  Воспроизводимый manual probe tests/probes/live_readers.py, отчёт и JSON:
+  tests/probes/results/aif-fix-bridge-1.0.2-live.md. Не включён в CI: расходует
+  настоящий configured Codex host usage. Публикуем приёмку, затем закрываем #4.
+
 - **Уточнение bridge к v1.51.2 / aif-fix 1.0.2 (2026-10-13):**
   выверены против выпущенного Pri-Fly `v0.13.76`; новых stable нет.
   Живой повторный пилот v1.51.1 подтвердил blocked pass во всех трёх readers,

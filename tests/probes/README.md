@@ -1,3 +1,21 @@
+`live_readers.py` is a manual, real-LLM acceptance probe for released aif-fix
+1.0.2. It installs exact v1.51.2, uses full AI Factory 2.19.0 skills, removes
+an owner-managed required dependency after deterministic fix setup, and lets
+fresh Codex CLI sessions choose every reader verdict and gate. The controller
+submits their files unchanged, asserts partial/exact gate/no repair or commit,
+restores the dependency and resumes through fresh readers and a local commit.
+Warmup/fix/commit are deterministic setup, not new LLM observations. This probe
+uses the user's configured Codex model, consumes real host usage, and is not CI.
+Each fixture cleans its Run/claim/monitor entries. Exact prompts, events and
+reports in evidence-root are private; public result JSON redacts fixture paths.
+
+    python3 -B tests/probes/live_readers.py --binary /path/to/released/prifly --skills-root /path/to/ai-factory-2.19.0/skills --evidence-root /private/tmp/live-reader-evidence
+
+Use `--target check-change|aif-security|review-task` for one controlled case.
+No expected verdict is supplied to the LLM. The prompt describes submission
+schema constraints, including the required reason for unavailable/declined
+model_profile; it does not select a verdict or change submitted reports.
+
 # Probes
 
 `fix_check.py` drives the separate `aif-fix` package with a deterministic

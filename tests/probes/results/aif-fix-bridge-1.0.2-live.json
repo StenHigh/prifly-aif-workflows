@@ -1,0 +1,592 @@
+{
+  "outcome": "passed",
+  "date": "2026-10-13",
+  "prifly": "0.13.76",
+  "binary_sha256": "sha256:5df5aceccde63c173d3f38f20426eb9dd131e6c3b0f6511a99002ad874a49f00",
+  "aif_fix": "1.0.2",
+  "release": "v1.51.2",
+  "configured_cli_model": "gpt-6.1-sol; no model override",
+  "fresh_accepted_reader_sessions": 15,
+  "unmodified_submissions": true,
+  "format_refusal": {
+    "code": "model_profile_reason_missing",
+    "pointer": "/model_profile/reason",
+    "phase": "first checks fixture, resumed review",
+    "handling": "First draft retained privately; initial checks fixture cleaned. Neutral submission-schema constraints supplied in prompt, then checks fixture rerun with fresh hosts. No report/verdict/gate was edited by controller."
+  },
+  "boundary": "Real LLM checks/security/review; deterministic warmup/fix/commit setup. No new observation of LLM fix/plan/repair or a different model. Public fixture paths are redacted; digests describe exact original files retained privately.",
+  "audit_script_sha256": "sha256:b8297b614300451ffd57c7795c1ea1facfff6e95bca0dd4428aa695a790c092c",
+  "cases": [
+    {
+      "outcome": "passed",
+      "target": "check-change",
+      "prifly": "0.13.76",
+      "source_commit": "0e93c36672e23ac404463f815cb89c7c3ffe31fe",
+      "installed_origin": {
+        "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+        "path": "aif-fix",
+        "ref": "v1.51.2",
+        "commit": "0e93c36672e23ac404463f815cb89c7c3ffe31fe",
+        "digest": "sha256:9d848751afd0c12505d357fa3c9ed8590420a4959b3f735d33957653315635cc",
+        "extend_digest": "sha256:e0eac5faca12afb288167035fb55e11100968c3c01ddfd320948f4acf198d649"
+      },
+      "supporting_skills": "lee-to/ai-factory@2.19.0 e144f95c89de0d0cb6c9b38dbe8c2907b00dc5ce",
+      "skills_sha256": {
+        "aif-review": "sha256:fe231edfc738ee488a4f1c341e32c12217f4c7b2aa7c2215b2fd53530d0eeaac",
+        "aif-security-checklist": "sha256:3d9c4993ca6ed6cc83142ac481a672dc78dfefc2d73489496e58e8320b3e97ca",
+        "aif-fix": "sha256:018267ccbe8eda03d3ebc006529b4db8482884458d0acca5d12e0ffda8b21ee1"
+      },
+      "source_run": "run:2a72018f63eb6ae6048a39765bea102e8bad0296968fe5be30a6fa73a6a7e4ec",
+      "source_version": 31,
+      "source_outcome": "partial",
+      "source_gate_digest": "sha256:18b38a0b418d9ec23ec0964a9f638fb5180a6162a18a32a6142b95a4efa95991",
+      "child_run": "run:2b108519b2c38e88a7afb8ead02056a15ac4ff2f83a4ec434eec35dc90105a4e",
+      "final_outcome": "succeeded",
+      "claim_generations": [
+        1,
+        2
+      ],
+      "owner_hashes": {
+        "owner.txt": "sha256:1506225f1edd29b145a4dcb34721ee150ed4847842bfbc72b8fa2acd28d4b209",
+        "owner-scratch.txt": "sha256:a8d6efb55b805519c42bad2c7c92c8957cbd75e3d22e3182abaa04b90c733b22"
+      },
+      "base_commit": "107436df8ea6c4f055bc0e3f5e766bb5c449ff0d",
+      "head_commit": "9df9dfc390da8190c75b5dca9a2f88bcdea0d970",
+      "reader_reports": [
+        {
+          "step": "check-change",
+          "attempt_id": "attempt:e1a35c36c54417b2c0e691a0e511b35c",
+          "run_id": "run:2a72018f63eb6ae6048a39765bea102e8bad0296968fe5be30a6fa73a6a7e4ec",
+          "verdict": "pass",
+          "gate": {
+            "gate": "verify",
+            "status": "blocked",
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "Reviewed actual HEAD 107436df8ea6c4f055bc0e3f5e766bb5c449ff0d and git -c core.quotepath=off diff 107436df8ea6c4f055bc0e3f5e766bb5c449ff0d, plus both untracked files. calc.py:2 returns 0 for None and otherwise returns the input unchanged. Read both consumers, regression.py, required_check.py, project config, DESCRIPTION.md, RULES.md, ARCHITECTURE.md and the learning patch. No project skill-context files were present.",
+              "The bound result contains before/after evidence for python -B -c \"from calc import total; assert total(2) == 2\": before exits 1 with AssertionError and after exits 0. Independently executing calc.py from the base commit in memory reproduced the same total(2) assertion failure (exit 1). Rerunning the exact result command against the claimed working tree exited 0.",
+              "python3 -B regression.py exited 0 and printed \"PASS total and both consumers\". It checks total(None), total(0), total(2), client_a.price() and client_b.empty(). No arithmetic or consumer defect was observed.",
+              "Required check unavailable: python3 -B required_check.py exited 1 with FileNotFoundError at required_check.py:3 while reading $FIXTURE/external/control.txt. DESCRIPTION.md makes this a mandatory check-change control and assigns its external data to the environment owner. The external-control value assertion could not be evaluated; this required check did not pass. No control data was created or restored. The sealed bridge requires status blocked, blocking false and suggested_next continue for this unavailable external dependency.",
+              "decision_context.short_checks is the delivered empty string: no additional checks configured. gate_warnings is ignore. All configured regression commands and the mandatory external-control command were attempted; external-control validation remains unperformed because the file is missing. No network, dependency installation, browser, deployment or later-stage checks were performed.",
+              "Unrelated owner.txt modifications and untracked owner-scratch.txt were read and preserved. Initial and final git status both showed only modified calc.py and owner.txt, and untracked .ai-factory/patches/fixture.md and owner-scratch.txt. No repository edits, policy edits, report files, commits, repair, resource restoration or subsequent stage execution were performed."
+            ],
+            "suggested_next": "continue"
+          },
+          "gate_digest": "sha256:18b38a0b418d9ec23ec0964a9f638fb5180a6162a18a32a6142b95a4efa95991",
+          "report_digest": "sha256:d5255eb5570a68e3f1c1fb8de87b8429494a870f12aeb7cdd7d8b7fd5946ca02",
+          "tree_unchanged": true,
+          "model_profile": null,
+          "session_id": "01a13607-a48c-70b1-9743-d5726985fb20",
+          "events_sha256": "sha256:e1b2de2273f4d8d873c414be8057f82eaf8939e20850732aefbfffbafc361d34",
+          "prompt_sha256": "sha256:058af45e96ac6ec383fccaed99502ba56a1b06fb705b6946fc6608b599136018"
+        },
+        {
+          "step": "check-change",
+          "attempt_id": "attempt:06ad1ea6d7a0904a1cd903e22e88835f",
+          "run_id": "run:2b108519b2c38e88a7afb8ead02056a15ac4ff2f83a4ec434eec35dc90105a4e",
+          "verdict": "pass",
+          "gate": {
+            "gate": "verify",
+            "status": "passed",
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "Reviewed actual HEAD 107436df8ea6c4f055bc0e3f5e766bb5c449ff0d and git -c core.quotepath=off diff 107436df8ea6c4f055bc0e3f5e766bb5c449ff0d, including all untracked files. calc.py:2 changes the arithmetic offset to return 0 only for None and otherwise return the input. Read client_a.py and client_b.py; no caller updates are needed. No repairable correctness defect was found.",
+              "The result supplies a nonempty before/after record for python -B -c \"from calc import total; assert total(2) == 2\": before exit=1 with AssertionError, after exit=0. git show of base calc.py confirms the recorded faulty subtraction. This reader reran the exact regression against the current tree: exit=0. The historical pre-implementation execution was not independently observed during this Attempt.",
+              "python3 -B regression.py exited 0 and printed PASS total and both consumers, covering None, zero, 2 and both callers. An additional in-memory assert check for None and unchanged inputs -3, 0, 2 and 1.5 exited 0. git diff --check against the base exited 0.",
+              ".ai-factory/DESCRIPTION.md declares python3 -B required_check.py mandatory for check-change. It ran against the claimed tree, exited 0 and printed PASS required external control. The environment-owned external control was only read; no restoration or modification was performed.",
+              "Read project config, DESCRIPTION.md, RULES.md, ARCHITECTURE.md and the untracked learning patch. No project skill-context files or ancestor AGENTS.md were present. All bound input and delivered skill SHA-256 digests matched. decision_context.short_checks remains the delivered empty string: no additional configured checks. No required checks were left unperformed.",
+              "owner.txt contains preserved dirty owner work and owner-scratch.txt contains preserved untracked owner work. Both were inspected without modification; the final status and diff match the initial inspection. No repository edits, report files, commits, aif-verify invocation, repair or next-stage execution occurred."
+            ],
+            "suggested_next": "continue"
+          },
+          "gate_digest": "sha256:e0a50b73089baa2cbdbc7862daa77c88f8a23cfa7be23ffbaab25193bf3fa75d",
+          "report_digest": "sha256:231d654d745651be3e657a55cdeb959244272ce724bf37e1fcddd2567c3141cb",
+          "tree_unchanged": true,
+          "model_profile": null,
+          "session_id": "01a1360a-3725-7880-9815-45530f27f89f",
+          "events_sha256": "sha256:500deb05ad05283dd75d717f8ca4af41c921faed74c8957b419de0d9c99070ab",
+          "prompt_sha256": "sha256:c66b2c48546ca3ba871d4443ea7273e8e32968842e9622e5a43a815347076b04"
+        },
+        {
+          "step": "aif-security",
+          "attempt_id": "attempt:45a044ad585ee5b81d6ec797de65cd4a",
+          "run_id": "run:2b108519b2c38e88a7afb8ead02056a15ac4ff2f83a4ec434eec35dc90105a4e",
+          "verdict": "pass",
+          "gate": {
+            "gate": "security",
+            "status": "passed",
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "Scope evidence: actual HEAD is 107436df8ea6c4f055bc0e3f5e766bb5c449ff0d, equal to implementation.base_commit. Reviewed git diff against that base (calc.py and dirty owner.txt), all untracked files (.ai-factory/patches/fixture.md and owner-scratch.txt), both consumers, regression.py, required_check.py, and project rules/config. The input changed_files list omitted owner work; that work was included in inspection and preserved.",
+              "Checks completed: bash .codex/skills/aif-security-checklist/scripts/audit.sh exited 0, with no obvious hardcoded secrets, tracked .env, or security markers; .gitignore excludes .env. python3 -B regression.py exited 0: PASS total and both consumers. git diff --check against the base exited 0. Manual review of the arithmetic module, callers, and the sole reachable commit found no introduced/exposed or standing security weakness in this scope. The module returns zero for None and leaves other values unchanged.",
+              "Configuration evidence: .ai-factory/config.yaml specifies English UI/artifacts and no paths.security override. Default .ai-factory/SECURITY.md and .ai-factory/skill-context/aif-security-checklist/SKILL.md do not exist, so there are no declared ignored items or project skill-context overrides. Delivered skill and input SHA-256 digests match their bindings. No model_profile is declared for this Attempt.",
+              "Checks not run: npm audit, pip-audit, cargo audit, network/deployment checks, and authentication/session, database injection, browser XSS/CSRF/client-error, LLM prompt-injection and transactional race tests are inapplicable to this isolated Python standard-library arithmetic project, which has no dependency manifests or those surfaces. The audit script src/ scans had no client source tree to inspect. python3 -B required_check.py was not run: .ai-factory/DESCRIPTION.md explicitly makes that external-control check mandatory only for check-change, not security. No external acceptance or unavailable dependency prevents a required security check. No code, policy, owner work, or external control was changed; no repair, commit, subsequent stage, or Pri-Fly submission command was invoked."
+            ],
+            "suggested_next": "continue"
+          },
+          "gate_digest": "sha256:3487e6ae8e04ff49e71efbcd63421c40a7234654bab71c15a9a30029f792e239",
+          "report_digest": "sha256:a88698098b097f36a16ce148751a8581d7eeadbc81203e5d869f4c3ae5c812ac",
+          "tree_unchanged": true,
+          "model_profile": null,
+          "session_id": "01a1360c-d164-7bb3-8445-0e31a74f263f",
+          "events_sha256": "sha256:e6fc30d06c3a202af732d883515079504eaa87c09c038b2aa0099a7dd5873f6b",
+          "prompt_sha256": "sha256:296a533ed2bfcb8f4c984deef933c4b9ca998b57a42426690dbc268a980f71b7"
+        },
+        {
+          "step": "review-task",
+          "attempt_id": "attempt:e842cfb76e1f084fbd0f15d021bbc3bb",
+          "run_id": "run:2b108519b2c38e88a7afb8ead02056a15ac4ff2f83a4ec434eec35dc90105a4e",
+          "verdict": "pass",
+          "gate": {
+            "gate": "review",
+            "status": "warnings",
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "CHECK PASSED: python3 -B regression.py exited 0 with PASS total and both consumers. Current calc.py:2 returns zero only for None and otherwise returns the original value; client_a.py and client_b.py match the expected contract.",
+              "CHECK PASSED: git --no-optional-locks diff --check 107436df8ea6c4f055bc0e3f5e766bb5c449ff0d exited 0. Reviewed the actual base diff, both untracked files, all total callers, and the sole recent commit; no critical correctness, security, performance or downstream regression found.",
+              "CONTEXT: .ai-factory/ARCHITECTURE.md and RULES.md align with the pure module and two consumers. Unrelated dirty owner.txt and untracked owner-scratch.txt were inspected and preserved. No review skill-context file exists; config selects English and supplies no path overrides.",
+              "WARN: independent-review model profile is unavailable. This is a new reviewer CLI session without the author conversation, but no model_profile_translation or project mapping to a different model was supplied. No different model or second reviewer was selected; this is not a claim that the requested model profile was honoured.",
+              "WARN: optional .ai-factory/ROADMAP.md is absent, so milestone linkage could not be checked. Delivered gate_warnings=ignore leaves this and the model-profile warning nonblocking.",
+              "NOT RUN: python3 -B required_check.py. DESCRIPTION.md:4 requires that external control only for check-change; this Attempt is review-task and other stages do not require it. Its external control availability was not assessed. No next stage, repair, commit, external acceptance, dependency installation, network access or optional +check reviewer was performed. Delivered short_checks is the empty string, so no additional commands were configured."
+            ],
+            "suggested_next": "continue"
+          },
+          "gate_digest": "sha256:e1c74ff012c59cc81d5586c02494dfcef58f10b83fdcba697aeecab8fffeda4d",
+          "report_digest": "sha256:575e59173824530fd74903d17ed205a546637990d7bd4c87df5452da0fbe9636",
+          "tree_unchanged": true,
+          "model_profile": {
+            "outcome": "unavailable",
+            "reason": "This is a new CLI reviewer session without the author conversation, but no model_profile_translation or project mapping of independent-review to a different model was supplied. The host did not select a different model; the requested profile cannot be reported as honoured."
+          },
+          "session_id": "01a1360f-0eda-7132-b6f8-d9fab59a648c",
+          "events_sha256": "sha256:e81cac3a9e5041d31b0e9cad281d39faf4e3612f64be7e174c2b7b55bb78a7f0",
+          "prompt_sha256": "sha256:237601381c7a4a698d389cd0a12c598971f914e5988582178972d4082321f16a"
+        }
+      ],
+      "other_steps": [
+        {
+          "step": "warmup",
+          "verdict": "pass",
+          "mode": "deterministic setup/commit, not a reader verdict"
+        },
+        {
+          "step": "fix-task",
+          "verdict": "pass",
+          "mode": "deterministic setup/commit, not a reader verdict"
+        },
+        {
+          "step": "commit",
+          "verdict": "pass",
+          "mode": "deterministic setup/commit, not a reader verdict"
+        }
+      ],
+      "boundary": "Real fresh Codex CLI readers with sealed released bridges and actual pinned upstream skills. Warmup/fix/commit use deterministic fixture setup; no manual verdict/gate edits or expected-result instructions to reader hosts. No different model claimed.",
+      "cleaned": true
+    },
+    {
+      "outcome": "passed",
+      "target": "aif-security",
+      "prifly": "0.13.76",
+      "source_commit": "0e93c36672e23ac404463f815cb89c7c3ffe31fe",
+      "installed_origin": {
+        "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+        "path": "aif-fix",
+        "ref": "v1.51.2",
+        "commit": "0e93c36672e23ac404463f815cb89c7c3ffe31fe",
+        "digest": "sha256:9d848751afd0c12505d357fa3c9ed8590420a4959b3f735d33957653315635cc",
+        "extend_digest": "sha256:e0eac5faca12afb288167035fb55e11100968c3c01ddfd320948f4acf198d649"
+      },
+      "supporting_skills": "lee-to/ai-factory@2.19.0 e144f95c89de0d0cb6c9b38dbe8c2907b00dc5ce",
+      "skills_sha256": {
+        "aif-review": "sha256:fe231edfc738ee488a4f1c341e32c12217f4c7b2aa7c2215b2fd53530d0eeaac",
+        "aif-security-checklist": "sha256:3d9c4993ca6ed6cc83142ac481a672dc78dfefc2d73489496e58e8320b3e97ca",
+        "aif-fix": "sha256:018267ccbe8eda03d3ebc006529b4db8482884458d0acca5d12e0ffda8b21ee1"
+      },
+      "source_run": "run:99cd8330e4f26bd92960bdfefd2713d6a5eb622c4d54ff56ab776a58c73e26e1",
+      "source_version": 39,
+      "source_outcome": "partial",
+      "source_gate_digest": "sha256:705c760b4d4efd1ad635f0d4949cc9045f5817d5f495962e6f7c1a7feeb77332",
+      "child_run": "run:7574f57cbb7aec0e36cc0c9d5c613fe362676dfa90f4d9d5f46ccfe305b73935",
+      "final_outcome": "succeeded",
+      "claim_generations": [
+        1,
+        2
+      ],
+      "owner_hashes": {
+        "owner.txt": "sha256:1506225f1edd29b145a4dcb34721ee150ed4847842bfbc72b8fa2acd28d4b209",
+        "owner-scratch.txt": "sha256:a8d6efb55b805519c42bad2c7c92c8957cbd75e3d22e3182abaa04b90c733b22"
+      },
+      "base_commit": "eb8efc1525410b56db8000cdf027fda06eff3c39",
+      "head_commit": "4315181ce9b51a20d4890f125c89c3d3d6f51abf",
+      "reader_reports": [
+        {
+          "step": "check-change",
+          "attempt_id": "attempt:73129fc11a28071ecfc851d01dbb789b",
+          "run_id": "run:99cd8330e4f26bd92960bdfefd2713d6a5eb622c4d54ff56ab776a58c73e26e1",
+          "verdict": "pass",
+          "gate": {
+            "gate": "verify",
+            "status": "passed",
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [],
+            "suggested_next": "continue"
+          },
+          "gate_digest": "sha256:51437e9604fa5d89fe07355996536554b2180e5e48d0e7f8e57a06cd183ef474",
+          "report_digest": "sha256:3089fb2d67e46bb9c7d5f3c65fdd132d82ae7d2618a7f4efcdf148c300dfd83c",
+          "tree_unchanged": true,
+          "model_profile": null,
+          "session_id": "01a135fe-8374-7952-b680-74b1567a4eaf",
+          "events_sha256": "sha256:04510133ce2c1eae0d2f4fa7116aad69f88ac7586684448a6ef3cf8ea1c0a110",
+          "prompt_sha256": "sha256:971b4ec1d9ee4d194e7db6d10b8dc268b5edaa55ae46c88f06186d058dccb5f7"
+        },
+        {
+          "step": "aif-security",
+          "attempt_id": "attempt:5f353ee6ece21a50186543e69b370012",
+          "run_id": "run:99cd8330e4f26bd92960bdfefd2713d6a5eb622c4d54ff56ab776a58c73e26e1",
+          "verdict": "pass",
+          "gate": {
+            "gate": "security",
+            "status": "blocked",
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "Required in-scope check unavailable: python3 -B required_check.py exited 1 with FileNotFoundError for $FIXTURE/external/control.txt at required_check.py:3. The command ran, but the required fixture-content assertion could not complete and its success message did not run. .ai-factory/DESCRIPTION.md makes this mandatory for security; .ai-factory/RULES.md prohibits readers from creating or modifying external control data. This is an unavailable environment-owned dependency, not a repairable code finding. No control was restored.",
+              "Scope verified against actual repository_workspace: HEAD and implementation.base_commit both eb8efc1525410b56db8000cdf027fda06eff3c39. git diff --no-ext-diff <base_commit> shows modified calc.py and owner.txt; git status --short --untracked-files=all also shows .ai-factory/patches/fixture.md and owner-scratch.txt. All four live-scope files were inspected rather than relying on implementation.changed_files. Owner work was preserved; final status and diff match initial observations.",
+              "python3 -B regression.py exited 0: PASS total and both consumers. calc.py:1-2 returns 0 for None and otherwise the unchanged value; client_a.py and client_b.py are the two runtime consumers. The regression covers None, zero, a positive number, and both consumers. No injection, secret exposure, unsafe deserialization, executable input, or security weakness introduced or exposed by the observed change was found.",
+              "bash .codex/skills/aif-security-checklist/scripts/audit.sh exited 0: no obvious hardcoded secrets, tracked .env, or security TODOs found; .gitignore includes .env. Manual Python source searches also found no secret assignments or dangerous execution patterns. A git log --all -G secret-assignment search found no matches in the specified Python/JS/TS/PHP/.env paths; this is a heuristic check, not proof that every possible secret is absent.",
+              "Project config .ai-factory/config.yaml specifies English UI/artifacts and no paths.security override. Default .ai-factory/SECURITY.md and .ai-factory/skill-context/aif-security-checklist/SKILL.md are absent; no ignored items or skill-context overrides apply. All three delivered reference digests and the bound implementation digest were verified.",
+              "Checks not run as inapplicable: npm audit, pip-audit and other dependency vulnerability services (no dependency manifests; standard-library project); authentication/session/JWT, HTTP/TLS/header, SQL/NoSQL, browser XSS/CSRF/client logging, API rate-limit/error response, LLM prompt-injection and payment/inventory race-condition runtime checks (no corresponding surface in the inspected modules or project description). The audit script src/ logging/error messages are not evidence of a tested browser surface. No network, dependency installation, deployment checks, fixes, policy edits, commits, or subsequent workflow stages were performed.",
+              "Delivered short_checks is the empty string: no additional checks configured. Delivered gate_warnings=ignore leaves warnings nonblocking, but does not override the mandatory unavailable check or its blocked status. Under the sealed bridge, this usable assessment has verdict pass, status blocked, blocking=false, blocking_owner_only=false and suggested_next=continue; pass describes report usability, not successful completion of all checks."
+            ],
+            "suggested_next": "continue"
+          },
+          "gate_digest": "sha256:705c760b4d4efd1ad635f0d4949cc9045f5817d5f495962e6f7c1a7feeb77332",
+          "report_digest": "sha256:03a6c74eb402da4f759313fbce99ef507a10853c4dcd146281c19d2db1051e0b",
+          "tree_unchanged": true,
+          "model_profile": null,
+          "session_id": "01a13601-3e31-7510-bf87-da220f639a3d",
+          "events_sha256": "sha256:e68b1200b93eb07faa1eab2f5b8b2f460f19ee7fe3786c629ef0976a92793230",
+          "prompt_sha256": "sha256:7a646864a328e5d54f1cc56b72bee7f18da2b4ba04566748cc762ffbd96e1f95"
+        },
+        {
+          "step": "check-change",
+          "attempt_id": "attempt:a9ef27e4175a3030a9b98e58a1584e7d",
+          "run_id": "run:7574f57cbb7aec0e36cc0c9d5c613fe362676dfa90f4d9d5f46ccfe305b73935",
+          "verdict": "pass",
+          "gate": {
+            "gate": "verify",
+            "status": "passed",
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "Actual HEAD is eb8efc1525410b56db8000cdf027fda06eff3c39. git -c core.quotepath=off diff eb8efc1525410b56db8000cdf027fda06eff3c39 shows calc.py now returns 0 for None and otherwise returns the original value. Both callers (client_a.price and client_b.empty) were inspected. The separate owner.txt modification, owner-scratch.txt, and untracked .ai-factory/patches/fixture.md were inspected and left unchanged.",
+              "The sealed regression command python -B -c \"from calc import total; assert total(2) == 2\" exited 0 on the current tree. The supplied before/after evidence records the same assertion failing before and passing after; executing calc.py from the bound base commit in memory independently reproduced AssertionError with exit 1.",
+              "The project regression command python3 -B regression.py exited 0 and printed PASS total and both consumers; it covers total(None), total(0), total(2), client_a.price(), and client_b.empty(). git diff --check against the base exited 0. short_checks is the delivered empty string, so no additional checks were configured.",
+              ".ai-factory/DESCRIPTION.md requires python3 -B required_check.py only for the aif-security stage and explicitly excludes that additional control from other stages. It was not run in this check-change Attempt; its external control availability is unassessed. Security, independent task review, repair and commit were not executed. No .ai-factory/skill-context directory or .prifly/local.yaml exists in the claimed tree."
+            ],
+            "suggested_next": "continue"
+          },
+          "gate_digest": "sha256:f277c3eea4104957cd688ce63cafc05f40a201010b1df378e3269d19a9818179",
+          "report_digest": "sha256:5f55d6c7587d8ed4f1554c1a19582f810481790f68affb8ea2fec55951e463cf",
+          "tree_unchanged": true,
+          "model_profile": null,
+          "session_id": "01a13603-4b14-7531-9de3-041e161676d1",
+          "events_sha256": "sha256:2d6a9e5aac3802731eb39a040c87ab30b3477c8c2a0a8664e6447cae99288b64",
+          "prompt_sha256": "sha256:6772f977a97b3345a0d645a328ac076328606d7df74a7e781c11e737dc0eac8c"
+        },
+        {
+          "step": "aif-security",
+          "attempt_id": "attempt:220bba826a048de28c1a2b0e6bdabe84",
+          "run_id": "run:7574f57cbb7aec0e36cc0c9d5c613fe362676dfa90f4d9d5f46ccfe305b73935",
+          "verdict": "pass",
+          "gate": {
+            "gate": "security",
+            "status": "passed",
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "Scope verified in repository_workspace: actual HEAD eb8efc1525410b56db8000cdf027fda06eff3c39 equals implementation.base_commit. git diff against that base includes calc.py and owner.txt; untracked files are .ai-factory/patches/fixture.md and owner-scratch.txt. All were inspected, including the unrelated owner work omitted from implementation.changed_files.",
+              "python3 -B regression.py exited 0: PASS total and both consumers. calc.total now returns 0 for None and otherwise returns the supplied number; both callers and the regression assertions were inspected. No security weakness was found in the change.",
+              "Mandatory in-scope command python3 -B required_check.py exited 0: PASS required external control. The environment-owned external control was readable and matched the expected fixture value; no external data was created, restored or modified.",
+              "bash .codex/skills/aif-security-checklist/scripts/audit.sh exited 0. It reported no obvious hardcoded secrets, no tracked .env, .env covered by .gitignore, and no security TODOs. Current runtime source and runtime files in the sole available history commit were manually inspected without finding credentials or injection paths.",
+              "Project config resolves English output and default .ai-factory/SECURITY.md; that file and the security skill-context override are absent, so no ignored items or project overrides apply. The project is a pure Python standard-library arithmetic library without network, authentication, database, financial transactions, browser, AI or deployment surfaces; the corresponding checklist categories are not applicable.",
+              "Unperformed checks: npm audit and pip-audit were not run because there are no dependency manifests or third-party dependencies to scan. Browser logging/raw-error checks have no client src/ to assess; web authentication, TLS, XSS, CSRF, rate limiting, database injection, LLM prompt injection and transaction race checks are not applicable to the observed repository. short_checks is the delivered empty string, so no additional commands were configured. All applicable required commands ran; no repository, policy or owner files were edited."
+            ],
+            "suggested_next": "continue"
+          },
+          "gate_digest": "sha256:685aeff5d2b4ff3a95a5d290357aff107b604cb2761e7cb3d64330f5233f6953",
+          "report_digest": "sha256:7c03b0956dbe5444835b6f3c3030ae97dd0f0e00c6c0cfde2a68f4dca19b259d",
+          "tree_unchanged": true,
+          "model_profile": null,
+          "session_id": "01a13605-8e9d-72b2-ba76-33ac254f345d",
+          "events_sha256": "sha256:d94e5eed0996db36bb2f935c9887cf9e7ae1e209327822f6adeccb2c4e17f1ed",
+          "prompt_sha256": "sha256:209943e983181663ca53b72b21b3706d8859dfb0519ec5680cb110b75bf3d56d"
+        },
+        {
+          "step": "review-task",
+          "attempt_id": "attempt:4ae45c39ee071e544d0215694c6644b5",
+          "run_id": "run:7574f57cbb7aec0e36cc0c9d5c613fe362676dfa90f4d9d5f46ccfe305b73935",
+          "verdict": "pass",
+          "gate": {
+            "gate": "review",
+            "status": "warnings",
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "WARN: model_profile independent-review is unavailable under the declared host contract: this is a new CLI session without the author conversation, but no project model_profile_translation or mapping to a different model was supplied. No different model or second reviewer was used. This is not a claim that the requested model profile was honoured. gate_warnings=ignore leaves this nonblocking.",
+              "WARN: Optional .ai-factory/ROADMAP.md is absent, so milestone linkage could not be checked. DESCRIPTION.md, ARCHITECTURE.md and RULES.md were read; no blocking context violation was found. gate_warnings=ignore leaves this nonblocking."
+            ],
+            "suggested_next": "continue"
+          },
+          "gate_digest": "sha256:e6d08f4a22f3027daec154234ea7161739280091dd92adda07a3d92e754ddd8f",
+          "report_digest": "sha256:bf3096938a59d04b5dbb3467191f8769be80ab9bb5d003bccff31bdc4fa898ab",
+          "tree_unchanged": true,
+          "model_profile": {
+            "outcome": "unavailable",
+            "reason": "New CLI reviewer session without the author conversation; no project model_profile_translation or mapping of independent-review to a different model was supplied. No different model or second reviewer was used."
+          },
+          "session_id": "01a13607-cb3e-7880-a9dc-c3c5fc92e542",
+          "events_sha256": "sha256:bb030dd943ade71ad3742d8ec7a526d596dd77a4d452406ed1b87b043a4f5fd3",
+          "prompt_sha256": "sha256:f3882b5a3da1b1d92a6d36e760f62f25cd00f51b87f2d963fd5e0b212108f278"
+        }
+      ],
+      "other_steps": [
+        {
+          "step": "warmup",
+          "verdict": "pass",
+          "mode": "deterministic setup/commit, not a reader verdict"
+        },
+        {
+          "step": "fix-task",
+          "verdict": "pass",
+          "mode": "deterministic setup/commit, not a reader verdict"
+        },
+        {
+          "step": "commit",
+          "verdict": "pass",
+          "mode": "deterministic setup/commit, not a reader verdict"
+        }
+      ],
+      "boundary": "Real fresh Codex CLI readers with sealed released bridges and actual pinned upstream skills. Warmup/fix/commit use deterministic fixture setup; no manual verdict/gate edits or expected-result instructions to reader hosts. No different model claimed.",
+      "cleaned": true
+    },
+    {
+      "outcome": "passed",
+      "target": "review-task",
+      "prifly": "0.13.76",
+      "source_commit": "0e93c36672e23ac404463f815cb89c7c3ffe31fe",
+      "installed_origin": {
+        "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+        "path": "aif-fix",
+        "ref": "v1.51.2",
+        "commit": "0e93c36672e23ac404463f815cb89c7c3ffe31fe",
+        "digest": "sha256:9d848751afd0c12505d357fa3c9ed8590420a4959b3f735d33957653315635cc",
+        "extend_digest": "sha256:e0eac5faca12afb288167035fb55e11100968c3c01ddfd320948f4acf198d649"
+      },
+      "supporting_skills": "lee-to/ai-factory@2.19.0 e144f95c89de0d0cb6c9b38dbe8c2907b00dc5ce",
+      "skills_sha256": {
+        "aif-review": "sha256:fe231edfc738ee488a4f1c341e32c12217f4c7b2aa7c2215b2fd53530d0eeaac",
+        "aif-security-checklist": "sha256:3d9c4993ca6ed6cc83142ac481a672dc78dfefc2d73489496e58e8320b3e97ca",
+        "aif-fix": "sha256:018267ccbe8eda03d3ebc006529b4db8482884458d0acca5d12e0ffda8b21ee1"
+      },
+      "source_run": "run:6ad51818edda942bed95eaa87a4b1359d66770788b3170a6dc31dc33b72374f1",
+      "source_version": 45,
+      "source_outcome": "partial",
+      "source_gate_digest": "sha256:09b6c9774616efbf64495a9749e42744e288a82c7d4ec88274e53617c01981a0",
+      "child_run": "run:517e18ea910fb882c682a3130364daaeddfd5fb44d67f81cd7f3a90086e31d45",
+      "final_outcome": "succeeded",
+      "claim_generations": [
+        1,
+        2
+      ],
+      "owner_hashes": {
+        "owner.txt": "sha256:1506225f1edd29b145a4dcb34721ee150ed4847842bfbc72b8fa2acd28d4b209",
+        "owner-scratch.txt": "sha256:a8d6efb55b805519c42bad2c7c92c8957cbd75e3d22e3182abaa04b90c733b22"
+      },
+      "base_commit": "2c32f05f38565ad0088219569b99d7e4cb8a7a37",
+      "head_commit": "3c64953f69c83469e2b2da0de12fe9afd8a6b672",
+      "reader_reports": [
+        {
+          "step": "check-change",
+          "attempt_id": "attempt:f09c7deb24ba4206b803832393d06d35",
+          "run_id": "run:6ad51818edda942bed95eaa87a4b1359d66770788b3170a6dc31dc33b72374f1",
+          "verdict": "pass",
+          "gate": {
+            "gate": "verify",
+            "status": "passed",
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [],
+            "suggested_next": "continue"
+          },
+          "gate_digest": "sha256:51437e9604fa5d89fe07355996536554b2180e5e48d0e7f8e57a06cd183ef474",
+          "report_digest": "sha256:d8923aa45eca7c2e72e22591129685bb642a74fe57a8c6c90624a0f3133b7347",
+          "tree_unchanged": true,
+          "model_profile": null,
+          "session_id": "01a135fe-7ccd-7290-9e99-978259bd7e0c",
+          "events_sha256": "sha256:4ec061096047aa3dee3e4daeaf9fc344be8d6f3be8996484f04d2a651e015db3",
+          "prompt_sha256": "sha256:951fe5a5030ae0e123fdac6206669ed2848b699937c76701f164230e853b5144"
+        },
+        {
+          "step": "aif-security",
+          "attempt_id": "attempt:4e3f752d661223030b7001bcc2d61914",
+          "run_id": "run:6ad51818edda942bed95eaa87a4b1359d66770788b3170a6dc31dc33b72374f1",
+          "verdict": "pass",
+          "gate": {
+            "gate": "security",
+            "status": "passed",
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "Scope evidence: actual HEAD is 2c32f05f38565ad0088219569b99d7e4cb8a7a37, matching implementation.base_commit. git diff <base_commit> contains calc.py and owner.txt; untracked files are .ai-factory/patches/fixture.md and owner-scratch.txt. All were read. The artifact changed_files list was not used to limit scope. Owner files remain unchanged by this Attempt.",
+              "Checks completed: bash .codex/skills/aif-security-checklist/scripts/audit.sh exited 0 (no obvious source secrets, .env not tracked and ignored, no security task markers); python3 -B regression.py exited 0 with PASS total and both consumers; git diff --check exited 0. Manual inspection of all Python files, both total callers, the single-commit Python history, and changed/untracked text found no applicable unignored security issue. total returns 0 only for None and otherwise returns the supplied value; it performs no evaluation, external command, serialization, network, database, or persistent mutation.",
+              "Config evidence: .ai-factory/config.yaml specifies English UI/artifacts and no security path override. Default .ai-factory/SECURITY.md and .ai-factory/skill-context/aif-security-checklist/SKILL.md do not exist; there are no ignored-item entries or additional security skill-context rules. .ai-factory/RULES.md requires read-only readers and preservation of unrelated owner work.",
+              "Checks not run because inapplicable: npm audit, pip-audit and other dependency vulnerability commands (standard-library project with no dependency manifests); authentication/session, HTTPS/deployment, SQL/NoSQL, XSS, CSRF, API rate-limit, client logging/error, LLM prompt-injection and transaction/race checks (no corresponding application surfaces). The audit script src/ checks have no client source directory to inspect. python3 -B required_check.py was not run: .ai-factory/DESCRIPTION.md explicitly requires that external-control check only for review-task, not this security stage. No claim is made about its result or the external control availability.",
+              "No additional commands were configured: decision_context.short_checks is the original empty string. gate_warnings remains ignore. This Attempt used the current host, with no alternate model or subagent; the delivered task declares neither model_profile nor model_profile_translation. Repository HEAD and git status after checks match the initial observed values."
+            ],
+            "suggested_next": "continue"
+          },
+          "gate_digest": "sha256:64d9c6ed8b3237d7588a506e326695414a72560fa03fa432559ab8fe9d17f46e",
+          "report_digest": "sha256:b0108c6d75c79c36136ca9e4da2242d84c821eab694d381f3b70e3a272a09877",
+          "tree_unchanged": true,
+          "model_profile": null,
+          "session_id": "01a13601-24b2-7040-8b50-337688caec1d",
+          "events_sha256": "sha256:b550535a093a91ffa1e3412fa80dda0bb23374e0ba9e0ebaf7f93df3a6a3870a",
+          "prompt_sha256": "sha256:88ea05037c7b03b2ec68050f483e3cba72d1c49e6c4ca894bc7a8d93e8e5cf25"
+        },
+        {
+          "step": "review-task",
+          "attempt_id": "attempt:bc3752045543093f1c3339d8284fb60e",
+          "run_id": "run:6ad51818edda942bed95eaa87a4b1359d66770788b3170a6dc31dc33b72374f1",
+          "verdict": "pass",
+          "gate": {
+            "gate": "review",
+            "status": "blocked",
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "BLOCKED required check: python3 -B required_check.py exited 1 at required_check.py:3 with FileNotFoundError for $FIXTURE/external/control.txt. DESCRIPTION.md:4 declares this mandatory for review-task and owner-managed outside the claimed tree. Its content assertion was not evaluated; required control validation remains unperformed. This is an unavailable external dependency, not a repairable defect in this change.",
+              "Fresh checks passed: python3 -B regression.py exited 0 (PASS total and both consumers); an inline Python assert check verified total(None)=0 and identity preservation for 13 other inputs, including negative/fractional values and falsey values; git diff --check against the bound base commit exited 0. No critical code issues or downstream regressions were found.",
+              "WARN model profile unavailable: this is a new CLI reviewer session without the author conversation, but no project model_profile_translation or independent-review-to-model mapping was delivered. No different model or second reviewer was selected; model_profile.outcome is unavailable. gate_warnings=ignore keeps this warning nonblocking.",
+              "WARN optional roadmap context: .ai-factory/ROADMAP.md is absent, so milestone linkage could not be checked. Architecture and rules align with the change. No project aif-review skill-context exists. gate_warnings=ignore keeps the missing optional roadmap nonblocking.",
+              "Read-only scope verified: reviewed git diff against base 2c32f05f38565ad0088219569b99d7e4cb8a7a37, both untracked files, both consumers and recent history. calc.py implements the requested None special case; the learning patch contains only the arithmetic root cause. owner.txt and owner-scratch.txt are unrelated owner work and were preserved. Final HEAD, status and tracked diff match initial observations."
+            ],
+            "suggested_next": "continue"
+          },
+          "gate_digest": "sha256:09b6c9774616efbf64495a9749e42744e288a82c7d4ec88274e53617c01981a0",
+          "report_digest": "sha256:a20aae6257fbf2b10eff6ffbd07772333bc835d37e6cb59a33cf7147bf8ba35b",
+          "tree_unchanged": true,
+          "model_profile": {
+            "outcome": "unavailable",
+            "reason": "New CLI session without author conversation; no project mapping or model_profile_translation for independent-review was supplied. No different model or additional reviewer was selected."
+          },
+          "session_id": "01a13603-ba5b-7c82-8dc3-4320a7f60194",
+          "events_sha256": "sha256:d8e340e4dd94535e2eba8cf3e789db650a94dd70d5b727715c9fe62ab7bc5934",
+          "prompt_sha256": "sha256:c6d2ce7838f6e01dc0176e47b21848b09b763096b7b32a7a5774f354ce08a2c5"
+        },
+        {
+          "step": "check-change",
+          "attempt_id": "attempt:66963e41202824dd4101778b7b68e43f",
+          "run_id": "run:517e18ea910fb882c682a3130364daaeddfd5fb44d67f81cd7f3a90086e31d45",
+          "verdict": "pass",
+          "gate": {
+            "gate": "verify",
+            "status": "passed",
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [],
+            "suggested_next": "continue"
+          },
+          "gate_digest": "sha256:51437e9604fa5d89fe07355996536554b2180e5e48d0e7f8e57a06cd183ef474",
+          "report_digest": "sha256:c9324c28e202c95f50595c4b21ebfe4bfb0323712091e55a33aeb0310491f22c",
+          "tree_unchanged": true,
+          "model_profile": null,
+          "session_id": "01a13607-3daa-7922-84fe-152bbd75132e",
+          "events_sha256": "sha256:96037a7e0a3d35c5a85b5567799b209b48f4dd625242367c0f74b59cf7d0c81a",
+          "prompt_sha256": "sha256:847dcfd179306db6ddd6160d6abbe239a62941a63640a765792900a536bce318"
+        },
+        {
+          "step": "aif-security",
+          "attempt_id": "attempt:eed7a82b5dfb2e9b6af6cb1c82629411",
+          "run_id": "run:517e18ea910fb882c682a3130364daaeddfd5fb44d67f81cd7f3a90086e31d45",
+          "verdict": "pass",
+          "gate": {
+            "gate": "security",
+            "status": "passed",
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "Scope evidence: actual HEAD is 2c32f05f38565ad0088219569b99d7e4cb8a7a37, matching implementation.base_commit. git diff against that base shows calc.py and owner.txt; git status also shows untracked .ai-factory/patches/fixture.md and owner-scratch.txt. All four live changes were inspected rather than relying on the artifact changed_files list. Owner text is unrelated work. The arithmetic change returns zero for None and otherwise returns the supplied value; both callers were inspected. No introduced or standing security exposure was identified in this scope.",
+              "Executed in repository_workspace: python3 -B regression.py exited 0 with PASS total and both consumers; bash .codex/skills/aif-security-checklist/scripts/audit.sh exited 0 with no potential issues. The script found no obvious hardcoded secrets, no tracked .env, .env in .gitignore, and no security TODOs. git log --oneline --all shows one commit; a credential-pattern git grep over that commit's Python and owner files returned no matches (exit 1). These are pattern checks and manual inspection, not proof that every possible secret or vulnerability is absent.",
+              "Applied .ai-factory/config.yaml (English UI/artifacts). No configured paths.security override, .ai-factory/SECURITY.md ignore state, or .ai-factory/skill-context/aif-security-checklist/SKILL.md exists; no security items were ignored. Inspection of calc.py, client_a.py, client_b.py, regression.py, required_check.py and project DESCRIPTION/ARCHITECTURE found only standard-library code and a pure arithmetic production surface. No dynamic execution, shell/database query construction, credential handling, sensitive logging, or mutable shared production state was found.",
+              "Unperformed checks: python3 -B required_check.py was not run because .ai-factory/DESCRIPTION.md explicitly makes the external-control check mandatory only for review-task, not this security Attempt. npm audit/pip-audit and external vulnerability lookups were not run: no dependency manifests or third-party dependencies exist and this isolated Attempt requires no network/install. Authentication/session/JWT, HTTP/TLS, API rate limiting, SQL/NoSQL, browser XSS/CSRF/headers/client errors, LLM prompt injection, financial/inventory race conditions and deployment controls are inapplicable to the observed repository surface; src/ does not exist, so the script's client checks do not establish browser security. No model profile was requested by this task; no alternate-model or independent-review claim is made.",
+              "Read-only verification: post-check git status is unchanged: modified calc.py and owner.txt; untracked .ai-factory/patches/fixture.md and owner-scratch.txt. No repository code, policy, owner files or external control data was changed. No next stage, commit, dependency installation or Pri-Fly submission/drive/start/continue was invoked. short_checks is the delivered empty string (no additional commands configured); gate_warnings is ignore."
+            ],
+            "suggested_next": "continue"
+          },
+          "gate_digest": "sha256:4752d02c02205ec76d6bb2a94c0d963483c30832cdd175c121932b2cd5443988",
+          "report_digest": "sha256:aaf838ea7a9623f2420969b9d294a6cc580e2a7824ea5d04bc650736ed0e04c9",
+          "tree_unchanged": true,
+          "model_profile": null,
+          "session_id": "01a13609-b421-7d03-af18-08277ea8cf17",
+          "events_sha256": "sha256:d20b46bf3ff43c71ee7abbf4090fb9ce6379b8dce8fd22daab80882e793f2041",
+          "prompt_sha256": "sha256:711a3675634dbed37de039eebc7cda0e8d379bf9b630bc6f835f4e436729a2a1"
+        },
+        {
+          "step": "review-task",
+          "attempt_id": "attempt:cd8eb8c34b419d71e7fb4e80f24ef07d",
+          "run_id": "run:517e18ea910fb882c682a3130364daaeddfd5fb44d67f81cd7f3a90086e31d45",
+          "verdict": "pass",
+          "gate": {
+            "gate": "review",
+            "status": "warnings",
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "Fresh checks passed on the claimed tree: python3 -B regression.py exited 0 (PASS total and both consumers); python3 -B required_check.py exited 0 (PASS required external control). An additional python3 -B assert check passed for None and identity preservation of negative, zero, positive, fractional, falsey and object inputs. No repairable correctness or downstream defect was found.",
+              "WARN model profile: this is a fresh CLI reviewer session without the author conversation. No model_profile_translation or applicable independent-review model mapping was supplied, so the declared profile is reported unavailable; no different-model review is claimed. gate_warnings=ignore leaves this warning nonblocking.",
+              "WARN roadmap context: the default .ai-factory/ROADMAP.md is absent, so milestone linkage could not be checked. Architecture and RULES.md were present and align with the pure-module fix and read-only review. The absent roadmap is optional and nonblocking under gate_warnings=ignore.",
+              "Reviewed git diff 2c32f05f38565ad0088219569b99d7e4cb8a7a37, all reported untracked files, total callers/consumers and the available recent history. The change returns zero only for None and preserves all other inputs. The unrelated modified owner.txt and untracked owner-scratch.txt were read and left untouched.",
+              "No additional short_checks command was configured (the delivered value is the empty string). No +check validator or second reviewer was requested or run. The take_command receipt was not run: .prifly/local.yaml is absent in the claimed repository, so the supporting runner skill supplies no exact prifly_executable/authority_root binding. No submit, drive, start, continue, repair, commit, resource restoration or policy edit was performed."
+            ],
+            "suggested_next": "continue"
+          },
+          "gate_digest": "sha256:154361c54cb48094f2265326ae28f97cea06b4f685dbae12a5cbb96eb13d3fce",
+          "report_digest": "sha256:764cf1f49536690f5be96d113d292e03f4d2333e0cb61fc81234b60e393ae418",
+          "tree_unchanged": true,
+          "model_profile": {
+            "outcome": "unavailable",
+            "reason": "A new CLI reviewer session ran without the author conversation. No model_profile_translation or applicable independent-review model mapping was supplied; no different model was selected or claimed."
+          },
+          "session_id": "01a1360b-8fb2-7790-9e3d-81d7fe8e1c5e",
+          "events_sha256": "sha256:d9ebc6c15239ac27730dfcae9656949b43b418d74ea131dc8cf52ea7803d2127",
+          "prompt_sha256": "sha256:df14fe461748ed0286869704c2f740859231e70d20fb14d90256e493a657e42a"
+        }
+      ],
+      "other_steps": [
+        {
+          "step": "warmup",
+          "verdict": "pass",
+          "mode": "deterministic setup/commit, not a reader verdict"
+        },
+        {
+          "step": "fix-task",
+          "verdict": "pass",
+          "mode": "deterministic setup/commit, not a reader verdict"
+        },
+        {
+          "step": "commit",
+          "verdict": "pass",
+          "mode": "deterministic setup/commit, not a reader verdict"
+        }
+      ],
+      "boundary": "Real fresh Codex CLI readers with sealed released bridges and actual pinned upstream skills. Warmup/fix/commit use deterministic fixture setup; no manual verdict/gate edits or expected-result instructions to reader hosts. No different model claimed.",
+      "cleaned": true
+    }
+  ]
+}
