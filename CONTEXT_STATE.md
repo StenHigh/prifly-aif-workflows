@@ -28,7 +28,8 @@
   относится к readers; другая модель не заявлена. Пакеты не изменены, bump нет.
   Воспроизводимый manual probe tests/probes/live_readers.py, отчёт и JSON:
   tests/probes/results/aif-fix-bridge-1.0.2-live.md. Не включён в CI: расходует
-  настоящий configured Codex host usage. Публикуем приёмку, затем закрываем #4.
+  настоящий configured Codex host usage. Issue #4 закрыт completed; приёмка:
+  https://github.com/StenHigh/prifly-aif-workflows/issues/4#issuecomment-6150208132.
 
 - **Уточнение bridge к v1.51.2 / aif-fix 1.0.2 (2026-10-13):**
   выверены против выпущенного Pri-Fly `v0.13.76`; новых stable нет.

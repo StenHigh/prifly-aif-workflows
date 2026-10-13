@@ -67,8 +67,13 @@ implementation base/head, claim/generation, native manifest digests, коман�
 Issue для приёмки: [#4](https://github.com/StenHigh/prifly-aif-workflows/issues/4).
 
 Локальная runtime матрица проверяет CLI/Git/capture с synthetic host.
-[Реальный контроль](../tests/probes/results/aif-fix-0.13.76.md) подтверждает
-короткий путь; полное LLM escalation/repair/resume остаётся задачей пилота.
+[Первый host-контроль](../tests/probes/results/aif-fix-0.13.76.md) и
+[живой пилот](https://github.com/StenHigh/prifly-aif-workflows/issues/4#issuecomment-6132513896)
+отдельно подтверждают наблюдённые fix/escalation/repair/resume маршруты.
+[Финальная приёмка bridge v1.51.2](../tests/probes/results/aif-fix-bridge-1.0.2-live.md)
+проверяет естественные blocked reports и свежие readers после continue.
+Issue #4 закрыт в описанных границах; эта инструкция остаётся для следующих
+пилотов, без заявления о проверке всех специальных случаев.
 Экономия времени/токенов не измерена; для сравнения нужны одинаковые задачи
 и фактические метрики, число этапов её не доказывает.
 
