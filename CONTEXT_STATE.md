@@ -8,6 +8,25 @@
 
 ## Состояние на 2026-10-14
 
+- **W2 committed/pushed и полный CI PASS (2026-10-14):**
+  Implementation commit 911387ce6cc42e2ec53164f221ce4045bd05b56b в main;
+  https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38631695137
+  completed/success: latest stable0.13.76, version/static/unit, compile75 /
+  source steps46 / 6 packages, compatibility, classic4, fix28, W1 runtime25,
+  W2 runtime20 и actual browser4. Финальные scoped UI/UX bridges прошли ещё
+  отдельную live acceptance четырьмя unique fresh Codex CLI0.162.1 sessions
+  с require_separate_session=true: failed/partial → separate owner repair →
+  fresh checks → warnings/succeeded. Only independent-model mapping unavailable;
+  другая модель, live Claude и actual private PHP consumer не заявлены.
+  Canonical classic/profiled/fix/fanout и W1 executable bytes прежние.
+  Unsafe full-access запуск auto-review отказал даже после разрешения;
+  выполнена безопасная альтернатива workspace-write + per-command auto-review.
+  Root files/docs отметили commit/push/CI; bookkeeping не меняет package bytes.
+  W2 unreleased, tag/catalog отсутствуют; #2 consumer qualification остаётся
+  открытой. Следующий proposed change — W3 bounded feature workflow, без core
+  dependencies; UI profile может использовать квалифицированные W2 components.
+
+
 - **W2: fresh CLI qualification после разрешения владельца (2026-10-14):**
   Новых stable Pri-Fly нет; ворота выверены против выпущенного `v0.13.76`.
   После разрешения пользователя auto-review вновь отклонил danger-full-access:

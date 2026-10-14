@@ -1,6 +1,8 @@
 # W2 acceptance — 2026-10-14
 
-Status: implemented, fresh CLI qualification accepted within the bounds below; unreleased.
+Status: committed/pushed, complete CI PASS, fresh CLI qualification accepted within the bounds below; unreleased.
+Implementation [911387c](https://github.com/StenHigh/prifly-aif-workflows/commit/911387ce6cc42e2ec53164f221ce4045bd05b56b),
+[complete CI](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38631695137).
 Standalone [aif-ui-ux](../../../aif-ui-ux/README.md), initial version 1.0.0.
 Released Linux/amd64 Pri-Fly **0.13.76**, binary SHA-256
 `03ac382112a12001ea9e2a86e5a20db2d5e24ec79ce5339f6257c473d0f3322d`.

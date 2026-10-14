@@ -18,5 +18,5 @@
 - [x] Матрица A1–A8 и reproducible runtime/browser fixtures с pinned tool versions.
 - [ ] Consumer qualification issue #2 и другие модели/Claude host; не считать
   проверку fixture доказательством actual PHP stack или модельной независимости.
-- [ ] Commit/push реализации W2; initial versions 1.0.0 подготовлены.
+- [x] Commit/push реализации W2 (911387c), полный CI PASS; initial versions 1.0.0 подготовлены.
 - [ ] Отдельный release/tag/catalog после принятия финального объёма.

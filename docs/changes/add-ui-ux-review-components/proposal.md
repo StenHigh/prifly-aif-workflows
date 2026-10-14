@@ -1,6 +1,6 @@
 # W2 — UI/UX-компоненты приёмки
 
-Статус: **implemented locally; fresh CLI acceptance passed within recorded model/consumer limits; unreleased**. Приоритет: **P1**. Дата: 2026-10-14.
+Статус: **committed/pushed to main; CI PASS; fresh CLI acceptance passed within recorded model/consumer limits; unreleased**. Приоритет: **P1**. Дата: 2026-10-14.
 База: released Pri-Fly 0.13.76 / пакеты v1.51.2.
 
 ## Проблема и результат
