@@ -1,0 +1,28 @@
+id: aif-feature:schema/result
+version: 1.0.0
+$schema: https://json-schema.org/draft/2020-12/schema
+type: object
+additionalProperties: false
+required:
+- outcome
+- reason
+- work
+properties:
+  outcome:
+    enum:
+    - ready
+    - implemented
+    - owner_required
+    - environment_unavailable
+    - too_large
+  reason:
+    type: string
+    minLength: 1
+    maxLength: 4000
+  work:
+    type: array
+    maxItems: 40
+    items:
+      type: string
+      minLength: 1
+      maxLength: 4000

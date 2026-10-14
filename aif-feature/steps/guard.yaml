@@ -1,0 +1,24 @@
+authoring: prifly-step/1
+id: aif-feature:step/guard
+version: 1.0.0
+title: Bounded feature guard
+kind: worker
+inputs:
+  implementation:
+    schema_ref: '{{schema_implementation}}'
+  candidate:
+    schema_ref: '{{schema_candidate}}'
+  gate:
+    schema_ref: '{{schema_feature-gate}}'
+outputs:
+  gate:
+    schema_ref: '{{schema_feature-gate}}'
+    required_for:
+    - pass
+executor:
+  adapter_ref: '{{process}}'
+  operation: process
+effects:
+  class: none
+  retry_class: never
+result_schema_ref: '{{result}}'

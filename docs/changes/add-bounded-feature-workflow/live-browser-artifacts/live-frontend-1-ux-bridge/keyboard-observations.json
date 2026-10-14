@@ -1,0 +1,117 @@
+{
+  "scenario": "flow",
+  "viewport": {
+    "height": 800,
+    "width": 375
+  },
+  "url": "http://127.0.0.1:41195/index.html",
+  "initial": {
+    "focus": "",
+    "outline": "none",
+    "labels": [
+      "Note text"
+    ],
+    "inputValue": "",
+    "empty": true,
+    "error": false,
+    "loading": false,
+    "success": false,
+    "errorText": "Please enter a note.",
+    "errorRole": "alert",
+    "loadingRole": "status",
+    "successRole": "status",
+    "successText": "",
+    "saveDisabled": false
+  },
+  "firstTab": {
+    "focus": "note",
+    "outline": "solid",
+    "labels": [
+      "Note text"
+    ],
+    "inputValue": "",
+    "empty": true,
+    "error": false,
+    "loading": false,
+    "success": false,
+    "errorText": "Please enter a note.",
+    "errorRole": "alert",
+    "loadingRole": "status",
+    "successRole": "status",
+    "successText": "",
+    "saveDisabled": false
+  },
+  "secondTab": {
+    "focus": "save",
+    "outline": "solid",
+    "labels": [
+      "Note text"
+    ],
+    "inputValue": "",
+    "empty": true,
+    "error": false,
+    "loading": false,
+    "success": false,
+    "errorText": "Please enter a note.",
+    "errorRole": "alert",
+    "loadingRole": "status",
+    "successRole": "status",
+    "successText": "",
+    "saveDisabled": false
+  },
+  "invalid": {
+    "focus": "note",
+    "outline": "solid",
+    "labels": [
+      "Note text"
+    ],
+    "inputValue": "",
+    "empty": true,
+    "error": true,
+    "loading": false,
+    "success": false,
+    "errorText": "Please enter a note.",
+    "errorRole": "alert",
+    "loadingRole": "status",
+    "successRole": "status",
+    "successText": "",
+    "saveDisabled": false
+  },
+  "pending": {
+    "focus": "",
+    "outline": "none",
+    "labels": [
+      "Note text"
+    ],
+    "inputValue": "A test note",
+    "empty": true,
+    "error": false,
+    "loading": true,
+    "success": false,
+    "errorText": "Please enter a note.",
+    "errorRole": "alert",
+    "loadingRole": "status",
+    "successRole": "status",
+    "successText": "",
+    "saveDisabled": true
+  },
+  "complete": {
+    "focus": "note",
+    "outline": "solid",
+    "labels": [
+      "Note text"
+    ],
+    "inputValue": "",
+    "empty": false,
+    "error": false,
+    "loading": false,
+    "success": true,
+    "errorText": "Please enter a note.",
+    "errorRole": "alert",
+    "loadingRole": "status",
+    "successRole": "status",
+    "successText": "Saved: A test note",
+    "saveDisabled": false
+  },
+  "pageErrors": []
+}

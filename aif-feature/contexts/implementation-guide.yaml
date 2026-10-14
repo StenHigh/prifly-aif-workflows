@@ -1,0 +1,6 @@
+id: aif-feature:context/implementation-guide
+version: 1.0.0
+media_type: text/markdown; charset=utf-8
+source:
+  root: host_skills
+  path: aif-implement/references/IMPLEMENTATION-GUIDE.md

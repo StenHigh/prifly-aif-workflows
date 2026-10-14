@@ -1,0 +1,18 @@
+authoring: prifly-run-decision/1
+id: plan_retention
+title: Native fast plan lifecycle
+description: capture seals bytes and frees only the untracked owned path; retain stages the owned plan and keeps
+  it. Existing plans are always refused, never replaced.
+phase: preflight
+choices:
+- id: capture
+  title: capture
+  value: capture
+- id: retain
+  title: retain
+  value: retain
+recommendation: capture
+automatic: true
+destination:
+  kind: session_context
+  name: plan_retention

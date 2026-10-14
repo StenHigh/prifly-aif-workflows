@@ -1,0 +1,24 @@
+authoring: prifly-step/1
+id: aif-feature:step/configure
+version: 1.0.0
+title: Bounded feature configure
+kind: worker
+inputs:
+  task:
+    schema_ref: '{{schema_task}}'
+  implementation:
+    schema_ref: '{{schema_implementation}}'
+  surface:
+    schema_ref: '{{schema_surface}}'
+outputs:
+  round:
+    schema_ref: '{{schema_round}}'
+    required_for:
+    - pass
+executor:
+  adapter_ref: '{{process}}'
+  operation: process
+effects:
+  class: none
+  retry_class: never
+result_schema_ref: '{{result}}'

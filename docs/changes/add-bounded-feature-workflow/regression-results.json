@@ -1,0 +1,21 @@
+{
+  "fix": {
+    "cases": 28,
+    "prifly": "0.13.76",
+    "passed": true
+  },
+  "evidence": {
+    "cases": 25,
+    "prifly": "0.13.76",
+    "passed": true
+  },
+  "product": {
+    "cases": 20,
+    "prifly": "0.13.76",
+    "passed": true
+  },
+  "classic": {
+    "cases": 4,
+    "passed": true
+  }
+}

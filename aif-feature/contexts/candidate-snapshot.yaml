@@ -1,0 +1,142 @@
+id: aif-feature:context/candidate-snapshot
+version: 1.0.0
+media_type: text/plain; charset=utf-8
+text: "\"\"\"Review coverage evaluator and read-only Git candidate basis; Python stdlib only.\"\"\"\nimport argparse\n\
+  import base64\nimport hashlib\nimport json\nimport os\nfrom pathlib import Path\nimport re\nimport stat\nimport\
+  \ subprocess\nimport sys\n\nDIGEST = re.compile(r'sha256:[0-9a-f]{64}\\Z')\nCOMMIT = re.compile(r'[0-9a-f]{40}\\\
+  Z')\n\n\nclass Invalid(ValueError):\n    pass\n\n\ndef encoded(value):\n    return json.dumps(value, sort_keys=True,\
+  \ separators=(',', ':'), ensure_ascii=True).encode()\n\n\ndef digest(data):\n    return 'sha256:' + hashlib.sha256(data).hexdigest()\n\
+  \n\ndef git(tree, *args):\n    env = {**os.environ, 'GIT_OPTIONAL_LOCKS': '0', 'GIT_NO_LAZY_FETCH': '1', 'GIT_TERMINAL_PROMPT':\
+  \ '0'}\n    result = subprocess.run(['git', '-c', 'core.fsmonitor=false', '-c', 'core.untrackedCache=false', '-C',\
+  \ str(tree), *args],\n                            env=env, capture_output=True, timeout=60)\n    if result.returncode:\n\
+  \        raise Invalid('Git candidate operation failed: ' + args[0])\n    return result.stdout\n\n\ndef snapshot(tree,\
+  \ base):\n    \"\"\"Hash HEAD, logical index and tracked/nonignored untracked bytes/modes.\n\n    Never follows\
+  \ symlinks; refuses gitlinks, unresolved index and unstable reads.\n    Ignored build caches/dependencies and\
+  \ .git metadata are outside this basis.\n    \"\"\"\n    tree = Path(tree).resolve(strict=True)\n    if not COMMIT.fullmatch(base):\n\
+  \        raise Invalid('Expected a full SHA-1 base commit')\n    git(tree, 'cat-file', '-e', base + '^{commit}')\n\
+  \    if Path(os.fsdecode(git(tree, 'rev-parse', '--show-toplevel').strip())).resolve() != tree:\n        raise\
+  \ Invalid('Expected the claimed repository root')\n\n    def once():\n        head = git(tree, 'rev-parse', 'HEAD').decode().strip()\n\
+  \        if not COMMIT.fullmatch(head):\n            raise Invalid('Unsupported Git object format')\n        index\
+  \ = git(tree, 'ls-files', '--stage', '-z')\n        paths = set()\n        for entry in index.split(b'\\0'):\n\
+  \            if not entry:\n                continue\n            metadata, path = entry.split(b'\\t', 1)\n  \
+  \          mode, blob, stage = metadata.split()\n            if stage != b'0' or mode == b'160000':\n        \
+  \        raise Invalid('Unmerged index or submodule requires separate candidate policy')\n            paths.add(path)\n\
+  \        paths.update(p for p in git(tree, 'ls-files', '--others', '--exclude-standard', '-z').split(b'\\0') if\
+  \ p)\n        if len(paths) > 10000:\n            raise Invalid('Candidate exceeds 10000 paths')\n        records\
+  \ = []\n        for raw in sorted(paths):\n            relative = Path(os.fsdecode(raw))\n            if relative.is_absolute()\
+  \ or '..' in relative.parts or '.git' in relative.parts:\n                raise Invalid('Unsafe candidate path')\n\
+  \            current = tree\n            for part in relative.parts[:-1]:\n                current = current /\
+  \ part\n                try:\n                    if not stat.S_ISDIR(current.lstat().st_mode):\n            \
+  \            raise Invalid('Candidate parent is not a real directory')\n                except FileNotFoundError:\n\
+  \                    # Removed directory: the tracked path below is missing.\n                    break\n    \
+  \        path = tree / relative\n            record = {'path': base64.b64encode(raw).decode()}\n            try:\n\
+  \                mode = path.lstat().st_mode\n                record['mode'] = stat.S_IMODE(mode)\n          \
+  \      if stat.S_ISLNK(mode):\n                    record.update(kind='symlink', digest=digest(os.fsencode(os.readlink(path))))\n\
+  \                elif stat.S_ISREG(mode):\n                    # O_NOFOLLOW closes the lstat/open symlink race\
+  \ on supported hosts.\n                    fd = os.open(path, os.O_RDONLY | os.O_NOFOLLOW)\n                 \
+  \   with os.fdopen(fd, 'rb') as stream:\n                        if not stat.S_ISREG(os.fstat(stream.fileno()).st_mode):\n\
+  \                            raise Invalid('Candidate file changed kind')\n                        hashed = hashlib.sha256()\n\
+  \                        for chunk in iter(lambda: stream.read(1024 * 1024), b''):\n                         \
+  \   hashed.update(chunk)\n                    record.update(kind='file', digest='sha256:' + hashed.hexdigest())\n\
+  \                else:\n                    raise Invalid('Unsupported candidate file kind')\n            except\
+  \ FileNotFoundError:\n                record.update(kind='missing')\n            records.append(record)\n    \
+  \    return {'base_commit': base, 'head_commit': head, 'index_digest': digest(index), 'files_digest': digest(encoded(records))}\n\
+  \n    first, second = once(), once()\n    if first != second:\n        raise Invalid('Candidate changed during\
+  \ snapshot')\n    return {'algorithm': 'git-candidate/1', **first, 'digest': digest(encoded(first))}\n\n\ndef\
+  \ obj(value, fields, where):\n    if not isinstance(value, dict) or set(value) != set(fields):\n        raise\
+  \ Invalid(where + ': missing or unknown fields')\n\n\ndef text(value, where):\n    if not isinstance(value, str)\
+  \ or not value.strip() or len(value) > 4000:\n        raise Invalid(where + ': expected nonempty text')\n\n\n\
+  def candidate(value):\n    obj(value, ('algorithm', 'base_commit', 'head_commit', 'index_digest', 'files_digest',\
+  \ 'digest'), 'candidate')\n    if value['algorithm'] != 'git-candidate/1':\n        raise Invalid('Unknown candidate\
+  \ algorithm')\n    for field in ('base_commit', 'head_commit'):\n        if not isinstance(value[field], str)\
+  \ or not COMMIT.fullmatch(value[field]):\n            raise Invalid('Invalid candidate commit')\n    for field\
+  \ in ('index_digest', 'files_digest', 'digest'):\n        if not isinstance(value[field], str) or not DIGEST.fullmatch(value[field]):\n\
+  \            raise Invalid('Invalid candidate digest')\n    basis = {k: value[k] for k in ('base_commit', 'head_commit',\
+  \ 'index_digest', 'files_digest')}\n    if value['digest'] != digest(encoded(basis)):\n        raise Invalid('Candidate\
+  \ digest does not bind its basis')\n\n\ndef request(value):\n    obj(value, ('base_commit', 'round', 'checks',\
+  \ 'optional_policy', 'require_separate_session'), 'request')\n    if not isinstance(value['base_commit'], str)\
+  \ or not COMMIT.fullmatch(value['base_commit']):\n        raise Invalid('Invalid request base commit')\n    if\
+  \ type(value['round']) is not int or not 1 <= value['round'] <= 10000:\n        raise Invalid('Invalid round')\n\
+  \    if value['optional_policy'] not in ('ignore', 'stop') or type(value['require_separate_session']) is not bool:\n\
+  \        raise Invalid('Invalid review policy')\n    if not isinstance(value['checks'], list) or not 1 <= len(value['checks'])\
+  \ <= 80:\n        raise Invalid('Expected 1..80 checks')\n    ids = set()\n    for check in value['checks']:\n\
+  \        obj(check, ('id', 'description', 'method', 'required', 'enabled', 'applicable'), 'check')\n        if\
+  \ not isinstance(check['id'], str) or not re.fullmatch(r'[a-z][a-z0-9_-]{0,79}', check['id']) or check['id'] in\
+  \ ids:\n            raise Invalid('Invalid or duplicate declared check ID')\n        ids.add(check['id'])\n  \
+  \      text(check['description'], 'description')\n        if check['method'] not in ('code', 'command', 'browser')\
+  \ or any(type(check[k]) is not bool for k in ('required', 'enabled', 'applicable')):\n            raise Invalid('Invalid\
+  \ check method or policy')\n\n\ndef gate(status, findings, blocking=False, owner=False):\n    return {'gate':\
+  \ 'review', 'status': status, 'blocking': blocking, 'blocking_owner_only': owner,\n            'findings': findings,\
+  \ 'suggested_next': '/aif-fix' if blocking and not owner else 'continue'}\n\n\ndef evaluate(config, before, report,\
+  \ current, request_digest=None):\n    \"\"\"Check sealed composition and snapshots; observations remain host claims.\"\
+  \"\"\n    problems, warnings, defects = [], [], []\n    try:\n        request(config)\n        candidate(before)\n\
+  \        candidate(current)\n        if before['base_commit'] != config['base_commit'] or current != before:\n\
+  \            raise Invalid('Stale candidate: current HEAD/index/bytes/modes differ from captured basis')\n   \
+  \     obj(report, ('round', 'request_digest', 'candidate', 'session', 'model_profile', 'model', 'checks'), 'report')\n\
+  \        expected_request = request_digest or digest(encoded(config) + b'\\n')\n        if report['request_digest']\
+  \ != expected_request:\n            raise Invalid('Report belongs to a different declared check composition/request')\n\
+  \        candidate(report['candidate'])\n        if report['round'] != config['round'] or type(report['round'])\
+  \ is not int or report['candidate'] != before:\n            raise Invalid('Report belongs to a different round\
+  \ or candidate')\n        if report['session'] not in ('separate', 'shared', 'unavailable') or report['model_profile']\
+  \ not in ('honoured', 'unavailable', 'declined'):\n            raise Invalid('Invalid session/model report')\n\
+  \        if report['model_profile'] == 'honoured':\n            text(report['model'], 'actual model')\n      \
+  \  elif report['model'] is not None:\n            raise Invalid('Unavailable/declined model must not claim an\
+  \ actual model')\n        if config['require_separate_session'] and report['session'] != 'separate':\n       \
+  \     problems.append('Required separate reader session unavailable; model choice is a distinct property')\n \
+  \       if report['model_profile'] != 'honoured':\n            warnings.append('Model profile ' + report['model_profile']\
+  \ + '; independent model not established')\n        if not isinstance(report['checks'], list) or len(report['checks'])\
+  \ > 80:\n            raise Invalid('Invalid reported check list')\n        entries = {}\n        for entry in\
+  \ report['checks']:\n            obj(entry, ('id', 'status', 'result', 'reason', 'evidence'), 'reported check')\n\
+  \            if not isinstance(entry['id'], str) or entry['id'] in entries:\n                raise Invalid('Duplicate\
+  \ reported check ID')\n            entries[entry['id']] = entry\n        if set(entries) != {x['id'] for x in\
+  \ config['checks']}:\n            raise Invalid('Missing or unknown reported checks')\n        for spec in config['checks']:\n\
+  \            check = entries[spec['id']]\n            status = check['status']\n            if status not in ('executed',\
+  \ 'unavailable', 'excluded', 'not_applicable') or check['result'] not in ('passed', 'failed', 'warnings', 'not_run'):\n\
+  \                raise Invalid('Invalid check status/result')\n            if not isinstance(check['evidence'],\
+  \ list) or len(check['evidence']) > 40 or not isinstance(check['reason'], str):\n                raise Invalid('Invalid\
+  \ reason/evidence')\n            expected = 'excluded' if not spec['enabled'] else 'not_applicable' if not spec['applicable']\
+  \ else None\n            if expected and status != expected or not expected and status in ('excluded', 'not_applicable'):\n\
+  \                raise Invalid('Reader changed applicability/enabled policy: ' + spec['id'])\n            if status\
+  \ != 'executed':\n                text(check['reason'], 'skip reason')\n                if check['result'] !=\
+  \ 'not_run' or check['evidence']:\n                    raise Invalid('Unrun check claims a result or execution\
+  \ evidence')\n                if status == 'unavailable':\n                    destination = problems if spec['required']\
+  \ else warnings\n                    destination.append(spec['id'] + ': ' + check['reason'])\n               \
+  \ continue\n            if check['result'] == 'not_run' or not check['evidence']:\n                raise Invalid('Executed\
+  \ check lacks result/evidence')\n            for evidence in check['evidence']:\n                obj(evidence,\
+  \ ('method', 'tool', 'locator', 'observation', 'exit_code'), 'evidence')\n                if evidence['method']\
+  \ != spec['method']:\n                    raise Invalid('Evidence method differs from declared check: ' + spec['id'])\n\
+  \                for field in ('tool', 'locator', 'observation'):\n                    text(evidence[field], field)\n\
+  \                if spec['method'] == 'command':\n                    if type(evidence['exit_code']) is not int:\n\
+  \                        raise Invalid('Command evidence lacks exit code')\n                    if check['result']\
+  \ == 'passed' and evidence['exit_code'] != 0:\n                        raise Invalid('Passing command has nonzero\
+  \ exit code')\n                elif evidence['exit_code'] is not None:\n                    raise Invalid('Non-command\
+  \ evidence claims exit code')\n            if check['result'] == 'failed':\n                text(check['reason'],\
+  \ 'failure reason')\n                defects.append(spec['id'] + ': ' + check['reason'])\n            elif check['result']\
+  \ == 'warnings':\n                text(check['reason'], 'warning reason')\n                warnings.append(spec['id']\
+  \ + ': ' + check['reason'])\n    except (Invalid, KeyError, TypeError) as error:\n        problems.append(str(error))\n\
+  \    if problems:\n        result = gate('blocked', problems + defects + warnings)\n    elif defects:\n      \
+  \  result = gate('failed', defects + warnings, blocking=True)\n    elif warnings:\n        stop = config['optional_policy']\
+  \ == 'stop'\n        result = gate('warnings', warnings, blocking=stop, owner=stop)\n    else:\n        result\
+  \ = gate('passed', [])\n    return result\n\n\ndef worker(operation):\n    envelope = json.load(sys.stdin)\n \
+  \   context = json.loads(Path(os.environ['PRIFLY_CONTEXT_FILE']).read_text())\n    result = {'schema_version':\
+  \ '1', **{k: envelope[k] for k in ('run_id', 'step_instance_id', 'attempt_id')},\n              'envelope_digest':\
+  \ os.environ['PRIFLY_ENVELOPE_DIGEST'], 'verdict': 'pass',\n              'outputs': {}, 'evidence_refs': [],\
+  \ 'effect_receipt_refs': [], 'summary': ''}\n    def read(port):\n        return json.loads(Path(context['inputs'][port]['path']).read_text())\n\
+  \    def output(port, value):\n        slot = context['outputs'][port]\n        data = encoded(value) + b'\\n'\n\
+  \        Path(slot['path']).write_bytes(data)\n        result['outputs'][port] = {k: slot[k] for k in ('artifact_id',\
+  \ 'revision')}\n        result['outputs'][port]['digest'] = digest(data)\n    try:\n        config = read('request')\n\
+  \        request(config)\n        if operation == 'configure':\n            output('request', config)\n      \
+  \  elif operation == 'capture':\n            output('candidate', snapshot(os.environ['PRIFLY_REPOSITORY_WORKSPACE'],\
+  \ config['base_commit']))\n        elif operation == 'evaluate':\n            try:\n                current =\
+  \ snapshot(os.environ['PRIFLY_REPOSITORY_WORKSPACE'], config['base_commit'])\n                assessment = evaluate(config,\
+  \ read('candidate'), read('report'), current,\n                                      digest(Path(context['inputs']['request']['path']).read_bytes()))\n\
+  \            except (Invalid, OSError, subprocess.SubprocessError) as error:\n                assessment = gate('blocked',\
+  \ ['Candidate cannot be assessed: ' + str(error)])\n            output('gate', assessment)\n        else:\n  \
+  \          raise Invalid('Unknown worker operation')\n        result['summary'] = 'Review evidence ' + operation\n\
+  \    except (Invalid, OSError, KeyError, subprocess.SubprocessError, ValueError) as error:\n        result.update(verdict='fail',\
+  \ outputs={}, summary=str(error))\n    os.write(3, encoded(result) + b'\\n')\n\n\ndef main():\n    parser = argparse.ArgumentParser(description=__doc__)\n\
+  \    subs = parser.add_subparsers(dest='operation', required=True)\n    snap = subs.add_parser('snapshot')\n \
+  \   snap.add_argument('--repository', type=Path, required=True)\n    snap.add_argument('--base', required=True)\n\
+  \    for op in ('configure', 'capture', 'evaluate'):\n        subs.add_parser(op)\n    args = parser.parse_args()\n\
+  \    if args.operation == 'snapshot':\n        print(json.dumps(snapshot(args.repository, args.base), sort_keys=True))\n\
+  \    else:\n        worker(args.operation)\n\n\nif __name__ == '__main__':\n    main()\n"

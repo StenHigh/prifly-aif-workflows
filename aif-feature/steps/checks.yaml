@@ -1,0 +1,38 @@
+authoring: prifly-step/2
+id: aif-feature:step/checks
+version: 1.0.0
+title: Bounded feature checks
+kind: worker
+inputs:
+  task:
+    schema_ref: '{{schema_task}}'
+  handoff:
+    schema_ref: '{{schema_warmup-handoff}}'
+  request:
+    schema_ref: '{{schema_request}}'
+  candidate:
+    schema_ref: '{{schema_candidate}}'
+outputs:
+  report:
+    schema_ref: '{{schema_report}}'
+    required_for:
+    - pass
+    - needs_revision
+    - blocked
+executor:
+  adapter_ref: '{{session}}'
+  operation: session
+instructions_ref: '{{context_feature-checks}}'
+context_refs:
+- '{{context_aif-review}}'
+- '{{context_review-severity}}'
+effects:
+  class: none
+  retry_class: pure
+session_limits:
+  active_timeout_ms: null
+result_schema_ref: '{{result_v2}}'
+repository_workspace: read_only
+model_profile:
+  requested: independent-review
+  reason: Fresh quality reader; report actual session and model separately.

@@ -1,0 +1,15 @@
+# Unpublished draft. Release must replace main with the reviewed release ref + exact commit pin.
+schema_version: prifly-workflow-catalog/1
+title: Small feature workflow draft
+categories:
+  software-delivery:
+    title: Software delivery
+workflows:
+  aif-feature:
+    title: AI Factory small feature workflow
+    description: Native fast plan, implementation, bounded sequential quality and local commit. Requires Pri-Fly 0.13.76; no push or merge.
+    category: software-delivery
+    repository: https://github.com/StenHigh/prifly-aif-workflows.git
+    path: aif-feature
+    ref: main
+    tags: [ai-factory, feature, codex-cli, codex-app, claude-code]

@@ -1,0 +1,6 @@
+id: aif-feature:context/logging-guide
+version: 1.0.0
+media_type: text/markdown; charset=utf-8
+source:
+  root: host_skills
+  path: aif-implement/references/LOGGING-GUIDE.md

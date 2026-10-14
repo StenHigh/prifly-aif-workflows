@@ -6,7 +6,48 @@
 движка 0.10–0.13.54, переход на AI Factory 2.19.0, WorkflowRevision v4) —
 в git: `git show d388b92:CONTEXT_STATE.md` (2330 строк, оглавление — `mdq tree`).
 
-## Состояние на 2026-10-14
+## Состояние на 2026-10-15
+
+Ворота выверены против выпущенного Pri-Fly `v0.13.76`.
+
+- **W3 implemented/pilot qualified локально (2026-10-15), commit/push далее:**
+  Separate aif-feature1.0.0, без source changes в core/classic/profiled/fix/fanout/W1/W2.
+  warmup/configure/native fast plan/implement → acceptance call {bounded whole
+  quality rounds → current candidate guard → local commit}. Default3/max8 rounds,
+  last failure no repair; acceptance114/root128/depth4. Partial commit continuation
+  repeats every enabled reader, preserving base/claim/decisions/work. Backend no
+  browser; frontend required W2 UI+UX/owned environment+cleanup. W1/W2 copied
+  program/schema/bridge bytes identical; own worker pins request/round/candidate,
+  complete coverage, task digest and combined gate. Owner/unavailable outrank repair.
+  Native2.19.0 fast TASK-FORMAT/explicit @PLAN, retained tracked progress or default
+  captured blob bytes; non-pass unconditional capture gets explicit non-executable
+  BLOCKED native snapshot, no ready/fake execution/auto classic. Native Tasks are
+  executable code/unit/static tests; independent/browser quality is deferred to
+  the later owned environment, no circular implementation→future quality dependency.
+  Nested product policy/session must match root choice (no silent override).
+  Released stable v0.13.76 still latest; all gates against official SHA03ac3821...
+  Compile100/source steps67/packages7 + three-host/profile negatives, compatibility,
+  local catalog install/update, runtime35, actual browser3/15 screenshots, classic4/
+  fix28/W1runtime25/W2runtime20, W3unit8/W1unit14/W2unit14/static7/version3/derive PASS.
+  Final exact-scope fresh CLI0.162.1 live frontend → required actual UI/UX passed →
+  owned cleanup → local commit succeeded; actual missing prerequisite exit77 →
+  required unavailable/source partial → owner supplies prerequisite → reviewed
+  full quality continuation → succeeded. 19 unique fresh CLI sessions, unedited
+  submissions/reports, original base/one claim/owner work and actual Git outputs
+  checked. Another model not attested; warnings about unavailable mapping visible.
+  Earlier actual direct/scoped repair/graceful writer continuation observations
+  retained with precise earlier contract scope; actual negatives not counted PASS.
+  One auto-review rejected nested outside-task reads; new exact fixture --add-dir
+  grants retain sandbox/auto-review and read-only/authority guards. No full-access.
+  All own Run/claim/environment/monitor/temp cleaned; raw private events under
+  /tmp/w3-live-frontend-scoped and /tmp/w3-live-resume-scoped, public evidence in W3
+  change folder. CI includes W3 units/install/runtime/actual browser.
+  Forced writer cancel remains recover_source_unsettled after inspected applied/
+  not_applied resolve (cancel_requested); source/work preserved, no fake resume.
+  E3 issue prepared locally engine-followup.md; no core changes. A8 partial/read-only
+  cancel/replay qualified, this forced-writer portion explicitly deferred.
+  No tag/catalog/release; published install requires release task. Private PHP/live
+  Claude unqualified; no measured saving against comparable classic task.
 
 - **W2 committed/pushed и полный CI PASS (2026-10-14):**
   Implementation commit 911387ce6cc42e2ec53164f221ce4045bd05b56b в main;

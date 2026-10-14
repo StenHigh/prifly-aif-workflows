@@ -13,11 +13,12 @@ PROFILED = ROOT / "aif-profiled"
 FIX = ROOT / "aif-fix"
 EVIDENCE = ROOT / "aif-review-evidence"
 PRODUCT = ROOT / "aif-ui-ux"
+FEATURE = ROOT / "aif-feature"
 
 
 class WorkflowFolderTest(unittest.TestCase):
     def test_folders_are_marked_workflow_folders(self):
-        for folder in (CLASSIC, FANOUT, FIX, PROFILED, EVIDENCE, PRODUCT):
+        for folder in (CLASSIC, FANOUT, FIX, PROFILED, EVIDENCE, PRODUCT, FEATURE):
             workflow = (folder / "workflow.yaml").read_text()
             self.assertTrue(workflow.startswith("authoring: prifly-project-workflow/1\n"), folder)
             self.assertTrue((folder / "extend.yaml").is_file(), folder)
@@ -37,13 +38,14 @@ class WorkflowFolderTest(unittest.TestCase):
             self.assertFalse(any(line.strip() == "---" for source in yaml_sources for line in source.splitlines()), folder)
 
     def test_classic_decision_catalog_names_its_own_install_path(self):
-        for folder in (CLASSIC, FIX, PROFILED):
+        for folder in (CLASSIC, FIX, PROFILED, FEATURE):
             workflow = (folder / "workflow.yaml").read_text()
             self.assertIn("decision_catalog:", workflow)
-            for line in workflow.splitlines():
-                if line.startswith("  - .prifly/workflows/"):
-                    self.assertTrue(line.startswith(f"  - .prifly/workflows/{folder.name}/decisions/"), line)
-                    self.assertTrue((folder / line.split(f"{folder.name}/", 1)[1]).is_file(), line)
+            entries = [line.strip()[2:] for line in workflow.splitlines() if line.strip().startswith("- .prifly/workflows/")]
+            self.assertTrue(entries, f"{folder} declared no measured decision catalog paths")
+            for path in entries:
+                self.assertTrue(path.startswith(f".prifly/workflows/{folder.name}/decisions/"), path)
+                self.assertTrue((folder / path.split(f"{folder.name}/", 1)[1]).is_file(), path)
 
     def test_profiled_is_classic_derived_by_the_tool_and_nothing_else(self):
         # aif-profiled is not edited by hand: it is what tools/derive_profiled.py

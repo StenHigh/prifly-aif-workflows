@@ -1,0 +1,20 @@
+authoring: prifly-step/1
+id: aif-feature:step/capture-candidate
+version: 1.0.0
+title: Bounded feature capture
+kind: worker
+inputs:
+  implementation:
+    schema_ref: '{{schema_implementation}}'
+outputs:
+  candidate:
+    schema_ref: '{{schema_candidate}}'
+    required_for:
+    - pass
+executor:
+  adapter_ref: '{{process}}'
+  operation: process
+effects:
+  class: none
+  retry_class: never
+result_schema_ref: '{{result}}'

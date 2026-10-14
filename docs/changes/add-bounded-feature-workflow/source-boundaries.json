@@ -1,0 +1,17 @@
+{
+  "programs_sha256": {
+    "feature.py": "e6368dc81ccef7eccb843c3634f5728791e6a163444a03e45b438c1f5e654d9b",
+    "evidence.py": "0ac845481c7fb4dd3a57d7e80726e42f67c1075ff2407916c7607ddc1a450c76",
+    "product.py": "4dfc3de4ec56c1f481389093f284d525586b0163553d66ff8a212375124a4f16"
+  },
+  "existing_packages_unchanged": [
+    "aif-classic",
+    "aif-profiled",
+    "aif-fix",
+    "aif-fanout",
+    "aif-review-evidence",
+    "aif-ui-ux"
+  ],
+  "engine_source_changes": false,
+  "qualification": "Final native/UI scheduling bridge and global-vs-product policy guard; no source changes during final scoped model Runs."
+}

@@ -34,6 +34,7 @@
 | [`aif-profiled/`](aif-profiled/) | Тот же classic, порождённый из него `tools/derive_profiled.py`: каждый шаг объявляет профиль модели (`model_profile`), `plan` и `implement` просят отдельную сессию. Перевод профиля в модель и effort задаёт проект — дефолты в `extend.yaml`, переопределение в `.prifly/local.yaml`; движок доставляет и не выбирает. Pri-Fly ≥ 0.13.64. |
 | [`aif-review-evidence/`](aif-review-evidence/) | Новый отдельный quality-компонент W1: declared checks → read-only review → машинная проверка покрытия и текущего candidate. Отправлен в main, не опубликован в каталоге. Classic/profiled не меняются. |
 | [`aif-ui-ux/`](aif-ui-ux/) | Новый отдельный W2: owned test environment → UI/UX readers → проверка scenarios/current candidate → адресный cleanup. Отправлен в main, CI PASS; контракт среды описан в [guide](docs/product-review-environment.md). |
+| [`aif-feature/`](aif-feature/) | Новый отдельный W3: native fast plan → implement → bounded sequential quality → local commit; backend/frontend profiles, явные критерии и сохранение работы при остановке. Пока без tag/catalog release. |
 | [`aif-fix/`](aif-fix/) | Отдельный workflow для конкретного бага: `warmup → fix-task → checks → enabled security → один task review → commit`. Сложный баг получает native fix-план и исполняется тем же `aif-fix`; после repair вся короткая последовательность проверок повторяется. Пользователь выбирает этот launch вручную; классические графы не меняются. |
 
 `aif-fix` добавлен в v1.51.0; **v1.51.1 / пакет 1.0.1** исправляет

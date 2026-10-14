@@ -1,0 +1,1717 @@
+{
+  "prifly": "0.13.76",
+  "observations": [
+    {
+      "case": "live-frontend",
+      "host": "codex-cli",
+      "mode": "fresh actual Codex CLI writers/readers, unedited submissions",
+      "source_outcome": "succeeded",
+      "outcome": "succeeded",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "environment",
+        "ui",
+        "ux",
+        "release",
+        "commit"
+      ],
+      "rounds": [],
+      "plan_captures": [],
+      "elapsed_seconds": 1167.59,
+      "cleaned": true,
+      "observations": [
+        {
+          "step": "warmup",
+          "session": "01a13c9e-3bf2-7de0-b777-f5a731cf12d1",
+          "verdict": "pass",
+          "outputs": {
+            "handoff": {
+              "summary": "Configuration: Repository root is the named repository_workspace. .ai-factory/config.yaml is absent; default paths are .ai-factory/{DESCRIPTION,ARCHITECTURE,ROADMAP,RESEARCH,RULES}.md and .ai-factory/rules/base.md. language.ui defaults to en; warmup.paths defaults to []. Artifact language, technical-term, git, plan-ID and verify-mode preferences are not configured. Sealed decisions: autonomous policy; HANDOFF_MODE=1, HANDOFF_TASK_ID is empty, HANDOFF_SKIP_REVIEW=0; plan_tests=true, plan_constraints is empty, plan_retention=capture. These are retained context, with no environment changes.\nProject: The bound task describes an existing notes HTML form and requests save confirmation: after loading, hide the empty state, display Saved: <trimmed note>, clear input and restore focus. Scope is index.html; only ephemeral in-page state is authorized. Application code was not inspected during warmup. HEAD is 6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d; the working tree and index are clean.\nArchitecture: No architecture artifact is present. The bound task identifies index.html as the interface entry point and mentions a project Playwright adapter; its availability and implementation were not examined.\nDirection: No roadmap or research artifacts, qualifying research bundles, or configured extra warmup paths are available. The bound task requires preserving error/loading behavior, mobile layout and existing IDs, with desktop/mobile UI and keyboard-flow acceptance in later authorized stages.\nRules: This delivered stage is read-only and stops at the handoff. Pri-Fly owns workflow progression. Preserve unrelated work; no implementation, plans, commits, branches, environment provisioning, dependency installation, publication or control calls in this Attempt. Later stages must respect the bound scope and declared checks.\nGaps: Config, root AGENTS.md, warmup skill-context override, all six default core/rule files and .ai-factory/research/ are missing. Architecture, existing application behavior and adapter availability remain unverified; no business ambiguity or owner question arose in this warmup.\nLoaded: task.json, context.json, submission-template.json, inputs/task, and both pinned context/skills files (listed exactly in sources). Git HEAD and porcelain status were read; no project artifact file existed to load.\nReady: Available context is loaded, gaps are recorded, and the session can continue or be forked by the controller.",
+              "entry_points": [
+                "/tmp/w3-run-ep0npkf2/authority/.prifly/work/claims/99ec1731e12af12a153d1fbf604a58974fafbef02e5f11d937f214e554d78575",
+                "index.html \u2014 declared feature scope in inputs/task; not inspected during warmup.",
+                "Project Playwright adapter \u2014 named by inputs/task; availability not verified."
+              ],
+              "conventions": [
+                "Read-only warmup: do not inspect application code, plans, Git history or unrelated artifacts; stop after the handoff.",
+                "Use only the named repository_workspace and bound task context; Pri-Fly controls all subsequent stages.",
+                "Future feature edits are scoped to index.html; preserve existing IDs, loading/error behavior and responsive layout.",
+                "Feature state is ephemeral in-page only; no backend writes are authorized.",
+                "Autonomous bridge context: HANDOFF_MODE=1, HANDOFF_TASK_ID empty, HANDOFF_SKIP_REVIEW=0; no environment variables were changed.",
+                "Sealed planning decisions: tests included, no added constraints, native plan retention capture.",
+                "Bound quality requirements cover command checks, security, review, desktop/mobile UI, and labelled keyboard UX; none were executed in warmup.",
+                "No model profile is declared; no host-model mapping is inferred. No questions arose."
+              ],
+              "sources": [
+                "/tmp/w3-run-ep0npkf2/authority/.prifly/work/2c972988a53090e209266cec5df4ea9c/task.json",
+                "/tmp/w3-run-ep0npkf2/authority/.prifly/work/2c972988a53090e209266cec5df4ea9c/context.json",
+                "/tmp/w3-run-ep0npkf2/authority/.prifly/work/2c972988a53090e209266cec5df4ea9c/submission-template.json",
+                "/tmp/w3-run-ep0npkf2/authority/.prifly/work/2c972988a53090e209266cec5df4ea9c/inputs/task",
+                "/tmp/w3-run-ep0npkf2/authority/.prifly/work/2c972988a53090e209266cec5df4ea9c/context/skills/aif-context-aif-warmup-0.0.0-b1.ek57aopdyk7an3dcnuf2aorudxktnjjl75ssifabkm4notft32ra",
+                "/tmp/w3-run-ep0npkf2/authority/.prifly/work/2c972988a53090e209266cec5df4ea9c/context/skills/aif-feature-context-feature-warmup-0.0.0-b1.sf4qqbxkdildafcovjw5nnrraccc5g6k42ewsua3qdg42qvoeopq"
+              ],
+              "open_questions": []
+            },
+            "implementation": {
+              "base_commit": "6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d",
+              "head_commit": "6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d",
+              "changed_files": []
+            }
+          },
+          "submission_sha256": "9fd16a917ce45b5a25e70bfeca99cf8a42847d2160f54acd3fa1ed9d5af557a0",
+          "events_sha256": "593559e6837d63404ce78304f386b6a4889c0ce81c74360abf0d8ff9ef52bb31"
+        },
+        {
+          "step": "plan",
+          "session": "01a13c9f-898d-7bd0-aff0-04ced5187b25",
+          "verdict": "pass",
+          "outputs": {
+            "result": {
+              "outcome": "ready",
+              "reason": "Native fast plan exists with two bounded implementation/test tasks, settled index.html scope and owner assumptions, all declared acceptance criteria assigned to later quality, and verified command/harness syntax. Planning is complete; feature implementation and quality acceptance remain pending.",
+              "work": [
+                "Read task.json, submission-template.json, context.json, workspace-trees.json, all four pinned instruction/support files, and all three bound inputs; verified pinned skill and bound-input SHA256 digests.",
+                "Used the warmup handoff and read-only discovery of only the named repository_workspace. Confirmed absent project config/overrides and an empty default native plan path; inspected the existing notes form and preserved its validation/loading/ID/layout contract.",
+                "Created .ai-factory/PLAN.md from the pinned native template with the exact Original Request, Testing: yes, Logging: verbose, Docs: no, two dependency-ordered implementation/unit-test tasks scoped to index.html, and configurable runtime logging requirements.",
+                "Kept command, security, code-review, actual desktop/mobile UI and keyboard UX acceptance in the later workflow quality phase, with supplied environment ownership descriptors and separate-session requirements preserved.",
+                "Verified the exact supplied python3 -B command on the current tree: exit 0. Validated the inline Node unit harness syntax: exit 0. Executed its baseline against the real unimplemented script: exit 1, three existing-behavior cases passed and four missing-feature cases failed. These are planning observations, not an implementation acceptance pass.",
+                "Verified index.html SHA256 remains sha256:6631ce4d20c2fd85d59eb594a2b658ab1d4cd373b036d5e10ed71efcc96f2f4f; tracked diff and staged diff remain empty. The only new repository file is the owned untracked plan, left for engine capture under plan_retention=capture.",
+                "Final native plan digest sha256:d556c216b1f1eaedd8ef71c0a8cd817b9f8747e8cb8aa9091aaf3beef2ee5aac. No implementation, dependency installation, provisioning, browser session, commit, publication or Pri-Fly control call was performed."
+              ]
+            }
+          },
+          "submission_sha256": "0a1ded57ed428558f0d81001a5c6d65c954796c29f46ad75326ab50c932efb36",
+          "events_sha256": "055ab97a9c288099c9cb5146f2dcc91f7f51e5d09f5436a25a5c9d191a520c7d"
+        },
+        {
+          "step": "implement",
+          "session": "01a13ca3-24d2-7da3-94aa-3dfae9ddf1cf",
+          "verdict": "pass",
+          "outputs": {
+            "implementation": {
+              "base_commit": "6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d",
+              "head_commit": "6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d",
+              "changed_files": [
+                "index.html"
+              ]
+            },
+            "result": {
+              "outcome": "implemented",
+              "reason": "Both scoped native implementation tasks are complete and all seven prescribed in-memory unit/static cases pass. Independent command, security, code review and browser UI/UX acceptance remain scheduled for the later quality stage; overall feature acceptance and the later commit are not claimed.",
+              "work": [
+                "Verified SHA256 identities of all four pinned instructions/supporting references, all four bound inputs and the exact materialized native plan revision before editing.",
+                "Confirmed default .ai-factory/PLAN.md path applies because project config is absent; project rules/context overrides are absent and no existing staged work was present.",
+                "Implemented index.html confirmation after the existing 400 ms loading timer: hide empty state, show Saved: plus the accepted trimmed note using textContent, clear input and restore focus. Preserved validation, loading/disabled transitions, IDs, label/status/alert markup and responsive container.",
+                "Added overflow-wrap:anywhere for the success text and structured DEBUG/INFO/WARN/ERROR console diagnostics configurable through globalThis.LOG_LEVEL, including OFF, without recording note contents or adding external/persistent effects.",
+                "JavaScript syntax check passed with node --check via stdin. An initial process-substitution syntax-check command failed because Node could not read its /proc pipe path; the corrected stdin check exited 0. git diff --check also exited 0.",
+                "Executed the exact native plan in-memory harness against real index.html: PASS stable IDs and accessibility markup; PASS initial empty state; PASS empty and whitespace rejection; PASS loading then trimmed confirmation; PASS markup-looking note as literal text; PASS validation recovery and repeated saves; PASS OFF/DEBUG logging equivalence. Harness exited 0.",
+                "Marked each native task in progress before execution and completed its checkbox immediately after completion. Left .ai-factory/PLAN.md untracked and available for engine capture; supplied no host-authored plan manifest.",
+                "Final Git evidence: HEAD remains 6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d; tracked feature diff contains only index.html; staging index remains empty. No checkpoint was declared by the native plan, so no checkpoint commit was made. Later quality and local commit stages remain under Pri-Fly control.",
+                "No browser/environment provisioning, independent quality reader, other workflow, dependency installation, publication, credential access or Pri-Fly control call was performed. Documentation checkpoint skipped under Docs: no."
+              ]
+            }
+          },
+          "submission_sha256": "47f81526ffa04e3f33f12c85542b6bd366abe80370441f67e6715d5e2197f068",
+          "events_sha256": "789ee015b7e6a7b4f1577320c9d4930b3a0bed44a5db782d8dd7c9e0d9382471"
+        },
+        {
+          "step": "checks",
+          "session": "01a13ca5-7de9-7f63-aeb3-e5d27516e939",
+          "verdict": "pass",
+          "outputs": {
+            "report": {
+              "round": 1,
+              "request_digest": "sha256:30af62c75357abf916fdb60bddcbfa94679feb1278522928361c5585eae8b79b",
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d",
+                "digest": "sha256:82434e279d3ebd0ebe33da11f668b54c8d746f137a5fccf4974c8695befea5b3",
+                "files_digest": "sha256:efb1ac6c3afeb714a11d0432fbae73fcc408e2fba077844099ea36a0fbc1a9ba",
+                "head_commit": "6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d",
+                "index_digest": "sha256:061cc9b4313f5dfd5ce68e6404bc278b2490b8acfb040bc5bb439fec62216782"
+              },
+              "session": "separate",
+              "model_profile": "unavailable",
+              "model": null,
+              "checks": [
+                {
+                  "id": "checks_acceptance",
+                  "status": "executed",
+                  "result": "passed",
+                  "reason": "",
+                  "evidence": [
+                    {
+                      "method": "command",
+                      "tool": "functions.exec / exec_command",
+                      "locator": "cwd=/tmp/w3-run-ep0npkf2/authority/.prifly/work/claims/99ec1731e12af12a153d1fbf604a58974fafbef02e5f11d937f214e554d78575; command=python3 -B -c \"from pathlib import Path; assert 'addEventListener' in Path('index.html').read_text()\"",
+                      "observation": "The exact declared command executed with exit code 0 and empty stdout/stderr. The addEventListener assertion passed. The initial sandbox launch failed before execution with bwrap: loopback: Failed RTM_NEWADDR: Operation not permitted; the automatically approved retry executed successfully.",
+                      "exit_code": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "submission_sha256": "8e83f99b7fbe95e6fced4b17b4a78c8447898b500c0c6760384b6b06c3ef13ab",
+          "events_sha256": "2c66428476663f6b791ee14abdff05e42b383a4cf8e581d5a845016adf9f712d"
+        },
+        {
+          "step": "security",
+          "session": "01a13ca6-e054-7752-b8ed-83181916163e",
+          "verdict": "pass",
+          "outputs": {
+            "report": {
+              "round": 1,
+              "request_digest": "sha256:d6d6a62817a5a4564aa0eb8edd536d6c10735f2653e1097c4c3333e289e0b089",
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d",
+                "digest": "sha256:82434e279d3ebd0ebe33da11f668b54c8d746f137a5fccf4974c8695befea5b3",
+                "files_digest": "sha256:efb1ac6c3afeb714a11d0432fbae73fcc408e2fba077844099ea36a0fbc1a9ba",
+                "head_commit": "6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d",
+                "index_digest": "sha256:061cc9b4313f5dfd5ce68e6404bc278b2490b8acfb040bc5bb439fec62216782"
+              },
+              "session": "separate",
+              "model_profile": "unavailable",
+              "model": null,
+              "checks": [
+                {
+                  "id": "security_acceptance",
+                  "status": "executed",
+                  "result": "warnings",
+                  "reason": "No unsafe script execution, outbound effects, persistence, or exposed secrets were found in the scoped notes form. Non-blocking checklist finding: logNote defaults to DEBUG without an explicit non-production guard, so ordinary submissions emit browser diagnostics. These include note length and UI state, but not note contents. The pinned checklist requires production client debug logging to be disabled or explicitly guarded. Inspection was code-only, as requested; no browser or deployment-header assurance is claimed.",
+                  "evidence": [
+                    {
+                      "method": "code",
+                      "tool": "exec_command: nl -ba index.html; manual source inspection",
+                      "locator": "index.html:10-16,24-49,60-68",
+                      "observation": "Reviewed the complete HTML and inline script. The submit handler calls preventDefault(), trims input, rejects empty notes, and captures the accepted string for the timeout. Confirmation assigns success.textContent rather than parsing note text as HTML. No eval, dynamic script construction, external resource URLs, fetch/XHR/WebSocket/sendBeacon, storage, cookie access, backend writes, credentials, or raw-note logging are present. State remains in the DOM and temporary JavaScript variables.",
+                      "exit_code": null
+                    },
+                    {
+                      "method": "code",
+                      "tool": "exec_command: nl -ba index.html; git --no-optional-locks diff --no-ext-diff --no-textconv 6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d -- index.html",
+                      "locator": "index.html:17-22,27,33,36-41,50-65",
+                      "observation": "The candidate adds logNote and submission/completion diagnostics. At line 19 both an absent LOG_LEVEL and an unrecognized value select DEBUG. Line 22 dispatches to the browser console without a non-production condition. Events contain noteLength, validation reason, UI flags, delayMs, and exception name only. This is a non-blocking production-logging checklist warning; no exposed secret or note-content disclosure was observed.",
+                      "exit_code": null
+                    },
+                    {
+                      "method": "code",
+                      "tool": "exec_command: pathlib existence/read inspection",
+                      "locator": ".ai-factory/config.yaml; .ai-factory/SECURITY.md; .ai-factory/skill-context/aif-security-checklist/SKILL.md; AGENTS.md",
+                      "observation": "All four project instruction/configuration paths are absent. Applied default security configuration, with no ignored checks or project security overrides. Audit scope remained the single sealed security_acceptance code check; no unrelated audits or environment provisioning were performed.",
+                      "exit_code": null
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "submission_sha256": "496bd5f166eec46b41bae005633440ee7c0d16f2352c817421fbcd0d980f98c3",
+          "events_sha256": "dae0e97b771c67859acdb11752f6ee22ac4d2fe7756c00866f7887bad89ec299"
+        },
+        {
+          "step": "review",
+          "session": "01a13ca8-1314-7601-b734-8d7352b2e6d2",
+          "verdict": "pass",
+          "outputs": {
+            "report": {
+              "round": 1,
+              "request_digest": "sha256:d091bc85ea51cd22a10985d7812cdfe28eea1b887992c275880cd62030b85a17",
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d",
+                "digest": "sha256:82434e279d3ebd0ebe33da11f668b54c8d746f137a5fccf4974c8695befea5b3",
+                "files_digest": "sha256:efb1ac6c3afeb714a11d0432fbae73fcc408e2fba077844099ea36a0fbc1a9ba",
+                "head_commit": "6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d",
+                "index_digest": "sha256:061cc9b4313f5dfd5ce68e6404bc278b2490b8acfb040bc5bb439fec62216782"
+              },
+              "session": "separate",
+              "model_profile": "unavailable",
+              "model": null,
+              "checks": [
+                {
+                  "id": "review_acceptance",
+                  "status": "executed",
+                  "result": "warnings",
+                  "reason": "No blocking correctness or scope defect found by code review. The save confirmation satisfies the declared behavior and preserves existing validation, loading, IDs and responsive rules. Non-blocking context WARN: optional architecture, rules and roadmap artifacts are absent, so alignment with those artifacts cannot be assessed. This is code inspection only; no browser execution was requested for this Attempt.",
+                  "evidence": [
+                    {
+                      "method": "code",
+                      "tool": "functions.exec / exec_command (read-only Python line-numbered source inspection and git diff)",
+                      "locator": "index.html:24-60",
+                      "observation": "The submit listener prevents default submission and snapshots note.value.trim() into acceptedNote at line 26. Whitespace-only input shows the existing error and restores focus without starting loading (lines 29-34). Valid input shows loading, disables save, and schedules the existing 400 ms delay (lines 37-40, 60). Completion hides loading, re-enables save, hides empty, assigns success.textContent to Saved: plus the captured trimmed note, shows success, clears note.value, and restores note focus (lines 43-49). Text is rendered through textContent, and state remains in-page.",
+                      "exit_code": null
+                    },
+                    {
+                      "method": "code",
+                      "tool": "functions.exec / exec_command (git show base source, git diff and source inspection)",
+                      "locator": "index.html:1-11; base 6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d:index.html",
+                      "observation": "Compared with the candidate base, viewport, box-sizing, responsive main width, input width, focus indicator, label association, live status/alert roles, hidden rule, and form/note/save/error/loading/empty/success IDs are preserved. Added overflow-wrap:anywhere confines long confirmation text. The only changed source path is index.html; the index has no staged changes. No code-inspection regression found in the preserved error/loading flow or responsive layout. Browser rendering and keyboard operation were not observed.",
+                      "exit_code": null
+                    },
+                    {
+                      "method": "code",
+                      "tool": "functions.exec / exec_command (read-only pathlib existence inspection)",
+                      "locator": ".ai-factory/config.yaml; .ai-factory/skill-context/aif-review/SKILL.md; .ai-factory/ARCHITECTURE.md; .ai-factory/RULES.md; .ai-factory/ROADMAP.md; .ai-factory/rules/base.md",
+                      "observation": "All listed files are absent, as are root AGENTS.md and .ai-factory/DESCRIPTION.md. Default context paths and English review language apply. No project review override or explicit blocking context rule was available. Missing optional architecture, rules and roadmap are non-blocking context warnings under the pinned upstream review skill.",
+                      "exit_code": null
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "submission_sha256": "a7f0dea40c4fe1651f9292201aefbc5d04a8060d2736a54814549e29d3e331d3",
+          "events_sha256": "9db6679167cf6f114cb6f0033caddfed626b0b783e1188f047dc358f686eab67"
+        },
+        {
+          "lens": "ui",
+          "iteration": 1,
+          "verdict": "pass",
+          "report": {
+            "round": 1,
+            "request_digest": "sha256:af8a20c45dddf38ec4c5cf4cc6b3249574b05fa49180e5d38f79412429308897",
+            "candidate": {
+              "algorithm": "git-candidate/1",
+              "base_commit": "6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d",
+              "digest": "sha256:82434e279d3ebd0ebe33da11f668b54c8d746f137a5fccf4974c8695befea5b3",
+              "files_digest": "sha256:efb1ac6c3afeb714a11d0432fbae73fcc408e2fba077844099ea36a0fbc1a9ba",
+              "head_commit": "6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d",
+              "index_digest": "sha256:061cc9b4313f5dfd5ce68e6404bc278b2490b8acfb040bc5bb439fec62216782"
+            },
+            "session": "separate",
+            "model_profile": "unavailable",
+            "model": null,
+            "checks": [
+              {
+                "id": "ui_acceptance",
+                "status": "executed",
+                "result": "passed",
+                "reason": "",
+                "evidence": [
+                  {
+                    "method": "browser",
+                    "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+                    "locator": "http://127.0.0.1:41195/index.html",
+                    "observation": "{\"scenario\":\"desktop\",\"viewport\":{\"height\":800,\"width\":1280},\"url\":\"http://127.0.0.1:41195/index.html\",\"observations\":\"Inspected the actual page in the adapter's fresh desktop browser context and visually inspected browser/ui-desktop.png. The Notes heading sits above a centered white rounded card with a clear Add a note heading, Note text label and input, blue Save note button and No notes yet. message. The card is 680 pixels wide, from x=300 to x=980, with consistent internal spacing; the input and text remain within its bounds. System sans-serif text is readable with clear heading hierarchy. Dark ink (#172033) on white and white button text on blue (#1745a1) are visibly legible and match the repository's declared design tokens. No overlapping, clipped content or visible horizontal overflow was observed; document scrollWidth and viewport width are both 1280. The adapter recorded no scenario failures.\"}",
+                    "exit_code": null
+                  },
+                  {
+                    "method": "browser",
+                    "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+                    "locator": "http://127.0.0.1:41195/index.html",
+                    "observation": "{\"scenario\":\"mobile\",\"viewport\":{\"height\":800,\"width\":375},\"url\":\"http://127.0.0.1:41195/index.html\",\"observations\":\"Inspected the actual page in the adapter's fresh mobile browser context and visually inspected browser/ui-mobile.png. The Notes heading and white rounded form card fit the narrow screen with 16-pixel outer margins; the card is 343 pixels wide, from x=16 to x=359. Add a note, Note text, the input, Save note and No notes yet. remain fully visible, aligned and separated by consistent spacing. Typography preserves the desktop hierarchy and remains readable. Dark ink on white and white button text on blue retain the same legible palette as desktop. The input and button fit inside the card with no visible clipping, overlap or horizontal overflow; document scrollWidth and viewport width are both 375. The adapter recorded no scenario failures.\"}",
+                    "exit_code": null
+                  }
+                ]
+              }
+            ]
+          },
+          "submission_digest": "sha256:eb730a8731aecbd31a1b855146832dc2d86680b41811c8989d92dbb72b00c74b",
+          "session_id": "01a13ca9-7f42-7201-b2b8-b9aac267810d",
+          "approval_mode": "automatic review with workspace-write sandbox",
+          "session_mode": "fresh real Codex CLI, no other model attested"
+        },
+        {
+          "lens": "ux",
+          "iteration": 1,
+          "verdict": "pass",
+          "report": {
+            "round": 1,
+            "request_digest": "sha256:95d89faa2bc01c95314900f94f646acaeb0fb61a69f5eaae150fc3dca2a757be",
+            "candidate": {
+              "algorithm": "git-candidate/1",
+              "base_commit": "6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d",
+              "digest": "sha256:82434e279d3ebd0ebe33da11f668b54c8d746f137a5fccf4974c8695befea5b3",
+              "files_digest": "sha256:efb1ac6c3afeb714a11d0432fbae73fcc408e2fba077844099ea36a0fbc1a9ba",
+              "head_commit": "6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d",
+              "index_digest": "sha256:061cc9b4313f5dfd5ce68e6404bc278b2490b8acfb040bc5bb439fec62216782"
+            },
+            "session": "separate",
+            "model_profile": "unavailable",
+            "model": null,
+            "checks": [
+              {
+                "id": "ux_acceptance",
+                "status": "executed",
+                "result": "passed",
+                "reason": "",
+                "evidence": [
+                  {
+                    "method": "browser",
+                    "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+                    "locator": "http://127.0.0.1:41195/index.html",
+                    "observation": "{\"scenario\":\"flow\",\"viewport\":{\"height\":800,\"width\":375},\"url\":\"http://127.0.0.1:41195/index.html\",\"observations\":\"Executed the assigned flow in fresh anonymous browser contexts at /index.html. The supplied product_browser.cjs adapter recorded empty, error, loading and success states, an associated Note text label, visible input focus outline and Saved: A test note confirmation. I inspected browser/ux-flow.png visually. A supplementary keyboard-only run (browser/verify-flow.cjs; raw facts in browser/keyboard-observations.json) confirmed initial No notes yet. with the other states hidden; first Tab focused #note and second Tab focused #save, both with solid visible outlines. Enter on Save with empty input displayed Please enter a note. (role=alert), kept the empty state and returned focus to #note. Typing A test note, tabbing to Save and pressing Enter hid the error, displayed Saving\u2026 (role=status) and disabled Save. Completion hid loading and empty states, displayed Saved: A test note (role=status), cleared the input, enabled Save and restored visible input focus. No page errors were captured. I visually inspected browser/flow-initial.png, browser/flow-error.png, browser/flow-loading.png and browser/flow-complete.png: wording and controls remained readable and the state messages were visible. No images requiring alt text appear in this form. These observed transitions, labels and keyboard behavior satisfy the assigned UX criteria; the adapter metrics alone were not treated as a review decision.\"}",
+                    "exit_code": null
+                  }
+                ]
+              }
+            ]
+          },
+          "submission_digest": "sha256:7c928d1c5b8c77206006a8081a28e8e0b4f2a7eb9262db3134a49d62f5aeb278",
+          "session_id": "01a13cab-c5f3-7033-90bf-4cc3ecf3503f",
+          "approval_mode": "automatic review with workspace-write sandbox",
+          "session_mode": "fresh real Codex CLI, no other model attested"
+        },
+        {
+          "step": "commit",
+          "session": "01a13cae-4ead-75c2-b3be-db3b2d02df88",
+          "verdict": "pass",
+          "outputs": {
+            "implementation": {
+              "base_commit": "6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d",
+              "head_commit": "7c77ce4a0c24e0f1967cd1217c71f6f465032ab1",
+              "changed_files": [
+                "index.html"
+              ]
+            },
+            "result": {
+              "outcome": "implemented",
+              "reason": "The current candidate matched the delivered reviewed candidate and its non-blocking warnings gate. The single scoped local commit succeeded; the repository is clean and its file bytes/modes remain identical to the reviewed candidate.",
+              "work": [
+                "Verified actual SHA256 digests of all three pinned references and all six bound inputs.",
+                "Independently remeasured the complete git-candidate/1 using the pinned snapshot implementation before any write, then rechecked immediately before staging. Both measurements matched the delivered candidate; evidence.candidate and evidence.gate matched the accepted inputs. The gate status was warnings with no blocking flags.",
+                "Inspected the feature diff and staging index. Only index.html was modified; the index was empty and there were no nonignored untracked files. No unrelated files or staging were changed.",
+                "Applied the pinned aif-commit skill with HANDOFF_MODE=1, HANDOFF_TASK_ID empty and HANDOFF_SKIP_REVIEW=0 under the sealed autonomous bridge. Optional project config, commit overrides, description, architecture, rules, roadmap and native/full plans were absent; no context or plan files were created, modified or deleted.",
+                "Staged only index.html and inspected the complete staged diff. Both worktree and staged git diff --check passed. Existing command/code/browser acceptance is recorded in the bound evidence; this commit Attempt did not rerun those quality stages.",
+                "Created local commit 7c77ce4a0c24e0f1967cd1217c71f6f465032ab1 with subject feat(notes): confirm saved notes and restore input focus, using per-command user.name=prifly-feature-test, user.email=fixture@example.invalid and commit.gpgsign=false.",
+                "Verified the commit is the sole descendant commit since the original base, has the expected fixture author and subject, and changes only index.html. Post-commit git diff --check passed, the repository/index are clean, and the snapshot files_digest equals the reviewed candidate files_digest.",
+                "Preserved the delivered non-blocking warnings, including DEBUG console diagnostics and unavailable independent model profiles. No new model mapping or quality verdict was invented.",
+                "Initial bounded shell launches failed before execution because bwrap could not configure loopback; automatically approved bounded retries executed successfully. No push, merge, dependency installation, environment provisioning, other workflow, credentials or Pri-Fly control calls were performed."
+              ]
+            }
+          },
+          "submission_sha256": "8dbdae21af255f0c4722134b183e49c1517b3a4852d5df32d71b606161e064f4",
+          "events_sha256": "1733ee9f4ff95b064573bd5d030cc5217909d67fa8059a6c78162e5892c6c6a2"
+        }
+      ],
+      "outputs": {
+        "evidence": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d",
+            "digest": "sha256:82434e279d3ebd0ebe33da11f668b54c8d746f137a5fccf4974c8695befea5b3",
+            "files_digest": "sha256:efb1ac6c3afeb714a11d0432fbae73fcc408e2fba077844099ea36a0fbc1a9ba",
+            "head_commit": "6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d",
+            "index_digest": "sha256:061cc9b4313f5dfd5ce68e6404bc278b2490b8acfb040bc5bb439fec62216782"
+          },
+          "gate": {
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "checks: Model profile unavailable; independent model not established",
+              "security: Model profile unavailable; independent model not established",
+              "security: security_acceptance: No unsafe script execution, outbound effects, persistence, or exposed secrets were found in the scoped notes form. Non-blocking checklist finding: logNote defaults to DEBUG without an explicit non-production guard, so ordinary submissions emit browser diagnostics. These include note length and UI state, but not note contents. The pinned checklist requires production client debug logging to be disabled or explicitly guarded. Inspection was code-only, as requested; no browser or deployment-header assurance is claimed.",
+              "review: Model profile unavailable; independent model not established",
+              "review: review_acceptance: No blocking correctness or scope defect found by code review. The save confirmation satisfies the declared behavior and preserves existing validation, loading, IDs and responsive rules. Non-blocking context WARN: optional architecture, rules and roadmap artifacts are absent, so alignment with those artifacts cannot be assessed. This is code inspection only; no browser execution was requested for this Attempt.",
+              "product: ui: Model profile unavailable; independent model not established",
+              "product: ux: Model profile unavailable; independent model not established"
+            ],
+            "gate": "feature",
+            "status": "warnings",
+            "suggested_next": "continue"
+          },
+          "product": {
+            "environment": {
+              "candidate_digest": "sha256:82434e279d3ebd0ebe33da11f668b54c8d746f137a5fccf4974c8695befea5b3",
+              "configuration_digest": "sha256:7b1fb839e3a247590052c6a4bfaed3b0c2be8679884ad791b9b4fb2030edc769",
+              "owner": "fixture-owned",
+              "profile": "all-checks",
+              "reason": "",
+              "session": "fixture-de564ebf49324ff1964d50933e2e9de3",
+              "status": "ready",
+              "url": "http://127.0.0.1:41195"
+            },
+            "gate": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "ui: Model profile unavailable; independent model not established",
+                "ux: Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "release": {
+              "owner": "fixture-owned",
+              "reason": "",
+              "session": "fixture-de564ebf49324ff1964d50933e2e9de3",
+              "status": "released"
+            },
+            "ui_report": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d",
+                "digest": "sha256:82434e279d3ebd0ebe33da11f668b54c8d746f137a5fccf4974c8695befea5b3",
+                "files_digest": "sha256:efb1ac6c3afeb714a11d0432fbae73fcc408e2fba077844099ea36a0fbc1a9ba",
+                "head_commit": "6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d",
+                "index_digest": "sha256:061cc9b4313f5dfd5ce68e6404bc278b2490b8acfb040bc5bb439fec62216782"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "http://127.0.0.1:41195/index.html",
+                      "method": "browser",
+                      "observation": "{\"scenario\":\"desktop\",\"viewport\":{\"height\":800,\"width\":1280},\"url\":\"http://127.0.0.1:41195/index.html\",\"observations\":\"Inspected the actual page in the adapter's fresh desktop browser context and visually inspected browser/ui-desktop.png. The Notes heading sits above a centered white rounded card with a clear Add a note heading, Note text label and input, blue Save note button and No notes yet. message. The card is 680 pixels wide, from x=300 to x=980, with consistent internal spacing; the input and text remain within its bounds. System sans-serif text is readable with clear heading hierarchy. Dark ink (#172033) on white and white button text on blue (#1745a1) are visibly legible and match the repository's declared design tokens. No overlapping, clipped content or visible horizontal overflow was observed; document scrollWidth and viewport width are both 1280. The adapter recorded no scenario failures.\"}",
+                      "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4"
+                    },
+                    {
+                      "exit_code": null,
+                      "locator": "http://127.0.0.1:41195/index.html",
+                      "method": "browser",
+                      "observation": "{\"scenario\":\"mobile\",\"viewport\":{\"height\":800,\"width\":375},\"url\":\"http://127.0.0.1:41195/index.html\",\"observations\":\"Inspected the actual page in the adapter's fresh mobile browser context and visually inspected browser/ui-mobile.png. The Notes heading and white rounded form card fit the narrow screen with 16-pixel outer margins; the card is 343 pixels wide, from x=16 to x=359. Add a note, Note text, the input, Save note and No notes yet. remain fully visible, aligned and separated by consistent spacing. Typography preserves the desktop hierarchy and remains readable. Dark ink on white and white button text on blue retain the same legible palette as desktop. The input and button fit inside the card with no visible clipping, overlap or horizontal overflow; document scrollWidth and viewport width are both 375. The adapter recorded no scenario failures.\"}",
+                      "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4"
+                    }
+                  ],
+                  "id": "ui_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:af8a20c45dddf38ec4c5cf4cc6b3249574b05fa49180e5d38f79412429308897",
+              "round": 1,
+              "session": "separate"
+            },
+            "ux_report": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d",
+                "digest": "sha256:82434e279d3ebd0ebe33da11f668b54c8d746f137a5fccf4974c8695befea5b3",
+                "files_digest": "sha256:efb1ac6c3afeb714a11d0432fbae73fcc408e2fba077844099ea36a0fbc1a9ba",
+                "head_commit": "6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d",
+                "index_digest": "sha256:061cc9b4313f5dfd5ce68e6404bc278b2490b8acfb040bc5bb439fec62216782"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "http://127.0.0.1:41195/index.html",
+                      "method": "browser",
+                      "observation": "{\"scenario\":\"flow\",\"viewport\":{\"height\":800,\"width\":375},\"url\":\"http://127.0.0.1:41195/index.html\",\"observations\":\"Executed the assigned flow in fresh anonymous browser contexts at /index.html. The supplied product_browser.cjs adapter recorded empty, error, loading and success states, an associated Note text label, visible input focus outline and Saved: A test note confirmation. I inspected browser/ux-flow.png visually. A supplementary keyboard-only run (browser/verify-flow.cjs; raw facts in browser/keyboard-observations.json) confirmed initial No notes yet. with the other states hidden; first Tab focused #note and second Tab focused #save, both with solid visible outlines. Enter on Save with empty input displayed Please enter a note. (role=alert), kept the empty state and returned focus to #note. Typing A test note, tabbing to Save and pressing Enter hid the error, displayed Saving\u2026 (role=status) and disabled Save. Completion hid loading and empty states, displayed Saved: A test note (role=status), cleared the input, enabled Save and restored visible input focus. No page errors were captured. I visually inspected browser/flow-initial.png, browser/flow-error.png, browser/flow-loading.png and browser/flow-complete.png: wording and controls remained readable and the state messages were visible. No images requiring alt text appear in this form. These observed transitions, labels and keyboard behavior satisfy the assigned UX criteria; the adapter metrics alone were not treated as a review decision.\"}",
+                      "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4"
+                    }
+                  ],
+                  "id": "ux_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:95d89faa2bc01c95314900f94f646acaeb0fb61a69f5eaae150fc3dca2a757be",
+              "round": 1,
+              "session": "separate"
+            }
+          },
+          "reports": {
+            "checks": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d",
+                "digest": "sha256:82434e279d3ebd0ebe33da11f668b54c8d746f137a5fccf4974c8695befea5b3",
+                "files_digest": "sha256:efb1ac6c3afeb714a11d0432fbae73fcc408e2fba077844099ea36a0fbc1a9ba",
+                "head_commit": "6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d",
+                "index_digest": "sha256:061cc9b4313f5dfd5ce68e6404bc278b2490b8acfb040bc5bb439fec62216782"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": 0,
+                      "locator": "cwd=/tmp/w3-run-ep0npkf2/authority/.prifly/work/claims/99ec1731e12af12a153d1fbf604a58974fafbef02e5f11d937f214e554d78575; command=python3 -B -c \"from pathlib import Path; assert 'addEventListener' in Path('index.html').read_text()\"",
+                      "method": "command",
+                      "observation": "The exact declared command executed with exit code 0 and empty stdout/stderr. The addEventListener assertion passed. The initial sandbox launch failed before execution with bwrap: loopback: Failed RTM_NEWADDR: Operation not permitted; the automatically approved retry executed successfully.",
+                      "tool": "functions.exec / exec_command"
+                    }
+                  ],
+                  "id": "checks_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:30af62c75357abf916fdb60bddcbfa94679feb1278522928361c5585eae8b79b",
+              "round": 1,
+              "session": "separate"
+            },
+            "review": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d",
+                "digest": "sha256:82434e279d3ebd0ebe33da11f668b54c8d746f137a5fccf4974c8695befea5b3",
+                "files_digest": "sha256:efb1ac6c3afeb714a11d0432fbae73fcc408e2fba077844099ea36a0fbc1a9ba",
+                "head_commit": "6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d",
+                "index_digest": "sha256:061cc9b4313f5dfd5ce68e6404bc278b2490b8acfb040bc5bb439fec62216782"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "index.html:24-60",
+                      "method": "code",
+                      "observation": "The submit listener prevents default submission and snapshots note.value.trim() into acceptedNote at line 26. Whitespace-only input shows the existing error and restores focus without starting loading (lines 29-34). Valid input shows loading, disables save, and schedules the existing 400 ms delay (lines 37-40, 60). Completion hides loading, re-enables save, hides empty, assigns success.textContent to Saved: plus the captured trimmed note, shows success, clears note.value, and restores note focus (lines 43-49). Text is rendered through textContent, and state remains in-page.",
+                      "tool": "functions.exec / exec_command (read-only Python line-numbered source inspection and git diff)"
+                    },
+                    {
+                      "exit_code": null,
+                      "locator": "index.html:1-11; base 6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d:index.html",
+                      "method": "code",
+                      "observation": "Compared with the candidate base, viewport, box-sizing, responsive main width, input width, focus indicator, label association, live status/alert roles, hidden rule, and form/note/save/error/loading/empty/success IDs are preserved. Added overflow-wrap:anywhere confines long confirmation text. The only changed source path is index.html; the index has no staged changes. No code-inspection regression found in the preserved error/loading flow or responsive layout. Browser rendering and keyboard operation were not observed.",
+                      "tool": "functions.exec / exec_command (git show base source, git diff and source inspection)"
+                    },
+                    {
+                      "exit_code": null,
+                      "locator": ".ai-factory/config.yaml; .ai-factory/skill-context/aif-review/SKILL.md; .ai-factory/ARCHITECTURE.md; .ai-factory/RULES.md; .ai-factory/ROADMAP.md; .ai-factory/rules/base.md",
+                      "method": "code",
+                      "observation": "All listed files are absent, as are root AGENTS.md and .ai-factory/DESCRIPTION.md. Default context paths and English review language apply. No project review override or explicit blocking context rule was available. Missing optional architecture, rules and roadmap are non-blocking context warnings under the pinned upstream review skill.",
+                      "tool": "functions.exec / exec_command (read-only pathlib existence inspection)"
+                    }
+                  ],
+                  "id": "review_acceptance",
+                  "reason": "No blocking correctness or scope defect found by code review. The save confirmation satisfies the declared behavior and preserves existing validation, loading, IDs and responsive rules. Non-blocking context WARN: optional architecture, rules and roadmap artifacts are absent, so alignment with those artifacts cannot be assessed. This is code inspection only; no browser execution was requested for this Attempt.",
+                  "result": "warnings",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:d091bc85ea51cd22a10985d7812cdfe28eea1b887992c275880cd62030b85a17",
+              "round": 1,
+              "session": "separate"
+            },
+            "security": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d",
+                "digest": "sha256:82434e279d3ebd0ebe33da11f668b54c8d746f137a5fccf4974c8695befea5b3",
+                "files_digest": "sha256:efb1ac6c3afeb714a11d0432fbae73fcc408e2fba077844099ea36a0fbc1a9ba",
+                "head_commit": "6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d",
+                "index_digest": "sha256:061cc9b4313f5dfd5ce68e6404bc278b2490b8acfb040bc5bb439fec62216782"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "index.html:10-16,24-49,60-68",
+                      "method": "code",
+                      "observation": "Reviewed the complete HTML and inline script. The submit handler calls preventDefault(), trims input, rejects empty notes, and captures the accepted string for the timeout. Confirmation assigns success.textContent rather than parsing note text as HTML. No eval, dynamic script construction, external resource URLs, fetch/XHR/WebSocket/sendBeacon, storage, cookie access, backend writes, credentials, or raw-note logging are present. State remains in the DOM and temporary JavaScript variables.",
+                      "tool": "exec_command: nl -ba index.html; manual source inspection"
+                    },
+                    {
+                      "exit_code": null,
+                      "locator": "index.html:17-22,27,33,36-41,50-65",
+                      "method": "code",
+                      "observation": "The candidate adds logNote and submission/completion diagnostics. At line 19 both an absent LOG_LEVEL and an unrecognized value select DEBUG. Line 22 dispatches to the browser console without a non-production condition. Events contain noteLength, validation reason, UI flags, delayMs, and exception name only. This is a non-blocking production-logging checklist warning; no exposed secret or note-content disclosure was observed.",
+                      "tool": "exec_command: nl -ba index.html; git --no-optional-locks diff --no-ext-diff --no-textconv 6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d -- index.html"
+                    },
+                    {
+                      "exit_code": null,
+                      "locator": ".ai-factory/config.yaml; .ai-factory/SECURITY.md; .ai-factory/skill-context/aif-security-checklist/SKILL.md; AGENTS.md",
+                      "method": "code",
+                      "observation": "All four project instruction/configuration paths are absent. Applied default security configuration, with no ignored checks or project security overrides. Audit scope remained the single sealed security_acceptance code check; no unrelated audits or environment provisioning were performed.",
+                      "tool": "exec_command: pathlib existence/read inspection"
+                    }
+                  ],
+                  "id": "security_acceptance",
+                  "reason": "No unsafe script execution, outbound effects, persistence, or exposed secrets were found in the scoped notes form. Non-blocking checklist finding: logNote defaults to DEBUG without an explicit non-production guard, so ordinary submissions emit browser diagnostics. These include note length and UI state, but not note contents. The pinned checklist requires production client debug logging to be disabled or explicitly guarded. Inspection was code-only, as requested; no browser or deployment-header assurance is claimed.",
+                  "result": "warnings",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:d6d6a62817a5a4564aa0eb8edd536d6c10735f2653e1097c4c3333e289e0b089",
+              "round": 1,
+              "session": "separate"
+            }
+          },
+          "requests": {
+            "checks": {
+              "base_commit": "6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Check index.html contains the declared notes form; python3 -B -c \"from pathlib import Path; assert 'addEventListener' in Path('index.html').read_text()\"",
+                  "enabled": true,
+                  "id": "checks_acceptance",
+                  "method": "command",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": true,
+              "round": 1
+            },
+            "review": {
+              "base_commit": "6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect scoped notes confirmation: hide empty state, show Saved: <trimmed note>, clear input and restore focus; preserve existing error/loading behavior, responsive design and form IDs.",
+                  "enabled": true,
+                  "id": "review_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": true,
+              "round": 1
+            },
+            "security": {
+              "base_commit": "6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect index.html notes form for unsafe script execution, outbound effects or exposed secrets; only ephemeral in-page state is authorized.",
+                  "enabled": true,
+                  "id": "security_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": true,
+              "round": 1
+            }
+          },
+          "round": 1,
+          "task_digest": "sha256:4dce1af1bb850d516354d83868a5a8585309bf031b6222e3bfb40573fd810a5a"
+        },
+        "gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "checks: Model profile unavailable; independent model not established",
+            "security: Model profile unavailable; independent model not established",
+            "security: security_acceptance: No unsafe script execution, outbound effects, persistence, or exposed secrets were found in the scoped notes form. Non-blocking checklist finding: logNote defaults to DEBUG without an explicit non-production guard, so ordinary submissions emit browser diagnostics. These include note length and UI state, but not note contents. The pinned checklist requires production client debug logging to be disabled or explicitly guarded. Inspection was code-only, as requested; no browser or deployment-header assurance is claimed.",
+            "review: Model profile unavailable; independent model not established",
+            "review: review_acceptance: No blocking correctness or scope defect found by code review. The save confirmation satisfies the declared behavior and preserves existing validation, loading, IDs and responsive rules. Non-blocking context WARN: optional architecture, rules and roadmap artifacts are absent, so alignment with those artifacts cannot be assessed. This is code inspection only; no browser execution was requested for this Attempt.",
+            "product: ui: Model profile unavailable; independent model not established",
+            "product: ux: Model profile unavailable; independent model not established"
+          ],
+          "gate": "feature",
+          "status": "warnings",
+          "suggested_next": "continue"
+        },
+        "implementation": {
+          "base_commit": "6bf8efb8c4d2b9150c3dd52bcb21c3a98819ae9d",
+          "head_commit": "7c77ce4a0c24e0f1967cd1217c71f6f465032ab1",
+          "changed_files": [
+            "index.html"
+          ]
+        },
+        "plan": {
+          "entrypoint": "PLAN.md",
+          "files": [
+            {
+              "path": "PLAN.md",
+              "ref": {
+                "artifact_id": "artifact:1d94b4ef6ce3a0e2cffd0ae39ed956583841b9026e46c876e961e282f2958635",
+                "digest": "sha256:111df8ad631ac395746833472ee047db9fc5773475806141107f27a0852c7fea",
+                "revision": 1
+              }
+            }
+          ],
+          "root": ".ai-factory",
+          "schema_version": "workspace-tree-manifest/1"
+        },
+        "result": {
+          "outcome": "implemented",
+          "reason": "The current candidate matched the delivered reviewed candidate and its non-blocking warnings gate. The single scoped local commit succeeded; the repository is clean and its file bytes/modes remain identical to the reviewed candidate.",
+          "work": [
+            "Verified actual SHA256 digests of all three pinned references and all six bound inputs.",
+            "Independently remeasured the complete git-candidate/1 using the pinned snapshot implementation before any write, then rechecked immediately before staging. Both measurements matched the delivered candidate; evidence.candidate and evidence.gate matched the accepted inputs. The gate status was warnings with no blocking flags.",
+            "Inspected the feature diff and staging index. Only index.html was modified; the index was empty and there were no nonignored untracked files. No unrelated files or staging were changed.",
+            "Applied the pinned aif-commit skill with HANDOFF_MODE=1, HANDOFF_TASK_ID empty and HANDOFF_SKIP_REVIEW=0 under the sealed autonomous bridge. Optional project config, commit overrides, description, architecture, rules, roadmap and native/full plans were absent; no context or plan files were created, modified or deleted.",
+            "Staged only index.html and inspected the complete staged diff. Both worktree and staged git diff --check passed. Existing command/code/browser acceptance is recorded in the bound evidence; this commit Attempt did not rerun those quality stages.",
+            "Created local commit 7c77ce4a0c24e0f1967cd1217c71f6f465032ab1 with subject feat(notes): confirm saved notes and restore input focus, using per-command user.name=prifly-feature-test, user.email=fixture@example.invalid and commit.gpgsign=false.",
+            "Verified the commit is the sole descendant commit since the original base, has the expected fixture author and subject, and changes only index.html. Post-commit git diff --check passed, the repository/index are clean, and the snapshot files_digest equals the reviewed candidate files_digest.",
+            "Preserved the delivered non-blocking warnings, including DEBUG console diagnostics and unavailable independent model profiles. No new model mapping or quality verdict was invented.",
+            "Initial bounded shell launches failed before execution because bwrap could not configure loopback; automatically approved bounded retries executed successfully. No push, merge, dependency installation, environment provisioning, other workflow, credentials or Pri-Fly control calls were performed."
+          ]
+        }
+      },
+      "reported_usage": [
+        {
+          "attempt": "00-warmup",
+          "session": "01a13c9e-3bf2-7de0-b777-f5a731cf12d1",
+          "reported_usage": {
+            "input_tokens": 219590,
+            "cached_input_tokens": 146176,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 3455,
+            "reasoning_output_tokens": 556
+          },
+          "events_sha256": "593559e6837d63404ce78304f386b6a4889c0ce81c74360abf0d8ff9ef52bb31"
+        },
+        {
+          "attempt": "01-plan",
+          "session": "01a13c9f-898d-7bd0-aff0-04ced5187b25",
+          "reported_usage": {
+            "input_tokens": 867683,
+            "cached_input_tokens": 793088,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 10293,
+            "reasoning_output_tokens": 1598
+          },
+          "events_sha256": "055ab97a9c288099c9cb5146f2dcc91f7f51e5d09f5436a25a5c9d191a520c7d"
+        },
+        {
+          "attempt": "02-implement",
+          "session": "01a13ca3-24d2-7da3-94aa-3dfae9ddf1cf",
+          "reported_usage": {
+            "input_tokens": 632687,
+            "cached_input_tokens": 574848,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 6299,
+            "reasoning_output_tokens": 703
+          },
+          "events_sha256": "789ee015b7e6a7b4f1577320c9d4930b3a0bed44a5db782d8dd7c9e0d9382471"
+        },
+        {
+          "attempt": "03-checks",
+          "session": "01a13ca5-7de9-7f63-aeb3-e5d27516e939",
+          "reported_usage": {
+            "input_tokens": 445403,
+            "cached_input_tokens": 399488,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 3439,
+            "reasoning_output_tokens": 669
+          },
+          "events_sha256": "2c66428476663f6b791ee14abdff05e42b383a4cf8e581d5a845016adf9f712d"
+        },
+        {
+          "attempt": "04-security",
+          "session": "01a13ca6-e054-7752-b8ed-83181916163e",
+          "reported_usage": {
+            "input_tokens": 265981,
+            "cached_input_tokens": 215296,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 3307,
+            "reasoning_output_tokens": 520
+          },
+          "events_sha256": "dae0e97b771c67859acdb11752f6ee22ac4d2fe7756c00866f7887bad89ec299"
+        },
+        {
+          "attempt": "05-review",
+          "session": "01a13ca8-1314-7601-b734-8d7352b2e6d2",
+          "reported_usage": {
+            "input_tokens": 315783,
+            "cached_input_tokens": 272640,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 3759,
+            "reasoning_output_tokens": 469
+          },
+          "events_sha256": "9db6679167cf6f114cb6f0033caddfed626b0b783e1188f047dc358f686eab67"
+        },
+        {
+          "attempt": "08-commit",
+          "session": "01a13cae-4ead-75c2-b3be-db3b2d02df88",
+          "reported_usage": {
+            "input_tokens": 478800,
+            "cached_input_tokens": 425088,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 4168,
+            "reasoning_output_tokens": 371
+          },
+          "events_sha256": "1733ee9f4ff95b064573bd5d030cc5217909d67fa8059a6c78162e5892c6c6a2"
+        },
+        {
+          "attempt": "live-frontend-1-ui-bridge",
+          "session": "01a13ca9-7f42-7201-b2b8-b9aac267810d",
+          "reported_usage": {
+            "input_tokens": 475982,
+            "cached_input_tokens": 432128,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 5152,
+            "reasoning_output_tokens": 579
+          },
+          "events_sha256": "60f3f648d062fcfe1f84d87fed5f0569b894ae1f6a47f911ddd6e544a465fdb5"
+        },
+        {
+          "attempt": "live-frontend-1-ux-bridge",
+          "session": "01a13cab-c5f3-7033-90bf-4cc3ecf3503f",
+          "reported_usage": {
+            "input_tokens": 662458,
+            "cached_input_tokens": 590848,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 6155,
+            "reasoning_output_tokens": 539
+          },
+          "events_sha256": "89662c5d97da617191f5505234b8648e7d05806db48fc51d56ccf933eae074e1"
+        }
+      ],
+      "approval_scope": "Workspace-write sandbox + automatic review; only exact fixture repository added alongside task workspace; role/authority/candidate guards verified.",
+      "qualification_scope": "Final native scheduling, whole acceptance replay unit and global/product policy admission guard."
+    },
+    {
+      "case": "live-resume",
+      "host": "codex-cli",
+      "mode": "fresh actual Codex CLI writers/readers, unedited submissions",
+      "source_outcome": "partial",
+      "outcome": "succeeded",
+      "runs": 2,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "checks",
+        "security",
+        "review",
+        "commit"
+      ],
+      "rounds": [],
+      "plan_captures": [],
+      "elapsed_seconds": 1286.431,
+      "cleaned": true,
+      "observations": [
+        {
+          "step": "warmup",
+          "session": "01a13c9e-2d2e-7b22-b1de-2d4155df9584",
+          "verdict": "pass",
+          "outputs": {
+            "handoff": {
+              "summary": "Configuration: Project root is the named repository_workspace. No .ai-factory directory or config.yaml exists. Use default .ai-factory/DESCRIPTION.md, ARCHITECTURE.md, ROADMAP.md, RESEARCH.md, RULES.md, rules/, and rules/base.md paths; language.ui=en and warmup.paths=[]. Artifact-language, technical-term, git and workflow preferences are undeclared; no unsupported defaults inferred. Sealed decisions: plan_tests=true, plan_constraints=\"\", plan_retention=capture; backend package profile and autonomous policy.\nProject: Bound task is \"Small greeting feature\": add greeting(name) returning exactly Hello, <name>! with a test. Declared scope is greeting.py and test_greeting.py. The task assumes a nonempty string name and no new dependency. This is an isolated stdlib Python fixture per caller. Current Git HEAD is 256fdff6dde20960fac703883b2b0c5a98a076e3; dirty/nonignored untracked paths are empty.\nArchitecture: No architecture document exists. Future feature entry points are greeting.py and test_greeting.py as declared by the bound task. Application code and plans were not scanned during this warmup.\nDirection: No roadmap, research document or research bundle directory exists. The caller already selected aif-feature; this Attempt performs only its delivered warmup.\nRules: Read-only repository. Pri-Fly owns sequencing; no next-stage invocation, provisioning, requirement rewrite, branch/worktree creation, push or merge. Preserve staged, dirty and untracked work. Future implementation remains within declared scope. Required future acceptance is python3 -B acceptance.py; exit 77 means owner prerequisite unavailable, not a code defect. Never create/alter .acceptance-ready or acceptance.py. Separate-session review is required by the bound task; no independent-review model translation is supplied.\nGaps: Missing .ai-factory/config.yaml, AGENTS.md, .ai-factory/skill-context/aif-warmup/SKILL.md, .ai-factory/DESCRIPTION.md, .ai-factory/ARCHITECTURE.md, .ai-factory/ROADMAP.md, .ai-factory/RESEARCH.md, .ai-factory/RULES.md, .ai-factory/rules/base.md. No configured area rules or additional warmup paths are available. Missing project context is normal under the pinned skill; no scope-changing ambiguity arose.\nLoaded: task.json, context.json, submission-template.json, inputs/task, and both pinned context/skills files. All applicable repository context paths were checked and were absent. Pinned skill and bound-input SHA-256 digests were verified.\nReady: Context loading is complete; the handoff is ready for the controller-selected continuation or separate session. Repository remains unchanged. No implementation, acceptance command, review, plan or commit was performed.",
+              "entry_points": [
+                "greeting.py: declared future implementation scope for greeting(name) returning exact Hello, <name>!; not read or changed in warmup.",
+                "test_greeting.py: declared future test scope; plan_tests=true; not read or changed in warmup.",
+                "python3 -B acceptance.py: required future acceptance command; exit 77 signals owner prerequisite unavailable. Not run during warmup."
+              ],
+              "conventions": [
+                "Use only the named repository_workspace; this Attempt is read-only. Write typed outputs only in the allocated task-workspace slots.",
+                "Autonomous sealed bridge values: HANDOFF_MODE=1, HANDOFF_TASK_ID=, HANDOFF_SKIP_REVIEW=0. Retained as handoff context; no environment changes performed.",
+                "Name is a nonempty string; no new dependency. Future feature scope is greeting.py and test_greeting.py.",
+                "Do not create/alter acceptance.py or owner-provided ignored .acceptance-ready; required-tool unavailability must remain factual.",
+                "Pri-Fly owns the graph; do not launch another workflow or next-stage skill, provision, push, merge or create branches/worktrees.",
+                "Preserve unrelated files and staged work; any business or scope-changing ambiguity requires the owner.",
+                "Use English UI (documented default). No model profile is declared; keep native model_profile null. No host model translation is inferred.",
+                "The implementation baseline is actual Git HEAD, with base_commit=head_commit during warmup; changed_files includes dirty and nonignored untracked paths."
+              ],
+              "sources": [
+                "/tmp/w3-run-kap0go04/authority/.prifly/work/9d7c814c092ab0e00e97b985baa6b303/task.json",
+                "/tmp/w3-run-kap0go04/authority/.prifly/work/9d7c814c092ab0e00e97b985baa6b303/context.json",
+                "/tmp/w3-run-kap0go04/authority/.prifly/work/9d7c814c092ab0e00e97b985baa6b303/inputs/task",
+                "/tmp/w3-run-kap0go04/authority/.prifly/work/9d7c814c092ab0e00e97b985baa6b303/submission-template.json",
+                "/tmp/w3-run-kap0go04/authority/.prifly/work/9d7c814c092ab0e00e97b985baa6b303/context/skills/aif-context-aif-warmup-0.0.0-b1.plbolulzmtsucjvsi5cvc4qxkamyaw7jtarhsryzm6iinexngkwa",
+                "/tmp/w3-run-kap0go04/authority/.prifly/work/9d7c814c092ab0e00e97b985baa6b303/context/skills/aif-feature-context-feature-warmup-0.0.0-b1.dlskafvyxt7zwwil4sqyj5zmms4tvdn6aflhmgcwanxfsmbjno5a"
+              ],
+              "open_questions": []
+            },
+            "implementation": {
+              "base_commit": "256fdff6dde20960fac703883b2b0c5a98a076e3",
+              "head_commit": "256fdff6dde20960fac703883b2b0c5a98a076e3",
+              "changed_files": []
+            }
+          },
+          "submission_sha256": "cd810fab95408f1fc779dfcbe9a68bc3bfedfa84ae7636fbe6beb9171f797673",
+          "events_sha256": "a97b2abb6e6abba10d3e89ec74c2afb79b63c99018b50aeffc5271c8c650bbd4"
+        },
+        {
+          "step": "plan",
+          "session": "01a13c9f-fb4c-7fd3-9d87-901bf9c31455",
+          "verdict": "pass",
+          "outputs": {
+            "result": {
+              "outcome": "ready",
+              "reason": "The bounded greeting feature has a native fast plan with two implementation/test tasks, settled scope and assumptions, configurable runtime logging, and all named later-quality criteria preserved. Plan structure, exact Original Request, pinned/input digests, command syntax and repository preservation were verified; feature implementation and acceptance are deferred to their controller-owned stages.",
+              "work": [
+                "Read the delivered task, submission template, context/capture configuration, all four pinned skills and all three bound inputs; verified their actual SHA-256 digests.",
+                "Used the warmup handoff and direct read-only discovery of the named repository; confirmed absent feature files, project planning context and existing plans, with current HEAD matching the bound baseline.",
+                "Verified Python availability, stdlib unittest CLI options, and acceptance command tokens/script syntax without executing feature acceptance or altering its owner prerequisite.",
+                "Created .ai-factory/PLAN.md using the pinned native fast template: exact Original Request, Testing yes, Logging verbose, Docs no, bounded scope, two pending scoped tasks, and all supplied quality criteria assigned to later quality.",
+                "Validated plan requirements and confirmed all 374 tracked file contents, index and HEAD were unchanged; only the owned untracked, unstaged native plan was added for engine capture."
+              ]
+            }
+          },
+          "submission_sha256": "aa6a475f68b32b46b6158a8740ce714135a04827e95f01a7deeab9cc2bdec65d",
+          "events_sha256": "fa37cacc0cfaa78c628efdbb158afa2a4bf826b6ac48bd404fab7f7d3e6984e1"
+        },
+        {
+          "step": "implement",
+          "session": "01a13ca3-01ea-7212-a666-b73d9afa4a04",
+          "verdict": "pass",
+          "outputs": {
+            "implementation": {
+              "base_commit": "256fdff6dde20960fac703883b2b0c5a98a076e3",
+              "head_commit": "256fdff6dde20960fac703883b2b0c5a98a076e3",
+              "changed_files": [
+                ".ai-factory/PLAN.md",
+                "greeting.py",
+                "test_greeting.py"
+              ]
+            },
+            "result": {
+              "outcome": "implemented",
+              "reason": "Both native implementation tasks are complete and their scoped unit checks passed. Required command, security, and separate-session code acceptance remain scheduled for the later controller-owned quality phase; this is stage-local implementation completion.",
+              "work": [
+                "Read all four pinned skills/supporting guides, the task envelope, bound task/handoff/implementation/plan, submission template, and relevant project context; verified all pinned skill/input SHA256 digests and the exact materialized native plan revision. No project config or implementation-specific overrides exist; default paths.plan agrees with .ai-factory/PLAN.md.",
+                "Completed Task 1 in greeting.py: exact Hello, <name>! interpolation for the assumed nonempty string, with isolated stdlib stderr logging, DEBUG entry/exit context, LOG_LEVEL control including OFF, and propagated unexpected errors. The smoke check passed and root logger configuration stayed unchanged.",
+                "Completed Task 2 in test_greeting.py: stdlib unittest checks for exact Ada/single-character/spaced/Unicode/whitespace/punctuation names and isolated subprocess checks for default/explicit DEBUG output and INFO/WARNING/ERROR/OFF suppression. python3 -B -m unittest -v test_greeting.py exited 0: 3 tests passed.",
+                "Marked each native task in progress before work and immediately completed its checkbox after successful verification. Both tasks are checked; .ai-factory/PLAN.md remains untracked and unstaged for Pri-Fly engine capture under capture retention.",
+                "Parsed both scoped Python files successfully and verified Git state: only greeting.py, test_greeting.py, and the owned native plan are untracked; no tracked or staged changes. Base and HEAD remain 256fdff6dde20960fac703883b2b0c5a98a076e3. No checkpoint was declared, so no local commit was performed.",
+                "Required python3 -B acceptance.py, independent security acceptance, and separate-session review were not run in this implementation Attempt; they remain pending the scheduled quality phase. acceptance.py and the owner prerequisite were not altered. No independent-review model translation was supplied or inferred.",
+                "Documentation: warn-only (Docs: no/unset); the native plan declares Docs: no and no documentation task."
+              ]
+            }
+          },
+          "submission_sha256": "12b75a619261ea51dfd3ebf218b49aab4237a592f82f2dca8576ccc5dd3c42ef",
+          "events_sha256": "aedeaa65284fd9145a491e393106cdf232b6624574306246da411184161d4f8e"
+        },
+        {
+          "step": "checks",
+          "session": "01a13ca5-7a32-75b3-9661-737107b7c310",
+          "verdict": "pass",
+          "outputs": {
+            "report": {
+              "round": 1,
+              "request_digest": "sha256:c7f8f002a631440bec11354a4f8fd58746257a854e427cb72d26b96769ba75a1",
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "256fdff6dde20960fac703883b2b0c5a98a076e3",
+                "digest": "sha256:f131e31ee6ffc26b381c2934898bcb09e2d7a3a17c171d731f6139ac632d8d60",
+                "files_digest": "sha256:2ae19c4dcbd1b997e2a4be9db5fc0a9528b2ff211487e12c1a60c10d5a8c13b8",
+                "head_commit": "256fdff6dde20960fac703883b2b0c5a98a076e3",
+                "index_digest": "sha256:e825140494937ede26c165ea62cabe4016b584288c3b157493311411a2262e3b"
+              },
+              "session": "separate",
+              "model_profile": "unavailable",
+              "model": null,
+              "checks": [
+                {
+                  "id": "checks_acceptance",
+                  "status": "unavailable",
+                  "result": "not_run",
+                  "reason": "Ran python3 -B acceptance.py in the named repository_workspace via exec_command. Actual exit code: 77. Observed output: Required fixture tool prerequisite unavailable: owner must provide .acceptance-ready; this is not a code defect. Per the sealed request, required acceptance is unavailable until the owner supplies the ignored prerequisite. No prerequisite or repository file was created or altered.",
+                  "evidence": []
+                }
+              ]
+            }
+          },
+          "submission_sha256": "78fdb71db64c3b542a91935fa0b4179b79f04c31dee0f758fcfe0f83ec3ae088",
+          "events_sha256": "745b9980abe1d90dbcf534f11b046840e6ec04a99e8a5b55e7a075b534f906e9"
+        },
+        {
+          "step": "security",
+          "session": "01a13ca6-f6cb-7c72-9820-0aace10b7f87",
+          "verdict": "pass",
+          "outputs": {
+            "report": {
+              "round": 1,
+              "request_digest": "sha256:443ba197a9ac07e0e0dbb486bcb7f255c1d1eccff206aee9ffaa7244ec0bcff7",
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "256fdff6dde20960fac703883b2b0c5a98a076e3",
+                "digest": "sha256:f131e31ee6ffc26b381c2934898bcb09e2d7a3a17c171d731f6139ac632d8d60",
+                "files_digest": "sha256:2ae19c4dcbd1b997e2a4be9db5fc0a9528b2ff211487e12c1a60c10d5a8c13b8",
+                "head_commit": "256fdff6dde20960fac703883b2b0c5a98a076e3",
+                "index_digest": "sha256:e825140494937ede26c165ea62cabe4016b584288c3b157493311411a2262e3b"
+              },
+              "session": "separate",
+              "model_profile": "unavailable",
+              "model": null,
+              "checks": [
+                {
+                  "id": "security_acceptance",
+                  "status": "executed",
+                  "result": "passed",
+                  "reason": "",
+                  "evidence": [
+                    {
+                      "method": "code",
+                      "tool": "exec_command",
+                      "locator": "/tmp/w3-run-kap0go04/authority/.prifly/work/claims/496841ded2459970938574f8fc173123adb21753918ecb46ea2aed8aa9ce878e/greeting.py:1-33",
+                      "observation": "Read the complete implementation. Imports are stdlib logging and os. greeting(name) formats the supplied nonempty string into Hello, <name>! without eval, exec, shell invocation, file writes, network access or added dependencies. No hardcoded secrets or credentials were present. LOG_LEVEL configures a module-local stderr logger; DEBUG is the default and logs the full name and returned greeting. The sealed task does not declare the name confidential or require a logging policy.",
+                      "exit_code": null
+                    },
+                    {
+                      "method": "code",
+                      "tool": "exec_command",
+                      "locator": "/tmp/w3-run-kap0go04/authority/.prifly/work/claims/496841ded2459970938574f8fc173123adb21753918ecb46ea2aed8aa9ce878e/test_greeting.py:1-72",
+                      "observation": "Read the complete test. It uses stdlib unittest and fixed sample names. The subprocess call uses an argument list with sys.executable, -B and a fixed -c program, without shell=True or interpolation of supplied names into executable code; capture_output and timeout=10 are set. No hardcoded secrets or unsafe execution were found. The tests were inspected, not executed, because this request declares a code inspection only.",
+                      "exit_code": null
+                    },
+                    {
+                      "method": "code",
+                      "tool": "exec_command",
+                      "locator": "/tmp/w3-run-kap0go04/authority/.prifly/work/claims/496841ded2459970938574f8fc173123adb21753918ecb46ea2aed8aa9ce878e (Git worktree/index and local security context)",
+                      "observation": "Read-only Git inspection showed HEAD 256fdff6dde20960fac703883b2b0c5a98a076e3, no tracked/index diff, and only greeting.py and test_greeting.py as untracked candidate files, matching the declared feature paths. AGENTS.md, .ai-factory/config.yaml, SECURITY.md and the security-checklist project override were absent. No ignored-item policy or additional local security requirement was available. Repository files and index were not modified.",
+                      "exit_code": null
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "submission_sha256": "e52d8ec3817fb51eef664bd1c11c0dcf5362e612094f2aa06b14ccd8055bafde",
+          "events_sha256": "fbcf37121d36cac23479197d0c1317e3d9379952fc78f659170a5fd6ad1c2249"
+        },
+        {
+          "step": "review",
+          "session": "01a13ca8-bce3-73b2-9a8f-0adaa141e4ef",
+          "verdict": "pass",
+          "outputs": {
+            "report": {
+              "round": 1,
+              "request_digest": "sha256:ffcd8eb254893b89b664cfc81f5b728fb656a32f46b959b1adc72166bd0ccd7f",
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "256fdff6dde20960fac703883b2b0c5a98a076e3",
+                "digest": "sha256:f131e31ee6ffc26b381c2934898bcb09e2d7a3a17c171d731f6139ac632d8d60",
+                "files_digest": "sha256:2ae19c4dcbd1b997e2a4be9db5fc0a9528b2ff211487e12c1a60c10d5a8c13b8",
+                "head_commit": "256fdff6dde20960fac703883b2b0c5a98a076e3",
+                "index_digest": "sha256:e825140494937ede26c165ea62cabe4016b584288c3b157493311411a2262e3b"
+              },
+              "session": "separate",
+              "model_profile": "unavailable",
+              "model": null,
+              "checks": [
+                {
+                  "id": "review_acceptance",
+                  "status": "executed",
+                  "result": "warnings",
+                  "reason": "No blocking correctness defect found within the declared nonempty-string scope. WARN: optional architecture, rules and roadmap context files are absent, so their context gates cannot establish project-specific alignment. Missing optional context is non-blocking under the pinned upstream review skill.",
+                  "evidence": [
+                    {
+                      "method": "code",
+                      "tool": "functions.exec / exec_command / python3 -B read-only source inspection",
+                      "locator": "/tmp/w3-run-kap0go04/authority/.prifly/work/claims/496841ded2459970938574f8fc173123adb21753918ecb46ea2aed8aa9ce878e/greeting.py:24-33",
+                      "observation": "The function constructs f\"Hello, {name}!\" and returns it without stripping, normalization or case conversion. For supported nonempty string names this preserves Unicode, whitespace and punctuation and yields the exact requested text. Logging uses stdlib only, a private non-propagating logger, and no shell/eval or dependency. No blocking correctness, resource-use or unsafe-execution issue was found in this implementation.",
+                      "exit_code": null
+                    },
+                    {
+                      "method": "code",
+                      "tool": "functions.exec / exec_command / python3 -B read-only source inspection",
+                      "locator": "/tmp/w3-run-kap0go04/authority/.prifly/work/claims/496841ded2459970938574f8fc173123adb21753918ecb46ea2aed8aa9ce878e/test_greeting.py:12-68",
+                      "observation": "The unittest source asserts exact outputs for Ada, A, Ada Lovelace, Zo\u00eb \u4e16\u754c, a name with surrounding spaces, and O'Neil!. Additional tests inspect logging output, suppression and unchanged root logger configuration using bounded stdlib subprocesses with -B. These are source-inspection observations; tests were not executed in this code-method review. Empty or non-string inputs fall outside the sealed assumption.",
+                      "exit_code": null
+                    },
+                    {
+                      "method": "code",
+                      "tool": "functions.exec / exec_command / python3 -B project-context inspection",
+                      "locator": "/tmp/w3-run-kap0go04/authority/.prifly/work/claims/496841ded2459970938574f8fc173123adb21753918ecb46ea2aed8aa9ce878e/.ai-factory",
+                      "observation": "No config.yaml, DESCRIPTION.md, ARCHITECTURE.md, RULES.md, ROADMAP.md, rules/base.md or skill-context/aif-review/SKILL.md exists; root AGENTS.md is absent. Default context paths were checked. Architecture, rules and roadmap gates carry WARN for missing optional files, with no explicit blocking project criterion found. No repository context was created or edited.",
+                      "exit_code": null
+                    },
+                    {
+                      "method": "code",
+                      "tool": "functions.exec / exec_command / Git diff and file inspection",
+                      "locator": "/tmp/w3-run-kap0go04/authority/.prifly/work/claims/496841ded2459970938574f8fc173123adb21753918ecb46ea2aed8aa9ce878e (greeting.py, test_greeting.py; HEAD 256fdff6dde20960fac703883b2b0c5a98a076e3)",
+                      "observation": "Both declared feature files are nonignored untracked files; staged and unstaged tracked-file diffs are empty. They were inspected directly because ordinary Git diffs omit untracked files. HEAD matches the delivered candidate. Only the request's review_acceptance check was evaluated; acceptance.py and owner prerequisites were not executed or modified.",
+                      "exit_code": null
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "submission_sha256": "c71c4ba75dd48eca5642e09baf0f204ce947ecace55daf83c92e47024d9c71a1",
+          "events_sha256": "96e51809cc7ab7bb76a411990796577cbf40098d9ea8f0474b3aabe7614c0f59"
+        },
+        {
+          "step": "checks",
+          "session": "01a13caa-ae39-7721-82bb-fa7fc8866d66",
+          "verdict": "pass",
+          "outputs": {
+            "report": {
+              "round": 1,
+              "request_digest": "sha256:c7f8f002a631440bec11354a4f8fd58746257a854e427cb72d26b96769ba75a1",
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "256fdff6dde20960fac703883b2b0c5a98a076e3",
+                "digest": "sha256:1e70a8b520e980016acf32473f016eb1eef8868d80e673c2377901fa78c0919a",
+                "files_digest": "sha256:095786a05acde240578299c24d6db07132d70ef29ec3666401214b21bfa1ba95",
+                "head_commit": "256fdff6dde20960fac703883b2b0c5a98a076e3",
+                "index_digest": "sha256:e825140494937ede26c165ea62cabe4016b584288c3b157493311411a2262e3b"
+              },
+              "session": "separate",
+              "model_profile": "unavailable",
+              "model": null,
+              "checks": [
+                {
+                  "id": "checks_acceptance",
+                  "status": "executed",
+                  "result": "passed",
+                  "reason": "",
+                  "evidence": [
+                    {
+                      "method": "command",
+                      "tool": "exec_command",
+                      "locator": "python3 -B acceptance.py",
+                      "observation": "Working directory: /tmp/w3-run-kap0go04/authority/.prifly/work/claims/496841ded2459970938574f8fc173123adb21753918ecb46ea2aed8aa9ce878e. Exit code: 0. Observed combined output:\nDEBUG greeting greeting entry name='Ada'\nDEBUG greeting greeting exit result='Hello, Ada!'\nacceptance passed\n",
+                      "exit_code": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "submission_sha256": "fdf8a4287e84355e8e5cbd1d7ad8ef663aafe2621c6ee2d2607f28f52b1815e9",
+          "events_sha256": "e902f1c0f313b6dd57619a8a7744a2de2a62ecfa276eb983145cfc41c5cf08e8"
+        },
+        {
+          "step": "security",
+          "session": "01a13cac-36a8-7b33-8a48-48f0ef422761",
+          "verdict": "pass",
+          "outputs": {
+            "report": {
+              "round": 1,
+              "request_digest": "sha256:443ba197a9ac07e0e0dbb486bcb7f255c1d1eccff206aee9ffaa7244ec0bcff7",
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "256fdff6dde20960fac703883b2b0c5a98a076e3",
+                "digest": "sha256:1e70a8b520e980016acf32473f016eb1eef8868d80e673c2377901fa78c0919a",
+                "files_digest": "sha256:095786a05acde240578299c24d6db07132d70ef29ec3666401214b21bfa1ba95",
+                "head_commit": "256fdff6dde20960fac703883b2b0c5a98a076e3",
+                "index_digest": "sha256:e825140494937ede26c165ea62cabe4016b584288c3b157493311411a2262e3b"
+              },
+              "session": "separate",
+              "model_profile": "unavailable",
+              "model": null,
+              "checks": [
+                {
+                  "id": "security_acceptance",
+                  "status": "executed",
+                  "result": "passed",
+                  "reason": "",
+                  "evidence": [
+                    {
+                      "method": "code",
+                      "tool": "exec_command read-only source inspection",
+                      "locator": "greeting.py:3-33",
+                      "observation": "Inspected the complete implementation. Only stdlib logging and os are imported; LOG_LEVEL is read only to select a fixed logger level. For the declared nonempty string input, greeting returns f\"Hello, {name}!\". There are no embedded secrets, eval/exec calls, shell commands, dynamic imports, filesystem writes or network operations. Debug logging emits the supplied name and result to stderr using %r; no credential is read or logged by this implementation. The sealed fixture does not declare sensitive names or a production client logging requirement.",
+                      "exit_code": null
+                    },
+                    {
+                      "method": "code",
+                      "tool": "exec_command read-only source inspection",
+                      "locator": "test_greeting.py:1-72",
+                      "observation": "Inspected the complete test file. Test names and expected strings are literal fixture data, without secrets. subprocess.run uses an argument list with sys.executable, -B and a fixed -c program, without shell=True or user-controlled code; it captures output and has a 10-second timeout. Environment changes are only in the test child-process mapping. The tests cover exact strings and stderr logging configuration; they were inspected, not executed, because this delivered check specifies code inspection.",
+                      "exit_code": null
+                    },
+                    {
+                      "method": "code",
+                      "tool": "exec_command read-only project context inspection",
+                      "locator": ".ai-factory/config.yaml; .ai-factory/SECURITY.md; .ai-factory/skill-context/aif-security-checklist/SKILL.md; AGENTS.md",
+                      "observation": "These project instruction/configuration paths are absent. No ignored security items or project-specific security overrides were present. Applied the digest-verified pinned security skill only to the single enabled, applicable, required security_acceptance code check and the bound scope greeting.py/test_greeting.py. Optional description, architecture, rules and roadmap artifacts are also absent. No additional checks or requirements were introduced.",
+                      "exit_code": null
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "submission_sha256": "c17379e1e159abb9fd2d1998d9b112dcd3e8f281933929f8bbb25945e4001106",
+          "events_sha256": "64c5eea35ecd4be18cd2237d0ce7a3aa096a3e2cc493c3b37cfe64272204c6e4"
+        },
+        {
+          "step": "review",
+          "session": "01a13cae-2495-77f3-af81-69a685cc5c57",
+          "verdict": "pass",
+          "outputs": {
+            "report": {
+              "round": 1,
+              "request_digest": "sha256:ffcd8eb254893b89b664cfc81f5b728fb656a32f46b959b1adc72166bd0ccd7f",
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "256fdff6dde20960fac703883b2b0c5a98a076e3",
+                "digest": "sha256:1e70a8b520e980016acf32473f016eb1eef8868d80e673c2377901fa78c0919a",
+                "files_digest": "sha256:095786a05acde240578299c24d6db07132d70ef29ec3666401214b21bfa1ba95",
+                "head_commit": "256fdff6dde20960fac703883b2b0c5a98a076e3",
+                "index_digest": "sha256:e825140494937ede26c165ea62cabe4016b584288c3b157493311411a2262e3b"
+              },
+              "session": "separate",
+              "model_profile": "unavailable",
+              "model": null,
+              "checks": [
+                {
+                  "id": "review_acceptance",
+                  "status": "executed",
+                  "result": "warnings",
+                  "reason": "No critical correctness or security issue was found within the declared greeting.py and test_greeting.py scope. The exact return contract and supported nonempty-string edge cases are covered. WARN: optional .ai-factory/ARCHITECTURE.md, RULES.md and ROADMAP.md are absent, so their context gates cannot establish project-specific alignment. No blocking context criteria were declared. The requested independent-review model mapping was not supplied; this fresh separate session does not establish another model.",
+                  "evidence": [
+                    {
+                      "method": "code",
+                      "tool": "functions.exec / exec_command / Python pathlib source inspection",
+                      "locator": "/tmp/w3-run-kap0go04/authority/.prifly/work/claims/496841ded2459970938574f8fc173123adb21753918ecb46ea2aed8aa9ce878e/greeting.py:24-33",
+                      "observation": "Inspected the current untracked feature source because git diff --cached and git diff have no feature entries. greeting(name) interpolates the supplied name verbatim as f\"Hello, {name}!\" at line 28 and returns that result at line 33. Under the nonempty-string assumption this preserves spaces, Unicode and punctuation without normalization. Logging uses stdlib logging and os, a private nonpropagating logger and stderr; it does not alter the return value, configure the root logger, execute the supplied name or add a dependency. No blocking defect was found.",
+                      "exit_code": null
+                    },
+                    {
+                      "method": "code",
+                      "tool": "functions.exec / exec_command / Python pathlib source inspection",
+                      "locator": "/tmp/w3-run-kap0go04/authority/.prifly/work/claims/496841ded2459970938574f8fc173123adb21753918ecb46ea2aed8aa9ce878e/test_greeting.py:12-68",
+                      "observation": "Inspected unittest coverage: six literal expected greetings include Ada, one character, a multiword name, Unicode, surrounding spaces and punctuation. assertEqual verifies exact text. Additional subprocess tests use sys.executable with -B, check return success and verify logging on stderr, unchanged root logger and suppression at higher levels/OFF. Empty or non-string input is outside the declared assumption. Tests were inspected, not executed; the delivered check method is code.",
+                      "exit_code": null
+                    },
+                    {
+                      "method": "code",
+                      "tool": "functions.exec / exec_command / Python pathlib context inspection",
+                      "locator": "/tmp/w3-run-kap0go04/authority/.prifly/work/claims/496841ded2459970938574f8fc173123adb21753918ecb46ea2aed8aa9ce878e/.ai-factory/{config.yaml,ARCHITECTURE.md,RULES.md,ROADMAP.md,skill-context/aif-review/SKILL.md}",
+                      "observation": "Direct path inspection found config.yaml, the project-specific aif-review skill context, architecture, rules and roadmap absent. AGENTS.md, DESCRIPTION.md, RESEARCH.md and rules/base.md were also absent. Applied documented default paths and English review language. Missing optional architecture/rules/roadmap context produces WARN under the pinned upstream skill, with no declared blocking policy. No context artifact was created or modified.",
+                      "exit_code": null
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "submission_sha256": "c33e2b0eb3499a6fed2db65c346b886b8d614325f465a1c7d9d580d4bd1255cf",
+          "events_sha256": "97e05fc1111ebd6268c1fdf02b5497cec9c5e9b3f3c2ec370e07984d5b865d19"
+        },
+        {
+          "step": "commit",
+          "session": "01a13cb0-0ec8-7161-b534-4c7b852d7eb4",
+          "verdict": "pass",
+          "outputs": {
+            "implementation": {
+              "base_commit": "256fdff6dde20960fac703883b2b0c5a98a076e3",
+              "head_commit": "5ff7cf63c5555df629bd50413f298470542fd975",
+              "changed_files": [
+                "greeting.py",
+                "test_greeting.py"
+              ]
+            },
+            "result": {
+              "outcome": "implemented",
+              "reason": "The reviewed greeting feature was committed locally as 5ff7cf63c5555df629bd50413f298470542fd975 after the sealed candidate and accepted nonblocking gate were independently verified. Only the declared feature files were committed; unrelated owner work was preserved.",
+              "work": [
+                "Read the task envelope, submission template, all three pinned bridge/upstream/snapshot materials, every bound input, and materialized context. Verified all pinned skill and input SHA256 digests.",
+                "Remeasured git-candidate/1 with the pinned snapshot implementation before any write. The full object exactly matched the delivered candidate; evidence.candidate and evidence.gate matched their bound inputs. The feature gate was warnings with blocking=false and blocking_owner_only=false.",
+                "Inspected the repository config and commit override locations, optional project context, active plan locations, complete feature sources, index, and dirty paths. No config, commit overrides, active plan, or optional description/architecture/rules/roadmap existed. Applied default English Conventional Commits conventions; missing optional context remained warnings. No PLAN or project document was created, deleted, or modified.",
+                "Confirmed the index was initially empty and owner.txt had an unrelated unstaged tracked edit already present in the accepted candidate. Staged only greeting.py and test_greeting.py, inspected the complete cached diff, and ran git diff --cached --check successfully.",
+                "Created local commit 5ff7cf63c5555df629bd50413f298470542fd975 with subject feat(greeting): add greeting function and unit coverage using per-command user.name=prifly-feature-test, user.email=fixture@example.invalid, and commit.gpgsign=false. The commit contains exactly the two declared feature paths and 105 added lines.",
+                "Verified actual base/HEAD/changed_files through Git, checked that the post-commit files_digest still equaled the accepted candidate files_digest, and confirmed the index was empty with only the original unstaged owner.txt edit remaining.",
+                "Used the delivered accepted quality evidence: checks_acceptance executed python3 -B acceptance.py with exit 0, security_acceptance passed, and review_acceptance reported nonblocking warnings. These checks were not rerun in this commit stage. No independent-review model mapping was supplied or inferred; the inherited unavailable-model warnings remain factual limitations.",
+                "Wrote the allocated implementation and result outputs and submission.json with actual SHA256 digests. No publication or Pri-Fly control action was performed."
+              ]
+            }
+          },
+          "submission_sha256": "f305556d34c98e39208533c6e4c002a71af02cb2bb7e3880e19587668999c287",
+          "events_sha256": "5921b22b0131767c4ab4f02552056f4d39b76d432fc21cc7a5988107a454fca5"
+        }
+      ],
+      "outputs": {
+        "evidence": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "256fdff6dde20960fac703883b2b0c5a98a076e3",
+            "digest": "sha256:1e70a8b520e980016acf32473f016eb1eef8868d80e673c2377901fa78c0919a",
+            "files_digest": "sha256:095786a05acde240578299c24d6db07132d70ef29ec3666401214b21bfa1ba95",
+            "head_commit": "256fdff6dde20960fac703883b2b0c5a98a076e3",
+            "index_digest": "sha256:e825140494937ede26c165ea62cabe4016b584288c3b157493311411a2262e3b"
+          },
+          "gate": {
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "checks: Model profile unavailable; independent model not established",
+              "security: Model profile unavailable; independent model not established",
+              "review: Model profile unavailable; independent model not established",
+              "review: review_acceptance: No critical correctness or security issue was found within the declared greeting.py and test_greeting.py scope. The exact return contract and supported nonempty-string edge cases are covered. WARN: optional .ai-factory/ARCHITECTURE.md, RULES.md and ROADMAP.md are absent, so their context gates cannot establish project-specific alignment. No blocking context criteria were declared. The requested independent-review model mapping was not supplied; this fresh separate session does not establish another model."
+            ],
+            "gate": "feature",
+            "status": "warnings",
+            "suggested_next": "continue"
+          },
+          "product": null,
+          "reports": {
+            "checks": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "256fdff6dde20960fac703883b2b0c5a98a076e3",
+                "digest": "sha256:1e70a8b520e980016acf32473f016eb1eef8868d80e673c2377901fa78c0919a",
+                "files_digest": "sha256:095786a05acde240578299c24d6db07132d70ef29ec3666401214b21bfa1ba95",
+                "head_commit": "256fdff6dde20960fac703883b2b0c5a98a076e3",
+                "index_digest": "sha256:e825140494937ede26c165ea62cabe4016b584288c3b157493311411a2262e3b"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": 0,
+                      "locator": "python3 -B acceptance.py",
+                      "method": "command",
+                      "observation": "Working directory: /tmp/w3-run-kap0go04/authority/.prifly/work/claims/496841ded2459970938574f8fc173123adb21753918ecb46ea2aed8aa9ce878e. Exit code: 0. Observed combined output:\nDEBUG greeting greeting entry name='Ada'\nDEBUG greeting greeting exit result='Hello, Ada!'\nacceptance passed\n",
+                      "tool": "exec_command"
+                    }
+                  ],
+                  "id": "checks_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:c7f8f002a631440bec11354a4f8fd58746257a854e427cb72d26b96769ba75a1",
+              "round": 1,
+              "session": "separate"
+            },
+            "review": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "256fdff6dde20960fac703883b2b0c5a98a076e3",
+                "digest": "sha256:1e70a8b520e980016acf32473f016eb1eef8868d80e673c2377901fa78c0919a",
+                "files_digest": "sha256:095786a05acde240578299c24d6db07132d70ef29ec3666401214b21bfa1ba95",
+                "head_commit": "256fdff6dde20960fac703883b2b0c5a98a076e3",
+                "index_digest": "sha256:e825140494937ede26c165ea62cabe4016b584288c3b157493311411a2262e3b"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "/tmp/w3-run-kap0go04/authority/.prifly/work/claims/496841ded2459970938574f8fc173123adb21753918ecb46ea2aed8aa9ce878e/greeting.py:24-33",
+                      "method": "code",
+                      "observation": "Inspected the current untracked feature source because git diff --cached and git diff have no feature entries. greeting(name) interpolates the supplied name verbatim as f\"Hello, {name}!\" at line 28 and returns that result at line 33. Under the nonempty-string assumption this preserves spaces, Unicode and punctuation without normalization. Logging uses stdlib logging and os, a private nonpropagating logger and stderr; it does not alter the return value, configure the root logger, execute the supplied name or add a dependency. No blocking defect was found.",
+                      "tool": "functions.exec / exec_command / Python pathlib source inspection"
+                    },
+                    {
+                      "exit_code": null,
+                      "locator": "/tmp/w3-run-kap0go04/authority/.prifly/work/claims/496841ded2459970938574f8fc173123adb21753918ecb46ea2aed8aa9ce878e/test_greeting.py:12-68",
+                      "method": "code",
+                      "observation": "Inspected unittest coverage: six literal expected greetings include Ada, one character, a multiword name, Unicode, surrounding spaces and punctuation. assertEqual verifies exact text. Additional subprocess tests use sys.executable with -B, check return success and verify logging on stderr, unchanged root logger and suppression at higher levels/OFF. Empty or non-string input is outside the declared assumption. Tests were inspected, not executed; the delivered check method is code.",
+                      "tool": "functions.exec / exec_command / Python pathlib source inspection"
+                    },
+                    {
+                      "exit_code": null,
+                      "locator": "/tmp/w3-run-kap0go04/authority/.prifly/work/claims/496841ded2459970938574f8fc173123adb21753918ecb46ea2aed8aa9ce878e/.ai-factory/{config.yaml,ARCHITECTURE.md,RULES.md,ROADMAP.md,skill-context/aif-review/SKILL.md}",
+                      "method": "code",
+                      "observation": "Direct path inspection found config.yaml, the project-specific aif-review skill context, architecture, rules and roadmap absent. AGENTS.md, DESCRIPTION.md, RESEARCH.md and rules/base.md were also absent. Applied documented default paths and English review language. Missing optional architecture/rules/roadmap context produces WARN under the pinned upstream skill, with no declared blocking policy. No context artifact was created or modified.",
+                      "tool": "functions.exec / exec_command / Python pathlib context inspection"
+                    }
+                  ],
+                  "id": "review_acceptance",
+                  "reason": "No critical correctness or security issue was found within the declared greeting.py and test_greeting.py scope. The exact return contract and supported nonempty-string edge cases are covered. WARN: optional .ai-factory/ARCHITECTURE.md, RULES.md and ROADMAP.md are absent, so their context gates cannot establish project-specific alignment. No blocking context criteria were declared. The requested independent-review model mapping was not supplied; this fresh separate session does not establish another model.",
+                  "result": "warnings",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:ffcd8eb254893b89b664cfc81f5b728fb656a32f46b959b1adc72166bd0ccd7f",
+              "round": 1,
+              "session": "separate"
+            },
+            "security": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "256fdff6dde20960fac703883b2b0c5a98a076e3",
+                "digest": "sha256:1e70a8b520e980016acf32473f016eb1eef8868d80e673c2377901fa78c0919a",
+                "files_digest": "sha256:095786a05acde240578299c24d6db07132d70ef29ec3666401214b21bfa1ba95",
+                "head_commit": "256fdff6dde20960fac703883b2b0c5a98a076e3",
+                "index_digest": "sha256:e825140494937ede26c165ea62cabe4016b584288c3b157493311411a2262e3b"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "greeting.py:3-33",
+                      "method": "code",
+                      "observation": "Inspected the complete implementation. Only stdlib logging and os are imported; LOG_LEVEL is read only to select a fixed logger level. For the declared nonempty string input, greeting returns f\"Hello, {name}!\". There are no embedded secrets, eval/exec calls, shell commands, dynamic imports, filesystem writes or network operations. Debug logging emits the supplied name and result to stderr using %r; no credential is read or logged by this implementation. The sealed fixture does not declare sensitive names or a production client logging requirement.",
+                      "tool": "exec_command read-only source inspection"
+                    },
+                    {
+                      "exit_code": null,
+                      "locator": "test_greeting.py:1-72",
+                      "method": "code",
+                      "observation": "Inspected the complete test file. Test names and expected strings are literal fixture data, without secrets. subprocess.run uses an argument list with sys.executable, -B and a fixed -c program, without shell=True or user-controlled code; it captures output and has a 10-second timeout. Environment changes are only in the test child-process mapping. The tests cover exact strings and stderr logging configuration; they were inspected, not executed, because this delivered check specifies code inspection.",
+                      "tool": "exec_command read-only source inspection"
+                    },
+                    {
+                      "exit_code": null,
+                      "locator": ".ai-factory/config.yaml; .ai-factory/SECURITY.md; .ai-factory/skill-context/aif-security-checklist/SKILL.md; AGENTS.md",
+                      "method": "code",
+                      "observation": "These project instruction/configuration paths are absent. No ignored security items or project-specific security overrides were present. Applied the digest-verified pinned security skill only to the single enabled, applicable, required security_acceptance code check and the bound scope greeting.py/test_greeting.py. Optional description, architecture, rules and roadmap artifacts are also absent. No additional checks or requirements were introduced.",
+                      "tool": "exec_command read-only project context inspection"
+                    }
+                  ],
+                  "id": "security_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:443ba197a9ac07e0e0dbb486bcb7f255c1d1eccff206aee9ffaa7244ec0bcff7",
+              "round": 1,
+              "session": "separate"
+            }
+          },
+          "requests": {
+            "checks": {
+              "base_commit": "256fdff6dde20960fac703883b2b0c5a98a076e3",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Run python3 -B acceptance.py. Exit 77 explicitly means required tool prerequisite unavailable (owner must provide ignored .acceptance-ready); report unavailable/not_run, not a code defect. Do not create/alter this owner prerequisite or acceptance.py during implementation or repair.",
+                  "enabled": true,
+                  "id": "checks_acceptance",
+                  "method": "command",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": true,
+              "round": 1
+            },
+            "review": {
+              "base_commit": "256fdff6dde20960fac703883b2b0c5a98a076e3",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect greeting(name) returns exact expected text, test and edge cases within scope",
+                  "enabled": true,
+                  "id": "review_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": true,
+              "round": 1
+            },
+            "security": {
+              "base_commit": "256fdff6dde20960fac703883b2b0c5a98a076e3",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect greeting implementation against scope; no secrets or unsafe execution",
+                  "enabled": true,
+                  "id": "security_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": true,
+              "round": 1
+            }
+          },
+          "round": 1,
+          "task_digest": "sha256:5e242d19379c51c6b012c52ef328d74add625d7cb6bf38cb36a0d5821220a474"
+        },
+        "gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "checks: Model profile unavailable; independent model not established",
+            "security: Model profile unavailable; independent model not established",
+            "review: Model profile unavailable; independent model not established",
+            "review: review_acceptance: No critical correctness or security issue was found within the declared greeting.py and test_greeting.py scope. The exact return contract and supported nonempty-string edge cases are covered. WARN: optional .ai-factory/ARCHITECTURE.md, RULES.md and ROADMAP.md are absent, so their context gates cannot establish project-specific alignment. No blocking context criteria were declared. The requested independent-review model mapping was not supplied; this fresh separate session does not establish another model."
+          ],
+          "gate": "feature",
+          "status": "warnings",
+          "suggested_next": "continue"
+        },
+        "implementation": {
+          "base_commit": "256fdff6dde20960fac703883b2b0c5a98a076e3",
+          "head_commit": "5ff7cf63c5555df629bd50413f298470542fd975",
+          "changed_files": [
+            "greeting.py",
+            "test_greeting.py"
+          ]
+        },
+        "plan": {
+          "entrypoint": "PLAN.md",
+          "files": [
+            {
+              "path": "PLAN.md",
+              "ref": {
+                "artifact_id": "artifact:65683a488c19f91a190fbdcba14a29aa105650b2b39e1d6547d89217e6e136fe",
+                "digest": "sha256:e9389aef7617ae6bf3fcd1d959833cf3056863fe2dea26abb440a32dd6109f93",
+                "revision": 1
+              }
+            }
+          ],
+          "root": ".ai-factory",
+          "schema_version": "workspace-tree-manifest/1"
+        },
+        "result": {
+          "outcome": "implemented",
+          "reason": "The reviewed greeting feature was committed locally as 5ff7cf63c5555df629bd50413f298470542fd975 after the sealed candidate and accepted nonblocking gate were independently verified. Only the declared feature files were committed; unrelated owner work was preserved.",
+          "work": [
+            "Read the task envelope, submission template, all three pinned bridge/upstream/snapshot materials, every bound input, and materialized context. Verified all pinned skill and input SHA256 digests.",
+            "Remeasured git-candidate/1 with the pinned snapshot implementation before any write. The full object exactly matched the delivered candidate; evidence.candidate and evidence.gate matched their bound inputs. The feature gate was warnings with blocking=false and blocking_owner_only=false.",
+            "Inspected the repository config and commit override locations, optional project context, active plan locations, complete feature sources, index, and dirty paths. No config, commit overrides, active plan, or optional description/architecture/rules/roadmap existed. Applied default English Conventional Commits conventions; missing optional context remained warnings. No PLAN or project document was created, deleted, or modified.",
+            "Confirmed the index was initially empty and owner.txt had an unrelated unstaged tracked edit already present in the accepted candidate. Staged only greeting.py and test_greeting.py, inspected the complete cached diff, and ran git diff --cached --check successfully.",
+            "Created local commit 5ff7cf63c5555df629bd50413f298470542fd975 with subject feat(greeting): add greeting function and unit coverage using per-command user.name=prifly-feature-test, user.email=fixture@example.invalid, and commit.gpgsign=false. The commit contains exactly the two declared feature paths and 105 added lines.",
+            "Verified actual base/HEAD/changed_files through Git, checked that the post-commit files_digest still equaled the accepted candidate files_digest, and confirmed the index was empty with only the original unstaged owner.txt edit remaining.",
+            "Used the delivered accepted quality evidence: checks_acceptance executed python3 -B acceptance.py with exit 0, security_acceptance passed, and review_acceptance reported nonblocking warnings. These checks were not rerun in this commit stage. No independent-review model mapping was supplied or inferred; the inherited unavailable-model warnings remain factual limitations.",
+            "Wrote the allocated implementation and result outputs and submission.json with actual SHA256 digests. No publication or Pri-Fly control action was performed."
+          ]
+        }
+      },
+      "reported_usage": [
+        {
+          "attempt": "00-warmup",
+          "session": "01a13c9e-2d2e-7b22-b1de-2d4155df9584",
+          "reported_usage": {
+            "input_tokens": 271486,
+            "cached_input_tokens": 237568,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 4457,
+            "reasoning_output_tokens": 522
+          },
+          "events_sha256": "a97b2abb6e6abba10d3e89ec74c2afb79b63c99018b50aeffc5271c8c650bbd4"
+        },
+        {
+          "attempt": "01-plan",
+          "session": "01a13c9f-fb4c-7fd3-9d87-901bf9c31455",
+          "reported_usage": {
+            "input_tokens": 874677,
+            "cached_input_tokens": 807040,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 6744,
+            "reasoning_output_tokens": 761
+          },
+          "events_sha256": "fa37cacc0cfaa78c628efdbb158afa2a4bf826b6ac48bd404fab7f7d3e6984e1"
+        },
+        {
+          "attempt": "02-implement",
+          "session": "01a13ca3-01ea-7212-a666-b73d9afa4a04",
+          "reported_usage": {
+            "input_tokens": 847483,
+            "cached_input_tokens": 765824,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 6540,
+            "reasoning_output_tokens": 927
+          },
+          "events_sha256": "aedeaa65284fd9145a491e393106cdf232b6624574306246da411184161d4f8e"
+        },
+        {
+          "attempt": "03-checks",
+          "session": "01a13ca5-7a32-75b3-9661-737107b7c310",
+          "reported_usage": {
+            "input_tokens": 374134,
+            "cached_input_tokens": 319232,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2930,
+            "reasoning_output_tokens": 200
+          },
+          "events_sha256": "745b9980abe1d90dbcf534f11b046840e6ec04a99e8a5b55e7a075b534f906e9"
+        },
+        {
+          "attempt": "04-security",
+          "session": "01a13ca6-f6cb-7c72-9820-0aace10b7f87",
+          "reported_usage": {
+            "input_tokens": 458067,
+            "cached_input_tokens": 404992,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 4559,
+            "reasoning_output_tokens": 1113
+          },
+          "events_sha256": "fbcf37121d36cac23479197d0c1317e3d9379952fc78f659170a5fd6ad1c2249"
+        },
+        {
+          "attempt": "05-review",
+          "session": "01a13ca8-bce3-73b2-9a8f-0adaa141e4ef",
+          "reported_usage": {
+            "input_tokens": 315216,
+            "cached_input_tokens": 263936,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 4053,
+            "reasoning_output_tokens": 593
+          },
+          "events_sha256": "96e51809cc7ab7bb76a411990796577cbf40098d9ea8f0474b3aabe7614c0f59"
+        },
+        {
+          "attempt": "06-checks",
+          "session": "01a13caa-ae39-7721-82bb-fa7fc8866d66",
+          "reported_usage": {
+            "input_tokens": 487006,
+            "cached_input_tokens": 442624,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 4121,
+            "reasoning_output_tokens": 616
+          },
+          "events_sha256": "e902f1c0f313b6dd57619a8a7744a2de2a62ecfa276eb983145cfc41c5cf08e8"
+        },
+        {
+          "attempt": "07-security",
+          "session": "01a13cac-36a8-7b33-8a48-48f0ef422761",
+          "reported_usage": {
+            "input_tokens": 387657,
+            "cached_input_tokens": 332288,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 4402,
+            "reasoning_output_tokens": 729
+          },
+          "events_sha256": "64c5eea35ecd4be18cd2237d0ce7a3aa096a3e2cc493c3b37cfe64272204c6e4"
+        },
+        {
+          "attempt": "08-review",
+          "session": "01a13cae-2495-77f3-af81-69a685cc5c57",
+          "reported_usage": {
+            "input_tokens": 393128,
+            "cached_input_tokens": 351872,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 3773,
+            "reasoning_output_tokens": 464
+          },
+          "events_sha256": "97e05fc1111ebd6268c1fdf02b5497cec9c5e9b3f3c2ec370e07984d5b865d19"
+        },
+        {
+          "attempt": "09-commit",
+          "session": "01a13cb0-0ec8-7161-b534-4c7b852d7eb4",
+          "reported_usage": {
+            "input_tokens": 384641,
+            "cached_input_tokens": 331904,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 5304,
+            "reasoning_output_tokens": 917
+          },
+          "events_sha256": "5921b22b0131767c4ab4f02552056f4d39b76d432fc21cc7a5988107a454fca5"
+        }
+      ],
+      "approval_scope": "Workspace-write sandbox + automatic review; only exact fixture repository added alongside task workspace; role/authority/candidate guards verified.",
+      "qualification_scope": "Final native scheduling, whole acceptance replay unit and global/product policy admission guard.",
+      "source_boundary": {
+        "workflow_ref": {
+          "id": "aif-feature:workflow/feature",
+          "version": "0.0.0-b1.cvgqmkva6xrlikkfmgkpyo572pfvugp6f5r2272mhg7w3suqe7sa",
+          "digest": "sha256:4e0a776251bd3a3f390b0750a932f4c119ed424d9e8db1a37499f523644d8ca8"
+        },
+        "status": "completed",
+        "outcome": "partial",
+        "gate_ref": {
+          "artifact_id": "artifact:f4151c24f6098ca363793b8e331cb6ba66b389a8124c331cdaab0a3e93696a28",
+          "revision": 1,
+          "digest": "sha256:859851b7d9ae303abda5e5d0f023e6bcb87c82daaf1d1132846a4c3b32b0c38b"
+        },
+        "evidence_ref": {
+          "artifact_id": "artifact:31483ab292be75c24a6887dced3615c357a89faef39f8c6c2eaa3417a4abedaa",
+          "revision": 1,
+          "digest": "sha256:fcbbff24969e41d4e8ef44fe3067d43e96a4814973eb56cf636adf2f2d43367b"
+        }
+      }
+    }
+  ],
+  "no_other_model_attested": true,
+  "reports_unedited": true
+}

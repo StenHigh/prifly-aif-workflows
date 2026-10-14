@@ -1,0 +1,44 @@
+{
+  "title": "Small greeting feature",
+  "description": "Add a greeting(name) function returning Hello, <name>! with a test.",
+  "scope": [
+    "greeting.py",
+    "test_greeting.py"
+  ],
+  "assumptions": [
+    "Name is a nonempty string; no new dependency."
+  ],
+  "optional_policy": "ignore",
+  "require_separate_session": false,
+  "product": null,
+  "checks": [
+    {
+      "id": "checks_acceptance",
+      "description": "python3 -B -m unittest test_greeting",
+      "method": "command",
+      "required": true,
+      "enabled": true,
+      "applicable": true
+    }
+  ],
+  "security": [
+    {
+      "id": "security_acceptance",
+      "description": "Inspect greeting implementation against scope; no secrets or unsafe execution",
+      "method": "code",
+      "required": true,
+      "enabled": true,
+      "applicable": true
+    }
+  ],
+  "review": [
+    {
+      "id": "review_acceptance",
+      "description": "Inspect greeting(name) returns exact expected text, test and edge cases within scope",
+      "method": "code",
+      "required": true,
+      "enabled": true,
+      "applicable": true
+    }
+  ]
+}

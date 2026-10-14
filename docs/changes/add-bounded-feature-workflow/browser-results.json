@@ -1,0 +1,552 @@
+{
+  "prifly": "0.13.76",
+  "binary_sha256": "03ac382112a12001ea9e2a86e5a20db2d5e24ec79ce5339f6257c473d0f3322d",
+  "cases": [
+    {
+      "case": "frontend",
+      "host": "codex-cli",
+      "mode": "actual browser with deterministic writer/reader assertions",
+      "source_outcome": "succeeded",
+      "outcome": "succeeded",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "environment",
+        "ui",
+        "ux",
+        "release",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:19746ac0f19a74e044542456362f88e9a79ab38cbb1ac95e68e9a2c280744d6c",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:77843a006e71fd4a6258c7d94d88b8064736622567fc274e5365fdcdcea89ecc",
+          "base": "bd30e87abdad03920d1c756a054d1838bec2844d"
+        },
+        {
+          "run": "run:19746ac0f19a74e044542456362f88e9a79ab38cbb1ac95e68e9a2c280744d6c",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:77843a006e71fd4a6258c7d94d88b8064736622567fc274e5365fdcdcea89ecc",
+          "base": "bd30e87abdad03920d1c756a054d1838bec2844d"
+        },
+        {
+          "run": "run:19746ac0f19a74e044542456362f88e9a79ab38cbb1ac95e68e9a2c280744d6c",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:77843a006e71fd4a6258c7d94d88b8064736622567fc274e5365fdcdcea89ecc",
+          "base": "bd30e87abdad03920d1c756a054d1838bec2844d"
+        },
+        {
+          "run": "run:19746ac0f19a74e044542456362f88e9a79ab38cbb1ac95e68e9a2c280744d6c",
+          "lens": "ui",
+          "round": 1,
+          "digest": "sha256:77843a006e71fd4a6258c7d94d88b8064736622567fc274e5365fdcdcea89ecc",
+          "base": "bd30e87abdad03920d1c756a054d1838bec2844d"
+        },
+        {
+          "run": "run:19746ac0f19a74e044542456362f88e9a79ab38cbb1ac95e68e9a2c280744d6c",
+          "lens": "ux",
+          "round": 1,
+          "digest": "sha256:77843a006e71fd4a6258c7d94d88b8064736622567fc274e5365fdcdcea89ecc",
+          "base": "bd30e87abdad03920d1c756a054d1838bec2844d"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "0e1fe5c096e0c7cabd393235e8746467b8aa6ee19eecc85aa1d6847ea54f1ff6"
+        },
+        {
+          "stage": "implement",
+          "sha256": "6320ec489a3492062395ff23a89b21eacdcea82870ee1458381d6d8741b18b9f"
+        }
+      ],
+      "elapsed_seconds": 51.658,
+      "cleaned": true,
+      "browser_observations": [
+        {
+          "lens": "ui",
+          "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+          "observations": [
+            {
+              "scenario": "desktop",
+              "viewport": {
+                "height": 800,
+                "width": 1280
+              },
+              "url": "http://127.0.0.1:46423/index.html",
+              "observations": "{\"viewport\":1280,\"scrollWidth\":1280,\"heading\":\"Notes\",\"bodyColor\":\"rgb(23, 32, 51)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\",\"label\":\"Note text\",\"section\":{\"x\":300,\"y\":92.75,\"width\":680,\"height\":311.8125,\"top\":92.75,\"right\":980,\"bottom\":404.5625,\"left\":300}}\nDeclared design tokens: dark ink on white; white button text on blue. Screenshot requires visual inspection, DOM metrics alone are not a visual review.",
+              "failures": [],
+              "screenshot_sha256": "37e37428dadfd48c87280e0070041eab0763a33909e437b734b87972b1421291",
+              "screenshot_artifact": "frontend-round1-ui/ui-desktop.png"
+            },
+            {
+              "scenario": "mobile",
+              "viewport": {
+                "height": 800,
+                "width": 375
+              },
+              "url": "http://127.0.0.1:46423/index.html",
+              "observations": "{\"viewport\":375,\"scrollWidth\":375,\"heading\":\"Notes\",\"bodyColor\":\"rgb(23, 32, 51)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\",\"label\":\"Note text\",\"section\":{\"x\":16,\"y\":92.75,\"width\":343,\"height\":311.8125,\"top\":92.75,\"right\":359,\"bottom\":404.5625,\"left\":16}}\nDeclared design tokens: dark ink on white; white button text on blue. Screenshot requires visual inspection, DOM metrics alone are not a visual review.",
+              "failures": [],
+              "screenshot_sha256": "8395e45ac2baba8f48cff425380262c6ce2135f0057a6aae4f8ecea69d8b086d",
+              "screenshot_artifact": "frontend-round1-ui/ui-mobile.png"
+            }
+          ]
+        },
+        {
+          "lens": "ux",
+          "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+          "observations": [
+            {
+              "scenario": "flow",
+              "viewport": {
+                "height": 800,
+                "width": 375
+              },
+              "url": "http://127.0.0.1:46423/index.html",
+              "observations": "{\"empty\":true,\"focus\":\"note\",\"outline\":\"solid\",\"label\":[\"Note text\"],\"error\":true,\"loading\":true,\"success\":true,\"copy\":\"Saved: A test note\"}",
+              "failures": [],
+              "screenshot_sha256": "c10f6c30fe47fcaac50470b17431534535006e305a4446a19641fe064ea64dfb",
+              "screenshot_artifact": "frontend-round1-ux/ux-flow.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "repair-ui",
+      "host": "codex-cli",
+      "mode": "actual browser with deterministic writer/reader assertions",
+      "source_outcome": "succeeded",
+      "outcome": "succeeded",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "environment",
+        "ui",
+        "ux",
+        "release",
+        "repair",
+        "checks",
+        "security",
+        "review",
+        "environment",
+        "ui",
+        "ux",
+        "release",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:67fc3ec341c313093d8338b722fa69766872409ae5004012e21f40772b7e5cc8",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:a600d4e75a5b37881e1877a124906ce4f1178df324c91a31608a56d1155acbb6",
+          "base": "d0066bf75060a9fad153cded50a8e44a2dd15293"
+        },
+        {
+          "run": "run:67fc3ec341c313093d8338b722fa69766872409ae5004012e21f40772b7e5cc8",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:a600d4e75a5b37881e1877a124906ce4f1178df324c91a31608a56d1155acbb6",
+          "base": "d0066bf75060a9fad153cded50a8e44a2dd15293"
+        },
+        {
+          "run": "run:67fc3ec341c313093d8338b722fa69766872409ae5004012e21f40772b7e5cc8",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:a600d4e75a5b37881e1877a124906ce4f1178df324c91a31608a56d1155acbb6",
+          "base": "d0066bf75060a9fad153cded50a8e44a2dd15293"
+        },
+        {
+          "run": "run:67fc3ec341c313093d8338b722fa69766872409ae5004012e21f40772b7e5cc8",
+          "lens": "ui",
+          "round": 1,
+          "digest": "sha256:a600d4e75a5b37881e1877a124906ce4f1178df324c91a31608a56d1155acbb6",
+          "base": "d0066bf75060a9fad153cded50a8e44a2dd15293"
+        },
+        {
+          "run": "run:67fc3ec341c313093d8338b722fa69766872409ae5004012e21f40772b7e5cc8",
+          "lens": "ux",
+          "round": 1,
+          "digest": "sha256:a600d4e75a5b37881e1877a124906ce4f1178df324c91a31608a56d1155acbb6",
+          "base": "d0066bf75060a9fad153cded50a8e44a2dd15293"
+        },
+        {
+          "run": "run:67fc3ec341c313093d8338b722fa69766872409ae5004012e21f40772b7e5cc8",
+          "lens": "checks",
+          "round": 2,
+          "digest": "sha256:90f2329be09b73fa08130648d6c02d2b8ee7679b3ed420f53941f51efc0af10a",
+          "base": "d0066bf75060a9fad153cded50a8e44a2dd15293"
+        },
+        {
+          "run": "run:67fc3ec341c313093d8338b722fa69766872409ae5004012e21f40772b7e5cc8",
+          "lens": "security",
+          "round": 2,
+          "digest": "sha256:90f2329be09b73fa08130648d6c02d2b8ee7679b3ed420f53941f51efc0af10a",
+          "base": "d0066bf75060a9fad153cded50a8e44a2dd15293"
+        },
+        {
+          "run": "run:67fc3ec341c313093d8338b722fa69766872409ae5004012e21f40772b7e5cc8",
+          "lens": "review",
+          "round": 2,
+          "digest": "sha256:90f2329be09b73fa08130648d6c02d2b8ee7679b3ed420f53941f51efc0af10a",
+          "base": "d0066bf75060a9fad153cded50a8e44a2dd15293"
+        },
+        {
+          "run": "run:67fc3ec341c313093d8338b722fa69766872409ae5004012e21f40772b7e5cc8",
+          "lens": "ui",
+          "round": 2,
+          "digest": "sha256:90f2329be09b73fa08130648d6c02d2b8ee7679b3ed420f53941f51efc0af10a",
+          "base": "d0066bf75060a9fad153cded50a8e44a2dd15293"
+        },
+        {
+          "run": "run:67fc3ec341c313093d8338b722fa69766872409ae5004012e21f40772b7e5cc8",
+          "lens": "ux",
+          "round": 2,
+          "digest": "sha256:90f2329be09b73fa08130648d6c02d2b8ee7679b3ed420f53941f51efc0af10a",
+          "base": "d0066bf75060a9fad153cded50a8e44a2dd15293"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "e5d83c4b9a1353b4a11a8293e1444dbdf8e9880f0acf9bda5392b260c6f7eba4"
+        },
+        {
+          "stage": "implement",
+          "sha256": "626654406b6ccff4548e9b174309df89a86abe2b68a16b3b7ce73d9a44deaae8"
+        }
+      ],
+      "elapsed_seconds": 104.565,
+      "cleaned": true,
+      "browser_observations": [
+        {
+          "lens": "ui",
+          "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+          "observations": [
+            {
+              "scenario": "desktop",
+              "viewport": {
+                "height": 800,
+                "width": 1280
+              },
+              "url": "http://127.0.0.1:35125/index.html",
+              "observations": "{\"viewport\":1280,\"scrollWidth\":1280,\"heading\":\"Notes\",\"bodyColor\":\"rgb(23, 32, 51)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\",\"label\":\"Note text\",\"section\":{\"x\":300,\"y\":92.75,\"width\":800,\"height\":311.8125,\"top\":92.75,\"right\":1100,\"bottom\":404.5625,\"left\":300}}\nDeclared design tokens: dark ink on white; white button text on blue. Screenshot requires visual inspection, DOM metrics alone are not a visual review.",
+              "failures": [],
+              "screenshot_sha256": "0ef57f5da2f0f0bce1745f35b4c0d8e05ec98587545d14959df8e3fdce1b0757",
+              "screenshot_artifact": "repair-ui-round1-ui/ui-desktop.png"
+            },
+            {
+              "scenario": "mobile",
+              "viewport": {
+                "height": 800,
+                "width": 375
+              },
+              "url": "http://127.0.0.1:35125/index.html",
+              "observations": "{\"viewport\":375,\"scrollWidth\":816,\"heading\":\"Notes\",\"bodyColor\":\"rgb(23, 32, 51)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\",\"label\":\"Note text\",\"section\":{\"x\":16,\"y\":92.75,\"width\":800,\"height\":311.8125,\"top\":92.75,\"right\":816,\"bottom\":404.5625,\"left\":16}}\nDeclared design tokens: dark ink on white; white button text on blue. Screenshot requires visual inspection, DOM metrics alone are not a visual review.",
+              "failures": [
+                "Horizontal overflow: scrollWidth 816 > viewport 375"
+              ],
+              "screenshot_sha256": "a6bd7964d62a9fc3730187516fda9aa69fadf0126154174b6141b74ccf05a5f1",
+              "screenshot_artifact": "repair-ui-round1-ui/ui-mobile.png"
+            }
+          ]
+        },
+        {
+          "lens": "ux",
+          "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+          "observations": [
+            {
+              "scenario": "flow",
+              "viewport": {
+                "height": 800,
+                "width": 375
+              },
+              "url": "http://127.0.0.1:35125/index.html",
+              "observations": "{\"empty\":true,\"focus\":\"note\",\"outline\":\"solid\",\"label\":[\"Note text\"],\"error\":true,\"loading\":true,\"success\":true,\"copy\":\"Saved: A test note\"}",
+              "failures": [],
+              "screenshot_sha256": "dbcfc36cc3149acb3ba3a690af0a09e1dacc3a15d9fc59d576355245745ddb6a",
+              "screenshot_artifact": "repair-ui-round1-ux/ux-flow.png"
+            }
+          ]
+        },
+        {
+          "lens": "ui",
+          "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+          "observations": [
+            {
+              "scenario": "desktop",
+              "viewport": {
+                "height": 800,
+                "width": 1280
+              },
+              "url": "http://127.0.0.1:41403/index.html",
+              "observations": "{\"viewport\":1280,\"scrollWidth\":1280,\"heading\":\"Notes\",\"bodyColor\":\"rgb(23, 32, 51)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\",\"label\":\"Note text\",\"section\":{\"x\":300,\"y\":92.75,\"width\":680,\"height\":311.8125,\"top\":92.75,\"right\":980,\"bottom\":404.5625,\"left\":300}}\nDeclared design tokens: dark ink on white; white button text on blue. Screenshot requires visual inspection, DOM metrics alone are not a visual review.",
+              "failures": [],
+              "screenshot_sha256": "37e37428dadfd48c87280e0070041eab0763a33909e437b734b87972b1421291",
+              "screenshot_artifact": "repair-ui-round2-ui/ui-desktop.png"
+            },
+            {
+              "scenario": "mobile",
+              "viewport": {
+                "height": 800,
+                "width": 375
+              },
+              "url": "http://127.0.0.1:41403/index.html",
+              "observations": "{\"viewport\":375,\"scrollWidth\":375,\"heading\":\"Notes\",\"bodyColor\":\"rgb(23, 32, 51)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\",\"label\":\"Note text\",\"section\":{\"x\":16,\"y\":92.75,\"width\":343,\"height\":311.8125,\"top\":92.75,\"right\":359,\"bottom\":404.5625,\"left\":16}}\nDeclared design tokens: dark ink on white; white button text on blue. Screenshot requires visual inspection, DOM metrics alone are not a visual review.",
+              "failures": [],
+              "screenshot_sha256": "8395e45ac2baba8f48cff425380262c6ce2135f0057a6aae4f8ecea69d8b086d",
+              "screenshot_artifact": "repair-ui-round2-ui/ui-mobile.png"
+            }
+          ]
+        },
+        {
+          "lens": "ux",
+          "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+          "observations": [
+            {
+              "scenario": "flow",
+              "viewport": {
+                "height": 800,
+                "width": 375
+              },
+              "url": "http://127.0.0.1:41403/index.html",
+              "observations": "{\"empty\":true,\"focus\":\"note\",\"outline\":\"solid\",\"label\":[\"Note text\"],\"error\":true,\"loading\":true,\"success\":true,\"copy\":\"Saved: A test note\"}",
+              "failures": [],
+              "screenshot_sha256": "c10f6c30fe47fcaac50470b17431534535006e305a4446a19641fe064ea64dfb",
+              "screenshot_artifact": "repair-ui-round2-ux/ux-flow.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "repair-ux",
+      "host": "codex-cli",
+      "mode": "actual browser with deterministic writer/reader assertions",
+      "source_outcome": "succeeded",
+      "outcome": "succeeded",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "environment",
+        "ui",
+        "ux",
+        "release",
+        "repair",
+        "checks",
+        "security",
+        "review",
+        "environment",
+        "ui",
+        "ux",
+        "release",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:2aac02fae8c1e65106373d64dd121aec3794d93524144ba5495b664aee96d8ad",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:998102ca21d9902f5fd39d20e815a2d8628247154f93ad75208520cd800fcb47",
+          "base": "e2878d541fab30e5fee5f2f7ec151f90c94470e5"
+        },
+        {
+          "run": "run:2aac02fae8c1e65106373d64dd121aec3794d93524144ba5495b664aee96d8ad",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:998102ca21d9902f5fd39d20e815a2d8628247154f93ad75208520cd800fcb47",
+          "base": "e2878d541fab30e5fee5f2f7ec151f90c94470e5"
+        },
+        {
+          "run": "run:2aac02fae8c1e65106373d64dd121aec3794d93524144ba5495b664aee96d8ad",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:998102ca21d9902f5fd39d20e815a2d8628247154f93ad75208520cd800fcb47",
+          "base": "e2878d541fab30e5fee5f2f7ec151f90c94470e5"
+        },
+        {
+          "run": "run:2aac02fae8c1e65106373d64dd121aec3794d93524144ba5495b664aee96d8ad",
+          "lens": "ui",
+          "round": 1,
+          "digest": "sha256:998102ca21d9902f5fd39d20e815a2d8628247154f93ad75208520cd800fcb47",
+          "base": "e2878d541fab30e5fee5f2f7ec151f90c94470e5"
+        },
+        {
+          "run": "run:2aac02fae8c1e65106373d64dd121aec3794d93524144ba5495b664aee96d8ad",
+          "lens": "ux",
+          "round": 1,
+          "digest": "sha256:998102ca21d9902f5fd39d20e815a2d8628247154f93ad75208520cd800fcb47",
+          "base": "e2878d541fab30e5fee5f2f7ec151f90c94470e5"
+        },
+        {
+          "run": "run:2aac02fae8c1e65106373d64dd121aec3794d93524144ba5495b664aee96d8ad",
+          "lens": "checks",
+          "round": 2,
+          "digest": "sha256:e9166195f3a65919d3971c4e6017790746f8b26c55cb80ea4819a327034b5f7b",
+          "base": "e2878d541fab30e5fee5f2f7ec151f90c94470e5"
+        },
+        {
+          "run": "run:2aac02fae8c1e65106373d64dd121aec3794d93524144ba5495b664aee96d8ad",
+          "lens": "security",
+          "round": 2,
+          "digest": "sha256:e9166195f3a65919d3971c4e6017790746f8b26c55cb80ea4819a327034b5f7b",
+          "base": "e2878d541fab30e5fee5f2f7ec151f90c94470e5"
+        },
+        {
+          "run": "run:2aac02fae8c1e65106373d64dd121aec3794d93524144ba5495b664aee96d8ad",
+          "lens": "review",
+          "round": 2,
+          "digest": "sha256:e9166195f3a65919d3971c4e6017790746f8b26c55cb80ea4819a327034b5f7b",
+          "base": "e2878d541fab30e5fee5f2f7ec151f90c94470e5"
+        },
+        {
+          "run": "run:2aac02fae8c1e65106373d64dd121aec3794d93524144ba5495b664aee96d8ad",
+          "lens": "ui",
+          "round": 2,
+          "digest": "sha256:e9166195f3a65919d3971c4e6017790746f8b26c55cb80ea4819a327034b5f7b",
+          "base": "e2878d541fab30e5fee5f2f7ec151f90c94470e5"
+        },
+        {
+          "run": "run:2aac02fae8c1e65106373d64dd121aec3794d93524144ba5495b664aee96d8ad",
+          "lens": "ux",
+          "round": 2,
+          "digest": "sha256:e9166195f3a65919d3971c4e6017790746f8b26c55cb80ea4819a327034b5f7b",
+          "base": "e2878d541fab30e5fee5f2f7ec151f90c94470e5"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "4c36c147972a95ab4e2793a540b247280aa3fb8ade89250ad6b371027eab5d4e"
+        },
+        {
+          "stage": "implement",
+          "sha256": "0c1422655d54f99fb37dd49f36d602e51fba75fe039398aad34752202cdc10e1"
+        }
+      ],
+      "elapsed_seconds": 110.441,
+      "cleaned": true,
+      "browser_observations": [
+        {
+          "lens": "ui",
+          "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+          "observations": [
+            {
+              "scenario": "desktop",
+              "viewport": {
+                "height": 800,
+                "width": 1280
+              },
+              "url": "http://127.0.0.1:37649/index.html",
+              "observations": "{\"viewport\":1280,\"scrollWidth\":1280,\"heading\":\"Notes\",\"bodyColor\":\"rgb(23, 32, 51)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\",\"label\":\"Note text\",\"section\":{\"x\":300,\"y\":92.75,\"width\":680,\"height\":311.8125,\"top\":92.75,\"right\":980,\"bottom\":404.5625,\"left\":300}}\nDeclared design tokens: dark ink on white; white button text on blue. Screenshot requires visual inspection, DOM metrics alone are not a visual review.",
+              "failures": [],
+              "screenshot_sha256": "37e37428dadfd48c87280e0070041eab0763a33909e437b734b87972b1421291",
+              "screenshot_artifact": "repair-ux-round1-ui/ui-desktop.png"
+            },
+            {
+              "scenario": "mobile",
+              "viewport": {
+                "height": 800,
+                "width": 375
+              },
+              "url": "http://127.0.0.1:37649/index.html",
+              "observations": "{\"viewport\":375,\"scrollWidth\":375,\"heading\":\"Notes\",\"bodyColor\":\"rgb(23, 32, 51)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\",\"label\":\"Note text\",\"section\":{\"x\":16,\"y\":92.75,\"width\":343,\"height\":311.8125,\"top\":92.75,\"right\":359,\"bottom\":404.5625,\"left\":16}}\nDeclared design tokens: dark ink on white; white button text on blue. Screenshot requires visual inspection, DOM metrics alone are not a visual review.",
+              "failures": [],
+              "screenshot_sha256": "8395e45ac2baba8f48cff425380262c6ce2135f0057a6aae4f8ecea69d8b086d",
+              "screenshot_artifact": "repair-ux-round1-ui/ui-mobile.png"
+            }
+          ]
+        },
+        {
+          "lens": "ux",
+          "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+          "observations": [
+            {
+              "scenario": "flow",
+              "viewport": {
+                "height": 800,
+                "width": 375
+              },
+              "url": "http://127.0.0.1:37649/index.html",
+              "observations": "{\"empty\":true,\"focus\":\"note\",\"outline\":\"solid\",\"label\":[\"Note text\"],\"error\":true,\"loading\":true,\"success\":false,\"copy\":\"\"}",
+              "failures": [
+                "Save flow never reaches confirmation"
+              ],
+              "screenshot_sha256": "7ceba199044099b2330b411cad075b3f3c799cd951f7566be0aae036ddcb979b",
+              "screenshot_artifact": "repair-ux-round1-ux/ux-flow.png"
+            }
+          ]
+        },
+        {
+          "lens": "ui",
+          "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+          "observations": [
+            {
+              "scenario": "desktop",
+              "viewport": {
+                "height": 800,
+                "width": 1280
+              },
+              "url": "http://127.0.0.1:45809/index.html",
+              "observations": "{\"viewport\":1280,\"scrollWidth\":1280,\"heading\":\"Notes\",\"bodyColor\":\"rgb(23, 32, 51)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\",\"label\":\"Note text\",\"section\":{\"x\":300,\"y\":92.75,\"width\":680,\"height\":311.8125,\"top\":92.75,\"right\":980,\"bottom\":404.5625,\"left\":300}}\nDeclared design tokens: dark ink on white; white button text on blue. Screenshot requires visual inspection, DOM metrics alone are not a visual review.",
+              "failures": [],
+              "screenshot_sha256": "37e37428dadfd48c87280e0070041eab0763a33909e437b734b87972b1421291",
+              "screenshot_artifact": "repair-ux-round2-ui/ui-desktop.png"
+            },
+            {
+              "scenario": "mobile",
+              "viewport": {
+                "height": 800,
+                "width": 375
+              },
+              "url": "http://127.0.0.1:45809/index.html",
+              "observations": "{\"viewport\":375,\"scrollWidth\":375,\"heading\":\"Notes\",\"bodyColor\":\"rgb(23, 32, 51)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\",\"label\":\"Note text\",\"section\":{\"x\":16,\"y\":92.75,\"width\":343,\"height\":311.8125,\"top\":92.75,\"right\":359,\"bottom\":404.5625,\"left\":16}}\nDeclared design tokens: dark ink on white; white button text on blue. Screenshot requires visual inspection, DOM metrics alone are not a visual review.",
+              "failures": [],
+              "screenshot_sha256": "8395e45ac2baba8f48cff425380262c6ce2135f0057a6aae4f8ecea69d8b086d",
+              "screenshot_artifact": "repair-ux-round2-ui/ui-mobile.png"
+            }
+          ]
+        },
+        {
+          "lens": "ux",
+          "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+          "observations": [
+            {
+              "scenario": "flow",
+              "viewport": {
+                "height": 800,
+                "width": 375
+              },
+              "url": "http://127.0.0.1:45809/index.html",
+              "observations": "{\"empty\":true,\"focus\":\"note\",\"outline\":\"solid\",\"label\":[\"Note text\"],\"error\":true,\"loading\":true,\"success\":true,\"copy\":\"Saved: A test note\"}",
+              "failures": [],
+              "screenshot_sha256": "c10f6c30fe47fcaac50470b17431534535006e305a4446a19641fe064ea64dfb",
+              "screenshot_artifact": "repair-ux-round2-ux/ux-flow.png"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

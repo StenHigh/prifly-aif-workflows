@@ -1,0 +1,32 @@
+authoring: prifly-step/1
+id: aif-product:step/evaluate
+version: 1.0.0
+title: Product review evaluate
+kind: worker
+inputs:
+  configuration:
+    schema_ref: '{{schema_configuration}}'
+  ui:
+    schema_ref: '{{schema_request}}'
+  ux:
+    schema_ref: '{{schema_request}}'
+  candidate:
+    schema_ref: '{{schema_candidate}}'
+  environment:
+    schema_ref: '{{schema_environment}}'
+  ui_report:
+    schema_ref: '{{schema_report}}'
+  ux_report:
+    schema_ref: '{{schema_report}}'
+outputs:
+  gate:
+    schema_ref: '{{schema_gate}}'
+    required_for:
+    - pass
+executor:
+  adapter_ref: '{{process}}'
+  operation: process
+effects:
+  class: none
+  retry_class: never
+result_schema_ref: '{{result}}'

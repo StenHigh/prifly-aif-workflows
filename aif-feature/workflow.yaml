@@ -1,0 +1,330 @@
+authoring: prifly-project-workflow/1
+schema_version: '8'
+id: aif-feature:workflow/feature
+version: 1.0.0
+title: Bounded feature feature
+refs:
+  policy: '{{policy}}'
+  schema_evidence: '{{schema_evidence}}'
+  schema_gate: '{{schema_feature-gate}}'
+  schema_implementation: '{{schema_implementation}}'
+  schema_plan: '{{workspace_tree_manifest}}'
+  schema_result: '{{schema_result}}'
+  schema_task: '{{schema_task}}'
+  step_configure: '{{step_configure}}'
+  step_implement: '{{step_implement}}'
+  step_plan: '{{step_plan}}'
+  step_warmup: '{{step_warmup}}'
+  workflow_quality: '{{workflow_quality}}'
+  schema_surface: '{{schema_surface}}'
+inputs:
+  task: schema_task
+  surface:
+    schema_ref: schema_surface
+    required: false
+    configuration:
+      scope: project
+      default: '{{surface}}'
+outputs:
+  implementation:
+    schema_ref: schema_implementation
+    required_for:
+    - succeeded
+    - partial
+  result:
+    schema_ref: schema_result
+    required_for:
+    - succeeded
+    - partial
+  plan:
+    schema_ref: schema_plan
+    required_for: []
+  gate:
+    schema_ref: schema_gate
+    required_for: []
+  evidence:
+    schema_ref: schema_evidence
+    required_for: []
+limits:
+  max_step_instances: 128
+  max_control_transitions: 936
+  max_parallelism: 1
+  max_child_depth: 4
+policy_ref: policy
+entry: warmup
+stages:
+  warmup:
+    kind: step
+    step_ref: step_warmup
+    input_bindings:
+      task: $inputs.task
+    'on':
+      pass: configure
+      needs_revision: abandoned
+      blocked: abandoned
+      fail: abandoned
+      no_work: abandoned
+  configure:
+    kind: step
+    step_ref: step_configure
+    input_bindings:
+      task: $inputs.task
+      surface: $inputs.surface
+      implementation: $stages.warmup.implementation
+    'on':
+      pass: plan
+      needs_revision: abandoned
+      fail: abandoned
+      no_work: abandoned
+    impossible_verdicts:
+    - blocked
+  plan:
+    kind: step
+    step_ref: step_plan
+    input_bindings:
+      task: $inputs.task
+      handoff: $stages.warmup.handoff
+      implementation: $stages.warmup.implementation
+    'on':
+      pass: plan-ready
+      needs_revision: plan-stopped
+      blocked: plan-stopped
+      fail: plan-stopped
+      no_work: plan-stopped
+  plan-ready:
+    kind: choice
+    selection: first_match
+    branches:
+    - id: ready
+      predicate:
+        op: eq
+        left: $stages.plan.result#/outcome
+        right: ready
+      next: implement
+    default: plan-stopped
+  implement:
+    kind: step
+    step_ref: step_implement
+    input_bindings:
+      task: $inputs.task
+      handoff: $stages.warmup.handoff
+      implementation: $stages.warmup.implementation
+      plan: $stages.plan.plan
+    'on':
+      pass: implementation-ready
+      needs_revision: implementation-stopped
+      blocked: implementation-stopped
+      fail: implementation-stopped
+      no_work: implementation-stopped
+  implementation-ready:
+    kind: choice
+    selection: first_match
+    branches:
+    - id: implemented
+      predicate:
+        op: eq
+        left: $stages.implement.result#/outcome
+        right: implemented
+      next: quality
+    default: implementation-stopped
+  quality:
+    kind: call
+    workflow_ref: workflow_quality
+    input_bindings:
+      task: $inputs.task
+      handoff: $stages.warmup.handoff
+      implementation: $stages.implement.implementation
+      result: $stages.implement.result
+      round: $stages.configure.round
+      surface: $inputs.surface
+    'on':
+      succeeded: done
+      partial: quality-stopped
+      rejected: abandoned
+  done:
+    kind: finish
+    outcome: succeeded
+    output_bindings:
+      implementation: $stages.quality.implementation
+      result: $stages.quality.result
+      gate: $stages.quality.gate
+      evidence: $stages.quality.evidence
+      plan: $stages.implement.plan
+  quality-stopped:
+    kind: finish
+    outcome: partial
+    output_bindings:
+      implementation: $stages.quality.implementation
+      result: $stages.quality.result
+      plan: $stages.implement.plan
+      gate: $stages.quality.gate
+      evidence: $stages.quality.evidence
+  implementation-stopped:
+    kind: finish
+    outcome: partial
+    output_bindings:
+      implementation: $stages.implement.implementation
+      result: $stages.implement.result
+      plan: $stages.implement.plan
+  plan-stopped:
+    kind: finish
+    outcome: partial
+    output_bindings:
+      implementation: $stages.warmup.implementation
+      result: $stages.plan.result
+      plan: $stages.plan.plan
+  abandoned:
+    kind: finish
+    outcome: rejected
+    output_bindings: {}
+package:
+  id: aif-feature:package/feature
+  version: 1.0.0
+  description: Native fast plan, implementation and bounded sequential acceptance
+    for a small new feature.
+  requires_core_protocol: '1'
+  profiles:
+    default: backend
+    values:
+      backend:
+        surface: backend
+        plan_capture:
+          kind: exact_file
+          path: .ai-factory/PLAN.md
+      frontend:
+        surface: frontend
+        plan_capture:
+          kind: exact_file
+          path: .ai-factory/PLAN.md
+  references:
+    process: core:adapter/local-process@2.0.0
+    session: core:adapter/assisted-session@1.0.0
+    policy: core:policy/local@4.0.0
+    result: core:schema/step-result@1.0.0
+    result_v2: core:schema/step-result@2.0.0
+    workspace_tree_manifest: core:schema/workspace-tree-manifest@1.0.0
+resumable:
+  from_outcomes:
+  - partial
+  - rejected
+  from_cancelled: true
+decision_catalog:
+- .prifly/workflows/aif-feature/decisions/tests.yaml
+- .prifly/workflows/aif-feature/decisions/constraints.yaml
+- .prifly/workflows/aif-feature/decisions/retention.yaml
+execution_bindings:
+  steps:
+    aif-product:step/capture:
+      executable: python
+      args:
+      - -B
+      - product.py
+      - capture
+      files:
+        product.py: files/product.py
+        evidence.py: files/evidence.py
+      timeout_ms: 120000
+      grace_ms: 100
+      max_output_bytes: 1048576
+    aif-product:step/evaluate:
+      executable: python
+      args:
+      - -B
+      - product.py
+      - evaluate
+      files:
+        product.py: files/product.py
+        evidence.py: files/evidence.py
+      timeout_ms: 120000
+      grace_ms: 100
+      max_output_bytes: 1048576
+    aif-product:step/finalize:
+      executable: python
+      args:
+      - -B
+      - product.py
+      - finalize
+      files:
+        product.py: files/product.py
+        evidence.py: files/evidence.py
+      timeout_ms: 120000
+      grace_ms: 100
+      max_output_bytes: 1048576
+    aif-feature:step/configure:
+      executable: python
+      args:
+      - -B
+      - feature.py
+      - configure
+      files:
+        feature.py: files/feature.py
+        evidence.py: files/evidence.py
+        product.py: files/product.py
+      timeout_ms: 120000
+      grace_ms: 100
+      max_output_bytes: 1048576
+    aif-feature:step/begin:
+      executable: python
+      args:
+      - -B
+      - feature.py
+      - begin
+      files:
+        feature.py: files/feature.py
+        evidence.py: files/evidence.py
+        product.py: files/product.py
+      timeout_ms: 120000
+      grace_ms: 100
+      max_output_bytes: 1048576
+    aif-feature:step/capture-candidate:
+      executable: python
+      args:
+      - -B
+      - feature.py
+      - capture
+      files:
+        feature.py: files/feature.py
+        evidence.py: files/evidence.py
+        product.py: files/product.py
+      timeout_ms: 120000
+      grace_ms: 100
+      max_output_bytes: 1048576
+    aif-feature:step/aggregate-backend:
+      executable: python
+      args:
+      - -B
+      - feature.py
+      - aggregate-backend
+      files:
+        feature.py: files/feature.py
+        evidence.py: files/evidence.py
+        product.py: files/product.py
+      timeout_ms: 120000
+      grace_ms: 100
+      max_output_bytes: 1048576
+    aif-feature:step/aggregate-frontend:
+      executable: python
+      args:
+      - -B
+      - feature.py
+      - aggregate-frontend
+      files:
+        feature.py: files/feature.py
+        evidence.py: files/evidence.py
+        product.py: files/product.py
+      timeout_ms: 120000
+      grace_ms: 100
+      max_output_bytes: 1048576
+    aif-feature:step/guard:
+      executable: python
+      args:
+      - -B
+      - feature.py
+      - guard
+      files:
+        feature.py: files/feature.py
+        evidence.py: files/evidence.py
+        product.py: files/product.py
+      timeout_ms: 120000
+      grace_ms: 100
+      max_output_bytes: 1048576

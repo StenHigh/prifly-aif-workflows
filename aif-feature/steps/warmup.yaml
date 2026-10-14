@@ -1,0 +1,30 @@
+authoring: prifly-step/2
+id: aif-feature:step/warmup
+version: 1.0.0
+title: Bounded feature warmup
+kind: worker
+inputs:
+  task:
+    schema_ref: '{{schema_task}}'
+outputs:
+  handoff:
+    schema_ref: '{{schema_warmup-handoff}}'
+    required_for:
+    - pass
+  implementation:
+    schema_ref: '{{schema_implementation}}'
+    required_for:
+    - pass
+executor:
+  adapter_ref: '{{session}}'
+  operation: session
+instructions_ref: '{{context_feature-warmup}}'
+context_refs:
+- '{{context_aif-warmup}}'
+effects:
+  class: none
+  retry_class: pure
+session_limits:
+  active_timeout_ms: null
+result_schema_ref: '{{result_v2}}'
+repository_workspace: read_only

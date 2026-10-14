@@ -1,0 +1,28 @@
+{
+  "lens": "ui",
+  "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+  "observations": [
+    {
+      "scenario": "desktop",
+      "viewport": {
+        "height": 800,
+        "width": 1280
+      },
+      "url": "http://127.0.0.1:41403/index.html",
+      "observations": "{\"viewport\":1280,\"scrollWidth\":1280,\"heading\":\"Notes\",\"bodyColor\":\"rgb(23, 32, 51)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\",\"label\":\"Note text\",\"section\":{\"x\":300,\"y\":92.75,\"width\":680,\"height\":311.8125,\"top\":92.75,\"right\":980,\"bottom\":404.5625,\"left\":300}}\nDeclared design tokens: dark ink on white; white button text on blue. Screenshot requires visual inspection, DOM metrics alone are not a visual review.",
+      "failures": [],
+      "screenshot": "/tmp/w3-run-7sfas6j3/authority/.prifly/work/7619efebfaf633c9f0c4fe5cc34a00cc/browser/ui-desktop.png"
+    },
+    {
+      "scenario": "mobile",
+      "viewport": {
+        "height": 800,
+        "width": 375
+      },
+      "url": "http://127.0.0.1:41403/index.html",
+      "observations": "{\"viewport\":375,\"scrollWidth\":375,\"heading\":\"Notes\",\"bodyColor\":\"rgb(23, 32, 51)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\",\"label\":\"Note text\",\"section\":{\"x\":16,\"y\":92.75,\"width\":343,\"height\":311.8125,\"top\":92.75,\"right\":359,\"bottom\":404.5625,\"left\":16}}\nDeclared design tokens: dark ink on white; white button text on blue. Screenshot requires visual inspection, DOM metrics alone are not a visual review.",
+      "failures": [],
+      "screenshot": "/tmp/w3-run-7sfas6j3/authority/.prifly/work/7619efebfaf633c9f0c4fe5cc34a00cc/browser/ui-mobile.png"
+    }
+  ]
+}

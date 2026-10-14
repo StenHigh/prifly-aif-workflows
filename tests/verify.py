@@ -16,7 +16,7 @@ import sys
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
-PACKAGES = ("aif-classic", "aif-fanout", "aif-fix", "aif-profiled", "aif-review-evidence", "aif-ui-ux")
+PACKAGES = ("aif-classic", "aif-fanout", "aif-feature", "aif-fix", "aif-profiled", "aif-review-evidence", "aif-ui-ux")
 HOSTS = {"codex-cli": ".codex/skills", "codex-app": ".agents/skills", "claude-code": ".claude/skills"}
 CLASSIC_SKILLS = ("aif-warmup", "aif-plan", "aif-improve", "aif-implement", "aif-verify", "aif-security-checklist", "aif-review", "aif-commit", "aif-fix",)
 IMPROVE_REFERENCES = ("LIST-MODE.md", "CHECK-MODE.md", "EXAMPLES.md", "VALIDATOR.md")
@@ -100,6 +100,11 @@ def prepare_repository(binary, root):
     for name in PACKAGES:
         shutil.copytree(ROOT / name, repository / ".prifly" / "workflows" / name)
     for skills_root in HOSTS.values():
+        for skill, names in (("aif-plan", ("TASK-FORMAT.md",)), ("aif-implement", ("IMPLEMENTATION-GUIDE.md", "LOGGING-GUIDE.md"))):
+            for name in names:
+                path = repository / skills_root / skill / "references" / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text("# Fixture reference " + name + "\n")
         for skill in CLASSIC_SKILLS:
             path = repository / skills_root / skill / "SKILL.md"
             path.parent.mkdir(parents=True, exist_ok=True)
@@ -118,6 +123,7 @@ def prepare_repository(binary, root):
     profile = profile.replace(
         "launches: {}\n",
         "launches:\n"
+        "  aif-feature:\n    title: Small feature\n    description: Bounded native fast feature.\n    kind: workflow\n    workflow: .prifly/workflows/aif-feature/workflow.yaml\n"
         "  aif-classic:\n    title: AI Factory classic development workflow\n    description: Canonical AI Factory development workflow with bounded plan improvement.\n    kind: workflow\n    workflow: .prifly/workflows/aif-classic/workflow.yaml\n"
         "  aif-fanout:\n    title: AI Factory fan-out plan refinement\n    description: Optional AI Factory plan refinement with independent review perspectives.\n    kind: workflow\n    workflow: .prifly/workflows/aif-fanout/workflow.yaml\n"
         "  aif-fix:\n    title: AI Factory bug fix workflow\n    description: Fix a specific bug with regression evidence; complex bugs use their own fix-plan executed by aif-fix.\n    kind: workflow\n    workflow: .prifly/workflows/aif-fix/workflow.yaml\n"
@@ -528,6 +534,8 @@ def main():
             components_read += check_evidence(binary, authority, repository, root)
             from product_contract import check_product
             components_read += check_product(binary, authority, repository, root)
+            from feature_contract import check_feature
+            components_read += check_feature(binary, authority, repository, root)
             after = run(binary, "--project", authority, "package", "list")
             assert before == after, "compile must not import or trust a package"
         finally:

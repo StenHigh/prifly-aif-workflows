@@ -1,0 +1,31 @@
+authoring: prifly-step/2
+id: aif-product:step/environment
+version: 1.0.0
+title: Product review environment
+kind: worker
+inputs:
+  configuration:
+    schema_ref: '{{schema_configuration}}'
+  candidate:
+    schema_ref: '{{schema_candidate}}'
+outputs:
+  environment:
+    schema_ref: '{{schema_environment}}'
+    required_for:
+    - pass
+executor:
+  adapter_ref: '{{session}}'
+  operation: session
+effects:
+  class: external_write
+  retry_class: reconcile_required
+result_schema_ref: '{{result_v2}}'
+repository_workspace: read_only
+instructions_ref: '{{context_environment-bridge}}'
+session_limits:
+  active_timeout_ms: null
+external_write:
+  system: project-test-environment
+  operations:
+  - ensure
+  target: Only the ephemeral environment named by sealed configuration.environment.owner and its exact owned receipt.session

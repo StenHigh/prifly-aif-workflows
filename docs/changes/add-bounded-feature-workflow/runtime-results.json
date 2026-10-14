@@ -1,0 +1,2139 @@
+{
+  "prifly": "0.13.76",
+  "binary_sha256": "03ac382112a12001ea9e2a86e5a20db2d5e24ec79ce5339f6257c473d0f3322d",
+  "cases": [
+    {
+      "case": "backend",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "succeeded",
+      "outcome": "succeeded",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:a1f59aa1a7bf2abb9735d461bfd91bdb4ecb914a1bfed47f2832f6f457acf80f",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:c8064886a9454c3e7f3924eed572855011acb443caeddaade8d81eae843d559a",
+          "base": "b86c675c2ad26210ede1a73200bb2b97b4da56f7"
+        },
+        {
+          "run": "run:a1f59aa1a7bf2abb9735d461bfd91bdb4ecb914a1bfed47f2832f6f457acf80f",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:c8064886a9454c3e7f3924eed572855011acb443caeddaade8d81eae843d559a",
+          "base": "b86c675c2ad26210ede1a73200bb2b97b4da56f7"
+        },
+        {
+          "run": "run:a1f59aa1a7bf2abb9735d461bfd91bdb4ecb914a1bfed47f2832f6f457acf80f",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:c8064886a9454c3e7f3924eed572855011acb443caeddaade8d81eae843d559a",
+          "base": "b86c675c2ad26210ede1a73200bb2b97b4da56f7"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "74c01ae5d4c16e70e65127caa3e8072d8bb4c673a5fb5506f428a52cef91651e"
+        },
+        {
+          "stage": "implement",
+          "sha256": "91d9256d906c32c8be0dc14e7b75ff9b9688c89722296afe476981447837b42f"
+        }
+      ],
+      "elapsed_seconds": 63.738,
+      "cleaned": true
+    },
+    {
+      "case": "frontend",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "succeeded",
+      "outcome": "succeeded",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "environment",
+        "ui",
+        "ux",
+        "release",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:874a9219dbb62e18063e7c66ca0dbd1125ee1dab2b0716123b74698087ecfeff",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:0f41788e0b1645d79a60e4c53beb99fcea5bd6354e2596e96256e5d66332f857",
+          "base": "60382d355c4c511440690f28db0119c80376afd2"
+        },
+        {
+          "run": "run:874a9219dbb62e18063e7c66ca0dbd1125ee1dab2b0716123b74698087ecfeff",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:0f41788e0b1645d79a60e4c53beb99fcea5bd6354e2596e96256e5d66332f857",
+          "base": "60382d355c4c511440690f28db0119c80376afd2"
+        },
+        {
+          "run": "run:874a9219dbb62e18063e7c66ca0dbd1125ee1dab2b0716123b74698087ecfeff",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:0f41788e0b1645d79a60e4c53beb99fcea5bd6354e2596e96256e5d66332f857",
+          "base": "60382d355c4c511440690f28db0119c80376afd2"
+        },
+        {
+          "run": "run:874a9219dbb62e18063e7c66ca0dbd1125ee1dab2b0716123b74698087ecfeff",
+          "lens": "ui",
+          "round": 1,
+          "digest": "sha256:0f41788e0b1645d79a60e4c53beb99fcea5bd6354e2596e96256e5d66332f857",
+          "base": "60382d355c4c511440690f28db0119c80376afd2"
+        },
+        {
+          "run": "run:874a9219dbb62e18063e7c66ca0dbd1125ee1dab2b0716123b74698087ecfeff",
+          "lens": "ux",
+          "round": 1,
+          "digest": "sha256:0f41788e0b1645d79a60e4c53beb99fcea5bd6354e2596e96256e5d66332f857",
+          "base": "60382d355c4c511440690f28db0119c80376afd2"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "9577b17c760c37cdd8c6d8796684bd07099a6129ac1f6855c7156c7567b7d685"
+        },
+        {
+          "stage": "implement",
+          "sha256": "a5cc5d30d0617067e7739aad1ec3c54e0e1592c7332952d4fbc1f0adc6246421"
+        }
+      ],
+      "elapsed_seconds": 113.813,
+      "cleaned": true
+    },
+    {
+      "case": "repair-checks",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "succeeded",
+      "outcome": "succeeded",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "repair",
+        "checks",
+        "security",
+        "review",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:0e766b345e776846dc0c857bb5924d52b319257d232c786e807d3b92960ff3d5",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:c8064886a9454c3e7f3924eed572855011acb443caeddaade8d81eae843d559a",
+          "base": "b86c675c2ad26210ede1a73200bb2b97b4da56f7"
+        },
+        {
+          "run": "run:0e766b345e776846dc0c857bb5924d52b319257d232c786e807d3b92960ff3d5",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:c8064886a9454c3e7f3924eed572855011acb443caeddaade8d81eae843d559a",
+          "base": "b86c675c2ad26210ede1a73200bb2b97b4da56f7"
+        },
+        {
+          "run": "run:0e766b345e776846dc0c857bb5924d52b319257d232c786e807d3b92960ff3d5",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:c8064886a9454c3e7f3924eed572855011acb443caeddaade8d81eae843d559a",
+          "base": "b86c675c2ad26210ede1a73200bb2b97b4da56f7"
+        },
+        {
+          "run": "run:0e766b345e776846dc0c857bb5924d52b319257d232c786e807d3b92960ff3d5",
+          "lens": "checks",
+          "round": 2,
+          "digest": "sha256:da52bad636cbc91cab1c94619b0a0b163b8a35663ff334266dbd69a6d14edb07",
+          "base": "b86c675c2ad26210ede1a73200bb2b97b4da56f7"
+        },
+        {
+          "run": "run:0e766b345e776846dc0c857bb5924d52b319257d232c786e807d3b92960ff3d5",
+          "lens": "security",
+          "round": 2,
+          "digest": "sha256:da52bad636cbc91cab1c94619b0a0b163b8a35663ff334266dbd69a6d14edb07",
+          "base": "b86c675c2ad26210ede1a73200bb2b97b4da56f7"
+        },
+        {
+          "run": "run:0e766b345e776846dc0c857bb5924d52b319257d232c786e807d3b92960ff3d5",
+          "lens": "review",
+          "round": 2,
+          "digest": "sha256:da52bad636cbc91cab1c94619b0a0b163b8a35663ff334266dbd69a6d14edb07",
+          "base": "b86c675c2ad26210ede1a73200bb2b97b4da56f7"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "89975b7eb0e6f04ea058fab7de1a13c56781f2c1077673dd45257cfb9578fb42"
+        },
+        {
+          "stage": "implement",
+          "sha256": "b2ff1acb0cfdd7e34eababbdabee7c8233380b155b2da2831ec19201febf5981"
+        }
+      ],
+      "elapsed_seconds": 112.392,
+      "cleaned": true
+    },
+    {
+      "case": "repair-security",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "succeeded",
+      "outcome": "succeeded",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "repair",
+        "checks",
+        "security",
+        "review",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:ab5a8675a97e6a3138d2ebd5a46d745833c5758d0223e13fd4654aee6a0bea52",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:183936d064da3871aa0327e19eef87426b20a4bf7f05f42d5c1e95da89bc922f",
+          "base": "a93cb365613a37709d8ec2827fbc3f9284c133c3"
+        },
+        {
+          "run": "run:ab5a8675a97e6a3138d2ebd5a46d745833c5758d0223e13fd4654aee6a0bea52",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:183936d064da3871aa0327e19eef87426b20a4bf7f05f42d5c1e95da89bc922f",
+          "base": "a93cb365613a37709d8ec2827fbc3f9284c133c3"
+        },
+        {
+          "run": "run:ab5a8675a97e6a3138d2ebd5a46d745833c5758d0223e13fd4654aee6a0bea52",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:183936d064da3871aa0327e19eef87426b20a4bf7f05f42d5c1e95da89bc922f",
+          "base": "a93cb365613a37709d8ec2827fbc3f9284c133c3"
+        },
+        {
+          "run": "run:ab5a8675a97e6a3138d2ebd5a46d745833c5758d0223e13fd4654aee6a0bea52",
+          "lens": "checks",
+          "round": 2,
+          "digest": "sha256:0bc580c48aaa7b1ae8da2b1583d430c3b75599a02f1a8a6a0692c19d8fdd4e22",
+          "base": "a93cb365613a37709d8ec2827fbc3f9284c133c3"
+        },
+        {
+          "run": "run:ab5a8675a97e6a3138d2ebd5a46d745833c5758d0223e13fd4654aee6a0bea52",
+          "lens": "security",
+          "round": 2,
+          "digest": "sha256:0bc580c48aaa7b1ae8da2b1583d430c3b75599a02f1a8a6a0692c19d8fdd4e22",
+          "base": "a93cb365613a37709d8ec2827fbc3f9284c133c3"
+        },
+        {
+          "run": "run:ab5a8675a97e6a3138d2ebd5a46d745833c5758d0223e13fd4654aee6a0bea52",
+          "lens": "review",
+          "round": 2,
+          "digest": "sha256:0bc580c48aaa7b1ae8da2b1583d430c3b75599a02f1a8a6a0692c19d8fdd4e22",
+          "base": "a93cb365613a37709d8ec2827fbc3f9284c133c3"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "7044c269e1a1ab8f94f51d7fa6d2235b4ab1b14e5f735b718a3467ab6ca76ebd"
+        },
+        {
+          "stage": "implement",
+          "sha256": "d6cc42b1e8d546f74319c539eb7bea081b3013ed40b65fb9a70ecd1481b40726"
+        }
+      ],
+      "elapsed_seconds": 149.38,
+      "cleaned": true
+    },
+    {
+      "case": "repair-review",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "succeeded",
+      "outcome": "succeeded",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "repair",
+        "checks",
+        "security",
+        "review",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:d7c0cd82e3ff8b603ab873ee885c213e928096ff3660761dacb2dc4ece19c791",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:1040660aa3968b275ecd606129656a54bd4c25bf3aaaae6bf42a8fdd3bdfb06c",
+          "base": "c700744bb8bfb5453669a7102a003935527b37f0"
+        },
+        {
+          "run": "run:d7c0cd82e3ff8b603ab873ee885c213e928096ff3660761dacb2dc4ece19c791",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:1040660aa3968b275ecd606129656a54bd4c25bf3aaaae6bf42a8fdd3bdfb06c",
+          "base": "c700744bb8bfb5453669a7102a003935527b37f0"
+        },
+        {
+          "run": "run:d7c0cd82e3ff8b603ab873ee885c213e928096ff3660761dacb2dc4ece19c791",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:1040660aa3968b275ecd606129656a54bd4c25bf3aaaae6bf42a8fdd3bdfb06c",
+          "base": "c700744bb8bfb5453669a7102a003935527b37f0"
+        },
+        {
+          "run": "run:d7c0cd82e3ff8b603ab873ee885c213e928096ff3660761dacb2dc4ece19c791",
+          "lens": "checks",
+          "round": 2,
+          "digest": "sha256:de206b850c1bb81da340d0424b0b09b073e71fc73ea28340f0eb048b0029076d",
+          "base": "c700744bb8bfb5453669a7102a003935527b37f0"
+        },
+        {
+          "run": "run:d7c0cd82e3ff8b603ab873ee885c213e928096ff3660761dacb2dc4ece19c791",
+          "lens": "security",
+          "round": 2,
+          "digest": "sha256:de206b850c1bb81da340d0424b0b09b073e71fc73ea28340f0eb048b0029076d",
+          "base": "c700744bb8bfb5453669a7102a003935527b37f0"
+        },
+        {
+          "run": "run:d7c0cd82e3ff8b603ab873ee885c213e928096ff3660761dacb2dc4ece19c791",
+          "lens": "review",
+          "round": 2,
+          "digest": "sha256:de206b850c1bb81da340d0424b0b09b073e71fc73ea28340f0eb048b0029076d",
+          "base": "c700744bb8bfb5453669a7102a003935527b37f0"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "e2db3e9458865922dc916d5d7d8df05f0bdec0b73fd9504cd8ae494fa779cb36"
+        },
+        {
+          "stage": "implement",
+          "sha256": "68b2224a710d000ada2d917ab8b00b37ac8703129df36e42c1148c87d9830751"
+        }
+      ],
+      "elapsed_seconds": 148.332,
+      "cleaned": true
+    },
+    {
+      "case": "repair-ui",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "succeeded",
+      "outcome": "succeeded",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "environment",
+        "ui",
+        "ux",
+        "release",
+        "repair",
+        "checks",
+        "security",
+        "review",
+        "environment",
+        "ui",
+        "ux",
+        "release",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:0cff4275876386399d757eae737e239ec7259afd5ffb8f558b28e9140333dca7",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:a1d52c979503ccf94ab44e3e851d0eaf409fd3b56be4360a7be7c0918b593f1d",
+          "base": "e9e2c69f3972c8904e192b98eacf27053066ec90"
+        },
+        {
+          "run": "run:0cff4275876386399d757eae737e239ec7259afd5ffb8f558b28e9140333dca7",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:a1d52c979503ccf94ab44e3e851d0eaf409fd3b56be4360a7be7c0918b593f1d",
+          "base": "e9e2c69f3972c8904e192b98eacf27053066ec90"
+        },
+        {
+          "run": "run:0cff4275876386399d757eae737e239ec7259afd5ffb8f558b28e9140333dca7",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:a1d52c979503ccf94ab44e3e851d0eaf409fd3b56be4360a7be7c0918b593f1d",
+          "base": "e9e2c69f3972c8904e192b98eacf27053066ec90"
+        },
+        {
+          "run": "run:0cff4275876386399d757eae737e239ec7259afd5ffb8f558b28e9140333dca7",
+          "lens": "ui",
+          "round": 1,
+          "digest": "sha256:a1d52c979503ccf94ab44e3e851d0eaf409fd3b56be4360a7be7c0918b593f1d",
+          "base": "e9e2c69f3972c8904e192b98eacf27053066ec90"
+        },
+        {
+          "run": "run:0cff4275876386399d757eae737e239ec7259afd5ffb8f558b28e9140333dca7",
+          "lens": "ux",
+          "round": 1,
+          "digest": "sha256:a1d52c979503ccf94ab44e3e851d0eaf409fd3b56be4360a7be7c0918b593f1d",
+          "base": "e9e2c69f3972c8904e192b98eacf27053066ec90"
+        },
+        {
+          "run": "run:0cff4275876386399d757eae737e239ec7259afd5ffb8f558b28e9140333dca7",
+          "lens": "checks",
+          "round": 2,
+          "digest": "sha256:ade047e49f305eb399ad60c54d6e3632377c71802350118dd1a866cf74ec2d1f",
+          "base": "e9e2c69f3972c8904e192b98eacf27053066ec90"
+        },
+        {
+          "run": "run:0cff4275876386399d757eae737e239ec7259afd5ffb8f558b28e9140333dca7",
+          "lens": "security",
+          "round": 2,
+          "digest": "sha256:ade047e49f305eb399ad60c54d6e3632377c71802350118dd1a866cf74ec2d1f",
+          "base": "e9e2c69f3972c8904e192b98eacf27053066ec90"
+        },
+        {
+          "run": "run:0cff4275876386399d757eae737e239ec7259afd5ffb8f558b28e9140333dca7",
+          "lens": "review",
+          "round": 2,
+          "digest": "sha256:ade047e49f305eb399ad60c54d6e3632377c71802350118dd1a866cf74ec2d1f",
+          "base": "e9e2c69f3972c8904e192b98eacf27053066ec90"
+        },
+        {
+          "run": "run:0cff4275876386399d757eae737e239ec7259afd5ffb8f558b28e9140333dca7",
+          "lens": "ui",
+          "round": 2,
+          "digest": "sha256:ade047e49f305eb399ad60c54d6e3632377c71802350118dd1a866cf74ec2d1f",
+          "base": "e9e2c69f3972c8904e192b98eacf27053066ec90"
+        },
+        {
+          "run": "run:0cff4275876386399d757eae737e239ec7259afd5ffb8f558b28e9140333dca7",
+          "lens": "ux",
+          "round": 2,
+          "digest": "sha256:ade047e49f305eb399ad60c54d6e3632377c71802350118dd1a866cf74ec2d1f",
+          "base": "e9e2c69f3972c8904e192b98eacf27053066ec90"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "ef97a62611f804fd8dd193e6c9dfb6d66e4123a28659010481fbbaf743492faa"
+        },
+        {
+          "stage": "implement",
+          "sha256": "3d485d343a3b1fefb358650753e66b9a9972b84ecc39e013914abe462d9be425"
+        }
+      ],
+      "elapsed_seconds": 276.737,
+      "cleaned": true
+    },
+    {
+      "case": "repair-ux",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "succeeded",
+      "outcome": "succeeded",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "environment",
+        "ui",
+        "ux",
+        "release",
+        "repair",
+        "checks",
+        "security",
+        "review",
+        "environment",
+        "ui",
+        "ux",
+        "release",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:3ddc03ac44a852dfaa3e46e61ff09b31e1c96f7babfd6137a5efd81d911d7adf",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:a3be4809f237830eb935e1ecb6c282edf4bef7ba670fabe0021a3b711bf3e501",
+          "base": "bee183aed3c428e72485f92123e62fe6cb73b79c"
+        },
+        {
+          "run": "run:3ddc03ac44a852dfaa3e46e61ff09b31e1c96f7babfd6137a5efd81d911d7adf",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:a3be4809f237830eb935e1ecb6c282edf4bef7ba670fabe0021a3b711bf3e501",
+          "base": "bee183aed3c428e72485f92123e62fe6cb73b79c"
+        },
+        {
+          "run": "run:3ddc03ac44a852dfaa3e46e61ff09b31e1c96f7babfd6137a5efd81d911d7adf",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:a3be4809f237830eb935e1ecb6c282edf4bef7ba670fabe0021a3b711bf3e501",
+          "base": "bee183aed3c428e72485f92123e62fe6cb73b79c"
+        },
+        {
+          "run": "run:3ddc03ac44a852dfaa3e46e61ff09b31e1c96f7babfd6137a5efd81d911d7adf",
+          "lens": "ui",
+          "round": 1,
+          "digest": "sha256:a3be4809f237830eb935e1ecb6c282edf4bef7ba670fabe0021a3b711bf3e501",
+          "base": "bee183aed3c428e72485f92123e62fe6cb73b79c"
+        },
+        {
+          "run": "run:3ddc03ac44a852dfaa3e46e61ff09b31e1c96f7babfd6137a5efd81d911d7adf",
+          "lens": "ux",
+          "round": 1,
+          "digest": "sha256:a3be4809f237830eb935e1ecb6c282edf4bef7ba670fabe0021a3b711bf3e501",
+          "base": "bee183aed3c428e72485f92123e62fe6cb73b79c"
+        },
+        {
+          "run": "run:3ddc03ac44a852dfaa3e46e61ff09b31e1c96f7babfd6137a5efd81d911d7adf",
+          "lens": "checks",
+          "round": 2,
+          "digest": "sha256:0ca4391bc566228dd5c4351352c4e8d49e707c6227ff6fbf192174bb763c6c49",
+          "base": "bee183aed3c428e72485f92123e62fe6cb73b79c"
+        },
+        {
+          "run": "run:3ddc03ac44a852dfaa3e46e61ff09b31e1c96f7babfd6137a5efd81d911d7adf",
+          "lens": "security",
+          "round": 2,
+          "digest": "sha256:0ca4391bc566228dd5c4351352c4e8d49e707c6227ff6fbf192174bb763c6c49",
+          "base": "bee183aed3c428e72485f92123e62fe6cb73b79c"
+        },
+        {
+          "run": "run:3ddc03ac44a852dfaa3e46e61ff09b31e1c96f7babfd6137a5efd81d911d7adf",
+          "lens": "review",
+          "round": 2,
+          "digest": "sha256:0ca4391bc566228dd5c4351352c4e8d49e707c6227ff6fbf192174bb763c6c49",
+          "base": "bee183aed3c428e72485f92123e62fe6cb73b79c"
+        },
+        {
+          "run": "run:3ddc03ac44a852dfaa3e46e61ff09b31e1c96f7babfd6137a5efd81d911d7adf",
+          "lens": "ui",
+          "round": 2,
+          "digest": "sha256:0ca4391bc566228dd5c4351352c4e8d49e707c6227ff6fbf192174bb763c6c49",
+          "base": "bee183aed3c428e72485f92123e62fe6cb73b79c"
+        },
+        {
+          "run": "run:3ddc03ac44a852dfaa3e46e61ff09b31e1c96f7babfd6137a5efd81d911d7adf",
+          "lens": "ux",
+          "round": 2,
+          "digest": "sha256:0ca4391bc566228dd5c4351352c4e8d49e707c6227ff6fbf192174bb763c6c49",
+          "base": "bee183aed3c428e72485f92123e62fe6cb73b79c"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "09aee2ff44b8c33ced5d4fccdf2ab81e86223052ff77b6e1f280fa4ba285869a"
+        },
+        {
+          "stage": "implement",
+          "sha256": "be9745f88b347ed5c02cbcac2d820f13cab8f1ff060b986d64304a8e715a372b"
+        }
+      ],
+      "elapsed_seconds": 236.2,
+      "cleaned": true
+    },
+    {
+      "case": "required-unavailable",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "partial",
+      "outcome": "partial",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review"
+      ],
+      "rounds": [
+        {
+          "run": "run:c765a3076b3ec38e343cd90f66957aad295669d8491cc88b2568236770b82256",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:4e10c54cc66bff67e4c4d3d2c355a0b94142db992cd5e2be826f52713807ff6a",
+          "base": "e1ead5b7712cc98d5ea833ab1e1b13bce2dbcc96"
+        },
+        {
+          "run": "run:c765a3076b3ec38e343cd90f66957aad295669d8491cc88b2568236770b82256",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:4e10c54cc66bff67e4c4d3d2c355a0b94142db992cd5e2be826f52713807ff6a",
+          "base": "e1ead5b7712cc98d5ea833ab1e1b13bce2dbcc96"
+        },
+        {
+          "run": "run:c765a3076b3ec38e343cd90f66957aad295669d8491cc88b2568236770b82256",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:4e10c54cc66bff67e4c4d3d2c355a0b94142db992cd5e2be826f52713807ff6a",
+          "base": "e1ead5b7712cc98d5ea833ab1e1b13bce2dbcc96"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "5b1ba0a1bc60cae5e203e6c583d46e66713e1493068f054d9bf96ecf89436a7e"
+        },
+        {
+          "stage": "implement",
+          "sha256": "32b26553997ad1e343b103fb1f7751ebe066cb8d8e5f3bb709b59018861e39d9"
+        }
+      ],
+      "elapsed_seconds": 68.097,
+      "cleaned": true
+    },
+    {
+      "case": "owner-stop",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "partial",
+      "outcome": "partial",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review"
+      ],
+      "rounds": [
+        {
+          "run": "run:91080e87c52a6c46e0dfc0c99b68780cb102283505f368f3185fcdc3d199b604",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:b683c477d9ae92976134388c6863a4c2856730d38b91428d54dbcf420d5cb027",
+          "base": "8492909c96f929b59b94ebac26705d03a53e2072"
+        },
+        {
+          "run": "run:91080e87c52a6c46e0dfc0c99b68780cb102283505f368f3185fcdc3d199b604",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:b683c477d9ae92976134388c6863a4c2856730d38b91428d54dbcf420d5cb027",
+          "base": "8492909c96f929b59b94ebac26705d03a53e2072"
+        },
+        {
+          "run": "run:91080e87c52a6c46e0dfc0c99b68780cb102283505f368f3185fcdc3d199b604",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:b683c477d9ae92976134388c6863a4c2856730d38b91428d54dbcf420d5cb027",
+          "base": "8492909c96f929b59b94ebac26705d03a53e2072"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "c680d8ac302b95569623eb4bf78d6f0ae3fd61e6a38e6fc1daa0bcea337de13a"
+        },
+        {
+          "stage": "implement",
+          "sha256": "2bf4be5b48f90e6cdcee40964247f6d7a0ae0a7b2cae4e5f5023b819082e5f90"
+        }
+      ],
+      "elapsed_seconds": 51.459,
+      "cleaned": true
+    },
+    {
+      "case": "exhaustion",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "partial",
+      "outcome": "partial",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "repair",
+        "checks",
+        "security",
+        "review"
+      ],
+      "rounds": [
+        {
+          "run": "run:6698b8ddea3e99d9b6489b05c16886e8a4286aba3f1936f77e6d9073d4051cc7",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:bc21c6cfbf1a811fe4504ae3570fab0ff1ed899e6064868e4f4cf2079a20bdf9",
+          "base": "694508457e78569e16b78f4da81928dc48b3ba4d"
+        },
+        {
+          "run": "run:6698b8ddea3e99d9b6489b05c16886e8a4286aba3f1936f77e6d9073d4051cc7",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:bc21c6cfbf1a811fe4504ae3570fab0ff1ed899e6064868e4f4cf2079a20bdf9",
+          "base": "694508457e78569e16b78f4da81928dc48b3ba4d"
+        },
+        {
+          "run": "run:6698b8ddea3e99d9b6489b05c16886e8a4286aba3f1936f77e6d9073d4051cc7",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:bc21c6cfbf1a811fe4504ae3570fab0ff1ed899e6064868e4f4cf2079a20bdf9",
+          "base": "694508457e78569e16b78f4da81928dc48b3ba4d"
+        },
+        {
+          "run": "run:6698b8ddea3e99d9b6489b05c16886e8a4286aba3f1936f77e6d9073d4051cc7",
+          "lens": "checks",
+          "round": 2,
+          "digest": "sha256:0f50526bce6f13d39faffc7ebe5c2757b41df753cf271b86091799dc81d3f932",
+          "base": "694508457e78569e16b78f4da81928dc48b3ba4d"
+        },
+        {
+          "run": "run:6698b8ddea3e99d9b6489b05c16886e8a4286aba3f1936f77e6d9073d4051cc7",
+          "lens": "security",
+          "round": 2,
+          "digest": "sha256:0f50526bce6f13d39faffc7ebe5c2757b41df753cf271b86091799dc81d3f932",
+          "base": "694508457e78569e16b78f4da81928dc48b3ba4d"
+        },
+        {
+          "run": "run:6698b8ddea3e99d9b6489b05c16886e8a4286aba3f1936f77e6d9073d4051cc7",
+          "lens": "review",
+          "round": 2,
+          "digest": "sha256:0f50526bce6f13d39faffc7ebe5c2757b41df753cf271b86091799dc81d3f932",
+          "base": "694508457e78569e16b78f4da81928dc48b3ba4d"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "17782ed52787cbf0f0fdc330ee3a17dc63d9e8a58d069d1c1e6d103cd084789a"
+        },
+        {
+          "stage": "implement",
+          "sha256": "da31a08b056cba7fc4e39222cadea4d6377d893405314e2114fc28ca9d7eb28e"
+        }
+      ],
+      "elapsed_seconds": 94.848,
+      "cleaned": true
+    },
+    {
+      "case": "max-budget",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "partial",
+      "outcome": "partial",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "repair",
+        "checks",
+        "security",
+        "review",
+        "repair",
+        "checks",
+        "security",
+        "review",
+        "repair",
+        "checks",
+        "security",
+        "review",
+        "repair",
+        "checks",
+        "security",
+        "review",
+        "repair",
+        "checks",
+        "security",
+        "review",
+        "repair",
+        "checks",
+        "security",
+        "review",
+        "repair",
+        "checks",
+        "security",
+        "review"
+      ],
+      "rounds": [
+        {
+          "run": "run:a16f4bfbe9400db85829923805e2a99deadc62c15592c4ce7b79b79366b2357f",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:42e2ba4e4f46706b130f6eebfba2ead1a58cf0fecf3b61cb3834d8b034ff5401",
+          "base": "35f40931875939521d60cbe6eb57a97c85694d35"
+        },
+        {
+          "run": "run:a16f4bfbe9400db85829923805e2a99deadc62c15592c4ce7b79b79366b2357f",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:42e2ba4e4f46706b130f6eebfba2ead1a58cf0fecf3b61cb3834d8b034ff5401",
+          "base": "35f40931875939521d60cbe6eb57a97c85694d35"
+        },
+        {
+          "run": "run:a16f4bfbe9400db85829923805e2a99deadc62c15592c4ce7b79b79366b2357f",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:42e2ba4e4f46706b130f6eebfba2ead1a58cf0fecf3b61cb3834d8b034ff5401",
+          "base": "35f40931875939521d60cbe6eb57a97c85694d35"
+        },
+        {
+          "run": "run:a16f4bfbe9400db85829923805e2a99deadc62c15592c4ce7b79b79366b2357f",
+          "lens": "checks",
+          "round": 2,
+          "digest": "sha256:7420a8996a76f137a37462f65aa787d5f963751d22723e4e3d2c8953532d797f",
+          "base": "35f40931875939521d60cbe6eb57a97c85694d35"
+        },
+        {
+          "run": "run:a16f4bfbe9400db85829923805e2a99deadc62c15592c4ce7b79b79366b2357f",
+          "lens": "security",
+          "round": 2,
+          "digest": "sha256:7420a8996a76f137a37462f65aa787d5f963751d22723e4e3d2c8953532d797f",
+          "base": "35f40931875939521d60cbe6eb57a97c85694d35"
+        },
+        {
+          "run": "run:a16f4bfbe9400db85829923805e2a99deadc62c15592c4ce7b79b79366b2357f",
+          "lens": "review",
+          "round": 2,
+          "digest": "sha256:7420a8996a76f137a37462f65aa787d5f963751d22723e4e3d2c8953532d797f",
+          "base": "35f40931875939521d60cbe6eb57a97c85694d35"
+        },
+        {
+          "run": "run:a16f4bfbe9400db85829923805e2a99deadc62c15592c4ce7b79b79366b2357f",
+          "lens": "checks",
+          "round": 3,
+          "digest": "sha256:7420a8996a76f137a37462f65aa787d5f963751d22723e4e3d2c8953532d797f",
+          "base": "35f40931875939521d60cbe6eb57a97c85694d35"
+        },
+        {
+          "run": "run:a16f4bfbe9400db85829923805e2a99deadc62c15592c4ce7b79b79366b2357f",
+          "lens": "security",
+          "round": 3,
+          "digest": "sha256:7420a8996a76f137a37462f65aa787d5f963751d22723e4e3d2c8953532d797f",
+          "base": "35f40931875939521d60cbe6eb57a97c85694d35"
+        },
+        {
+          "run": "run:a16f4bfbe9400db85829923805e2a99deadc62c15592c4ce7b79b79366b2357f",
+          "lens": "review",
+          "round": 3,
+          "digest": "sha256:7420a8996a76f137a37462f65aa787d5f963751d22723e4e3d2c8953532d797f",
+          "base": "35f40931875939521d60cbe6eb57a97c85694d35"
+        },
+        {
+          "run": "run:a16f4bfbe9400db85829923805e2a99deadc62c15592c4ce7b79b79366b2357f",
+          "lens": "checks",
+          "round": 4,
+          "digest": "sha256:7420a8996a76f137a37462f65aa787d5f963751d22723e4e3d2c8953532d797f",
+          "base": "35f40931875939521d60cbe6eb57a97c85694d35"
+        },
+        {
+          "run": "run:a16f4bfbe9400db85829923805e2a99deadc62c15592c4ce7b79b79366b2357f",
+          "lens": "security",
+          "round": 4,
+          "digest": "sha256:7420a8996a76f137a37462f65aa787d5f963751d22723e4e3d2c8953532d797f",
+          "base": "35f40931875939521d60cbe6eb57a97c85694d35"
+        },
+        {
+          "run": "run:a16f4bfbe9400db85829923805e2a99deadc62c15592c4ce7b79b79366b2357f",
+          "lens": "review",
+          "round": 4,
+          "digest": "sha256:7420a8996a76f137a37462f65aa787d5f963751d22723e4e3d2c8953532d797f",
+          "base": "35f40931875939521d60cbe6eb57a97c85694d35"
+        },
+        {
+          "run": "run:a16f4bfbe9400db85829923805e2a99deadc62c15592c4ce7b79b79366b2357f",
+          "lens": "checks",
+          "round": 5,
+          "digest": "sha256:7420a8996a76f137a37462f65aa787d5f963751d22723e4e3d2c8953532d797f",
+          "base": "35f40931875939521d60cbe6eb57a97c85694d35"
+        },
+        {
+          "run": "run:a16f4bfbe9400db85829923805e2a99deadc62c15592c4ce7b79b79366b2357f",
+          "lens": "security",
+          "round": 5,
+          "digest": "sha256:7420a8996a76f137a37462f65aa787d5f963751d22723e4e3d2c8953532d797f",
+          "base": "35f40931875939521d60cbe6eb57a97c85694d35"
+        },
+        {
+          "run": "run:a16f4bfbe9400db85829923805e2a99deadc62c15592c4ce7b79b79366b2357f",
+          "lens": "review",
+          "round": 5,
+          "digest": "sha256:7420a8996a76f137a37462f65aa787d5f963751d22723e4e3d2c8953532d797f",
+          "base": "35f40931875939521d60cbe6eb57a97c85694d35"
+        },
+        {
+          "run": "run:a16f4bfbe9400db85829923805e2a99deadc62c15592c4ce7b79b79366b2357f",
+          "lens": "checks",
+          "round": 6,
+          "digest": "sha256:7420a8996a76f137a37462f65aa787d5f963751d22723e4e3d2c8953532d797f",
+          "base": "35f40931875939521d60cbe6eb57a97c85694d35"
+        },
+        {
+          "run": "run:a16f4bfbe9400db85829923805e2a99deadc62c15592c4ce7b79b79366b2357f",
+          "lens": "security",
+          "round": 6,
+          "digest": "sha256:7420a8996a76f137a37462f65aa787d5f963751d22723e4e3d2c8953532d797f",
+          "base": "35f40931875939521d60cbe6eb57a97c85694d35"
+        },
+        {
+          "run": "run:a16f4bfbe9400db85829923805e2a99deadc62c15592c4ce7b79b79366b2357f",
+          "lens": "review",
+          "round": 6,
+          "digest": "sha256:7420a8996a76f137a37462f65aa787d5f963751d22723e4e3d2c8953532d797f",
+          "base": "35f40931875939521d60cbe6eb57a97c85694d35"
+        },
+        {
+          "run": "run:a16f4bfbe9400db85829923805e2a99deadc62c15592c4ce7b79b79366b2357f",
+          "lens": "checks",
+          "round": 7,
+          "digest": "sha256:7420a8996a76f137a37462f65aa787d5f963751d22723e4e3d2c8953532d797f",
+          "base": "35f40931875939521d60cbe6eb57a97c85694d35"
+        },
+        {
+          "run": "run:a16f4bfbe9400db85829923805e2a99deadc62c15592c4ce7b79b79366b2357f",
+          "lens": "security",
+          "round": 7,
+          "digest": "sha256:7420a8996a76f137a37462f65aa787d5f963751d22723e4e3d2c8953532d797f",
+          "base": "35f40931875939521d60cbe6eb57a97c85694d35"
+        },
+        {
+          "run": "run:a16f4bfbe9400db85829923805e2a99deadc62c15592c4ce7b79b79366b2357f",
+          "lens": "review",
+          "round": 7,
+          "digest": "sha256:7420a8996a76f137a37462f65aa787d5f963751d22723e4e3d2c8953532d797f",
+          "base": "35f40931875939521d60cbe6eb57a97c85694d35"
+        },
+        {
+          "run": "run:a16f4bfbe9400db85829923805e2a99deadc62c15592c4ce7b79b79366b2357f",
+          "lens": "checks",
+          "round": 8,
+          "digest": "sha256:7420a8996a76f137a37462f65aa787d5f963751d22723e4e3d2c8953532d797f",
+          "base": "35f40931875939521d60cbe6eb57a97c85694d35"
+        },
+        {
+          "run": "run:a16f4bfbe9400db85829923805e2a99deadc62c15592c4ce7b79b79366b2357f",
+          "lens": "security",
+          "round": 8,
+          "digest": "sha256:7420a8996a76f137a37462f65aa787d5f963751d22723e4e3d2c8953532d797f",
+          "base": "35f40931875939521d60cbe6eb57a97c85694d35"
+        },
+        {
+          "run": "run:a16f4bfbe9400db85829923805e2a99deadc62c15592c4ce7b79b79366b2357f",
+          "lens": "review",
+          "round": 8,
+          "digest": "sha256:7420a8996a76f137a37462f65aa787d5f963751d22723e4e3d2c8953532d797f",
+          "base": "35f40931875939521d60cbe6eb57a97c85694d35"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "898a18d289fbd5f8f3f57839c209753e1fc861947dbbb5ad12022e47ad5a9456"
+        },
+        {
+          "stage": "implement",
+          "sha256": "3cb837b30c5554537c94eabf84c37b3c8110c75d51df031bafcdacf5f61b20d1"
+        }
+      ],
+      "elapsed_seconds": 464.133,
+      "cleaned": true
+    },
+    {
+      "case": "too-large",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "partial",
+      "outcome": "partial",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan"
+      ],
+      "rounds": [],
+      "plan_captures": [],
+      "elapsed_seconds": 16.158,
+      "cleaned": true
+    },
+    {
+      "case": "requirement-conflict",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "partial",
+      "outcome": "partial",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan"
+      ],
+      "rounds": [],
+      "plan_captures": [],
+      "elapsed_seconds": 18.48,
+      "cleaned": true
+    },
+    {
+      "case": "repair-too-large",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "partial",
+      "outcome": "partial",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "repair"
+      ],
+      "rounds": [
+        {
+          "run": "run:5a41b2dc1b35353f62ae5f5244435bdde2678dffeecc01910be75e7bf1d67e21",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:30c5074f13f99924e48693c1780095e5287c1dca91c5634b3fbbf3b9cbe4d5f9",
+          "base": "989ff0c6b9ae3024d5f0153d58e1000e3e3bdf0b"
+        },
+        {
+          "run": "run:5a41b2dc1b35353f62ae5f5244435bdde2678dffeecc01910be75e7bf1d67e21",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:30c5074f13f99924e48693c1780095e5287c1dca91c5634b3fbbf3b9cbe4d5f9",
+          "base": "989ff0c6b9ae3024d5f0153d58e1000e3e3bdf0b"
+        },
+        {
+          "run": "run:5a41b2dc1b35353f62ae5f5244435bdde2678dffeecc01910be75e7bf1d67e21",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:30c5074f13f99924e48693c1780095e5287c1dca91c5634b3fbbf3b9cbe4d5f9",
+          "base": "989ff0c6b9ae3024d5f0153d58e1000e3e3bdf0b"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "57195d2119c7d8764c5d86f444e67c641e358d54cdfbbe97fb2c7fb54bdca531"
+        },
+        {
+          "stage": "implement",
+          "sha256": "bbef2c4c7e30b79f0a857bfefad4aedc02e79fd691a646740085657a6e6bf603"
+        }
+      ],
+      "elapsed_seconds": 75.388,
+      "cleaned": true
+    },
+    {
+      "case": "retained-plan",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "succeeded",
+      "outcome": "succeeded",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:f8b1c5602405807e1052c37d7278d126cda42535dcd3639bd9844e9a1115131a",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:0790403efec60c76d8dcf67786f755c93dbb46be7a6add830133179043f4009f",
+          "base": "ca733fa5a341f385602035c4d7142bdc43961968"
+        },
+        {
+          "run": "run:f8b1c5602405807e1052c37d7278d126cda42535dcd3639bd9844e9a1115131a",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:0790403efec60c76d8dcf67786f755c93dbb46be7a6add830133179043f4009f",
+          "base": "ca733fa5a341f385602035c4d7142bdc43961968"
+        },
+        {
+          "run": "run:f8b1c5602405807e1052c37d7278d126cda42535dcd3639bd9844e9a1115131a",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:0790403efec60c76d8dcf67786f755c93dbb46be7a6add830133179043f4009f",
+          "base": "ca733fa5a341f385602035c4d7142bdc43961968"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "f6e1675b40d60efb08d07a172f304305df76f8317a6cf1ee08360c9b69583cea"
+        },
+        {
+          "stage": "implement",
+          "sha256": "f3a32d5799e311dd95734603a92b43eca01cc3ef6302bbf6a53498571bba6889"
+        }
+      ],
+      "elapsed_seconds": 81.544,
+      "cleaned": true
+    },
+    {
+      "case": "foreign-plan",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "failed",
+      "outcome": "failed",
+      "runs": 1,
+      "steps": [
+        "warmup"
+      ],
+      "rounds": [],
+      "plan_captures": [],
+      "elapsed_seconds": 12.939,
+      "cleaned": true
+    },
+    {
+      "case": "foreign-fix-plan",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "partial",
+      "outcome": "partial",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan"
+      ],
+      "rounds": [],
+      "plan_captures": [],
+      "elapsed_seconds": 20.437,
+      "cleaned": true
+    },
+    {
+      "case": "configured-plan",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "partial",
+      "outcome": "partial",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan"
+      ],
+      "rounds": [],
+      "plan_captures": [],
+      "elapsed_seconds": 21.769,
+      "cleaned": true
+    },
+    {
+      "case": "blocked-resume",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "partial",
+      "outcome": "succeeded",
+      "runs": 2,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "checks",
+        "security",
+        "review",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:e433149aebf864c57f594833b35372c5de9d104f8a4cf4f993980cc4deb0f875",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:81175d635394ad9c084d88477fe457a8fe5999a60695ca77d116e3d215082f13",
+          "base": "0d238acb98dd3924f327a9c4936cb125fd8bb2f3"
+        },
+        {
+          "run": "run:e433149aebf864c57f594833b35372c5de9d104f8a4cf4f993980cc4deb0f875",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:81175d635394ad9c084d88477fe457a8fe5999a60695ca77d116e3d215082f13",
+          "base": "0d238acb98dd3924f327a9c4936cb125fd8bb2f3"
+        },
+        {
+          "run": "run:e433149aebf864c57f594833b35372c5de9d104f8a4cf4f993980cc4deb0f875",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:81175d635394ad9c084d88477fe457a8fe5999a60695ca77d116e3d215082f13",
+          "base": "0d238acb98dd3924f327a9c4936cb125fd8bb2f3"
+        },
+        {
+          "run": "run:0ec91175c4c5710ecd58667abd8f849d9c3910239d0026165eab90e599746b67",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:f25703b94790c27fe5aaaabd88972a617dbda535aa68ca52c7fadf5612e2f65c",
+          "base": "0d238acb98dd3924f327a9c4936cb125fd8bb2f3"
+        },
+        {
+          "run": "run:0ec91175c4c5710ecd58667abd8f849d9c3910239d0026165eab90e599746b67",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:f25703b94790c27fe5aaaabd88972a617dbda535aa68ca52c7fadf5612e2f65c",
+          "base": "0d238acb98dd3924f327a9c4936cb125fd8bb2f3"
+        },
+        {
+          "run": "run:0ec91175c4c5710ecd58667abd8f849d9c3910239d0026165eab90e599746b67",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:f25703b94790c27fe5aaaabd88972a617dbda535aa68ca52c7fadf5612e2f65c",
+          "base": "0d238acb98dd3924f327a9c4936cb125fd8bb2f3"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "e60165ac7dafa7fee96d90d119f3e5d6ad1c3536bbe52eed71387b8b16e345c5"
+        },
+        {
+          "stage": "implement",
+          "sha256": "dd4318dcfc87acf926c0dd47f3fa2df49b6bc142f8b8ba6663f1791818a854d8"
+        }
+      ],
+      "elapsed_seconds": 122.488,
+      "cleaned": true
+    },
+    {
+      "case": "cancel-resume",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "cancelled",
+      "outcome": "succeeded",
+      "runs": 2,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "checks",
+        "security",
+        "review",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:28c955a461e7a280f8b285d3769335e383c04e1c021f345349c3d276d274afcf",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:584c121cbe1e45cb85c323c0b987724ffaee8c020a5f1575a7aa1b073858477d",
+          "base": "35031c4784907d1a73874dc2f6e8a1787b03b0c7"
+        },
+        {
+          "run": "run:28c955a461e7a280f8b285d3769335e383c04e1c021f345349c3d276d274afcf",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:584c121cbe1e45cb85c323c0b987724ffaee8c020a5f1575a7aa1b073858477d",
+          "base": "35031c4784907d1a73874dc2f6e8a1787b03b0c7"
+        },
+        {
+          "run": "run:28c955a461e7a280f8b285d3769335e383c04e1c021f345349c3d276d274afcf",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:584c121cbe1e45cb85c323c0b987724ffaee8c020a5f1575a7aa1b073858477d",
+          "base": "35031c4784907d1a73874dc2f6e8a1787b03b0c7"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "ab5c03a89a266acf9aaed2c9a64788aeb274d00e5f49bf8df979fd7ba3c7d028"
+        },
+        {
+          "stage": "implement",
+          "sha256": "7ab2564a3b5e6b7745467b5f94f233d54d2d4b3368550f9cb5537a90ba21edd8"
+        }
+      ],
+      "elapsed_seconds": 94.284,
+      "cleaned": true
+    },
+    {
+      "case": "chained-resume",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "partial",
+      "outcome": "succeeded",
+      "runs": 3,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "checks",
+        "security",
+        "review",
+        "checks",
+        "security",
+        "review",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:12b829f6ae097aa0a373d05a5b2fa53fb0b5f19013efe390c967f887c2071c7f",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:1c1dcf8c1fabf771081a4f61fe6cc4fbcaedf17c60280cf9080c4caa1b2af3be",
+          "base": "465f8ec4e1573e621cb42df521576af4bf7807b1"
+        },
+        {
+          "run": "run:12b829f6ae097aa0a373d05a5b2fa53fb0b5f19013efe390c967f887c2071c7f",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:1c1dcf8c1fabf771081a4f61fe6cc4fbcaedf17c60280cf9080c4caa1b2af3be",
+          "base": "465f8ec4e1573e621cb42df521576af4bf7807b1"
+        },
+        {
+          "run": "run:12b829f6ae097aa0a373d05a5b2fa53fb0b5f19013efe390c967f887c2071c7f",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:1c1dcf8c1fabf771081a4f61fe6cc4fbcaedf17c60280cf9080c4caa1b2af3be",
+          "base": "465f8ec4e1573e621cb42df521576af4bf7807b1"
+        },
+        {
+          "run": "run:a35fb77cfbce59586459f733d3a1d1fa6b6ce6585494ca50b92034991e171285",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:deed6ae16802495fcb8e7065f9b039be7db1a16ba2b8e41c83ef15862d955ef7",
+          "base": "465f8ec4e1573e621cb42df521576af4bf7807b1"
+        },
+        {
+          "run": "run:a35fb77cfbce59586459f733d3a1d1fa6b6ce6585494ca50b92034991e171285",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:deed6ae16802495fcb8e7065f9b039be7db1a16ba2b8e41c83ef15862d955ef7",
+          "base": "465f8ec4e1573e621cb42df521576af4bf7807b1"
+        },
+        {
+          "run": "run:a35fb77cfbce59586459f733d3a1d1fa6b6ce6585494ca50b92034991e171285",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:deed6ae16802495fcb8e7065f9b039be7db1a16ba2b8e41c83ef15862d955ef7",
+          "base": "465f8ec4e1573e621cb42df521576af4bf7807b1"
+        },
+        {
+          "run": "run:5ba81553013b5ce81baf8e69999edbf0203a88b343f5a1b67b9ce1746fe111b1",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:deed6ae16802495fcb8e7065f9b039be7db1a16ba2b8e41c83ef15862d955ef7",
+          "base": "465f8ec4e1573e621cb42df521576af4bf7807b1"
+        },
+        {
+          "run": "run:5ba81553013b5ce81baf8e69999edbf0203a88b343f5a1b67b9ce1746fe111b1",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:deed6ae16802495fcb8e7065f9b039be7db1a16ba2b8e41c83ef15862d955ef7",
+          "base": "465f8ec4e1573e621cb42df521576af4bf7807b1"
+        },
+        {
+          "run": "run:5ba81553013b5ce81baf8e69999edbf0203a88b343f5a1b67b9ce1746fe111b1",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:deed6ae16802495fcb8e7065f9b039be7db1a16ba2b8e41c83ef15862d955ef7",
+          "base": "465f8ec4e1573e621cb42df521576af4bf7807b1"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "99afb1ba2a0e17a7ec503662699a2dfc2b98c57e5c0a9571bbf211b40b7cb6c6"
+        },
+        {
+          "stage": "implement",
+          "sha256": "6edc8b53f827a1480da64ec8f062a521f04db8fe57b2cd43e26a6e4a2061dab3"
+        }
+      ],
+      "elapsed_seconds": 129.721,
+      "cleaned": true
+    },
+    {
+      "case": "plan-cancel",
+      "host": "codex-cli",
+      "source_outcome": "failed after cancellation + inspected resolve",
+      "outcome": "recover_source_unsettled",
+      "writer_reconciliation": "applied; no retry",
+      "work_preserved": true,
+      "same_claim": true,
+      "cleaned": true
+    },
+    {
+      "case": "implement-cancel",
+      "host": "codex-cli",
+      "source_outcome": "failed after cancellation + inspected resolve",
+      "outcome": "recover_source_unsettled",
+      "writer_reconciliation": "not_applied; no retry",
+      "work_preserved": true,
+      "same_claim": true,
+      "cleaned": true
+    },
+    {
+      "case": "stale-after-review",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "partial",
+      "outcome": "partial",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review"
+      ],
+      "rounds": [
+        {
+          "run": "run:21fff60748d72c5fda79f50867e4ddc31a661e33cf0a02d299086e8211e95969",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:77684c49e44dc2047f18523bc25cbddf9a57386ea594bac7a3f48f6af2d87319",
+          "base": "fea594ad6c94d38621a62d7790cdec509aa25c78"
+        },
+        {
+          "run": "run:21fff60748d72c5fda79f50867e4ddc31a661e33cf0a02d299086e8211e95969",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:77684c49e44dc2047f18523bc25cbddf9a57386ea594bac7a3f48f6af2d87319",
+          "base": "fea594ad6c94d38621a62d7790cdec509aa25c78"
+        },
+        {
+          "run": "run:21fff60748d72c5fda79f50867e4ddc31a661e33cf0a02d299086e8211e95969",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:77684c49e44dc2047f18523bc25cbddf9a57386ea594bac7a3f48f6af2d87319",
+          "base": "fea594ad6c94d38621a62d7790cdec509aa25c78"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "6f465467d319466608e8ffc8178d4f57298bfb0d2e58701ad98b6f9ff02983fb"
+        },
+        {
+          "stage": "implement",
+          "sha256": "c639bedf4a5f9632f87a48c1b60cb6f42e4eb0a671be584ef5505ed1d08cda02"
+        }
+      ],
+      "elapsed_seconds": 45.13,
+      "cleaned": true
+    },
+    {
+      "case": "stale-before-commit",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "partial",
+      "outcome": "partial",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:ce3c09790a37428d07355246f7c0d040ee01fef517e6194e97c41677069bceb7",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:23ba537a0d7bfc40b9151d0b72e72e3b862385172ca1f8ab7bd59df6cace5890",
+          "base": "f8c424bc4d1fe07a5a6bd2fc3582651aa9d19a09"
+        },
+        {
+          "run": "run:ce3c09790a37428d07355246f7c0d040ee01fef517e6194e97c41677069bceb7",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:23ba537a0d7bfc40b9151d0b72e72e3b862385172ca1f8ab7bd59df6cace5890",
+          "base": "f8c424bc4d1fe07a5a6bd2fc3582651aa9d19a09"
+        },
+        {
+          "run": "run:ce3c09790a37428d07355246f7c0d040ee01fef517e6194e97c41677069bceb7",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:23ba537a0d7bfc40b9151d0b72e72e3b862385172ca1f8ab7bd59df6cace5890",
+          "base": "f8c424bc4d1fe07a5a6bd2fc3582651aa9d19a09"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "1e5026eb576816e9119c43d0c7a3fb053f9af718b36fd4d93b0024832453147c"
+        },
+        {
+          "stage": "implement",
+          "sha256": "b16ae739b7afb464ecb537f44e3258e27ba4e52ad381dcb7a346f3246b120c60"
+        }
+      ],
+      "elapsed_seconds": 47.028,
+      "cleaned": true
+    },
+    {
+      "case": "upgrade",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "partial",
+      "outcome": "succeeded",
+      "runs": 2,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "checks",
+        "security",
+        "review",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:e4eda29da97c046f80638b16393c66fdcb0b3ad77859a94c4a6946e4454b36ca",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:9f0d866188ce7bf639b4424786c198723fef746bbad9142166eb54c936dc2946",
+          "base": "a4902e4c5344ab4c736345f6b4022290bd424001"
+        },
+        {
+          "run": "run:e4eda29da97c046f80638b16393c66fdcb0b3ad77859a94c4a6946e4454b36ca",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:9f0d866188ce7bf639b4424786c198723fef746bbad9142166eb54c936dc2946",
+          "base": "a4902e4c5344ab4c736345f6b4022290bd424001"
+        },
+        {
+          "run": "run:e4eda29da97c046f80638b16393c66fdcb0b3ad77859a94c4a6946e4454b36ca",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:9f0d866188ce7bf639b4424786c198723fef746bbad9142166eb54c936dc2946",
+          "base": "a4902e4c5344ab4c736345f6b4022290bd424001"
+        },
+        {
+          "run": "run:70b3d4a3889de5f776e509c582ef54dfa85bd77f358ca67dffb0b7e0dc5db0d9",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:7b8201328ff6f96ac4c1a2b0d1dd6df694f8f2bc691297865028f6def0de84cd",
+          "base": "a4902e4c5344ab4c736345f6b4022290bd424001"
+        },
+        {
+          "run": "run:70b3d4a3889de5f776e509c582ef54dfa85bd77f358ca67dffb0b7e0dc5db0d9",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:7b8201328ff6f96ac4c1a2b0d1dd6df694f8f2bc691297865028f6def0de84cd",
+          "base": "a4902e4c5344ab4c736345f6b4022290bd424001"
+        },
+        {
+          "run": "run:70b3d4a3889de5f776e509c582ef54dfa85bd77f358ca67dffb0b7e0dc5db0d9",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:7b8201328ff6f96ac4c1a2b0d1dd6df694f8f2bc691297865028f6def0de84cd",
+          "base": "a4902e4c5344ab4c736345f6b4022290bd424001"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "ddbad588d473c5ff40dd59d29047ad6cc366a7b8ff26eae675c7d1b64561dd0a"
+        },
+        {
+          "stage": "implement",
+          "sha256": "7e36e4d8fa78eefd6d4a4018bde710c73359665efc88905144559419822dcf34"
+        }
+      ],
+      "elapsed_seconds": 74.259,
+      "cleaned": true
+    },
+    {
+      "case": "upgrade-refusal",
+      "host": "codex-cli",
+      "source_outcome": "partial",
+      "default_prepare_refusal": "recover_prefix_changed",
+      "reviewed_replay": "configure (warmup prefix retained)",
+      "outcome": "succeeded",
+      "same_claim": true,
+      "work_preserved": true,
+      "cleaned": true
+    },
+    {
+      "case": "excluded-security",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "succeeded",
+      "outcome": "succeeded",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:2d254f179b2c60839116c1dfeb1f38fa0a2af0214839a3f613e62488615ea302",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:5bf9a67d9bc6ba3aa6979d212e7b3f55381ad517cef4e23e2f431ab7a909c4de",
+          "base": "f020d8373aa7e75be9ef776fd3867744763112a5"
+        },
+        {
+          "run": "run:2d254f179b2c60839116c1dfeb1f38fa0a2af0214839a3f613e62488615ea302",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:5bf9a67d9bc6ba3aa6979d212e7b3f55381ad517cef4e23e2f431ab7a909c4de",
+          "base": "f020d8373aa7e75be9ef776fd3867744763112a5"
+        },
+        {
+          "run": "run:2d254f179b2c60839116c1dfeb1f38fa0a2af0214839a3f613e62488615ea302",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:5bf9a67d9bc6ba3aa6979d212e7b3f55381ad517cef4e23e2f431ab7a909c4de",
+          "base": "f020d8373aa7e75be9ef776fd3867744763112a5"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "e71ee786113482411ae7245ea707f89fb4611d8f908029f2715308be8c4bc423"
+        },
+        {
+          "stage": "implement",
+          "sha256": "bc8bc53f0663f55d7daa761a9038cf8f07b4803db1d533a3f66d7ad16c31f730"
+        }
+      ],
+      "elapsed_seconds": 44.014,
+      "cleaned": true
+    },
+    {
+      "case": "verdict-independent",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "succeeded",
+      "outcome": "succeeded",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "repair",
+        "checks",
+        "security",
+        "review",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:2c3e422d2000a3a3090dfa2ee9687023365cef93b0b858b0925ef9331584469d",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:0895fcc3f661853f6b95e03c3cda2cdd4b5ad4119a70ebb92a668302cfb91eb9",
+          "base": "0223992fee673e93f36ae05cc409a233c7fe7b0f"
+        },
+        {
+          "run": "run:2c3e422d2000a3a3090dfa2ee9687023365cef93b0b858b0925ef9331584469d",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:0895fcc3f661853f6b95e03c3cda2cdd4b5ad4119a70ebb92a668302cfb91eb9",
+          "base": "0223992fee673e93f36ae05cc409a233c7fe7b0f"
+        },
+        {
+          "run": "run:2c3e422d2000a3a3090dfa2ee9687023365cef93b0b858b0925ef9331584469d",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:0895fcc3f661853f6b95e03c3cda2cdd4b5ad4119a70ebb92a668302cfb91eb9",
+          "base": "0223992fee673e93f36ae05cc409a233c7fe7b0f"
+        },
+        {
+          "run": "run:2c3e422d2000a3a3090dfa2ee9687023365cef93b0b858b0925ef9331584469d",
+          "lens": "checks",
+          "round": 2,
+          "digest": "sha256:05a56ddc98b1bf18dc77e6d76aed71830a998200a2c544b930e33377b531f0c3",
+          "base": "0223992fee673e93f36ae05cc409a233c7fe7b0f"
+        },
+        {
+          "run": "run:2c3e422d2000a3a3090dfa2ee9687023365cef93b0b858b0925ef9331584469d",
+          "lens": "security",
+          "round": 2,
+          "digest": "sha256:05a56ddc98b1bf18dc77e6d76aed71830a998200a2c544b930e33377b531f0c3",
+          "base": "0223992fee673e93f36ae05cc409a233c7fe7b0f"
+        },
+        {
+          "run": "run:2c3e422d2000a3a3090dfa2ee9687023365cef93b0b858b0925ef9331584469d",
+          "lens": "review",
+          "round": 2,
+          "digest": "sha256:05a56ddc98b1bf18dc77e6d76aed71830a998200a2c544b930e33377b531f0c3",
+          "base": "0223992fee673e93f36ae05cc409a233c7fe7b0f"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "8c259069ad40a68468e1d237e8c2a4731dc653546a524d3a594b12b51156ec1f"
+        },
+        {
+          "stage": "implement",
+          "sha256": "ead0c2d5e25548e131ad0f6d7236c8ae920d70551e6e513348db2766c2c5b372"
+        }
+      ],
+      "elapsed_seconds": 68.748,
+      "cleaned": true
+    },
+    {
+      "case": "commit-diagnostic",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "partial",
+      "outcome": "partial",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:ef73911f374c1f779731c168e94194f052f1130f809204621b009321d44632e5",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:b0e05620e8ff703bbeb23af57dac32fd5aae4af7f4a20f3f36d16fb809ff835d",
+          "base": "e22f9841513324d3cbfe21b15315b59779286acf"
+        },
+        {
+          "run": "run:ef73911f374c1f779731c168e94194f052f1130f809204621b009321d44632e5",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:b0e05620e8ff703bbeb23af57dac32fd5aae4af7f4a20f3f36d16fb809ff835d",
+          "base": "e22f9841513324d3cbfe21b15315b59779286acf"
+        },
+        {
+          "run": "run:ef73911f374c1f779731c168e94194f052f1130f809204621b009321d44632e5",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:b0e05620e8ff703bbeb23af57dac32fd5aae4af7f4a20f3f36d16fb809ff835d",
+          "base": "e22f9841513324d3cbfe21b15315b59779286acf"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "f498b1c6e283c9377f661ff96dd3ba6894120b1d798b439becf260952e45b7b3"
+        },
+        {
+          "stage": "implement",
+          "sha256": "0633ec8068d94c5821d9aeb547f624d9151fbdc88dfbd49bbfc47a0e9728f82e"
+        }
+      ],
+      "elapsed_seconds": 43.8,
+      "cleaned": true
+    },
+    {
+      "case": "frontend-unavailable",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "partial",
+      "outcome": "partial",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "environment",
+        "ui",
+        "ux",
+        "release"
+      ],
+      "rounds": [
+        {
+          "run": "run:91e5b198a7de20a5811e9fa6d1c3133ccfd9410c555ca829f86381a8f4c99bab",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:972e4cfbac52fbb029b520514988a23411a8139a0889f3a54c11fbc4fbf7eac0",
+          "base": "417e3ed44917de5469e36805cdea9a41f32d690a"
+        },
+        {
+          "run": "run:91e5b198a7de20a5811e9fa6d1c3133ccfd9410c555ca829f86381a8f4c99bab",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:972e4cfbac52fbb029b520514988a23411a8139a0889f3a54c11fbc4fbf7eac0",
+          "base": "417e3ed44917de5469e36805cdea9a41f32d690a"
+        },
+        {
+          "run": "run:91e5b198a7de20a5811e9fa6d1c3133ccfd9410c555ca829f86381a8f4c99bab",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:972e4cfbac52fbb029b520514988a23411a8139a0889f3a54c11fbc4fbf7eac0",
+          "base": "417e3ed44917de5469e36805cdea9a41f32d690a"
+        },
+        {
+          "run": "run:91e5b198a7de20a5811e9fa6d1c3133ccfd9410c555ca829f86381a8f4c99bab",
+          "lens": "ui",
+          "round": 1,
+          "digest": "sha256:972e4cfbac52fbb029b520514988a23411a8139a0889f3a54c11fbc4fbf7eac0",
+          "base": "417e3ed44917de5469e36805cdea9a41f32d690a"
+        },
+        {
+          "run": "run:91e5b198a7de20a5811e9fa6d1c3133ccfd9410c555ca829f86381a8f4c99bab",
+          "lens": "ux",
+          "round": 1,
+          "digest": "sha256:972e4cfbac52fbb029b520514988a23411a8139a0889f3a54c11fbc4fbf7eac0",
+          "base": "417e3ed44917de5469e36805cdea9a41f32d690a"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "654ddecd225a170af145be04c04f5bb6cd8a07d94874e52a9715a60e8eebb8a0"
+        },
+        {
+          "stage": "implement",
+          "sha256": "d6c6dd6c2ebab5a1e08b1c02aba641b6f9fa572e9a30b3bfcfd954f017a628ec"
+        }
+      ],
+      "elapsed_seconds": 59.143,
+      "cleaned": true
+    },
+    {
+      "case": "frontend-cancel",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "cancelled",
+      "outcome": "succeeded",
+      "runs": 2,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "environment",
+        "ui",
+        "checks",
+        "security",
+        "review",
+        "environment",
+        "ui",
+        "ux",
+        "release",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:373f279c558b094be7c25c05e2067d2a2dddd7ce65e749c0d1448c3ff169259c",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:de7ceed087339f0ba1a656af8e6fd640288d01481b85dfeeda7835daf764d16f",
+          "base": "f0b18ae4b1edeb2eb6b2fa59f2a112c35e6091e5"
+        },
+        {
+          "run": "run:373f279c558b094be7c25c05e2067d2a2dddd7ce65e749c0d1448c3ff169259c",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:de7ceed087339f0ba1a656af8e6fd640288d01481b85dfeeda7835daf764d16f",
+          "base": "f0b18ae4b1edeb2eb6b2fa59f2a112c35e6091e5"
+        },
+        {
+          "run": "run:373f279c558b094be7c25c05e2067d2a2dddd7ce65e749c0d1448c3ff169259c",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:de7ceed087339f0ba1a656af8e6fd640288d01481b85dfeeda7835daf764d16f",
+          "base": "f0b18ae4b1edeb2eb6b2fa59f2a112c35e6091e5"
+        },
+        {
+          "run": "run:15a3e9b1d4c1cf53312e3679b5228459a82e161dbaca460b7dd3738e48c298b3",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:c4a879a204aeaeedd2586ea8a2a52fcbc5a080c349e6a81b648e48c484052ee2",
+          "base": "f0b18ae4b1edeb2eb6b2fa59f2a112c35e6091e5"
+        },
+        {
+          "run": "run:15a3e9b1d4c1cf53312e3679b5228459a82e161dbaca460b7dd3738e48c298b3",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:c4a879a204aeaeedd2586ea8a2a52fcbc5a080c349e6a81b648e48c484052ee2",
+          "base": "f0b18ae4b1edeb2eb6b2fa59f2a112c35e6091e5"
+        },
+        {
+          "run": "run:15a3e9b1d4c1cf53312e3679b5228459a82e161dbaca460b7dd3738e48c298b3",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:c4a879a204aeaeedd2586ea8a2a52fcbc5a080c349e6a81b648e48c484052ee2",
+          "base": "f0b18ae4b1edeb2eb6b2fa59f2a112c35e6091e5"
+        },
+        {
+          "run": "run:15a3e9b1d4c1cf53312e3679b5228459a82e161dbaca460b7dd3738e48c298b3",
+          "lens": "ui",
+          "round": 1,
+          "digest": "sha256:c4a879a204aeaeedd2586ea8a2a52fcbc5a080c349e6a81b648e48c484052ee2",
+          "base": "f0b18ae4b1edeb2eb6b2fa59f2a112c35e6091e5"
+        },
+        {
+          "run": "run:15a3e9b1d4c1cf53312e3679b5228459a82e161dbaca460b7dd3738e48c298b3",
+          "lens": "ux",
+          "round": 1,
+          "digest": "sha256:c4a879a204aeaeedd2586ea8a2a52fcbc5a080c349e6a81b648e48c484052ee2",
+          "base": "f0b18ae4b1edeb2eb6b2fa59f2a112c35e6091e5"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "95b0de5896aeb19664698819f380d078910132badd1352a680af87aca3006910"
+        },
+        {
+          "stage": "implement",
+          "sha256": "d61689bd663c3c17b4a9bbe89f29d781bd664a24626cbaf4fe4ccd9f1546ed9a"
+        }
+      ],
+      "elapsed_seconds": 93.966,
+      "cleaned": true
+    },
+    {
+      "case": "commit-resume",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "partial",
+      "outcome": "succeeded",
+      "runs": 2,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "commit",
+        "checks",
+        "security",
+        "review",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:27412522bf945542036858e3ea41a638d9573448d854206e8ea4e2950d946392",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:f4eda9ce029d94d26a97fa49a8054cce9c29c37cbeb525038edcf9f3521c7328",
+          "base": "a6dbc9060c5f93030b1aab0c1299b15f164a84b8"
+        },
+        {
+          "run": "run:27412522bf945542036858e3ea41a638d9573448d854206e8ea4e2950d946392",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:f4eda9ce029d94d26a97fa49a8054cce9c29c37cbeb525038edcf9f3521c7328",
+          "base": "a6dbc9060c5f93030b1aab0c1299b15f164a84b8"
+        },
+        {
+          "run": "run:27412522bf945542036858e3ea41a638d9573448d854206e8ea4e2950d946392",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:f4eda9ce029d94d26a97fa49a8054cce9c29c37cbeb525038edcf9f3521c7328",
+          "base": "a6dbc9060c5f93030b1aab0c1299b15f164a84b8"
+        },
+        {
+          "run": "run:61b4eadd9e1f61658a630c78151842dee4b7a6d06c55495308434893eadecfa2",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:12323e35e485c5331e17437f104b1a7d7e26fdb4cfb1cc559cf0701a2e525215",
+          "base": "a6dbc9060c5f93030b1aab0c1299b15f164a84b8"
+        },
+        {
+          "run": "run:61b4eadd9e1f61658a630c78151842dee4b7a6d06c55495308434893eadecfa2",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:12323e35e485c5331e17437f104b1a7d7e26fdb4cfb1cc559cf0701a2e525215",
+          "base": "a6dbc9060c5f93030b1aab0c1299b15f164a84b8"
+        },
+        {
+          "run": "run:61b4eadd9e1f61658a630c78151842dee4b7a6d06c55495308434893eadecfa2",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:12323e35e485c5331e17437f104b1a7d7e26fdb4cfb1cc559cf0701a2e525215",
+          "base": "a6dbc9060c5f93030b1aab0c1299b15f164a84b8"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "b19484cc441e38ee53d5da249297346074a18109a6f3db0cc3926b53d1698016"
+        },
+        {
+          "stage": "implement",
+          "sha256": "8240cccb13c2ef592c95b6f7e5b8b07f2a66addd273c6fdbfb80bc1fde9aea9c"
+        }
+      ],
+      "elapsed_seconds": 73.651,
+      "cleaned": true
+    },
+    {
+      "case": "backend",
+      "host": "codex-app",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "succeeded",
+      "outcome": "succeeded",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:b32f251c36fe84a622f5a60547ed5b7d6d0b7f42121a78287a9908654f5894ac",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:abe8c96ae660f6a1065d4735294e1b5688e217b667f8c3762c509f8af4d2cc87",
+          "base": "81aa721dc4cd801fbe4eaaa45bd0fc369bb92909"
+        },
+        {
+          "run": "run:b32f251c36fe84a622f5a60547ed5b7d6d0b7f42121a78287a9908654f5894ac",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:abe8c96ae660f6a1065d4735294e1b5688e217b667f8c3762c509f8af4d2cc87",
+          "base": "81aa721dc4cd801fbe4eaaa45bd0fc369bb92909"
+        },
+        {
+          "run": "run:b32f251c36fe84a622f5a60547ed5b7d6d0b7f42121a78287a9908654f5894ac",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:abe8c96ae660f6a1065d4735294e1b5688e217b667f8c3762c509f8af4d2cc87",
+          "base": "81aa721dc4cd801fbe4eaaa45bd0fc369bb92909"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "117787a200223280f486b86beef051d63f76a6e9a9c6babb5a107ad22dd07f48"
+        },
+        {
+          "stage": "implement",
+          "sha256": "16df3e5de173d2e375eb770a18d4730ce756906d3bde0eaa42993a91109419ee"
+        }
+      ],
+      "elapsed_seconds": 37.781,
+      "cleaned": true
+    },
+    {
+      "case": "backend",
+      "host": "claude-code",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "succeeded",
+      "outcome": "succeeded",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:6d66f5c4581c1582a87394c239cb0ecf7f41029cd2f557187dfa47525198cfb1",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:ddd4f89a4270fd71a4670fe478595792bf79ac029beaf6f8ebaa439a3d520aa1",
+          "base": "a495f44f19d3ab471fd0b0596d4cc955d719915c"
+        },
+        {
+          "run": "run:6d66f5c4581c1582a87394c239cb0ecf7f41029cd2f557187dfa47525198cfb1",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:ddd4f89a4270fd71a4670fe478595792bf79ac029beaf6f8ebaa439a3d520aa1",
+          "base": "a495f44f19d3ab471fd0b0596d4cc955d719915c"
+        },
+        {
+          "run": "run:6d66f5c4581c1582a87394c239cb0ecf7f41029cd2f557187dfa47525198cfb1",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:ddd4f89a4270fd71a4670fe478595792bf79ac029beaf6f8ebaa439a3d520aa1",
+          "base": "a495f44f19d3ab471fd0b0596d4cc955d719915c"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "fd9aa2912fd4a6f81578022fdf6de62b120ef3b17533bb2e9979a1880f051aa0"
+        },
+        {
+          "stage": "implement",
+          "sha256": "50ecf3f15d60549040e2e773b2cf9a8bd90bb5dd664545415094a38557e07e80"
+        }
+      ],
+      "elapsed_seconds": 30.116,
+      "cleaned": true
+    }
+  ],
+  "failures": []
+}

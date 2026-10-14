@@ -1,0 +1,138 @@
+{
+  "title": "Notes confirmation feature",
+  "description": "Add a local notes form with responsive layout and save confirmation.",
+  "scope": [
+    "index.html"
+  ],
+  "assumptions": [
+    "Ephemeral in-page state only; no backend writes."
+  ],
+  "optional_policy": "ignore",
+  "require_separate_session": false,
+  "product": {
+    "surface": "frontend",
+    "scope_reason": "Declared interface change",
+    "environment": {
+      "owner": "fixture-owned",
+      "profile": "all-checks",
+      "setup": "Project runner: ensure an owned loopback environment for this claimed candidate using the common review profile; report exact session and origin.",
+      "cleanup": "Project runner: release only exact owner/session and preserve code; reconcile interrupted setup before continuation.",
+      "browser_adapter": "Project Playwright browser adapter for sealed scenarios",
+      "test_identity": "isolated anonymous test only",
+      "allowed_operations": [
+        "navigate",
+        "input",
+        "submit_test"
+      ],
+      "shared_resource": null
+    },
+    "scenarios": [
+      {
+        "id": "desktop",
+        "lens": "ui",
+        "check_id": "ui_acceptance",
+        "path": "/index.html",
+        "viewport": {
+          "width": 1280,
+          "height": 800
+        },
+        "actions": [],
+        "expectations": [
+          "No overflow; readable consistent design"
+        ]
+      },
+      {
+        "id": "mobile",
+        "lens": "ui",
+        "check_id": "ui_acceptance",
+        "path": "/index.html",
+        "viewport": {
+          "width": 375,
+          "height": 800
+        },
+        "actions": [],
+        "expectations": [
+          "No overflow; readable consistent design"
+        ]
+      },
+      {
+        "id": "flow",
+        "lens": "ux",
+        "check_id": "ux_acceptance",
+        "path": "/index.html",
+        "viewport": {
+          "width": 375,
+          "height": 800
+        },
+        "actions": [
+          "Use keyboard and submit isolated test form"
+        ],
+        "expectations": [
+          "Observe empty/loading/error/success states and labelled keyboard flow"
+        ]
+      }
+    ],
+    "ui": {
+      "base_commit": "0000000000000000000000000000000000000000",
+      "round": 1,
+      "optional_policy": "ignore",
+      "require_separate_session": false,
+      "checks": [
+        {
+          "id": "ui_acceptance",
+          "description": "ui acceptance",
+          "method": "browser",
+          "required": true,
+          "enabled": true,
+          "applicable": true
+        }
+      ]
+    },
+    "ux": {
+      "base_commit": "0000000000000000000000000000000000000000",
+      "round": 1,
+      "optional_policy": "ignore",
+      "require_separate_session": false,
+      "checks": [
+        {
+          "id": "ux_acceptance",
+          "description": "ux acceptance",
+          "method": "browser",
+          "required": true,
+          "enabled": true,
+          "applicable": true
+        }
+      ]
+    }
+  },
+  "checks": [
+    {
+      "id": "checks_acceptance",
+      "description": "Check index.html contains the declared notes form; python3 -B -c \"from pathlib import Path; assert 'addEventListener' in Path('index.html').read_text()\"",
+      "method": "command",
+      "required": true,
+      "enabled": true,
+      "applicable": true
+    }
+  ],
+  "security": [
+    {
+      "id": "security_acceptance",
+      "description": "Inspect index.html notes form for unsafe script execution, outbound effects or exposed secrets; only ephemeral in-page state is authorized.",
+      "method": "code",
+      "required": true,
+      "enabled": true,
+      "applicable": true
+    }
+  ],
+  "review": [
+    {
+      "id": "review_acceptance",
+      "description": "Inspect scoped notes confirmation: hide empty state, show Saved: <trimmed note>, clear input and restore focus; preserve existing error/loading behavior, responsive design and form IDs.",
+      "method": "code",
+      "required": true,
+      "enabled": true,
+      "applicable": true
+    }
+  ]
+}

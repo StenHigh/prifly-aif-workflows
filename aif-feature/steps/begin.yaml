@@ -1,0 +1,48 @@
+authoring: prifly-step/1
+id: aif-feature:step/begin
+version: 1.0.0
+title: Bounded feature begin
+kind: worker
+inputs:
+  task:
+    schema_ref: '{{schema_task}}'
+  implementation:
+    schema_ref: '{{schema_implementation}}'
+  round:
+    schema_ref: '{{schema_round}}'
+outputs:
+  round:
+    schema_ref: '{{schema_round}}'
+    required_for:
+    - pass
+  configuration:
+    schema_ref: '{{schema_configuration}}'
+    required_for:
+    - pass
+  ui:
+    schema_ref: '{{schema_request}}'
+    required_for:
+    - pass
+  ux:
+    schema_ref: '{{schema_request}}'
+    required_for:
+    - pass
+  checks_request:
+    schema_ref: '{{schema_request}}'
+    required_for:
+    - pass
+  security_request:
+    schema_ref: '{{schema_request}}'
+    required_for:
+    - pass
+  review_request:
+    schema_ref: '{{schema_request}}'
+    required_for:
+    - pass
+executor:
+  adapter_ref: '{{process}}'
+  operation: process
+effects:
+  class: none
+  retry_class: never
+result_schema_ref: '{{result}}'

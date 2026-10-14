@@ -1,0 +1,48 @@
+authoring: prifly-step/2
+id: aif-feature:step/commit
+version: 1.0.0
+title: Bounded feature commit
+kind: worker
+inputs:
+  task:
+    schema_ref: '{{schema_task}}'
+  implementation:
+    schema_ref: '{{schema_implementation}}'
+  result:
+    schema_ref: '{{schema_result}}'
+  candidate:
+    schema_ref: '{{schema_candidate}}'
+  gate:
+    schema_ref: '{{schema_feature-gate}}'
+  evidence:
+    schema_ref: '{{schema_evidence}}'
+outputs:
+  implementation:
+    schema_ref: '{{schema_implementation}}'
+    required_for:
+    - pass
+    - needs_revision
+    - blocked
+    - fail
+    - no_work
+  result:
+    schema_ref: '{{schema_result}}'
+    required_for:
+    - pass
+    - needs_revision
+    - blocked
+    - fail
+    - no_work
+executor:
+  adapter_ref: '{{session}}'
+  operation: session
+instructions_ref: '{{context_feature-commit}}'
+context_refs:
+- '{{context_aif-commit}}'
+- '{{context_candidate-snapshot}}'
+effects:
+  class: workspace_write
+  retry_class: never
+session_limits:
+  active_timeout_ms: null
+result_schema_ref: '{{result_v2}}'

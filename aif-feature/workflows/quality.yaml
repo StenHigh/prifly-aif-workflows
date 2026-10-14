@@ -1,0 +1,197 @@
+authoring: prifly-workflow/1
+schema_version: '6'
+id: aif-feature:workflow/quality
+version: 1.0.0
+title: Full bounded acceptance and local commit for the small feature
+refs:
+  policy: '{{policy}}'
+  schema_candidate: '{{schema_candidate}}'
+  schema_evidence: '{{schema_evidence}}'
+  schema_gate: '{{schema_feature-gate}}'
+  schema_implementation: '{{schema_implementation}}'
+  schema_result: '{{schema_result}}'
+  schema_round: '{{schema_round}}'
+  schema_surface: '{{schema_surface}}'
+  schema_task: '{{schema_task}}'
+  schema_warmup-handoff: '{{schema_warmup-handoff}}'
+  workflow_quality-round: '{{workflow_quality-round}}'
+  schema_round-limit: '{{schema_round-limit}}'
+  step_guard: '{{step_guard}}'
+  step_commit: '{{step_commit}}'
+inputs:
+  task: schema_task
+  handoff: schema_warmup-handoff
+  implementation: schema_implementation
+  result: schema_result
+  round: schema_round
+  surface: schema_surface
+  limit:
+    schema_ref: schema_round-limit
+    required: false
+    configuration:
+      scope: project
+      default: 3
+outputs:
+  implementation:
+    schema_ref: schema_implementation
+    required_for:
+    - succeeded
+    - partial
+  result:
+    schema_ref: schema_result
+    required_for:
+    - succeeded
+    - partial
+  round:
+    schema_ref: schema_round
+    required_for:
+    - succeeded
+    - partial
+  gate:
+    schema_ref: schema_gate
+    required_for:
+    - succeeded
+    - partial
+  evidence:
+    schema_ref: schema_evidence
+    required_for:
+    - succeeded
+    - partial
+  candidate:
+    schema_ref: schema_candidate
+    required_for:
+    - succeeded
+    - partial
+limits:
+  max_step_instances: 114
+  max_control_transitions: 850
+  max_parallelism: 1
+  max_child_depth: 3
+policy_ref: policy
+entry: round
+stages:
+  round:
+    kind: repeat
+    body_workflow_ref: workflow_quality-round
+    initial_bindings:
+      task: $inputs.task
+      handoff: $inputs.handoff
+      implementation: $inputs.implementation
+      result: $inputs.result
+      round: $inputs.round
+      surface: $inputs.surface
+      limit: $inputs.limit
+    next_bindings:
+      task: $inputs.task
+      handoff: $inputs.handoff
+      implementation: $iteration.implementation
+      result: $iteration.result
+      round: $iteration.round
+      surface: $inputs.surface
+      limit: $inputs.limit
+    continue_on:
+    - partial
+    until: false
+    max_iterations: 8
+    limit_configuration: limit
+    on_complete:
+      succeeded: guard
+      rejected: standing
+      no_work: abandoned
+    on_limit: standing
+  standing:
+    kind: finish
+    outcome: partial
+    output_bindings:
+      implementation: $stages.round.implementation
+      result: $stages.round.result
+      round: $stages.round.round
+      gate: $stages.round.gate
+      evidence: $stages.round.evidence
+      candidate: $stages.round.candidate
+  abandoned:
+    kind: finish
+    outcome: rejected
+    output_bindings: {}
+  guard:
+    kind: step
+    step_ref: step_guard
+    input_bindings:
+      implementation: $stages.round.implementation
+      candidate: $stages.round.candidate
+      gate: $stages.round.gate
+    'on':
+      pass: guard-ready
+      needs_revision: abandoned
+      fail: abandoned
+      no_work: abandoned
+    impossible_verdicts:
+    - blocked
+  guard-ready:
+    kind: choice
+    selection: first_match
+    branches:
+    - id: blocked
+      predicate:
+        op: eq
+        left: $stages.guard.gate#/status
+        right: blocked
+      next: guard-stopped
+    default: commit
+  commit:
+    kind: step
+    step_ref: step_commit
+    input_bindings:
+      task: $inputs.task
+      implementation: $stages.round.implementation
+      result: $stages.round.result
+      candidate: $stages.round.candidate
+      evidence: $stages.round.evidence
+      gate: $stages.guard.gate
+    'on':
+      pass: commit-ready
+      needs_revision: commit-stopped
+      blocked: commit-stopped
+      fail: commit-stopped
+      no_work: commit-stopped
+  commit-ready:
+    kind: choice
+    selection: first_match
+    branches:
+    - id: implemented
+      predicate:
+        op: eq
+        left: $stages.commit.result#/outcome
+        right: implemented
+      next: done
+    default: commit-stopped
+  done:
+    kind: finish
+    outcome: succeeded
+    output_bindings:
+      implementation: $stages.commit.implementation
+      result: $stages.commit.result
+      round: $stages.round.round
+      gate: $stages.guard.gate
+      evidence: $stages.round.evidence
+      candidate: $stages.round.candidate
+  commit-stopped:
+    kind: finish
+    outcome: partial
+    output_bindings:
+      implementation: $stages.commit.implementation
+      result: $stages.commit.result
+      round: $stages.round.round
+      gate: $stages.guard.gate
+      evidence: $stages.round.evidence
+      candidate: $stages.round.candidate
+  guard-stopped:
+    kind: finish
+    outcome: partial
+    output_bindings:
+      implementation: $stages.round.implementation
+      result: $stages.round.result
+      round: $stages.round.round
+      gate: $stages.guard.gate
+      evidence: $stages.round.evidence
+      candidate: $stages.round.candidate

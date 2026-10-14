@@ -1,0 +1,2202 @@
+{
+  "prifly": "0.13.76",
+  "codex_cli": "codex-cli 0.162.1",
+  "observations": [
+    {
+      "case": "backend",
+      "host": "codex-cli",
+      "mode": "fresh actual Codex CLI writers/readers, unedited submissions",
+      "source_outcome": "succeeded",
+      "outcome": "succeeded",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "commit"
+      ],
+      "rounds": [],
+      "plan_captures": [],
+      "elapsed_seconds": 1151.063,
+      "cleaned": true,
+      "observations": [
+        {
+          "step": "warmup",
+          "session": "01a13c5d-1b6f-7192-ab7f-820c9853d5d7",
+          "verdict": "pass",
+          "outputs": {
+            "handoff": {
+              "summary": "Configuration \u2014 No .ai-factory/config.yaml exists in the named repository. Use default paths .ai-factory/DESCRIPTION.md, ARCHITECTURE.md, ROADMAP.md, RESEARCH.md, RULES.md, and rules/ (base: rules/base.md); language.ui=en; warmup.paths=[]. No named area rules are configured. Artifact language, technical-term preference, git.enabled/base_branch/create_branches/branch_prefix/skip_push_after_commit, workflow.plan_id_format, and workflow.verify_mode are unspecified; the pinned warmup provides no literal defaults for them. Sealed decision policy is autonomous; plan_tests=true, plan_constraints=\"\", plan_retention=capture.\nProject \u2014 Bound task: Small greeting feature. Add greeting(name) returning exact text Hello, <name>! with a test. Name is a nonempty string; no new dependency. This is the caller-described isolated stdlib Python fixture. Existing application code was not inspected during warmup. Git HEAD is 2bbd3e9a1533ee3e4c9e7911854e5c34fd3a3c51; the working tree and index are clean, with no nonignored untracked paths.\nArchitecture \u2014 No architecture document is present. Future declared scope is greeting.py and test_greeting.py; implementation boundaries beyond that scope remain undiscovered.\nDirection \u2014 No roadmap or research artifact exists. The bound feature and its acceptance criteria are the available direction; no research bundles exist beneath the absent .ai-factory directory.\nRules \u2014 This Attempt is read-only warmup. Preserve all repository files and staged work. Do not invoke later workflow stages, create branches/worktrees, install dependencies, provision the environment, publish, or call Pri-Fly controls. Business or scope ambiguity requires the owner. Future acceptance command is python3 -B -m unittest test_greeting; security review checks scope, secrets, and unsafe execution; code review checks exact greeting text, test, and relevant edge cases.\nGaps \u2014 Configuration, root AGENTS.md, .ai-factory/skill-context/aif-warmup/SKILL.md, all six default core/rule files are absent. Stack details, architecture, existing code, and acceptance execution remain for the appropriate later Attempt. No questions arose; no model profile was declared.\nLoaded \u2014 Bound task, delivery task/context, submission template, and both pinned skills; exact paths are listed in sources. No repository text artifact was present to load.\nReady \u2014 Available context is loaded; this handoff can seed the next separately delivered session. No implementation, tests, review, plan, or commit was performed in this warmup.",
+              "entry_points": [
+                "greeting.py \u2014 declared future implementation scope; code not inspected during read-only warmup.",
+                "test_greeting.py \u2014 declared future test scope; code not inspected during read-only warmup.",
+                "python3 -B -m unittest test_greeting \u2014 bound required acceptance command for the later checks stage."
+              ],
+              "conventions": [
+                "Use only repository_workspace: /tmp/w3-run-jql6zq06/authority/.prifly/work/claims/39cd44b1c29317eebfc83e05497c222e94e06cce577b8ad90bd8a43983e5e0e4",
+                "HANDOFF_MODE=1, HANDOFF_TASK_ID=, HANDOFF_SKIP_REVIEW=0 are the sealed autonomous handoff settings; no environment was changed.",
+                "Preserve sealed decisions: plan_tests=true; plan_constraints=\"\"; plan_retention=capture.",
+                "Only future feature writers may edit greeting.py, test_greeting.py, owned native PLAN progress, and explicitly permitted factual context.",
+                "No push, merge, other workflow, branch/worktree creation, dependency installation, credentials, provisioning, or Pri-Fly control calls.",
+                "The bound task requires a separate session; do not invent an independent-review model translation.",
+                "No model_profile is declared. Native submission model_profile remains null.",
+                "This warmup fixes base_commit=head_commit to the observed HEAD; changed_files records current dirty and nonignored untracked paths.",
+                "The local commit stage belongs to a later authorized Attempt; use the supplied fixture identity per command there.",
+                "No setup question is needed: the named repository root is identifiable. Missing context artifacts are normal."
+              ],
+              "sources": [
+                "/tmp/w3-run-jql6zq06/authority/.prifly/work/547ab3ae8fd2d9e01ee753d1fe5b8509/task.json",
+                "/tmp/w3-run-jql6zq06/authority/.prifly/work/547ab3ae8fd2d9e01ee753d1fe5b8509/context.json",
+                "/tmp/w3-run-jql6zq06/authority/.prifly/work/547ab3ae8fd2d9e01ee753d1fe5b8509/submission-template.json",
+                "/tmp/w3-run-jql6zq06/authority/.prifly/work/547ab3ae8fd2d9e01ee753d1fe5b8509/inputs/task",
+                "/tmp/w3-run-jql6zq06/authority/.prifly/work/547ab3ae8fd2d9e01ee753d1fe5b8509/context/skills/aif-context-aif-warmup-0.0.0-b1.erckrultaxqbcnfws5yufmkaljz43jw5yga6li5cnfpqvqudbvsq",
+                "/tmp/w3-run-jql6zq06/authority/.prifly/work/547ab3ae8fd2d9e01ee753d1fe5b8509/context/skills/aif-feature-context-feature-warmup-0.0.0-b1.3yzz6vkcmjga6hwdf44yytqiwe7fzvomm23l4frhqaf7iedewfoq"
+              ]
+            },
+            "implementation": {
+              "base_commit": "2bbd3e9a1533ee3e4c9e7911854e5c34fd3a3c51",
+              "head_commit": "2bbd3e9a1533ee3e4c9e7911854e5c34fd3a3c51",
+              "changed_files": []
+            }
+          },
+          "submission_sha256": "e6496e4e276e2ad2626616f0771f48ccbcbd0548885a41beca4730963a018566",
+          "events_sha256": "13b7abe8a35195419102e0c2ea6c78130824859e194d50913f875020749e6636"
+        },
+        {
+          "step": "plan",
+          "session": "01a13c5e-c06b-7b41-b5a2-10d024bf31d7",
+          "verdict": "pass",
+          "outputs": {
+            "result": {
+              "outcome": "ready",
+              "reason": "The native fast plan contains two bounded implementation/test tasks with settled scope, exact greeting behavior, configurable runtime logging and all supplied acceptance criteria. The capture path was empty and project rules introduce no conflict. Acceptance command syntax is verified; its current pre-implementation execution exits 1 because test_greeting does not yet exist, as recorded in the plan.",
+              "work": [
+                "Read and SHA256-verified all four pinned skill/supporting references and all three bound inputs; applied sealed autonomous decisions and the native fast plan template.",
+                "Performed read-only discovery in the named repository: clean baseline at the bound commit, both feature files absent, default fast path available, no applicable project configuration/rules or existing plan.",
+                "Verified Python 3.12 stdlib unittest command syntax with help; ran python3 -B -m unittest test_greeting and observed exit 1 / ModuleNotFoundError before implementation.",
+                "Created .ai-factory/PLAN.md with the exact Original Request, required Settings, two unchecked dependency-ordered tasks, source reconciliation and command/security/review acceptance criteria.",
+                "Verified the native plan remains untracked/unstaged, all tracked content and the index are unchanged, and no implementation, commit or workflow control call occurred."
+              ]
+            }
+          },
+          "submission_sha256": "331a83c89393ddcc06940161befce56f8490a79c92c41ad230ff3c7cfe8d55f2",
+          "events_sha256": "8b7bd896abdbc9e2e0053209bea65dd87886b50912877636571462b8daf72bc9"
+        },
+        {
+          "step": "implement",
+          "session": "01a13c61-f912-7b32-a0ed-722ac646f4ac",
+          "verdict": "pass",
+          "outputs": {
+            "implementation": {
+              "base_commit": "2bbd3e9a1533ee3e4c9e7911854e5c34fd3a3c51",
+              "head_commit": "2bbd3e9a1533ee3e4c9e7911854e5c34fd3a3c51",
+              "changed_files": [
+                ".ai-factory/PLAN.md",
+                "greeting.py",
+                "test_greeting.py"
+              ]
+            },
+            "result": {
+              "outcome": "implemented",
+              "reason": "Both native plan tasks are complete. The required python3 -B -m unittest test_greeting command exited 0 with 5 tests passing; planned source inspection found no scope or security issues. Local commits are deferred to the separately scheduled commit stage because this plan has no commit checkpoint.",
+              "work": [
+                "Created greeting.py: greeting(name) returns the exact Hello, <name>! text with verbatim nonempty names, stdlib feature-local DEBUG entry/exit logging, LOG_LEVEL reduction/OFF, and original exception propagation.",
+                "Created test_greeting.py with 5 unittest tests covering exact ordinary, single-character, Unicode, spaced, punctuation, whitespace and newline names; logging context, enabled/disabled equivalence, default DEBUG, reduced levels and root logging preservation.",
+                "Ran python3 -B -m unittest test_greeting from the named repository: exit 0, Ran 5 tests, OK.",
+                "Inspected planned review and security criteria: exact f-string substitution, stdlib imports, no eval/exec, shell execution, network calls or feature file mutation.",
+                "Completed both owned .ai-factory/PLAN.md checkboxes immediately after their tasks; retained the plan untracked and unstaged for Pri-Fly engine capture.",
+                "Preserved owner.txt, tracked support files, clean index, original base_commit and actual unchanged HEAD. No local commit was performed in this implementation attempt.",
+                "Documentation: warn-only (Docs: no/unset); native plan Docs: no, so documentation checkpoint skipped."
+              ]
+            }
+          },
+          "submission_sha256": "f1efbb8b61a77da00ac3d67cb6869a2486c2bc11a98003e11cdd82b9fed2ce50",
+          "events_sha256": "8bdf87a4a43a56bf9553350e25ec1e505025c92c09603696f592a8008ba4d061"
+        },
+        {
+          "step": "checks",
+          "session": "01a13c65-b20c-7f93-8fce-577b4b2a2165",
+          "verdict": "pass",
+          "outputs": {
+            "report": {
+              "round": 1,
+              "request_digest": "sha256:79e0551e353552de8063185bc4e3c142b18f87832e60650963d54c263f1f2ccf",
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "2bbd3e9a1533ee3e4c9e7911854e5c34fd3a3c51",
+                "digest": "sha256:a6ec27e3fb22c0833163c903a9b209fec62dccb34cdbde0373e70860dea07ac0",
+                "files_digest": "sha256:aafa143bd5d73c1a27429a657f68cab71eb9e31d517307f4b6d106d7a842cde1",
+                "head_commit": "2bbd3e9a1533ee3e4c9e7911854e5c34fd3a3c51",
+                "index_digest": "sha256:4c04975a06486ea914ea469b18699730132c73a8242a558eadd9ff842235a6a6"
+              },
+              "session": "separate",
+              "model_profile": "unavailable",
+              "model": null,
+              "checks": [
+                {
+                  "id": "checks_acceptance",
+                  "status": "executed",
+                  "result": "passed",
+                  "reason": "",
+                  "evidence": [
+                    {
+                      "method": "command",
+                      "tool": "exec_command",
+                      "locator": "/tmp/w3-run-jql6zq06/authority/.prifly/work/claims/39cd44b1c29317eebfc83e05497c222e94e06cce577b8ad90bd8a43983e5e0e4 :: python3 -B -m unittest test_greeting",
+                      "observation": "Command: python3 -B -m unittest test_greeting\nExit code: 0\nObserved output:\n.....\n----------------------------------------------------------------------\nRan 5 tests in 0.017s\n\nOK\n",
+                      "exit_code": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "submission_sha256": "463b48770eb75908d8445d4930a3dec2bc474e848fa21795aa71d03ff0fa98aa",
+          "events_sha256": "45e5d6e5b7769835336b98bf179af395e0cb332907d7b19e288fb517636695fb"
+        },
+        {
+          "step": "security",
+          "session": "01a13c67-4b66-7863-bca8-032e60ffc3ed",
+          "verdict": "pass",
+          "outputs": {
+            "report": {
+              "round": 1,
+              "request_digest": "sha256:8ab58e00652bf27aa786336d87764b547c7c71b1a0a38a5b55ad6525d563eadc",
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "2bbd3e9a1533ee3e4c9e7911854e5c34fd3a3c51",
+                "digest": "sha256:a6ec27e3fb22c0833163c903a9b209fec62dccb34cdbde0373e70860dea07ac0",
+                "files_digest": "sha256:aafa143bd5d73c1a27429a657f68cab71eb9e31d517307f4b6d106d7a842cde1",
+                "head_commit": "2bbd3e9a1533ee3e4c9e7911854e5c34fd3a3c51",
+                "index_digest": "sha256:4c04975a06486ea914ea469b18699730132c73a8242a558eadd9ff842235a6a6"
+              },
+              "session": "separate",
+              "model_profile": "unavailable",
+              "model": null,
+              "checks": [
+                {
+                  "id": "security_acceptance",
+                  "status": "executed",
+                  "result": "passed",
+                  "reason": "",
+                  "evidence": [
+                    {
+                      "method": "code",
+                      "tool": "exec_command: python3 -B read-only source inspection",
+                      "locator": "/tmp/w3-run-jql6zq06/authority/.prifly/work/claims/39cd44b1c29317eebfc83e05497c222e94e06cce577b8ad90bd8a43983e5e0e4/greeting.py:1",
+                      "observation": "Inspected the complete module. Imports are standard-library logging and os. greeting formats its string input with an f-string and returns the result; it does not call eval, exec, subprocess, a shell, a network service, or a file writer. No embedded credentials or secrets were found. Logging uses parameterized messages and %r for names/results, which escapes newlines; LOG_LEVEL selects a logging level and OFF disables the feature logger. Debug logging is enabled by default, but this sealed isolated fixture defines no production/client logging criterion.",
+                      "exit_code": null
+                    },
+                    {
+                      "method": "code",
+                      "tool": "exec_command: python3 -B read-only source inspection",
+                      "locator": "/tmp/w3-run-jql6zq06/authority/.prifly/work/claims/39cd44b1c29317eebfc83e05497c222e94e06cce577b8ad90bd8a43983e5e0e4/test_greeting.py:1",
+                      "observation": "Inspected the complete test module. Dependencies are stdlib importlib, logging, os, unittest and unittest.mock. Tests exercise exact greetings and feature-local logging with temporary environment patches and logger-state restoration. No embedded credentials, unsafe dynamic execution, external services or new dependencies were found. Tests were inspected as code; this Attempt contains no command acceptance check.",
+                      "exit_code": null
+                    },
+                    {
+                      "method": "code",
+                      "tool": "exec_command: read-only git status/diff and project-context inspection",
+                      "locator": "/tmp/w3-run-jql6zq06/authority/.prifly/work/claims/39cd44b1c29317eebfc83e05497c222e94e06cce577b8ad90bd8a43983e5e0e4",
+                      "observation": "git rev-parse HEAD observed 2bbd3e9a1533ee3e4c9e7911854e5c34fd3a3c51. git status --porcelain=v1 --untracked-files=all observed only ?? greeting.py and ?? test_greeting.py; git diff --cached --no-ext-diff was empty. Both feature files are within the declared scope and were read directly because they are untracked. Root AGENTS.md, .ai-factory/config.yaml, .ai-factory/SECURITY.md and .ai-factory/skill-context/aif-security-checklist/SKILL.md are absent. There is no configured ignore-state or project override.",
+                      "exit_code": null
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "submission_sha256": "0c25ccb3b670b1281727d2ea04a4d9083df17263c2d4b139377f79bf8296e3b0",
+          "events_sha256": "2b1a4d346a21e07343293e6dc96f22d0f3af4c4fbb439488f38d696b72df12e0"
+        },
+        {
+          "step": "review",
+          "session": "01a13c6a-24f1-7ca0-ae4e-df7f3fe5ec4e",
+          "verdict": "pass",
+          "outputs": {
+            "report": {
+              "round": 1,
+              "request_digest": "sha256:d2c6fdc4fccc00105203594ee1a77f766dc4798d0682b2543662a7f8578c0e2f",
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "2bbd3e9a1533ee3e4c9e7911854e5c34fd3a3c51",
+                "digest": "sha256:a6ec27e3fb22c0833163c903a9b209fec62dccb34cdbde0373e70860dea07ac0",
+                "files_digest": "sha256:aafa143bd5d73c1a27429a657f68cab71eb9e31d517307f4b6d106d7a842cde1",
+                "head_commit": "2bbd3e9a1533ee3e4c9e7911854e5c34fd3a3c51",
+                "index_digest": "sha256:4c04975a06486ea914ea469b18699730132c73a8242a558eadd9ff842235a6a6"
+              },
+              "session": "separate",
+              "model_profile": "unavailable",
+              "model": null,
+              "checks": [
+                {
+                  "id": "review_acceptance",
+                  "status": "executed",
+                  "result": "warnings",
+                  "reason": "Exact greeting behavior and its test meet the declared acceptance scope; no blocking defect was found. The pinned upstream review context gates give nonblocking WARN results because the optional architecture, rules, and roadmap artifacts are absent. Empty strings and non-string inputs are outside the declared nonempty-string assumption. No independent-review model translation is supplied; session separation does not establish a different model.",
+                  "evidence": [
+                    {
+                      "method": "code",
+                      "tool": "functions.exec / exec_command (read-only source inspection)",
+                      "locator": "/tmp/w3-run-jql6zq06/authority/.prifly/work/claims/39cd44b1c29317eebfc83e05497c222e94e06cce577b8ad90bd8a43983e5e0e4/greeting.py:18",
+                      "observation": "Lines 18-27 define greeting(name: str) -> str, construct result = f\"Hello, {name}!\", and return it unchanged. This preserves all characters in a nonempty string, including Unicode, punctuation, spaces, and newlines, with the exact required prefix and exclamation mark. The logging calls do not transform the name or returned string. Only stdlib logging and os are imported.",
+                      "exit_code": null
+                    },
+                    {
+                      "method": "code",
+                      "tool": "functions.exec / exec_command (read-only source inspection)",
+                      "locator": "/tmp/w3-run-jql6zq06/authority/.prifly/work/claims/39cd44b1c29317eebfc83e05497c222e94e06cce577b8ad90bd8a43983e5e0e4/test_greeting.py:38",
+                      "observation": "Lines 38-52 assert exact expected greetings with unittest subtests for Ada, a single-character name, Unicode and emoji, an internal space, punctuation, leading/trailing spaces, whitespace-only input, and a newline. Lines 54-97 inspect logging behavior while preserving greeting results and root logger configuration. Lines 100-101 provide the unittest entry point. This was source inspection for the declared code check; no test-command execution is claimed.",
+                      "exit_code": null
+                    },
+                    {
+                      "method": "code",
+                      "tool": "functions.exec / exec_command (read-only source inspection)",
+                      "locator": "/tmp/w3-run-jql6zq06/authority/.prifly/work/claims/39cd44b1c29317eebfc83e05497c222e94e06cce577b8ad90bd8a43983e5e0e4/.ai-factory",
+                      "observation": "Direct existence inspection found .ai-factory/config.yaml, DESCRIPTION.md, ARCHITECTURE.md, RULES.md, ROADMAP.md, RESEARCH.md, rules/base.md, and skill-context/aif-review/SKILL.md absent; root AGENTS.md is also absent. Default review context paths therefore apply. Missing optional architecture/rules/roadmap produce nonblocking context warnings under the pinned aif-review skill; no explicit blocking context rule was available.",
+                      "exit_code": null
+                    },
+                    {
+                      "method": "code",
+                      "tool": "functions.exec / exec_command (read-only source inspection)",
+                      "locator": "/tmp/w3-run-jql6zq06/authority/.prifly/work/claims/39cd44b1c29317eebfc83e05497c222e94e06cce577b8ad90bd8a43983e5e0e4/greeting.py",
+                      "observation": "Read-only git status reports only untracked greeting.py and test_greeting.py, with no staged or tracked modifications. HEAD equals the bound base/head 2bbd3e9a1533ee3e4c9e7911854e5c34fd3a3c51. Cached and working-tree diffs for the feature are empty because its files are untracked; both files were inspected in full. No repository file, plan, or index was edited.",
+                      "exit_code": null
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "submission_sha256": "c7fca26fcf498d64fda609acf9ec9ddbe41b097cb22896b5fb252a66825c722a",
+          "events_sha256": "f5f047b887b5d52e31ee4c213b1f859579e2bbd93d518b0af1884b30367dec06"
+        },
+        {
+          "step": "commit",
+          "session": "01a13c6c-2a40-7eb3-b739-9a7d115c7387",
+          "verdict": "pass",
+          "outputs": {
+            "implementation": {
+              "base_commit": "2bbd3e9a1533ee3e4c9e7911854e5c34fd3a3c51",
+              "head_commit": "1085321520a9c206127caafda2ae71617e9be5b3",
+              "changed_files": [
+                "greeting.py",
+                "test_greeting.py"
+              ]
+            },
+            "result": {
+              "outcome": "implemented",
+              "reason": "The delivered candidate and accepted nonblocking gate were independently verified before staging. The declared acceptance command passed all 5 tests. The authorized local commit succeeded and contains only greeting.py and test_greeting.py; the repository is clean and all candidate file bytes/modes are preserved.",
+              "work": [
+                "Read all delivered pinned instructions and bound inputs; verified their actual SHA-256 digests.",
+                "Remeasured git-candidate/1 using the pinned snapshot implementation before any write and confirmed full equality with the delivered candidate, evidence.candidate equality and evidence.gate equality with the accepted gate.",
+                "Inspected the clean index and reviewed both scoped feature files. Native PLAN.md and the plans directory are absent as sealed by the prior stage; no plan or project document was created, modified or deleted.",
+                "Ran python3 -B -m unittest test_greeting in the named repository: exit 0, Ran 5 tests in 0.008s, OK.",
+                "Applied pinned aif-commit context gates: WARN for absent optional architecture, description, rules and roadmap context; no project commit override or active Commit Plan was present.",
+                "Staged only greeting.py and test_greeting.py and reviewed the cached diff.",
+                "Created local commit 1085321520a9c206127caafda2ae71617e9be5b3 with message feat(greeting): add greeting function and acceptance tests, using per-command fixture identity and signing disabled.",
+                "Verified actual base-to-HEAD changed paths, commit parent and author, clean final index/worktree and unchanged candidate files_digest; owner.txt and all unrelated files remain preserved.",
+                "The initial bounded shell launch failed with bwrap loopback Operation not permitted; the required exact-command automatic approval retry succeeded. Subsequent bounded commands also used automatic approval. No command was rejected.",
+                "Preserved the accepted gate warnings about unavailable independent model translation; no model mapping was invented. No task model_profile is declared and no actual questions arose."
+              ]
+            }
+          },
+          "submission_sha256": "2da02bb29cc5399d581806c7f0e0d300d2858d5e810cbcd4507060eab53b1139",
+          "events_sha256": "0df515976ca2bd57f07f5b752609c71b258914f45a240d14a0a705e7749edc64"
+        }
+      ],
+      "outputs": {
+        "evidence": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "2bbd3e9a1533ee3e4c9e7911854e5c34fd3a3c51",
+            "digest": "sha256:a6ec27e3fb22c0833163c903a9b209fec62dccb34cdbde0373e70860dea07ac0",
+            "files_digest": "sha256:aafa143bd5d73c1a27429a657f68cab71eb9e31d517307f4b6d106d7a842cde1",
+            "head_commit": "2bbd3e9a1533ee3e4c9e7911854e5c34fd3a3c51",
+            "index_digest": "sha256:4c04975a06486ea914ea469b18699730132c73a8242a558eadd9ff842235a6a6"
+          },
+          "gate": {
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "checks: Model profile unavailable; independent model not established",
+              "security: Model profile unavailable; independent model not established",
+              "review: Model profile unavailable; independent model not established",
+              "review: review_acceptance: Exact greeting behavior and its test meet the declared acceptance scope; no blocking defect was found. The pinned upstream review context gates give nonblocking WARN results because the optional architecture, rules, and roadmap artifacts are absent. Empty strings and non-string inputs are outside the declared nonempty-string assumption. No independent-review model translation is supplied; session separation does not establish a different model."
+            ],
+            "gate": "feature",
+            "status": "warnings",
+            "suggested_next": "continue"
+          },
+          "product": null,
+          "reports": {
+            "checks": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "2bbd3e9a1533ee3e4c9e7911854e5c34fd3a3c51",
+                "digest": "sha256:a6ec27e3fb22c0833163c903a9b209fec62dccb34cdbde0373e70860dea07ac0",
+                "files_digest": "sha256:aafa143bd5d73c1a27429a657f68cab71eb9e31d517307f4b6d106d7a842cde1",
+                "head_commit": "2bbd3e9a1533ee3e4c9e7911854e5c34fd3a3c51",
+                "index_digest": "sha256:4c04975a06486ea914ea469b18699730132c73a8242a558eadd9ff842235a6a6"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": 0,
+                      "locator": "/tmp/w3-run-jql6zq06/authority/.prifly/work/claims/39cd44b1c29317eebfc83e05497c222e94e06cce577b8ad90bd8a43983e5e0e4 :: python3 -B -m unittest test_greeting",
+                      "method": "command",
+                      "observation": "Command: python3 -B -m unittest test_greeting\nExit code: 0\nObserved output:\n.....\n----------------------------------------------------------------------\nRan 5 tests in 0.017s\n\nOK\n",
+                      "tool": "exec_command"
+                    }
+                  ],
+                  "id": "checks_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:79e0551e353552de8063185bc4e3c142b18f87832e60650963d54c263f1f2ccf",
+              "round": 1,
+              "session": "separate"
+            },
+            "review": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "2bbd3e9a1533ee3e4c9e7911854e5c34fd3a3c51",
+                "digest": "sha256:a6ec27e3fb22c0833163c903a9b209fec62dccb34cdbde0373e70860dea07ac0",
+                "files_digest": "sha256:aafa143bd5d73c1a27429a657f68cab71eb9e31d517307f4b6d106d7a842cde1",
+                "head_commit": "2bbd3e9a1533ee3e4c9e7911854e5c34fd3a3c51",
+                "index_digest": "sha256:4c04975a06486ea914ea469b18699730132c73a8242a558eadd9ff842235a6a6"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "/tmp/w3-run-jql6zq06/authority/.prifly/work/claims/39cd44b1c29317eebfc83e05497c222e94e06cce577b8ad90bd8a43983e5e0e4/greeting.py:18",
+                      "method": "code",
+                      "observation": "Lines 18-27 define greeting(name: str) -> str, construct result = f\"Hello, {name}!\", and return it unchanged. This preserves all characters in a nonempty string, including Unicode, punctuation, spaces, and newlines, with the exact required prefix and exclamation mark. The logging calls do not transform the name or returned string. Only stdlib logging and os are imported.",
+                      "tool": "functions.exec / exec_command (read-only source inspection)"
+                    },
+                    {
+                      "exit_code": null,
+                      "locator": "/tmp/w3-run-jql6zq06/authority/.prifly/work/claims/39cd44b1c29317eebfc83e05497c222e94e06cce577b8ad90bd8a43983e5e0e4/test_greeting.py:38",
+                      "method": "code",
+                      "observation": "Lines 38-52 assert exact expected greetings with unittest subtests for Ada, a single-character name, Unicode and emoji, an internal space, punctuation, leading/trailing spaces, whitespace-only input, and a newline. Lines 54-97 inspect logging behavior while preserving greeting results and root logger configuration. Lines 100-101 provide the unittest entry point. This was source inspection for the declared code check; no test-command execution is claimed.",
+                      "tool": "functions.exec / exec_command (read-only source inspection)"
+                    },
+                    {
+                      "exit_code": null,
+                      "locator": "/tmp/w3-run-jql6zq06/authority/.prifly/work/claims/39cd44b1c29317eebfc83e05497c222e94e06cce577b8ad90bd8a43983e5e0e4/.ai-factory",
+                      "method": "code",
+                      "observation": "Direct existence inspection found .ai-factory/config.yaml, DESCRIPTION.md, ARCHITECTURE.md, RULES.md, ROADMAP.md, RESEARCH.md, rules/base.md, and skill-context/aif-review/SKILL.md absent; root AGENTS.md is also absent. Default review context paths therefore apply. Missing optional architecture/rules/roadmap produce nonblocking context warnings under the pinned aif-review skill; no explicit blocking context rule was available.",
+                      "tool": "functions.exec / exec_command (read-only source inspection)"
+                    },
+                    {
+                      "exit_code": null,
+                      "locator": "/tmp/w3-run-jql6zq06/authority/.prifly/work/claims/39cd44b1c29317eebfc83e05497c222e94e06cce577b8ad90bd8a43983e5e0e4/greeting.py",
+                      "method": "code",
+                      "observation": "Read-only git status reports only untracked greeting.py and test_greeting.py, with no staged or tracked modifications. HEAD equals the bound base/head 2bbd3e9a1533ee3e4c9e7911854e5c34fd3a3c51. Cached and working-tree diffs for the feature are empty because its files are untracked; both files were inspected in full. No repository file, plan, or index was edited.",
+                      "tool": "functions.exec / exec_command (read-only source inspection)"
+                    }
+                  ],
+                  "id": "review_acceptance",
+                  "reason": "Exact greeting behavior and its test meet the declared acceptance scope; no blocking defect was found. The pinned upstream review context gates give nonblocking WARN results because the optional architecture, rules, and roadmap artifacts are absent. Empty strings and non-string inputs are outside the declared nonempty-string assumption. No independent-review model translation is supplied; session separation does not establish a different model.",
+                  "result": "warnings",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:d2c6fdc4fccc00105203594ee1a77f766dc4798d0682b2543662a7f8578c0e2f",
+              "round": 1,
+              "session": "separate"
+            },
+            "security": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "2bbd3e9a1533ee3e4c9e7911854e5c34fd3a3c51",
+                "digest": "sha256:a6ec27e3fb22c0833163c903a9b209fec62dccb34cdbde0373e70860dea07ac0",
+                "files_digest": "sha256:aafa143bd5d73c1a27429a657f68cab71eb9e31d517307f4b6d106d7a842cde1",
+                "head_commit": "2bbd3e9a1533ee3e4c9e7911854e5c34fd3a3c51",
+                "index_digest": "sha256:4c04975a06486ea914ea469b18699730132c73a8242a558eadd9ff842235a6a6"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "/tmp/w3-run-jql6zq06/authority/.prifly/work/claims/39cd44b1c29317eebfc83e05497c222e94e06cce577b8ad90bd8a43983e5e0e4/greeting.py:1",
+                      "method": "code",
+                      "observation": "Inspected the complete module. Imports are standard-library logging and os. greeting formats its string input with an f-string and returns the result; it does not call eval, exec, subprocess, a shell, a network service, or a file writer. No embedded credentials or secrets were found. Logging uses parameterized messages and %r for names/results, which escapes newlines; LOG_LEVEL selects a logging level and OFF disables the feature logger. Debug logging is enabled by default, but this sealed isolated fixture defines no production/client logging criterion.",
+                      "tool": "exec_command: python3 -B read-only source inspection"
+                    },
+                    {
+                      "exit_code": null,
+                      "locator": "/tmp/w3-run-jql6zq06/authority/.prifly/work/claims/39cd44b1c29317eebfc83e05497c222e94e06cce577b8ad90bd8a43983e5e0e4/test_greeting.py:1",
+                      "method": "code",
+                      "observation": "Inspected the complete test module. Dependencies are stdlib importlib, logging, os, unittest and unittest.mock. Tests exercise exact greetings and feature-local logging with temporary environment patches and logger-state restoration. No embedded credentials, unsafe dynamic execution, external services or new dependencies were found. Tests were inspected as code; this Attempt contains no command acceptance check.",
+                      "tool": "exec_command: python3 -B read-only source inspection"
+                    },
+                    {
+                      "exit_code": null,
+                      "locator": "/tmp/w3-run-jql6zq06/authority/.prifly/work/claims/39cd44b1c29317eebfc83e05497c222e94e06cce577b8ad90bd8a43983e5e0e4",
+                      "method": "code",
+                      "observation": "git rev-parse HEAD observed 2bbd3e9a1533ee3e4c9e7911854e5c34fd3a3c51. git status --porcelain=v1 --untracked-files=all observed only ?? greeting.py and ?? test_greeting.py; git diff --cached --no-ext-diff was empty. Both feature files are within the declared scope and were read directly because they are untracked. Root AGENTS.md, .ai-factory/config.yaml, .ai-factory/SECURITY.md and .ai-factory/skill-context/aif-security-checklist/SKILL.md are absent. There is no configured ignore-state or project override.",
+                      "tool": "exec_command: read-only git status/diff and project-context inspection"
+                    }
+                  ],
+                  "id": "security_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:8ab58e00652bf27aa786336d87764b547c7c71b1a0a38a5b55ad6525d563eadc",
+              "round": 1,
+              "session": "separate"
+            }
+          },
+          "requests": {
+            "checks": {
+              "base_commit": "2bbd3e9a1533ee3e4c9e7911854e5c34fd3a3c51",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "python3 -B -m unittest test_greeting",
+                  "enabled": true,
+                  "id": "checks_acceptance",
+                  "method": "command",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": true,
+              "round": 1
+            },
+            "review": {
+              "base_commit": "2bbd3e9a1533ee3e4c9e7911854e5c34fd3a3c51",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect greeting(name) returns exact expected text, test and edge cases within scope",
+                  "enabled": true,
+                  "id": "review_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": true,
+              "round": 1
+            },
+            "security": {
+              "base_commit": "2bbd3e9a1533ee3e4c9e7911854e5c34fd3a3c51",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect greeting implementation against scope; no secrets or unsafe execution",
+                  "enabled": true,
+                  "id": "security_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": true,
+              "round": 1
+            }
+          },
+          "round": 1,
+          "task_digest": "sha256:cf16ccd37ccc908a1207942b0b5aa9f382181a725fa54b15e1ad04ccc36667c1"
+        },
+        "gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "checks: Model profile unavailable; independent model not established",
+            "security: Model profile unavailable; independent model not established",
+            "review: Model profile unavailable; independent model not established",
+            "review: review_acceptance: Exact greeting behavior and its test meet the declared acceptance scope; no blocking defect was found. The pinned upstream review context gates give nonblocking WARN results because the optional architecture, rules, and roadmap artifacts are absent. Empty strings and non-string inputs are outside the declared nonempty-string assumption. No independent-review model translation is supplied; session separation does not establish a different model."
+          ],
+          "gate": "feature",
+          "status": "warnings",
+          "suggested_next": "continue"
+        },
+        "implementation": {
+          "base_commit": "2bbd3e9a1533ee3e4c9e7911854e5c34fd3a3c51",
+          "head_commit": "1085321520a9c206127caafda2ae71617e9be5b3",
+          "changed_files": [
+            "greeting.py",
+            "test_greeting.py"
+          ]
+        },
+        "plan": {
+          "entrypoint": "PLAN.md",
+          "files": [
+            {
+              "path": "PLAN.md",
+              "ref": {
+                "artifact_id": "artifact:bcb37992cab78c8d361fc2fe74f868d759242841dc7516e12457c061870987aa",
+                "digest": "sha256:28eec7f47014c24d96d811232ed88e887c0b906b80cda444e290438e05feb6c4",
+                "revision": 1
+              }
+            }
+          ],
+          "root": ".ai-factory",
+          "schema_version": "workspace-tree-manifest/1"
+        },
+        "result": {
+          "outcome": "implemented",
+          "reason": "The delivered candidate and accepted nonblocking gate were independently verified before staging. The declared acceptance command passed all 5 tests. The authorized local commit succeeded and contains only greeting.py and test_greeting.py; the repository is clean and all candidate file bytes/modes are preserved.",
+          "work": [
+            "Read all delivered pinned instructions and bound inputs; verified their actual SHA-256 digests.",
+            "Remeasured git-candidate/1 using the pinned snapshot implementation before any write and confirmed full equality with the delivered candidate, evidence.candidate equality and evidence.gate equality with the accepted gate.",
+            "Inspected the clean index and reviewed both scoped feature files. Native PLAN.md and the plans directory are absent as sealed by the prior stage; no plan or project document was created, modified or deleted.",
+            "Ran python3 -B -m unittest test_greeting in the named repository: exit 0, Ran 5 tests in 0.008s, OK.",
+            "Applied pinned aif-commit context gates: WARN for absent optional architecture, description, rules and roadmap context; no project commit override or active Commit Plan was present.",
+            "Staged only greeting.py and test_greeting.py and reviewed the cached diff.",
+            "Created local commit 1085321520a9c206127caafda2ae71617e9be5b3 with message feat(greeting): add greeting function and acceptance tests, using per-command fixture identity and signing disabled.",
+            "Verified actual base-to-HEAD changed paths, commit parent and author, clean final index/worktree and unchanged candidate files_digest; owner.txt and all unrelated files remain preserved.",
+            "The initial bounded shell launch failed with bwrap loopback Operation not permitted; the required exact-command automatic approval retry succeeded. Subsequent bounded commands also used automatic approval. No command was rejected.",
+            "Preserved the accepted gate warnings about unavailable independent model translation; no model mapping was invented. No task model_profile is declared and no actual questions arose."
+          ]
+        }
+      },
+      "mode_name": "direct",
+      "reported_usage": [
+        {
+          "attempt": "00-warmup",
+          "session": "01a13c5d-1b6f-7192-ab7f-820c9853d5d7",
+          "reported_token_usage": {
+            "input_tokens": 251738,
+            "cached_input_tokens": 224128,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 4351,
+            "reasoning_output_tokens": 985
+          },
+          "events_sha256": "13b7abe8a35195419102e0c2ea6c78130824859e194d50913f875020749e6636"
+        },
+        {
+          "attempt": "01-plan",
+          "session": "01a13c5e-c06b-7b41-b5a2-10d024bf31d7",
+          "reported_token_usage": {
+            "input_tokens": 657957,
+            "cached_input_tokens": 595968,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 6453,
+            "reasoning_output_tokens": 593
+          },
+          "events_sha256": "8b7bd896abdbc9e2e0053209bea65dd87886b50912877636571462b8daf72bc9"
+        },
+        {
+          "attempt": "02-implement",
+          "session": "01a13c61-f912-7b32-a0ed-722ac646f4ac",
+          "reported_token_usage": {
+            "input_tokens": 556934,
+            "cached_input_tokens": 499328,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 7730,
+            "reasoning_output_tokens": 1371
+          },
+          "events_sha256": "8bdf87a4a43a56bf9553350e25ec1e505025c92c09603696f592a8008ba4d061"
+        },
+        {
+          "attempt": "03-checks",
+          "session": "01a13c65-b20c-7f93-8fce-577b4b2a2165",
+          "reported_token_usage": {
+            "input_tokens": 306524,
+            "cached_input_tokens": 262144,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2909,
+            "reasoning_output_tokens": 344
+          },
+          "events_sha256": "45e5d6e5b7769835336b98bf179af395e0cb332907d7b19e288fb517636695fb"
+        },
+        {
+          "attempt": "04-security",
+          "session": "01a13c67-4b66-7863-bca8-032e60ffc3ed",
+          "reported_token_usage": {
+            "input_tokens": 542394,
+            "cached_input_tokens": 491392,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 5509,
+            "reasoning_output_tokens": 490
+          },
+          "events_sha256": "2b1a4d346a21e07343293e6dc96f22d0f3af4c4fbb439488f38d696b72df12e0"
+        },
+        {
+          "attempt": "05-review",
+          "session": "01a13c6a-24f1-7ca0-ae4e-df7f3fe5ec4e",
+          "reported_token_usage": {
+            "input_tokens": 312517,
+            "cached_input_tokens": 265856,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 3700,
+            "reasoning_output_tokens": 701
+          },
+          "events_sha256": "f5f047b887b5d52e31ee4c213b1f859579e2bbd93d518b0af1884b30367dec06"
+        },
+        {
+          "attempt": "06-commit",
+          "session": "01a13c6c-2a40-7eb3-b739-9a7d115c7387",
+          "reported_token_usage": {
+            "input_tokens": 593087,
+            "cached_input_tokens": 523264,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 4746,
+            "reasoning_output_tokens": 398
+          },
+          "events_sha256": "0df515976ca2bd57f07f5b752609c71b258914f45a240d14a0a705e7749edc64"
+        }
+      ],
+      "qualification_scope": "Actual unedited actor observations before final acceptance-call grouping/frontend scheduling clarification; core programs/reader/repair contracts unchanged. Final graph is qualified separately by released runtime matrix and final frontend/resume Runs."
+    },
+    {
+      "case": "live-repair",
+      "host": "codex-cli",
+      "mode": "fresh actual Codex CLI writers/readers, unedited submissions",
+      "source_outcome": "succeeded",
+      "outcome": "succeeded",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "repair",
+        "checks",
+        "security",
+        "review",
+        "commit"
+      ],
+      "rounds": [],
+      "elapsed_seconds": 1635.664,
+      "cleaned": true,
+      "observations": [
+        {
+          "step": "warmup",
+          "session": "01a13c58-096a-7371-9442-6304413fc8ad",
+          "verdict": "pass",
+          "outputs": {
+            "handoff": {
+              "summary": "Configuration \u2014 Project root: /tmp/w3-run-za6l4qz5/authority/.prifly/work/claims/c5d0141ebc3f6ec0a846f8e5846ab0d40f320332b114f4f3d6b2fa264b687f56. Config absent. Default context paths are .ai-factory/{DESCRIPTION,ARCHITECTURE,ROADMAP,RESEARCH,RULES}.md and .ai-factory/rules/base.md; rules directory .ai-factory/rules/. warmup.paths=[]; language.ui=en. Artifact language, technical-term, git and workflow preferences are not configured; no defaults for these retained preferences are specified by the pinned warmup. Sealed backend/autonomous decisions: plan_tests=true, plan_constraints=\"\", plan_retention=capture. Handoff values: HANDOFF_MODE=1, HANDOFF_TASK_ID=\"\", HANDOFF_SKIP_REVIEW=0.\n\nProject \u2014 Bound task: Small greeting feature. Add greeting(name) returning Hello, <name>! with a test. Scope: greeting.py and test_greeting.py. Name is a nonempty string; no new dependency. Caller identifies an isolated stdlib Python fixture. Project documentation is absent; application code was not inspected during warmup. HEAD=c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7; no staged, unstaged or nonignored untracked paths.\n\nArchitecture \u2014 No architecture artifact exists. Bound feature names greeting.py as the implementation and test_greeting.py as the test entry point; existing code structure is unverified.\n\nDirection \u2014 Caller chose aif-feature. No roadmap, research artifact or marked research bundle was found. Required command acceptance: python3 -B -m unittest test_greeting. Required code acceptance covers exact greeting text, tests and edge cases, scope, secrets and unsafe execution. Acceptance is retained for subsequent stages and was not executed in this read-only warmup.\n\nRules \u2014 Pinned W3 bridge governs this single Attempt. Use only the claimed repository. Preserve unrelated staged/dirty/untracked work. Warmup cannot modify repository files, code, plans, config or branches. Pri-Fly owns workflow progression; no next-stage invocation, environment provisioning, publication or requirement rewrite. Business/scope ambiguity requires the owner. require_separate_session=true; no host independent-review model translation is supplied. No model profile is declared.\n\nGaps \u2014 Missing: .ai-factory/config.yaml, AGENTS.md, .ai-factory/skill-context/aif-warmup/SKILL.md, .ai-factory/DESCRIPTION.md, .ai-factory/ARCHITECTURE.md, .ai-factory/ROADMAP.md, .ai-factory/RESEARCH.md, .ai-factory/RULES.md, .ai-factory/rules/base.md. No named area rules or additional warmup paths are configured. No project-root ambiguity or owner question arose.\n\nLoaded \u2014 task.json, context.json, inputs/task, submission-template.json, context/skills/aif-context-aif-warmup-0.0.0-b1.kd7r66gmw2suusdcvjkknmta2a4bjbao4zgcp76mv3k24ayev3ba, context/skills/aif-feature-context-feature-warmup-0.0.0-b1.r2ws6dxaazakvyzwdijzbjqfdxr6e7zyh5witfgjxi2h3rmb6xsq. Repository context candidates were checked and found missing. Git HEAD/status and dirty/nonignored path queries were read only, with optional git writes disabled.\n\nReady \u2014 Context warmup is complete and this handoff can support continuation or a separate session. Original base and head are identical. Repository remained unchanged.",
+              "entry_points": [
+                "greeting.py \u2014 bound implementation scope; not inspected during warmup.",
+                "test_greeting.py \u2014 bound test scope; required acceptance is python3 -B -m unittest test_greeting."
+              ],
+              "conventions": [
+                "Return exactly Hello, <name>! for a nonempty string name.",
+                "Use only stdlib; add no dependency.",
+                "Feature scope is greeting.py and test_greeting.py.",
+                "Plan tests=true; plan constraints empty; native plan retention=capture.",
+                "Read-only warmup; preserve all repository files and staged work.",
+                "HANDOFF_MODE=1; HANDOFF_TASK_ID=\"\"; HANDOFF_SKIP_REVIEW=0.",
+                "Require a separate review session; no independent-review model mapping is available.",
+                "Pri-Fly owns subsequent stages; no push, merge, branch/worktree creation, provisioning or control calls."
+              ],
+              "sources": [
+                "/tmp/w3-run-za6l4qz5/authority/.prifly/work/f788dfbea0028125f2ec3bd3f705dadd/task.json",
+                "/tmp/w3-run-za6l4qz5/authority/.prifly/work/f788dfbea0028125f2ec3bd3f705dadd/context.json",
+                "/tmp/w3-run-za6l4qz5/authority/.prifly/work/f788dfbea0028125f2ec3bd3f705dadd/inputs/task",
+                "/tmp/w3-run-za6l4qz5/authority/.prifly/work/f788dfbea0028125f2ec3bd3f705dadd/submission-template.json",
+                "/tmp/w3-run-za6l4qz5/authority/.prifly/work/f788dfbea0028125f2ec3bd3f705dadd/context/skills/aif-context-aif-warmup-0.0.0-b1.kd7r66gmw2suusdcvjkknmta2a4bjbao4zgcp76mv3k24ayev3ba",
+                "/tmp/w3-run-za6l4qz5/authority/.prifly/work/f788dfbea0028125f2ec3bd3f705dadd/context/skills/aif-feature-context-feature-warmup-0.0.0-b1.r2ws6dxaazakvyzwdijzbjqfdxr6e7zyh5witfgjxi2h3rmb6xsq"
+              ],
+              "open_questions": []
+            },
+            "implementation": {
+              "base_commit": "c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7",
+              "head_commit": "c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7",
+              "changed_files": []
+            }
+          },
+          "submission_sha256": "45db02aeb262a5b4650c36cc67d6a97256bb7b1177ecf44e27be0d2c2e3b8f84",
+          "events_sha256": "a8b33f2b51e29f84fff3ed037ebc0fd2ba6baf0bad72daf4cf7680cccde920bc"
+        },
+        {
+          "step": "plan",
+          "session": "01a13c59-ba8a-7de3-8e2c-453b30f6af07",
+          "verdict": "pass",
+          "outputs": {
+            "result": {
+              "outcome": "ready",
+              "reason": "The native fast plan exists with two bounded implementation/test tasks, exact original request, settled scope and assumptions, sealed settings, and all named acceptance criteria. The required command syntax was verified on the current tree; its baseline failed because test_greeting is not implemented yet, as recorded in the plan.",
+              "work": [
+                "Read all three pinned instruction/reference artifacts, all bound inputs, task/context, native capture guide, and submission template; verified the six pinned/input SHA256 digests.",
+                "Performed read-only discovery in the named repository_workspace: no project config/context or scoped feature files exist, the native plan path was free, and the starting repository was clean at c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7.",
+                "Applied pinned aif-plan fast to task.description exactly, using sealed tests=true, empty additional constraints, Docs:no, roadmap linkage:none, and capture retention. Exploration-agent startup was unavailable; used the documented direct-discovery fallback.",
+                "Ran python3 -B -m unittest test_greeting: exit 1, ModuleNotFoundError for test_greeting, FAILED (errors=1); retained this observed baseline without claiming feature acceptance.",
+                "Created only the owned .ai-factory/PLAN.md with two unchecked dependency-ordered tasks, logging instructions, bounded valid-domain cases, and command/security/review criteria. Native plan SHA256 is sha256:40ead270e437a82ae696a9ca099df4ccca059d80c617233c70e89d94cca8e6d4.",
+                "Verified exact Original Request, native sections, task count, and named criteria. Confirmed only the untracked unstaged native plan changed; HEAD, tracked files, and staging remained unchanged. No implementation, commit, publication, downstream workflow, or Pri-Fly control action was performed."
+              ]
+            }
+          },
+          "submission_sha256": "53ca0c1f4d951198ea4565a1df2597833f350c276e8a7cfd88e273d814ecea80",
+          "events_sha256": "4b4fadc2b0ef692e5d2f9e04668afe3c2dc6664e5fdb924749d0676de372d7e9"
+        },
+        {
+          "step": "implement",
+          "session": "01a13c5c-cb66-7320-969d-f13f1a2b77ed",
+          "verdict": "pass",
+          "outputs": {
+            "implementation": {
+              "base_commit": "c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7",
+              "head_commit": "c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7",
+              "changed_files": [
+                ".ai-factory/PLAN.md",
+                "greeting.py",
+                "test_greeting.py"
+              ]
+            },
+            "result": {
+              "outcome": "implemented",
+              "reason": "Both native plan tasks are complete. The exact required unittest command passed all three tests; implementation inspection confirms the exact greeting contract and scope/security acceptance. The native plan remains untracked and unstaged for engine capture. There is no plan commit checkpoint; Pri-Fly owns subsequent quality and local commit stages.",
+              "work": [
+                "Discovered the named claimed repository and reconciled its native PLAN, bound task, absent config and project rules; verified pinned skill and bound-input SHA256 digests.",
+                "Created greeting.py with greeting(name) returning exactly f\"Hello, {name}!\" and preserving the declared nonempty string input.",
+                "Created test_greeting.py with three standard-library unittest cases using literal expected text for Ada, A, and Zo\u00eb Li.",
+                "Ran python3 -B -m unittest test_greeting from the repository root: exit 0, Ran 3 tests, OK.",
+                "Inspected both scoped files: exact output and planned edge cases covered; only unittest and the scoped local module are imported; no secrets, unsafe execution, dependencies, or runtime output side effects.",
+                "Marked each native task checkbox complete immediately after its verification; verified the plan differs from its materialized revision only by those two checkbox changes.",
+                "Verified HEAD is unchanged and tracked files and index remain unchanged; actual untracked paths are only the owned PLAN and two declared feature files. Documentation is warn-only (Docs: no); separate review has not been performed or claimed."
+              ]
+            }
+          },
+          "submission_sha256": "ccb5a5384c856980ecaa3611b212be139c7ce61ac04caa92facd5c575753d9b1",
+          "events_sha256": "ba6e5348c2ea23bb55d9492b24cb1dc8ab17ebbea230d48a58d377d628213b35"
+        },
+        {
+          "step": "checks",
+          "session": "01a13c5f-84e2-7901-b00a-36a439a8786d",
+          "verdict": "pass",
+          "outputs": {
+            "report": {
+              "round": 1,
+              "request_digest": "sha256:7cd604b7966b4c52a32190f64078a01ff05375b692508d971b1928c87d4d3665",
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7",
+                "digest": "sha256:796337e5ca06ae06a24c160fcfeea39e8025f31bb95b0b0731e13bfb2e59abab",
+                "files_digest": "sha256:3d9f8f37703edd992b446a01c6fdcc1a9be458bf961c1bf4c6b4c7ba279039c1",
+                "head_commit": "c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7",
+                "index_digest": "sha256:0f05c8adc34d03002c81e20700821d50caf0c0d6533520a80ab8d47d95324a8d"
+              },
+              "session": "separate",
+              "model_profile": "unavailable",
+              "model": null,
+              "checks": [
+                {
+                  "id": "checks_acceptance",
+                  "status": "executed",
+                  "result": "failed",
+                  "reason": "The command exited 1: all three tests failed because greeting(name) returns Goodbye, <name>! instead of the required Hello, <name>!, including a single-character name and a Unicode name with an internal space.",
+                  "evidence": [
+                    {
+                      "method": "command",
+                      "tool": "exec_command",
+                      "locator": "/tmp/w3-run-za6l4qz5/authority/.prifly/work/claims/c5d0141ebc3f6ec0a846f8e5846ab0d40f320332b114f4f3d6b2fa264b687f56 :: python3 -B -m unittest test_greeting",
+                      "observation": "FFF\n======================================================================\nFAIL: test_greets_name_with_exact_punctuation (test_greeting.GreetingTests.test_greets_name_with_exact_punctuation)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/w3-run-za6l4qz5/authority/.prifly/work/claims/c5d0141ebc3f6ec0a846f8e5846ab0d40f320332b114f4f3d6b2fa264b687f56/test_greeting.py\", line 8, in test_greets_name_with_exact_punctuation\n    self.assertEqual(greeting(\"Ada\"), \"Hello, Ada!\")\nAssertionError: 'Goodbye, Ada!' != 'Hello, Ada!'\n- Goodbye, Ada!\n+ Hello, Ada!\n\n\n======================================================================\nFAIL: test_greets_shortest_valid_name (test_greeting.GreetingTests.test_greets_shortest_valid_name)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/w3-run-za6l4qz5/authority/.prifly/work/claims/c5d0141ebc3f6ec0a846f8e5846ab0d40f320332b114f4f3d6b2fa264b687f56/test_greeting.py\", line 11, in test_greets_shortest_valid_name\n    self.assertEqual(greeting(\"A\"), \"Hello, A!\")\nAssertionError: 'Goodbye, A!' != 'Hello, A!'\n- Goodbye, A!\n+ Hello, A!\n\n\n======================================================================\nFAIL: test_preserves_unicode_and_internal_space (test_greeting.GreetingTests.test_preserves_unicode_and_internal_space)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/w3-run-za6l4qz5/authority/.prifly/work/claims/c5d0141ebc3f6ec0a846f8e5846ab0d40f320332b114f4f3d6b2fa264b687f56/test_greeting.py\", line 14, in test_preserves_unicode_and_internal_space\n    self.assertEqual(greeting(\"Zo\u00eb Li\"), \"Hello, Zo\u00eb Li!\")\nAssertionError: 'Goodbye, Zo\u00eb Li!' != 'Hello, Zo\u00eb Li!'\n- Goodbye, Zo\u00eb Li!\n+ Hello, Zo\u00eb Li!\n\n\n----------------------------------------------------------------------\nRan 3 tests in 0.001s\n\nFAILED (failures=3)\n",
+                      "exit_code": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "submission_sha256": "43fdd3f91522042ae5839326ecf9d1c98e72e9020755c83d7e86ac142250d21c",
+          "events_sha256": "babcaf514d0eecf81eb9f60fc041e1284f47d0aa246bbc27e884db86c4ca7111"
+        },
+        {
+          "step": "security",
+          "session": "01a13c61-6d18-7180-86f1-7027235663fc",
+          "verdict": "pass",
+          "outputs": {
+            "report": {
+              "round": 1,
+              "request_digest": "sha256:759fd969dfd934b75dbca49dc6d2c7d203d55dcc22c351f5095c019452173588",
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7",
+                "digest": "sha256:796337e5ca06ae06a24c160fcfeea39e8025f31bb95b0b0731e13bfb2e59abab",
+                "files_digest": "sha256:3d9f8f37703edd992b446a01c6fdcc1a9be458bf961c1bf4c6b4c7ba279039c1",
+                "head_commit": "c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7",
+                "index_digest": "sha256:0f05c8adc34d03002c81e20700821d50caf0c0d6533520a80ab8d47d95324a8d"
+              },
+              "session": "separate",
+              "model_profile": "unavailable",
+              "model": null,
+              "checks": [
+                {
+                  "id": "security_acceptance",
+                  "status": "executed",
+                  "result": "failed",
+                  "reason": "The declared check includes inspection against the bound feature scope. greeting.py:3 returns Goodbye, <name>! instead of the required Hello, <name>!. No secrets or unsafe execution were found in the inspected implementation and test. This is a functional scope defect; no security exploit was identified. Read-only review: no repair or test execution performed.",
+                  "evidence": [
+                    {
+                      "method": "code",
+                      "tool": "exec_command (Python 3 pathlib source inspection)",
+                      "locator": "/tmp/w3-run-za6l4qz5/authority/.prifly/work/claims/c5d0141ebc3f6ec0a846f8e5846ab0d40f320332b114f4f3d6b2fa264b687f56/greeting.py:1-3",
+                      "observation": "The complete implementation has one function and returns f\"Goodbye, {name}!\". It performs string formatting only, with no imports, eval/exec, subprocess calls, file/network access, credential constants, or other side effects. Its greeting prefix violates the bound requirement Hello, <name>!.",
+                      "exit_code": null
+                    },
+                    {
+                      "method": "code",
+                      "tool": "exec_command (Python 3 pathlib source inspection)",
+                      "locator": "/tmp/w3-run-za6l4qz5/authority/.prifly/work/claims/c5d0141ebc3f6ec0a846f8e5846ab0d40f320332b114f4f3d6b2fa264b687f56/test_greeting.py:1-14",
+                      "observation": "The test uses only stdlib unittest and imports greeting. Source assertions expect Hello, Ada!, Hello, A!, and Hello, Zo\u00eb Li!, confirming the discrepancy with the implementation. No secrets or unsafe execution appear in this file. These assertions were inspected, not executed.",
+                      "exit_code": null
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "submission_sha256": "aad78337205c60b2b98d67c6fa9c67478cdfb84d4329189dac6f000bcc9da18d",
+          "events_sha256": "b2a3b62e11226e717872494a522cb6d1e5cc64803c76dc9d062973caa652cab4"
+        },
+        {
+          "step": "review",
+          "session": "01a13c62-e583-7892-944d-8be04e715e43",
+          "verdict": "pass",
+          "outputs": {
+            "report": {
+              "round": 1,
+              "request_digest": "sha256:078bd901bc2067a904ddd1fcbb6cec6afa046b731aab805b09b52fdb44520e3e",
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7",
+                "digest": "sha256:796337e5ca06ae06a24c160fcfeea39e8025f31bb95b0b0731e13bfb2e59abab",
+                "files_digest": "sha256:3d9f8f37703edd992b446a01c6fdcc1a9be458bf961c1bf4c6b4c7ba279039c1",
+                "head_commit": "c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7",
+                "index_digest": "sha256:0f05c8adc34d03002c81e20700821d50caf0c0d6533520a80ab8d47d95324a8d"
+              },
+              "session": "separate",
+              "model_profile": "unavailable",
+              "model": null,
+              "checks": [
+                {
+                  "id": "review_acceptance",
+                  "status": "executed",
+                  "result": "failed",
+                  "reason": "Critical correctness defect: greeting(name) returns Goodbye, <name>! for every valid nonempty string rather than the required Hello, <name>!. Change the return prefix to Hello. The three tests assert the required text for Ada, the shortest valid name A, and Unicode with an internal space Zo\u00eb Li. Empty and non-string inputs are outside the sealed assumptions. Changes are confined to greeting.py and test_greeting.py; no dependency is added. Optional architecture, rules and roadmap artifacts are absent; no explicit blocking context policy is declared.",
+                  "evidence": [
+                    {
+                      "method": "code",
+                      "tool": "functions.exec / exec_command / nl -ba (source inspection)",
+                      "locator": "/tmp/w3-run-za6l4qz5/authority/.prifly/work/claims/c5d0141ebc3f6ec0a846f8e5846ab0d40f320332b114f4f3d6b2fa264b687f56/greeting.py:1-3",
+                      "observation": "Inspected the complete implementation: def greeting(name), a docstring promising to preserve the nonempty string name, and return f\"Goodbye, {name}!\" at line 3. The f-string preserves the name and punctuation but uses the wrong salutation, so greeting(\"Ada\") has the source-defined value \"Goodbye, Ada!\", contradicting \"Hello, Ada!\". No secrets, imports, unsafe execution or dependencies appear in the implementation.",
+                      "exit_code": null
+                    },
+                    {
+                      "method": "code",
+                      "tool": "functions.exec / exec_command / nl -ba (source inspection)",
+                      "locator": "/tmp/w3-run-za6l4qz5/authority/.prifly/work/claims/c5d0141ebc3f6ec0a846f8e5846ab0d40f320332b114f4f3d6b2fa264b687f56/test_greeting.py:1-14",
+                      "observation": "Inspected all tests: stdlib unittest imports greeting and asserts Hello, Ada! at line 8, Hello, A! at line 11, and Hello, Zo\u00eb Li! at line 14. These cover ordinary input, the minimum valid string length, and Unicode with an internal space. Each expected prefix conflicts with the implementation. This Attempt declares a code check only; these observations are source inspection, not a test execution claim.",
+                      "exit_code": null
+                    },
+                    {
+                      "method": "code",
+                      "tool": "functions.exec / exec_command (Git and context inspection)",
+                      "locator": "/tmp/w3-run-za6l4qz5/authority/.prifly/work/claims/c5d0141ebc3f6ec0a846f8e5846ab0d40f320332b114f4f3d6b2fa264b687f56",
+                      "observation": "Config, AGENTS.md and project aif-review overrides are absent. Optional .ai-factory/ARCHITECTURE.md, RULES.md, ROADMAP.md and rules/base.md are absent. HEAD equals the bound base c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7; cached and tracked working-tree diffs are empty. Git status before and after review lists only untracked greeting.py and test_greeting.py. No repository writes occurred.",
+                      "exit_code": null
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "submission_sha256": "9f2cdbdf847de69e448ec7741385360209a5a2f966bb061e915b7bc7d7cbe3ad",
+          "events_sha256": "e4d978a057d784d0766d99d19a7f0dc417056059f05ab9bd90636389c274a275"
+        },
+        {
+          "step": "repair",
+          "session": "01a13c64-b90e-7ea2-8247-fa9adf544427",
+          "verdict": "pass",
+          "outputs": {
+            "implementation": {
+              "base_commit": "c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7",
+              "head_commit": "c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7",
+              "changed_files": [
+                "greeting.py",
+                "test_greeting.py"
+              ]
+            },
+            "result": {
+              "outcome": "implemented",
+              "reason": "Completed the single scoped inline repair: greeting(name) now returns exactly Hello, <name>! for the declared nonempty string. The required python3 -B -m unittest test_greeting command passed all three tests after the repair. This pass reports completion of the repair writer only; no prior quality PASS carries through this edit. The independent-review model mapping remains unavailable, and Pri-Fly owns newly captured candidate checks, review and the later local commit stage.",
+              "work": [
+                "Read the sealed task, submission template, all three materialized pinned instruction/supporting files and all five bound inputs; verified every pinned skill and bound-input SHA256 digest and reconciled context.json with the sealed task context.",
+                "Discovered only the named repository_workspace. Confirmed absent config, project description, architecture, rules, implementation skill-context, rules/patches directories and native PLAN/FIX_PLAN; inline mode did not read, create or modify any plan.",
+                "Applied pinned aif-implement --without-plan to one focused repair of the greeting prefix under HANDOFF_MODE=1, HANDOFF_TASK_ID empty, HANDOFF_SKIP_REVIEW=0; no owner or scope question arose.",
+                "Reproduced the confirmed functional defect with the exact declared unittest command: exit 1, three failures on Goodbye instead of Hello for Ada, A and Zo\u00eb Li.",
+                "Edited greeting.py only to return exactly f\"Hello, {name}!\" and added stdlib structured DEBUG entry/exit logging configured by LOG_LEVEL, default WARNING, as required by the pinned logging guide.",
+                "Preserved test_greeting.py byte-for-byte. Ran python3 -B -m unittest test_greeting from the named repository after the repair: exit 0, Ran 3 tests, OK.",
+                "Parsed both scoped Python files and verified logging in memory: DEBUG emits entry/exit records with the supplied name and result; WARNING disables verbose records; the function writes no stdout/stderr. Scoped inspection found only stdlib/local imports, no dependency additions, secrets or unsafe execution.",
+                "Verified original base and HEAD remain c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7, tracked work and index remain unchanged, and actual untracked changed files are greeting.py and test_greeting.py. No commit, publication, workflow/control call, environment provisioning or project-context edit occurred. Documentation stayed inline warn-only."
+              ]
+            }
+          },
+          "submission_sha256": "5721c67d8f41fe79bbdeee03f19f3332336f9b32d4e7e719b644e8e6505f62d3",
+          "events_sha256": "874c08c72109d1cfe1167fc4c507004b611e4c1a2f3391067db8ec7532d5bc10"
+        },
+        {
+          "step": "checks",
+          "session": "01a13c68-336c-7692-9363-de46723448a1",
+          "verdict": "pass",
+          "outputs": {
+            "report": {
+              "round": 2,
+              "request_digest": "sha256:58b897b2718a4edc668aa42966ab67bd9420fff66eec153397ef4520ebd1c5d9",
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7",
+                "digest": "sha256:07461775b27a6d591c38775f41fd24c0973fdcfbb4346a12ca5142c7fc6534ec",
+                "files_digest": "sha256:6e49d9d4fb0b50cf9f792e312e859ad42de2e271e00c1592c18296bb9a8a6566",
+                "head_commit": "c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7",
+                "index_digest": "sha256:0f05c8adc34d03002c81e20700821d50caf0c0d6533520a80ab8d47d95324a8d"
+              },
+              "session": "separate",
+              "model_profile": "unavailable",
+              "model": null,
+              "checks": [
+                {
+                  "id": "checks_acceptance",
+                  "status": "executed",
+                  "result": "passed",
+                  "reason": "",
+                  "evidence": [
+                    {
+                      "method": "command",
+                      "tool": "exec_command (bash; python3 unittest)",
+                      "locator": "/tmp/w3-run-za6l4qz5/authority/.prifly/work/claims/c5d0141ebc3f6ec0a846f8e5846ab0d40f320332b114f4f3d6b2fa264b687f56 :: python3 -B -m unittest test_greeting",
+                      "observation": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.003s\n\nOK\n",
+                      "exit_code": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "submission_sha256": "0ead708e0e54f98520008aec308aa4a7e7304b1b64c3ca5318e2569210c0d940",
+          "events_sha256": "b9d1639f672ea3a9edf37f5a7fdeaf54e8cfff1ff48ec321b6315a60e32f7592"
+        },
+        {
+          "step": "security",
+          "session": "01a13c6a-532c-7023-9f62-dfdd31c68742",
+          "verdict": "pass",
+          "outputs": {
+            "report": {
+              "round": 2,
+              "request_digest": "sha256:c7acde3de31a3a9ea8aee52b0bd73f4f03239f9d08348b301276eaf9664b055a",
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7",
+                "digest": "sha256:07461775b27a6d591c38775f41fd24c0973fdcfbb4346a12ca5142c7fc6534ec",
+                "files_digest": "sha256:6e49d9d4fb0b50cf9f792e312e859ad42de2e271e00c1592c18296bb9a8a6566",
+                "head_commit": "c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7",
+                "index_digest": "sha256:0f05c8adc34d03002c81e20700821d50caf0c0d6533520a80ab8d47d95324a8d"
+              },
+              "session": "separate",
+              "model_profile": "unavailable",
+              "model": null,
+              "checks": [
+                {
+                  "id": "security_acceptance",
+                  "status": "executed",
+                  "result": "passed",
+                  "reason": "",
+                  "evidence": [
+                    {
+                      "method": "code",
+                      "tool": "exec_command (read-only source inspection)",
+                      "locator": "greeting.py:1-14",
+                      "observation": "Inspected the complete implementation in the delivered repository_workspace. Only stdlib logging and os are imported. LOG_LEVEL selects a logging level with WARNING as default. greeting(name) formats the assumed nonempty string into Hello, <name>! and returns it. Debug records contain the supplied name and greeting, with no embedded credentials. No eval, exec, shell/subprocess calls, network access, persistence, or hardcoded secrets occur. No unsafe execution or unignored security finding was identified within the sealed scope.",
+                      "exit_code": null
+                    },
+                    {
+                      "method": "code",
+                      "tool": "exec_command (read-only source and git inspection)",
+                      "locator": "test_greeting.py:1-15; repository worktree and project security context",
+                      "observation": "Inspected all test source: stdlib unittest imports greeting and checks Ada, a one-character name, and Unicode with an internal space. No secrets or unsafe execution are present. git --no-optional-locks status --short showed only untracked greeting.py and test_greeting.py; HEAD equals delivered base/head c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7. Scoped base and cached diffs were empty because these files are untracked; their actual source was read directly. Discovery found no dependency manifests or project instruction files. AGENTS.md, .ai-factory/config.yaml, default SECURITY.md, security skill-context, RULES.md and rules/base.md are absent. No ignored checks or project security overrides apply. The repository and index were not modified.",
+                      "exit_code": null
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "submission_sha256": "305f179aa4c6858b37436736440bff6390d5e3c56ea3cb7138dbf7964b4ab0df",
+          "events_sha256": "9598250945779a8df2a91a0014e3c2e091adb2c213ef7ba53f987341e3e1c0de"
+        },
+        {
+          "step": "review",
+          "session": "01a13c6c-6d4d-7b03-af8e-30e415327031",
+          "verdict": "pass",
+          "outputs": {
+            "report": {
+              "round": 2,
+              "request_digest": "sha256:4b4bc7df79a4ff0158c49e44678ae8acc8642efd46b79b1fcf91edd7530deade",
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7",
+                "digest": "sha256:07461775b27a6d591c38775f41fd24c0973fdcfbb4346a12ca5142c7fc6534ec",
+                "files_digest": "sha256:6e49d9d4fb0b50cf9f792e312e859ad42de2e271e00c1592c18296bb9a8a6566",
+                "head_commit": "c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7",
+                "index_digest": "sha256:0f05c8adc34d03002c81e20700821d50caf0c0d6533520a80ab8d47d95324a8d"
+              },
+              "session": "separate",
+              "model_profile": "unavailable",
+              "model": null,
+              "checks": [
+                {
+                  "id": "review_acceptance",
+                  "status": "executed",
+                  "result": "warnings",
+                  "reason": "No blocking correctness, security, performance, or scope defect found in the two-file code review. Non-blocking context WARN: optional .ai-factory/ARCHITECTURE.md, RULES.md, and ROADMAP.md are absent, so their alignment gates cannot be assessed. The stated nonempty-string assumption excludes empty names and non-string inputs. Tests were inspected; this code-method check does not claim a test-command execution.",
+                  "evidence": [
+                    {
+                      "method": "code",
+                      "tool": "exec_command / Python 3 pathlib source inspection",
+                      "locator": "/tmp/w3-run-za6l4qz5/authority/.prifly/work/claims/c5d0141ebc3f6ec0a846f8e5846ab0d40f320332b114f4f3d6b2fa264b687f56/greeting.py:9-14",
+                      "observation": "Inspected the complete implementation: greeting(name) constructs f\"Hello, {name}!\" and returns it directly. This produces exact capitalization, comma, one separator space, and final exclamation mark while preserving every character of a nonempty string, including Unicode and leading/internal/trailing whitespace. Debug logging does not alter the returned value. Imports use only stdlib logging and os; no secrets or unsafe execution were present.",
+                      "exit_code": null
+                    },
+                    {
+                      "method": "code",
+                      "tool": "exec_command / Python 3 pathlib source inspection",
+                      "locator": "/tmp/w3-run-za6l4qz5/authority/.prifly/work/claims/c5d0141ebc3f6ec0a846f8e5846ab0d40f320332b114f4f3d6b2fa264b687f56/test_greeting.py:1-14",
+                      "observation": "Inspected the complete unittest file. GreetingTests inherits unittest.TestCase; three discoverable test methods assert exact outputs for Ada, the shortest valid name A, and Unicode plus internal space in Zo\u00eb Li. Assertions match the stated contract. No dependency, fixture setup, or out-of-scope input policy is introduced.",
+                      "exit_code": null
+                    },
+                    {
+                      "method": "code",
+                      "tool": "exec_command / git --no-optional-locks diff and status inspection",
+                      "locator": "/tmp/w3-run-za6l4qz5/authority/.prifly/work/claims/c5d0141ebc3f6ec0a846f8e5846ab0d40f320332b114f4f3d6b2fa264b687f56 (HEAD, index, and scoped working-tree files)",
+                      "observation": "HEAD is c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7, matching the sealed base/head. Cached and unstaged tracked diffs are empty; porcelain status lists only untracked greeting.py and test_greeting.py. Their complete current contents were reviewed directly because untracked files do not appear in git diff. Scope is confined to the two declared files; no repository writes or staging were performed.",
+                      "exit_code": null
+                    },
+                    {
+                      "method": "code",
+                      "tool": "exec_command / Python 3 pathlib context inspection",
+                      "locator": "/tmp/w3-run-za6l4qz5/authority/.prifly/work/claims/c5d0141ebc3f6ec0a846f8e5846ab0d40f320332b114f4f3d6b2fa264b687f56/.ai-factory",
+                      "observation": "Config, project review skill-context, DESCRIPTION.md, ARCHITECTURE.md, RULES.md, ROADMAP.md, and rules/base.md are absent; root AGENTS.md is also absent. Default context paths therefore apply. Missing architecture/rules/roadmap are non-blocking WARN under the pinned review instructions; no explicit blocking context requirement is declared.",
+                      "exit_code": null
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "submission_sha256": "789baea2b8e330f313b0436a6b3dd43708c256a4d80f3fe00f819a2531d127cc",
+          "events_sha256": "7c4e0ebae93c19aeb76487e862bf9170b7dd72484de9878cacc408fcda39e08e"
+        },
+        {
+          "step": "commit",
+          "session": "01a13c6e-cde6-73d0-bc34-7b3ba390f09e",
+          "verdict": "pass",
+          "outputs": {
+            "implementation": {
+              "base_commit": "c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7",
+              "head_commit": "7ac6d19c0139a7c948db7bb3cb7aadd7af83e6a3",
+              "changed_files": [
+                "greeting.py",
+                "test_greeting.py"
+              ]
+            },
+            "result": {
+              "outcome": "implemented",
+              "reason": "Successfully committed the unchanged accepted candidate locally as 7ac6d19c0139a7c948db7bb3cb7aadd7af83e6a3 (feat: add greeting function with tests). The final pre-staging pinned git-candidate/1 measurement exactly matched the delivered candidate; evidence candidate and latest gate matched, and the accepted warnings gate was nonblocking. Only greeting.py and test_greeting.py were staged and committed. The index and worktree are clean. The delivered model-profile and optional project-context warnings remain recorded; no independent-review model translation was supplied.",
+              "work": [
+                "Read the sealed task, submission template, all three materialized pinned instruction/supporting files and all six bound inputs; verified pinned and input SHA256 digests and equality of context.json with task.context.",
+                "Independently remeasured git-candidate/1 using the pinned snapshot implementation against the original base c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7 before any write. The full object matched the delivered candidate; evidence.candidate and evidence.gate matched the bound candidate and nonblocking warnings gate.",
+                "Discovered only the named repository_workspace; inspected scoped source and Git HEAD, index, working changes and branch. The index was empty and the only pending paths were greeting.py and test_greeting.py.",
+                "Applied pinned aif-commit under autonomous HANDOFF_MODE=1, HANDOFF_TASK_ID empty and HANDOFF_SKIP_REVIEW=0. Config, commit skill-context, description, architecture, rules hierarchy, roadmap and native PLAN/plans were absent. Context gates remained warning-first; no plan or project document was created, changed or deleted.",
+                "Inspected the exact greeting return contract, stdlib logging, and the three unittest cases for Ada, A and Unicode with an internal space. Read the delivered successful python3 -B -m unittest test_greeting evidence (exit 0, three tests, OK) for the same verified bytes; this commit stage did not rerun that test command or claim a new reader session.",
+                "Rechecked the full reviewed candidate immediately before staging; staged only greeting.py and test_greeting.py with explicit paths. Inspected the complete cached diff and ran git diff --cached --check, exit 0. Before commit, verified staged paths, staged bytes, unchanged reviewed working-file digest and unchanged HEAD.",
+                "Created the single local commit 7ac6d19c0139a7c948db7bb3cb7aadd7af83e6a3 with subject feat: add greeting function with tests using per-command user.name=prifly-feature-test, user.email=fixture@example.invalid and commit.gpgsign=false. Git commit exited 0; no global Git configuration was changed.",
+                "Verified the commit parent equals the original base, the actual base..HEAD diff names only greeting.py and test_greeting.py, the reviewed working-file digest is unchanged, and the index/worktree are clean. Preserved all other files. No publication, Pri-Fly control call, other workflow, dependency installation or environment provisioning occurred.",
+                "Wrote implementation and result to their allocated output slots, computed actual SHA256 digests, and completed submission.json with unchanged template identities, top-level answered_questions=[] and model_profile=null because the task declares no native model profile."
+              ]
+            }
+          },
+          "submission_sha256": "b08cf90a7eec317eb1c5f572c5b26d01981eda726bd52179055cd2900075dde3",
+          "events_sha256": "4c05eced0ab3c551c650908e89dd466ac36af2e990c538430de7d5b120392dd3"
+        }
+      ],
+      "outputs": {
+        "evidence": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7",
+            "digest": "sha256:07461775b27a6d591c38775f41fd24c0973fdcfbb4346a12ca5142c7fc6534ec",
+            "files_digest": "sha256:6e49d9d4fb0b50cf9f792e312e859ad42de2e271e00c1592c18296bb9a8a6566",
+            "head_commit": "c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7",
+            "index_digest": "sha256:0f05c8adc34d03002c81e20700821d50caf0c0d6533520a80ab8d47d95324a8d"
+          },
+          "gate": {
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "checks: Model profile unavailable; independent model not established",
+              "security: Model profile unavailable; independent model not established",
+              "review: Model profile unavailable; independent model not established",
+              "review: review_acceptance: No blocking correctness, security, performance, or scope defect found in the two-file code review. Non-blocking context WARN: optional .ai-factory/ARCHITECTURE.md, RULES.md, and ROADMAP.md are absent, so their alignment gates cannot be assessed. The stated nonempty-string assumption excludes empty names and non-string inputs. Tests were inspected; this code-method check does not claim a test-command execution."
+            ],
+            "gate": "feature",
+            "status": "warnings",
+            "suggested_next": "continue"
+          },
+          "product": null,
+          "reports": {
+            "checks": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7",
+                "digest": "sha256:07461775b27a6d591c38775f41fd24c0973fdcfbb4346a12ca5142c7fc6534ec",
+                "files_digest": "sha256:6e49d9d4fb0b50cf9f792e312e859ad42de2e271e00c1592c18296bb9a8a6566",
+                "head_commit": "c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7",
+                "index_digest": "sha256:0f05c8adc34d03002c81e20700821d50caf0c0d6533520a80ab8d47d95324a8d"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": 0,
+                      "locator": "/tmp/w3-run-za6l4qz5/authority/.prifly/work/claims/c5d0141ebc3f6ec0a846f8e5846ab0d40f320332b114f4f3d6b2fa264b687f56 :: python3 -B -m unittest test_greeting",
+                      "method": "command",
+                      "observation": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.003s\n\nOK\n",
+                      "tool": "exec_command (bash; python3 unittest)"
+                    }
+                  ],
+                  "id": "checks_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:58b897b2718a4edc668aa42966ab67bd9420fff66eec153397ef4520ebd1c5d9",
+              "round": 2,
+              "session": "separate"
+            },
+            "review": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7",
+                "digest": "sha256:07461775b27a6d591c38775f41fd24c0973fdcfbb4346a12ca5142c7fc6534ec",
+                "files_digest": "sha256:6e49d9d4fb0b50cf9f792e312e859ad42de2e271e00c1592c18296bb9a8a6566",
+                "head_commit": "c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7",
+                "index_digest": "sha256:0f05c8adc34d03002c81e20700821d50caf0c0d6533520a80ab8d47d95324a8d"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "/tmp/w3-run-za6l4qz5/authority/.prifly/work/claims/c5d0141ebc3f6ec0a846f8e5846ab0d40f320332b114f4f3d6b2fa264b687f56/greeting.py:9-14",
+                      "method": "code",
+                      "observation": "Inspected the complete implementation: greeting(name) constructs f\"Hello, {name}!\" and returns it directly. This produces exact capitalization, comma, one separator space, and final exclamation mark while preserving every character of a nonempty string, including Unicode and leading/internal/trailing whitespace. Debug logging does not alter the returned value. Imports use only stdlib logging and os; no secrets or unsafe execution were present.",
+                      "tool": "exec_command / Python 3 pathlib source inspection"
+                    },
+                    {
+                      "exit_code": null,
+                      "locator": "/tmp/w3-run-za6l4qz5/authority/.prifly/work/claims/c5d0141ebc3f6ec0a846f8e5846ab0d40f320332b114f4f3d6b2fa264b687f56/test_greeting.py:1-14",
+                      "method": "code",
+                      "observation": "Inspected the complete unittest file. GreetingTests inherits unittest.TestCase; three discoverable test methods assert exact outputs for Ada, the shortest valid name A, and Unicode plus internal space in Zo\u00eb Li. Assertions match the stated contract. No dependency, fixture setup, or out-of-scope input policy is introduced.",
+                      "tool": "exec_command / Python 3 pathlib source inspection"
+                    },
+                    {
+                      "exit_code": null,
+                      "locator": "/tmp/w3-run-za6l4qz5/authority/.prifly/work/claims/c5d0141ebc3f6ec0a846f8e5846ab0d40f320332b114f4f3d6b2fa264b687f56 (HEAD, index, and scoped working-tree files)",
+                      "method": "code",
+                      "observation": "HEAD is c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7, matching the sealed base/head. Cached and unstaged tracked diffs are empty; porcelain status lists only untracked greeting.py and test_greeting.py. Their complete current contents were reviewed directly because untracked files do not appear in git diff. Scope is confined to the two declared files; no repository writes or staging were performed.",
+                      "tool": "exec_command / git --no-optional-locks diff and status inspection"
+                    },
+                    {
+                      "exit_code": null,
+                      "locator": "/tmp/w3-run-za6l4qz5/authority/.prifly/work/claims/c5d0141ebc3f6ec0a846f8e5846ab0d40f320332b114f4f3d6b2fa264b687f56/.ai-factory",
+                      "method": "code",
+                      "observation": "Config, project review skill-context, DESCRIPTION.md, ARCHITECTURE.md, RULES.md, ROADMAP.md, and rules/base.md are absent; root AGENTS.md is also absent. Default context paths therefore apply. Missing architecture/rules/roadmap are non-blocking WARN under the pinned review instructions; no explicit blocking context requirement is declared.",
+                      "tool": "exec_command / Python 3 pathlib context inspection"
+                    }
+                  ],
+                  "id": "review_acceptance",
+                  "reason": "No blocking correctness, security, performance, or scope defect found in the two-file code review. Non-blocking context WARN: optional .ai-factory/ARCHITECTURE.md, RULES.md, and ROADMAP.md are absent, so their alignment gates cannot be assessed. The stated nonempty-string assumption excludes empty names and non-string inputs. Tests were inspected; this code-method check does not claim a test-command execution.",
+                  "result": "warnings",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:4b4bc7df79a4ff0158c49e44678ae8acc8642efd46b79b1fcf91edd7530deade",
+              "round": 2,
+              "session": "separate"
+            },
+            "security": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7",
+                "digest": "sha256:07461775b27a6d591c38775f41fd24c0973fdcfbb4346a12ca5142c7fc6534ec",
+                "files_digest": "sha256:6e49d9d4fb0b50cf9f792e312e859ad42de2e271e00c1592c18296bb9a8a6566",
+                "head_commit": "c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7",
+                "index_digest": "sha256:0f05c8adc34d03002c81e20700821d50caf0c0d6533520a80ab8d47d95324a8d"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "greeting.py:1-14",
+                      "method": "code",
+                      "observation": "Inspected the complete implementation in the delivered repository_workspace. Only stdlib logging and os are imported. LOG_LEVEL selects a logging level with WARNING as default. greeting(name) formats the assumed nonempty string into Hello, <name>! and returns it. Debug records contain the supplied name and greeting, with no embedded credentials. No eval, exec, shell/subprocess calls, network access, persistence, or hardcoded secrets occur. No unsafe execution or unignored security finding was identified within the sealed scope.",
+                      "tool": "exec_command (read-only source inspection)"
+                    },
+                    {
+                      "exit_code": null,
+                      "locator": "test_greeting.py:1-15; repository worktree and project security context",
+                      "method": "code",
+                      "observation": "Inspected all test source: stdlib unittest imports greeting and checks Ada, a one-character name, and Unicode with an internal space. No secrets or unsafe execution are present. git --no-optional-locks status --short showed only untracked greeting.py and test_greeting.py; HEAD equals delivered base/head c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7. Scoped base and cached diffs were empty because these files are untracked; their actual source was read directly. Discovery found no dependency manifests or project instruction files. AGENTS.md, .ai-factory/config.yaml, default SECURITY.md, security skill-context, RULES.md and rules/base.md are absent. No ignored checks or project security overrides apply. The repository and index were not modified.",
+                      "tool": "exec_command (read-only source and git inspection)"
+                    }
+                  ],
+                  "id": "security_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:c7acde3de31a3a9ea8aee52b0bd73f4f03239f9d08348b301276eaf9664b055a",
+              "round": 2,
+              "session": "separate"
+            }
+          },
+          "requests": {
+            "checks": {
+              "base_commit": "c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "python3 -B -m unittest test_greeting",
+                  "enabled": true,
+                  "id": "checks_acceptance",
+                  "method": "command",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": true,
+              "round": 2
+            },
+            "review": {
+              "base_commit": "c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect greeting(name) returns exact expected text, test and edge cases within scope",
+                  "enabled": true,
+                  "id": "review_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": true,
+              "round": 2
+            },
+            "security": {
+              "base_commit": "c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect greeting implementation against scope; no secrets or unsafe execution",
+                  "enabled": true,
+                  "id": "security_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": true,
+              "round": 2
+            }
+          },
+          "round": 2,
+          "task_digest": "sha256:cf16ccd37ccc908a1207942b0b5aa9f382181a725fa54b15e1ad04ccc36667c1"
+        },
+        "gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "checks: Model profile unavailable; independent model not established",
+            "security: Model profile unavailable; independent model not established",
+            "review: Model profile unavailable; independent model not established",
+            "review: review_acceptance: No blocking correctness, security, performance, or scope defect found in the two-file code review. Non-blocking context WARN: optional .ai-factory/ARCHITECTURE.md, RULES.md, and ROADMAP.md are absent, so their alignment gates cannot be assessed. The stated nonempty-string assumption excludes empty names and non-string inputs. Tests were inspected; this code-method check does not claim a test-command execution."
+          ],
+          "gate": "feature",
+          "status": "warnings",
+          "suggested_next": "continue"
+        },
+        "implementation": {
+          "base_commit": "c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7",
+          "head_commit": "7ac6d19c0139a7c948db7bb3cb7aadd7af83e6a3",
+          "changed_files": [
+            "greeting.py",
+            "test_greeting.py"
+          ]
+        },
+        "plan": {
+          "entrypoint": "PLAN.md",
+          "files": [
+            {
+              "path": "PLAN.md",
+              "ref": {
+                "artifact_id": "artifact:f72ca410635036ae78003245781ad4bd9427beec84e89eb8f6e0d8b30d0650f0",
+                "digest": "sha256:a2870adf8b854c7bc0ff3364cb46fe3fcab4ab75f1f38aee4898b0b99c52f74c",
+                "revision": 1
+              }
+            }
+          ],
+          "root": ".ai-factory",
+          "schema_version": "workspace-tree-manifest/1"
+        },
+        "result": {
+          "outcome": "implemented",
+          "reason": "Successfully committed the unchanged accepted candidate locally as 7ac6d19c0139a7c948db7bb3cb7aadd7af83e6a3 (feat: add greeting function with tests). The final pre-staging pinned git-candidate/1 measurement exactly matched the delivered candidate; evidence candidate and latest gate matched, and the accepted warnings gate was nonblocking. Only greeting.py and test_greeting.py were staged and committed. The index and worktree are clean. The delivered model-profile and optional project-context warnings remain recorded; no independent-review model translation was supplied.",
+          "work": [
+            "Read the sealed task, submission template, all three materialized pinned instruction/supporting files and all six bound inputs; verified pinned and input SHA256 digests and equality of context.json with task.context.",
+            "Independently remeasured git-candidate/1 using the pinned snapshot implementation against the original base c4722f8aa82c0f27f07ed9ee438b7af46cfcc3c7 before any write. The full object matched the delivered candidate; evidence.candidate and evidence.gate matched the bound candidate and nonblocking warnings gate.",
+            "Discovered only the named repository_workspace; inspected scoped source and Git HEAD, index, working changes and branch. The index was empty and the only pending paths were greeting.py and test_greeting.py.",
+            "Applied pinned aif-commit under autonomous HANDOFF_MODE=1, HANDOFF_TASK_ID empty and HANDOFF_SKIP_REVIEW=0. Config, commit skill-context, description, architecture, rules hierarchy, roadmap and native PLAN/plans were absent. Context gates remained warning-first; no plan or project document was created, changed or deleted.",
+            "Inspected the exact greeting return contract, stdlib logging, and the three unittest cases for Ada, A and Unicode with an internal space. Read the delivered successful python3 -B -m unittest test_greeting evidence (exit 0, three tests, OK) for the same verified bytes; this commit stage did not rerun that test command or claim a new reader session.",
+            "Rechecked the full reviewed candidate immediately before staging; staged only greeting.py and test_greeting.py with explicit paths. Inspected the complete cached diff and ran git diff --cached --check, exit 0. Before commit, verified staged paths, staged bytes, unchanged reviewed working-file digest and unchanged HEAD.",
+            "Created the single local commit 7ac6d19c0139a7c948db7bb3cb7aadd7af83e6a3 with subject feat: add greeting function with tests using per-command user.name=prifly-feature-test, user.email=fixture@example.invalid and commit.gpgsign=false. Git commit exited 0; no global Git configuration was changed.",
+            "Verified the commit parent equals the original base, the actual base..HEAD diff names only greeting.py and test_greeting.py, the reviewed working-file digest is unchanged, and the index/worktree are clean. Preserved all other files. No publication, Pri-Fly control call, other workflow, dependency installation or environment provisioning occurred.",
+            "Wrote implementation and result to their allocated output slots, computed actual SHA256 digests, and completed submission.json with unchanged template identities, top-level answered_questions=[] and model_profile=null because the task declares no native model profile."
+          ]
+        }
+      },
+      "mode_name": "repair",
+      "reported_usage": [
+        {
+          "attempt": "00-warmup",
+          "session": "01a13c58-096a-7371-9442-6304413fc8ad",
+          "reported_token_usage": {
+            "input_tokens": 229028,
+            "cached_input_tokens": 196736,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 3658,
+            "reasoning_output_tokens": 480
+          },
+          "events_sha256": "a8b33f2b51e29f84fff3ed037ebc0fd2ba6baf0bad72daf4cf7680cccde920bc"
+        },
+        {
+          "attempt": "01-plan",
+          "session": "01a13c59-ba8a-7de3-8e2c-453b30f6af07",
+          "reported_token_usage": {
+            "input_tokens": 847773,
+            "cached_input_tokens": 778368,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 7978,
+            "reasoning_output_tokens": 1313
+          },
+          "events_sha256": "4b4fadc2b0ef692e5d2f9e04668afe3c2dc6664e5fdb924749d0676de372d7e9"
+        },
+        {
+          "attempt": "02-implement",
+          "session": "01a13c5c-cb66-7320-969d-f13f1a2b77ed",
+          "reported_token_usage": {
+            "input_tokens": 751739,
+            "cached_input_tokens": 686848,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 5307,
+            "reasoning_output_tokens": 850
+          },
+          "events_sha256": "ba6e5348c2ea23bb55d9492b24cb1dc8ab17ebbea230d48a58d377d628213b35"
+        },
+        {
+          "attempt": "03-checks",
+          "session": "01a13c5f-84e2-7901-b00a-36a439a8786d",
+          "reported_token_usage": {
+            "input_tokens": 327445,
+            "cached_input_tokens": 288256,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 3399,
+            "reasoning_output_tokens": 648
+          },
+          "events_sha256": "babcaf514d0eecf81eb9f60fc041e1284f47d0aa246bbc27e884db86c4ca7111"
+        },
+        {
+          "attempt": "04-security",
+          "session": "01a13c61-6d18-7180-86f1-7027235663fc",
+          "reported_token_usage": {
+            "input_tokens": 343467,
+            "cached_input_tokens": 299520,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 3758,
+            "reasoning_output_tokens": 499
+          },
+          "events_sha256": "b2a3b62e11226e717872494a522cb6d1e5cc64803c76dc9d062973caa652cab4"
+        },
+        {
+          "attempt": "05-review",
+          "session": "01a13c62-e583-7892-944d-8be04e715e43",
+          "reported_token_usage": {
+            "input_tokens": 282863,
+            "cached_input_tokens": 238464,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 3139,
+            "reasoning_output_tokens": 184
+          },
+          "events_sha256": "e4d978a057d784d0766d99d19a7f0dc417056059f05ab9bd90636389c274a275"
+        },
+        {
+          "attempt": "06-repair",
+          "session": "01a13c64-b90e-7ea2-8247-fa9adf544427",
+          "reported_token_usage": {
+            "input_tokens": 487972,
+            "cached_input_tokens": 424576,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 6755,
+            "reasoning_output_tokens": 1557
+          },
+          "events_sha256": "874c08c72109d1cfe1167fc4c507004b611e4c1a2f3391067db8ec7532d5bc10"
+        },
+        {
+          "attempt": "07-checks",
+          "session": "01a13c68-336c-7692-9363-de46723448a1",
+          "reported_token_usage": {
+            "input_tokens": 514953,
+            "cached_input_tokens": 459520,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 3721,
+            "reasoning_output_tokens": 228
+          },
+          "events_sha256": "b9d1639f672ea3a9edf37f5a7fdeaf54e8cfff1ff48ec321b6315a60e32f7592"
+        },
+        {
+          "attempt": "08-security",
+          "session": "01a13c6a-532c-7023-9f62-dfdd31c68742",
+          "reported_token_usage": {
+            "input_tokens": 303028,
+            "cached_input_tokens": 269312,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 3554,
+            "reasoning_output_tokens": 666
+          },
+          "events_sha256": "9598250945779a8df2a91a0014e3c2e091adb2c213ef7ba53f987341e3e1c0de"
+        },
+        {
+          "attempt": "09-review",
+          "session": "01a13c6c-6d4d-7b03-af8e-30e415327031",
+          "reported_token_usage": {
+            "input_tokens": 388382,
+            "cached_input_tokens": 318208,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 4506,
+            "reasoning_output_tokens": 812
+          },
+          "events_sha256": "7c4e0ebae93c19aeb76487e862bf9170b7dd72484de9878cacc408fcda39e08e"
+        },
+        {
+          "attempt": "10-commit",
+          "session": "01a13c6e-cde6-73d0-bc34-7b3ba390f09e",
+          "reported_token_usage": {
+            "input_tokens": 603361,
+            "cached_input_tokens": 554496,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 5747,
+            "reasoning_output_tokens": 930
+          },
+          "events_sha256": "4c05eced0ab3c551c650908e89dd466ac36af2e990c538430de7d5b120392dd3"
+        }
+      ],
+      "qualification_scope": "Actual unedited actor observations before final acceptance-call grouping/frontend scheduling clarification; core programs/reader/repair contracts unchanged. Final graph is qualified separately by released runtime matrix and final frontend/resume Runs."
+    },
+    {
+      "case": "live-resume",
+      "host": "codex-cli",
+      "mode": "fresh actual Codex CLI writers/readers, unedited submissions",
+      "source_outcome": "partial",
+      "outcome": "succeeded",
+      "runs": 2,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "commit"
+      ],
+      "rounds": [],
+      "plan_captures": [],
+      "elapsed_seconds": 1351.599,
+      "cleaned": true,
+      "observations": [
+        {
+          "step": "warmup",
+          "session": "01a13c5d-2f61-76c3-b9e2-d687f69b7c42",
+          "verdict": "pass",
+          "outputs": {
+            "handoff": {
+              "summary": "Configuration: Project root is the named repository_workspace. No .ai-factory/config.yaml exists; use default context paths (.ai-factory/DESCRIPTION.md, ARCHITECTURE.md, ROADMAP.md, RESEARCH.md, RULES.md and rules/base.md), language.ui=en and warmup.paths=[]. Artifact language, technical-term language, native git preferences, plan ID format and verify mode are unspecified. Sealed backend/autonomous decisions: plan_tests=true, plan_constraints=\"\", plan_retention=capture; HANDOFF_MODE=1, HANDOFF_TASK_ID=\"\", HANDOFF_SKIP_REVIEW=0.\nProject: The bound task is Small greeting feature: add greeting(name) returning exact text Hello, <name>! with a test; scope is greeting.py and test_greeting.py. Input assumes a nonempty string and no new dependency; optional_policy=ignore, require_separate_session=true, product=null. The caller describes an isolated stdlib Python fixture. Observed Git HEAD is 4ad6bf33e94931ef3e97f8825fddbb89f2038267, with no dirty or nonignored untracked paths.\nArchitecture: No architecture artifact or applicable repository-root AGENTS.md is present. Application entry points have not been inspected during read-only warmup.\nDirection: No roadmap or research artifact is present. The bound feature task supplies the next-stage objective and acceptance requirements.\nRules: Pri-Fly owns continuation. This Attempt is read-only and ends after handoff. Preserve unrelated work; use only the named repository; no push, merge, branch/worktree creation, environment provisioning, dependency installation, requirement rewrite, or next-stage skill invocation. Business or scope ambiguity requires the owner. Later acceptance command is python3 -B acceptance.py; exit 77 means prerequisite unavailable, not a code defect. Do not create or alter owner prerequisite .acceptance-ready or acceptance.py. Required security and review inspect exact greeting behavior, tests and edge cases within scope, with no secrets or unsafe execution. No checks were run in warmup.\nGaps: All prescribed project context files are missing: config.yaml, DESCRIPTION.md, ARCHITECTURE.md, ROADMAP.md, RESEARCH.md, RULES.md, rules/base.md, repository-root AGENTS.md and .ai-factory/skill-context/aif-warmup/SKILL.md. No research bundle directory exists. No independent-review model translation or declared native model profile is supplied. Acceptance prerequisite availability has not been inspected.\nLoaded: task.json, submission-template.json, context.json, inputs/task, and both pinned context/skills resources listed in sources. Git HEAD and current changed paths were read for the bridge-required baseline; no project text artifact was available to load.\nReady: Available context is loaded; the handoff can support the controller-selected next task or a separate session. This warmup makes no feature implementation or acceptance claim.",
+              "entry_points": [],
+              "conventions": [
+                "Feature edits are limited to greeting.py and test_greeting.py in the named repository_workspace; this warmup performs no edits.",
+                "greeting(name) must return exact text Hello, <name>!; name is a nonempty string; no new dependency.",
+                "Required later acceptance: python3 -B acceptance.py; exit 77 is unavailable/not_run. Never alter acceptance.py or owner .acceptance-ready.",
+                "Required later security and review inspect scope, exact greeting output, tests and edge cases, secrets and unsafe execution.",
+                "Sealed decisions override native defaults; Pri-Fly owns continuation, captures native plans, and receives actual output SHA256 digests.",
+                "No native model profile is declared; retain null. No independent-review model mapping may be invented."
+              ],
+              "sources": [
+                "/tmp/w3-run-fnet7_yt/authority/.prifly/work/e27ce60c927a11dbb55823759db76e13/task.json",
+                "/tmp/w3-run-fnet7_yt/authority/.prifly/work/e27ce60c927a11dbb55823759db76e13/submission-template.json",
+                "/tmp/w3-run-fnet7_yt/authority/.prifly/work/e27ce60c927a11dbb55823759db76e13/context.json",
+                "/tmp/w3-run-fnet7_yt/authority/.prifly/work/e27ce60c927a11dbb55823759db76e13/inputs/task",
+                "/tmp/w3-run-fnet7_yt/authority/.prifly/work/e27ce60c927a11dbb55823759db76e13/context/skills/aif-context-aif-warmup-0.0.0-b1.erckrultaxqbcnfws5yufmkaljz43jw5yga6li5cnfpqvqudbvsq",
+                "/tmp/w3-run-fnet7_yt/authority/.prifly/work/e27ce60c927a11dbb55823759db76e13/context/skills/aif-feature-context-feature-warmup-0.0.0-b1.3yzz6vkcmjga6hwdf44yytqiwe7fzvomm23l4frhqaf7iedewfoq"
+              ],
+              "open_questions": []
+            },
+            "implementation": {
+              "base_commit": "4ad6bf33e94931ef3e97f8825fddbb89f2038267",
+              "head_commit": "4ad6bf33e94931ef3e97f8825fddbb89f2038267",
+              "changed_files": []
+            }
+          },
+          "submission_sha256": "7225344aedd141bbefb1b09016faac648981637f405e2d9bf77f6e5dd53a0891",
+          "events_sha256": "be5a3aea55cd9f17054dae7da4c4db382a546883d71f19ba135d1948f7d825c9"
+        },
+        {
+          "step": "plan",
+          "session": "01a13c5f-313c-74e0-b52d-94918e3b4746",
+          "verdict": "pass",
+          "outputs": {
+            "result": {
+              "outcome": "ready",
+              "reason": "The discovered stdlib greeting feature fits two scoped native tasks, requirements and acceptance semantics are settled, and the owned native fast plan is ready. Acceptance invocation was verified but exited 77 because the owner prerequisite is unavailable; no implementation or acceptance success is claimed.",
+              "work": [
+                "Read all four pinned skill/reference materials and all bound inputs; verified their actual SHA256 digests.",
+                "Discovered the named repository, confirmed default plan path and no project overrides or existing plan, and preserved clean Git HEAD/index and protected owner files.",
+                "Verified python3 -B acceptance.py invocation: exit 77, required owner prerequisite unavailable; verified stdlib unittest CLI syntax with --help: exit 0.",
+                "Created the native .ai-factory/PLAN.md using the exact Original Request, sealed settings, bounded scope, named criteria and two dependency-ordered implementation/test tasks with configurable runtime logging.",
+                "Left the native plan untracked and unstaged for engine capture; performed no implementation, commit, publication, environment provisioning or Pri-Fly control call."
+              ]
+            }
+          },
+          "submission_sha256": "497649cc8029bd7f205e524fb599e4875500b2ee5ca5dfc849760fa7a7a89b82",
+          "events_sha256": "6cd37c06c4239244f5dd97a542f91f90e2e65e95453ba48c784493e2bb20295e"
+        },
+        {
+          "step": "implement",
+          "session": "01a13c62-5a10-7330-b94c-f3f92ca77564",
+          "verdict": "blocked",
+          "outputs": {
+            "implementation": {
+              "base_commit": "4ad6bf33e94931ef3e97f8825fddbb89f2038267",
+              "head_commit": "4ad6bf33e94931ef3e97f8825fddbb89f2038267",
+              "changed_files": [
+                "greeting.py",
+                "test_greeting.py"
+              ]
+            },
+            "result": {
+              "outcome": "environment_unavailable",
+              "reason": "Required acceptance command python3 -B acceptance.py exited 77 because the owner prerequisite .acceptance-ready is absent. Acceptance is unavailable/not_run, not a code defect. Scoped implementation and the planned test suite are complete, but no passing acceptance gate or overall feature completion is claimed. The prerequisite and acceptance.py were preserved; Pri-Fly owns continuation.",
+              "work": [
+                "Read all pinned skills, bridge and supporting references, bound inputs and template; validated their actual SHA256 digests and the materialized native PLAN revision. Performed read-only project/config/rules and Git discovery in the named repository_workspace.",
+                "Completed native Task 1: created greeting.py with exact verbatim-name greeting output and stdlib module-specific DEBUG entry/exit logs, LOG_LEVEL reductions/OFF, stderr output, handler reuse and no root logger changes. Direct Ada verification exited 0.",
+                "Completed native Task 2: created test_greeting.py with five stdlib unittest tests covering exact Ada, one-character, Unicode and whitespace/punctuation names, structured DEBUG checkpoints, OFF/INFO behavior, handler reuse and root logger preservation; temporary logger and environment changes are restored.",
+                "python3 -B -m unittest -v test_greeting exited 0: 5 tests passed.",
+                "python3 -B acceptance.py exited 77 with Required fixture tool prerequisite unavailable: owner must provide .acceptance-ready; this is not a code defect. checks_acceptance: unavailable/not_run. No owner prerequisite was created or altered.",
+                "Updated owned native PLAN task progress immediately and retained the untracked, unstaged plan for engine capture. Only greeting.py, test_greeting.py and the owned PLAN are changed; existing tracked files and index are unchanged.",
+                "Preserved input base_commit and reported actual unchanged HEAD. No native commit checkpoint is present, so no staging or commit was performed; no later workflow stage or independent review was invoked.",
+                "Documentation: warn-only (Docs: no/unset); documentation checkpoint skipped under the declared Docs: no policy."
+              ]
+            }
+          },
+          "submission_sha256": "98a1abd3aa773b19e7aacea0469eb0f1fc942a50d2eb0cb525449013118b6cc9",
+          "events_sha256": "6067a129e2f394d818473ac3ec04d506248da9d70cc150031a31252e71cce385"
+        },
+        {
+          "step": "implement",
+          "session": "01a13c66-8690-7e91-b783-9d772c20048a",
+          "verdict": "pass",
+          "outputs": {
+            "implementation": {
+              "base_commit": "4ad6bf33e94931ef3e97f8825fddbb89f2038267",
+              "head_commit": "4ad6bf33e94931ef3e97f8825fddbb89f2038267",
+              "changed_files": [
+                ".ai-factory/PLAN.md",
+                "greeting.py",
+                "owner.txt",
+                "test_greeting.py"
+              ]
+            },
+            "result": {
+              "outcome": "implemented",
+              "reason": "Both native plan tasks are complete: the existing scoped greeting and tests satisfy the requirements, all five unit tests passed, and the unchanged required acceptance command exited 0.",
+              "work": [
+                "Loaded and verified all pinned skill and bound-input digests; confirmed the materialized native plan digest and default paths.plan before writing.",
+                "Reconciled the existing greeting.py implementation: exact return values verified for Ada, one-character, Unicode and whitespace/punctuation names; module-specific configurable DEBUG entry/exit logging inspected.",
+                "Reconciled existing test_greeting.py coverage and ran python3 -B -m unittest -v test_greeting: exit 0, five tests passed, covering exact output, DEBUG checkpoints, OFF/INFO suppression, root logger preservation and handler duplication.",
+                "Ran python3 -B acceptance.py unchanged: exit 0, acceptance passed. The owner prerequisite was available; it was not created or altered.",
+                "Updated only native .ai-factory/PLAN.md task progress sequentially; both checkboxes are complete, and the plan remains untracked and unstaged for Pri-Fly engine capture.",
+                "Preserved the existing greeting.py, test_greeting.py, unrelated owner.txt edit, acceptance.py and .gitignore byte-for-byte; staged work remained empty. changed_files reports all actual tracked/untracked differences from base, including the preserved owner edit and native plan.",
+                "No native commit checkpoint was declared; HEAD remains the input base commit, with source and tests left for the scheduled local commit stage. No later-stage skill or independent-review model mapping was invoked.",
+                "Documentation outcome: warn-only (Docs: no); no documentation checkpoint or context rewrite."
+              ]
+            }
+          },
+          "submission_sha256": "660fa683df12779864a9acc9e45da57f0d987de342f5f3ac7af56d10badbcc0b",
+          "events_sha256": "06b893d2ebb53869d4a416b3eceaac88989b285a17a997ba91713b76c8cdaed0"
+        },
+        {
+          "step": "checks",
+          "session": "01a13c6a-0c59-7f90-b949-9630fd12df03",
+          "verdict": "pass",
+          "outputs": {
+            "report": {
+              "round": 1,
+              "request_digest": "sha256:5021f05a0b0e46ce5ce275cb84e6e19fe889d7cc038a8ff5c6573a64af84852b",
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "4ad6bf33e94931ef3e97f8825fddbb89f2038267",
+                "digest": "sha256:4c1411c387c99afb98b89c5d0ce3dc94d590be20b2745cc5f48371b42beee595",
+                "files_digest": "sha256:60215ce1a83e062f5dc68b13c343ea83b3e4d48b0fff3fe5a4ec9b0330c5cc31",
+                "head_commit": "4ad6bf33e94931ef3e97f8825fddbb89f2038267",
+                "index_digest": "sha256:1b02fdbc83323a94bfa1a8796d7923bd1b36a0bef068f4e7116e5f177bdd5d37"
+              },
+              "session": "separate",
+              "model_profile": "unavailable",
+              "model": null,
+              "checks": [
+                {
+                  "id": "checks_acceptance",
+                  "status": "executed",
+                  "result": "passed",
+                  "reason": "",
+                  "evidence": [
+                    {
+                      "method": "command",
+                      "tool": "exec_command",
+                      "locator": "/tmp/w3-run-fnet7_yt/authority/.prifly/work/claims/a12e45fe9e1b0f663611d32ea041c146b958bbb9770d2f36defeacc95f85078c :: python3 -B acceptance.py",
+                      "observation": "Command: python3 -B acceptance.py\nExit code: 0\nObserved combined output:\nacceptance passed\nDEBUG greeting greeting.entry name='Ada'\nDEBUG greeting greeting.exit result='Hello, Ada!'\n",
+                      "exit_code": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "submission_sha256": "2e3878b693fba276787dc7950f79b0c0b487c8be347f1ec106e2333308ae5671",
+          "events_sha256": "40a77a9673ee27cdfd74374bdb803dc6db465d13c8bc1cffe313fe8fc1771e8f"
+        },
+        {
+          "step": "security",
+          "session": "01a13c6b-7dd3-7233-873f-bae1d4e23067",
+          "verdict": "pass",
+          "outputs": {
+            "report": {
+              "round": 1,
+              "request_digest": "sha256:12c3a0c42ccac9bfd6fe83eced11223415ff154f09e59b7ebd155a0f2b61af6f",
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "4ad6bf33e94931ef3e97f8825fddbb89f2038267",
+                "digest": "sha256:4c1411c387c99afb98b89c5d0ce3dc94d590be20b2745cc5f48371b42beee595",
+                "files_digest": "sha256:60215ce1a83e062f5dc68b13c343ea83b3e4d48b0fff3fe5a4ec9b0330c5cc31",
+                "head_commit": "4ad6bf33e94931ef3e97f8825fddbb89f2038267",
+                "index_digest": "sha256:1b02fdbc83323a94bfa1a8796d7923bd1b36a0bef068f4e7116e5f177bdd5d37"
+              },
+              "session": "separate",
+              "model_profile": "unavailable",
+              "model": null,
+              "checks": [
+                {
+                  "id": "security_acceptance",
+                  "status": "executed",
+                  "result": "passed",
+                  "reason": "",
+                  "evidence": [
+                    {
+                      "method": "code",
+                      "tool": "exec_command",
+                      "locator": "greeting.py:1-37",
+                      "observation": "Read the complete implementation in the named repository_workspace. It imports only logging and os, reads LOG_LEVEL, configures a module logger, and returns f\"Hello, {name}!\". No hardcoded credentials, eval/exec, subprocess, shell, database, network, or filesystem mutation occurs. Names are assumed nonempty strings by the sealed task; debug messages use parameterized %r formatting. Default DEBUG logging includes the supplied name and result; the task supplies no secret inputs or confidentiality requirement. File mode is 0664; SHA256 acd6617aab1eb966260dfe6c98531105cde0c81f4c5ed3388786204ae0c5b810.",
+                      "exit_code": null
+                    },
+                    {
+                      "method": "code",
+                      "tool": "exec_command",
+                      "locator": "test_greeting.py:1-85",
+                      "observation": "Read the complete test file without executing it. It uses only stdlib unittest, importlib, logging, os and unittest.mock plus the feature module. Exact expected outputs cover Ada, a one-character name, Unicode, and preserved whitespace/punctuation. Logging tests use fixed fixture data, verify DEBUG context and OFF/INFO suppression, and restore logger state. No credentials or unsafe execution is present. File mode is 0664; SHA256 67b213fc383007a308360b4676dd15383c341bd16b6369056f58167e5adcb7ec.",
+                      "exit_code": null
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "submission_sha256": "6ad65503b8528e8540e53718037b65a7d8c1e51083f41b6b99df711e54391a92",
+          "events_sha256": "c8c260c526c4adcdf4276934a3a0c62b32cd057a91a0c487702375511e9bf5a0"
+        },
+        {
+          "step": "review",
+          "session": "01a13c6d-42af-75a2-b53c-4b7acb541ef5",
+          "verdict": "pass",
+          "outputs": {
+            "report": {
+              "round": 1,
+              "request_digest": "sha256:1ad75d3731adbf107939cac7e3f878064756c5d75162581a6177fdb866a5e68a",
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "4ad6bf33e94931ef3e97f8825fddbb89f2038267",
+                "digest": "sha256:4c1411c387c99afb98b89c5d0ce3dc94d590be20b2745cc5f48371b42beee595",
+                "files_digest": "sha256:60215ce1a83e062f5dc68b13c343ea83b3e4d48b0fff3fe5a4ec9b0330c5cc31",
+                "head_commit": "4ad6bf33e94931ef3e97f8825fddbb89f2038267",
+                "index_digest": "sha256:1b02fdbc83323a94bfa1a8796d7923bd1b36a0bef068f4e7116e5f177bdd5d37"
+              },
+              "session": "separate",
+              "model_profile": "unavailable",
+              "model": null,
+              "checks": [
+                {
+                  "id": "review_acceptance",
+                  "status": "executed",
+                  "result": "warnings",
+                  "reason": "No blocking correctness issue found by code inspection. The optional architecture, rules, roadmap and project review-context artifacts are absent, so their context gates cannot establish alignment (non-blocking WARN under the pinned review skill). Exact greeting behavior and tests satisfy the declared nonempty-string scope; empty and non-string inputs are outside the bound assumptions. This check was code inspection, not test execution.",
+                  "evidence": [
+                    {
+                      "method": "code",
+                      "tool": "exec_command (python3 -B source inspection)",
+                      "locator": "greeting.py:26-37",
+                      "observation": "The function interpolates the unmodified name into f\"Hello, {name}!\" and returns that string. The implementation preserves Unicode, leading/trailing whitespace and punctuation. Logging uses constant format strings and stdlib modules; no evaluation, subprocess, network operation or dependency is introduced. No blocking defect in the declared greeting contract was found.",
+                      "exit_code": null
+                    },
+                    {
+                      "method": "code",
+                      "tool": "exec_command (python3 -B source inspection)",
+                      "locator": "test_greeting.py:12-85",
+                      "observation": "Stdlib unittest assertions cover Ada, a single-character name, Unicode and embedded whitespace/punctuation with exact expected strings. Further tests verify DEBUG entry/exit, OFF/INFO suppression, unchanged returns, stable handler count and root logger state. Logger cleanup restores the pre-test state. These tests were inspected, not executed.",
+                      "exit_code": null
+                    },
+                    {
+                      "method": "code",
+                      "tool": "exec_command (python3 -B project-context inspection)",
+                      "locator": ".ai-factory/config.yaml; AGENTS.md; .ai-factory/ARCHITECTURE.md; .ai-factory/RULES.md; .ai-factory/rules/base.md; .ai-factory/ROADMAP.md; .ai-factory/skill-context/aif-review/SKILL.md",
+                      "observation": "Each listed artifact was checked and is absent. Default context paths and English review language apply. Architecture, rules and roadmap alignment cannot be evaluated against missing artifacts; this is an optional-context warning, not a product defect. The bound task and handoff supplied the acceptance scope.",
+                      "exit_code": null
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "submission_sha256": "35b6ce1e158805068f2b69200729355b7ca6a8fda412b0fa48c3d6a5a7cecd57",
+          "events_sha256": "9bc7b26bb1e3e562f0205f016d589360b81955ff9e38025fcce5286d41722f58"
+        },
+        {
+          "step": "commit",
+          "session": "01a13c6f-575f-70d1-86c1-f19f62c06477",
+          "verdict": "pass",
+          "outputs": {
+            "implementation": {
+              "base_commit": "4ad6bf33e94931ef3e97f8825fddbb89f2038267",
+              "head_commit": "6e86ab9012b34c2d972bfb02088e78290713c232",
+              "changed_files": [
+                "greeting.py",
+                "test_greeting.py"
+              ]
+            },
+            "result": {
+              "outcome": "implemented",
+              "reason": "Created the authorized local commit 6e86ab9012b34c2d972bfb02088e78290713c232 containing only greeting.py and test_greeting.py after the exact reviewed candidate and nonblocking accepted gate were verified. All five unit tests and the unchanged required acceptance command passed; unrelated owner work is preserved.",
+              "work": [
+                "Read all three pinned skill/supporting files and all six bound inputs, verified their actual SHA256 digests against task.json, and followed the sealed autonomous feature-commit bridge with the upstream aif-commit skill.",
+                "Independently remeasured git-candidate/1 using the pinned snapshot implementation against base 4ad6bf33e94931ef3e97f8825fddbb89f2038267. The complete object exactly matched inputs/candidate; evidence.candidate matched and evidence.gate exactly matched the delivered nonblocking warnings gate. Rechecked the candidate immediately before staging.",
+                "Discovered the named repository and inspected source, tests, acceptance.py, .gitignore, index and unstaged work. Applicable AGENTS.md, native configuration, commit skill-context, description, architecture, rules, roadmap and active plan artifacts were absent; optional context alignment remains WARN. No plan was created, deleted or modified in this commit stage.",
+                "Ran python3 -B -m unittest -v test_greeting: exit 0, all five existing tests passed, covering exact greeting output and module logging controls.",
+                "Ran python3 -B acceptance.py unchanged: exit 0, acceptance passed. The existing ignored owner prerequisite was available and was not created or altered.",
+                "Confirmed the initial index was empty, staged only greeting.py and test_greeting.py, inspected the complete cached diff and passed git diff --cached --check. Used HANDOFF_MODE=1, empty HANDOFF_TASK_ID and HANDOFF_SKIP_REVIEW=0 for staging and commit.",
+                "Created local commit 6e86ab9012b34c2d972bfb02088e78290713c232 with message feat(greeting): add exact greeting with configurable logging, using per-command git -c user.name=prifly-feature-test -c user.email=fixture@example.invalid -c commit.gpgsign=false. The commit changes only greeting.py and test_greeting.py.",
+                "Verified all tracked/nonignored candidate file bytes and modes remained identical to the accepted candidate after commit using files_digest; the index is empty and git status --short contains only the original unstaged owner.txt edit. No project documents or unrelated work were changed.",
+                "Retained the bound gate warnings concerning unavailable independent model mapping and missing optional review context. No new independent model mapping or review was claimed. No model profile is declared for this task.",
+                "Bounded commands used approved require_escalated execution after bwrap failed to configure loopback. No dependencies, environment provisioning, global Git configuration changes, publication or Pri-Fly control calls occurred."
+              ]
+            }
+          },
+          "submission_sha256": "78f0d1ba856d4af985f6fe4bb88afda1b4952d115243f13621538e7cafe1782c",
+          "events_sha256": "20360824422d3ff37363233a5787cce7c3118c234f5a0770e3f5ff357f811f8d"
+        }
+      ],
+      "outputs": {
+        "evidence": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "4ad6bf33e94931ef3e97f8825fddbb89f2038267",
+            "digest": "sha256:4c1411c387c99afb98b89c5d0ce3dc94d590be20b2745cc5f48371b42beee595",
+            "files_digest": "sha256:60215ce1a83e062f5dc68b13c343ea83b3e4d48b0fff3fe5a4ec9b0330c5cc31",
+            "head_commit": "4ad6bf33e94931ef3e97f8825fddbb89f2038267",
+            "index_digest": "sha256:1b02fdbc83323a94bfa1a8796d7923bd1b36a0bef068f4e7116e5f177bdd5d37"
+          },
+          "gate": {
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "checks: Model profile unavailable; independent model not established",
+              "security: Model profile unavailable; independent model not established",
+              "review: Model profile unavailable; independent model not established",
+              "review: review_acceptance: No blocking correctness issue found by code inspection. The optional architecture, rules, roadmap and project review-context artifacts are absent, so their context gates cannot establish alignment (non-blocking WARN under the pinned review skill). Exact greeting behavior and tests satisfy the declared nonempty-string scope; empty and non-string inputs are outside the bound assumptions. This check was code inspection, not test execution."
+            ],
+            "gate": "feature",
+            "status": "warnings",
+            "suggested_next": "continue"
+          },
+          "product": null,
+          "reports": {
+            "checks": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "4ad6bf33e94931ef3e97f8825fddbb89f2038267",
+                "digest": "sha256:4c1411c387c99afb98b89c5d0ce3dc94d590be20b2745cc5f48371b42beee595",
+                "files_digest": "sha256:60215ce1a83e062f5dc68b13c343ea83b3e4d48b0fff3fe5a4ec9b0330c5cc31",
+                "head_commit": "4ad6bf33e94931ef3e97f8825fddbb89f2038267",
+                "index_digest": "sha256:1b02fdbc83323a94bfa1a8796d7923bd1b36a0bef068f4e7116e5f177bdd5d37"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": 0,
+                      "locator": "/tmp/w3-run-fnet7_yt/authority/.prifly/work/claims/a12e45fe9e1b0f663611d32ea041c146b958bbb9770d2f36defeacc95f85078c :: python3 -B acceptance.py",
+                      "method": "command",
+                      "observation": "Command: python3 -B acceptance.py\nExit code: 0\nObserved combined output:\nacceptance passed\nDEBUG greeting greeting.entry name='Ada'\nDEBUG greeting greeting.exit result='Hello, Ada!'\n",
+                      "tool": "exec_command"
+                    }
+                  ],
+                  "id": "checks_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:5021f05a0b0e46ce5ce275cb84e6e19fe889d7cc038a8ff5c6573a64af84852b",
+              "round": 1,
+              "session": "separate"
+            },
+            "review": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "4ad6bf33e94931ef3e97f8825fddbb89f2038267",
+                "digest": "sha256:4c1411c387c99afb98b89c5d0ce3dc94d590be20b2745cc5f48371b42beee595",
+                "files_digest": "sha256:60215ce1a83e062f5dc68b13c343ea83b3e4d48b0fff3fe5a4ec9b0330c5cc31",
+                "head_commit": "4ad6bf33e94931ef3e97f8825fddbb89f2038267",
+                "index_digest": "sha256:1b02fdbc83323a94bfa1a8796d7923bd1b36a0bef068f4e7116e5f177bdd5d37"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "greeting.py:26-37",
+                      "method": "code",
+                      "observation": "The function interpolates the unmodified name into f\"Hello, {name}!\" and returns that string. The implementation preserves Unicode, leading/trailing whitespace and punctuation. Logging uses constant format strings and stdlib modules; no evaluation, subprocess, network operation or dependency is introduced. No blocking defect in the declared greeting contract was found.",
+                      "tool": "exec_command (python3 -B source inspection)"
+                    },
+                    {
+                      "exit_code": null,
+                      "locator": "test_greeting.py:12-85",
+                      "method": "code",
+                      "observation": "Stdlib unittest assertions cover Ada, a single-character name, Unicode and embedded whitespace/punctuation with exact expected strings. Further tests verify DEBUG entry/exit, OFF/INFO suppression, unchanged returns, stable handler count and root logger state. Logger cleanup restores the pre-test state. These tests were inspected, not executed.",
+                      "tool": "exec_command (python3 -B source inspection)"
+                    },
+                    {
+                      "exit_code": null,
+                      "locator": ".ai-factory/config.yaml; AGENTS.md; .ai-factory/ARCHITECTURE.md; .ai-factory/RULES.md; .ai-factory/rules/base.md; .ai-factory/ROADMAP.md; .ai-factory/skill-context/aif-review/SKILL.md",
+                      "method": "code",
+                      "observation": "Each listed artifact was checked and is absent. Default context paths and English review language apply. Architecture, rules and roadmap alignment cannot be evaluated against missing artifacts; this is an optional-context warning, not a product defect. The bound task and handoff supplied the acceptance scope.",
+                      "tool": "exec_command (python3 -B project-context inspection)"
+                    }
+                  ],
+                  "id": "review_acceptance",
+                  "reason": "No blocking correctness issue found by code inspection. The optional architecture, rules, roadmap and project review-context artifacts are absent, so their context gates cannot establish alignment (non-blocking WARN under the pinned review skill). Exact greeting behavior and tests satisfy the declared nonempty-string scope; empty and non-string inputs are outside the bound assumptions. This check was code inspection, not test execution.",
+                  "result": "warnings",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:1ad75d3731adbf107939cac7e3f878064756c5d75162581a6177fdb866a5e68a",
+              "round": 1,
+              "session": "separate"
+            },
+            "security": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "4ad6bf33e94931ef3e97f8825fddbb89f2038267",
+                "digest": "sha256:4c1411c387c99afb98b89c5d0ce3dc94d590be20b2745cc5f48371b42beee595",
+                "files_digest": "sha256:60215ce1a83e062f5dc68b13c343ea83b3e4d48b0fff3fe5a4ec9b0330c5cc31",
+                "head_commit": "4ad6bf33e94931ef3e97f8825fddbb89f2038267",
+                "index_digest": "sha256:1b02fdbc83323a94bfa1a8796d7923bd1b36a0bef068f4e7116e5f177bdd5d37"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "greeting.py:1-37",
+                      "method": "code",
+                      "observation": "Read the complete implementation in the named repository_workspace. It imports only logging and os, reads LOG_LEVEL, configures a module logger, and returns f\"Hello, {name}!\". No hardcoded credentials, eval/exec, subprocess, shell, database, network, or filesystem mutation occurs. Names are assumed nonempty strings by the sealed task; debug messages use parameterized %r formatting. Default DEBUG logging includes the supplied name and result; the task supplies no secret inputs or confidentiality requirement. File mode is 0664; SHA256 acd6617aab1eb966260dfe6c98531105cde0c81f4c5ed3388786204ae0c5b810.",
+                      "tool": "exec_command"
+                    },
+                    {
+                      "exit_code": null,
+                      "locator": "test_greeting.py:1-85",
+                      "method": "code",
+                      "observation": "Read the complete test file without executing it. It uses only stdlib unittest, importlib, logging, os and unittest.mock plus the feature module. Exact expected outputs cover Ada, a one-character name, Unicode, and preserved whitespace/punctuation. Logging tests use fixed fixture data, verify DEBUG context and OFF/INFO suppression, and restore logger state. No credentials or unsafe execution is present. File mode is 0664; SHA256 67b213fc383007a308360b4676dd15383c341bd16b6369056f58167e5adcb7ec.",
+                      "tool": "exec_command"
+                    }
+                  ],
+                  "id": "security_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:12c3a0c42ccac9bfd6fe83eced11223415ff154f09e59b7ebd155a0f2b61af6f",
+              "round": 1,
+              "session": "separate"
+            }
+          },
+          "requests": {
+            "checks": {
+              "base_commit": "4ad6bf33e94931ef3e97f8825fddbb89f2038267",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Run python3 -B acceptance.py. Exit 77 explicitly means required tool prerequisite unavailable (owner must provide ignored .acceptance-ready); report unavailable/not_run, not a code defect. Do not create/alter this owner prerequisite or acceptance.py during implementation or repair.",
+                  "enabled": true,
+                  "id": "checks_acceptance",
+                  "method": "command",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": true,
+              "round": 1
+            },
+            "review": {
+              "base_commit": "4ad6bf33e94931ef3e97f8825fddbb89f2038267",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect greeting(name) returns exact expected text, test and edge cases within scope",
+                  "enabled": true,
+                  "id": "review_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": true,
+              "round": 1
+            },
+            "security": {
+              "base_commit": "4ad6bf33e94931ef3e97f8825fddbb89f2038267",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect greeting implementation against scope; no secrets or unsafe execution",
+                  "enabled": true,
+                  "id": "security_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": true,
+              "round": 1
+            }
+          },
+          "round": 1,
+          "task_digest": "sha256:5e242d19379c51c6b012c52ef328d74add625d7cb6bf38cb36a0d5821220a474"
+        },
+        "gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "checks: Model profile unavailable; independent model not established",
+            "security: Model profile unavailable; independent model not established",
+            "review: Model profile unavailable; independent model not established",
+            "review: review_acceptance: No blocking correctness issue found by code inspection. The optional architecture, rules, roadmap and project review-context artifacts are absent, so their context gates cannot establish alignment (non-blocking WARN under the pinned review skill). Exact greeting behavior and tests satisfy the declared nonempty-string scope; empty and non-string inputs are outside the bound assumptions. This check was code inspection, not test execution."
+          ],
+          "gate": "feature",
+          "status": "warnings",
+          "suggested_next": "continue"
+        },
+        "implementation": {
+          "base_commit": "4ad6bf33e94931ef3e97f8825fddbb89f2038267",
+          "head_commit": "6e86ab9012b34c2d972bfb02088e78290713c232",
+          "changed_files": [
+            "greeting.py",
+            "test_greeting.py"
+          ]
+        },
+        "plan": {
+          "entrypoint": "PLAN.md",
+          "files": [
+            {
+              "path": "PLAN.md",
+              "ref": {
+                "artifact_id": "artifact:2e3150225fe08cf4429c3171661f385423209a172bd182d897c4947e9fc3fb05",
+                "digest": "sha256:9d975ab8ff9b35bb1a1b8d2a98a9e23e2a46ed6a359497473b25ecc7c878228a",
+                "revision": 1
+              }
+            }
+          ],
+          "root": ".ai-factory",
+          "schema_version": "workspace-tree-manifest/1"
+        },
+        "result": {
+          "outcome": "implemented",
+          "reason": "Created the authorized local commit 6e86ab9012b34c2d972bfb02088e78290713c232 containing only greeting.py and test_greeting.py after the exact reviewed candidate and nonblocking accepted gate were verified. All five unit tests and the unchanged required acceptance command passed; unrelated owner work is preserved.",
+          "work": [
+            "Read all three pinned skill/supporting files and all six bound inputs, verified their actual SHA256 digests against task.json, and followed the sealed autonomous feature-commit bridge with the upstream aif-commit skill.",
+            "Independently remeasured git-candidate/1 using the pinned snapshot implementation against base 4ad6bf33e94931ef3e97f8825fddbb89f2038267. The complete object exactly matched inputs/candidate; evidence.candidate matched and evidence.gate exactly matched the delivered nonblocking warnings gate. Rechecked the candidate immediately before staging.",
+            "Discovered the named repository and inspected source, tests, acceptance.py, .gitignore, index and unstaged work. Applicable AGENTS.md, native configuration, commit skill-context, description, architecture, rules, roadmap and active plan artifacts were absent; optional context alignment remains WARN. No plan was created, deleted or modified in this commit stage.",
+            "Ran python3 -B -m unittest -v test_greeting: exit 0, all five existing tests passed, covering exact greeting output and module logging controls.",
+            "Ran python3 -B acceptance.py unchanged: exit 0, acceptance passed. The existing ignored owner prerequisite was available and was not created or altered.",
+            "Confirmed the initial index was empty, staged only greeting.py and test_greeting.py, inspected the complete cached diff and passed git diff --cached --check. Used HANDOFF_MODE=1, empty HANDOFF_TASK_ID and HANDOFF_SKIP_REVIEW=0 for staging and commit.",
+            "Created local commit 6e86ab9012b34c2d972bfb02088e78290713c232 with message feat(greeting): add exact greeting with configurable logging, using per-command git -c user.name=prifly-feature-test -c user.email=fixture@example.invalid -c commit.gpgsign=false. The commit changes only greeting.py and test_greeting.py.",
+            "Verified all tracked/nonignored candidate file bytes and modes remained identical to the accepted candidate after commit using files_digest; the index is empty and git status --short contains only the original unstaged owner.txt edit. No project documents or unrelated work were changed.",
+            "Retained the bound gate warnings concerning unavailable independent model mapping and missing optional review context. No new independent model mapping or review was claimed. No model profile is declared for this task.",
+            "Bounded commands used approved require_escalated execution after bwrap failed to configure loopback. No dependencies, environment provisioning, global Git configuration changes, publication or Pri-Fly control calls occurred."
+          ]
+        }
+      },
+      "mode_name": "graceful-writer-resume",
+      "reported_usage": [
+        {
+          "attempt": "00-warmup",
+          "session": "01a13c5d-2f61-76c3-b9e2-d687f69b7c42",
+          "reported_token_usage": {
+            "input_tokens": 237906,
+            "cached_input_tokens": 197760,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 4290,
+            "reasoning_output_tokens": 661
+          },
+          "events_sha256": "be5a3aea55cd9f17054dae7da4c4db382a546883d71f19ba135d1948f7d825c9"
+        },
+        {
+          "attempt": "01-plan",
+          "session": "01a13c5f-313c-74e0-b52d-94918e3b4746",
+          "reported_token_usage": {
+            "input_tokens": 603108,
+            "cached_input_tokens": 545920,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 6390,
+            "reasoning_output_tokens": 797
+          },
+          "events_sha256": "6cd37c06c4239244f5dd97a542f91f90e2e65e95453ba48c784493e2bb20295e"
+        },
+        {
+          "attempt": "02-implement",
+          "session": "01a13c62-5a10-7330-b94c-f3f92ca77564",
+          "reported_token_usage": {
+            "input_tokens": 756549,
+            "cached_input_tokens": 688768,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 7739,
+            "reasoning_output_tokens": 1772
+          },
+          "events_sha256": "6067a129e2f394d818473ac3ec04d506248da9d70cc150031a31252e71cce385"
+        },
+        {
+          "attempt": "03-implement",
+          "session": "01a13c66-8690-7e91-b783-9d772c20048a",
+          "reported_token_usage": {
+            "input_tokens": 681815,
+            "cached_input_tokens": 627712,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 6734,
+            "reasoning_output_tokens": 1635
+          },
+          "events_sha256": "06b893d2ebb53869d4a416b3eceaac88989b285a17a997ba91713b76c8cdaed0"
+        },
+        {
+          "attempt": "04-checks",
+          "session": "01a13c6a-0c59-7f90-b949-9630fd12df03",
+          "reported_token_usage": {
+            "input_tokens": 365630,
+            "cached_input_tokens": 323072,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2608,
+            "reasoning_output_tokens": 273
+          },
+          "events_sha256": "40a77a9673ee27cdfd74374bdb803dc6db465d13c8bc1cffe313fe8fc1771e8f"
+        },
+        {
+          "attempt": "05-security",
+          "session": "01a13c6b-7dd3-7233-873f-bae1d4e23067",
+          "reported_token_usage": {
+            "input_tokens": 285370,
+            "cached_input_tokens": 243840,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 3709,
+            "reasoning_output_tokens": 806
+          },
+          "events_sha256": "c8c260c526c4adcdf4276934a3a0c62b32cd057a91a0c487702375511e9bf5a0"
+        },
+        {
+          "attempt": "06-review",
+          "session": "01a13c6d-42af-75a2-b53c-4b7acb541ef5",
+          "reported_token_usage": {
+            "input_tokens": 293154,
+            "cached_input_tokens": 226048,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 3638,
+            "reasoning_output_tokens": 522
+          },
+          "events_sha256": "9bc7b26bb1e3e562f0205f016d589360b81955ff9e38025fcce5286d41722f58"
+        },
+        {
+          "attempt": "07-commit",
+          "session": "01a13c6f-575f-70d1-86c1-f19f62c06477",
+          "reported_token_usage": {
+            "input_tokens": 526109,
+            "cached_input_tokens": 473984,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 5642,
+            "reasoning_output_tokens": 835
+          },
+          "events_sha256": "20360824422d3ff37363233a5787cce7c3118c234f5a0770e3f5ff357f811f8d"
+        }
+      ],
+      "qualification_scope": "Actual unedited actor observations before final acceptance-call grouping/frontend scheduling clarification; core programs/reader/repair contracts unchanged. Final graph is qualified separately by released runtime matrix and final frontend/resume Runs."
+    }
+  ],
+  "no_other_model_attested": true,
+  "benchmark_limit": "No equivalent classic task run; concurrent fixture load; no saving claim."
+}

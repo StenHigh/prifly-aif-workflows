@@ -1,0 +1,39 @@
+authoring: prifly-step/2
+id: aif-product:step/ui
+version: 1.0.0
+title: Product review ui
+kind: worker
+inputs:
+  configuration:
+    schema_ref: '{{schema_configuration}}'
+  request:
+    schema_ref: '{{schema_request}}'
+  candidate:
+    schema_ref: '{{schema_candidate}}'
+  environment:
+    schema_ref: '{{schema_environment}}'
+outputs:
+  report:
+    schema_ref: '{{schema_report}}'
+    required_for:
+    - pass
+    - needs_revision
+    - blocked
+executor:
+  adapter_ref: '{{session}}'
+  operation: session
+effects:
+  class: none
+  retry_class: pure
+result_schema_ref: '{{result_v2}}'
+repository_workspace: read_only
+instructions_ref: '{{context_ui-bridge}}'
+session_limits:
+  active_timeout_ms: null
+context_refs:
+- '{{context_review-bridge}}'
+- '{{context_aif-review}}'
+- '{{context_review-severity}}'
+model_profile:
+  requested: independent-review
+  reason: Separate product lens session; report actual model choice and unknowns.

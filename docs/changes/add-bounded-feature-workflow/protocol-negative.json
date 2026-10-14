@@ -1,0 +1,95 @@
+{
+  "observations": [
+    {
+      "case": "native profile serialization",
+      "submission_sha256": "c9f27e4d3b1a8cc60fe82d9b0ee85bcb9cd2c940077e194a70b1ed99f790592e",
+      "verdict": "pass",
+      "model_profile": {
+        "outcome": "unavailable",
+        "reason": "This is a fresh separate CLI session, but no independent-review model translation is supplied."
+      },
+      "accepted": false,
+      "qualification_pass": false,
+      "refusal": "model_profile_not_declared",
+      "reason": "Plan step has no model_profile declaration; host supplied a non-null object. Submission kept unchanged, no PASS claimed."
+    },
+    {
+      "case": "native downstream requirement consistency",
+      "submission_sha256": "3568adf14a7b14726cd343c6c4be544bdd2022ebf41bfe2a1c14b5eb70bf2bf6",
+      "verdict": "blocked",
+      "model_profile": null,
+      "accepted": true,
+      "qualification_pass": false,
+      "result": {
+        "outcome": "owner_required",
+        "reason": "Requirement conflict before Task 1: the exact captured .ai-factory/PLAN.md requires the callable to be free of runtime logging and forbids logging configuration, substituting session diagnostics. The pinned aif-implement Critical Logging Requirements and logging-guide require verbose logging in implementation code with configurable log levels and LOG_LEVEL control, and explicitly prohibit skipping it. No project skill-context override exists. The sealed feature-implement bridge requires stopping on requirement conflict without rewriting requirements; owner reconciliation is required. Both tasks remain pending and no implementation or commit was performed.",
+        "work": [
+          "Read the task, submission template, all four pinned skills/supporting guides, all bound inputs, and the exact materialized native plan; verified their SHA256 identities.",
+          "Performed read-only discovery in the named repository_workspace. No config, AGENTS.md, core project context, implementation skill-context, patch fallback, greeting.py, or test_greeting.py exists; the default plan path agrees with the captured path.",
+          "Compared the native plan with the pinned implementation logging requirements before marking Task 1 in progress and identified the concrete conflict.",
+          "Ran python3 -B -m unittest test_greeting on the unchanged fixture: exit 1, ModuleNotFoundError for test_greeting; unittest reported one failed loader test and no feature tests. Acceptance has not passed.",
+          "Confirmed HEAD remains 7391f1e14bf5921ae165f0db3dc4fefa68d176b3; no tracked or staged changes exist, and the only nonignored untracked path is the supplied .ai-factory/PLAN.md. Preserved the original plan with both tasks unchecked for engine capture.",
+          "Default shell startup failed with bwrap loopback Operation not permitted; bounded task commands succeeded through automatic approval. No environment provisioning, dependency installation, other workflow, publication, or Pri-Fly control call occurred."
+        ]
+      },
+      "outcome": "partial/owner_required; logging conflict detected"
+    },
+    {
+      "case": "frontend fixture catalog conflict",
+      "accepted": true,
+      "qualification_pass": false,
+      "submission_sha256": "aa14888e9f08a97fa590cadba5f3a7fb4c0748d4a5ac1eb85d42a2ba8f4b3cd2",
+      "verdict": "blocked",
+      "outcome": "partial/owner_required",
+      "result": {
+        "outcome": "owner_required",
+        "reason": "ERROR [requirement-conflict]: inputs/task limits the feature to the notes form in index.html, but required security_acceptance asks to inspect a greeting implementation and required review_acceptance asks to inspect greeting(name) with exact expected text. The current index.html implements only a notes form; no greeting contract or source-priority resolution is supplied. Owner clarification or corrected bound acceptance criteria is required before an implementation-ready plan can be produced within the declared scope.",
+        "work": [
+          "Read task.json, context.json, workspace-trees.json, submission-template.json, all four pinned instructions/supporting references and all three bound inputs; verified their declared SHA256 digests.",
+          "Discovered only the named repository, confirmed the bound clean HEAD and vacant native plan path, and inspected index.html and available project context.",
+          "Ran the exact checks_acceptance command in the repository: exit 0; verified only current event-listener presence, not unimplemented save confirmation behavior.",
+          "Reconciled the notes-only feature against the required greeting security/review checks and retained the unresolved conflict without rewriting requirements.",
+          "Created only the owned untracked .ai-factory/PLAN.md BLOCKED diagnostic snapshot with exact Original Request, sealed Settings, scope, assumptions, supplied criteria and no executable tasks.",
+          "Preserved existing repository content and staged work; performed no implementation, staging, commit, browser provisioning, publication or next-stage invocation."
+        ]
+      },
+      "correction": "Only test/example security/review descriptions changed from greeting to notes; actor correctly refused contradictory scope and criteria."
+    },
+    {
+      "case": "frontend native/quality scheduling boundary",
+      "accepted": true,
+      "qualification_pass": false,
+      "verdict": "blocked",
+      "outcome": "partial/environment_unavailable",
+      "submission_sha256": "1789dff1a928e5ac254f75a39c6f0674f5b09eac072ff458eb32aaf8f8afdada",
+      "result": {
+        "outcome": "environment_unavailable",
+        "reason": "Task 1 is implemented in index.html and local command, surrogate regressions and scoped code inspection passed. Task 2 cannot be completed: no fixture-owned project Playwright adapter or owned browser session is supplied, no browser tool is exposed, and existing local Playwright/Puppeteer packages are absent. Required ui_acceptance and ux_acceptance were not executed and remain unavailable. No environment was provisioned. The native plan records Task 1 complete and Task 2 blocked; this Attempt does not claim implemented/pass or independent review.",
+        "work": [
+          "Read all pinned skills/supporting references, bound inputs, submission template and delivery context; verified actual pinned skill/input SHA256 digests and materialized PLAN.md digest. Discovered only the named repository; no project config or implementation overrides exist. Explicit @.ai-factory/PLAN.md agrees with the default native plan path.",
+          "Completed native Task 1 in index.html: capture trimmed submitted note; after the existing 400 ms callback hide empty state, display Saved: <trimmed note> using textContent, reveal success, clear input and focus note. Preserved validation, loading timing, Save disable/re-enable and original markup IDs/labels/status roles.",
+          "Added local structured DEBUG/INFO/ERROR checkpoints with nonpersistent globalThis.LOG_LEVEL control (DEBUG default; INFO/WARN/ERROR/OFF supported), input-length metadata and rethrown error context. Added overflow-wrap:anywhere to the existing confirmation element for long notes.",
+          "checks_acceptance passed: exact python3 -B -c command from inputs/task executed in the named repository with exit 0. git diff --check also passed.",
+          "Ephemeral Node syntax/smoke and supplementary regressions executed the actual inline JavaScript with parsed HTML initial flags and a DOM/timer surrogate. Passed initial, empty, whitespace, pre-callback loading, ordinary/padded/repeated/inert markup/long-note confirmations, captured submitted value, clear/focus and Save re-enable cases. This does not establish actual-page browser, rendering or keyboard acceptance.",
+          "Logging checks passed: default DEBUG transition checkpoints and INFO completion observed; runtime OFF repeated success/error-validation cases without logs and with identical DOM results. INFO/WARN/ERROR thresholds suppressed DEBUG. No actual runtime errors occurred, so ERROR exception-context output was not exercised.",
+          "security_acceptance scoped code inspection passed: user text assigned only through textContent; no unsafe script execution, outbound operations, storage or exposed secrets added. review_acceptance scoped code inspection passed for declared save transition, preserved validation/timer flow, identical original element structure/attributes and existing responsive CSS plus confirmation wrapping. These are direct implementation-stage inspections; independent later review was not performed.",
+          "ui_acceptance unavailable: no supplied fixture-owned adapter/session or browser tool; local repository adapter search found none; playwright executable, Python playwright and Node playwright/@playwright/test/puppeteer absent. Desktop 1280x800 and mobile 375x800 actual-page layout checks were not executed.",
+          "ux_acceptance unavailable for the same browser-environment reason. Actual 375x800 keyboard labelled flow was not executed. No substitute browser results were inferred.",
+          "Updated only owned native PLAN progress: marked each task in progress sequentially; marked Task 1 complete immediately after verification; left Task 2 unchecked with factual partial checks and browser blocker. Kept the native plan untracked/unstaged for engine capture; no host-supplied plan manifest or plan output slot was created.",
+          "No native commit checkpoint is declared. Preserved input base_commit and actual unchanged HEAD; index.html remains uncommitted for the controller-owned local commit stage. Git index remains empty; only index.html and owned native plan progress changed. No other workflow, control call, dependency installation, environment change, branch creation, publication, merge or push occurred. Documentation checkpoint skipped under native Docs: no.",
+          "Current index.html SHA256: 70c2f1e543439fbfb4f0ef7f4b54a7009f41604d245605d1092a37815f391e79"
+        ]
+      },
+      "correction": "Own W3 plan/implement bridges explicitly assign browser environment and mandatory UI/UX to later quality; native Tasks use executable unit/static checks. No criteria removed or reader report edited."
+    },
+    {
+      "case": "nested host fixture authorization",
+      "qualification_pass": false,
+      "accepted": false,
+      "events_sha256": "bee217fd21fc201fb63e47a83bf4370ed30b665e7d3ff942e120f220ce91bf42",
+      "reason": "Automatic review rejected bound repository context/Git reads outside the task workspace. Warmup reported unavailable Git facts as null; no valid baseline or PASS admitted.",
+      "safe_alternative": "New fixture sessions explicitly grant only their exact repository directory with native --add-dir while retaining workspace-write sandbox and automatic review; read-only roles still verified. No full-access bypass."
+    }
+  ],
+  "changes": "Own W3 neutral profile serialization and planner downstream logging context clarified; no existing workflow/engine changes."
+}

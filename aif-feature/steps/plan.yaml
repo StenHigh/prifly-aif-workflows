@@ -1,0 +1,46 @@
+authoring: prifly-step/2
+id: aif-feature:step/plan
+version: 1.0.0
+title: Bounded feature plan
+kind: worker
+inputs:
+  task:
+    schema_ref: '{{schema_task}}'
+  handoff:
+    schema_ref: '{{schema_warmup-handoff}}'
+  implementation:
+    schema_ref: '{{schema_implementation}}'
+outputs:
+  result:
+    schema_ref: '{{schema_result}}'
+    required_for:
+    - pass
+    - needs_revision
+    - blocked
+    - fail
+    - no_work
+  plan:
+    schema_ref: '{{workspace_tree_manifest}}'
+    required_for:
+    - pass
+    - needs_revision
+    - blocked
+    - fail
+    - no_work
+executor:
+  adapter_ref: '{{session}}'
+  operation: session
+instructions_ref: '{{context_feature-plan}}'
+context_refs:
+- '{{context_aif-plan}}'
+- '{{context_plan-format}}'
+- '{{context_logging-guide}}'
+effects:
+  class: workspace_write
+  retry_class: never
+session_limits:
+  active_timeout_ms: null
+result_schema_ref: '{{result_v2}}'
+workspace_trees:
+- output_port: plan
+  capture: '{{plan_capture}}'

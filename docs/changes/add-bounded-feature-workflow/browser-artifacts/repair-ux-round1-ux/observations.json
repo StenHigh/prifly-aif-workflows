@@ -1,0 +1,19 @@
+{
+  "lens": "ux",
+  "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+  "observations": [
+    {
+      "scenario": "flow",
+      "viewport": {
+        "height": 800,
+        "width": 375
+      },
+      "url": "http://127.0.0.1:37649/index.html",
+      "observations": "{\"empty\":true,\"focus\":\"note\",\"outline\":\"solid\",\"label\":[\"Note text\"],\"error\":true,\"loading\":true,\"success\":false,\"copy\":\"\"}",
+      "failures": [
+        "Save flow never reaches confirmation"
+      ],
+      "screenshot": "/tmp/w3-run-wkhyyl4s/authority/.prifly/work/f20d5e76486974328fafbd88fab08dae/browser/ux-flow.png"
+    }
+  ]
+}

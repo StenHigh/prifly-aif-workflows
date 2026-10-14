@@ -1,0 +1,33 @@
+id: aif-feature:schema/evidence
+version: 1.0.0
+$schema: https://json-schema.org/draft/2020-12/schema
+type: object
+additionalProperties: false
+required:
+- round
+- task_digest
+- candidate
+- requests
+- reports
+- product
+- gate
+properties:
+  round:
+    type: integer
+    minimum: 1
+    maximum: 8
+  task_digest:
+    type: string
+    pattern: ^sha256:[0-9a-f]{64}$
+  candidate:
+    type: object
+  requests:
+    type: object
+  reports:
+    type: object
+  product:
+    type:
+    - object
+    - 'null'
+  gate:
+    type: object
