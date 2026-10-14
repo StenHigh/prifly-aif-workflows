@@ -10,7 +10,13 @@
 
 Ворота выверены против выпущенного Pri-Fly `v0.13.76`.
 
-- **W3 implemented/pilot qualified локально (2026-10-15), commit/push далее:**
+- **W3 committed/pushed, pilot qualified и полный CI PASS (2026-10-15):**
+  Implementation commit b7e071e25fd52b9347f52b12adfa2990885a4786 в main;
+  https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38653153795
+  CI completed/success: latest stable0.13.76, version/static/units, compile100 /
+  source steps67 / packages7, compatibility, classic4/fix28/W1runtime25/W2runtime20,
+  feature install/update, W3runtime35 и actual browser W2(4)/W3(3). Итог прогонов
+  записан в W3 ci-results.json; bookkeeping не меняет package bytes.
   Separate aif-feature1.0.0, без source changes в core/classic/profiled/fix/fanout/W1/W2.
   warmup/configure/native fast plan/implement → acceptance call {bounded whole
   quality rounds → current candidate guard → local commit}. Default3/max8 rounds,

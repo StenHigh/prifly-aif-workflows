@@ -8,6 +8,13 @@ publication. Released test binary **Pri-Fly 0.13.76** Linux AMD64 SHA256
 Package [aif-feature](../../../aif-feature/README.md), initial **1.0.0**.
 Existing classic/profiled/fanout/fix/W1/W2 source bytes remain unchanged.
 
+Implementation is committed and pushed to main as
+[`b7e071e25fd52b9347f52b12adfa2990885a4786`](https://github.com/StenHigh/prifly-aif-workflows/commit/b7e071e25fd52b9347f52b12adfa2990885a4786).
+The complete [CI run](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38653153795)
+finished **success** against latest stable Pri-Fly 0.13.76: all existing gates,
+W3 install/update and 35 runtime cases, W2 actual browser cases and three W3
+actual-browser scenarios. [Recorded CI result](ci-results.json) pins this commit.
+
 | Criterion | Evidence / current boundary |
 |---|---|
 | A1 — separate package/launch/input/decisions | `aif-feature:package/feature`, launch aif-feature; typed task, backend/frontend profiles, plan_tests/plan_constraints/plan_retention. Local catalog add/update preserves extend/project and refuses project_workflow_modified. Preview exact task bytes then native reviewed prepare; no auto selector/start. |
