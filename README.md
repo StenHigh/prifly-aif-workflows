@@ -1,9 +1,10 @@
 <h1 align="center">Pri-Fly workflows for AI Factory</h1>
 
 <p align="center">
-  Project workflow folders для <a href="https://github.com/StenHigh/prifly">Pri-Fly</a>,
-  которые ведут разработку по практике AI Factory: канонический путь
-  <code>aif-classic</code> и веер ракурсов <code>aif-fanout</code>.
+  Сценарии разработки по практике AI Factory для
+  <a href="https://github.com/StenHigh/prifly">Pri-Fly</a>:
+  полный цикл разработки, небольшие фичи, исправление багов
+  и проверка готовых изменений.
 </p>
 
 <p align="center">
@@ -14,6 +15,7 @@
 </p>
 
 <p align="center">
+  <a href="#как-выбрать-workflow">Выбор workflow</a> ·
   <a href="#установка-в-проект">Установка</a> ·
   <a href="#что-нужно-целевому-проекту">Требования</a> ·
   <a href="#настройка-командой">Настройка</a> ·
@@ -27,29 +29,39 @@
   <img src="assets/readme/hero.jpg" alt="Шаги AI Factory от aif-plan до aif-commit грузятся на борт: каждый шаг — sealed package Pri-Fly" width="100%">
 </p>
 
-| Папка | Назначение |
-|---|---|
-| [`aif-classic/`](aif-classic/) | Канонический последовательный путь автора AI Factory: `warmup → plan → improve → implement → verify → security → review → commit`. Improve передаёт исправленный native plan в следующий круг; блокирующий verify/security/review возвращает typed gate с `suggested_next: /aif-fix` и ничего не чинит сам. Круг review открывает второй читатель в своей сессии (`review-challenge`), чьи находки review проверяет и сливает. |
-| [`aif-fanout/`](aif-fanout/) | Отдельная доработка существующего плана двумя независимыми ракурсами review → выбор разработчика → применение принятого. Это веер задач, не выбор модели. |
-| [`aif-profiled/`](aif-profiled/) | Тот же classic, порождённый из него `tools/derive_profiled.py`: каждый шаг объявляет профиль модели (`model_profile`), `plan` и `implement` просят отдельную сессию. Перевод профиля в модель и effort задаёт проект — дефолты в `extend.yaml`, переопределение в `.prifly/local.yaml`; движок доставляет и не выбирает. Pri-Fly ≥ 0.13.64. |
-| [`aif-review-evidence/`](aif-review-evidence/) | Новый отдельный quality-компонент W1: declared checks → read-only review → машинная проверка покрытия и текущего candidate. Отправлен в main, не опубликован в каталоге. Classic/profiled не меняются. |
-| [`aif-ui-ux/`](aif-ui-ux/) | Новый отдельный W2: owned test environment → UI/UX readers → проверка scenarios/current candidate → адресный cleanup. Отправлен в main, CI PASS; контракт среды описан в [guide](docs/product-review-environment.md). |
-| [`aif-feature/`](aif-feature/) | Новый отдельный W3: native fast plan → implement → bounded sequential quality → local commit; backend/frontend profiles, явные критерии и сохранение работы при остановке. Пока без tag/catalog release. |
-| [`aif-fix/`](aif-fix/) | Отдельный workflow для конкретного бага: `warmup → fix-task → checks → enabled security → один task review → commit`. Сложный баг получает native fix-план и исполняется тем же `aif-fix`; после repair вся короткая последовательность проверок повторяется. Пользователь выбирает этот launch вручную; классические графы не меняются. |
+## Как выбрать workflow
 
-`aif-fix` добавлен в v1.51.0; **v1.51.1 / пакет 1.0.1** исправляет
-маршрутизацию usable blocked gate и объясняет формат пустых declared answers.
-**v1.51.2 / пакет 1.0.2** уточняет: verdict описывает пригодность отчёта,
-а `gate.status` — результат и доступность проверок. Usable blocked gate
-возвращается с `pass` и останавливает Run как `partial`.
-[README пакета](aif-fix/README.md) описывает входы, решения, две политики
-fix-плана и resume; [инструкция пилоту](docs/pilot-aif-fix-v1.51.0.md) — установку
-и сценарии приёмки. Запись каталога — [catalog/aif-fix.yaml](catalog/aif-fix.yaml).
-В Pri-Fly 0.13.76 generated `prifly-run` кратко советует workflow по объявленным
-title/description, но ждёт выбора пользователя. После обновления бинаря
-выполните `prifly project runners update --repository .`; соседний `PROJECT.md`
-с критериями проекта сохраняется. Совет не создаёт Run и не заменяет просмотр
-подготовленного исполнения.
+Начните с задачи: написать новую функциональность, исправить конкретный баг
+или проверить уже готовую работу. Каждый workflow запускается отдельно;
+его входы и настройка описаны в README соответствующей папки.
+
+| Workflow | Когда выбирать | Что получите |
+|---|---|---|
+| [`aif-classic`](aif-classic/README.md) | Нужен полный канонический цикл автора AI Factory, с проработкой плана перед реализацией. | План и его улучшение → реализация → проверка требований, безопасности и ревью со вторым читателем → commit при успешной приёмке. |
+| [`aif-profiled`](aif-profiled/README.md) | Нужен цикл classic с настройкой моделей для разных этапов и отдельными сессиями для части задач. | Тот же маршрут с запросами профилей моделей и отчётом об их исполнении. Модели задаёт проект; возможность их выбрать зависит от хоста. |
+| [`aif-feature`](aif-feature/README.md) | Нужна одна небольшая новая фича с понятными границами и критериями: например, поле формы или опция API. | Короткий план → реализация → заданные проверки и ревью → локальный commit. Найденные дефекты исправляются в пределах лимита, после каждого исправления все проверки повторяются. |
+| [`aif-fix`](aif-fix/README.md) | Уже есть конкретное неправильное поведение; можно описать, что происходит и что должно происходить. | Воспроизведение и исправление бага → проверки и ревью → commit. При необходимости создаётся fix-план; после исправлений проверки повторяются. |
+| [`aif-review-evidence`](aif-review-evidence/README.md) | Код уже написан, и нужно проверить его по явному списку требований: тесты, обработка ошибок, совместимость или другие условия приёмки. | Отчёт по каждому пункту со свидетельствами проверки и привязкой к проверенному состоянию кода. Пропуски и недоступные обязательные проверки останавливают приёмку. |
+| [`aif-ui-ux`](aif-ui-ux/README.md) | Интерфейс уже реализован; нужно проверить внешний вид и пользовательские сценарии в браузере, например мобильную форму, клавиатурную навигацию или состояние ошибки. | Подготовленная тестовая среда, отдельные UI- и UX-отчёты по заданным экранам и действиям, затем освобождение созданных ресурсов. Настройку среды предоставляет проект. |
+| [`aif-fanout`](aif-fanout/README.md) | План уже есть; перед реализацией нужно найти пропуски и риски и выбрать, какие предложения принять. | Два параллельных разбора плана — полнота и риски → выбор разработчика → применение принятых улучшений к плану. |
+
+**Для небольшой фичи** в `aif-feature` заранее задайте объём работы и условия
+приёмки. Профиль `backend` проверяет код, а `frontend` дополнительно включает
+UI/UX-проверки в браузере. По умолчанию допускаются три полных круга проверок.
+При слишком широком объёме, недоступной обязательной проверке или исчерпании
+лимита workflow останавливается с причиной и сохраняет сделанную работу.
+
+**Для проверки готовых изменений** `aif-review-evidence` и `aif-ui-ux`
+возвращают отчёты и итог приёмки; исправление кода и commit остаются отдельным
+действием. Их компоненты уже используются внутри `aif-feature`, где проверка
+связана с реализацией и повторяется после исправлений. Для браузерных проверок
+понадобится [контракт тестовой среды проекта](docs/product-review-environment.md).
+
+**Доступность новых пакетов.** `aif-review-evidence`, `aif-ui-ux` и
+`aif-feature` находятся в `main` и прошли CI, но ещё не выпущены в каталоге.
+Для локального пилота используйте инструкции в README этих пакетов;
+им нужен Pri-Fly **0.13.76** и новее. Команды установки из каталога ниже
+относятся к опубликованным пакетам.
 
 Этот репозиторий — workflow repository для каталога
 [`StenHigh/prifly-workflows`](https://github.com/StenHigh/prifly-workflows).
@@ -72,6 +84,12 @@ prifly project workflows add StenHigh/prifly-aif-workflows --path aif-classic --
 launch в `.prifly/project.yaml` и записывает `origin` с exact commit. Ничего не
 исполняется и не становится trusted: доверие package решается при
 `prifly project start`.
+
+В Pri-Fly 0.13.76 runner `prifly-run` может предложить workflow по описанию
+задачи и установленным сценариям. Пользователь выбирает workflow и просматривает
+подготовленный запуск. После обновления бинаря выполните
+`prifly project runners update --repository .`; соседний `PROJECT.md`
+с критериями проекта сохраняется.
 
 Для Pri-Fly `v0.5.0` и старше — вручную:
 
@@ -111,8 +129,9 @@ launches:
   компиляция отказывает сразу, а не исполнитель упирается в отсутствующий файл
   посреди прогона.
 - Runner `prifly-run`, созданный `prifly project init`. Он спрашивает
-  `worktree` или `checkout`, package profile `fast|full|ultra`, declared
-  preflight decisions и policy, затем вызывает `project start`.
+  `worktree` или `checkout`, профиль выбранного workflow (например,
+  `fast|full|ultra` в classic или `backend|frontend` в feature), решения
+  перед запуском и policy, затем вызывает `project start`.
 - [`aif-classic/decisions/INVENTORY.md`](aif-classic/decisions/INVENTORY.md)
   закрепляет SHA-256 upstream skills, под которые описан decision catalog.
   Другая версия skills требует ревизии inventory.
@@ -156,6 +175,15 @@ Pri-Fly, а с Pri-Fly новее `v0.7.0` форму отдаёт `prifly schem
 Подробности — в [`aif-classic/README.md`](aif-classic/README.md).
 
 ## Версии
+
+`aif-fix` добавлен в v1.51.0; **v1.51.1 / пакет 1.0.1** исправляет
+маршрутизацию usable blocked gate и объясняет формат пустых declared answers.
+**v1.51.2 / пакет 1.0.2** уточняет: verdict описывает пригодность отчёта,
+а `gate.status` — результат и доступность проверок. Usable blocked gate
+возвращается с `pass` и останавливает Run как `partial`.
+[README пакета](aif-fix/README.md) описывает входы, решения, две политики
+fix-плана и resume; [инструкция пилоту](docs/pilot-aif-fix-v1.51.0.md) — установку
+и сценарии приёмки. Запись каталога — [catalog/aif-fix.yaml](catalog/aif-fix.yaml).
 
 - Tag репозитория `vX.Y.Z` — то, на что указывает каталог (`ref` + pinned
   `commit`).

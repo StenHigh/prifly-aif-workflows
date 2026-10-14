@@ -10,6 +10,14 @@
 
 Ворота выверены против выпущенного Pri-Fly `v0.13.76`.
 
+- **README: выбор workflow по задаче (2026-10-15):**
+  Главная таблица теперь объясняет, когда выбирать каждый из семи workflow и
+  какой результат ожидать. Добавлены примеры для feature/review/UI/UX, отличие
+  проверочных компонентов от полного цикла, профили feature и отдельная запись
+  о pilot/unpublished status. История fix перенесена в версии, совет runner —
+  в установку. Изменены только root README и эта запись; package bytes прежние.
+  Latest stable Pri-Fly по-прежнему v0.13.76, новых выпусков нет.
+
 - **W3 committed/pushed, pilot qualified и полный CI PASS (2026-10-15):**
   Implementation commit b7e071e25fd52b9347f52b12adfa2990885a4786 в main;
   https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38653153795
