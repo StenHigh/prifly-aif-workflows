@@ -1,0 +1,263 @@
+{
+  "prifly": "0.13.76",
+  "binary_sha256": "sha256:03ac382112a12001ea9e2a86e5a20db2d5e24ec79ce5339f6257c473d0f3322d",
+  "cases": [
+    {
+      "case": "pass",
+      "host": "codex-app",
+      "mode": "actual browser / deterministic test adapter",
+      "source_outcome": "succeeded",
+      "outcome": "succeeded",
+      "runs": 1,
+      "candidate_changed": false,
+      "browser_readers": 2,
+      "browser_observations": [
+        {
+          "lens": "ui",
+          "iteration": 0,
+          "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+          "observations": [
+            {
+              "scenario": "desktop",
+              "viewport": {
+                "height": 800,
+                "width": 1280
+              },
+              "url": "http://127.0.0.1:37415/index.html",
+              "observations": "{\"viewport\":1280,\"scrollWidth\":1280,\"heading\":\"Notes\",\"bodyColor\":\"rgb(23, 32, 51)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\",\"label\":\"Note text\",\"section\":{\"x\":300,\"y\":92.75,\"width\":680,\"height\":311.8125,\"top\":92.75,\"right\":980,\"bottom\":404.5625,\"left\":300}}\nDeclared design tokens: dark ink on white; white button text on blue. Screenshot requires visual inspection, DOM metrics alone are not a visual review.",
+              "failures": [],
+              "screenshot": "retained in temporary browser evidence; selected images in screenshots/",
+              "screenshot_sha256": "37e37428dadfd48c87280e0070041eab0763a33909e437b734b87972b1421291"
+            },
+            {
+              "scenario": "mobile",
+              "viewport": {
+                "height": 800,
+                "width": 375
+              },
+              "url": "http://127.0.0.1:37415/index.html",
+              "observations": "{\"viewport\":375,\"scrollWidth\":375,\"heading\":\"Notes\",\"bodyColor\":\"rgb(23, 32, 51)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\",\"label\":\"Note text\",\"section\":{\"x\":16,\"y\":92.75,\"width\":343,\"height\":311.8125,\"top\":92.75,\"right\":359,\"bottom\":404.5625,\"left\":16}}\nDeclared design tokens: dark ink on white; white button text on blue. Screenshot requires visual inspection, DOM metrics alone are not a visual review.",
+              "failures": [],
+              "screenshot": "retained in temporary browser evidence; selected images in screenshots/",
+              "screenshot_sha256": "8395e45ac2baba8f48cff425380262c6ce2135f0057a6aae4f8ecea69d8b086d"
+            }
+          ]
+        },
+        {
+          "lens": "ux",
+          "iteration": 0,
+          "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+          "observations": [
+            {
+              "scenario": "flow",
+              "viewport": {
+                "height": 800,
+                "width": 375
+              },
+              "url": "http://127.0.0.1:37415/index.html",
+              "observations": "{\"empty\":true,\"focus\":\"note\",\"outline\":\"solid\",\"label\":[\"Note text\"],\"error\":true,\"loading\":true,\"success\":true,\"copy\":\"Saved: A test note\"}",
+              "failures": [],
+              "screenshot": "retained in temporary browser evidence; selected images in screenshots/",
+              "screenshot_sha256": "c10f6c30fe47fcaac50470b17431534535006e305a4446a19641fe064ea64dfb"
+            }
+          ]
+        }
+      ],
+      "cleaned": true
+    },
+    {
+      "case": "defect-repair",
+      "host": "codex-app",
+      "mode": "actual browser / deterministic test adapter",
+      "source_outcome": "partial",
+      "outcome": "succeeded",
+      "runs": 2,
+      "candidate_changed": true,
+      "browser_readers": 4,
+      "browser_observations": [
+        {
+          "lens": "ui",
+          "iteration": 0,
+          "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+          "observations": [
+            {
+              "scenario": "desktop",
+              "viewport": {
+                "height": 800,
+                "width": 1280
+              },
+              "url": "http://127.0.0.1:44725/index.html",
+              "observations": "{\"viewport\":1280,\"scrollWidth\":1280,\"heading\":\"Notes\",\"bodyColor\":\"rgb(23, 32, 51)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\",\"label\":\"Note text\",\"section\":{\"x\":300,\"y\":92.75,\"width\":800,\"height\":311.8125,\"top\":92.75,\"right\":1100,\"bottom\":404.5625,\"left\":300}}\nDeclared design tokens: dark ink on white; white button text on blue. Screenshot requires visual inspection, DOM metrics alone are not a visual review.",
+              "failures": [],
+              "screenshot": "retained in temporary browser evidence; selected images in screenshots/",
+              "screenshot_sha256": "0ef57f5da2f0f0bce1745f35b4c0d8e05ec98587545d14959df8e3fdce1b0757"
+            },
+            {
+              "scenario": "mobile",
+              "viewport": {
+                "height": 800,
+                "width": 375
+              },
+              "url": "http://127.0.0.1:44725/index.html",
+              "observations": "{\"viewport\":375,\"scrollWidth\":816,\"heading\":\"Notes\",\"bodyColor\":\"rgb(23, 32, 51)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\",\"label\":\"Note text\",\"section\":{\"x\":16,\"y\":92.75,\"width\":800,\"height\":311.8125,\"top\":92.75,\"right\":816,\"bottom\":404.5625,\"left\":16}}\nDeclared design tokens: dark ink on white; white button text on blue. Screenshot requires visual inspection, DOM metrics alone are not a visual review.",
+              "failures": [
+                "Horizontal overflow: scrollWidth 816 > viewport 375"
+              ],
+              "screenshot": "retained in temporary browser evidence; selected images in screenshots/",
+              "screenshot_sha256": "a6bd7964d62a9fc3730187516fda9aa69fadf0126154174b6141b74ccf05a5f1"
+            }
+          ]
+        },
+        {
+          "lens": "ux",
+          "iteration": 0,
+          "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+          "observations": [
+            {
+              "scenario": "flow",
+              "viewport": {
+                "height": 800,
+                "width": 375
+              },
+              "url": "http://127.0.0.1:44725/index.html",
+              "observations": "{\"empty\":true,\"focus\":\"note\",\"outline\":\"solid\",\"label\":[\"Note text\"],\"error\":true,\"loading\":true,\"success\":false,\"copy\":\"\"}",
+              "failures": [
+                "Save flow never reaches confirmation"
+              ],
+              "screenshot": "retained in temporary browser evidence; selected images in screenshots/",
+              "screenshot_sha256": "d01b02df53b12424828b23cfa018420b77d5a256113ce9b0f1582263555bb32c"
+            }
+          ]
+        },
+        {
+          "lens": "ui",
+          "iteration": 1,
+          "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+          "observations": [
+            {
+              "scenario": "desktop",
+              "viewport": {
+                "height": 800,
+                "width": 1280
+              },
+              "url": "http://127.0.0.1:35797/index.html",
+              "observations": "{\"viewport\":1280,\"scrollWidth\":1280,\"heading\":\"Notes\",\"bodyColor\":\"rgb(23, 32, 51)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\",\"label\":\"Note text\",\"section\":{\"x\":300,\"y\":92.75,\"width\":680,\"height\":311.8125,\"top\":92.75,\"right\":980,\"bottom\":404.5625,\"left\":300}}\nDeclared design tokens: dark ink on white; white button text on blue. Screenshot requires visual inspection, DOM metrics alone are not a visual review.",
+              "failures": [],
+              "screenshot": "retained in temporary browser evidence; selected images in screenshots/",
+              "screenshot_sha256": "37e37428dadfd48c87280e0070041eab0763a33909e437b734b87972b1421291"
+            },
+            {
+              "scenario": "mobile",
+              "viewport": {
+                "height": 800,
+                "width": 375
+              },
+              "url": "http://127.0.0.1:35797/index.html",
+              "observations": "{\"viewport\":375,\"scrollWidth\":375,\"heading\":\"Notes\",\"bodyColor\":\"rgb(23, 32, 51)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\",\"label\":\"Note text\",\"section\":{\"x\":16,\"y\":92.75,\"width\":343,\"height\":311.8125,\"top\":92.75,\"right\":359,\"bottom\":404.5625,\"left\":16}}\nDeclared design tokens: dark ink on white; white button text on blue. Screenshot requires visual inspection, DOM metrics alone are not a visual review.",
+              "failures": [],
+              "screenshot": "retained in temporary browser evidence; selected images in screenshots/",
+              "screenshot_sha256": "8395e45ac2baba8f48cff425380262c6ce2135f0057a6aae4f8ecea69d8b086d"
+            }
+          ]
+        },
+        {
+          "lens": "ux",
+          "iteration": 1,
+          "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+          "observations": [
+            {
+              "scenario": "flow",
+              "viewport": {
+                "height": 800,
+                "width": 375
+              },
+              "url": "http://127.0.0.1:35797/index.html",
+              "observations": "{\"empty\":true,\"focus\":\"note\",\"outline\":\"solid\",\"label\":[\"Note text\"],\"error\":true,\"loading\":true,\"success\":true,\"copy\":\"Saved: A test note\"}",
+              "failures": [],
+              "screenshot": "retained in temporary browser evidence; selected images in screenshots/",
+              "screenshot_sha256": "c10f6c30fe47fcaac50470b17431534535006e305a4446a19641fe064ea64dfb"
+            }
+          ]
+        }
+      ],
+      "cleaned": true
+    },
+    {
+      "case": "cancel-resume",
+      "host": "codex-app",
+      "mode": "actual browser / deterministic test adapter",
+      "source_outcome": "cancelled",
+      "outcome": "succeeded",
+      "runs": 2,
+      "candidate_changed": true,
+      "browser_readers": 2,
+      "browser_observations": [
+        {
+          "lens": "ui",
+          "iteration": 1,
+          "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+          "observations": [
+            {
+              "scenario": "desktop",
+              "viewport": {
+                "height": 800,
+                "width": 1280
+              },
+              "url": "http://127.0.0.1:41989/index.html",
+              "observations": "{\"viewport\":1280,\"scrollWidth\":1280,\"heading\":\"Notes\",\"bodyColor\":\"rgb(23, 32, 51)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\",\"label\":\"Note text\",\"section\":{\"x\":300,\"y\":92.75,\"width\":680,\"height\":311.8125,\"top\":92.75,\"right\":980,\"bottom\":404.5625,\"left\":300}}\nDeclared design tokens: dark ink on white; white button text on blue. Screenshot requires visual inspection, DOM metrics alone are not a visual review.",
+              "failures": [],
+              "screenshot": "retained in temporary browser evidence; selected images in screenshots/",
+              "screenshot_sha256": "37e37428dadfd48c87280e0070041eab0763a33909e437b734b87972b1421291"
+            },
+            {
+              "scenario": "mobile",
+              "viewport": {
+                "height": 800,
+                "width": 375
+              },
+              "url": "http://127.0.0.1:41989/index.html",
+              "observations": "{\"viewport\":375,\"scrollWidth\":375,\"heading\":\"Notes\",\"bodyColor\":\"rgb(23, 32, 51)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\",\"label\":\"Note text\",\"section\":{\"x\":16,\"y\":92.75,\"width\":343,\"height\":311.8125,\"top\":92.75,\"right\":359,\"bottom\":404.5625,\"left\":16}}\nDeclared design tokens: dark ink on white; white button text on blue. Screenshot requires visual inspection, DOM metrics alone are not a visual review.",
+              "failures": [],
+              "screenshot": "retained in temporary browser evidence; selected images in screenshots/",
+              "screenshot_sha256": "8395e45ac2baba8f48cff425380262c6ce2135f0057a6aae4f8ecea69d8b086d"
+            }
+          ]
+        },
+        {
+          "lens": "ux",
+          "iteration": 1,
+          "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+          "observations": [
+            {
+              "scenario": "flow",
+              "viewport": {
+                "height": 800,
+                "width": 375
+              },
+              "url": "http://127.0.0.1:41989/index.html",
+              "observations": "{\"empty\":true,\"focus\":\"note\",\"outline\":\"solid\",\"label\":[\"Note text\"],\"error\":true,\"loading\":true,\"success\":true,\"copy\":\"Saved: A test note\"}",
+              "failures": [],
+              "screenshot": "retained in temporary browser evidence; selected images in screenshots/",
+              "screenshot_sha256": "c10f6c30fe47fcaac50470b17431534535006e305a4446a19641fe064ea64dfb"
+            }
+          ]
+        }
+      ],
+      "cleaned": true
+    },
+    {
+      "case": "missing-server",
+      "host": "codex-app",
+      "mode": "actual browser / deterministic test adapter",
+      "source_outcome": "partial",
+      "outcome": "partial",
+      "runs": 1,
+      "candidate_changed": false,
+      "browser_readers": 0,
+      "browser_observations": [],
+      "cleaned": true
+    }
+  ],
+  "worker_sha256": "4dfc3de4ec56c1f481389093f284d525586b0163553d66ff8a212375124a4f16",
+  "w1_worker_sha256": "0ac845481c7fb4dd3a57d7e80726e42f67c1075ff2407916c7607ddc1a450c76"
+}

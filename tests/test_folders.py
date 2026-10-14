@@ -12,11 +12,12 @@ FANOUT = ROOT / "aif-fanout"
 PROFILED = ROOT / "aif-profiled"
 FIX = ROOT / "aif-fix"
 EVIDENCE = ROOT / "aif-review-evidence"
+PRODUCT = ROOT / "aif-ui-ux"
 
 
 class WorkflowFolderTest(unittest.TestCase):
     def test_folders_are_marked_workflow_folders(self):
-        for folder in (CLASSIC, FANOUT, FIX, PROFILED, EVIDENCE):
+        for folder in (CLASSIC, FANOUT, FIX, PROFILED, EVIDENCE, PRODUCT):
             workflow = (folder / "workflow.yaml").read_text()
             self.assertTrue(workflow.startswith("authoring: prifly-project-workflow/1\n"), folder)
             self.assertTrue((folder / "extend.yaml").is_file(), folder)

@@ -8,7 +8,93 @@
 
 ## Состояние на 2026-10-14
 
-- **W1 реализован отдельно (2026-10-14), без изменения Pri-Fly/classic:**
+- **W2: fresh CLI qualification после разрешения владельца (2026-10-14):**
+  Новых stable Pri-Fly нет; ворота выверены против выпущенного `v0.13.76`.
+  После разрешения пользователя auto-review вновь отклонил danger-full-access:
+  prompt не обеспечивает техническую изоляцию системы/credentials/network.
+  Вместо blanket override использован штатный Codex --approve-for-me:
+  workspace-write sandbox сохранён, расширение конкретных bounded fixture
+  commands проходит auto-review. CLI0.162.1 не принимает одновременно
+  --sandbox и --approve-for-me; launcher поправлен, default CI mode прежний.
+  Первая реально исполнившая shell сессия дала natural UI failure, но добавила
+  native model_profile.unavailable_reason (invalid_usage), чужой UX scenario и
+  selectors в exact URL locator. Report/submission сохранены неизменёнными,
+  стенд очищен; это не acceptance PASS. Уточнены только собственные W2 UI/UX
+  bridges и neutral probe serialization guidance: exact lens/check scope,
+  observation JSON string, locator=exact URL, native profile literal reason.
+  Classic/profiled/fix/fanout и executable W1 не менялись; новые W2 initial
+  components остаются 1.0.0 до первого выпуска.
+  Повторный live case на финальных bridges — PASS: четыре уникальные fresh
+  Codex CLI thread IDs, request require_separate_session=true, actual browser
+  и visual screenshots. Unedited UI/UX reports source failed → native exact
+  gate failed/blocking=true → partial; separate deterministic owner repair и
+  reviewed continue → fresh UI/UX passed → exact gate warnings/nonblocking →
+  succeeded (только unavailable independent-model mapping). Другая модель
+  не заявлена. Проверены unchanged candidate и authority version от readers,
+  один claim/base, owner work сохранён, свои environment/claim/monitor очищены.
+  Fresh reports/IDs/event-prompt-report hashes/exact source+resumed gates:
+  docs/changes/add-ui-ux-review-components/fresh-cli-observations.json;
+  initial protocol negative — protocol-negative.json. Private full task/event
+  logs оставлены в /tmp/w2-live-scoped, без публикации user config/credentials.
+  Scope compile75/source steps46, unit14/static7/version3/derive — PASS;
+  ранее runtime20, browser4, W1 regression25/compatibility — PASS. Расширение
+  constraints только в bridges; CI повторит complete suite после push.
+  W2 полностью подготовлен к commit/push, без tag/catalog/release. Actual
+  private consumer/PHP stack (#2), другая модель и live Claude ещё не выверены.
+  W3–W5 proposed; fresh sequential review — prerequisite evidence для W5,
+  не утверждение о проверенной parallel implementation.
+
+
+- **W1 committed/pushed; следующий change W2 реализован локально (2026-10-14):**
+  По поручению владельца W1 и все planned change отправлены в main:
+  d6de664d84aa920dcb6e3d26561b4fc0b0655225. Перед push fetch/rebase сохранил
+  чужие 835f722/99e698a с live acceptance aif-fix. CI W1 — success:
+  https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38619928193.
+  Теги/каталог/релиз не выполнялись.
+  Следующим взят W2 без engine changes: aif-ui-ux initial 1.0.0,
+  configure → quality {capture → environment → UI → UX → evaluate → release
+  → finalize}. W1 schemas/helper/bridge скопированы byte-identical под прежними
+  IDs; compile gate проверяет равенство. Установка самодостаточна.
+  Собственные aif-product schemas/steps/graph связывают lens/scenarios/profile/
+  owner с W1 request digest и current Git candidate. Browser evidence дополнительно
+  проверяет полное покрытие scenario IDs, viewport и ready test origin. Finalize
+  повторяет candidate snapshot после release и связывает cleanup owner/session.
+  Project-assisted ensure/release — declared external_write/reconcile_required;
+  UI/UX — none/read_only. Один compatible profile, unique contexts/session/ports
+  по умолчанию; shared resource сериализует Attempts, runner lease — gaps/lifetime.
+  Cancellation bypasses tail: operator reconciles/cleans только exact own session,
+  затем reviewed continue повторяет quality с сохранённой работой. Реальные
+  API/DB mutations не разрешаются полем allowed_operations под effects none.
+  Standalone docs/product-review-environment.md закрывает generic contract/example
+  portion #2; actual PHP/private consumer qualification не заявлена, issue открыт.
+  Classic/profiled/fix/fanout и W1 executable bytes не менялись.
+  Ворота выверены против выпущенного Pri-Fly `v0.13.76`; новых stable нет.
+  Unit/lifecycle14 + две RED canaries scenario coverage/cleanup identity,
+  static7/version3/derive, verify (6 packages, 75 sealed steps/workflows,
+  46 source steps) и compatibility — PASS. W1 regression25 — PASS.
+  Actual Playwright1.64.1/Chromium156.0.8078.4 fixture: desktop1280×800/mobile375×800,
+  keyboard/empty/error/loading/save, defect→separate owner repair→fresh checks,
+  cancellation/operator cleanup/resume и missing server. Это browser evidence
+  с deterministic assertions, не LLM independence.
+  Отдельный current Codex-app/shared live Run: реальные screenshots/code/flows,
+  source mobile scrollWidth816 и save dead end → failed reports/partial; separate
+  deterministic repair → fresh current-host UI/UX reports → succeeded. Четыре
+  read-only reader deliveries, два Runs, owner work/base/claim сохранены,
+  собственные стенды/claims/monitor очищены. Worker SHA256
+  4dfc3de4ec56c1f481389093f284d525586b0163553d66ff8a212375124a4f16
+  совпадает с финальной source и live fixture. Не независимая сессия/модель.
+  Codex CLI0.162.1 свежая nested session не смогла запустить shell из-за bwrap;
+  report не создан, pass не заявлен. Auto-review отклонил danger-full-access
+  override из-за доступа к системе/credentials/network; обход не выполнен.
+  Claude live deferred. Final isolated W2 runtime matrix20 — PASS; ранее
+  один повтор завершился SIGTERM, свой оставшийся Run/claim/
+  monitor/temp fixture адресно очищены. Причина SIGTERM не установлена; это
+  не объявляется багом Pri-Fly или успешным прогоном.
+  W2 acceptance/data — docs/changes/add-ui-ux-review-components/;
+  CI добавлены unit/runtime и pinned actual browser fixture. W2 пока локально,
+  commit/push/tag/catalog не выполнялись. W3–W5 proposed; E1/E2 не блокируют.
+
+- **Первичная локальная реализация W1 (до commit/push), отдельно (2026-10-14), без изменения Pri-Fly/classic:**
   По уточнению владельца canonical `aif-classic` и производный `aif-profiled`
   остаются эталонными и byte-for-byte прежними; `aif-fix`/`aif-fanout` также
   не менялись. Новый `aif-review-evidence`, initial package 1.0.0, подготовлен

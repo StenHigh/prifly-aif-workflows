@@ -1,0 +1,247 @@
+{
+  "prifly": "0.13.76",
+  "binary_sha256": "sha256:03ac382112a12001ea9e2a86e5a20db2d5e24ec79ce5339f6257c473d0f3322d",
+  "cases": [
+    {
+      "case": "defect-repair",
+      "host": "codex-cli",
+      "mode": "fresh real Codex CLI readers / actual browser",
+      "source_outcome": "partial",
+      "outcome": "succeeded",
+      "runs": 2,
+      "candidate_changed": true,
+      "browser_readers": 4,
+      "browser_observations": [
+        {
+          "lens": "ui",
+          "iteration": 0,
+          "verdict": "pass",
+          "report": {
+            "round": 1,
+            "request_digest": "sha256:94505d3d546a541bb92a4649b551d2d1bc21a42a3141bcf05c58e437ab3193b2",
+            "candidate": {
+              "algorithm": "git-candidate/1",
+              "base_commit": "8642f5c057cd002e057bd32de091aebe7fc1df20",
+              "digest": "sha256:55ef7fcdee0d4a4a9ccda047c4de091a43f97cc95dac9c2b6a5a368e424f0649",
+              "files_digest": "sha256:2a01175a777f82634e209c9991543d05430b57ec593848ac4db96a36d0251aaf",
+              "head_commit": "8642f5c057cd002e057bd32de091aebe7fc1df20",
+              "index_digest": "sha256:9c7b4865b55369ac65b08918e7f3f47b03fc73b61b166fdd3b8641aeec37a2e2"
+            },
+            "session": "separate",
+            "model_profile": "unavailable",
+            "model": null,
+            "checks": [
+              {
+                "id": "ui_acceptance",
+                "status": "executed",
+                "result": "failed",
+                "reason": "The mobile scenario violates the declared no-overflow expectation: at 375x800 the section is 800 px wide and document scrollWidth is 816 px. Visual inspection of the viewport screenshot confirms that the card and input extend beyond the right edge. The existing section min-width: 800px rule in index.html explains the failure. The desktop scenario is contained and readable. Both assigned scenarios were inspected in fresh browser contexts; no scenario was skipped. Acceptance requires the layout to fit the sealed mobile viewport; changing that requirement is an owner decision.",
+                "evidence": [
+                  {
+                    "method": "browser",
+                    "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+                    "locator": "http://127.0.0.1:34391/index.html",
+                    "observation": "{\"scenario\":\"desktop\",\"viewport\":{\"height\":800,\"width\":1280},\"url\":\"http://127.0.0.1:34391/index.html\",\"observations\":\"Visually inspected browser/ui-desktop.png captured by the supplied product_browser.cjs adapter in a fresh context. The Notes heading, Add a note subheading, Note text label, empty input, Save note button and No notes yet. message form a clear hierarchy. The white rounded card has consistent inner spacing, readable system typography, dark ink (#172033) and a white-on-blue (#1745a1) primary button matching the existing page tokens. The card and all controls are visible without clipping. Document scrollWidth is 1280 px at a 1280 px viewport; the section spans x=300 to x=1100 with width 800 px. No horizontal overflow was observed in this scenario.\"}",
+                    "exit_code": null
+                  },
+                  {
+                    "method": "browser",
+                    "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+                    "locator": "http://127.0.0.1:34391/index.html",
+                    "observation": "{\"scenario\":\"mobile\",\"viewport\":{\"height\":800,\"width\":375},\"url\":\"http://127.0.0.1:34391/index.html\",\"observations\":\"Visually inspected the supplied adapter's full-page browser/ui-mobile.png and an additional fresh-context viewport capture browser/ui-mobile-viewport.png at exactly 375x800. The full-page capture expands to the overflowing content width; the viewport capture confirms that the white card and input are cut off at the right edge. Document scrollWidth is 816 px, exceeding the 375 px viewport by 441 px; the section starts at x=16 and retains an 800 px width, ending at x=816. This fails the declared no-overflow expectation. The Notes and Add a note headings, Note text label, Save note button and No notes yet. message remain visible on the left, with readable dark text, white-on-blue button text and consistent vertical spacing. Existing index.html styles include section { min-width: 800px; }, corroborating the nonresponsive card width.\"}",
+                    "exit_code": null
+                  }
+                ]
+              }
+            ]
+          },
+          "submission_digest": "sha256:329a51c95c69a32c965d638a7c59f75b9761f803974b5964bf57510c1ee43959",
+          "session_id": "01a13c07-1a44-7961-adde-f6462ec792cd",
+          "approval_mode": "automatic review with workspace-write sandbox",
+          "session_mode": "fresh real Codex CLI, no other model attested",
+          "events_sha256": "sha256:81c8d2452d3e8dce427b92fdc14885e52f5bb5872b449c1712df2e3b329c54d6",
+          "prompt_sha256": "sha256:b496df6982d61ddfb86f617dbb03e117f9500dc44e488420bd7ea066b7c9f5b1",
+          "report_sha256": "sha256:9db86121c01fd21eeb5e62addde032b165e8ce6ef38a3336e4c5fda6a6f84a7c",
+          "accepted_unchanged": true
+        },
+        {
+          "lens": "ux",
+          "iteration": 0,
+          "verdict": "pass",
+          "report": {
+            "round": 1,
+            "request_digest": "sha256:6e58a767be8d3473f627ddbd4770929ca6fc13805f2c79bfb34affbba2a3f0b2",
+            "candidate": {
+              "algorithm": "git-candidate/1",
+              "base_commit": "8642f5c057cd002e057bd32de091aebe7fc1df20",
+              "digest": "sha256:55ef7fcdee0d4a4a9ccda047c4de091a43f97cc95dac9c2b6a5a368e424f0649",
+              "files_digest": "sha256:2a01175a777f82634e209c9991543d05430b57ec593848ac4db96a36d0251aaf",
+              "head_commit": "8642f5c057cd002e057bd32de091aebe7fc1df20",
+              "index_digest": "sha256:9c7b4865b55369ac65b08918e7f3f47b03fc73b61b166fdd3b8641aeec37a2e2"
+            },
+            "session": "separate",
+            "model_profile": "unavailable",
+            "model": null,
+            "checks": [
+              {
+                "id": "ux_acceptance",
+                "status": "executed",
+                "result": "failed",
+                "reason": "The declared flow does not reach its required success state: a nonempty keyboard submission finishes loading but leaves 'No notes yet.' visible, retains the input, and provides no confirmation. This breaks the user's save flow. At the configured mobile viewport the page also overflows horizontally and keyboard focus scrolls content into a clipped position. Empty, validation-error, loading, label, and keyboard-focus behavior were exercised; these successes do not satisfy the missing save confirmation.",
+                "evidence": [
+                  {
+                    "method": "browser",
+                    "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+                    "locator": "http://127.0.0.1:34391/index.html",
+                    "observation": "{\"scenario\":\"flow\",\"viewport\":{\"height\":800,\"width\":375},\"url\":\"http://127.0.0.1:34391/index.html\",\"observations\":\"Ran the supplied product_browser.cjs adapter and a focused follow-up in fresh anonymous browser contexts at the configured viewport; both observed no save confirmation. Initially the page shows 'Notes', 'Add a note', 'Note text', 'Save note', and 'No notes yet.'. Tab focuses input #note and then button #save, each with a solid 3px orange focus outline. The input has the associated label 'Note text'. Enter on the button with an empty input displays 'Please enter a note.' in role=alert and returns focus to the input. Typing 'A test note', then Tab and Enter, clears the error, displays 'Saving\u2026' in role=status, and disables Save note. After 1200ms, loading is hidden and the button enabled, but #success remains hidden with empty text, 'No notes yet.' remains visible, and the input still contains 'A test note'; focus is not restored to #note. Document width is 816px against the actual 375px viewport; visually inspected viewport screenshots show clipped heading/input content after keyboard focus. The document title is 'Fixture notes', language is en, and there are no images requiring alt text. Visually inspected browser/ux-flow.png plus browser/ux-flow-focus.png, browser/ux-flow-error.png, browser/ux-flow-loading.png, and browser/ux-flow-final.png. Raw observations are in browser/observations.json and browser/ux-followup.json. These are observations of the assigned flow scenario; the failure assessment is my own.\"}",
+                    "exit_code": null
+                  }
+                ]
+              }
+            ]
+          },
+          "submission_digest": "sha256:0124a4be98b64e037269a33e30b0cf44a29adde5bd9cc05065e95863e5714436",
+          "session_id": "01a13c09-929a-7e83-b9dc-7051b7ecdfa2",
+          "approval_mode": "automatic review with workspace-write sandbox",
+          "session_mode": "fresh real Codex CLI, no other model attested",
+          "events_sha256": "sha256:c4f2a68937470a67b6770d613e19e07dd3b3a355137d17f37845fe88f0a46b34",
+          "prompt_sha256": "sha256:d8dfab3c3a04908ed2d96d8c23a0c520cfc9cf9fbe7cb1b126416b7245df90c2",
+          "report_sha256": "sha256:69160077f8f91742e2aa5c8443cb91dec2ab10651f1df1c98f16ba0e3959c405",
+          "accepted_unchanged": true
+        },
+        {
+          "lens": "ui",
+          "iteration": 1,
+          "verdict": "pass",
+          "report": {
+            "round": 1,
+            "request_digest": "sha256:94505d3d546a541bb92a4649b551d2d1bc21a42a3141bcf05c58e437ab3193b2",
+            "candidate": {
+              "algorithm": "git-candidate/1",
+              "base_commit": "8642f5c057cd002e057bd32de091aebe7fc1df20",
+              "digest": "sha256:460ca65211128b85ec8a415db5cde9f0ba8cd62d1b267e7e20741ca5f6fc46dd",
+              "files_digest": "sha256:91d826cb856f3dacca61d36935779e3814ce7d59317f85978f89450cde97d6f6",
+              "head_commit": "8642f5c057cd002e057bd32de091aebe7fc1df20",
+              "index_digest": "sha256:9c7b4865b55369ac65b08918e7f3f47b03fc73b61b166fdd3b8641aeec37a2e2"
+            },
+            "session": "separate",
+            "model_profile": "unavailable",
+            "model": null,
+            "checks": [
+              {
+                "id": "ui_acceptance",
+                "status": "executed",
+                "result": "passed",
+                "reason": "",
+                "evidence": [
+                  {
+                    "method": "browser",
+                    "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+                    "locator": "http://127.0.0.1:33107/index.html",
+                    "observation": "{\"scenario\":\"desktop\",\"viewport\":{\"height\":800,\"width\":1280},\"url\":\"http://127.0.0.1:33107/index.html\",\"observations\":\"Opened the declared page in a fresh browser context and visually inspected browser/ui-desktop.png. The Notes heading sits above a centered white card on a pale background. The Add a note subheading, Note text label, full-width input, blue Save note button and No notes yet. message form a clear hierarchy with aligned left edges and consistent spacing. Text is readable, with dark ink on white and white button text on blue, matching the existing design tokens in index.html. The card spans x=300 to x=980 (680 pixels) and y=92.75 to y=404.56, fitting comfortably within 1280x800. No visible clipping, overlap or horizontal overflow; document scrollWidth equals viewport width 1280. No UI failure observed against the declared expectations.\"}",
+                    "exit_code": null
+                  },
+                  {
+                    "method": "browser",
+                    "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+                    "locator": "http://127.0.0.1:33107/index.html",
+                    "observation": "{\"scenario\":\"mobile\",\"viewport\":{\"height\":800,\"width\":375},\"url\":\"http://127.0.0.1:33107/index.html\",\"observations\":\"Opened the declared page in a fresh browser context and visually inspected browser/ui-mobile.png. The white card adapts to 343 pixels wide with 16-pixel outer margins and 24-pixel inner padding. The Notes and Add a note headings, Note text label, input, Save note button and No notes yet. message remain fully visible, readable and consistently aligned. The input stays inside the card; the button and empty-state message have clear spacing. Typography, rounded borders, dark text and blue button styling match the desktop design and existing index.html tokens. The card spans x=16 to x=359 and y=92.75 to y=404.56, fitting within 375x800. No visible clipping, overlap or horizontal overflow; document scrollWidth equals viewport width 375. No UI failure observed against the declared expectations.\"}",
+                    "exit_code": null
+                  }
+                ]
+              }
+            ]
+          },
+          "submission_digest": "sha256:39182f0fd9efba4b1925628e921aae1a71b31fcc2fc7e9766fc8d772ba06d2a5",
+          "session_id": "01a13c0c-a060-7632-bac2-b347ba0abab2",
+          "approval_mode": "automatic review with workspace-write sandbox",
+          "session_mode": "fresh real Codex CLI, no other model attested",
+          "events_sha256": "sha256:bbbda8e7cb6e12fe67c1169daf03c8af854e092d69d73f7799c45985ca5ffd5d",
+          "prompt_sha256": "sha256:b4af72e86abb4099ad1e4c5d704d5586a1ae47145959c355471606b614a2a74c",
+          "report_sha256": "sha256:9ba8382af2f3b1383f0b158fe1036e8f81e55188df858a9dedf5d106d278e5d3",
+          "accepted_unchanged": true
+        },
+        {
+          "lens": "ux",
+          "iteration": 1,
+          "verdict": "pass",
+          "report": {
+            "round": 1,
+            "request_digest": "sha256:6e58a767be8d3473f627ddbd4770929ca6fc13805f2c79bfb34affbba2a3f0b2",
+            "candidate": {
+              "algorithm": "git-candidate/1",
+              "base_commit": "8642f5c057cd002e057bd32de091aebe7fc1df20",
+              "digest": "sha256:460ca65211128b85ec8a415db5cde9f0ba8cd62d1b267e7e20741ca5f6fc46dd",
+              "files_digest": "sha256:91d826cb856f3dacca61d36935779e3814ce7d59317f85978f89450cde97d6f6",
+              "head_commit": "8642f5c057cd002e057bd32de091aebe7fc1df20",
+              "index_digest": "sha256:9c7b4865b55369ac65b08918e7f3f47b03fc73b61b166fdd3b8641aeec37a2e2"
+            },
+            "session": "separate",
+            "model_profile": "unavailable",
+            "model": null,
+            "checks": [
+              {
+                "id": "ux_acceptance",
+                "status": "executed",
+                "result": "passed",
+                "reason": "",
+                "evidence": [
+                  {
+                    "method": "browser",
+                    "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+                    "locator": "http://127.0.0.1:33107/index.html",
+                    "observation": "{\"scenario\":\"flow\",\"viewport\":{\"height\":800,\"width\":375},\"url\":\"http://127.0.0.1:33107/index.html\",\"observations\":\"Executed the declared isolated anonymous notes flow in fresh browser contexts. Initially the page displayed Notes, Add a note, the associated Note text label, Save note, and No notes yet. Tab focused #note with a visible solid orange 3px outline. Enter with an empty input displayed Please enter a note. as role=alert and kept focus on the input. Typing A test note, tabbing to #save (also with a visible orange outline), and pressing Enter displayed Saving\u2026 as role=status and disabled Save note. Completion hid the loading and empty states, displayed Saved: A test note as role=status, re-enabled Save note, cleared the input, and returned focus to #note. There were no images requiring alt text. Visually inspected browser/ux-flow.png and browser/ux-flow-empty.png, browser/ux-flow-keyboard.png, browser/ux-flow-error.png, browser/ux-flow-loading.png, and browser/ux-flow-success.png: the label, control, focus outline and state messages were legible and visible at the configured viewport. Captured browser/observations.json and browser/ux-flow-details.json corroborate these observations. No failure was observed in the assigned flow; the assessment follows the observed behavior and visual inspection, rather than treating adapter metrics as a verdict.\"}",
+                    "exit_code": null
+                  }
+                ]
+              }
+            ]
+          },
+          "submission_digest": "sha256:e02ccdf6eca6d5a6008adace7628f4df8e4609bddc54a6be2fa06de8c7e5146e",
+          "session_id": "01a13c0e-ec5b-7fd0-b88c-7ab8eeab876d",
+          "approval_mode": "automatic review with workspace-write sandbox",
+          "session_mode": "fresh real Codex CLI, no other model attested",
+          "events_sha256": "sha256:08e78fafd9eabf50026256e0095608a84003447863ccdc46b2a754976a0297d7",
+          "prompt_sha256": "sha256:2627c8a01e7b2f23d636ab5c7cfc601d9e52ed86ccd0f40003b18ecb6312b2a2",
+          "report_sha256": "sha256:57a3cf0c3def2c591000b333ed8bb0424c8423387ce3fd03d7027be4ecf3d65e",
+          "accepted_unchanged": true
+        }
+      ],
+      "cleaned": true,
+      "source_gate": {
+        "blocking": true,
+        "blocking_owner_only": false,
+        "findings": [
+          "ui: ui_acceptance: The mobile scenario violates the declared no-overflow expectation: at 375x800 the section is 800 px wide and document scrollWidth is 816 px. Visual inspection of the viewport screenshot confirms that the card and input extend beyond the right edge. The existing section min-width: 800px rule in index.html explains the failure. The desktop scenario is contained and readable. Both assigned scenarios were inspected in fresh browser contexts; no scenario was skipped. Acceptance requires the layout to fit the sealed mobile viewport; changing that requirement is an owner decision.",
+          "ui: Model profile unavailable; independent model not established",
+          "ux: ux_acceptance: The declared flow does not reach its required success state: a nonempty keyboard submission finishes loading but leaves 'No notes yet.' visible, retains the input, and provides no confirmation. This breaks the user's save flow. At the configured mobile viewport the page also overflows horizontally and keyboard focus scrolls content into a clipped position. Empty, validation-error, loading, label, and keyboard-focus behavior were exercised; these successes do not satisfy the missing save confirmation.",
+          "ux: Model profile unavailable; independent model not established"
+        ],
+        "gate": "review",
+        "status": "failed",
+        "suggested_next": "/aif-fix"
+      },
+      "source_gate_digest": "sha256:9798206b6b77b54e3679b01aaf04e8efed8a3db3c05f9c893f842ab13f4af4c0",
+      "resumed_gate": {
+        "blocking": false,
+        "blocking_owner_only": false,
+        "findings": [
+          "ui: Model profile unavailable; independent model not established",
+          "ux: Model profile unavailable; independent model not established"
+        ],
+        "gate": "review",
+        "status": "warnings",
+        "suggested_next": "continue"
+      },
+      "resumed_gate_digest": "sha256:a91e0cf4d8c6a87944fa3962dcf529e43d5ca78afff6147de9e096e8216c8336"
+    }
+  ],
+  "worker_sha256": "4dfc3de4ec56c1f481389093f284d525586b0163553d66ff8a212375124a4f16",
+  "w1_worker_sha256": "0ac845481c7fb4dd3a57d7e80726e42f67c1075ff2407916c7607ddc1a450c76",
+  "codex_cli": "0.162.1",
+  "required_separate_session": true,
+  "context_sha256": {
+    "ui": "167c0a87afb7a77188064b92a8d56fe7979dee49dc2177afcb0c74e0b2c7abae",
+    "ux": "b739e733e84d21acf4998aa7de9206a2006d516a7348419c590b4c5954e42fe1"
+  }
+}

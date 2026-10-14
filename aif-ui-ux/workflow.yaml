@@ -1,0 +1,161 @@
+authoring: prifly-project-workflow/1
+package:
+  id: aif-product:package/ui-ux
+  version: 1.0.0
+  description: Sequential UI and UX evidence on an explicitly owned test environment.
+  requires_core_protocol: '1'
+  references:
+    process: core:adapter/local-process@2.0.0
+    session: core:adapter/assisted-session@1.0.0
+    policy: core:policy/local@4.0.0
+    result: core:schema/step-result@1.0.0
+    result_v2: core:schema/step-result@2.0.0
+id: aif-product:workflow/ui-ux
+schema_version: '8'
+version: 1.0.0
+title: AI Factory product UI/UX review
+refs:
+  schema_configuration: '{{schema_configuration}}'
+  schema_report: '{{schema_report}}'
+  schema_gate: '{{schema_gate}}'
+  schema_environment: '{{schema_environment}}'
+  schema_release: '{{schema_release}}'
+  step_configure: '{{step_configure}}'
+  workflow_quality: '{{workflow_quality}}'
+  policy: '{{policy}}'
+inputs:
+  configuration:
+    schema_ref: schema_configuration
+outputs:
+  gate:
+    schema_ref: schema_gate
+    required_for:
+    - succeeded
+    - partial
+  ui_report:
+    schema_ref: schema_report
+    required_for:
+    - succeeded
+    - partial
+  ux_report:
+    schema_ref: schema_report
+    required_for:
+    - succeeded
+    - partial
+  environment:
+    schema_ref: schema_environment
+    required_for:
+    - succeeded
+    - partial
+  release:
+    schema_ref: schema_release
+    required_for:
+    - succeeded
+    - partial
+policy_ref: policy
+resumable:
+  from_outcomes:
+  - partial
+  - rejected
+  from_cancelled: true
+entry: configure
+limits:
+  max_step_instances: 8
+  max_control_transitions: 35
+  max_parallelism: 1
+  max_child_depth: 2
+stages:
+  configure:
+    kind: step
+    step_ref: step_configure
+    input_bindings:
+      configuration: $inputs.configuration
+    'on':
+      pass: quality
+      needs_revision: abandoned
+      fail: abandoned
+      no_work: abandoned
+    impossible_verdicts:
+    - blocked
+  quality:
+    kind: call
+    workflow_ref: workflow_quality
+    input_bindings:
+      configuration: $stages.configure.configuration
+      ui: $stages.configure.ui
+      ux: $stages.configure.ux
+    'on':
+      succeeded: done
+      partial: standing
+      rejected: abandoned
+  done:
+    kind: finish
+    outcome: succeeded
+    output_bindings:
+      gate: $stages.quality.gate
+      ui_report: $stages.quality.ui_report
+      ux_report: $stages.quality.ux_report
+      environment: $stages.quality.environment
+      release: $stages.quality.release
+  standing:
+    kind: finish
+    outcome: partial
+    output_bindings:
+      gate: $stages.quality.gate
+      ui_report: $stages.quality.ui_report
+      ux_report: $stages.quality.ux_report
+      environment: $stages.quality.environment
+      release: $stages.quality.release
+  abandoned:
+    kind: finish
+    outcome: rejected
+execution_bindings:
+  steps:
+    aif-product:step/configure:
+      executable: python
+      args:
+      - -B
+      - product.py
+      - configure
+      files:
+        product.py: files/product.py
+        evidence.py: files/evidence.py
+      timeout_ms: 120000
+      grace_ms: 100
+      max_output_bytes: 1048576
+    aif-product:step/capture:
+      executable: python
+      args:
+      - -B
+      - product.py
+      - capture
+      files:
+        product.py: files/product.py
+        evidence.py: files/evidence.py
+      timeout_ms: 120000
+      grace_ms: 100
+      max_output_bytes: 1048576
+    aif-product:step/evaluate:
+      executable: python
+      args:
+      - -B
+      - product.py
+      - evaluate
+      files:
+        product.py: files/product.py
+        evidence.py: files/evidence.py
+      timeout_ms: 120000
+      grace_ms: 100
+      max_output_bytes: 1048576
+    aif-product:step/finalize:
+      executable: python
+      args:
+      - -B
+      - product.py
+      - finalize
+      files:
+        product.py: files/product.py
+        evidence.py: files/evidence.py
+      timeout_ms: 120000
+      grace_ms: 100
+      max_output_bytes: 1048576

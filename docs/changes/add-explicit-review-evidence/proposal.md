@@ -1,6 +1,6 @@
 # W1 — Явные доказательства выполненного ревью
 
-Статус: **implemented locally; accepted within recorded limits; unreleased**. Приоритет: **P1, первым**. Дата: 2026-10-14.
+Статус: **committed/pushed to main; CI PASS; accepted within recorded limits; unreleased**. Приоритет: **P1, первым**. Дата: 2026-10-14.
 База: released Pri-Fly 0.13.76 / пакеты v1.51.2.
 
 ## Проблема и результат

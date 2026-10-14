@@ -1,0 +1,8 @@
+{
+  "codex_cli": "0.162.1",
+  "outcome": "no report produced; no pass claimed",
+  "reason": "bwrap loopback Failed RTM_NEWADDR Operation not permitted",
+  "event_sha256": "fc8ba3cd134485cfed7f852a562e40de7cab4cfb7d7735751a31fc713d9cac26",
+  "cleanup": "own fixture cleaned",
+  "sandbox_override": "not executed; auto-review rejected broad system/credential/network access"
+}

@@ -1,0 +1,191 @@
+{
+  "prifly": "0.13.76",
+  "binary_sha256": "sha256:03ac382112a12001ea9e2a86e5a20db2d5e24ec79ce5339f6257c473d0f3322d",
+  "cases": [
+    {
+      "case": "defect-repair",
+      "host": "codex-app",
+      "mode": "current Codex app / actual browser / shared session",
+      "source_outcome": "partial",
+      "outcome": "succeeded",
+      "runs": 2,
+      "candidate_changed": true,
+      "browser_readers": 4,
+      "browser_observations": [
+        {
+          "lens": "ui",
+          "iteration": 0,
+          "verdict": "pass",
+          "report": {
+            "round": 1,
+            "request_digest": "sha256:c4c98c82c367ccb49a7077ec9a795de9bf9356e931c4283f32545cd24457d441",
+            "candidate": {
+              "algorithm": "git-candidate/1",
+              "base_commit": "7ec1ed019719c022efba9233697d2fa5fbdc42a7",
+              "digest": "sha256:a4c2ea3725c873cd100db3d43a7411e72f4454ff585b1869c33b85c19640cb85",
+              "files_digest": "sha256:a6ba5ff301f651963d9cec87d84c7a1814cadad38c7f14a9f04febfc841b8b9a",
+              "head_commit": "7ec1ed019719c022efba9233697d2fa5fbdc42a7",
+              "index_digest": "sha256:9a27f27e9a7dbefe193632d1c025f9b4b4369048534523aecea1c9f7a2411bed"
+            },
+            "session": "shared",
+            "model_profile": "unavailable",
+            "model": null,
+            "checks": [
+              {
+                "id": "ui_acceptance",
+                "status": "executed",
+                "result": "failed",
+                "reason": "The 375px mobile page has horizontal overflow (scrollWidth 816); section min-width 800px prevents responsive layout. Desktop/mobile screenshots and actual browser metrics confirm the defect.",
+                "evidence": [
+                  {
+                    "method": "browser",
+                    "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4; current Codex app screenshot inspection",
+                    "locator": "http://127.0.0.1:35227/index.html",
+                    "observation": "{\"scenario\": \"desktop\", \"viewport\": {\"height\": 800, \"width\": 1280}, \"url\": \"http://127.0.0.1:35227/index.html\", \"observations\": \"{\\\"viewport\\\":1280,\\\"scrollWidth\\\":1280,\\\"heading\\\":\\\"Notes\\\",\\\"bodyColor\\\":\\\"rgb(23, 32, 51)\\\",\\\"buttonColor\\\":\\\"rgb(255, 255, 255)\\\",\\\"buttonBackground\\\":\\\"rgb(23, 69, 161)\\\",\\\"label\\\":\\\"Note text\\\",\\\"section\\\":{\\\"x\\\":300,\\\"y\\\":92.75,\\\"width\\\":800,\\\"height\\\":311.8125,\\\"top\\\":92.75,\\\"right\\\":1100,\\\"bottom\\\":404.5625,\\\"left\\\":300}}\\nDeclared design tokens: dark ink on white; white button text on blue. Screenshot requires visual inspection, DOM metrics alone are not a visual review.\\nVisual inspection: hierarchy Notes \\u2192 Add a note \\u2192 labelled form is readable, spacing and rounded border are consistent; dark ink and white-on-blue button match the declared tokens. At 1280px the entire panel is visible; no horizontal overflow.\"}",
+                    "exit_code": null
+                  },
+                  {
+                    "method": "browser",
+                    "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4; current Codex app screenshot inspection",
+                    "locator": "http://127.0.0.1:35227/index.html",
+                    "observation": "{\"scenario\": \"mobile\", \"viewport\": {\"height\": 800, \"width\": 375}, \"url\": \"http://127.0.0.1:35227/index.html\", \"observations\": \"{\\\"viewport\\\":375,\\\"scrollWidth\\\":816,\\\"heading\\\":\\\"Notes\\\",\\\"bodyColor\\\":\\\"rgb(23, 32, 51)\\\",\\\"buttonColor\\\":\\\"rgb(255, 255, 255)\\\",\\\"buttonBackground\\\":\\\"rgb(23, 69, 161)\\\",\\\"label\\\":\\\"Note text\\\",\\\"section\\\":{\\\"x\\\":16,\\\"y\\\":92.75,\\\"width\\\":800,\\\"height\\\":311.8125,\\\"top\\\":92.75,\\\"right\\\":816,\\\"bottom\\\":404.5625,\\\"left\\\":16}}\\nDeclared design tokens: dark ink on white; white button text on blue. Screenshot requires visual inspection, DOM metrics alone are not a visual review.\\nVisual inspection: hierarchy Notes \\u2192 Add a note \\u2192 labelled form is readable, spacing and rounded border are consistent; dark ink and white-on-blue button match the declared tokens. The panel and input extend far beyond the 375px viewport; scrollWidth=816 and section right=816. The CSS min-width:800px causes horizontal overflow and fails the explicit no-overflow criterion.\"}",
+                    "exit_code": null
+                  }
+                ]
+              }
+            ]
+          },
+          "submission_digest": "sha256:4a092c6a35cff9f930bdac6297fac8dc0bbbb4b231f6f105693217d6503e3a6b",
+          "session_mode": "current Codex app / shared session; no independent session/model"
+        },
+        {
+          "lens": "ux",
+          "iteration": 0,
+          "verdict": "pass",
+          "report": {
+            "round": 1,
+            "request_digest": "sha256:df1544726c97459d79c94b8f8a4e26a113766358e88eea668dbd379171fcae2d",
+            "candidate": {
+              "algorithm": "git-candidate/1",
+              "base_commit": "7ec1ed019719c022efba9233697d2fa5fbdc42a7",
+              "digest": "sha256:a4c2ea3725c873cd100db3d43a7411e72f4454ff585b1869c33b85c19640cb85",
+              "files_digest": "sha256:a6ba5ff301f651963d9cec87d84c7a1814cadad38c7f14a9f04febfc841b8b9a",
+              "head_commit": "7ec1ed019719c022efba9233697d2fa5fbdc42a7",
+              "index_digest": "sha256:9a27f27e9a7dbefe193632d1c025f9b4b4369048534523aecea1c9f7a2411bed"
+            },
+            "session": "shared",
+            "model_profile": "unavailable",
+            "model": null,
+            "checks": [
+              {
+                "id": "ux_acceptance",
+                "status": "executed",
+                "result": "failed",
+                "reason": "Saving a nonempty note never reaches the required confirmation; the early return inside the completion callback leaves success hidden.",
+                "evidence": [
+                  {
+                    "method": "browser",
+                    "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4; current Codex app inspection",
+                    "locator": "http://127.0.0.1:35227/index.html",
+                    "observation": "{\"scenario\": \"flow\", \"viewport\": {\"height\": 800, \"width\": 375}, \"url\": \"http://127.0.0.1:35227/index.html\", \"observations\": \"{\\\"empty\\\":true,\\\"focus\\\":\\\"note\\\",\\\"outline\\\":\\\"solid\\\",\\\"label\\\":[\\\"Note text\\\"],\\\"error\\\":true,\\\"loading\\\":true,\\\"success\\\":false,\\\"copy\\\":\\\"\\\"}\\nCurrent host assessment: Actual keyboard focus reaches the labelled Note text input and has a solid focus outline. Empty submit shows an error and focuses the input. Valid submit shows loading, then no Saved confirmation appears; success=false, copy empty. The completion callback returns before updating success/empty state. This is a reproducible user flow dead end.\"}",
+                    "exit_code": null
+                  }
+                ]
+              }
+            ]
+          },
+          "submission_digest": "sha256:6e59a899d51c8d11149c47af9a0e9d9fa3cf7bb8be843435ee0ae891a44f4965",
+          "session_mode": "current Codex app / shared session; no independent session/model"
+        },
+        {
+          "lens": "ui",
+          "iteration": 1,
+          "verdict": "pass",
+          "report": {
+            "round": 1,
+            "request_digest": "sha256:c4c98c82c367ccb49a7077ec9a795de9bf9356e931c4283f32545cd24457d441",
+            "candidate": {
+              "algorithm": "git-candidate/1",
+              "base_commit": "7ec1ed019719c022efba9233697d2fa5fbdc42a7",
+              "digest": "sha256:87c48de86944f0dffcbb0b750502088b8095381405dc2a6a348d015f108a83f7",
+              "files_digest": "sha256:8d7f158558f9350480da32e678ad3c4956df94c1a8f6a84e8455e46eeb49a8e3",
+              "head_commit": "7ec1ed019719c022efba9233697d2fa5fbdc42a7",
+              "index_digest": "sha256:9a27f27e9a7dbefe193632d1c025f9b4b4369048534523aecea1c9f7a2411bed"
+            },
+            "session": "shared",
+            "model_profile": "unavailable",
+            "model": null,
+            "checks": [
+              {
+                "id": "ui_acceptance",
+                "status": "executed",
+                "result": "passed",
+                "reason": "",
+                "evidence": [
+                  {
+                    "method": "browser",
+                    "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4; current Codex app inspection",
+                    "locator": "http://127.0.0.1:35087/index.html",
+                    "observation": "{\"scenario\": \"desktop\", \"viewport\": {\"height\": 800, \"width\": 1280}, \"url\": \"http://127.0.0.1:35087/index.html\", \"observations\": \"{\\\"viewport\\\":1280,\\\"scrollWidth\\\":1280,\\\"heading\\\":\\\"Notes\\\",\\\"bodyColor\\\":\\\"rgb(23, 32, 51)\\\",\\\"buttonColor\\\":\\\"rgb(255, 255, 255)\\\",\\\"buttonBackground\\\":\\\"rgb(23, 69, 161)\\\",\\\"label\\\":\\\"Note text\\\",\\\"section\\\":{\\\"x\\\":300,\\\"y\\\":92.75,\\\"width\\\":680,\\\"height\\\":311.8125,\\\"top\\\":92.75,\\\"right\\\":980,\\\"bottom\\\":404.5625,\\\"left\\\":300}}\\nDeclared design tokens: dark ink on white; white button text on blue. Screenshot requires visual inspection, DOM metrics alone are not a visual review.\\nCurrent host assessment: Fresh desktop/mobile screenshots are visually consistent: centred desktop card, 16px mobile side margins, clear Notes/Add a note hierarchy, aligned labelled form and readable dark ink/white-on-blue button. At 1280px scrollWidth=1280; at 375px scrollWidth=375, panel width=343, right edge=359. The previous horizontal overflow is gone. This is scoped fixture inspection, not a complete accessibility audit.\"}",
+                    "exit_code": null
+                  },
+                  {
+                    "method": "browser",
+                    "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4; current Codex app inspection",
+                    "locator": "http://127.0.0.1:35087/index.html",
+                    "observation": "{\"scenario\": \"mobile\", \"viewport\": {\"height\": 800, \"width\": 375}, \"url\": \"http://127.0.0.1:35087/index.html\", \"observations\": \"{\\\"viewport\\\":375,\\\"scrollWidth\\\":375,\\\"heading\\\":\\\"Notes\\\",\\\"bodyColor\\\":\\\"rgb(23, 32, 51)\\\",\\\"buttonColor\\\":\\\"rgb(255, 255, 255)\\\",\\\"buttonBackground\\\":\\\"rgb(23, 69, 161)\\\",\\\"label\\\":\\\"Note text\\\",\\\"section\\\":{\\\"x\\\":16,\\\"y\\\":92.75,\\\"width\\\":343,\\\"height\\\":311.8125,\\\"top\\\":92.75,\\\"right\\\":359,\\\"bottom\\\":404.5625,\\\"left\\\":16}}\\nDeclared design tokens: dark ink on white; white button text on blue. Screenshot requires visual inspection, DOM metrics alone are not a visual review.\\nCurrent host assessment: Fresh desktop/mobile screenshots are visually consistent: centred desktop card, 16px mobile side margins, clear Notes/Add a note hierarchy, aligned labelled form and readable dark ink/white-on-blue button. At 1280px scrollWidth=1280; at 375px scrollWidth=375, panel width=343, right edge=359. The previous horizontal overflow is gone. This is scoped fixture inspection, not a complete accessibility audit.\"}",
+                    "exit_code": null
+                  }
+                ]
+              }
+            ]
+          },
+          "submission_digest": "sha256:19ced9c6ea609d275c0129ec01734ac9880c8941e97c78ee3eb82ba1c844f8f1",
+          "session_mode": "current Codex app / shared session; no independent session/model"
+        },
+        {
+          "lens": "ux",
+          "iteration": 1,
+          "verdict": "pass",
+          "report": {
+            "round": 1,
+            "request_digest": "sha256:df1544726c97459d79c94b8f8a4e26a113766358e88eea668dbd379171fcae2d",
+            "candidate": {
+              "algorithm": "git-candidate/1",
+              "base_commit": "7ec1ed019719c022efba9233697d2fa5fbdc42a7",
+              "digest": "sha256:87c48de86944f0dffcbb0b750502088b8095381405dc2a6a348d015f108a83f7",
+              "files_digest": "sha256:8d7f158558f9350480da32e678ad3c4956df94c1a8f6a84e8455e46eeb49a8e3",
+              "head_commit": "7ec1ed019719c022efba9233697d2fa5fbdc42a7",
+              "index_digest": "sha256:9a27f27e9a7dbefe193632d1c025f9b4b4369048534523aecea1c9f7a2411bed"
+            },
+            "session": "shared",
+            "model_profile": "unavailable",
+            "model": null,
+            "checks": [
+              {
+                "id": "ux_acceptance",
+                "status": "executed",
+                "result": "passed",
+                "reason": "",
+                "evidence": [
+                  {
+                    "method": "browser",
+                    "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4; current Codex app inspection",
+                    "locator": "http://127.0.0.1:35087/index.html",
+                    "observation": "{\"scenario\": \"flow\", \"viewport\": {\"height\": 800, \"width\": 375}, \"url\": \"http://127.0.0.1:35087/index.html\", \"observations\": \"{\\\"empty\\\":true,\\\"focus\\\":\\\"note\\\",\\\"outline\\\":\\\"solid\\\",\\\"label\\\":[\\\"Note text\\\"],\\\"error\\\":true,\\\"loading\\\":true,\\\"success\\\":true,\\\"copy\\\":\\\"Saved: A test note\\\"}\\nCurrent host assessment: At the declared 375x800 viewport, keyboard Tab focuses the labelled input with visible solid outline. Empty submit displays the validation error. Nonempty A test note submit visibly enters loading, then confirms Saved: A test note, hides the empty state, clears/refocuses input and re-enables the button. Screenshot and observed DOM state agree; the prior early-return dead end is fixed.\"}",
+                    "exit_code": null
+                  }
+                ]
+              }
+            ]
+          },
+          "submission_digest": "sha256:a0c0d2610fdccc0b89afa02a856ccd745d884c5676988ff40706b83bdaab0aff",
+          "session_mode": "current Codex app / shared session; no independent session/model"
+        }
+      ],
+      "cleaned": true
+    }
+  ],
+  "worker_sha256": "4dfc3de4ec56c1f481389093f284d525586b0163553d66ff8a212375124a4f16",
+  "w1_worker_sha256": "0ac845481c7fb4dd3a57d7e80726e42f67c1075ff2407916c7607ddc1a450c76"
+}

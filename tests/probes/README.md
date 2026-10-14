@@ -1,3 +1,25 @@
+`product_check.py` qualifies standalone W2 with synthetic reports, real Git,
+program evaluators and owned loopback environments. `--browser-library` uses
+real Playwright/Chromium for the notes fixture, still deterministic assertions.
+Fresh real Codex CLI readers are opt-in (`--live-skills`, `--case`, `--artifacts`)
+and consume host usage; blocked host/tool access is not a browser pass.
+`--manual-directory` delivers tasks to the current host and waits for its exact
+submission.json, without selecting or rewriting verdict/report. Report shared
+session honestly. `--auto-review` uses Codex --approve-for-me (workspace-write
+sandbox with automatic review of eligible per-command escalation); no blanket
+sandbox bypass is offered. Live CLI requests require separate sessions and
+assert unique thread IDs, unchanged authority version and unchanged candidate. Exact live skills directory
+contains aif-review.md and severity.md from AI Factory 2.19.0.
+
+    python3 -B tests/probes/product_check.py --binary /path/to/released/prifly --report /tmp/product-runtime.json
+    python3 -B tests/probes/product_check.py --binary /path/to/released/prifly --browser-library /path/to/playwright --report /tmp/product-browser.json
+
+Browser dependencies are pinned by tests/fixtures/product/package-lock.json.
+Install them outside any claimed candidate. All modes clean their own Runs,
+claims, loopback processes/leases and monitor entry, including a Run created
+before resource_busy is returned. Cancellation explicitly uses operator cleanup;
+it does not assert a cancelled graph ran its tail.
+
 `live_readers.py` is a manual, real-LLM acceptance probe for released aif-fix
 1.0.2. It installs exact v1.51.2, uses full AI Factory 2.19.0 skills, removes
 an owner-managed required dependency after deterministic fix setup, and lets

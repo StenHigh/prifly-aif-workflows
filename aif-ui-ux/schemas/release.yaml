@@ -1,0 +1,28 @@
+id: aif-product:schema/release
+version: 1.0.0
+$schema: https://json-schema.org/draft/2020-12/schema
+type: object
+required:
+- status
+- owner
+- session
+- reason
+additionalProperties: false
+properties:
+  status:
+    enum:
+    - released
+    - not_needed
+    - blocked
+    - reconcile_required
+  owner:
+    type: string
+    minLength: 1
+    maxLength: 4000
+  session:
+    type:
+    - string
+    - 'null'
+  reason:
+    type: string
+    maxLength: 4000

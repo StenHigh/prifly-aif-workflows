@@ -1,0 +1,20 @@
+authoring: prifly-step/1
+id: aif-product:step/capture
+version: 1.0.0
+title: Product review capture
+kind: worker
+inputs:
+  configuration:
+    schema_ref: '{{schema_configuration}}'
+outputs:
+  candidate:
+    schema_ref: '{{schema_candidate}}'
+    required_for:
+    - pass
+executor:
+  adapter_ref: '{{process}}'
+  operation: process
+effects:
+  class: none
+  retry_class: never
+result_schema_ref: '{{result}}'

@@ -16,7 +16,7 @@ import sys
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
-PACKAGES = ("aif-classic", "aif-fanout", "aif-fix", "aif-profiled", "aif-review-evidence")
+PACKAGES = ("aif-classic", "aif-fanout", "aif-fix", "aif-profiled", "aif-review-evidence", "aif-ui-ux")
 HOSTS = {"codex-cli": ".codex/skills", "codex-app": ".agents/skills", "claude-code": ".claude/skills"}
 CLASSIC_SKILLS = ("aif-warmup", "aif-plan", "aif-improve", "aif-implement", "aif-verify", "aif-security-checklist", "aif-review", "aif-commit", "aif-fix",)
 IMPROVE_REFERENCES = ("LIST-MODE.md", "CHECK-MODE.md", "EXAMPLES.md", "VALIDATOR.md")
@@ -121,6 +121,7 @@ def prepare_repository(binary, root):
         "  aif-classic:\n    title: AI Factory classic development workflow\n    description: Canonical AI Factory development workflow with bounded plan improvement.\n    kind: workflow\n    workflow: .prifly/workflows/aif-classic/workflow.yaml\n"
         "  aif-fanout:\n    title: AI Factory fan-out plan refinement\n    description: Optional AI Factory plan refinement with independent review perspectives.\n    kind: workflow\n    workflow: .prifly/workflows/aif-fanout/workflow.yaml\n"
         "  aif-fix:\n    title: AI Factory bug fix workflow\n    description: Fix a specific bug with regression evidence; complex bugs use their own fix-plan executed by aif-fix.\n    kind: workflow\n    workflow: .prifly/workflows/aif-fix/workflow.yaml\n"
+        "  aif-ui-ux:\n    title: UI and UX review\n    description: Owned environment and sequential product readers.\n    kind: workflow\n    workflow: .prifly/workflows/aif-ui-ux/workflow.yaml\n"
         "  aif-review-evidence:\n    title: AI Factory review evidence\n    description: Check declared review coverage against the current candidate.\n    kind: workflow\n    workflow: .prifly/workflows/aif-review-evidence/workflow.yaml\n"
         "  aif-profiled:\n    title: AI Factory profiled development workflow\n    description: The classic route with every step declaring the model profile it wants.\n    kind: workflow\n    workflow: .prifly/workflows/aif-profiled/workflow.yaml\n",
     )
@@ -525,6 +526,8 @@ def main():
             components_read += check_fix(binary, authority, repository, root)
             from evidence_contract import check_evidence
             components_read += check_evidence(binary, authority, repository, root)
+            from product_contract import check_product
+            components_read += check_product(binary, authority, repository, root)
             after = run(binary, "--project", authority, "package", "list")
             assert before == after, "compile must not import or trust a package"
         finally:

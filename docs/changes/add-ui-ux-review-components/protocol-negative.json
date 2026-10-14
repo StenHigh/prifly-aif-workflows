@@ -1,0 +1,7 @@
+{
+  "outcome": "native submission rejected; fixture cleaned; not a qualification pass",
+  "reason": "model_profile.unavailable_reason is an unknown native field; browser evidence mixed another lens and appended selectors to exact URL locator",
+  "submission_sha256": "sha256:ad1bea3de2abc9680bef04f71253fd077ac777de7f33efbfbe76109d6900ddc9",
+  "report_sha256": "sha256:201f2b7a92301c2ae44a25ef2c00c25caf00a6ef0862874a7a5f65a7922eab1f",
+  "correction": "Explicit standalone bridges and neutral probe serialization guidance; fresh unedited reports rerun successfully. No findings/verdict edits."
+}

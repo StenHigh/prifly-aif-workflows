@@ -1,6 +1,6 @@
 # W2 — UI/UX-компоненты приёмки
 
-Статус: **proposed**. Приоритет: **P1**. Дата: 2026-10-14.
+Статус: **implemented locally; fresh CLI acceptance passed within recorded model/consumer limits; unreleased**. Приоритет: **P1**. Дата: 2026-10-14.
 База: released Pri-Fly 0.13.76 / пакеты v1.51.2.
 
 ## Проблема и результат
@@ -20,8 +20,7 @@ UI оценивает визуальную согласованность, UX �
 
 ## Зависимости и границы
 
-Зависит от [W1](../add-explicit-review-evidence/proposal.md). Живая browser
-приёмка требует согласованного lifecycle среды по [#2](https://github.com/StenHigh/prifly-aif-workflows/issues/2).
+Зависит от [W1](../add-explicit-review-evidence/proposal.md). Generic lifecycle среды реализован в standalone guide; consumer qualification остаётся по [#2](https://github.com/StenHigh/prifly-aif-workflows/issues/2).
 Baseline-пути выполняют #5. W3 — потребитель, а не prerequisite: до него
 компоненты проходят самостоятельные authored fixtures; текущие графы не меняются.
 
@@ -30,8 +29,8 @@ Baseline-пути выполняют #5. W3 — потребитель, а не 
 
 ## Критерии приёмки
 
-- **W2-A1:** Prepare показывает выбранные UI/UX checks, requiredness, scenarios
-  и среду. Исключение reviewer — явный проектный выбор, не скрытый PASS.
+- **W2-A1:** Companion preview перед reviewed prepare показывает выбранные
+  UI/UX checks, requiredness, scenarios и среду; native prepare связывает их input digest. Исключение reviewer — явный проектный выбор, не скрытый PASS.
 - **W2-A2:** На frontend fixture реально выполнены desktop/mobile UI и
   пользовательский UX-сценарий; evidence связано с candidate и check IDs W1.
 - **W2-A3:** Нет browser/tool/server — required check даёт blocked/partial с
@@ -48,3 +47,5 @@ Baseline-пути выполняют #5. W3 — потребитель, а не 
   browser-приёмка на реально доступных hosts, остальные помечены непроверенными.
 
 Детали: [design.md](design.md). Работы: [tasks.md](tasks.md).
+
+Реализация и точные границы: [acceptance.md](acceptance.md).

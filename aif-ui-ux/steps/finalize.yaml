@@ -1,0 +1,28 @@
+authoring: prifly-step/1
+id: aif-product:step/finalize
+version: 1.0.0
+title: Product review finalize
+kind: worker
+inputs:
+  configuration:
+    schema_ref: '{{schema_configuration}}'
+  environment:
+    schema_ref: '{{schema_environment}}'
+  release:
+    schema_ref: '{{schema_release}}'
+  gate:
+    schema_ref: '{{schema_gate}}'
+  candidate:
+    schema_ref: '{{schema_candidate}}'
+outputs:
+  gate:
+    schema_ref: '{{schema_gate}}'
+    required_for:
+    - pass
+executor:
+  adapter_ref: '{{process}}'
+  operation: process
+effects:
+  class: none
+  retry_class: never
+result_schema_ref: '{{result}}'

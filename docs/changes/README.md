@@ -1,20 +1,20 @@
 # План изменений workflow после сравнения с Software Factory
 
-Дата: 2026-10-14. W1: **реализован и проверен локально**, остальные change: **proposed**. Выпуск не выполнен.
+Дата: 2026-10-14. W1: **committed/pushed, CI PASS**; W2: **реализован, fresh CLI acceptance PASS**; W3–W5: **proposed**. Выпуск не выполнен.
 База: released Pri-Fly **0.13.76**, пакеты этого репозитория **v1.51.2**.
 Stable проверен перед оформлением: новых выпусков нет. Это не новый прогон ворот.
 
 В этом репозитории нет инициализированного OpenSpec-проекта. Change хранятся
 как репозиторная документация: `proposal.md` задаёт объём и критерии приёмки,
 `design.md` — решения и границы, `tasks.md` — ещё не выполненные работы.
-Эти документы не являются executable workflow и не меняют действующие контракты.
+Документы change описывают scope; executable реализации W1/W2 находятся в отдельных новых папках.
 
 ## Реестр
 
 | ID | Приоритет | Change | Зависимости | Статус |
 |---|---|---|---|---|
-| W1 | P1, первым | [Явные доказательства ревью](add-explicit-review-evidence/proposal.md) | Нет; безопасный baseline обязателен там, где используется | local implementation accepted / unreleased |
-| W2 | P1 | [UI/UX-компоненты](add-ui-ux-review-components/proposal.md) | W1; контракт среды из #2 | proposed |
+| W1 | P1, первым | [Явные доказательства ревью](add-explicit-review-evidence/proposal.md) | Нет; безопасный baseline обязателен там, где используется | committed/pushed, CI PASS / unreleased |
+| W2 | P1 | [UI/UX-компоненты](add-ui-ux-review-components/proposal.md) | W1; standalone контракт среды из #2 | fresh CLI accepted; model/consumer limits recorded / unreleased |
 | W3 | P1 | [Короткий workflow для фич](add-bounded-feature-workflow/proposal.md) | W1; W2 для интерфейсного профиля | proposed |
 | W4 | P1/P2 | [Приёмка перед интеграцией](document-verified-integration-handoff/proposal.md) | W1; проектный интегратор, #1 при GitLab | proposed |
 | W5 | P2 | [Квалификация параллельного ревью](qualify-parallel-implementation-review/proposal.md) | W1, W2, W3; сначала последовательная приёмка | proposed |

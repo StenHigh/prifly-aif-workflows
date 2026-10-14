@@ -28,6 +28,8 @@ jobs:
         run: python3 -B tests/test_folders.py
       - name: Explicit review coverage and dirty candidate identity
         run: python3 -B tests/test_review_evidence.py
+      - name: Product review coverage and owned environment lifecycle
+        run: python3 -B tests/test_product_review.py
       - name: Compile all packages with the installed Pri-Fly
         run: python3 -B tests/verify.py --binary "$HOME/.local/bin/prifly"
       - name: One authority carries Classic across every plan profile
@@ -44,3 +46,17 @@ jobs:
         run: python3 -B tests/probes/fix_check.py --binary "$HOME/.local/bin/prifly" --report /tmp/aif-fix-results.json
       - name: Explicit review evidence finishes and resumes on the released runtime
         run: python3 -B tests/probes/evidence_check.py --binary "$HOME/.local/bin/prifly" --report /tmp/aif-evidence-results.json
+      - name: UI and UX components finish, block and resume with owned environments
+        run: python3 -B tests/probes/product_check.py --binary "$HOME/.local/bin/prifly" --report /tmp/aif-product-results.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install the exact browser fixture tool
+        run: |
+          npm ci --ignore-scripts --no-audit --no-fund --prefix tests/fixtures/product
+          tests/fixtures/product/node_modules/.bin/playwright install --with-deps chromium
+      - name: Real browser scenarios, defects, repair and cancellation
+        run: |
+          python3 -B tests/probes/product_check.py --binary "$HOME/.local/bin/prifly" \
+            --browser-library "$PWD/tests/fixtures/product/node_modules/playwright" \
+            --report /tmp/aif-product-browser-results.json

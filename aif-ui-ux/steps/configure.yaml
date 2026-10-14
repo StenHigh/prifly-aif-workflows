@@ -1,0 +1,28 @@
+authoring: prifly-step/1
+id: aif-product:step/configure
+version: 1.0.0
+title: Product review configure
+kind: worker
+inputs:
+  configuration:
+    schema_ref: '{{schema_configuration}}'
+outputs:
+  configuration:
+    schema_ref: '{{schema_configuration}}'
+    required_for:
+    - pass
+  ui:
+    schema_ref: '{{schema_request}}'
+    required_for:
+    - pass
+  ux:
+    schema_ref: '{{schema_request}}'
+    required_for:
+    - pass
+executor:
+  adapter_ref: '{{process}}'
+  operation: process
+effects:
+  class: none
+  retry_class: never
+result_schema_ref: '{{result}}'

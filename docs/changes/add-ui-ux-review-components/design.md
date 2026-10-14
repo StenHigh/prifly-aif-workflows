@@ -31,3 +31,25 @@ bindings/resource contracts, а не hardcoded Docker/npm.
 
 Cancellation/recovery сохраняют evidence и candidate; cleanup проверяет
 принадлежность среды и выполняется declared lifecycle executor.
+
+## Реализованная первая композиция
+
+Standalone aif-ui-ux содержит byte-identical W1 schemas/helper/bridge под их
+исходными IDs; compile gate проверяет равенство source bytes. Собственные
+configuration/environment/release schemas и steps имеют aif-product IDs.
+Установка папки самодостаточна; ссылок на неустановленный sibling нет.
+
+configure проецирует lens/scenarios/environment в descriptions typed W1
+requests. Quality capture → environment → UI → UX → evaluate → release →
+finalize возвращает два reports, environment/release receipts и review gate.
+Evaluate проверяет scenario IDs/viewport/test URL и actual current Git basis;
+finalize повторяет basis после release и связывает exact cleanup owner/session.
+Quality call повторяется при continue; авторского repair/commit нет.
+
+Среда — project-assisted adapter с external_write ensure/release и read-only
+candidate; default общий compatible profile, transition не спрятан в reviewers.
+Engine resource сериализует Attempts; lease project runner защищает жизненный
+цикл между Attempts. Cancellation требует predeclared operator reconciliation.
+Generic contract описан в ../../product-review-environment.md, actual private
+consumer qualification остаётся issue #2. Native prepare отображает immutable
+input digest; package preview отдельно показывает предметные choices.

@@ -1,17 +1,22 @@
 # Tasks W2
 
-- [ ] Завершить контракт W1; согласовать prerequisite #2 для test environment.
-- [ ] Определить UI/UX scenario catalog и reviewed applicability/requiredness
-  без автоматического снятия mandatory checks (A1, A4).
-- [ ] Описать project browser/setup contract, test identities, ports/sessions,
-  resources, effects и cancellation lifecycle (A6, A7).
-- [ ] Реализовать bridges, steps и installable source composition; подготовить
-  последовательный authored fixture, не меняющий classic (A1, A8).
-- [ ] Пройти реальные frontend desktop/mobile/flow и backend-only cases;
-  вынести claims модели отдельно от наблюдаемого browser evidence (A2, A4).
-- [ ] Прогнать missing browser/server, deliberate UI/UX defect → repair →
-  fresh checks, resource contention и cancellation cases (A3, A5–A7).
-- [ ] Выполнить released compile/runtime gates и host observations с точными
-  tool versions; составить матрицу A1–A8 и явно указать deferred hosts (A8).
-- [ ] Подготовить version bumps и отдельный release; не считать runtime fixture
-  доказательством реального browser/model pass.
+- [x] Закрепить W1 без изменения его byte contract; описать standalone generic
+  environment lifecycle из #2. Consumer qualification остаётся отдельно.
+- [x] UI/UX catalog, applicability/requiredness и read-only companion preview
+  перед native reviewed prepare (A1, A4).
+- [x] Project browser/setup/cleanup contract, common profile, identity,
+  owned lease/resources, effects и cancellation/operator cleanup (A6, A7).
+- [x] Standalone installable aif-ui-ux, последовательный authored graph,
+  два read-only bridges/reports, machine evaluator; classic не изменён (A1, A8).
+- [x] Actual desktop/mobile/keyboard/empty/error/loading/success frontend,
+  explicit backend-only skips; claims модели отделены от evidence (A2, A4).
+- [x] Missing browser/server, deliberate overflow/dead flow → separate repair →
+  fresh checks; contention, wrong cleanup owner, interruption/cancellation (A3, A5–A7).
+- [x] Released compile/negative fixtures на трёх hosts; actual current
+  Codex-app/shared observation and four required separate fresh Codex CLI
+  sessions on actual browser; Claude/different model deferred (A8).
+- [x] Матрица A1–A8 и reproducible runtime/browser fixtures с pinned tool versions.
+- [ ] Consumer qualification issue #2 и другие модели/Claude host; не считать
+  проверку fixture доказательством actual PHP stack или модельной независимости.
+- [ ] Commit/push реализации W2; initial versions 1.0.0 подготовлены.
+- [ ] Отдельный release/tag/catalog после принятия финального объёма.
