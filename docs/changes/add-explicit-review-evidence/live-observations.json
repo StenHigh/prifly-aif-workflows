@@ -1,0 +1,99 @@
+{
+  "host": "current codex-app shared session",
+  "skill_tag": "AI Factory 2.19.0",
+  "skill_sha256": "fe231edfc738ee488a4f1c341e32c12217f4c7b2aa7c2215b2fd53530d0eeaac",
+  "severity_sha256": "7c6d965470492a8e48db4b5d0ab7026b0ea8b64392d11c24836650ef579fae8b",
+  "outcome": "succeeded",
+  "report": {
+    "round": 1,
+    "candidate": {
+      "algorithm": "git-candidate/1",
+      "base_commit": "14ee2c7566ecfe9852325574185b38e92c23c87f",
+      "digest": "sha256:eceb8242f1021f83ceb163eb3ada588f51ea8986da209f77ca85f81c07f991cc",
+      "files_digest": "sha256:d8182b7666ec069503fcfedf03c5abe2ec24e1a7bf3127a7b39ea54b611742b6",
+      "head_commit": "14ee2c7566ecfe9852325574185b38e92c23c87f",
+      "index_digest": "sha256:5f9c040324a9addfd82dfee00b27cdc0c4079d370b1f001200d0b3078d53786d"
+    },
+    "session": "shared",
+    "model_profile": "unavailable",
+    "model": null,
+    "checks": [
+      {
+        "id": "arithmetic",
+        "status": "executed",
+        "result": "passed",
+        "reason": "",
+        "evidence": [
+          {
+            "method": "command",
+            "tool": "exec_command/python3",
+            "locator": "python3 -B -c 'from calc import total; assert total(2)==2 and total(None)==0; print(\"arithmetic PASS\")'",
+            "observation": "Current Codex host re-ran the declared arithmetic command in this claimed candidate: exit 0, stdout arithmetic PASS. Browser adapter/server is genuinely not configured.",
+            "exit_code": 0
+          }
+        ]
+      },
+      {
+        "id": "browser",
+        "status": "unavailable",
+        "result": "not_run",
+        "reason": "This fixture explicitly has no configured browser adapter, page URL or dev server; no browser observations were made.",
+        "evidence": []
+      }
+    ],
+    "request_digest": "sha256:b6c9e2d173ff219fee88b78827371bb9d44ff92cd1312b11722b6a9ec3fd2073"
+  },
+  "limits": "No browser execution or independent model/session; observations authored by current root host.",
+  "worker_sha256": "0ac845481c7fb4dd3a57d7e80726e42f67c1075ff2407916c7607ddc1a450c76",
+  "required_browser": {
+    "outcome": "partial",
+    "session_verdict": "pass",
+    "report": {
+      "round": 1,
+      "candidate": {
+        "algorithm": "git-candidate/1",
+        "base_commit": "14ee2c7566ecfe9852325574185b38e92c23c87f",
+        "digest": "sha256:eceb8242f1021f83ceb163eb3ada588f51ea8986da209f77ca85f81c07f991cc",
+        "files_digest": "sha256:d8182b7666ec069503fcfedf03c5abe2ec24e1a7bf3127a7b39ea54b611742b6",
+        "head_commit": "14ee2c7566ecfe9852325574185b38e92c23c87f",
+        "index_digest": "sha256:5f9c040324a9addfd82dfee00b27cdc0c4079d370b1f001200d0b3078d53786d"
+      },
+      "session": "shared",
+      "model_profile": "unavailable",
+      "model": null,
+      "checks": [
+        {
+          "id": "arithmetic",
+          "status": "executed",
+          "result": "passed",
+          "reason": "",
+          "evidence": [
+            {
+              "method": "command",
+              "tool": "exec_command/python3",
+              "locator": "python3 -B -c 'from calc import total; assert total(2)==2 and total(None)==0; print(\"arithmetic PASS\")'",
+              "observation": "Current Codex host re-ran the declared arithmetic command in this claimed candidate: exit 0, stdout arithmetic PASS. Browser adapter/server is genuinely not configured.",
+              "exit_code": 0
+            }
+          ]
+        },
+        {
+          "id": "browser",
+          "status": "unavailable",
+          "result": "not_run",
+          "reason": "This fixture explicitly has no configured browser adapter, page URL or dev server; no browser observations were made.",
+          "evidence": []
+        }
+      ],
+      "request_digest": "sha256:b6c9e2d173ff219fee88b78827371bb9d44ff92cd1312b11722b6a9ec3fd2073"
+    },
+    "bridge_ref": {
+      "id": "aif-evidence:context/review-bridge",
+      "version": "0.0.0-b1.oemxzdamwryj53oyn72onfsesn56u4xcrg6dm77dlk364r6coufq",
+      "digest": "sha256:8b6d7d83fb1904b40f83c3a3a91d3c93bffc97af55ab33b2ef0b8562a290874f"
+    }
+  },
+  "prifly": "0.13.76",
+  "binary_sha256": "sha256:03ac382112a12001ea9e2a86e5a20db2d5e24ec79ce5339f6257c473d0f3322d",
+  "cleanup": "both final-schema fixture Runs, claims, stand and monitor entry cleaned"
+}

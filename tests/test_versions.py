@@ -11,7 +11,7 @@ import subprocess
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-PACKAGES = ("aif-classic", "aif-fanout", "aif-fix", "aif-profiled")
+PACKAGES = ("aif-classic", "aif-fanout", "aif-fix", "aif-profiled", "aif-review-evidence")
 
 
 def git(*arguments, ok=(0,)):
@@ -91,7 +91,7 @@ class ReleasedVersionTest(unittest.TestCase):
 
     def test_a_changed_package_declares_a_new_package_version(self):
         for package in PACKAGES:
-            if not any(path.startswith(f"{package}/") and path.endswith(".yaml") for path in self.changed):
+            if not any(path.startswith(f"{package}/") for path in self.changed):
                 continue
             manifest = f"{package}/workflow.yaml"
             released = released_source(self.tag, manifest)

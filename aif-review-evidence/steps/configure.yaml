@@ -1,0 +1,20 @@
+authoring: prifly-step/1
+id: aif-evidence:step/configure
+version: 1.0.0
+title: Review evidence configure
+kind: worker
+inputs:
+  request:
+    schema_ref: '{{schema_request}}'
+outputs:
+  request:
+    schema_ref: '{{schema_request}}'
+    required_for:
+    - pass
+executor:
+  adapter_ref: '{{process}}'
+  operation: process
+effects:
+  class: none
+  retry_class: never
+result_schema_ref: '{{result}}'

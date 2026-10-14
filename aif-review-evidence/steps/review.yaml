@@ -1,0 +1,34 @@
+authoring: prifly-step/2
+id: aif-evidence:step/review
+version: 1.0.0
+title: Review evidence review
+kind: worker
+inputs:
+  request:
+    schema_ref: '{{schema_request}}'
+  candidate:
+    schema_ref: '{{schema_candidate}}'
+outputs:
+  report:
+    schema_ref: '{{schema_report}}'
+    required_for:
+    - pass
+    - needs_revision
+    - blocked
+executor:
+  adapter_ref: '{{session}}'
+  operation: session
+effects:
+  class: none
+  retry_class: pure
+result_schema_ref: '{{result_v2}}'
+repository_workspace: read_only
+instructions_ref: '{{context_review-bridge}}'
+context_refs:
+- '{{context_aif-review}}'
+- '{{context_review-severity}}'
+session_limits:
+  active_timeout_ms: null
+model_profile:
+  requested: independent-review
+  reason: Report separate session and actual model independently; unavailable is explicit.

@@ -1,12 +1,76 @@
 # CONTEXT_STATE
 
 Рабочее состояние репозитория пакетов AI Factory для следующей сессии.
-Нормативная правда — в самих YAML и в `aif-classic/decisions/INVENTORY.md`;
+Нормативная правда — в самих YAML, declared worker scripts и в `aif-classic/decisions/INVENTORY.md`;
 этот файл только ориентирует. История до 2026-09-25 (заходы пилота, выпуски
 движка 0.10–0.13.54, переход на AI Factory 2.19.0, WorkflowRevision v4) —
 в git: `git show d388b92:CONTEXT_STATE.md` (2330 строк, оглавление — `mdq tree`).
 
-## Состояние на 2026-10-13
+## Состояние на 2026-10-14
+
+- **W1 реализован отдельно (2026-10-14), без изменения Pri-Fly/classic:**
+  По уточнению владельца canonical `aif-classic` и производный `aif-profiled`
+  остаются эталонными и byte-for-byte прежними; `aif-fix`/`aif-fanout` также
+  не менялись. Новый `aif-review-evidence`, initial package 1.0.0, подготовлен
+  локально для будущих W2/W3: configure → quality {capture → review → evaluate}.
+  Три declared stdlib Python programs на existing local-process/2 и pinned
+  read-only aif-review + SEVERITY reader; ни repair, ни commit, ни внешней записи.
+  Report привязан к точному request artifact digest и к `git-candidate/1`
+  (base/HEAD, logical index, tracked/nonignored untracked bytes, удаления/modes).
+  Missing/duplicate/unknown checks, wrong method, required unavailable и stale
+  code/criteria дают partial с diagnostic gate; optional skips сохраняются
+  warnings по declared ignore/stop. Host session/model declarations различены,
+  достоверность prose/реального browser/модельной независимости не аттестуется.
+  Quality continue повторяет capture/reader/evaluate, preserving base/claim/work.
+  Изменение stopped quality переносит configure; effective contract configure
+  даёт recover_prefix_changed, explicit first-stage replay — resume_prefix_empty
+  на stable. Не обходим ограничение фиктивным anchor/reset/new checkout.
+  Released Linux/amd64 Pri-Fly 0.13.76 скачан в /tmp и проверен по manifest:
+  archive b44d98b37093d99415a82c4020bb8dd2452f0ec98dbf2078a0cd1d1f0e2fb720,
+  binary 03ac382112a12001ea9e2a86e5a20db2d5e24ec79ce5339f6257c473d0f3322d.
+  Stable повторно сверен после работы, новых выпусков нет.
+  14 unit tests + две RED canary (candidate/request guards), static7, versions3,
+  derive, verify (5 packages, 65 sealed steps/workflows, 38 source steps),
+  compatibility, 4 classic runtime probes и 28-case fix matrix — PASS.
+  W1: 25 synthetic-host cases до finish, including 3 host bindings, blocked/
+  cancelled/chained resume, contract-change reuse/refusal, — PASS. Сценарии
+  synthetic host не объявляются LLM или browser pass.
+  Отдельный живой current Codex-app/shared smoke на AI Factory 2.19.0 skills:
+  реальная arithmetic command exit 0 + unavailable optional browser → succeeded
+  с warnings; required browser → partial при session verdict pass. Final worker
+  digest совпадает с live evidence. Свежая независимая сессия/другая модель и
+  настоящий browser этим наблюдением не проверены. Все свои стенды/claims/
+  monitor entries очищены. Матрица/данные/границы —
+  docs/changes/add-explicit-review-evidence/{acceptance.md,runtime-results.json,
+  live-observations.json}. CI дополнен W1 checks; remote CI не запускался.
+  W1 status local accepted/unreleased; W2–W5 остаются proposed. W4 исправляет
+  понимание extension inputs отдельным guide, не эталонными templates.
+  Тег/каталог/публикация и commit реализации не выполнялись.
+
+- **План заимствований Software Factory (2026-10-14), без реализации:**
+  stable повторно проверен: Pri-Fly `v0.13.76`, новых выпусков нет; прежние
+  ворота выверены против него, нового прогона для документации не выполняли.
+  По поручению владельца оформлены пять независимых proposed change в
+  `docs/changes/` (реестр — `docs/changes/README.md`), каждый с proposal/design/
+  tasks, зависимостями и нумерованными критериями приёмки: W1 explicit review
+  evidence, W2 UI/UX components, W3 bounded feature workflow, W4 verified
+  integration handoff, W5 parallel implementation review qualification.
+  W1 первый; W2 требует W1 и согласованную среду #2; W3 требует W1 и W2 для
+  frontend; W4 требует W1; W5 требует W1–W3 и живую sequential acceptance.
+  Existing #5 (candidate-preserving baseline) и #2 (environment lifecycle) —
+  применимые P0 prerequisites, #1 — GitLab publication contract для W4.
+  Issue aif-workflows #4 уже CLOSED по свежей API-проверке; старые записи ниже
+  отражают состояние прошлых сессий. Живые наблюдения после локального snapshot
+  не копировались сюда и не выдаются за повторную приёмку этой сессии.
+  В released 0.13.76 extension уже допускает один typed input binding;
+  устаревшие комментарии наших templates исправляются при W4, не сейчас.
+  В StenHigh/prifly созданы отдельные engine issue:
+  E1 P2 — https://github.com/StenHigh/prifly/issues/4 (run board view),
+  E2 P3 — https://github.com/StenHigh/prifly/issues/5 (durable project queue).
+  Точные тела сохранены в `docs/changes/engine/`; E1/E2 не блокируют W1–W5.
+  E3 не создан: только при воспроизводимом runtime/host contract gap из W5.
+  Executable YAML, schemas, bridges, versions и catalog не изменены;
+  реализация, релиз и публикация локальных change не выполнялись.
 
 - **Живая приёмка трёх bridge v1.51.2 (2026-10-13) — PASS:**
   Latest stable проверен: Pri-Fly v0.13.76, новых выпусков нет.

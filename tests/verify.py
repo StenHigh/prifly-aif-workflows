@@ -16,7 +16,7 @@ import sys
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
-PACKAGES = ("aif-classic", "aif-fanout", "aif-fix", "aif-profiled")
+PACKAGES = ("aif-classic", "aif-fanout", "aif-fix", "aif-profiled", "aif-review-evidence")
 HOSTS = {"codex-cli": ".codex/skills", "codex-app": ".agents/skills", "claude-code": ".claude/skills"}
 CLASSIC_SKILLS = ("aif-warmup", "aif-plan", "aif-improve", "aif-implement", "aif-verify", "aif-security-checklist", "aif-review", "aif-commit", "aif-fix",)
 IMPROVE_REFERENCES = ("LIST-MODE.md", "CHECK-MODE.md", "EXAMPLES.md", "VALIDATOR.md")
@@ -104,6 +104,9 @@ def prepare_repository(binary, root):
             path = repository / skills_root / skill / "SKILL.md"
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(f"# {skill}\n")
+        severity = repository / skills_root / "aif-review" / "references" / "SEVERITY.md"
+        severity.parent.mkdir(parents=True, exist_ok=True)
+        severity.write_text("# Fixture review severity\n")
         # A skill's own reference files are not carried by pinning the skill,
         # so the package pins each one and the host root must hold them.
         for reference in IMPROVE_REFERENCES:
@@ -118,6 +121,7 @@ def prepare_repository(binary, root):
         "  aif-classic:\n    title: AI Factory classic development workflow\n    description: Canonical AI Factory development workflow with bounded plan improvement.\n    kind: workflow\n    workflow: .prifly/workflows/aif-classic/workflow.yaml\n"
         "  aif-fanout:\n    title: AI Factory fan-out plan refinement\n    description: Optional AI Factory plan refinement with independent review perspectives.\n    kind: workflow\n    workflow: .prifly/workflows/aif-fanout/workflow.yaml\n"
         "  aif-fix:\n    title: AI Factory bug fix workflow\n    description: Fix a specific bug with regression evidence; complex bugs use their own fix-plan executed by aif-fix.\n    kind: workflow\n    workflow: .prifly/workflows/aif-fix/workflow.yaml\n"
+        "  aif-review-evidence:\n    title: AI Factory review evidence\n    description: Check declared review coverage against the current candidate.\n    kind: workflow\n    workflow: .prifly/workflows/aif-review-evidence/workflow.yaml\n"
         "  aif-profiled:\n    title: AI Factory profiled development workflow\n    description: The classic route with every step declaring the model profile it wants.\n    kind: workflow\n    workflow: .prifly/workflows/aif-profiled/workflow.yaml\n",
     )
     (repository / ".prifly" / "project.yaml").write_text(profile)
@@ -519,6 +523,8 @@ def main():
             components_read += check_profiled(binary, authority, repository, root)
             from fix_contract import check_fix
             components_read += check_fix(binary, authority, repository, root)
+            from evidence_contract import check_evidence
+            components_read += check_evidence(binary, authority, repository, root)
             after = run(binary, "--project", authority, "package", "list")
             assert before == after, "compile must not import or trust a package"
         finally:

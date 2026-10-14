@@ -1,0 +1,20 @@
+authoring: prifly-step/1
+id: aif-evidence:step/capture
+version: 1.0.0
+title: Review evidence capture
+kind: worker
+inputs:
+  request:
+    schema_ref: '{{schema_request}}'
+outputs:
+  candidate:
+    schema_ref: '{{schema_candidate}}'
+    required_for:
+    - pass
+executor:
+  adapter_ref: '{{process}}'
+  operation: process
+effects:
+  class: none
+  retry_class: never
+result_schema_ref: '{{result}}'

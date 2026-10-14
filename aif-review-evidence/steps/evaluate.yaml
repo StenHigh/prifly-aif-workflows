@@ -1,0 +1,24 @@
+authoring: prifly-step/1
+id: aif-evidence:step/evaluate
+version: 1.0.0
+title: Review evidence evaluate
+kind: worker
+inputs:
+  request:
+    schema_ref: '{{schema_request}}'
+  candidate:
+    schema_ref: '{{schema_candidate}}'
+  report:
+    schema_ref: '{{schema_report}}'
+outputs:
+  gate:
+    schema_ref: '{{schema_gate}}'
+    required_for:
+    - pass
+executor:
+  adapter_ref: '{{process}}'
+  operation: process
+effects:
+  class: none
+  retry_class: never
+result_schema_ref: '{{result}}'
