@@ -1,0 +1,118 @@
+authoring: prifly-project-workflow/1
+package:
+  id: w5:package/parallel-review
+  version: 1.0.0
+  description: Explicit declared review coverage, candidate freshness and diagnostic
+    acceptance for new feature workflows.
+  requires_core_protocol: '1'
+  references:
+    process: core:adapter/local-process@2.0.0
+    session: core:adapter/assisted-session@1.0.0
+    policy: core:policy/local@4.0.0
+    result: core:schema/step-result@1.0.0
+    result_v2: core:schema/step-result@2.0.0
+    aggregate: core:schema/aggregate-manifest@1.0.0
+id: w5:workflow/parallel-review
+schema_version: '8'
+version: 1.0.0
+title: 'W5 qualification only: independent implementation readers'
+refs:
+  schema_request: '{{schema_request}}'
+  schema_report: '{{schema_report}}'
+  schema_gate: '{{schema_gate}}'
+  step_configure: '{{step_configure}}'
+  workflow_quality: '{{workflow_round}}'
+  policy: '{{policy}}'
+  aggregate: '{{aggregate}}'
+inputs:
+  request:
+    schema_ref: schema_request
+outputs:
+  results:
+    schema_ref: aggregate
+    required_for:
+    - succeeded
+    - partial
+policy_ref: policy
+resumable:
+  from_outcomes:
+  - partial
+  - rejected
+  from_cancelled: true
+entry: configure
+limits:
+  max_step_instances: 6
+  max_control_transitions: 48
+  max_parallelism: 2
+  max_child_depth: 4
+stages:
+  configure:
+    kind: step
+    step_ref: step_configure
+    input_bindings:
+      request: $inputs.request
+    'on':
+      pass: quality
+      needs_revision: abandoned
+      fail: abandoned
+      no_work: abandoned
+    impossible_verdicts:
+    - blocked
+  quality:
+    kind: call
+    on_error: abandoned
+    workflow_ref: workflow_quality
+    input_bindings:
+      request: $stages.configure.request
+    'on':
+      succeeded: done
+      partial: standing
+      rejected: abandoned
+  done:
+    kind: finish
+    outcome: succeeded
+    output_bindings:
+      results: $stages.quality.results
+  standing:
+    kind: finish
+    outcome: partial
+    output_bindings:
+      results: $stages.quality.results
+  abandoned:
+    kind: finish
+    outcome: rejected
+execution_bindings:
+  steps:
+    aif-evidence:step/configure:
+      executable: python
+      args:
+      - -B
+      - evidence.py
+      - configure
+      files:
+        evidence.py: files/evidence.py
+      timeout_ms: 120000
+      grace_ms: 100
+      max_output_bytes: 1048576
+    aif-evidence:step/capture:
+      executable: python
+      args:
+      - -B
+      - evidence.py
+      - capture
+      files:
+        evidence.py: files/evidence.py
+      timeout_ms: 120000
+      grace_ms: 100
+      max_output_bytes: 1048576
+    aif-evidence:step/evaluate:
+      executable: python
+      args:
+      - -B
+      - evidence.py
+      - evaluate
+      files:
+        evidence.py: files/evidence.py
+      timeout_ms: 120000
+      grace_ms: 100
+      max_output_bytes: 1048576

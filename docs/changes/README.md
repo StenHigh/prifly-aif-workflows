@@ -19,7 +19,7 @@ Stable проверен перед оформлением: новых выпус
 | W2 | P1 | [UI/UX-компоненты](add-ui-ux-review-components/proposal.md) | W1; standalone контракт среды из #2 | committed/pushed, CI + fresh CLI PASS; model/consumer limits / unreleased |
 | W3 | P1 | [Короткий workflow для фич](add-bounded-feature-workflow/proposal.md) | W1; W2 для интерфейсного профиля | committed/pushed, CI + live PASS; forced writer cancel deferred / unreleased |
 | W4 | P1/P2 | [Приёмка перед интеграцией](document-verified-integration-handoff/proposal.md) | W1; проектный интегратор, #1 при GitLab | committed/pushed, pilot qualified, CI PASS; real provider limits / unreleased |
-| W5 | P2 | [Квалификация параллельного ревью](qualify-parallel-implementation-review/proposal.md) | W1, W2, W3; сначала последовательная приёмка | proposed |
+| W5 | P2 | [Квалификация параллельного ревью](qualify-parallel-implementation-review/proposal.md) | W1, W2, W3; сначала последовательная приёмка | qualification recorded; native cancellation blocker, production deferred |
 
 Каждый change выпускается отдельно с собственным bump изменённых компонентов,
 пакета и зависимых workflow по действующим правилам. Версии здесь не назначены:
@@ -64,6 +64,10 @@ W1–W4 не зависят от E1/E2. Не добавляем обязател
   ordinary partial/read-only cancellation W3/W4 эту возможность не требуют.
   Дополнительные engine issues по W5 нужны только при воспроизводимом отсутствии
   контракта independent Attempts, join, cancel или recovery.
+- [E4: W5 parallel cancellation follow-up](qualify-parallel-implementation-review/engine-followup.md):
+  prepared; cancel после settled sibling оставляет stopping/invalid_input,
+  native claim release и continue отказаны. Воспроизведено без source edits;
+  не смешивать с E3 writer cancellation или исправленным placement on_error.
 
 В Pri-Fly 0.13.76 уже есть monitor, title задачи, `parallel`/join, ресурсы,
 model-profile reports и одна типизированная привязка входа extension. Не

@@ -70,6 +70,13 @@ UI/UX-проверки в браузере. По умолчанию допуск
 выбираются отдельными режимами. Правила расширений и публикации — в
 [integration guide](docs/verified-integration.md).
 
+**Параллельное ревью реализации** пока проходит
+[отдельную квалификацию](docs/changes/qualify-parallel-implementation-review/acceptance.md).
+Две реальные CLI-сессии и повтор полного круга после timeout проверены в backend
+fixture. Включение режима в `aif-feature` блокирует отказ завершения отмены
+параллельного Run в Pri-Fly 0.13.76; также ещё нужны production host adapter
+и проверка изоляции браузерных readers.
+
 Этот репозиторий — workflow repository для каталога
 [`StenHigh/prifly-workflows`](https://github.com/StenHigh/prifly-workflows).
 Pri-Fly сам не поставляет product workflows: он остаётся движком, а сценарии

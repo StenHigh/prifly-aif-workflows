@@ -1,0 +1,868 @@
+{
+  "prifly": "0.13.76",
+  "binary_sha256": "03ac382112a12001ea9e2a86e5a20db2d5e24ec79ce5339f6257c473d0f3322d",
+  "host_version": "codex-cli 0.162.1",
+  "skills_digest": {
+    "aif-review.md": "sha256:fe231edfc738ee488a4f1c341e32c12217f4c7b2aa7c2215b2fd53530d0eeaac",
+    "severity.md": "sha256:7c6d965470492a8e48db4b5d0ab7026b0ea8b64392d11c24836650ef579fae8b"
+  },
+  "boundary": "One paired observation, identical code/check scope, fresh sessions. Host reports and observed timings, not different-model attestation or a cost/quality benefit estimate. No browser, repair, automatic production aggregator or feature mode.",
+  "runs": [
+    {
+      "mode": "sequential",
+      "host": "codex-cli",
+      "code_digest": "sha256:3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad",
+      "check_scope": [
+        {
+          "id": "acceptance",
+          "description": "Inspect calc.py: total must return the sum of numeric values, including zero for an empty list. Report code evidence at the function and relevant lines.",
+          "method": "code",
+          "required": true,
+          "enabled": true,
+          "applicable": true
+        }
+      ],
+      "optional_policy": "ignore",
+      "reader_observations": [
+        {
+          "attempt_id": "attempt:156577678df78bff742b8735949f2fb4",
+          "session_id": "01a13f0c-0397-7da1-9e06-ea6b6870515d",
+          "started_monotonic": 334003.725834325,
+          "ended_monotonic": 334086.595363326,
+          "elapsed_seconds": 82.86952900100732,
+          "usage": {
+            "input_tokens": 217576,
+            "cached_input_tokens": 181504,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2884,
+            "reasoning_output_tokens": 396
+          },
+          "events_digest": "sha256:198f2c3f681fe72eaadb58df01b73f52ae236c820db575b3ca79c994734e7f69",
+          "submission_digest": "sha256:8592c20383b152131ea229ac5bf31408caa84d61b242de707fa98491ec43494e",
+          "report_digest": "sha256:481d88014739424b2eeb4cc244aae99cf65cb5cce426ee40f47c563d4780cfda",
+          "tool_events": [
+            {
+              "event": "item.completed",
+              "type": "agent_message",
+              "observed_monotonic": 334007.449839446,
+              "exit_code": null
+            },
+            {
+              "event": "item.started",
+              "type": "command_execution",
+              "observed_monotonic": 334012.201728349,
+              "exit_code": null
+            },
+            {
+              "event": "item.completed",
+              "type": "command_execution",
+              "observed_monotonic": 334013.732518372,
+              "exit_code": 0
+            },
+            {
+              "event": "item.started",
+              "type": "command_execution",
+              "observed_monotonic": 334016.669954745,
+              "exit_code": null
+            },
+            {
+              "event": "item.completed",
+              "type": "command_execution",
+              "observed_monotonic": 334018.025967057,
+              "exit_code": 0
+            },
+            {
+              "event": "item.started",
+              "type": "command_execution",
+              "observed_monotonic": 334020.696473679,
+              "exit_code": null
+            },
+            {
+              "event": "item.completed",
+              "type": "command_execution",
+              "observed_monotonic": 334022.237203652,
+              "exit_code": 0
+            },
+            {
+              "event": "item.completed",
+              "type": "agent_message",
+              "observed_monotonic": 334025.62111814,
+              "exit_code": null
+            },
+            {
+              "event": "item.started",
+              "type": "command_execution",
+              "observed_monotonic": 334032.9080699,
+              "exit_code": null
+            },
+            {
+              "event": "item.started",
+              "type": "command_execution",
+              "observed_monotonic": 334032.908148636,
+              "exit_code": null
+            },
+            {
+              "event": "item.completed",
+              "type": "command_execution",
+              "observed_monotonic": 334034.522266471,
+              "exit_code": 1
+            },
+            {
+              "event": "item.completed",
+              "type": "command_execution",
+              "observed_monotonic": 334035.691770259,
+              "exit_code": 0
+            },
+            {
+              "event": "item.started",
+              "type": "command_execution",
+              "observed_monotonic": 334041.832939509,
+              "exit_code": null
+            },
+            {
+              "event": "item.completed",
+              "type": "command_execution",
+              "observed_monotonic": 334043.335982265,
+              "exit_code": 0
+            },
+            {
+              "event": "item.completed",
+              "type": "agent_message",
+              "observed_monotonic": 334058.629692065,
+              "exit_code": null
+            },
+            {
+              "event": "item.started",
+              "type": "command_execution",
+              "observed_monotonic": 334081.329345823,
+              "exit_code": null
+            },
+            {
+              "event": "item.completed",
+              "type": "command_execution",
+              "observed_monotonic": 334082.951462844,
+              "exit_code": 0
+            },
+            {
+              "event": "item.completed",
+              "type": "agent_message",
+              "observed_monotonic": 334086.54426718,
+              "exit_code": null
+            }
+          ],
+          "report": {
+            "round": 1,
+            "request_digest": "sha256:c373bc7dd779320f73bf981020ee6c7a5f1c15bc8351bd1d43ace85edfc18c6f",
+            "candidate": {
+              "algorithm": "git-candidate/1",
+              "base_commit": "176e4dc4afa793b5ab1bec577ca3dce76c81c8f5",
+              "digest": "sha256:7da0328aa7823c4bef754afaf9d9c2c569ea4db67231b82ac6b7d60ebea40612",
+              "files_digest": "sha256:fa08d30ec9127e752950f20a20ec52195a6c7991661740efa7f04739ea42c594",
+              "head_commit": "176e4dc4afa793b5ab1bec577ca3dce76c81c8f5",
+              "index_digest": "sha256:0e09feff627ed6cf8d7cc60d07e36c947acd64dca7f3b59ddb17a8b67acb4d12"
+            },
+            "session": "separate",
+            "model_profile": "unavailable",
+            "model": null,
+            "checks": [
+              {
+                "id": "acceptance",
+                "status": "executed",
+                "result": "passed",
+                "reason": "",
+                "evidence": [
+                  {
+                    "method": "code",
+                    "tool": "exec_command",
+                    "locator": "$FIXTURE/authority/.prifly/work/claims/d616c764985fbf46011d0845ac90a0960cb517789526e796d763847274e1208a/calc.py:1-2 (total)",
+                    "observation": "Read calc.py with nl -ba calc.py. The complete file defines def total(values): at line 1 and return sum(values) at line 2. There is no local or module binding that shadows the built-in sum. By code inspection, this delegates numeric accumulation to Python sum, whose default start value is 0, so an empty list returns 0 and numeric lists return their sum. No runtime execution was used to establish this code check.",
+                    "exit_code": null
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "attempt_id": "attempt:12a174240e3bbc2f31d02a7b954e05c8",
+          "session_id": "01a13f0d-62ba-7510-9b2e-5caff9305c6a",
+          "started_monotonic": 334093.902652757,
+          "ended_monotonic": 334254.394809795,
+          "elapsed_seconds": 160.4921570380102,
+          "usage": {
+            "input_tokens": 555118,
+            "cached_input_tokens": 526720,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 5536,
+            "reasoning_output_tokens": 1068
+          },
+          "events_digest": "sha256:e35e79e72660cb24f4ecc435aa4fa35d3e3dadacd6cf3dc2a51cf50a88b03638",
+          "submission_digest": "sha256:a5147ad6b617c805b3d8858fcf648de0c3fd259b2032827223fcc4106fe90829",
+          "report_digest": "sha256:7db22ef8ecc7a46f52df6dee19cd359294bb8c0de1b6d3cfcf455aaccbce9f0a",
+          "tool_events": [
+            {
+              "event": "item.completed",
+              "type": "agent_message",
+              "observed_monotonic": 334097.523171387,
+              "exit_code": null
+            },
+            {
+              "event": "item.completed",
+              "type": "agent_message",
+              "observed_monotonic": 334102.137079005,
+              "exit_code": null
+            },
+            {
+              "event": "item.started",
+              "type": "command_execution",
+              "observed_monotonic": 334104.63322048,
+              "exit_code": null
+            },
+            {
+              "event": "item.completed",
+              "type": "command_execution",
+              "observed_monotonic": 334106.365782921,
+              "exit_code": 0
+            },
+            {
+              "event": "item.started",
+              "type": "command_execution",
+              "observed_monotonic": 334111.796157138,
+              "exit_code": null
+            },
+            {
+              "event": "item.completed",
+              "type": "command_execution",
+              "observed_monotonic": 334113.066575704,
+              "exit_code": 0
+            },
+            {
+              "event": "item.started",
+              "type": "command_execution",
+              "observed_monotonic": 334118.331788437,
+              "exit_code": null
+            },
+            {
+              "event": "item.completed",
+              "type": "command_execution",
+              "observed_monotonic": 334119.806943893,
+              "exit_code": 0
+            },
+            {
+              "event": "item.started",
+              "type": "command_execution",
+              "observed_monotonic": 334124.869241445,
+              "exit_code": null
+            },
+            {
+              "event": "item.completed",
+              "type": "command_execution",
+              "observed_monotonic": 334126.403353691,
+              "exit_code": 0
+            },
+            {
+              "event": "item.completed",
+              "type": "agent_message",
+              "observed_monotonic": 334130.948398659,
+              "exit_code": null
+            },
+            {
+              "event": "item.started",
+              "type": "command_execution",
+              "observed_monotonic": 334141.628965109,
+              "exit_code": null
+            },
+            {
+              "event": "item.completed",
+              "type": "command_execution",
+              "observed_monotonic": 334143.695335831,
+              "exit_code": 0
+            },
+            {
+              "event": "item.started",
+              "type": "command_execution",
+              "observed_monotonic": 334169.538234973,
+              "exit_code": null
+            },
+            {
+              "event": "item.completed",
+              "type": "command_execution",
+              "observed_monotonic": 334171.068084311,
+              "exit_code": 0
+            },
+            {
+              "event": "item.completed",
+              "type": "agent_message",
+              "observed_monotonic": 334177.42817776,
+              "exit_code": null
+            },
+            {
+              "event": "item.started",
+              "type": "file_change",
+              "observed_monotonic": 334190.087900936,
+              "exit_code": null
+            },
+            {
+              "event": "item.completed",
+              "type": "file_change",
+              "observed_monotonic": 334191.914991744,
+              "exit_code": null
+            },
+            {
+              "event": "item.started",
+              "type": "command_execution",
+              "observed_monotonic": 334212.528428378,
+              "exit_code": null
+            },
+            {
+              "event": "item.completed",
+              "type": "command_execution",
+              "observed_monotonic": 334213.754813492,
+              "exit_code": 0
+            },
+            {
+              "event": "item.started",
+              "type": "file_change",
+              "observed_monotonic": 334229.907226542,
+              "exit_code": null
+            },
+            {
+              "event": "item.completed",
+              "type": "file_change",
+              "observed_monotonic": 334231.181860812,
+              "exit_code": null
+            },
+            {
+              "event": "item.started",
+              "type": "command_execution",
+              "observed_monotonic": 334249.276415952,
+              "exit_code": null
+            },
+            {
+              "event": "item.completed",
+              "type": "command_execution",
+              "observed_monotonic": 334250.527818822,
+              "exit_code": 0
+            },
+            {
+              "event": "item.completed",
+              "type": "agent_message",
+              "observed_monotonic": 334254.338426004,
+              "exit_code": null
+            }
+          ],
+          "report": {
+            "round": 1,
+            "request_digest": "sha256:c373bc7dd779320f73bf981020ee6c7a5f1c15bc8351bd1d43ace85edfc18c6f",
+            "candidate": {
+              "algorithm": "git-candidate/1",
+              "base_commit": "176e4dc4afa793b5ab1bec577ca3dce76c81c8f5",
+              "digest": "sha256:7da0328aa7823c4bef754afaf9d9c2c569ea4db67231b82ac6b7d60ebea40612",
+              "files_digest": "sha256:fa08d30ec9127e752950f20a20ec52195a6c7991661740efa7f04739ea42c594",
+              "head_commit": "176e4dc4afa793b5ab1bec577ca3dce76c81c8f5",
+              "index_digest": "sha256:0e09feff627ed6cf8d7cc60d07e36c947acd64dca7f3b59ddb17a8b67acb4d12"
+            },
+            "session": "separate",
+            "model_profile": "unavailable",
+            "model": null,
+            "checks": [
+              {
+                "id": "acceptance",
+                "status": "executed",
+                "result": "passed",
+                "reason": "",
+                "evidence": [
+                  {
+                    "method": "code",
+                    "tool": "functions.exec / exec_command: read-only Python stdlib source inspection",
+                    "locator": "$FIXTURE/authority/.prifly/work/claims/d616c764985fbf46011d0845ac90a0960cb517789526e796d763847274e1208a/calc.py:1-2",
+                    "observation": "Inspected the complete calc.py source: line 1 defines total(values); line 2 returns sum(values). No module-level binding shadows the built-in sum. Python's built-in sum adds the numeric values with its default start of 0, so total returns their sum and returns 0 for an empty list. This is code inspection, not a runtime test. The supplementary source-read command initially could not start because bwrap failed its loopback setup; the identical bounded read was then approved and completed, displaying these two lines. No source or configuration was changed. The optional project config, review skill context, architecture, rules, and roadmap files checked were absent.",
+                    "exit_code": null
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "overlap_seconds": 0,
+      "reader_wall_span_seconds": 250.66897547000553,
+      "usage_total": {
+        "input_tokens": 772694,
+        "cached_input_tokens": 708224,
+        "output_tokens": 8420
+      },
+      "source_and_authority_unchanged_by_readers": true,
+      "outcome": "succeeded",
+      "assessment": {
+        "decision": "accepted",
+        "join_result": "satisfied",
+        "gates": {
+          "first": {
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "Model profile unavailable; independent model not established"
+            ],
+            "gate": "review",
+            "status": "warnings",
+            "suggested_next": "continue"
+          },
+          "second": {
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "Model profile unavailable; independent model not established"
+            ],
+            "gate": "review",
+            "status": "warnings",
+            "suggested_next": "continue"
+          }
+        },
+        "findings": [
+          {
+            "reader": "first",
+            "check": "acceptance",
+            "report_digest": "sha256:481d88014739424b2eeb4cc244aae99cf65cb5cce426ee40f47c563d4780cfda",
+            "result": "passed",
+            "reason": "",
+            "evidence": [
+              {
+                "method": "code",
+                "tool": "exec_command",
+                "locator": "$FIXTURE/authority/.prifly/work/claims/d616c764985fbf46011d0845ac90a0960cb517789526e796d763847274e1208a/calc.py:1-2 (total)",
+                "observation": "Read calc.py with nl -ba calc.py. The complete file defines def total(values): at line 1 and return sum(values) at line 2. There is no local or module binding that shadows the built-in sum. By code inspection, this delegates numeric accumulation to Python sum, whose default start value is 0, so an empty list returns 0 and numeric lists return their sum. No runtime execution was used to establish this code check.",
+                "exit_code": null
+              }
+            ]
+          },
+          {
+            "reader": "second",
+            "check": "acceptance",
+            "report_digest": "sha256:7db22ef8ecc7a46f52df6dee19cd359294bb8c0de1b6d3cfcf455aaccbce9f0a",
+            "result": "passed",
+            "reason": "",
+            "evidence": [
+              {
+                "method": "code",
+                "tool": "functions.exec / exec_command: read-only Python stdlib source inspection",
+                "locator": "$FIXTURE/authority/.prifly/work/claims/d616c764985fbf46011d0845ac90a0960cb517789526e796d763847274e1208a/calc.py:1-2",
+                "observation": "Inspected the complete calc.py source: line 1 defines total(values); line 2 returns sum(values). No module-level binding shadows the built-in sum. Python's built-in sum adds the numeric values with its default start of 0, so total returns their sum and returns 0 for an empty list. This is code inspection, not a runtime test. The supplementary source-read command initially could not start because bwrap failed its loopback setup; the identical bounded read was then approved and completed, displaying these two lines. No source or configuration was changed. The optional project config, review skill context, architecture, rules, and roadmap files checked were absent.",
+                "exit_code": null
+              }
+            ]
+          }
+        ],
+        "duplicate_observations_counted_as_extra_checks": false
+      }
+    },
+    {
+      "mode": "parallel",
+      "host": "codex-cli",
+      "code_digest": "sha256:3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad",
+      "check_scope": [
+        {
+          "id": "acceptance",
+          "description": "Inspect calc.py: total must return the sum of numeric values, including zero for an empty list. Report code evidence at the function and relevant lines.",
+          "method": "code",
+          "required": true,
+          "enabled": true,
+          "applicable": true
+        }
+      ],
+      "optional_policy": "ignore",
+      "reader_observations": [
+        {
+          "attempt_id": "attempt:9d1ff9a6d3d020b2293505b5fb9c62c9",
+          "session_id": "01a13f10-095b-7372-a754-bb5626548336",
+          "started_monotonic": 334267.28715978,
+          "ended_monotonic": 334358.117413693,
+          "elapsed_seconds": 90.83025391300907,
+          "usage": {
+            "input_tokens": 240072,
+            "cached_input_tokens": 203392,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 3478,
+            "reasoning_output_tokens": 772
+          },
+          "events_digest": "sha256:e6506cd0b2bf1135a8912af7ba87d057e5428be92aad11114003afd9d9cdc89d",
+          "submission_digest": "sha256:8c7b06ea5302318179a1722485edac1e91c2e55e46833a5fd8afafe612aa7d57",
+          "report_digest": "sha256:582ee37a5be0c77184f382f9f842621151b45892bb6b507be996ac69f2dc6c7b",
+          "tool_events": [
+            {
+              "event": "item.completed",
+              "type": "agent_message",
+              "observed_monotonic": 334270.367686222,
+              "exit_code": null
+            },
+            {
+              "event": "item.started",
+              "type": "command_execution",
+              "observed_monotonic": 334274.230924516,
+              "exit_code": null
+            },
+            {
+              "event": "item.completed",
+              "type": "command_execution",
+              "observed_monotonic": 334275.575596103,
+              "exit_code": 0
+            },
+            {
+              "event": "item.started",
+              "type": "command_execution",
+              "observed_monotonic": 334278.165363744,
+              "exit_code": null
+            },
+            {
+              "event": "item.completed",
+              "type": "command_execution",
+              "observed_monotonic": 334279.546998037,
+              "exit_code": 0
+            },
+            {
+              "event": "item.started",
+              "type": "command_execution",
+              "observed_monotonic": 334283.098128652,
+              "exit_code": null
+            },
+            {
+              "event": "item.completed",
+              "type": "command_execution",
+              "observed_monotonic": 334284.06137464,
+              "exit_code": 0
+            },
+            {
+              "event": "item.completed",
+              "type": "agent_message",
+              "observed_monotonic": 334287.66919514,
+              "exit_code": null
+            },
+            {
+              "event": "item.started",
+              "type": "command_execution",
+              "observed_monotonic": 334291.788786379,
+              "exit_code": null
+            },
+            {
+              "event": "item.completed",
+              "type": "command_execution",
+              "observed_monotonic": 334292.901919472,
+              "exit_code": 0
+            },
+            {
+              "event": "item.started",
+              "type": "command_execution",
+              "observed_monotonic": 334314.254872147,
+              "exit_code": null
+            },
+            {
+              "event": "item.completed",
+              "type": "command_execution",
+              "observed_monotonic": 334316.112768447,
+              "exit_code": 0
+            },
+            {
+              "event": "item.completed",
+              "type": "agent_message",
+              "observed_monotonic": 334322.107983005,
+              "exit_code": null
+            },
+            {
+              "event": "item.started",
+              "type": "file_change",
+              "observed_monotonic": 334333.946877991,
+              "exit_code": null
+            },
+            {
+              "event": "item.completed",
+              "type": "file_change",
+              "observed_monotonic": 334335.227508967,
+              "exit_code": null
+            },
+            {
+              "event": "item.started",
+              "type": "command_execution",
+              "observed_monotonic": 334352.581731233,
+              "exit_code": null
+            },
+            {
+              "event": "item.completed",
+              "type": "command_execution",
+              "observed_monotonic": 334353.777331198,
+              "exit_code": 0
+            },
+            {
+              "event": "item.completed",
+              "type": "agent_message",
+              "observed_monotonic": 334358.058927983,
+              "exit_code": null
+            }
+          ],
+          "report": {
+            "round": 1,
+            "request_digest": "sha256:b890515c5340e06adf6f89f94612b8aa8d7218cae4897489fd0170e82782589f",
+            "candidate": {
+              "algorithm": "git-candidate/1",
+              "base_commit": "0b6da9c1ba4d8cafbf8ac8a39e065f41e681d088",
+              "digest": "sha256:66431a728b21a057a1a4ee3e37ccf091cf65269aa11c9024091a43aaa91e4df9",
+              "files_digest": "sha256:147077161e46bee3bdb2084567b2d7fdf74ac6b22b63e485d3c361d7cbee01ab",
+              "head_commit": "0b6da9c1ba4d8cafbf8ac8a39e065f41e681d088",
+              "index_digest": "sha256:351e76797ac1551d60209621fc6e4e7390ee9bbe6b9f709e1907af673aa08d55"
+            },
+            "session": "separate",
+            "model_profile": "unavailable",
+            "model": null,
+            "checks": [
+              {
+                "id": "acceptance",
+                "status": "executed",
+                "result": "passed",
+                "reason": "",
+                "evidence": [
+                  {
+                    "method": "code",
+                    "tool": "exec_command / Python stdlib pathlib source inspection",
+                    "locator": "$FIXTURE/authority/.prifly/work/claims/aa26ca8a66bc5a3f925b6bf9a10a6a5bd7b0db0b40ff8ac718cba70657251028/calc.py:1-2 (total)",
+                    "observation": "The complete file defines def total(values): at line 1 and returns sum(values) at line 2. No local or module binding shadows the built-in sum. Inspection establishes that total sums numeric input values and returns the built-in default start value 0 for an empty list. No runtime test was performed. Supplementary read-only Git inspection observed HEAD 0b6da9c1ba4d8cafbf8ac8a39e065f41e681d088 and empty cached and unstaged diffs for calc.py; this context does not change the declared code-inspection method.",
+                    "exit_code": null
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "attempt_id": "attempt:befd4ad269c0b0225423c50519ade133",
+          "session_id": "01a13f10-0950-7241-8597-187cd81158c2",
+          "started_monotonic": 334267.309974399,
+          "ended_monotonic": 334340.924698399,
+          "elapsed_seconds": 73.61472399998456,
+          "usage": {
+            "input_tokens": 222695,
+            "cached_input_tokens": 197248,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2586,
+            "reasoning_output_tokens": 277
+          },
+          "events_digest": "sha256:cb5ba9f30c86a08d3f3b382ecb29213c729724f7ea7c529e40f0b333359175b5",
+          "submission_digest": "sha256:596f88d10c77b19cd6a251f4cd87ebff3f0199165ca20e61fe643944788aee8b",
+          "report_digest": "sha256:a301bf1e7fc4d30b1760673c60f09aa513a98ff4cea07012a3ab3a5ff165cbf3",
+          "tool_events": [
+            {
+              "event": "item.completed",
+              "type": "agent_message",
+              "observed_monotonic": 334270.414913193,
+              "exit_code": null
+            },
+            {
+              "event": "item.started",
+              "type": "command_execution",
+              "observed_monotonic": 334275.041277723,
+              "exit_code": null
+            },
+            {
+              "event": "item.completed",
+              "type": "command_execution",
+              "observed_monotonic": 334276.691565501,
+              "exit_code": 0
+            },
+            {
+              "event": "item.started",
+              "type": "command_execution",
+              "observed_monotonic": 334278.793051576,
+              "exit_code": null
+            },
+            {
+              "event": "item.completed",
+              "type": "command_execution",
+              "observed_monotonic": 334280.051435941,
+              "exit_code": 0
+            },
+            {
+              "event": "item.started",
+              "type": "command_execution",
+              "observed_monotonic": 334282.605195299,
+              "exit_code": null
+            },
+            {
+              "event": "item.completed",
+              "type": "command_execution",
+              "observed_monotonic": 334284.349864553,
+              "exit_code": 0
+            },
+            {
+              "event": "item.started",
+              "type": "command_execution",
+              "observed_monotonic": 334286.401073202,
+              "exit_code": null
+            },
+            {
+              "event": "item.completed",
+              "type": "command_execution",
+              "observed_monotonic": 334287.682463584,
+              "exit_code": 0
+            },
+            {
+              "event": "item.completed",
+              "type": "agent_message",
+              "observed_monotonic": 334292.279495147,
+              "exit_code": null
+            },
+            {
+              "event": "item.started",
+              "type": "command_execution",
+              "observed_monotonic": 334296.313258059,
+              "exit_code": null
+            },
+            {
+              "event": "item.completed",
+              "type": "command_execution",
+              "observed_monotonic": 334297.927067688,
+              "exit_code": 0
+            },
+            {
+              "event": "item.started",
+              "type": "command_execution",
+              "observed_monotonic": 334304.065064074,
+              "exit_code": null
+            },
+            {
+              "event": "item.completed",
+              "type": "command_execution",
+              "observed_monotonic": 334305.650404396,
+              "exit_code": 0
+            },
+            {
+              "event": "item.completed",
+              "type": "agent_message",
+              "observed_monotonic": 334315.22260801,
+              "exit_code": null
+            },
+            {
+              "event": "item.started",
+              "type": "command_execution",
+              "observed_monotonic": 334335.151173012,
+              "exit_code": null
+            },
+            {
+              "event": "item.completed",
+              "type": "command_execution",
+              "observed_monotonic": 334337.148124667,
+              "exit_code": 0
+            },
+            {
+              "event": "item.completed",
+              "type": "agent_message",
+              "observed_monotonic": 334340.921211026,
+              "exit_code": null
+            }
+          ],
+          "report": {
+            "round": 1,
+            "request_digest": "sha256:b890515c5340e06adf6f89f94612b8aa8d7218cae4897489fd0170e82782589f",
+            "candidate": {
+              "algorithm": "git-candidate/1",
+              "base_commit": "0b6da9c1ba4d8cafbf8ac8a39e065f41e681d088",
+              "digest": "sha256:66431a728b21a057a1a4ee3e37ccf091cf65269aa11c9024091a43aaa91e4df9",
+              "files_digest": "sha256:147077161e46bee3bdb2084567b2d7fdf74ac6b22b63e485d3c361d7cbee01ab",
+              "head_commit": "0b6da9c1ba4d8cafbf8ac8a39e065f41e681d088",
+              "index_digest": "sha256:351e76797ac1551d60209621fc6e4e7390ee9bbe6b9f709e1907af673aa08d55"
+            },
+            "session": "separate",
+            "model_profile": "unavailable",
+            "model": null,
+            "checks": [
+              {
+                "id": "acceptance",
+                "status": "executed",
+                "result": "passed",
+                "reason": "",
+                "evidence": [
+                  {
+                    "method": "code",
+                    "tool": "functions.exec / exec_command: python3 -B read-only source display",
+                    "locator": "$FIXTURE/authority/.prifly/work/claims/aa26ca8a66bc5a3f925b6bf9a10a6a5bd7b0db0b40ff8ac718cba70657251028/calc.py:1-2 (total)",
+                    "observation": "Inspected the complete function: line 1 defines total(values), and line 2 returns sum(values). The Python built-in sum adds the numeric values and uses the default start value 0, so an empty list returns 0. This is a source inspection assessment; no runtime test was performed. The supplementary source-display command completed successfully and is narrative context only; the declared check method remains code. The prescribed project review instruction and optional architecture/rules/roadmap paths were absent.",
+                    "exit_code": null
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "overlap_seconds": 73.61472399998456,
+      "reader_wall_span_seconds": 90.83025391300907,
+      "usage_total": {
+        "input_tokens": 462767,
+        "cached_input_tokens": 400640,
+        "output_tokens": 6064
+      },
+      "source_and_authority_unchanged_by_readers": true,
+      "outcome": "succeeded",
+      "assessment": {
+        "decision": "accepted",
+        "join_result": "satisfied",
+        "gates": {
+          "first": {
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "Model profile unavailable; independent model not established"
+            ],
+            "gate": "review",
+            "status": "warnings",
+            "suggested_next": "continue"
+          },
+          "second": {
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "Model profile unavailable; independent model not established"
+            ],
+            "gate": "review",
+            "status": "warnings",
+            "suggested_next": "continue"
+          }
+        },
+        "findings": [
+          {
+            "reader": "first",
+            "check": "acceptance",
+            "report_digest": "sha256:582ee37a5be0c77184f382f9f842621151b45892bb6b507be996ac69f2dc6c7b",
+            "result": "passed",
+            "reason": "",
+            "evidence": [
+              {
+                "method": "code",
+                "tool": "exec_command / Python stdlib pathlib source inspection",
+                "locator": "$FIXTURE/authority/.prifly/work/claims/aa26ca8a66bc5a3f925b6bf9a10a6a5bd7b0db0b40ff8ac718cba70657251028/calc.py:1-2 (total)",
+                "observation": "The complete file defines def total(values): at line 1 and returns sum(values) at line 2. No local or module binding shadows the built-in sum. Inspection establishes that total sums numeric input values and returns the built-in default start value 0 for an empty list. No runtime test was performed. Supplementary read-only Git inspection observed HEAD 0b6da9c1ba4d8cafbf8ac8a39e065f41e681d088 and empty cached and unstaged diffs for calc.py; this context does not change the declared code-inspection method.",
+                "exit_code": null
+              }
+            ]
+          },
+          {
+            "reader": "second",
+            "check": "acceptance",
+            "report_digest": "sha256:a301bf1e7fc4d30b1760673c60f09aa513a98ff4cea07012a3ab3a5ff165cbf3",
+            "result": "passed",
+            "reason": "",
+            "evidence": [
+              {
+                "method": "code",
+                "tool": "functions.exec / exec_command: python3 -B read-only source display",
+                "locator": "$FIXTURE/authority/.prifly/work/claims/aa26ca8a66bc5a3f925b6bf9a10a6a5bd7b0db0b40ff8ac718cba70657251028/calc.py:1-2 (total)",
+                "observation": "Inspected the complete function: line 1 defines total(values), and line 2 returns sum(values). The Python built-in sum adds the numeric values and uses the default start value 0, so an empty list returns 0. This is a source inspection assessment; no runtime test was performed. The supplementary source-display command completed successfully and is narrative context only; the declared check method remains code. The prescribed project review instruction and optional architecture/rules/roadmap paths were absent.",
+                "exit_code": null
+              }
+            ]
+          }
+        ],
+        "duplicate_observations_counted_as_extra_checks": false
+      }
+    }
+  ],
+  "evidence_scope": "Actual normal-path readers; W1 reader bytes unchanged. Error wrapper evolved outside measured reader turns; not a complete feature graph comparison.",
+  "raw_evidence_private_root": "$PRIVATE:/tmp/w5-live-readers"
+}

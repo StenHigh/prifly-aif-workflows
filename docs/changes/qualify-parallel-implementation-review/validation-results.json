@@ -1,0 +1,17 @@
+{
+  "prifly": "0.13.76",
+  "static_folders": {
+    "tests": 7,
+    "result": "passed"
+  },
+  "released_versions": {
+    "tests": 3,
+    "result": "passed"
+  },
+  "derive_profiled_check": "passed",
+  "new_python_entry_points_parse": "passed",
+  "protected_package_files": 310,
+  "runtime_cases": 24,
+  "terminal_named_negatives": 4,
+  "note": "Qualifier assertions pass including reproduced unsupported cancellation; NOT full W5 production acceptance."
+}

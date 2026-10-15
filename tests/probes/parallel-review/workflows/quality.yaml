@@ -1,0 +1,81 @@
+authoring: prifly-workflow/1
+schema_version: '6'
+id: w5:workflow/quality
+version: 1.0.0
+title: Capture, review and evaluate one current candidate
+refs:
+  step_capture: '{{step_capture}}'
+  step_review: '{{step_review}}'
+  step_evaluate: '{{step_evaluate}}'
+  policy: '{{policy}}'
+  schema_request: '{{schema_request}}'
+  schema_candidate: '{{schema_candidate}}'
+  schema_report: '{{schema_report}}'
+  schema_gate: '{{schema_gate}}'
+  aggregate: '{{aggregate}}'
+  workflow_reader: '{{workflow_reader}}'
+inputs:
+  request: schema_request
+outputs:
+  results:
+    schema_ref: aggregate
+    required_for:
+    - succeeded
+    - partial
+entry: capture
+policy_ref: policy
+limits:
+  max_step_instances: 5
+  max_control_transitions: 48
+  max_parallelism: 2
+  max_child_depth: 2
+stages:
+  capture:
+    kind: step
+    step_ref: step_capture
+    input_bindings:
+      request: $inputs.request
+    'on':
+      pass: readers
+      needs_revision: abandoned
+      fail: abandoned
+      no_work: abandoned
+    impossible_verdicts:
+    - blocked
+  readers:
+    kind: parallel
+    max_parallelism: 2
+    branches:
+    - id: first
+      workflow_ref: workflow_reader
+      input_bindings:
+        request: $inputs.request
+        candidate: $stages.capture.candidate
+    - id: second
+      workflow_ref: workflow_reader
+      input_bindings:
+        request: $inputs.request
+        candidate: $stages.capture.candidate
+    join:
+      mode: all
+      accept_outcomes:
+      - succeeded
+      selection: all
+      remainder: wait
+    'on':
+      satisfied: done
+      unsatisfied: standing
+    on_error: abandoned
+  done:
+    kind: finish
+    outcome: succeeded
+    output_bindings:
+      results: $stages.readers.results
+  standing:
+    kind: finish
+    outcome: partial
+    output_bindings:
+      results: $stages.readers.results
+  abandoned:
+    kind: finish
+    outcome: rejected

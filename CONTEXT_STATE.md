@@ -10,6 +10,43 @@
 
 Ворота выверены против выпущенного Pri-Fly `v0.13.76`.
 
+- **W5 qualification recorded; production blocked (2026-10-15):**
+  Latest stable проверен в начале и перед фиксацией, новых выпусков нет.
+  Own graph overlay tests/probes/parallel-review initial1.0.0, builder copies
+  unchanged W1 workers/schemas/bridges. Все310 files семи shipping packages
+  byte-identical against942269b; core/classic/profiled/feature не меняются.
+  Compile8 on3 hosts, native24 (22 CLI + app/Claude direct synthetic), static7 /
+  version3 / derive / parse PASS assertions against official0.13.76 SHA03ac3821...
+  Candidate/request common; distinct readonly Attempts/workspaces, all/wait join,
+  exact sealed artifact export, provenance/no duplicate corroboration inflation.
+  Mixed failed/blocked/owner, missing/malformed/stale, owner repair after join,
+  full-round partial/early-cancel/timeout replay qualified in backend fixture.
+  Inner call/on_error returns normal rejected into replayable root call; missing
+  wrapper/root-only wrapper have named recover_frontier_unsupported /
+  resume_frontier_ambiguous
+  negatives and do not require another engine operator.
+  **Native blocker:** after one branch completed, cancel sibling → all Attempts
+  settled but stopping/invalid_input; repeated drive same, claim release refuses
+  claim_run_active, continue prepare recover_source_ineligible. Reproduced without
+  edit and after correct effect_not_permitted for owner edit. No stale PASS,
+  forced state reset/claim release or synthetic unavailable substitute. E4 body
+  prepared in W5 engine-followup.md; distinct from W3 writer E3. Qualification
+  matrix includes four terminal named negatives, not full W5 production PASS.
+  Actual CLI0.162.1 two sessions sequential and two parallel, four unique IDs,
+  source/authority unchanged; parallel overlap73.615s; spans250.669/90.830s.
+  Same one code criterion repeated by two readers, all executed/passed; model
+  mapping unavailable warning visible, another model not attested. Single paired
+  sample/cache/tool variation, not a saving/quality estimate or full feature graph
+  benchmark. Private exact events/reports /tmp/w5-live-readers; cancellation
+  forensics /tmp/w5-cancellation-evidence. Normal native Runs/claims cleaned;
+  cancellation negatives cannot native-release, own generated sandbox removed
+  after evidence, own monitor entry removed; not consumer cleanup instructions.
+  No production parallel profile: needs E4 fix/requalification, host adapter,
+  W3 whole quality/guard/commit composition and separate frontend resources/live
+  matrix. App/Claude live overlap unqualified; shipping feature review sequential.
+  Compile/native CI gates added; commit/push and complete CI result pending.
+  Public evidence/status/remaining work in W5 acceptance.md; no tag/catalog/release.
+
 - **W4 committed/pushed, pilot qualified и полный CI PASS (2026-10-15):**
   Implementation commit b5f81614dfc77715ad76420227f7b89f319c80b0 в main;
   https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38663568633

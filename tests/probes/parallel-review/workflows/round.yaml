@@ -1,0 +1,32 @@
+authoring: prifly-workflow/1
+schema_version: '6'
+id: w5:workflow/round
+version: 1.0.0
+title: Settle technical failure inside the replayable root call
+refs:
+  workflow_quality: '{{workflow_quality}}'
+  schema_request: '{{schema_request}}'
+  aggregate: '{{aggregate}}'
+  policy: '{{policy}}'
+inputs: {request: schema_request}
+outputs:
+  results: {schema_ref: aggregate, required_for: [succeeded, partial]}
+policy_ref: policy
+entry: quality
+limits: {max_step_instances: 5, max_control_transitions: 40, max_parallelism: 2, max_child_depth: 3}
+stages:
+  quality:
+    kind: call
+    workflow_ref: workflow_quality
+    input_bindings: {request: $inputs.request}
+    on: {succeeded: done, partial: standing, rejected: abandoned}
+    on_error: abandoned
+  done:
+    kind: finish
+    outcome: succeeded
+    output_bindings: {results: $stages.quality.results}
+  standing:
+    kind: finish
+    outcome: partial
+    output_bindings: {results: $stages.quality.results}
+  abandoned: {kind: finish, outcome: rejected}

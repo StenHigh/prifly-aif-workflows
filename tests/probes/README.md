@@ -1,3 +1,14 @@
+`parallel_check.py` qualifies W5's isolated backend graph with synthetic reports
+and real native Attempts, W1 evaluation, all-join, cancellation and crash replay.
+It is not an automatic parallel feature mode. `parallel_contract.py` compiles
+the same graph on three hosts. The separate opt-in `parallel_live.py` consumes
+real host usage and observes two fresh Codex CLI readers in each of sequential
+and parallel modes; raw prompts/events/submissions belong in a private fresh
+artifact directory. Compile/synthetic cases do not establish live host support.
+See [W5 acceptance](../../docs/changes/qualify-parallel-implementation-review/acceptance.md)
+for commands, exact host limits and measured scope. Shipping feature stays
+sequential; browser resource concurrency and other live hosts remain unqualified.
+
 `product_check.py` qualifies standalone W2 with synthetic reports, real Git,
 program evaluators and owned loopback environments. `--browser-library` uses
 real Playwright/Chromium for the notes fixture, still deterministic assertions.

@@ -1,5 +1,14 @@
 # Design W5
 
+Квалификация 2026-10-15: [результат, host matrix и границы](acceptance.md).
+Выбран отдельный backend fixture; production feature profile блокирован native
+cancellation после settled sibling, затем требует host adapter и frontend
+resources. Нужный timeout replay реализован
+внутренним call/on_error, возвращающим normal rejected во внешний replayable
+root call. Root-only on_error не заменяет эту обёртку. Новый Core operator
+не требуется; [E4](engine-followup.md) запрашивает корректное завершение existing
+cancel после settlement всех параллельных read-only Attempts.
+
 ## Сначала квалификация
 
 До изменения shipping graph создать minimal implementation-review fixture

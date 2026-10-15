@@ -1,0 +1,24 @@
+{
+  "prifly": "0.13.76",
+  "binary_sha256": "03ac382112a12001ea9e2a86e5a20db2d5e24ec79ce5339f6257c473d0f3322d",
+  "cases": [
+    {
+      "host": "codex-cli",
+      "definitions": 8,
+      "build_key": "sha256:af9b8c18943f7b2c77980d3c0bb05b5c2dcb9d2d2b293519071a314499b87ae9",
+      "scope": "compile only; not actual host execution or overlap"
+    },
+    {
+      "host": "codex-app",
+      "definitions": 8,
+      "build_key": "sha256:af9b8c18943f7b2c77980d3c0bb05b5c2dcb9d2d2b293519071a314499b87ae9",
+      "scope": "compile only; not actual host execution or overlap"
+    },
+    {
+      "host": "claude-code",
+      "definitions": 8,
+      "build_key": "sha256:af9b8c18943f7b2c77980d3c0bb05b5c2dcb9d2d2b293519071a314499b87ae9",
+      "scope": "compile only; not actual host execution or overlap"
+    }
+  ]
+}
