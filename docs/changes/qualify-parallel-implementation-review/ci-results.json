@@ -1,0 +1,309 @@
+{
+  "conclusion": "success",
+  "databaseId": 38721905656,
+  "headSha": "7767464878593481818d9f3a7f84017485e42391",
+  "jobs": [
+    {
+      "completedAt": "2026-10-15T11:12:29Z",
+      "conclusion": "success",
+      "databaseId": 116378258581,
+      "name": "verify",
+      "startedAt": "2026-10-15T10:40:18Z",
+      "status": "completed",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4",
+          "number": 2,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Install Pri-Fly from the latest stable release",
+          "number": 3,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Released versions moved with the bytes",
+          "number": 4,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Static folder contract",
+          "number": 5,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Explicit review coverage and dirty candidate identity",
+          "number": 6,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Product review coverage and owned environment lifecycle",
+          "number": 7,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Feature admission, whole-round freshness and owner blockers",
+          "number": 8,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Verified integration freshness, semantic regression and owned publication",
+          "number": 9,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Compile all packages with the installed Pri-Fly",
+          "number": 10,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "One authority carries Classic across every plan profile",
+          "number": 11,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Standalone integration graph and one-input extension contracts",
+          "number": 12,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Parallel review qualification contracts on three hosts",
+          "number": 13,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "A real Run is handed past the verify gate",
+          "number": 14,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "A gate that could not judge ends the Run partial with its gate",
+          "number": 15,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "A Run stopped blocked resumes with the same workflow at verify",
+          "number": 16,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "A Run cancelled at the gate resumes with the same workflow",
+          "number": 17,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Bug workflow finishes direct, planned, repaired and resumed Runs",
+          "number": 18,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Explicit review evidence finishes and resumes on the released runtime",
+          "number": 19,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "UI and UX components finish, block and resume with owned environments",
+          "number": 20,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Standalone feature catalog install and update preserve project ownership",
+          "number": 21,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Small feature direct, repaired, stopped and resumed Runs",
+          "number": 22,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Exact merged acceptance, explicit local integration and offline publication",
+          "number": 23,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Parallel readers, all-join barriers and whole-round recovery",
+          "number": 24,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/setup-node@v4",
+          "number": 25,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Install the exact browser fixture tool",
+          "number": 26,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Real browser scenarios, defects, repair and cancellation",
+          "number": 27,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Small frontend feature with real browser and full quality replay",
+          "number": 28,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/setup-node@v4",
+          "number": 55,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v4",
+          "number": 56,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 57,
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38721905656/job/116378258581"
+    }
+  ],
+  "status": "completed",
+  "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38721905656",
+  "prifly": "0.13.76",
+  "runtime_cases_observed_in_ci_log": [
+    {
+      "case": "pass",
+      "host": "codex-cli"
+    },
+    {
+      "case": "failed",
+      "host": "codex-cli"
+    },
+    {
+      "case": "blocked",
+      "host": "codex-cli"
+    },
+    {
+      "case": "owner",
+      "host": "codex-cli"
+    },
+    {
+      "case": "failed-blocked",
+      "host": "codex-cli"
+    },
+    {
+      "case": "failed-owner",
+      "host": "codex-cli"
+    },
+    {
+      "case": "missing",
+      "host": "codex-cli"
+    },
+    {
+      "case": "duplicate",
+      "host": "codex-cli"
+    },
+    {
+      "case": "stale-round",
+      "host": "codex-cli"
+    },
+    {
+      "case": "stale-request",
+      "host": "codex-cli"
+    },
+    {
+      "case": "malformed",
+      "host": "codex-cli"
+    },
+    {
+      "case": "missing-output",
+      "host": "codex-cli"
+    },
+    {
+      "case": "intervening-edit",
+      "host": "codex-cli"
+    },
+    {
+      "case": "during-reader-edit",
+      "host": "codex-cli"
+    },
+    {
+      "case": "cancel-after-first",
+      "host": "codex-cli"
+    },
+    {
+      "case": "defect-repair",
+      "host": "codex-cli"
+    },
+    {
+      "case": "partial-resume",
+      "host": "codex-cli"
+    },
+    {
+      "case": "cancel-resume",
+      "host": "codex-cli"
+    },
+    {
+      "case": "crash",
+      "host": "codex-cli"
+    },
+    {
+      "case": "one-crash",
+      "host": "codex-cli"
+    },
+    {
+      "case": "unhandled-crash",
+      "host": "codex-cli"
+    },
+    {
+      "case": "outer-handler-crash",
+      "host": "codex-cli"
+    },
+    {
+      "case": "pass",
+      "host": "codex-app"
+    },
+    {
+      "case": "pass",
+      "host": "claude-code"
+    }
+  ],
+  "ci_log_sha256": "e2388b8816a3a690f8f4a493f6286753daa87189a7721e390ffebe5d723781c2",
+  "local_live_evidence": "live-results.json; real CLI not run in CI",
+  "qualification_boundary": "All CI assertions passed including known cancellation negatives. Full W5 production acceptance remains blocked by Pri-Fly #6.",
+  "bookkeeping": "This record changes docs only; implementation sources are pinned in source-boundaries.json."
+}

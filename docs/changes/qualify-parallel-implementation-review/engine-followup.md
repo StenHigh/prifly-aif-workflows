@@ -1,6 +1,7 @@
 # E4 / W5 — Parallel read-only cancellation cannot settle after one branch completed
 
-Status: prepared; reproduced on released **Pri-Fly 0.13.76**. No engine changes
+Status: **open — [Pri-Fly #6](https://github.com/StenHigh/prifly/issues/6)**;
+reproduced on released **Pri-Fly 0.13.76**. No engine changes
 are included in W5. This is distinct from W3's E3 cancelled-writer follow-up.
 
 ## Concrete trigger and observed result
@@ -37,6 +38,10 @@ solution and are **not** requests for new engine operators.
 ## Reproduce
 
 From `StenHigh/prifly-aif-workflows` at the W5 implementation commit:
+
+[Exact implementation 776746487859](https://github.com/StenHigh/prifly-aif-workflows/commit/7767464878593481818d9f3a7f84017485e42391),
+[full qualifier CI success](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38721905656).
+Success of this gate means the named negative was reproduced, not fixed.
 
 ```sh
 python3 -B tests/probes/parallel_check.py --binary /absolute/released/prifly \

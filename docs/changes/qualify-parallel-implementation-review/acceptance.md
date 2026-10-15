@@ -5,6 +5,13 @@ Pri-Fly **0.13.76**, официальный Linux AMD64 binary SHA256
 `03ac382112a12001ea9e2a86e5a20db2d5e24ec79ce5339f6257c473d0f3322d`.
 Новых stable releases на начало работы 2026-10-15 нет.
 
+Implementation [776746487859](https://github.com/StenHigh/prifly-aif-workflows/commit/7767464878593481818d9f3a7f84017485e42391)
+отправлен в main. [Полный CI](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38721905656)
+завершился **success** на этом точном SHA: все прежние gates, W5 compile/native
+и обе браузерные матрицы. В реальном CI log проверены 24 строки W5 scenarios.
+[ci-results.json](ci-results.json) закрепляет SHA, steps и hash полного log.
+Это PASS проверок квалификации, включая named negatives; A5/A6 остаются blocked.
+
 Квалификация выполнена отдельно от установленных пакетов. Изменений Core,
 classic, profiled и остальных семи пакетов нет. В `aif-feature` остаётся
 последовательная приёмка. Нового устанавливаемого workflow, parallel profile,
@@ -39,7 +46,7 @@ readers и новым capture. Автоматического repair worker в f
 | A6 — среда и ресурсы | Backend: отдельные output workspaces, неизменность source, корректный effect_not_permitted при правке во время reader. Последующая отмена воспроизводит blocker A5. Параллельные UI/UX contexts, порты, identity/shared stands не квалифицированы. |
 | A7 — реальное перекрытие | PASS только для двух реальных Codex CLI readers через явный probe dispatcher: четыре разных session IDs в паре sequential/parallel; overlap около 73.6 s. Не доказаны четыре lens, другой model или встроенный автоматический dispatcher host. |
 | A8 — неподдержанные hosts | В shipping aif-feature на всех hosts сохраняется sequential review. Таблица ниже отделяет compile/synthetic от live. Параллельный frontend/production mode не объявлен ни для одного host. |
-| A9 — необходимость Core | Подготовлен [E4 follow-up](engine-followup.md): native cancel не завершается после settled sibling, даже с правильным error wrapper. Это отдельный gap; ошибки placement on_error исправлены самим пакетом. E3 forced writer cancellation из W3 остаётся отдельным ограничением. |
+| A9 — необходимость Core | Открыт [Pri-Fly #6 / E4](https://github.com/StenHigh/prifly/issues/6): native cancel не завершается после settled sibling, даже с правильным error wrapper. [Reproducer](engine-followup.md). Ошибки placement on_error исправлены самим пакетом. E3 forced writer cancellation из W3 остаётся отдельным ограничением. |
 | A10 — измерения | Один paired sample одинакового code/check scope; время, usage и полнота ниже и в live-results.json. Это наблюдение, не оценка ожидаемой экономии/стоимости/качества. Runtime и live gates разделены. |
 
 ## Где должен находиться error boundary
@@ -168,8 +175,9 @@ python3 -B tests/probes/parallel_live.py --binary /absolute/released/prifly \
 release и не инструкция для consumer project. `--keep --case cancel-after-first`
 оставляет собственный stand для чтения. Только собственная monitor registration
 удаляется во всех случаях. Браузеры и внешние providers здесь не создаются.
-Compile/native matrix добавлены в CI; live LLM не входит в CI. Итог точного
-implementation commit и полного CI записывается отдельно после push.
+Compile/native matrix добавлены в CI; live LLM не входит в CI. Полный успешный
+CI привязан к implementation SHA выше; последующий bookkeeping меняет только
+документы, executable sources и package bytes остаются теми же.
 
 ## Записанные результаты
 
@@ -184,4 +192,4 @@ implementation commit и полного CI записывается отдель
 - [source-boundaries.json](source-boundaries.json): все 310 существующих package
   files совпадают с baseline 942269b; закреплены собственные qualification sources.
 - [validation-results.json](validation-results.json): static7/version3/derive и
-  parse новых entry points. Exact implementation/full CI result следует отдельно.
+  parse новых entry points; [ci-results.json](ci-results.json) — exact full CI.

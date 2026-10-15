@@ -20,13 +20,16 @@ captures the remaining stop/claim/continue gap.
   named blocking negative, не successful recovery (A5).
 - [x] Проверить, требуется ли Core: timeout wrapper реализуется в пакете;
   отдельный cancellation blocker воспроизводится без source edits. Подготовить
-  E4, не смешивая его с W3 writer-cancellation E3 (A9).
+  E4, не смешивая его с W3 writer-cancellation E3 (A9). Открыт
+  [Pri-Fly #6](https://github.com/StenHigh/prifly/issues/6).
 - [x] Разделить three-host compile/synthetic и actual CLI observations. App/Claude
   live concurrency и browser matrix отметить unqualified, не PASS (A7, A8).
 - [x] Снять paired reader time/usage/completeness; не заявлять ожидаемую экономию.
   Заполнить A1–A10 и version/migration notes с явными deferred portions (A10).
 - [x] Добавить отдельные compile/native CI gates; live LLM остаётся opt-in.
-- [ ] Дождаться полного CI на implementation commit и записать точный результат.
+- [x] Полный [CI38721905656](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38721905656)
+  success на implementation7767464878593481818d9f3a7f84017485e42391;
+  результат/steps/head/log hash и все24 W5 case lines записаны в ci-results.json.
 
 До включения в aif-feature (отдельная production часть W5):
 

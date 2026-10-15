@@ -10,7 +10,7 @@
 
 Ворота выверены против выпущенного Pri-Fly `v0.13.76`.
 
-- **W5 qualification recorded; production blocked (2026-10-15):**
+- **W5 committed/pushed, qualification CI PASS; production blocked (2026-10-15):**
   Latest stable проверен в начале и перед фиксацией, новых выпусков нет.
   Own graph overlay tests/probes/parallel-review initial1.0.0, builder copies
   unchanged W1 workers/schemas/bridges. Все310 files семи shipping packages
@@ -29,8 +29,9 @@
   settled but stopping/invalid_input; repeated drive same, claim release refuses
   claim_run_active, continue prepare recover_source_ineligible. Reproduced without
   edit and after correct effect_not_permitted for owner edit. No stale PASS,
-  forced state reset/claim release or synthetic unavailable substitute. E4 body
-  prepared in W5 engine-followup.md; distinct from W3 writer E3. Qualification
+  forced state reset/claim release or synthetic unavailable substitute. E4 open:
+  https://github.com/StenHigh/prifly/issues/6; body/reproducer in W5
+  engine-followup.md; distinct from W3 writer E3. Qualification
   matrix includes four terminal named negatives, not full W5 production PASS.
   Actual CLI0.162.1 two sessions sequential and two parallel, four unique IDs,
   source/authority unchanged; parallel overlap73.615s; spans250.669/90.830s.
@@ -44,7 +45,13 @@
   No production parallel profile: needs E4 fix/requalification, host adapter,
   W3 whole quality/guard/commit composition and separate frontend resources/live
   matrix. App/Claude live overlap unqualified; shipping feature review sequential.
-  Compile/native CI gates added; commit/push and complete CI result pending.
+  Implementation7767464878593481818d9f3a7f84017485e42391 committed/pushed main.
+  Compile/native CI gates added; full CI38721905656 completed/success on exact
+  implementation7767464 / released stable0.13.76:
+  https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38721905656
+  All existing gates and both actual-browser matrices passed; CI log contains
+  all24 W5 case lines, exact head/steps/log hash in W5 ci-results.json. Final
+  bookkeeping changes docs only; executable source/package bytes identical.
   Public evidence/status/remaining work in W5 acceptance.md; no tag/catalog/release.
 
 - **W4 committed/pushed, pilot qualified и полный CI PASS (2026-10-15):**
