@@ -82,5 +82,11 @@ through reboot or OS cleanup. Project provider lease/receipts need persistent
 storage for those lifetimes. A revision-less provider cannot perform automatic
 title repair; unconditional update is not accepted as CAS.
 
-CI status is recorded after push. No tag/catalog release or successful production
-GitLab write is implied by this qualification.
+Implementation committed/pushed to main as
+[`b5f81614dfc77715ad76420227f7b89f319c80b0`](https://github.com/StenHigh/prifly-aif-workflows/commit/b5f81614dfc77715ad76420227f7b89f319c80b0).
+[CI](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38663568633)
+completed **success** against latest stable Pri-Fly0.13.76: all existing gates,
+new W4 unit18, three-host compile/extension negatives and runtime27, plus W2/W3
+actual-browser checks. [Recorded CI result](ci-results.json) pins the exact
+implementation commit; documentation bookkeeping leaves executable bytes unchanged.
+No tag/catalog release or successful production GitLab write is implied.

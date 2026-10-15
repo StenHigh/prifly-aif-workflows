@@ -1,7 +1,7 @@
 # План изменений workflow после сравнения с Software Factory
 
 Дата: 2026-10-15. W1–W3: **committed/pushed, CI PASS**, с отдельными live observations;
-W4: **implemented, locally pilot qualified**; W5: **proposed**. Выпуск не выполнен.
+W4: **committed/pushed, pilot qualified, CI PASS**; W5: **proposed**. Выпуск не выполнен.
 База: released Pri-Fly **0.13.76**, пакеты этого репозитория **v1.51.2**.
 Stable проверен перед оформлением: новых выпусков нет. Это не новый прогон ворот.
 
@@ -18,7 +18,7 @@ Stable проверен перед оформлением: новых выпус
 | W1 | P1, первым | [Явные доказательства ревью](add-explicit-review-evidence/proposal.md) | Нет; безопасный baseline обязателен там, где используется | committed/pushed, CI PASS / unreleased |
 | W2 | P1 | [UI/UX-компоненты](add-ui-ux-review-components/proposal.md) | W1; standalone контракт среды из #2 | committed/pushed, CI + fresh CLI PASS; model/consumer limits / unreleased |
 | W3 | P1 | [Короткий workflow для фич](add-bounded-feature-workflow/proposal.md) | W1; W2 для интерфейсного профиля | committed/pushed, CI + live PASS; forced writer cancel deferred / unreleased |
-| W4 | P1/P2 | [Приёмка перед интеграцией](document-verified-integration-handoff/proposal.md) | W1; проектный интегратор, #1 при GitLab | implemented, locally pilot qualified; real provider limits / unreleased |
+| W4 | P1/P2 | [Приёмка перед интеграцией](document-verified-integration-handoff/proposal.md) | W1; проектный интегратор, #1 при GitLab | committed/pushed, pilot qualified, CI PASS; real provider limits / unreleased |
 | W5 | P2 | [Квалификация параллельного ревью](qualify-parallel-implementation-review/proposal.md) | W1, W2, W3; сначала последовательная приёмка | proposed |
 
 Каждый change выпускается отдельно с собственным bump изменённых компонентов,

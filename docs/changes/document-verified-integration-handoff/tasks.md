@@ -29,7 +29,9 @@ Actual final reader отделён от synthetic fixtures и provider simulatio
 на текущем stable owner-session worker был корректно blocked/unavailable и
 не считается PASS. Bridge уточнён без ослабления W1 evaluator; итоговый scoped
 reader прошёл с неизменённым отчётом; результаты записаны в live-observations.json.
-CI записывается в acceptance evidence после push и завершения прогона.
+Полный [CI](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38663568633)
+для implementation commit `b5f81614dfc77715ad76420227f7b89f319c80b0`
+завершился success; итог сохранён в ci-results.json.
 
 Unknown outcome сохраняет exact owned session и блокирует новую prepare/continue
 того же handoff до inspection/release; no blind create/update. `/tmp` lifetime

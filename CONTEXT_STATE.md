@@ -10,7 +10,14 @@
 
 Ворота выверены против выпущенного Pri-Fly `v0.13.76`.
 
-- **W4 implemented/pilot qualified локально (2026-10-15), commit/push далее:**
+- **W4 committed/pushed, pilot qualified и полный CI PASS (2026-10-15):**
+  Implementation commit b5f81614dfc77715ad76420227f7b89f319c80b0 в main;
+  https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38663568633
+  completed/success на latest stable0.13.76: version/static/all units, compile100
+  existing definitions/compatibility, W4 compile13/three-host/one-input negatives,
+  classic4/fix28/W1runtime25/W2runtime20/W3runtime35, install/update и W4runtime27,
+  actual browser W2(4)/W3(3). ci-results.json фиксирует точный implementation SHA;
+  bookkeeping не меняет executable example/package bytes.
   Standalone examples/verified-integration initial1.0.0; все310 files семи
   existing packages byte-unchanged against5d0ed5f, core не меняется. W1 exact raw
   requests/reports + clean committed candidate/exact local bare target → isolated

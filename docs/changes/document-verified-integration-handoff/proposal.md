@@ -1,6 +1,6 @@
 # W4 — Проверенная передача результата на интеграцию
 
-Статус: **implemented, locally pilot qualified; unreleased**. Приоритет: **P1/P2**. Дата: 2026-10-15.
+Статус: **committed/pushed, pilot qualified, CI PASS; unreleased**. Приоритет: **P1/P2**. Дата: 2026-10-15.
 База: released Pri-Fly 0.13.76 / пакеты v1.51.2.
 
 ## Проблема и результат
