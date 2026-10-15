@@ -6,9 +6,47 @@
 движка 0.10–0.13.54, переход на AI Factory 2.19.0, WorkflowRevision v4) —
 в git: `git show d388b92:CONTEXT_STATE.md` (2330 строк, оглавление — `mdq tree`).
 
-## Состояние на 2026-10-15
+## Состояние на 2026-10-16
 
-Ворота выверены против выпущенного Pri-Fly `v0.13.76`.
+Ворота выверены против выпущенного Pri-Fly `v0.13.77`.
+
+- **Pri-Fly 0.13.77: совместимость и повторная квалификация W5 (2026-10-16):**
+  Latest stable 0.13.77; пропущенных stable между 0.13.76 и 0.13.77 нет.
+  Release body перечисляет signed assets; изменения сверены по официальному
+  tag/compare. E1 monitor board (#4), E2 native project queue (#5), E4 parallel
+  cancellation (#6) выпущены, все три issues CLOSED. Также добавлен recovery
+  одиночной nested preparation failure. Очередь opt-in: claim-next не запускает
+  Run, reviewed task selection/intent/reconcile сохраняются. Queue-bound
+  state/read44 и launch-summary/start4 не подменяют legacy contracts; authoring
+  templates, typed inputs/extension и наши host bridges менять не требуется.
+  Official Linux AMD64 archive SHA256 fa4b40eb0b13e0b5862f9c8c89707f31aa16fb0d545f3ad5f1419d5aaf02220b
+  совпал с release-manifest; binary SHA256 d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa.
+  verify.py PASS: packages7/components100/source steps67; compatibility.py
+  PASS: launches5/builds4/packages4, legacy core-state41 unchanged. Static7,
+  versions3, derive_profiled --check, W5 compile8/3 hosts PASS. Все310 files
+  shipping packages совпадают с сохранённым W5 source-boundaries; Core и
+  classic/profiled/feature не меняются, version bump пакетов не требуется.
+  Два W5 assertions, требовавшие старый stopping/invalid_input, заменены
+  positive terminal cancel/late refusal/idempotent drive/full-reader replay;
+  добавлен отдельный abandon/native claim release case. Точечные cancel/replay
+  и cancel/release PASS на released 0.13.77; полная native matrix25/25 PASS
+  (23 CLI cases + 2 direct synthetic hosts; 2 error-composition named negatives).
+  Полная matrix и evidence —
+  docs/changes/qualify-parallel-implementation-review/release-0.13.77.md.
+  Исторические JSON/CI/live результаты на 0.13.76 не перезаписываются.
+  E4 больше не блокирует W5; production report adapter, opt-in W3 composition,
+  host capability/dispatch и parallel frontend qualification остаются нашей
+  отдельной работой. Sequential default сохранён; свежий live board/queue/LLM
+  pilot наших пакетов не заявлен. E3 writer cancellation проверен отдельно:
+  feature_check implement-cancel на 0.13.77 всё ещё воспроизводит
+  recover_source_unsettled после inspected not_applied resolve, work/claim
+  сохранены, собственный stand очищен. Это negative PASS, не recovery success;
+  plan-cancel в этом повторе не запускался. E3 issue остаётся prepared локально.
+  E1/E2 не требуют дублирующих workflow; применение queue и обновление project
+  runners выполняются в выбранном потребителе. No tag/catalog/package release.
+
+Ниже — исторические записи. Их версии, open issues и блокеры отражают состояние
+на соответствующую дату; актуальный stable и E1/E2/E4 указаны выше.
 
 - **W5 committed/pushed, qualification CI PASS; production blocked (2026-10-15):**
   Latest stable проверен в начале и перед фиксацией, новых выпусков нет.

@@ -19,7 +19,7 @@ from test_review_evidence import config, report, evidence
 
 CASES = ('pass', 'failed', 'blocked', 'owner', 'failed-blocked', 'failed-owner', 'missing',
          'duplicate', 'stale-round', 'stale-request', 'malformed', 'missing-output',
-         'intervening-edit', 'during-reader-edit', 'cancel-after-first', 'defect-repair', 'partial-resume', 'cancel-resume', 'crash', 'one-crash', 'unhandled-crash', 'outer-handler-crash')
+         'intervening-edit', 'during-reader-edit', 'cancel-after-first', 'cancel-after-first-release', 'defect-repair', 'partial-resume', 'cancel-resume', 'crash', 'one-crash', 'unhandled-crash', 'outer-handler-crash')
 KEEP = False
 
 
@@ -84,7 +84,6 @@ class Fixture:
         self.binary, self.root, self.case, self.host = binary, root, case, host
         self.repo, self.authority = verify.prepare_repository(binary, root)
         self.runs = []
-        self.expected_unsettled = False
         self.package = install(self.repo, parallelism=parallelism, handle_errors=case != 'unhandled-crash',
                                timeout=30000 if case.endswith('crash') else None, asymmetric=case == 'one-crash',
                                wrap_errors=case != 'outer-handler-crash')
@@ -141,17 +140,11 @@ class Fixture:
 
     def close(self):
         try:
-            if not self.expected_unsettled:
-                clean(self.binary, self.authority, self.runs)
-                assert not any(c['status'] == 'active' for c in self.call('claim', 'list')['claims'])
-            # For a named cancellation negative the authority cannot settle its
-            # claim. No actor/process remains; default TemporaryDirectory tears
-            # down this entire owned sandbox, NOT a successful native release.
-            # --keep preserves it for inspection instead. Never clear flags or
-            # reset the source to manufacture native cleanup/recovery success.
+            clean(self.binary, self.authority, self.runs)
+            assert not any(c['status'] == 'active' for c in self.call('claim', 'list')['claims'])
         finally:
             verify.forget_authority(self.authority)
-            if KEEP: print(json.dumps({'kept_owned_fixture': str(self.root), 'native_unsettled': self.expected_unsettled}), flush=True)
+            if KEEP: print(json.dumps({'kept_owned_fixture': str(self.root)}), flush=True)
 
 
 def check(binary, case='pass', host='codex-cli'):
@@ -258,7 +251,7 @@ def check(binary, case='pass', host='codex-cli'):
                 assert [t['attempt_id'] for t in remaining] == [tasks[1]['attempt_id']]
                 second = report(read(tasks[1], 'request'), before)
                 if case in ('blocked', 'failed-blocked'): second = report(read(tasks[1], 'request'), before, 'unavailable', 'not_run')
-                if case in ('during-reader-edit', 'cancel-after-first'):
+                if case in ('during-reader-edit', 'cancel-after-first', 'cancel-after-first-release'):
                     if case == 'during-reader-edit':
                         (tree / 'owner.txt').write_text('Owner edit while the last reader was active; preserve it.\n')
                         path = submission(f.call, f.rid, tasks[1], second)
@@ -269,32 +262,33 @@ def check(binary, case='pass', host='codex-cli'):
                     f.call('run', 'cancel', f.rid, '--reason', 'One synthetic reader settled; remaining read-only actor returned without an accepted report')
                     driven = invoke(binary, f.authority, 'run', 'drive', f.rid)
                     state = f.state()
-                    assert driven['exit'] and driven['document']['code'] == 'invalid_input', driven
-                    assert state['run']['status'] == 'stopping' and state['run']['cancel_requested']
+                    assert not driven['exit'] and not driven['rejection'], (driven['exit'], driven['rejection'])
+                    assert state['run']['status'] == 'cancelled' and state['run'].get('outcome') is None, state['run']['status']
+                    assert not state['run']['active_attempt_ids'] and not state['run']['has_unresolved_effects']
                     assert all(a.get('settled') for a in state['run']['attempts'].values())
-                    claims = f.call('claim', 'list')['claims']
-                    releases = [invoke(binary, f.authority, 'claim', 'release', '--id', c['id'], '--generation', c['generation']) for c in claims if c['status'] == 'active']
-                    assert releases and all(r['document']['code'] == 'claim_run_active' for r in releases)
                     version = f.state()['run_version']
-                    continued = invoke(binary, f.authority, *f.continuation(f.rid), '--prepare')
-                    assert continued['exit'] and continued['document']['code'] == 'recover_source_ineligible'
+                    late_result = invoke(binary, f.authority, 'session', 'submit', '--file', late)
+                    assert late_result['exit'] or late_result['rejection'], 'Cancelled reader accepted a late report'
+                    f.drive()
                     assert f.state()['run_version'] == version and evidence.snapshot(tree, f.base) == snapshot
-                    repeated = invoke(binary, f.authority, 'run', 'drive', f.rid)
-                    assert repeated['document']['code'] == 'invalid_input' and evidence.snapshot(tree, f.base) == snapshot
-                    result.update(cancel_drive=driven, cancelled_state={
-                        'status': state['run']['status'], 'cancel_requested': True, 'outcome': state['run'].get('outcome'),
+                    result.update(outcome='cancelled', cancelled_state={
+                        'status': state['run']['status'], 'outcome': state['run'].get('outcome'),
                         'all_attempts_settled': True, 'source_run_id': f.rid, 'run_version': state['run_version'],
                         'raw_state_digest': evidence.digest(evidence.encoded(state)),
                         'attempt_statuses': [a['status'] for a in state['run']['attempts'].values()]},
-                        claim_release=releases, continue_result=continued, repeated_drive=repeated,
-                        candidate_preserved=True, qualification='named negative; production promotion blocked',
-                        native_claim_release='refused; whole owned test sandbox removed by default, not a native release success')
-                    f.expected_unsettled = True
-                    return result
+                        late_result=late_result, repeated_drive_stable=True, candidate_preserved=True)
+                    if case == 'cancel-after-first-release':
+                        claims = [c for c in f.call('claim', 'list')['claims'] if c['status'] == 'active']
+                        assert len(claims) == 1
+                        for claim in claims:
+                            f.call('claim', 'release', '--id', claim['id'], '--generation', claim['generation'])
+                        assert not any(c['status'] == 'active' for c in f.call('claim', 'list')['claims'])
+                        result['native_claim_release'] = 'succeeded after terminal cancellation'
+                        return result
                 else:
                     f.submit(tasks[1], second)
                 if case == 'intervening-edit': (tree / 'owner.txt').write_text('Owner edit after both reports; preserve it.\n')
-                if case != 'during-reader-edit':
+                if case not in ('during-reader-edit', 'cancel-after-first'):
                     f.drive()
                     state = f.state()['run']
                     assessment = aggregate(f.call, root, state)
@@ -303,7 +297,7 @@ def check(binary, case='pass', host='codex-cli'):
                     assert assessment['decision'] == expected, assessment
                     assert state['outcome'] == ('succeeded' if expected == 'accepted' else 'partial')
                     result.update(outcome=state['outcome'], waited_for_last_reader=True, assessment=assessment)
-            if case in ('partial-resume', 'cancel-resume', 'during-reader-edit', 'defect-repair'):
+            if case in ('partial-resume', 'cancel-resume', 'during-reader-edit', 'cancel-after-first', 'defect-repair'):
                 version = f.state()['run_version']
                 (tree / 'owner.txt').write_text('Preserved owner edit before reviewed full-round replay.\n')
                 if case == 'defect-repair':
@@ -347,7 +341,7 @@ def main():
     if not args.case: cases += [('pass', host) for host in ('codex-app', 'claude-code')]
     summary = {'prifly': verify.run(args.binary, 'version')['version'],
                'binary_sha256': hashlib.sha256(args.binary.read_bytes()).hexdigest(),
-               'boundary': 'Synthetic reader reports; actual released runtime, Git, W1 evaluators and public artifact exports. Named negatives are not successful recovery or native claim release. No live host overlap claim.',
+               'boundary': 'Synthetic reader reports; actual released runtime, Git, W1 evaluators and public artifact exports. Cancellation must settle, permit native release and replay all readers. Two invalid error compositions remain named negatives. No live host overlap claim.',
                'cases': results, 'matrix_complete': False}
     for case, host in cases:
         result = check(args.binary, case, host); results.append(result)

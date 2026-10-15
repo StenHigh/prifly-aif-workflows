@@ -1,9 +1,10 @@
 # План изменений workflow после сравнения с Software Factory
 
-Дата: 2026-10-15. W1–W3: **committed/pushed, CI PASS**, с отдельными live observations;
-W4: **committed/pushed, pilot qualified, CI PASS**; W5: **proposed**. Выпуск не выполнен.
-База: released Pri-Fly **0.13.76**, пакеты этого репозитория **v1.51.2**.
-Stable проверен перед оформлением: новых выпусков нет. Это не новый прогон ворот.
+Дата: 2026-10-16. W1–W3: **committed/pushed, CI PASS**, с отдельными live observations;
+W4: **committed/pushed, pilot qualified, CI PASS**; W5: **qualification recorded**.
+Выпуск пакетов не выполнен. Актуальная база совместимости: released Pri-Fly
+**0.13.77**, пакеты этого репозитория **v1.51.2**. Прежние CI/live evidence на
+0.13.76 остаются историческими; повторная проверка нового stable записана отдельно.
 
 В этом репозитории нет инициализированного OpenSpec-проекта. Change хранятся
 как репозиторная документация: `proposal.md` задаёт объём и критерии приёмки,
@@ -19,7 +20,7 @@ Stable проверен перед оформлением: новых выпус
 | W2 | P1 | [UI/UX-компоненты](add-ui-ux-review-components/proposal.md) | W1; standalone контракт среды из #2 | committed/pushed, CI + fresh CLI PASS; model/consumer limits / unreleased |
 | W3 | P1 | [Короткий workflow для фич](add-bounded-feature-workflow/proposal.md) | W1; W2 для интерфейсного профиля | committed/pushed, CI + live PASS; forced writer cancel deferred / unreleased |
 | W4 | P1/P2 | [Приёмка перед интеграцией](document-verified-integration-handoff/proposal.md) | W1; проектный интегратор, #1 при GitLab | committed/pushed, pilot qualified, CI PASS; real provider limits / unreleased |
-| W5 | P2 | [Квалификация параллельного ревью](qualify-parallel-implementation-review/proposal.md) | W1, W2, W3; сначала последовательная приёмка | committed/pushed, qualification CI PASS; Pri-Fly #6 blocks production |
+| W5 | P2 | [Квалификация параллельного ревью](qualify-parallel-implementation-review/proposal.md) | W1, W2, W3; сначала последовательная приёмка | qualification recorded; E4 исправлен в 0.13.77; production composition и host/frontend qualification остаются |
 
 Каждый change выпускается отдельно с собственным bump изменённых компонентов,
 пакета и зависимых workflow по действующим правилам. Версии здесь не назначены:
@@ -46,7 +47,8 @@ Stable проверен перед оформлением: новых выпус
 3. W4 и измерение времени, токенов, пропусков проверок и repair-кругов.
 4. W5: квалификация released runtime и hosts; изменение core только при
    воспроизводимом недостающем контракте.
-5. E1 — обзор Runs в monitor. E2 — очередь после подтверждённой потребности.
+5. E1/E2 выпущены в Pri-Fly 0.13.77: применять native monitor board и явно
+   выбранную native queue; отдельную очередь или доску в workflow не создавать.
 
 W1–W4 не зависят от E1/E2. Не добавляем обязательный набор четырёх reviewers
 каждому запуску. Auto-merge, push/MR и tracker sync не становятся поведением
@@ -55,9 +57,12 @@ W1–W4 не зависят от E1/E2. Не добавляем обязател
 ## Задачи движка
 
 - [E1: Pri-Fly #4 — обзор Runs](https://github.com/StenHigh/prifly/issues/4),
-  [сохранённый issue body](engine/E1-run-board.md). Статус: open, P2.
+  [сохранённый issue body](engine/E1-run-board.md). Статус: closed,
+  реализован в stable 0.13.77; свежая браузерная приёмка со стороны пакетов не заявлена.
 - [E2: Pri-Fly #5 — локальная очередь](https://github.com/StenHigh/prifly/issues/5),
-  [сохранённый issue body](engine/E2-task-queue.md). Статус: open, P3.
+  [сохранённый issue body](engine/E2-task-queue.md). Статус: closed,
+  реализована native queue в stable 0.13.77; живой запуск наших пакетов из очереди
+  ещё не квалифицирован. Claim задачи сам по себе не запускает Run.
 - [E3: prepared writer-cancellation follow-up](add-bounded-feature-workflow/engine-followup.md)
   воспроизведён в W3: resolved cancelled writer ещё не допускает reviewed continue
   (`recover_source_unsettled`). Issue body подготовлен локально, issue не опубликован;
@@ -66,11 +71,12 @@ W1–W4 не зависят от E1/E2. Не добавляем обязател
   контракта independent Attempts, join, cancel или recovery.
 - [E4: Pri-Fly #6 — parallel cancellation](https://github.com/StenHigh/prifly/issues/6),
   [reproducer](qualify-parallel-implementation-review/engine-followup.md):
-  open; cancel после settled sibling оставляет stopping/invalid_input,
-  native claim release и continue отказаны. Воспроизведено без source edits;
-  не смешивать с E3 writer cancellation или исправленным placement on_error.
+  closed, исправлен в stable 0.13.77. Старые stopping/invalid_input остаются
+  историческим reproducer; актуальная проверка требует terminal cancel, native
+  release и полного reviewed replay. Не смешивать с E3 writer cancellation
+  или исправленным placement on_error. См. [повторную квалификацию](qualify-parallel-implementation-review/release-0.13.77.md).
 
-В Pri-Fly 0.13.76 уже есть monitor, title задачи, `parallel`/join, ресурсы,
+В Pri-Fly 0.13.77 есть monitor с доской, native project queue, title задачи, `parallel`/join, ресурсы,
 model-profile reports и одна типизированная привязка входа extension. Не
 заказывать эти возможности повторно. Сложные repeat/parallel и более одной
 привязки пишутся явным графом. Несовпадение наших старых комментариев о полном запрете inputs с actual stable
@@ -79,7 +85,7 @@ model-profile reports и одна типизированная привязка 
 ## Источники
 
 - [Исходный Software Factory, закреплённый commit](https://github.com/zazencodes/zazencodes-season-3/tree/555467c365e6750278efba09349369109f62f65f/src/software-factory-claude-code).
-- [Released Pri-Fly 0.13.76](https://github.com/StenHigh/prifly/tree/v0.13.76).
+- [Released Pri-Fly 0.13.77](https://github.com/StenHigh/prifly/tree/v0.13.77).
 - [Пакеты v1.51.2](https://github.com/StenHigh/prifly-aif-workflows/tree/v1.51.2).
 
 Заимствуем устройство процесса, не обещание качества: synthetic host проверяет

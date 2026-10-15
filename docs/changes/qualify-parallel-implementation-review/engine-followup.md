@@ -1,8 +1,12 @@
 # E4 / W5 — Parallel read-only cancellation cannot settle after one branch completed
 
-Status: **open — [Pri-Fly #6](https://github.com/StenHigh/prifly/issues/6)**;
-reproduced on released **Pri-Fly 0.13.76**. No engine changes
-are included in W5. This is distinct from W3's E3 cancelled-writer follow-up.
+Status as of 2026-10-16: **closed — fixed in released Pri-Fly 0.13.77**;
+[Pri-Fly #6](https://github.com/StenHigh/prifly/issues/6).
+[Requalification](release-0.13.77.md) checks terminal cancel, native release and
+full-round reviewed replay. Below is the historical reproducer on **0.13.76**;
+its stopping/refusal expectations are no longer the current test contract.
+No engine changes are included in W5. This remains distinct from W3's E3
+cancelled-writer follow-up, which has not been requalified by this check.
 
 ## Concrete trigger and observed result
 

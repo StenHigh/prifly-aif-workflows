@@ -1,5 +1,18 @@
 # W5 — результат квалификации
 
+Актуальный статус на 2026-10-16: **E4 исправлен в released Pri-Fly 0.13.77**.
+Повторная проверка требует terminal cancellation, отказ late report, стабильный
+повтор drive, native claim release либо reviewed continue с двумя свежими readers.
+Результаты и оставшаяся работа — в [release-0.13.77.md](release-0.13.77.md).
+Полная production composition, host adapter и parallel frontend всё ещё не готовы;
+`aif-feature` сохраняет последовательное ревью. Нового live LLM замера нет.
+
+## Историческая квалификация на 0.13.76
+
+Ниже сохранены результаты и ограничения от 2026-10-15. Упоминания открытого E4,
+blocked A5/A6 и четырёх named negatives относятся к этому старому binary/CI;
+их нельзя переносить на актуальные результаты 0.13.77.
+
 Статус: **qualification recorded; production blocked by cancellation gap**.
 Pri-Fly **0.13.76**, официальный Linux AMD64 binary SHA256
 `03ac382112a12001ea9e2a86e5a20db2d5e24ec79ce5339f6257c473d0f3322d`.

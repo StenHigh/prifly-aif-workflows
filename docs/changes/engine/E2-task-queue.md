@@ -1,3 +1,7 @@
+Статус на 2026-10-16: [issue #5](https://github.com/StenHigh/prifly/issues/5)
+закрыт; native `project queue` выпущена в Pri-Fly v0.13.77. Ниже сохранён исходный
+issue body; его checklist не является новой локальной live qualification наших пакетов.
+
 ## Проблема и ожидаемое поведение
 
 Несколько host-сессий могут вести разные Runs, но ручной Markdown backlog не

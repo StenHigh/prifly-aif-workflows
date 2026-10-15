@@ -1,0 +1,1673 @@
+{
+  "date": "2026-10-16",
+  "outcome": "passed",
+  "prifly": "0.13.77",
+  "release_url": "https://github.com/StenHigh/prifly/releases/tag/v0.13.77",
+  "archive_sha256": "fa4b40eb0b13e0b5862f9c8c89707f31aa16fb0d545f3ad5f1419d5aaf02220b",
+  "archive_matches_release_manifest": true,
+  "binary_sha256": "d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa",
+  "source_base_commit": "867d228f71ecab63c2f97b4cda74bb5118120a95",
+  "qualification_source_sha256": {
+    "tests/probes/parallel_check.py": "2054ed9312a431b133977064ef4de726c304a6782eea47c9249afc35f3ff75f6",
+    "tests/parallel_contract.py": "bcb161dbcb997d4ba8b1aadc58e4eb288a675761e575529a85ac931d83f275b4",
+    "tests/parallel_fixture.py": "e0e1e98476fa6073dae30f2fad8e9ad3bc2bdfbbee05b1cdffa952a38b1a6189"
+  },
+  "protected_package_files": 310,
+  "all_protected_package_bytes_unchanged": true,
+  "historical_source_boundaries_sha256": "76a1531ce90e1daf3a654680c01d0de8b85c2ebf97534ce42188764b61a4058d",
+  "compatibility_gates": {
+    "tests/verify.py --binary <official-0.13.77>": {
+      "outcome": "passed",
+      "packages": 7,
+      "components_read": 100,
+      "steps_read": 67,
+      "registry_entries_removed": 1
+    },
+    "tests/compatibility.py --binary <official-0.13.77>": {
+      "outcome": "passed",
+      "launches": 5,
+      "distinct_builds": 4,
+      "trusted_packages": 4,
+      "profiled_sealed_as": "core-state/41",
+      "registry_entries_removed": 1
+    },
+    "tests/test_folders.py": {
+      "outcome": "passed",
+      "tests": 7
+    },
+    "tests/test_versions.py": {
+      "outcome": "passed",
+      "tests": 3
+    },
+    "tools/derive_profiled.py --check": {
+      "outcome": "passed"
+    }
+  },
+  "w5_compile": {
+    "prifly": "0.13.77",
+    "binary_sha256": "d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa",
+    "cases": [
+      {
+        "host": "codex-cli",
+        "definitions": 8,
+        "build_key": "sha256:af9b8c18943f7b2c77980d3c0bb05b5c2dcb9d2d2b293519071a314499b87ae9",
+        "scope": "compile only; not actual host execution or overlap"
+      },
+      {
+        "host": "codex-app",
+        "definitions": 8,
+        "build_key": "sha256:af9b8c18943f7b2c77980d3c0bb05b5c2dcb9d2d2b293519071a314499b87ae9",
+        "scope": "compile only; not actual host execution or overlap"
+      },
+      {
+        "host": "claude-code",
+        "definitions": 8,
+        "build_key": "sha256:af9b8c18943f7b2c77980d3c0bb05b5c2dcb9d2d2b293519071a314499b87ae9",
+        "scope": "compile only; not actual host execution or overlap"
+      }
+    ]
+  },
+  "w5_runtime": {
+    "prifly": "0.13.77",
+    "binary_sha256": "d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa",
+    "boundary": "Synthetic reader reports; actual released runtime, Git, W1 evaluators and public artifact exports. Cancellation must settle, permit native release and replay all readers. Two invalid error compositions remain named negatives. No live host overlap claim.",
+    "cases": [
+      {
+        "case": "pass",
+        "host": "codex-cli",
+        "common_candidate": true,
+        "distinct_attempt_workspaces": true,
+        "outcome": "succeeded",
+        "waited_for_last_reader": true,
+        "assessment": {
+          "decision": "accepted",
+          "join_result": "satisfied",
+          "gates": {
+            "first": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "second": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            }
+          },
+          "findings": [
+            {
+              "reader": "first",
+              "check": "acceptance",
+              "report_digest": "sha256:531d654148acd7ad7a34af4f0b1f4ee310435056364359b4047498e81086bbf1",
+              "result": "passed",
+              "reason": "",
+              "evidence": [
+                {
+                  "method": "code",
+                  "tool": "fixture-tool",
+                  "locator": "fixture page/source",
+                  "observation": "Actual fixture command exited zero",
+                  "exit_code": null
+                }
+              ]
+            },
+            {
+              "reader": "second",
+              "check": "acceptance",
+              "report_digest": "sha256:531d654148acd7ad7a34af4f0b1f4ee310435056364359b4047498e81086bbf1",
+              "result": "passed",
+              "reason": "",
+              "evidence": [
+                {
+                  "method": "code",
+                  "tool": "fixture-tool",
+                  "locator": "fixture page/source",
+                  "observation": "Actual fixture command exited zero",
+                  "exit_code": null
+                }
+              ]
+            }
+          ],
+          "duplicate_observations_counted_as_extra_checks": false
+        }
+      },
+      {
+        "case": "failed",
+        "host": "codex-cli",
+        "common_candidate": true,
+        "distinct_attempt_workspaces": true,
+        "outcome": "partial",
+        "waited_for_last_reader": true,
+        "assessment": {
+          "decision": "failed",
+          "join_result": "unsatisfied",
+          "gates": {
+            "first": {
+              "blocking": true,
+              "blocking_owner_only": false,
+              "findings": [
+                "acceptance: Fixture dependency or defect",
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "failed",
+              "suggested_next": "/aif-fix"
+            },
+            "second": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            }
+          },
+          "findings": [
+            {
+              "reader": "first",
+              "check": "acceptance",
+              "report_digest": "sha256:1d1d43c23d1a72a2f0925894799aacd6a9b7c7a01ca512b2a033bcc8d16f074c",
+              "result": "failed",
+              "reason": "Fixture dependency or defect",
+              "evidence": [
+                {
+                  "method": "code",
+                  "tool": "fixture-tool",
+                  "locator": "fixture page/source",
+                  "observation": "Actual fixture command exited zero",
+                  "exit_code": null
+                }
+              ]
+            },
+            {
+              "reader": "second",
+              "check": "acceptance",
+              "report_digest": "sha256:d27cd570fcf0f5b91ff471e7f3ace1034ecce6024bdbe9b8e3df2139f4ac88f9",
+              "result": "passed",
+              "reason": "",
+              "evidence": [
+                {
+                  "method": "code",
+                  "tool": "fixture-tool",
+                  "locator": "fixture page/source",
+                  "observation": "Actual fixture command exited zero",
+                  "exit_code": null
+                }
+              ]
+            }
+          ],
+          "duplicate_observations_counted_as_extra_checks": false
+        }
+      },
+      {
+        "case": "blocked",
+        "host": "codex-cli",
+        "common_candidate": true,
+        "distinct_attempt_workspaces": true,
+        "outcome": "partial",
+        "waited_for_last_reader": true,
+        "assessment": {
+          "decision": "blocked",
+          "join_result": "unsatisfied",
+          "gates": {
+            "first": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "acceptance: Fixture dependency or defect",
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "blocked",
+              "suggested_next": "continue"
+            },
+            "second": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            }
+          },
+          "findings": [
+            {
+              "reader": "first",
+              "check": "acceptance",
+              "report_digest": "sha256:f2917d8f0bcadd33deb599173f5dd8484d33e77984cb2aa2423c7cb4bc188622",
+              "result": "not_run",
+              "reason": "Fixture dependency or defect",
+              "evidence": []
+            },
+            {
+              "reader": "second",
+              "check": "acceptance",
+              "report_digest": "sha256:577a4bb62996dd6dadbebf6141c5c03d4aa5484329f5eaa6e442cbea09573e15",
+              "result": "passed",
+              "reason": "",
+              "evidence": [
+                {
+                  "method": "code",
+                  "tool": "fixture-tool",
+                  "locator": "fixture page/source",
+                  "observation": "Actual fixture command exited zero",
+                  "exit_code": null
+                }
+              ]
+            }
+          ],
+          "duplicate_observations_counted_as_extra_checks": false
+        }
+      },
+      {
+        "case": "owner",
+        "host": "codex-cli",
+        "common_candidate": true,
+        "distinct_attempt_workspaces": true,
+        "outcome": "partial",
+        "waited_for_last_reader": true,
+        "assessment": {
+          "decision": "owner",
+          "join_result": "unsatisfied",
+          "gates": {
+            "first": {
+              "blocking": true,
+              "blocking_owner_only": true,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "second": {
+              "blocking": true,
+              "blocking_owner_only": true,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            }
+          },
+          "findings": [
+            {
+              "reader": "first",
+              "check": "acceptance",
+              "report_digest": "sha256:05b02849644e4fa9266aed49d76b2250b5bf94608c721030be648cd3bc3ac6ef",
+              "result": "passed",
+              "reason": "",
+              "evidence": [
+                {
+                  "method": "code",
+                  "tool": "fixture-tool",
+                  "locator": "fixture page/source",
+                  "observation": "Actual fixture command exited zero",
+                  "exit_code": null
+                }
+              ]
+            },
+            {
+              "reader": "second",
+              "check": "acceptance",
+              "report_digest": "sha256:05b02849644e4fa9266aed49d76b2250b5bf94608c721030be648cd3bc3ac6ef",
+              "result": "passed",
+              "reason": "",
+              "evidence": [
+                {
+                  "method": "code",
+                  "tool": "fixture-tool",
+                  "locator": "fixture page/source",
+                  "observation": "Actual fixture command exited zero",
+                  "exit_code": null
+                }
+              ]
+            }
+          ],
+          "duplicate_observations_counted_as_extra_checks": false
+        }
+      },
+      {
+        "case": "failed-blocked",
+        "host": "codex-cli",
+        "common_candidate": true,
+        "distinct_attempt_workspaces": true,
+        "outcome": "partial",
+        "waited_for_last_reader": true,
+        "assessment": {
+          "decision": "blocked",
+          "join_result": "unsatisfied",
+          "gates": {
+            "first": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "acceptance: Fixture dependency or defect",
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "blocked",
+              "suggested_next": "continue"
+            },
+            "second": {
+              "blocking": true,
+              "blocking_owner_only": false,
+              "findings": [
+                "acceptance: Fixture dependency or defect",
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "failed",
+              "suggested_next": "/aif-fix"
+            }
+          },
+          "findings": [
+            {
+              "reader": "first",
+              "check": "acceptance",
+              "report_digest": "sha256:789e12b2af44d225229e54d4e0baf0f674ebf776d8261a4204391a44cdf4376d",
+              "result": "not_run",
+              "reason": "Fixture dependency or defect",
+              "evidence": []
+            },
+            {
+              "reader": "second",
+              "check": "acceptance",
+              "report_digest": "sha256:f93211c93742863670f11d5d828fa8d0912f681302a604ff5706502161329728",
+              "result": "failed",
+              "reason": "Fixture dependency or defect",
+              "evidence": [
+                {
+                  "method": "code",
+                  "tool": "fixture-tool",
+                  "locator": "fixture page/source",
+                  "observation": "Actual fixture command exited zero",
+                  "exit_code": null
+                }
+              ]
+            }
+          ],
+          "duplicate_observations_counted_as_extra_checks": false
+        }
+      },
+      {
+        "case": "failed-owner",
+        "host": "codex-cli",
+        "common_candidate": true,
+        "distinct_attempt_workspaces": true,
+        "outcome": "partial",
+        "waited_for_last_reader": true,
+        "assessment": {
+          "decision": "owner",
+          "join_result": "unsatisfied",
+          "gates": {
+            "first": {
+              "blocking": true,
+              "blocking_owner_only": false,
+              "findings": [
+                "acceptance: Fixture dependency or defect",
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "failed",
+              "suggested_next": "/aif-fix"
+            },
+            "second": {
+              "blocking": true,
+              "blocking_owner_only": true,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            }
+          },
+          "findings": [
+            {
+              "reader": "first",
+              "check": "acceptance",
+              "report_digest": "sha256:ddbb5f57931f0baae594aef0d4b5233db9a288886e56376e7536e9010428e353",
+              "result": "failed",
+              "reason": "Fixture dependency or defect",
+              "evidence": [
+                {
+                  "method": "code",
+                  "tool": "fixture-tool",
+                  "locator": "fixture page/source",
+                  "observation": "Actual fixture command exited zero",
+                  "exit_code": null
+                }
+              ]
+            },
+            {
+              "reader": "second",
+              "check": "acceptance",
+              "report_digest": "sha256:7195ce4e0decd89fb23b76344dc01190c8b4129f3fc4fe3b7aa1a6e1f99a21c0",
+              "result": "passed",
+              "reason": "",
+              "evidence": [
+                {
+                  "method": "code",
+                  "tool": "fixture-tool",
+                  "locator": "fixture page/source",
+                  "observation": "Actual fixture command exited zero",
+                  "exit_code": null
+                }
+              ]
+            }
+          ],
+          "duplicate_observations_counted_as_extra_checks": false
+        }
+      },
+      {
+        "case": "missing",
+        "host": "codex-cli",
+        "common_candidate": true,
+        "distinct_attempt_workspaces": true,
+        "outcome": "partial",
+        "waited_for_last_reader": true,
+        "assessment": {
+          "decision": "blocked",
+          "join_result": "unsatisfied",
+          "gates": {
+            "first": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Missing or unknown reported checks",
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "blocked",
+              "suggested_next": "continue"
+            },
+            "second": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            }
+          },
+          "findings": [
+            {
+              "reader": "second",
+              "check": "acceptance",
+              "report_digest": "sha256:6a2951765eb7ec39f262ce7ff61da9738dcdee9483d0427ae9b1a24c14f3633f",
+              "result": "passed",
+              "reason": "",
+              "evidence": [
+                {
+                  "method": "code",
+                  "tool": "fixture-tool",
+                  "locator": "fixture page/source",
+                  "observation": "Actual fixture command exited zero",
+                  "exit_code": null
+                }
+              ]
+            }
+          ],
+          "duplicate_observations_counted_as_extra_checks": false
+        }
+      },
+      {
+        "case": "duplicate",
+        "host": "codex-cli",
+        "common_candidate": true,
+        "distinct_attempt_workspaces": true,
+        "outcome": "partial",
+        "waited_for_last_reader": true,
+        "assessment": {
+          "decision": "blocked",
+          "join_result": "unsatisfied",
+          "gates": {
+            "first": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Duplicate reported check ID",
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "blocked",
+              "suggested_next": "continue"
+            },
+            "second": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            }
+          },
+          "findings": [
+            {
+              "reader": "first",
+              "check": "acceptance",
+              "report_digest": "sha256:d564afb5ae2d56fcbd30b64c1ced0056160ab1e51d82bb6bdbdeb63c9dcf9a0f",
+              "result": "passed",
+              "reason": "",
+              "evidence": [
+                {
+                  "method": "code",
+                  "tool": "fixture-tool",
+                  "locator": "fixture page/source",
+                  "observation": "Actual fixture command exited zero",
+                  "exit_code": null
+                }
+              ]
+            },
+            {
+              "reader": "first",
+              "check": "acceptance",
+              "report_digest": "sha256:d564afb5ae2d56fcbd30b64c1ced0056160ab1e51d82bb6bdbdeb63c9dcf9a0f",
+              "result": "passed",
+              "reason": "",
+              "evidence": [
+                {
+                  "method": "code",
+                  "tool": "fixture-tool",
+                  "locator": "fixture page/source",
+                  "observation": "Actual fixture command exited zero",
+                  "exit_code": null
+                }
+              ]
+            },
+            {
+              "reader": "second",
+              "check": "acceptance",
+              "report_digest": "sha256:4e5208f01474442519089f7edff5f3cf6669167b4a78e528155bfd819774473a",
+              "result": "passed",
+              "reason": "",
+              "evidence": [
+                {
+                  "method": "code",
+                  "tool": "fixture-tool",
+                  "locator": "fixture page/source",
+                  "observation": "Actual fixture command exited zero",
+                  "exit_code": null
+                }
+              ]
+            }
+          ],
+          "duplicate_observations_counted_as_extra_checks": false
+        }
+      },
+      {
+        "case": "stale-round",
+        "host": "codex-cli",
+        "common_candidate": true,
+        "distinct_attempt_workspaces": true,
+        "outcome": "partial",
+        "waited_for_last_reader": true,
+        "assessment": {
+          "decision": "blocked",
+          "join_result": "unsatisfied",
+          "gates": {
+            "first": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "second": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Report belongs to a different round or candidate"
+              ],
+              "gate": "review",
+              "status": "blocked",
+              "suggested_next": "continue"
+            }
+          },
+          "findings": [
+            {
+              "reader": "first",
+              "check": "acceptance",
+              "report_digest": "sha256:b14fbd1d0ce0a4ad529b7b182d04cc6638409c8de42b2babc30001255adc2da4",
+              "result": "passed",
+              "reason": "",
+              "evidence": [
+                {
+                  "method": "code",
+                  "tool": "fixture-tool",
+                  "locator": "fixture page/source",
+                  "observation": "Actual fixture command exited zero",
+                  "exit_code": null
+                }
+              ]
+            },
+            {
+              "reader": "second",
+              "check": "acceptance",
+              "report_digest": "sha256:7e9d0808d9fc2e0cd03e46ea46df1d6ee0aeed10f77c372f33a821f95a2dabc3",
+              "result": "passed",
+              "reason": "",
+              "evidence": [
+                {
+                  "method": "code",
+                  "tool": "fixture-tool",
+                  "locator": "fixture page/source",
+                  "observation": "Actual fixture command exited zero",
+                  "exit_code": null
+                }
+              ]
+            }
+          ],
+          "duplicate_observations_counted_as_extra_checks": false
+        }
+      },
+      {
+        "case": "stale-request",
+        "host": "codex-cli",
+        "common_candidate": true,
+        "distinct_attempt_workspaces": true,
+        "outcome": "partial",
+        "waited_for_last_reader": true,
+        "assessment": {
+          "decision": "blocked",
+          "join_result": "unsatisfied",
+          "gates": {
+            "first": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Report belongs to a different declared check composition/request"
+              ],
+              "gate": "review",
+              "status": "blocked",
+              "suggested_next": "continue"
+            },
+            "second": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            }
+          },
+          "findings": [
+            {
+              "reader": "first",
+              "check": "acceptance",
+              "report_digest": "sha256:d4abcca1d8cbbaa04ac5382c804988c889536005b5e7a4736873d859f7ce68c1",
+              "result": "passed",
+              "reason": "",
+              "evidence": [
+                {
+                  "method": "code",
+                  "tool": "fixture-tool",
+                  "locator": "fixture page/source",
+                  "observation": "Actual fixture command exited zero",
+                  "exit_code": null
+                }
+              ]
+            },
+            {
+              "reader": "second",
+              "check": "acceptance",
+              "report_digest": "sha256:d28b4649e9d04e1de4460518822b3ac93dbc2276f066b8410739c03f3e486f02",
+              "result": "passed",
+              "reason": "",
+              "evidence": [
+                {
+                  "method": "code",
+                  "tool": "fixture-tool",
+                  "locator": "fixture page/source",
+                  "observation": "Actual fixture command exited zero",
+                  "exit_code": null
+                }
+              ]
+            }
+          ],
+          "duplicate_observations_counted_as_extra_checks": false
+        }
+      },
+      {
+        "case": "malformed",
+        "host": "codex-cli",
+        "common_candidate": true,
+        "distinct_attempt_workspaces": true,
+        "invalid_report_refusal": {
+          "exit": 2,
+          "document": {
+            "schema_version": "1",
+            "code": "schema_invalid",
+            "message": "value does not satisfy the declared contract; the contract requires round, request_digest, candidate, session, model_profile, model, checks",
+            "retryable": false,
+            "correlation_id": "correlation:1ee3c028601c68bb144166fb49410e69",
+            "violations": [],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          },
+          "rejection": null
+        },
+        "outcome": "succeeded",
+        "waited_for_last_reader": true,
+        "assessment": {
+          "decision": "accepted",
+          "join_result": "satisfied",
+          "gates": {
+            "first": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "second": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            }
+          },
+          "findings": [
+            {
+              "reader": "first",
+              "check": "acceptance",
+              "report_digest": "sha256:0ee05e54711e3d83e0e74781e077770b3c4fdbe658de4111c40e17eed1eea503",
+              "result": "passed",
+              "reason": "",
+              "evidence": [
+                {
+                  "method": "code",
+                  "tool": "fixture-tool",
+                  "locator": "fixture page/source",
+                  "observation": "Actual fixture command exited zero",
+                  "exit_code": null
+                }
+              ]
+            },
+            {
+              "reader": "second",
+              "check": "acceptance",
+              "report_digest": "sha256:0ee05e54711e3d83e0e74781e077770b3c4fdbe658de4111c40e17eed1eea503",
+              "result": "passed",
+              "reason": "",
+              "evidence": [
+                {
+                  "method": "code",
+                  "tool": "fixture-tool",
+                  "locator": "fixture page/source",
+                  "observation": "Actual fixture command exited zero",
+                  "exit_code": null
+                }
+              ]
+            }
+          ],
+          "duplicate_observations_counted_as_extra_checks": false
+        }
+      },
+      {
+        "case": "missing-output",
+        "host": "codex-cli",
+        "common_candidate": true,
+        "distinct_attempt_workspaces": true,
+        "invalid_report_refusal": {
+          "exit": 2,
+          "document": {
+            "schema_version": "1",
+            "code": "output_required_missing",
+            "message": "this output port is required for the reported verdict and was not reported",
+            "retryable": false,
+            "correlation_id": "correlation:3c2fa525e4c610af07b17c100880a899",
+            "violations": [
+              {
+                "pointer": "/result/outputs/report",
+                "reason": "this output port is required for the reported verdict and was not reported"
+              }
+            ],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          },
+          "rejection": null
+        },
+        "outcome": "succeeded",
+        "waited_for_last_reader": true,
+        "assessment": {
+          "decision": "accepted",
+          "join_result": "satisfied",
+          "gates": {
+            "first": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "second": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            }
+          },
+          "findings": [
+            {
+              "reader": "first",
+              "check": "acceptance",
+              "report_digest": "sha256:ea0b69450e32dcb07e1b1b848ebb1c0490394cea9fa0824e8941f609eff69590",
+              "result": "passed",
+              "reason": "",
+              "evidence": [
+                {
+                  "method": "code",
+                  "tool": "fixture-tool",
+                  "locator": "fixture page/source",
+                  "observation": "Actual fixture command exited zero",
+                  "exit_code": null
+                }
+              ]
+            },
+            {
+              "reader": "second",
+              "check": "acceptance",
+              "report_digest": "sha256:ea0b69450e32dcb07e1b1b848ebb1c0490394cea9fa0824e8941f609eff69590",
+              "result": "passed",
+              "reason": "",
+              "evidence": [
+                {
+                  "method": "code",
+                  "tool": "fixture-tool",
+                  "locator": "fixture page/source",
+                  "observation": "Actual fixture command exited zero",
+                  "exit_code": null
+                }
+              ]
+            }
+          ],
+          "duplicate_observations_counted_as_extra_checks": false
+        }
+      },
+      {
+        "case": "intervening-edit",
+        "host": "codex-cli",
+        "common_candidate": true,
+        "distinct_attempt_workspaces": true,
+        "outcome": "partial",
+        "waited_for_last_reader": true,
+        "assessment": {
+          "decision": "blocked",
+          "join_result": "unsatisfied",
+          "gates": {
+            "first": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "second": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Stale candidate: current HEAD/index/bytes/modes differ from captured basis"
+              ],
+              "gate": "review",
+              "status": "blocked",
+              "suggested_next": "continue"
+            }
+          },
+          "findings": [
+            {
+              "reader": "first",
+              "check": "acceptance",
+              "report_digest": "sha256:0ed5a071cfe0dcd417633ebc85a597055e05c98e858cd492f6c07f4227ca250e",
+              "result": "passed",
+              "reason": "",
+              "evidence": [
+                {
+                  "method": "code",
+                  "tool": "fixture-tool",
+                  "locator": "fixture page/source",
+                  "observation": "Actual fixture command exited zero",
+                  "exit_code": null
+                }
+              ]
+            },
+            {
+              "reader": "second",
+              "check": "acceptance",
+              "report_digest": "sha256:0ed5a071cfe0dcd417633ebc85a597055e05c98e858cd492f6c07f4227ca250e",
+              "result": "passed",
+              "reason": "",
+              "evidence": [
+                {
+                  "method": "code",
+                  "tool": "fixture-tool",
+                  "locator": "fixture page/source",
+                  "observation": "Actual fixture command exited zero",
+                  "exit_code": null
+                }
+              ]
+            }
+          ],
+          "duplicate_observations_counted_as_extra_checks": false
+        }
+      },
+      {
+        "case": "during-reader-edit",
+        "host": "codex-cli",
+        "common_candidate": true,
+        "distinct_attempt_workspaces": true,
+        "intervening_edit_refusal": {
+          "exit": 3,
+          "document": {
+            "schema_version": "1",
+            "code": "effect_not_permitted",
+            "message": "this step may write only inside its declared output slot, and the workspace at /tmp/w5-native-8bxe88gl/authority/.prifly/work/claims/d25b0b83557109ac3aac96df102f1b5f860582d5f6ce671037c51033d8012972 changed while it ran: wner.txt. Put the workspace back as it was handed over (git status --porcelain --untracked-files=all must match) and report again. If the named paths are byproducts of a build or a test run, list them in .gitignore -- the mark respects it, and a gate must not be given workspace_write to make room for its own cache. Declare effects.class: workspace_write only for a step that is meant to change the tree",
+            "retryable": false,
+            "correlation_id": "correlation:e75f881eab9a262dc7c1222c8a4d32c0",
+            "violations": [],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          },
+          "rejection": null
+        },
+        "outcome": "cancelled",
+        "cancelled_state": {
+          "status": "cancelled",
+          "outcome": null,
+          "all_attempts_settled": true,
+          "source_run_id": "run:c9bda2b1f229aa0f4ab37f2ccb0c12c000191a74f4643bfb9f8669610acc78a5",
+          "run_version": 47,
+          "raw_state_digest": "sha256:74267edfd322b1e9ddd01e26c58848bd94f55b750cba383d55658a0b30108162",
+          "attempt_statuses": [
+            "completed",
+            "completed",
+            "completed",
+            "completed",
+            "cancelled"
+          ]
+        },
+        "late_result": {
+          "exit": 3,
+          "document": {
+            "schema_version": "1",
+            "code": "session_state_conflict",
+            "message": "a parked or closed delivery cannot publish a result",
+            "retryable": false,
+            "correlation_id": "correlation:e1aa73f6a09661b48601950114d83fbe",
+            "violations": [],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          },
+          "rejection": null
+        },
+        "repeated_drive_stable": true,
+        "candidate_preserved": true,
+        "replay_outcome": "succeeded",
+        "all_readers_replayed": true,
+        "owner_work_preserved": true,
+        "root_frontier": "quality call; recaptures candidate before both readers"
+      },
+      {
+        "case": "cancel-after-first",
+        "host": "codex-cli",
+        "common_candidate": true,
+        "distinct_attempt_workspaces": true,
+        "outcome": "cancelled",
+        "cancelled_state": {
+          "status": "cancelled",
+          "outcome": null,
+          "all_attempts_settled": true,
+          "source_run_id": "run:68c4500ec8d8aa82903a40df7cd5d1adbabfcba4ce9bfdc06c7a6a297ee0aaf4",
+          "run_version": 47,
+          "raw_state_digest": "sha256:c6d2d5a018d053d47dce81c28851e39d6bb5f8370b81b49e20c2c50f7893aa99",
+          "attempt_statuses": [
+            "completed",
+            "completed",
+            "completed",
+            "completed",
+            "cancelled"
+          ]
+        },
+        "late_result": {
+          "exit": 3,
+          "document": {
+            "schema_version": "1",
+            "code": "session_state_conflict",
+            "message": "a parked or closed delivery cannot publish a result",
+            "retryable": false,
+            "correlation_id": "correlation:e19690a8134096f308f68a0ce73bbf83",
+            "violations": [],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          },
+          "rejection": null
+        },
+        "repeated_drive_stable": true,
+        "candidate_preserved": true,
+        "replay_outcome": "succeeded",
+        "all_readers_replayed": true,
+        "owner_work_preserved": true,
+        "root_frontier": "quality call; recaptures candidate before both readers"
+      },
+      {
+        "case": "cancel-after-first-release",
+        "host": "codex-cli",
+        "common_candidate": true,
+        "distinct_attempt_workspaces": true,
+        "outcome": "cancelled",
+        "cancelled_state": {
+          "status": "cancelled",
+          "outcome": null,
+          "all_attempts_settled": true,
+          "source_run_id": "run:cbf20176ca504ddd5521f384dcda67f21bbdf9d4c4313e1f593abd2f5049f18c",
+          "run_version": 47,
+          "raw_state_digest": "sha256:384da91a9e7a341f94a8f8c79aed1ca10e506e7f708adcfd7424a34cb4ed116d",
+          "attempt_statuses": [
+            "completed",
+            "completed",
+            "completed",
+            "completed",
+            "cancelled"
+          ]
+        },
+        "late_result": {
+          "exit": 3,
+          "document": {
+            "schema_version": "1",
+            "code": "session_state_conflict",
+            "message": "a parked or closed delivery cannot publish a result",
+            "retryable": false,
+            "correlation_id": "correlation:72c68e2cfc44af5b1f4f35fcd0e13166",
+            "violations": [],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          },
+          "rejection": null
+        },
+        "repeated_drive_stable": true,
+        "candidate_preserved": true,
+        "native_claim_release": "succeeded after terminal cancellation"
+      },
+      {
+        "case": "defect-repair",
+        "host": "codex-cli",
+        "common_candidate": true,
+        "distinct_attempt_workspaces": true,
+        "outcome": "partial",
+        "waited_for_last_reader": true,
+        "assessment": {
+          "decision": "failed",
+          "join_result": "unsatisfied",
+          "gates": {
+            "first": {
+              "blocking": true,
+              "blocking_owner_only": false,
+              "findings": [
+                "acceptance: Fixture dependency or defect",
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "failed",
+              "suggested_next": "/aif-fix"
+            },
+            "second": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            }
+          },
+          "findings": [
+            {
+              "reader": "first",
+              "check": "acceptance",
+              "report_digest": "sha256:e6b35a0e4e24a1b54e6b044f6f7013e81d083160926a0f31350a1fdae2fd6f81",
+              "result": "failed",
+              "reason": "Fixture dependency or defect",
+              "evidence": [
+                {
+                  "method": "code",
+                  "tool": "fixture-tool",
+                  "locator": "fixture page/source",
+                  "observation": "Actual fixture command exited zero",
+                  "exit_code": null
+                }
+              ]
+            },
+            {
+              "reader": "second",
+              "check": "acceptance",
+              "report_digest": "sha256:59462fdaa980a7d56f4caa91aec887db5a7d7fae1a9acaf80f334852d8e3405f",
+              "result": "passed",
+              "reason": "",
+              "evidence": [
+                {
+                  "method": "code",
+                  "tool": "fixture-tool",
+                  "locator": "fixture page/source",
+                  "observation": "Actual fixture command exited zero",
+                  "exit_code": null
+                }
+              ]
+            }
+          ],
+          "duplicate_observations_counted_as_extra_checks": false
+        },
+        "repair_boundary": "Separate owner action only after terminal join, followed by two fresh readers; not an automatic writer",
+        "replay_outcome": "succeeded",
+        "all_readers_replayed": true,
+        "owner_work_preserved": true,
+        "root_frontier": "quality call; recaptures candidate before both readers"
+      },
+      {
+        "case": "partial-resume",
+        "host": "codex-cli",
+        "common_candidate": true,
+        "distinct_attempt_workspaces": true,
+        "outcome": "partial",
+        "waited_for_last_reader": true,
+        "assessment": {
+          "decision": "blocked",
+          "join_result": "unsatisfied",
+          "gates": {
+            "first": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "acceptance: Fixture dependency or defect",
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "blocked",
+              "suggested_next": "continue"
+            },
+            "second": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            }
+          },
+          "findings": [
+            {
+              "reader": "first",
+              "check": "acceptance",
+              "report_digest": "sha256:5b19647d999923b5b28710c76372fae44f42a22875f6040d1f77c6d392ce2999",
+              "result": "not_run",
+              "reason": "Fixture dependency or defect",
+              "evidence": []
+            },
+            {
+              "reader": "second",
+              "check": "acceptance",
+              "report_digest": "sha256:b8617a99d2aa5059e2201518971aa86b5b0dcbacde57b186a0d2d0ec352be0dc",
+              "result": "passed",
+              "reason": "",
+              "evidence": [
+                {
+                  "method": "code",
+                  "tool": "fixture-tool",
+                  "locator": "fixture page/source",
+                  "observation": "Actual fixture command exited zero",
+                  "exit_code": null
+                }
+              ]
+            }
+          ],
+          "duplicate_observations_counted_as_extra_checks": false
+        },
+        "replay_outcome": "succeeded",
+        "all_readers_replayed": true,
+        "owner_work_preserved": true,
+        "root_frontier": "quality call; recaptures candidate before both readers"
+      },
+      {
+        "case": "cancel-resume",
+        "host": "codex-cli",
+        "common_candidate": true,
+        "distinct_attempt_workspaces": true,
+        "late_result": {
+          "exit": 3,
+          "document": {
+            "schema_version": "1",
+            "code": "session_state_conflict",
+            "message": "a parked or closed delivery cannot publish a result",
+            "retryable": false,
+            "correlation_id": "correlation:fdbad3422b16be05cbeec2fd79e55964",
+            "violations": [],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          },
+          "rejection": null
+        },
+        "replay_outcome": "succeeded",
+        "all_readers_replayed": true,
+        "owner_work_preserved": true,
+        "root_frontier": "quality call; recaptures candidate before both readers"
+      },
+      {
+        "case": "crash",
+        "host": "codex-cli",
+        "common_candidate": true,
+        "distinct_attempt_workspaces": true,
+        "outcome": "rejected",
+        "replay_outcome": "succeeded",
+        "diagnostics": [
+          "attempt_deadline_expired",
+          "attempt_deadline_expired",
+          "branch_failed",
+          "child_failed"
+        ],
+        "error_handlers_declared": true,
+        "late_result": {
+          "exit": 3,
+          "document": {
+            "schema_version": "1",
+            "code": "session_state_conflict",
+            "message": "a parked or closed delivery cannot publish a result",
+            "retryable": false,
+            "correlation_id": "correlation:1749d7ea7085dd1d41b346f44eedbc80",
+            "violations": [],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          },
+          "rejection": null
+        },
+        "all_readers_replayed": true,
+        "candidate_preserved": true
+      },
+      {
+        "case": "one-crash",
+        "host": "codex-cli",
+        "common_candidate": true,
+        "distinct_attempt_workspaces": true,
+        "waited_for_live_sibling_after_crash": true,
+        "sibling_report_accepted": true,
+        "outcome": "rejected",
+        "replay_outcome": "succeeded",
+        "diagnostics": [
+          "attempt_deadline_expired",
+          "branch_failed",
+          "child_failed"
+        ],
+        "error_handlers_declared": true,
+        "late_result": {
+          "exit": 3,
+          "document": {
+            "schema_version": "1",
+            "code": "session_state_conflict",
+            "message": "a parked or closed delivery cannot publish a result",
+            "retryable": false,
+            "correlation_id": "correlation:29225956cd3f8bb3bf2b267fe723833e",
+            "violations": [],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          },
+          "rejection": null
+        },
+        "all_readers_replayed": true,
+        "candidate_preserved": true
+      },
+      {
+        "case": "unhandled-crash",
+        "host": "codex-cli",
+        "common_candidate": true,
+        "distinct_attempt_workspaces": true,
+        "outcome": "failed",
+        "qualification": "named negative; NOT successful crash recovery",
+        "diagnostics": [
+          "attempt_deadline_expired",
+          "attempt_deadline_expired",
+          "branch_failed",
+          "child_failed",
+          "child_failed"
+        ],
+        "continue_refusal": {
+          "exit": 3,
+          "document": {
+            "schema_version": "1",
+            "code": "recover_frontier_unsupported",
+            "message": "source Run has no single proven root failure chain",
+            "retryable": false,
+            "correlation_id": "correlation:0f76b4eebb55bf05dc246bca393210a5",
+            "violations": [],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          },
+          "rejection": null
+        },
+        "late_result": {
+          "exit": 3,
+          "document": {
+            "schema_version": "1",
+            "code": "session_state_conflict",
+            "message": "a parked or closed delivery cannot publish a result",
+            "retryable": false,
+            "correlation_id": "correlation:87ae21efdab65f46eebaba7bf7bd29b6",
+            "violations": [],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          },
+          "rejection": null
+        },
+        "reopen": {
+          "exit": 3,
+          "document": {
+            "schema_version": "1",
+            "code": "stage_not_reopenable",
+            "message": "no failed stage of this Run can be run again; read run status for the diagnostics that ended it",
+            "retryable": false,
+            "correlation_id": "correlation:41129ac880f73e6fb77d7da337d7d509",
+            "violations": [],
+            "safe_next_actions": [
+              "run.next",
+              "run.status"
+            ]
+          },
+          "rejection": null
+        },
+        "error_handlers_declared": false,
+        "candidate_preserved": true
+      },
+      {
+        "case": "outer-handler-crash",
+        "host": "codex-cli",
+        "common_candidate": true,
+        "distinct_attempt_workspaces": true,
+        "outcome": "rejected",
+        "qualification": "named negative; NOT successful crash recovery",
+        "diagnostics": [
+          "attempt_deadline_expired",
+          "attempt_deadline_expired",
+          "branch_failed",
+          "child_failed"
+        ],
+        "continue_refusal": {
+          "exit": 3,
+          "document": {
+            "schema_version": "1",
+            "code": "resume_frontier_ambiguous",
+            "message": "the stage the source stopped at cannot be named from its record; name an accepted stage with --from-stage",
+            "retryable": false,
+            "correlation_id": "correlation:6f9dfedb5b8a896a755ecfbe64eeea5c",
+            "violations": [],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          },
+          "rejection": null
+        },
+        "late_result": {
+          "exit": 3,
+          "document": {
+            "schema_version": "1",
+            "code": "session_state_conflict",
+            "message": "a parked or closed delivery cannot publish a result",
+            "retryable": false,
+            "correlation_id": "correlation:c8a5b3df789b794babab1a0c2b3c1363",
+            "violations": [],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          },
+          "rejection": null
+        },
+        "reopen": {
+          "exit": 3,
+          "document": {
+            "schema_version": "1",
+            "code": "not_a_broken_run",
+            "message": "reopen takes a Run that failed technically and reached no outcome; a Run with an outcome answered its question",
+            "retryable": false,
+            "correlation_id": "correlation:be0c801ef6b537872b655fde63231ea8",
+            "violations": [],
+            "safe_next_actions": [
+              "run.next",
+              "run.status"
+            ]
+          },
+          "rejection": null
+        },
+        "error_handlers_declared": true,
+        "candidate_preserved": true
+      },
+      {
+        "case": "pass",
+        "host": "codex-app",
+        "common_candidate": true,
+        "distinct_attempt_workspaces": true,
+        "outcome": "succeeded",
+        "waited_for_last_reader": true,
+        "assessment": {
+          "decision": "accepted",
+          "join_result": "satisfied",
+          "gates": {
+            "first": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "second": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            }
+          },
+          "findings": [
+            {
+              "reader": "first",
+              "check": "acceptance",
+              "report_digest": "sha256:63eacf1c1d30679053158d678d6fa57c92cafc04d2130c92ac5633b08c4368f9",
+              "result": "passed",
+              "reason": "",
+              "evidence": [
+                {
+                  "method": "code",
+                  "tool": "fixture-tool",
+                  "locator": "fixture page/source",
+                  "observation": "Actual fixture command exited zero",
+                  "exit_code": null
+                }
+              ]
+            },
+            {
+              "reader": "second",
+              "check": "acceptance",
+              "report_digest": "sha256:63eacf1c1d30679053158d678d6fa57c92cafc04d2130c92ac5633b08c4368f9",
+              "result": "passed",
+              "reason": "",
+              "evidence": [
+                {
+                  "method": "code",
+                  "tool": "fixture-tool",
+                  "locator": "fixture page/source",
+                  "observation": "Actual fixture command exited zero",
+                  "exit_code": null
+                }
+              ]
+            }
+          ],
+          "duplicate_observations_counted_as_extra_checks": false
+        }
+      },
+      {
+        "case": "pass",
+        "host": "claude-code",
+        "common_candidate": true,
+        "distinct_attempt_workspaces": true,
+        "outcome": "succeeded",
+        "waited_for_last_reader": true,
+        "assessment": {
+          "decision": "accepted",
+          "join_result": "satisfied",
+          "gates": {
+            "first": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "second": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            }
+          },
+          "findings": [
+            {
+              "reader": "first",
+              "check": "acceptance",
+              "report_digest": "sha256:da06afc3a0497bf434feeade4d509ae4e37d5ee30d5d3c59bda883730e6a7914",
+              "result": "passed",
+              "reason": "",
+              "evidence": [
+                {
+                  "method": "code",
+                  "tool": "fixture-tool",
+                  "locator": "fixture page/source",
+                  "observation": "Actual fixture command exited zero",
+                  "exit_code": null
+                }
+              ]
+            },
+            {
+              "reader": "second",
+              "check": "acceptance",
+              "report_digest": "sha256:da06afc3a0497bf434feeade4d509ae4e37d5ee30d5d3c59bda883730e6a7914",
+              "result": "passed",
+              "reason": "",
+              "evidence": [
+                {
+                  "method": "code",
+                  "tool": "fixture-tool",
+                  "locator": "fixture page/source",
+                  "observation": "Actual fixture command exited zero",
+                  "exit_code": null
+                }
+              ]
+            }
+          ],
+          "duplicate_observations_counted_as_extra_checks": false
+        }
+      }
+    ],
+    "matrix_complete": true
+  },
+  "runtime_cases": 25,
+  "terminal_named_error_composition_negatives": 2,
+  "e4_backend_requalification": "passed",
+  "e3_writer_recheck": {
+    "prifly": "0.13.77",
+    "binary_sha256": "d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa",
+    "cases": [
+      {
+        "case": "implement-cancel",
+        "host": "codex-cli",
+        "source_outcome": "failed after cancellation + inspected resolve",
+        "outcome": "recover_source_unsettled",
+        "writer_reconciliation": "not_applied; no retry",
+        "work_preserved": true,
+        "same_claim": true,
+        "cleaned": true
+      }
+    ]
+  },
+  "new_live_llm_observation": false,
+  "new_board_queue_live_qualification": false,
+  "full_ci_on_0_13_77_claimed": false,
+  "production_parallel_enabled": false,
+  "boundary": "Actual released CLI/runtime/Git/artifact API; synthetic reports. New local compatibility/W5 evidence, not full production acceptance or live host qualification."
+}

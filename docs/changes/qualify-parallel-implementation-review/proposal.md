@@ -1,8 +1,9 @@
 # W5 — Квалификация параллельного ревью реализации
 
-Статус: **qualification recorded; production blocked by native cancellation gap**.
-Приоритет: **P2**. Дата: 2026-10-14; квалификация: 2026-10-15.
-База: released Pri-Fly 0.13.76 / пакеты v1.51.2.
+Статус: **qualification recorded; E4 fixed; production composition pending**.
+Приоритет: **P2**. Дата: 2026-10-14; повторная квалификация: 2026-10-16.
+Актуальная база: released Pri-Fly 0.13.77 / пакеты v1.51.2.
+Native cancellation blocker снят; [результаты повторной проверки](release-0.13.77.md).
 
 Результат и ограничения: [acceptance.md](acceptance.md). Квалификация использует
 released Core без его изменений. Все shipping packages, включая sequential

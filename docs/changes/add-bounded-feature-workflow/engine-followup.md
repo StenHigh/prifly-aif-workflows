@@ -4,6 +4,11 @@ Status: prepared; reproduced on released **Pri-Fly 0.13.76**. This follow-up
 does not change the engine as part of W3 and does not block ordinary feature
 development, diagnostic partial continuation or cancelled read-only quality.
 
+2026-10-16: rechecked `implement-cancel` on released **0.13.77**. Inspected
+`not_applied` resolution still ends at `recover_source_unsettled`, with work/claim
+preserved and fixture cleanup successful. No issue was published by this check;
+`plan-cancel` was not rerun. Closing parallel cancellation #6 does not close E3.
+
 ## Observed behavior
 
 Root declares resumable partial/rejected/cancelled. Its assisted plan/implement

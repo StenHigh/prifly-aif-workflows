@@ -1,9 +1,10 @@
 # Tasks W5
 
 Qualification evidence: [acceptance.md](acceptance.md). Backend fixture and real
-CLI normal delivery are qualified; **production blocked by native cancellation**.
-No Core or shipping package changes or tag/catalog publication. E4 follow-up
-captures the remaining stop/claim/continue gap.
+CLI normal delivery are qualified; **E4 fixed in 0.13.77; production composition pending**.
+No Core or shipping package changes or tag/catalog publication. See
+[released requalification](release-0.13.77.md); the old named cancellation
+negatives below describe the original 0.13.76 qualification.
 
 - [x] Завершить последовательную приёмку W3 и report/components W1/W2.
 - [x] Создать minimal released-runtime fixture; проверить admission, read-only
@@ -33,9 +34,11 @@ captures the remaining stop/claim/continue gap.
 
 До включения в aif-feature (отдельная production часть W5):
 
-- [ ] Исправление existing native parallel cancellation в Pri-Fly (E4) и новая
+- [x] Исправление existing native parallel cancellation в Pri-Fly (E4) и новая
   qualification на released binary: terminal stop, native release и full-round
-  reviewed continue. В рамках W5 пакетов Core не меняется (A5, A6).
+  reviewed continue. PASS на 0.13.77, включая owner edit/effect_not_permitted;
+  отдельный abandon case проверяет native claim release. В рамках W5 пакетов
+  Core не меняется (backend portion A5/A6; frontend остаётся ниже).
 - [ ] Реализовать reviewed host/project adapter получения raw reports после
   manifest, с детерминированной проверкой каждого digest и W1 gate.
 - [ ] Встроить opt-in composition в W3 quality/guard/commit replay unit, сохранить
