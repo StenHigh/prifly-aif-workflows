@@ -1,0 +1,16 @@
+extensions:
+- id: inspect-handoff
+  workflow: one-input-example
+  step: extension
+  between:
+    from: configure
+    to: done
+  input_bindings:
+    handoff: $stages.configure.handoff
+  'on':
+    pass: done
+    needs_revision: abandoned
+    fail: abandoned
+    no_work: abandoned
+  impossible_verdicts:
+  - blocked

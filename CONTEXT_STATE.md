@@ -10,6 +10,35 @@
 
 Ворота выверены против выпущенного Pri-Fly `v0.13.76`.
 
+- **W4 implemented/pilot qualified локально (2026-10-15), commit/push далее:**
+  Standalone examples/verified-integration initial1.0.0; все310 files семи
+  existing packages byte-unchanged against5d0ed5f, core не меняется. W1 exact raw
+  requests/reports + clean committed candidate/exact local bare target → isolated
+  merge tree/actual argv commands → read-only final spot checks → fresh guard →
+  assess(default)/local CAS/optional project Draft → owner-checked cleanup.
+  Source/target/integration/criteria/mode/policy movement refuses old acceptance;
+  project auth_money/migrations/dependencies/deploy/business decision binds both
+  commits/policy digest. Local intent/ack journal, lost-ack read-only inspection.
+  Deterministic exclusive owned session blocks re-entry after unknown write;
+  /tmp lifetime is not durable production ledger through reboot/OS cleanup.
+  Source pre-commit W3 reports are stale after commit: fresh W1 review required.
+  compile13 definitions/three-host + one-input/five named negatives, unit18,
+  runtime27 (25 cases+2 hosts), static7/version3/derive/existing compile100/source67/
+  packages7/compatibility PASS on official stable0.13.76 SHA03ac3821.... Actual
+  final CLI0.162.1 fresh scoped reader succeeded; every code evidence preserves
+  method, unedited report/submission, source/authority unchanged. Model mapping
+  unavailable warning visible under ignore; another model not asserted. Actual
+  mixed-method negative retained in protocol-negative.json; own bridge clarified,
+  no evaluator weakening. Final textual bridge separately recompiled/direct/live
+  checked; CI repeats full27 matrix on implementation commit. Own Run/claims/
+  sessions/monitor cleaned; raw actual events private /tmp/w4-current-scoped-reader.
+  Public evidence in W4 change folder, source-boundaries pins worker/bridge bytes.
+  GitLab generic contract and offline #1 Draft/repeat/format/foreign-edit/lost-ack
+  cases qualified; real client/CAS/lease/credentials/private consumer unqualified,
+  #1 stays open. Missing revision prevents unconditional title repair. E3 writer
+  cancellation not bypassed. New guide/root README correct one-input/id-tail
+  semantics without canonical templates edit. No tag/catalog/release.
+
 - **README: выбор workflow по задаче (2026-10-15):**
   Главная таблица теперь объясняет, когда выбирать каждый из семи workflow и
   какой результат ожидать. Добавлены примеры для feature/review/UI/UX, отличие

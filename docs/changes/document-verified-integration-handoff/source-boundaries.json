@@ -1,0 +1,26 @@
+{
+  "baseline_commit": "5d0ed5f",
+  "prifly_release": "0.13.76",
+  "core_changed": false,
+  "existing_packages_byte_unchanged": {
+    "aif-classic": 65,
+    "aif-profiled": 65,
+    "aif-fix": 43,
+    "aif-fanout": 14,
+    "aif-review-evidence": 16,
+    "aif-ui-ux": 30,
+    "aif-feature": 77
+  },
+  "own_workers": {
+    "examples/verified-integration/files/publication.py": "sha256:cb30291e2a1080d34e7a113480301894b9f1d91d177bf0f9a26e5532314a9827",
+    "examples/verified-integration/files/build_handoff.py": "sha256:81b5179d488b06c7a2e1145668c1af014307efd698f524d1b23a52b7f10bb595",
+    "examples/verified-integration/files/evidence.py": "sha256:0ac845481c7fb4dd3a57d7e80726e42f67c1075ff2407916c7607ddc1a450c76",
+    "examples/verified-integration/files/integration.py": "sha256:64b6823eb090bbd59edf0f5fe87fb08ac4f44cc40f4271baaeb361efe70cde00"
+  },
+  "final_reader_bridge": "sha256:d837e34481889697c660d74c86f8f455dd3cca3f9c80c95b01126f6755b44140",
+  "schema_program_graph_effect_scope": "runtime27 uses final integration worker SHA; only final reader textual method clarification followed, recompiled/direct/fresh-CLI verified; CI repeats full matrix on implementation commit",
+  "live_cli_version": "codex-cli 0.162.1",
+  "live_session_id": "01a13d0e-8d9a-70f3-8914-1091400d6ffd",
+  "actual_provider_qualified": false,
+  "unreleased": true
+}

@@ -1,0 +1,29 @@
+authoring: prifly-step/1
+id: aif-integration:step/local-merge
+version: 1.0.0
+title: Integration local-merge
+kind: worker
+inputs:
+  handoff:
+    schema_ref: '{{schema_handoff}}'
+  assessment:
+    schema_ref: '{{schema_assessment}}'
+outputs:
+  assessment:
+    schema_ref: '{{schema_assessment}}'
+    required_for:
+    - pass
+executor:
+  adapter_ref: '{{process}}'
+  operation: process
+effects:
+  class: external_write
+  retry_class: reconcile_required
+result_schema_ref: '{{result}}'
+external_write:
+  system: project-local-integration
+  operations:
+  - import-reviewed-object
+  - compare-and-swap-local-ref
+  target: Only the sealed handoff target local bare repository/ref and this Attempt
+    owned integration session; source candidate is read-only

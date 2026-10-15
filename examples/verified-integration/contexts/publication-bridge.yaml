@@ -1,0 +1,66 @@
+id: aif-integration:context/publication-bridge
+version: 1.0.0
+media_type: text/markdown; charset=utf-8
+text: 'This is the separately selected gitlab_draft operation, not merge permission.
+
+  Use only the sealed handoff.publication project, source/target branches and
+
+  ownership identity, the exact candidate commit and accepted target commit.
+
+  The source repository and integration tree are read-only. Do not merge target,
+
+  release, close issues, reset source or edit foreign publication text.
+
+  The project must supply its approved GitLab adapter and credentials outside
+
+  artifacts. If unavailable, return reconcile_required with reason, never guess
+
+  that an existing publication is absent. Approval authorizes only these named
+
+  operations, not arbitrary Bash or blanket access to other projects.
+
+  Immediately before a write remeasure source candidate and inspected integration
+
+  identity, and query the actual external target commit. A moving target requires
+
+  a new assessment, not a merge of different code. Find the exact existing owned
+
+  MR and source ref before creation. Ambiguous or foreign ownership is a stop.
+
+  A source ref may be created or updated only by an ownership-checked CAS; do not
+
+  overwrite an intervening human commit. Existing matching MR is reused, preserving
+
+  its human-edited title/body. Creation uses exactly one Draft owner: with glab
+
+  --draft pass a title with exactly one prepared ''Draft: '' removed. Never give
+
+  an already prefixed title together with --draft. The reference publication.py
+
+  describes inspect/create/reconcile operations; the project supplies the API client.
+
+  After creation query the actual target and MR identity/format. A post-write
+
+  error or lost acknowledgement can mean the MR already exists: return its URL
+
+  when known and reconcile_required. Never retry create blindly or call it ''not
+
+  created'' merely because validation failed. Addressed title repair is a separate
+
+  owner-reviewed reconciliation, conditional on the recorded revision/body digest.
+
+  Produce publication-receipt exactly: status created/reused/reconcile_required,
+
+  reason, identity, candidate_commit, target_commit, handoff_digest (copy assessment),
+
+  url or null, observed_target_commit or null, body_digest or null, revision or null.
+
+  Body digest describes the actual observed body. Never claim absence, successful
+
+  push or a ready MR without actual provider observations. Use pass for a usable
+
+  receipt even for reconcile_required; no_work/fail may leave an unknown write
+
+  and require operator inspection. No automatic cleanup/retry after unknown write.
+
+  '

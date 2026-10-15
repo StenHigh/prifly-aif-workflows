@@ -1,6 +1,6 @@
 # W4 — Проверенная передача результата на интеграцию
 
-Статус: **proposed**. Приоритет: **P1/P2**. Дата: 2026-10-14.
+Статус: **implemented, locally pilot qualified; unreleased**. Приоритет: **P1/P2**. Дата: 2026-10-15.
 База: released Pri-Fly 0.13.76 / пакеты v1.51.2.
 
 ## Проблема и результат
@@ -53,3 +53,7 @@ target commit → проверка результата объединения �
   Live host-проверка final reader отделена от offline provider fixtures.
 
 Детали: [design.md](design.md). Работы: [tasks.md](tasks.md).
+
+Реализация — [standalone project example](../../../examples/verified-integration/README.md),
+не правка существующего пакета. Default assess; local_merge и gitlab_draft —
+отдельные явно выбранные операции. Выпуск и real provider qualification отдельно.

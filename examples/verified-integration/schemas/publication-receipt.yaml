@@ -1,0 +1,60 @@
+id: aif-integration:schema/publication-receipt
+version: 1.0.0
+$schema: https://json-schema.org/draft/2020-12/schema
+type: object
+required:
+- status
+- reason
+- identity
+- candidate_commit
+- target_commit
+- handoff_digest
+- url
+- observed_target_commit
+- body_digest
+- revision
+additionalProperties: false
+properties:
+  status:
+    enum:
+    - created
+    - reused
+    - reconcile_required
+  reason:
+    type: string
+    minLength: 0
+    maxLength: 4000
+  identity:
+    type: string
+    minLength: 1
+    maxLength: 4000
+  candidate_commit:
+    type: string
+    pattern: ^[0-9a-f]{40}$
+  target_commit:
+    type: string
+    pattern: ^[0-9a-f]{40}$
+  handoff_digest:
+    type: string
+    pattern: ^sha256:[0-9a-f]{64}$
+  url:
+    anyOf:
+    - type: string
+      minLength: 1
+      maxLength: 4000
+    - type: 'null'
+  observed_target_commit:
+    anyOf:
+    - type: string
+      pattern: ^[0-9a-f]{40}$
+    - type: 'null'
+  body_digest:
+    anyOf:
+    - type: string
+      pattern: ^sha256:[0-9a-f]{64}$
+    - type: 'null'
+  revision:
+    anyOf:
+    - type: integer
+      minimum: 1
+    - type: 'null'

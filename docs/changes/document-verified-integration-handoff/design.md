@@ -1,5 +1,46 @@
 # Design W4
 
+Реализован отдельный [project example](../../../examples/verified-integration/README.md)
+для stable0.13.76; existing packages и core byte-unchanged. Матрица квалификации
+— [acceptance.md](acceptance.md); она отделяет real Git/commands, synthetic host,
+fresh CLI reader и offline provider fixtures.
+
+## Конкретный алгоритм
+
+Handoff содержит исходные байты W1 requests, reports, candidate commit, local
+bare target/ref/commit, integrated argv checks, final code spot checks и project
+risk policy. Builder принимает только явно названные files; latest Run lookup
+не используется. Источник должен быть чистым, reports — соответствовать текущей
+HEAD/index/bytes/modes identity. Pre-commit W3 evidence после commit требует новой
+W1-проверки; перенос PASS по похожему diff запрещён.
+
+Prepare создаёт owner-marked copy вне candidate и Attempt scratch (`/tmp`),
+копирует Git objects без hardlinks, получает exact target commit и выполняет
+`merge-tree --write-tree`. Exit1 — конфликт/needs_revision; operational error —
+unavailable. По tree object создаётся детерминированный merge commit с обоими
+parents и фиксированным timestamp, затем запускаются реальные project argv
+checks. Новый W1 snapshot фиксирует HEAD/index/bytes/modes интеграции; команды
+и final reader не могут изменить его и сохранить прежнюю приёмку.
+
+Final reader получает request и integration candidate отдельными typed bindings,
+assessment с reports/gates/command results и явно переданный handoff. Его отчёт
+оценивается неизменённым W1 evaluator. Перед операцией freshness повторяет source,
+target, integration snapshot и digest всего handoff, включая criteria/mode/policy.
+Local merge сначала импортирует immutable inspected object, затем CAS update-ref
+ровно NEW OLD. Intent/ack journal связывает commit, ref и handoff; lost ack читает
+фактический ref, не повторяет update. Local target working checkout не изменяется.
+
+Пути auth_money/migrations/dependencies/deploy и явные business assumptions —
+project policy; owner decision привязан к обоим commits и policy digest. Без
+решения outcome owner_required. Actual optional model mapping unavailable остаётся
+видимым W1 warning; ignore/stop задаёт проект, другую модель не выводят из session ID.
+
+Default assess выполняет только приёмку и owned cleanup. GitLab publication —
+отдельный assisted external executor с project-owned client, точными branches
+и identity. Reference client algorithm и offline fixtures закрывают generic #1
+regression portion. Реальный provider/remote CAS/lease и credentials не выданы
+generic package и требуют отдельной project qualification.
+
 ## Приёмка и запись разделены
 
 Final reader получает точные criteria/reports/candidate/target inputs и

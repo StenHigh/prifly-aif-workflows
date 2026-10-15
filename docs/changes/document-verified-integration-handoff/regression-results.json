@@ -1,0 +1,38 @@
+{
+  "prifly": "0.13.76",
+  "w4_units": 18,
+  "static": 7,
+  "versions": 3,
+  "derive_profiled": "passed",
+  "existing_compile": {
+    "outcome": "passed",
+    "prifly": "0.13.76",
+    "binary_sha256": "sha256:03ac382112a12001ea9e2a86e5a20db2d5e24ec79ce5339f6257c473d0f3322d",
+    "platform": "linux/x86_64",
+    "packages": [
+      "aif-classic",
+      "aif-fanout",
+      "aif-feature",
+      "aif-fix",
+      "aif-profiled",
+      "aif-review-evidence",
+      "aif-ui-ux"
+    ],
+    "components_read": 100,
+    "steps_read": 67,
+    "registry_entries_removed": 1
+  },
+  "compatibility": {
+    "outcome": "passed",
+    "prifly": "0.13.76",
+    "binary_sha256": "sha256:03ac382112a12001ea9e2a86e5a20db2d5e24ec79ce5339f6257c473d0f3322d",
+    "platform": "linux/x86_64",
+    "launches": 5,
+    "distinct_builds": 4,
+    "trusted_packages": 4,
+    "profiled_sealed_as": "core-state/41",
+    "boundary": "assisted handoff dispatched; no AI host answers it here",
+    "registry_entries_removed": 1
+  },
+  "runtime_readers": "synthetic; actual local Git/checks/CAS, offline provider"
+}

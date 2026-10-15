@@ -1,0 +1,20 @@
+authoring: prifly-step/1
+id: aif-integration:step/publication-unknown
+version: 1.0.0
+title: Integration publication-unknown
+kind: worker
+inputs:
+  assessment:
+    schema_ref: '{{schema_assessment}}'
+outputs:
+  assessment:
+    schema_ref: '{{schema_assessment}}'
+    required_for:
+    - pass
+executor:
+  adapter_ref: '{{process}}'
+  operation: process
+effects:
+  class: none
+  retry_class: never
+result_schema_ref: '{{result}}'

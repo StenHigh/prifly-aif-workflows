@@ -1,0 +1,37 @@
+authoring: prifly-step/2
+id: aif-integration:step/publish
+version: 1.0.0
+title: Explicit project Draft publication
+kind: worker
+inputs:
+  handoff:
+    schema_ref: '{{schema_handoff}}'
+  assessment:
+    schema_ref: '{{schema_assessment}}'
+outputs:
+  receipt:
+    schema_ref: '{{schema_publication-receipt}}'
+    required_for:
+    - pass
+    - needs_revision
+    - blocked
+executor:
+  adapter_ref: '{{session}}'
+  operation: session
+effects:
+  class: external_write
+  retry_class: reconcile_required
+external_write:
+  system: project-gitlab-publication
+  operations:
+  - inspect-owned-publication
+  - ensure-owned-source-ref
+  - create-draft
+  - repair-owned-title
+  target: Only handoff.publication exact project/source branch/target branch/identity;
+    no target merge, foreign MR/body overwrite or release
+repository_workspace: read_only
+instructions_ref: '{{context_publication-bridge}}'
+result_schema_ref: '{{result_v2}}'
+session_limits:
+  active_timeout_ms: null

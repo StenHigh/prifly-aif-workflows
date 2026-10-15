@@ -1,0 +1,39 @@
+authoring: prifly-step/2
+id: aif-integration:step/final-reader
+version: 1.0.0
+title: Final integration spot checks
+kind: worker
+inputs:
+  handoff:
+    schema_ref: '{{schema_handoff}}'
+  assessment:
+    schema_ref: '{{schema_assessment}}'
+  request:
+    schema_ref: '{{schema_request}}'
+  candidate:
+    schema_ref: '{{schema_integration-candidate}}'
+outputs:
+  report:
+    schema_ref: '{{schema_report}}'
+    required_for:
+    - pass
+    - needs_revision
+    - blocked
+executor:
+  adapter_ref: '{{session}}'
+  operation: session
+effects:
+  class: none
+  retry_class: pure
+repository_workspace: read_only
+instructions_ref: '{{context_final-reader-bridge}}'
+context_refs:
+- '{{context_aif-review}}'
+- '{{context_review-severity}}'
+result_schema_ref: '{{result_v2}}'
+session_limits:
+  active_timeout_ms: null
+model_profile:
+  requested: independent-review
+  reason: Final spot checks on the integrated tree; session and actual model reported
+    separately.

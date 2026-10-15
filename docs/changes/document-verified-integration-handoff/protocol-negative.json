@@ -1,0 +1,19 @@
+{
+  "case": "actual-final-reader-mixed-method",
+  "cli": "codex-cli 0.162.1",
+  "sessions": [
+    "01a13d03-4725-72b1-9747-a41cdb8e64a1"
+  ],
+  "observed_run_outcome": "partial",
+  "assessment_status": "unavailable",
+  "gate_status": "blocked",
+  "findings": [
+    "Evidence method differs from declared check: combined-behavior"
+  ],
+  "actor_observation": "The actual reader inspected merged code and added a command evidence item to a code check; W1 refused readiness.",
+  "correction": "Own final-reader bridge now explicitly requires EVERY evidence item to preserve the declared method. Evaluator/schema unchanged; actor report was not rewritten.",
+  "event_digest": "sha256:480339b94f0cdf354c964bb7b445d1976d0ff5c95c19fcb90e7d32a856a669aa",
+  "raw_private_events": "/tmp/w4-final-scoped-reader/events.jsonl",
+  "original_serialized_report_copy": "not retained by that earlier probe; only raw actor event transcript and native exported assessment observation were available; probe now preserves report/submission copies before evaluating outcome",
+  "counted_as_pass": false
+}

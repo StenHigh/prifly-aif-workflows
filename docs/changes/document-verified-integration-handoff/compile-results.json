@@ -1,0 +1,49 @@
+{
+  "prifly": "0.13.76",
+  "binary_sha256": "03ac382112a12001ea9e2a86e5a20db2d5e24ec79ce5339f6257c473d0f3322d",
+  "cases": [
+    {
+      "case": "full-graph",
+      "host": "codex-cli",
+      "definitions": 13,
+      "build_key": "sha256:40c49fed905353a4a642173c21a327e6d14609a4fc62334256ba558fdb628bda"
+    },
+    {
+      "case": "full-graph",
+      "host": "codex-app",
+      "definitions": 13,
+      "build_key": "sha256:40c49fed905353a4a642173c21a327e6d14609a4fc62334256ba558fdb628bda"
+    },
+    {
+      "case": "full-graph",
+      "host": "claude-code",
+      "definitions": 13,
+      "build_key": "sha256:40c49fed905353a4a642173c21a327e6d14609a4fc62334256ba558fdb628bda"
+    },
+    {
+      "case": "one-input",
+      "host": "codex-cli",
+      "build_key": "sha256:937b4115f03c152bff70c175c3803334343db50e6d21a20ebffe72c5180789d7"
+    },
+    {
+      "case": "unknown-producer",
+      "refused": "{\"schema_version\":\"1\",\"code\":\"project_extension_unknown_stage\",\"message\":\"absent\",\"retryable\":false,\"correlation_id\":\"correlation:19a6683c44d6696953eae09a02898b35\",\"violations\":[],\"safe_next_actions\":[\"help\"]}\n"
+    },
+    {
+      "case": "unavailable-producer",
+      "refused": "{\"schema_version\":\"1\",\"code\":\"project_compile_invalid_workflow\",\"message\":\"unavailable_output at /definition/stages/extension/input_bindings/handoff/stage_id: producer has not executed on any incoming path\",\"retryable\":false,\"correlation_id\":\"correlation:46dac98bbe57ac3bd031a73048461d36\",\"violations\":[],\"safe_next_actions\":[\"help\"]}\n"
+    },
+    {
+      "case": "unknown-output",
+      "refused": "{\"schema_version\":\"1\",\"code\":\"project_compile_invalid_workflow\",\"message\":\"unknown_port at /definition/stages/extension/input_bindings/handoff/port: producer output does not exist\",\"retryable\":false,\"correlation_id\":\"correlation:26ded8e79c57865eda705c59babda53f\",\"violations\":[],\"safe_next_actions\":[\"help\"]}\n"
+    },
+    {
+      "case": "incompatible-schema",
+      "refused": "{\"schema_version\":\"1\",\"code\":\"project_compile_invalid_workflow\",\"message\":\"port_type_mismatch at /definition/stages/extension/input_bindings/handoff: JSON ports require the same exact schema reference\",\"retryable\":false,\"correlation_id\":\"correlation:1a3c2c5c6643c6a9cb6e9257fe2a98d1\",\"violations\":[],\"safe_next_actions\":[\"help\"]}\n"
+    },
+    {
+      "case": "multiple-bindings",
+      "refused": "{\"schema_version\":\"1\",\"code\":\"invalid_usage\",\"message\":\"project_extension_invalid: extensions/0 input_bindings must declare exactly one input of the inserted step\",\"retryable\":false,\"correlation_id\":\"correlation:8c4f37177597569294e4129160135c2b\",\"violations\":[],\"safe_next_actions\":[\"help\"]}\n"
+    }
+  ]
+}

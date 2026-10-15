@@ -1,0 +1,384 @@
+authoring: prifly-workflow/1
+schema_version: '6'
+id: aif-integration:workflow/assessment
+version: 1.0.0
+title: Pinned integration acceptance and explicit operation
+refs:
+  policy: '{{policy}}'
+  schema_handoff: '{{schema_handoff}}'
+  schema_assessment: '{{schema_assessment}}'
+  schema_request: '{{schema_request}}'
+  schema_integration-candidate: '{{schema_integration-candidate}}'
+  schema_report: '{{schema_report}}'
+  schema_publication-receipt: '{{schema_publication-receipt}}'
+  step_configure: '{{step_configure}}'
+  step_prepare: '{{step_prepare}}'
+  step_evaluate: '{{step_evaluate}}'
+  step_local-merge: '{{step_local-merge}}'
+  step_publication-result: '{{step_publication-result}}'
+  step_release: '{{step_release}}'
+  step_reader-unavailable: '{{step_reader-unavailable}}'
+  step_publication-unknown: '{{step_publication-unknown}}'
+  step_extension: '{{step_extension}}'
+  step_final-reader: '{{step_final-reader}}'
+  step_publish: '{{step_publish}}'
+inputs:
+  handoff: schema_handoff
+outputs:
+  assessment:
+    schema_ref: schema_assessment
+    required_for:
+    - succeeded
+    - partial
+entry: prepare
+policy_ref: policy
+limits:
+  max_step_instances: 8
+  max_control_transitions: 28
+  max_parallelism: 1
+  max_child_depth: 1
+stages:
+  prepare:
+    kind: step
+    step_ref: step_prepare
+    input_bindings:
+      handoff: $inputs.handoff
+    'on':
+      pass: prepared
+      needs_revision: abandoned
+      fail: abandoned
+      no_work: abandoned
+    impossible_verdicts:
+    - blocked
+  prepared:
+    kind: choice
+    selection: first_match
+    branches:
+    - id: ready
+      predicate:
+        op: eq
+        left: $stages.prepare.assessment#/status
+        right: ready
+      next: final-reader
+    default: release-preliminary
+  final-reader:
+    kind: step
+    step_ref: step_final-reader
+    input_bindings:
+      handoff: $inputs.handoff
+      assessment: $stages.prepare.assessment
+      request: $stages.prepare.request
+      candidate: $stages.prepare.candidate
+    'on':
+      pass: evaluate
+      needs_revision: evaluate
+      blocked: evaluate
+      fail: reader-unavailable
+      no_work: reader-unavailable
+  reader-unavailable:
+    kind: step
+    step_ref: step_reader-unavailable
+    input_bindings:
+      assessment: $stages.prepare.assessment
+    'on':
+      pass: release-reader-unavailable
+      needs_revision: abandoned
+      fail: abandoned
+      no_work: abandoned
+    impossible_verdicts:
+    - blocked
+  evaluate:
+    kind: step
+    step_ref: step_evaluate
+    input_bindings:
+      handoff: $inputs.handoff
+      assessment: $stages.prepare.assessment
+      request: $stages.prepare.request
+      report: $stages.final-reader.report
+    'on':
+      pass: accepted
+      needs_revision: abandoned
+      fail: abandoned
+      no_work: abandoned
+    impossible_verdicts:
+    - blocked
+  accepted:
+    kind: choice
+    selection: first_match
+    branches:
+    - id: ready
+      predicate:
+        op: eq
+        left: $stages.evaluate.assessment#/status
+        right: ready
+      next: operation
+    default: release-final
+  operation:
+    kind: choice
+    selection: first_match
+    branches:
+    - id: local
+      predicate:
+        op: eq
+        left: $inputs.handoff#/mode
+        right: local_merge
+      next: local-merge
+    - id: external
+      predicate:
+        op: eq
+        left: $inputs.handoff#/mode
+        right: gitlab_draft
+      next: publish
+    default: release-final
+  local-merge:
+    kind: step
+    step_ref: step_local-merge
+    input_bindings:
+      handoff: $inputs.handoff
+      assessment: $stages.evaluate.assessment
+    'on':
+      pass: release-local
+      needs_revision: abandoned
+      fail: abandoned
+      no_work: abandoned
+    impossible_verdicts:
+    - blocked
+  publish:
+    kind: step
+    step_ref: step_publish
+    input_bindings:
+      handoff: $inputs.handoff
+      assessment: $stages.evaluate.assessment
+    'on':
+      pass: publication-result
+      needs_revision: publication-result
+      blocked: publication-result
+      fail: publication-unknown
+      no_work: publication-unknown
+  publication-result:
+    kind: step
+    step_ref: step_publication-result
+    input_bindings:
+      handoff: $inputs.handoff
+      assessment: $stages.evaluate.assessment
+      receipt: $stages.publish.receipt
+    'on':
+      pass: release-publication
+      needs_revision: abandoned
+      fail: abandoned
+      no_work: abandoned
+    impossible_verdicts:
+    - blocked
+  publication-unknown:
+    kind: step
+    step_ref: step_publication-unknown
+    input_bindings:
+      assessment: $stages.evaluate.assessment
+    'on':
+      pass: release-unknown
+      needs_revision: abandoned
+      fail: abandoned
+      no_work: abandoned
+    impossible_verdicts:
+    - blocked
+  abandoned:
+    kind: finish
+    outcome: rejected
+  release-preliminary:
+    kind: step
+    step_ref: step_release
+    input_bindings:
+      assessment: $stages.prepare.assessment
+    'on':
+      pass: result-preliminary
+      needs_revision: abandoned
+      fail: abandoned
+      no_work: abandoned
+    impossible_verdicts:
+    - blocked
+  result-preliminary:
+    kind: choice
+    selection: first_match
+    branches:
+    - id: ready
+      predicate:
+        op: eq
+        left: $stages.release-preliminary.assessment#/status
+        right: ready
+      next: done-preliminary
+    default: standing-preliminary
+  done-preliminary:
+    kind: finish
+    outcome: succeeded
+    output_bindings:
+      assessment: $stages.release-preliminary.assessment
+  standing-preliminary:
+    kind: finish
+    outcome: partial
+    output_bindings:
+      assessment: $stages.release-preliminary.assessment
+  release-reader-unavailable:
+    kind: step
+    step_ref: step_release
+    input_bindings:
+      assessment: $stages.reader-unavailable.assessment
+    'on':
+      pass: result-reader-unavailable
+      needs_revision: abandoned
+      fail: abandoned
+      no_work: abandoned
+    impossible_verdicts:
+    - blocked
+  result-reader-unavailable:
+    kind: choice
+    selection: first_match
+    branches:
+    - id: ready
+      predicate:
+        op: eq
+        left: $stages.release-reader-unavailable.assessment#/status
+        right: ready
+      next: done-reader-unavailable
+    default: standing-reader-unavailable
+  done-reader-unavailable:
+    kind: finish
+    outcome: succeeded
+    output_bindings:
+      assessment: $stages.release-reader-unavailable.assessment
+  standing-reader-unavailable:
+    kind: finish
+    outcome: partial
+    output_bindings:
+      assessment: $stages.release-reader-unavailable.assessment
+  release-final:
+    kind: step
+    step_ref: step_release
+    input_bindings:
+      assessment: $stages.evaluate.assessment
+    'on':
+      pass: result-final
+      needs_revision: abandoned
+      fail: abandoned
+      no_work: abandoned
+    impossible_verdicts:
+    - blocked
+  result-final:
+    kind: choice
+    selection: first_match
+    branches:
+    - id: ready
+      predicate:
+        op: eq
+        left: $stages.release-final.assessment#/status
+        right: ready
+      next: done-final
+    default: standing-final
+  done-final:
+    kind: finish
+    outcome: succeeded
+    output_bindings:
+      assessment: $stages.release-final.assessment
+  standing-final:
+    kind: finish
+    outcome: partial
+    output_bindings:
+      assessment: $stages.release-final.assessment
+  release-local:
+    kind: step
+    step_ref: step_release
+    input_bindings:
+      assessment: $stages.local-merge.assessment
+    'on':
+      pass: result-local
+      needs_revision: abandoned
+      fail: abandoned
+      no_work: abandoned
+    impossible_verdicts:
+    - blocked
+  result-local:
+    kind: choice
+    selection: first_match
+    branches:
+    - id: ready
+      predicate:
+        op: eq
+        left: $stages.release-local.assessment#/status
+        right: ready
+      next: done-local
+    default: standing-local
+  done-local:
+    kind: finish
+    outcome: succeeded
+    output_bindings:
+      assessment: $stages.release-local.assessment
+  standing-local:
+    kind: finish
+    outcome: partial
+    output_bindings:
+      assessment: $stages.release-local.assessment
+  release-publication:
+    kind: step
+    step_ref: step_release
+    input_bindings:
+      assessment: $stages.publication-result.assessment
+    'on':
+      pass: result-publication
+      needs_revision: abandoned
+      fail: abandoned
+      no_work: abandoned
+    impossible_verdicts:
+    - blocked
+  result-publication:
+    kind: choice
+    selection: first_match
+    branches:
+    - id: ready
+      predicate:
+        op: eq
+        left: $stages.release-publication.assessment#/status
+        right: ready
+      next: done-publication
+    default: standing-publication
+  done-publication:
+    kind: finish
+    outcome: succeeded
+    output_bindings:
+      assessment: $stages.release-publication.assessment
+  standing-publication:
+    kind: finish
+    outcome: partial
+    output_bindings:
+      assessment: $stages.release-publication.assessment
+  release-unknown:
+    kind: step
+    step_ref: step_release
+    input_bindings:
+      assessment: $stages.publication-unknown.assessment
+    'on':
+      pass: result-unknown
+      needs_revision: abandoned
+      fail: abandoned
+      no_work: abandoned
+    impossible_verdicts:
+    - blocked
+  result-unknown:
+    kind: choice
+    selection: first_match
+    branches:
+    - id: ready
+      predicate:
+        op: eq
+        left: $stages.release-unknown.assessment#/status
+        right: ready
+      next: done-unknown
+    default: standing-unknown
+  done-unknown:
+    kind: finish
+    outcome: succeeded
+    output_bindings:
+      assessment: $stages.release-unknown.assessment
+  standing-unknown:
+    kind: finish
+    outcome: partial
+    output_bindings:
+      assessment: $stages.release-unknown.assessment

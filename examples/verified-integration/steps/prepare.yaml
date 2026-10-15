@@ -1,0 +1,35 @@
+authoring: prifly-step/1
+id: aif-integration:step/prepare
+version: 1.0.0
+title: Integration prepare
+kind: worker
+inputs:
+  handoff:
+    schema_ref: '{{schema_handoff}}'
+outputs:
+  assessment:
+    schema_ref: '{{schema_assessment}}'
+    required_for:
+    - pass
+  request:
+    schema_ref: '{{schema_request}}'
+    required_for:
+    - pass
+  candidate:
+    schema_ref: '{{schema_integration-candidate}}'
+    required_for:
+    - pass
+executor:
+  adapter_ref: '{{process}}'
+  operation: process
+effects:
+  class: external_write
+  retry_class: reconcile_required
+result_schema_ref: '{{result}}'
+external_write:
+  system: project-local-integration
+  operations:
+  - prepare-owned-tree
+  - run-declared-checks
+  target: Only the sealed handoff target local bare repository/ref and this Attempt
+    owned integration session; source candidate is read-only

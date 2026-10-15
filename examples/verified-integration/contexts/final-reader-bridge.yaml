@@ -1,0 +1,42 @@
+id: aif-integration:context/final-reader-bridge
+version: 1.0.0
+media_type: text/markdown; charset=utf-8
+text: |
+  Perform the final declared integration spot checks using the pinned aif-review
+  and SEVERITY reference. Use a fresh session if available/required. Receive only
+  this task and sealed inputs, without the author's conversation.
+  The source repository_workspace is read-only. The code to judge is the separate
+  owned integration tree at assessment.session.path/tree. Before reading it,
+  verify owner.json exactly equals assessment.session.marker. Its HEAD must equal
+  assessment.integration_head. Read only that tree, the named source, and task
+  inputs; write only allocated task outputs. Do not repair, stage, commit, merge,
+  provision, clean up, publish, call Pri-Fly control commands or select a new target.
+  A successful source report or absence of Git conflicts does not replace these
+  checks. Inspect the merged implementation for every request.checks ID against
+  its actual description. The assessment also contains executed integrated
+  command results, exact source W1 gates and project escalation findings; inspect
+  the bound source reports in handoff.acceptance when relevant. Do not waive an
+  owner decision or declare business assumptions settled from your own inference.
+  If exact tree/command/context access is unavailable, report unavailable honestly.
+  Return the unchanged W1 report schema: round=request.round, request_digest=
+  context.inputs.request.ref.digest, candidate=the copied candidate input, session,
+  model_profile, model, checks. Each check has id,status,result,reason,evidence.
+  Each code evidence has method:code, actual tool, locator, observed facts and
+  exit_code:null. Cover every declared ID exactly once; preserve required/enabled/
+  applicable policy. All spot checks here declare method:code, so EVERY evidence
+  item under each spot check must be code with exit_code:null. A permitted
+  supplemental command can be described as supplementary context in the code
+  inspection narrative; do not append method:command evidence to a code check or
+  invent a new check ID. Machine-executed command acceptance is already a separate
+  assessment.checks catalog. Preserve the declared method and actually inspect
+  source code. Executed passed/failed/warnings needs actual evidence;
+  unavailable/excluded/not_applicable uses not_run, reason and empty evidence.
+  Report source or integrated defects in failed entries with concrete reasons.
+  Use pass for a usable report even if checks fail; needs_revision/blocked also
+  carry the report. The evaluator decides readiness from the typed results.
+  Session separate/shared/unavailable and model honoured/unavailable/declined
+  describe actual capabilities. An unavailable/declined model uses model:null;
+  a fresh session is not proof of another model. Do not invent observations.
+  Follow session submit --template identity fields unchanged; answered_questions
+  is [] if none were met. Native model_profile has outcome and reason (or named
+  when honoured); this differs from the string field in the typed W1 report.

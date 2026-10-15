@@ -1,0 +1,26 @@
+authoring: prifly-step/1
+id: aif-integration:step/evaluate
+version: 1.0.0
+title: Integration evaluate
+kind: worker
+inputs:
+  handoff:
+    schema_ref: '{{schema_handoff}}'
+  assessment:
+    schema_ref: '{{schema_assessment}}'
+  request:
+    schema_ref: '{{schema_request}}'
+  report:
+    schema_ref: '{{schema_report}}'
+outputs:
+  assessment:
+    schema_ref: '{{schema_assessment}}'
+    required_for:
+    - pass
+executor:
+  adapter_ref: '{{process}}'
+  operation: process
+effects:
+  class: none
+  retry_class: never
+result_schema_ref: '{{result}}'

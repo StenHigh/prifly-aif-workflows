@@ -1,0 +1,24 @@
+authoring: prifly-step/1
+id: aif-integration:step/publication-result
+version: 1.0.0
+title: Integration publication-result
+kind: worker
+inputs:
+  handoff:
+    schema_ref: '{{schema_handoff}}'
+  assessment:
+    schema_ref: '{{schema_assessment}}'
+  receipt:
+    schema_ref: '{{schema_publication-receipt}}'
+outputs:
+  assessment:
+    schema_ref: '{{schema_assessment}}'
+    required_for:
+    - pass
+executor:
+  adapter_ref: '{{process}}'
+  operation: process
+effects:
+  class: none
+  retry_class: never
+result_schema_ref: '{{result}}'

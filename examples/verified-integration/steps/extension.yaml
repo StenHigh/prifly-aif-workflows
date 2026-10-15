@@ -1,0 +1,16 @@
+authoring: prifly-step/1
+id: aif-integration:step/extension
+version: 1.0.0
+title: Integration extension
+kind: worker
+inputs:
+  handoff:
+    schema_ref: '{{schema_handoff}}'
+outputs: {}
+executor:
+  adapter_ref: '{{process}}'
+  operation: process
+effects:
+  class: none
+  retry_class: never
+result_schema_ref: '{{result}}'

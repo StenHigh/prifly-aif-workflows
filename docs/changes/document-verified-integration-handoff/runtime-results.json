@@ -1,0 +1,2797 @@
+{
+  "prifly": "0.13.76",
+  "binary_sha256": "03ac382112a12001ea9e2a86e5a20db2d5e24ec79ce5339f6257c473d0f3322d",
+  "cases": [
+    {
+      "case": "assess",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "status": "ready",
+      "program_digest": "sha256:64b6823eb090bbd59edf0f5fe87fb08ac4f44cc40f4271baaeb361efe70cde00",
+      "source_preserved": true,
+      "runs": 1,
+      "claim_count": 1,
+      "provider": null,
+      "mr_creations": 0,
+      "assessment": {
+        "checks": [
+          {
+            "argv": [
+              "/usr/bin/python3",
+              "-B",
+              "acceptance.py"
+            ],
+            "exit_code": 0,
+            "id": "regression",
+            "reason": "",
+            "result": "passed",
+            "stderr": "",
+            "stderr_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout": "accepted integrated behavior\n",
+            "stdout_digest": "sha256:78793af01cff6e67dc252b2093557d39223565d15363acb1810b28133e82d27c",
+            "truncated": false
+          }
+        ],
+        "cleanup": "released",
+        "final_gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "Model profile unavailable; independent model not established"
+          ],
+          "gate": "review",
+          "status": "warnings",
+          "suggested_next": "continue"
+        },
+        "final_report": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "e962dab6a4a93f09bd95a6c45ce832b566d7593b",
+            "digest": "sha256:7c0030d65f6182b4166edc4f762518f7ceabea6baf2ce212a8ef671cb0f27680",
+            "files_digest": "sha256:b4565b178a29e44b8775e109bc5c2214401b2fd9982c81ce954402a0db7d6801",
+            "head_commit": "d7758faf9a2c9bee6a99035bb7f97bffe6ea12ce",
+            "index_digest": "sha256:fd935df58f9e604a4693d5146efd2a084b3bb6a12e3999ab6072011b7e69ae70"
+          },
+          "checks": [
+            {
+              "evidence": [
+                {
+                  "exit_code": null,
+                  "locator": "consumer.py",
+                  "method": "code",
+                  "observation": "Synthetic reader report; no real model qualification.",
+                  "tool": "synthetic-fixture"
+                }
+              ],
+              "id": "combined-behavior",
+              "reason": "",
+              "result": "passed",
+              "status": "executed"
+            }
+          ],
+          "model": null,
+          "model_profile": "unavailable",
+          "request_digest": "sha256:1d04120ad5ed0b09f1c6b452e43e7d37dac89152089ee74e6810421c8da5210d",
+          "round": 1,
+          "session": "shared"
+        },
+        "findings": [],
+        "handoff_digest": "sha256:0135902c76bbd4fb1d51bb5fa828776648118348ddf2a39ba725b985e2291b35",
+        "integration_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "e962dab6a4a93f09bd95a6c45ce832b566d7593b",
+          "digest": "sha256:7c0030d65f6182b4166edc4f762518f7ceabea6baf2ce212a8ef671cb0f27680",
+          "files_digest": "sha256:b4565b178a29e44b8775e109bc5c2214401b2fd9982c81ce954402a0db7d6801",
+          "head_commit": "d7758faf9a2c9bee6a99035bb7f97bffe6ea12ce",
+          "index_digest": "sha256:fd935df58f9e604a4693d5146efd2a084b3bb6a12e3999ab6072011b7e69ae70"
+        },
+        "integration_head": "d7758faf9a2c9bee6a99035bb7f97bffe6ea12ce",
+        "operation": null,
+        "owner": "project-integration",
+        "risks": [],
+        "session": {
+          "marker": {
+            "attempt": "attempt:acb73886e1c7b8ba50476298bfbb1862",
+            "handoff_digest": "sha256:0135902c76bbd4fb1d51bb5fa828776648118348ddf2a39ba725b985e2291b35",
+            "owner": "project-integration"
+          },
+          "path": "/tmp/prifly-integration-0135902c76bbd4fb1d51bb5fa828776648118348ddf2a39ba725b985e2291b35"
+        },
+        "source_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "ed1616b51e5528b90f0b4f883b3c5543ad7ca409",
+          "digest": "sha256:242292aba6ee02551b0e16494eeac4c099e5d84646fd2efabae2eea6e2d54518",
+          "files_digest": "sha256:d56d19919c1dc91033de30dfb8ea58d387ccd7008d83a0f98ae0d320e19db393",
+          "head_commit": "fe46582ceb6be07c30f5312ceb7efe0bee5f0e25",
+          "index_digest": "sha256:6adf9e4a4f4bbcea9fef4c97073ebb903d54fad05ba67854cc5675507ad3a1fd"
+        },
+        "source_gates": [
+          {
+            "gate": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "report_digest": "sha256:02566bd8df9f9a221e3dca7a54cd7ec54c238ea2541c249b29b089851e1013bb",
+            "role": "source-command"
+          }
+        ],
+        "status": "ready",
+        "target_commit": "e962dab6a4a93f09bd95a6c45ce832b566d7593b"
+      },
+      "live": [],
+      "elapsed_seconds": 18.865
+    },
+    {
+      "case": "local-merge",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "status": "ready",
+      "program_digest": "sha256:64b6823eb090bbd59edf0f5fe87fb08ac4f44cc40f4271baaeb361efe70cde00",
+      "source_preserved": true,
+      "runs": 1,
+      "claim_count": 1,
+      "provider": null,
+      "mr_creations": 0,
+      "assessment": {
+        "checks": [
+          {
+            "argv": [
+              "/usr/bin/python3",
+              "-B",
+              "acceptance.py"
+            ],
+            "exit_code": 0,
+            "id": "regression",
+            "reason": "",
+            "result": "passed",
+            "stderr": "",
+            "stderr_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout": "accepted integrated behavior\n",
+            "stdout_digest": "sha256:78793af01cff6e67dc252b2093557d39223565d15363acb1810b28133e82d27c",
+            "truncated": false
+          }
+        ],
+        "cleanup": "released",
+        "final_gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "Model profile unavailable; independent model not established"
+          ],
+          "gate": "review",
+          "status": "warnings",
+          "suggested_next": "continue"
+        },
+        "final_report": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "832d67dc63cc4cca8a9c63c6df6a643ba3b3ae09",
+            "digest": "sha256:c59c226c787b7f6ba7c165d2f388e9518b4978ca360dd8e93dc33178dfe6e953",
+            "files_digest": "sha256:b4565b178a29e44b8775e109bc5c2214401b2fd9982c81ce954402a0db7d6801",
+            "head_commit": "58be44a222a0b6b97c65ad2a606a873afad33b48",
+            "index_digest": "sha256:fd935df58f9e604a4693d5146efd2a084b3bb6a12e3999ab6072011b7e69ae70"
+          },
+          "checks": [
+            {
+              "evidence": [
+                {
+                  "exit_code": null,
+                  "locator": "consumer.py",
+                  "method": "code",
+                  "observation": "Synthetic reader report; no real model qualification.",
+                  "tool": "synthetic-fixture"
+                }
+              ],
+              "id": "combined-behavior",
+              "reason": "",
+              "result": "passed",
+              "status": "executed"
+            }
+          ],
+          "model": null,
+          "model_profile": "unavailable",
+          "request_digest": "sha256:b2bf0bed2befee6dd8a60b27eff0b3eff6e690aad2bc6b36df8a6294ee5b6d85",
+          "round": 1,
+          "session": "shared"
+        },
+        "findings": [],
+        "handoff_digest": "sha256:f3b408e72df16fdacea2e86b024cb96a553f45c3ab547a7b2fdb981583c59000",
+        "integration_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "832d67dc63cc4cca8a9c63c6df6a643ba3b3ae09",
+          "digest": "sha256:c59c226c787b7f6ba7c165d2f388e9518b4978ca360dd8e93dc33178dfe6e953",
+          "files_digest": "sha256:b4565b178a29e44b8775e109bc5c2214401b2fd9982c81ce954402a0db7d6801",
+          "head_commit": "58be44a222a0b6b97c65ad2a606a873afad33b48",
+          "index_digest": "sha256:fd935df58f9e604a4693d5146efd2a084b3bb6a12e3999ab6072011b7e69ae70"
+        },
+        "integration_head": "58be44a222a0b6b97c65ad2a606a873afad33b48",
+        "operation": {
+          "after": "58be44a222a0b6b97c65ad2a606a873afad33b48",
+          "before": "832d67dc63cc4cca8a9c63c6df6a643ba3b3ae09",
+          "handoff_digest": "sha256:f3b408e72df16fdacea2e86b024cb96a553f45c3ab547a7b2fdb981583c59000",
+          "kind": "local_merge",
+          "reason": "",
+          "status": "applied",
+          "target_ref": "refs/heads/main",
+          "target_repository": "/tmp/w4-run-_av563hv/local-origin.git"
+        },
+        "owner": "project-integration",
+        "risks": [],
+        "session": {
+          "marker": {
+            "attempt": "attempt:c12e3363e83e31fa14a4858e29b5c712",
+            "handoff_digest": "sha256:f3b408e72df16fdacea2e86b024cb96a553f45c3ab547a7b2fdb981583c59000",
+            "owner": "project-integration"
+          },
+          "path": "/tmp/prifly-integration-f3b408e72df16fdacea2e86b024cb96a553f45c3ab547a7b2fdb981583c59000"
+        },
+        "source_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "7923e4b95b9db53b7b7e2610bc54c75e8478c13c",
+          "digest": "sha256:ca509f022a409667d6dec04ce4d7657a4ad1705f3c5dd714cb04cb76c288d02d",
+          "files_digest": "sha256:d56d19919c1dc91033de30dfb8ea58d387ccd7008d83a0f98ae0d320e19db393",
+          "head_commit": "1cb0cbfca586485ca3c12b69eed2513556dd829e",
+          "index_digest": "sha256:6adf9e4a4f4bbcea9fef4c97073ebb903d54fad05ba67854cc5675507ad3a1fd"
+        },
+        "source_gates": [
+          {
+            "gate": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "report_digest": "sha256:0b35cb434b32d52a5508b09558f29d6ada279f04247efe58e6cc2ac818ce4f5b",
+            "role": "source-command"
+          }
+        ],
+        "status": "ready",
+        "target_commit": "832d67dc63cc4cca8a9c63c6df6a643ba3b3ae09"
+      },
+      "live": [],
+      "elapsed_seconds": 16.13
+    },
+    {
+      "case": "semantic-regression",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "status": "needs_revision",
+      "program_digest": "sha256:64b6823eb090bbd59edf0f5fe87fb08ac4f44cc40f4271baaeb361efe70cde00",
+      "source_preserved": true,
+      "runs": 1,
+      "claim_count": 0,
+      "provider": null,
+      "mr_creations": 0,
+      "assessment": {
+        "checks": [
+          {
+            "argv": [
+              "/usr/bin/python3",
+              "-B",
+              "acceptance.py"
+            ],
+            "exit_code": 1,
+            "id": "regression",
+            "reason": "Declared command exited 1",
+            "result": "failed",
+            "stderr": "Traceback (most recent call last):\n  File \"/tmp/prifly-integration-54cea113bdcb2085c869e236baad2bec38b0bd4fadffdac76e0f81fdf0193393/tree/acceptance.py\", line 2, in <module>\n    assert effective() == 2, effective()\n           ^^^^^^^^^^^^^^^^\nAssertionError: 4\n",
+            "stderr_digest": "sha256:e3e0f5b08f6ca425d8bfc0767bbe062e1d942bfbe20212ce9db605cbe416ec11",
+            "stdout": "",
+            "stdout_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "truncated": false
+          }
+        ],
+        "cleanup": "released",
+        "final_gate": null,
+        "final_report": null,
+        "findings": [
+          "Integrated behavior failed despite a successful Git merge"
+        ],
+        "handoff_digest": "sha256:54cea113bdcb2085c869e236baad2bec38b0bd4fadffdac76e0f81fdf0193393",
+        "integration_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "16ae9fe2c5ceea49316bcdb0f126046a8f51ea9b",
+          "digest": "sha256:67210686c755498591932f80467c034cc528bd2f97f4ed1798e02364a0029db7",
+          "files_digest": "sha256:c04761ce49af723b2097584bf4c34bc713d2276654cf655aa3f0e9b3a409f393",
+          "head_commit": "5c1c6d13a8c079fe56763bbcb7a2607f4efc413c",
+          "index_digest": "sha256:d8a7dc089bc5a95f79774d3b82ee551499932561dd2fa954f775524be79833de"
+        },
+        "integration_head": "5c1c6d13a8c079fe56763bbcb7a2607f4efc413c",
+        "operation": null,
+        "owner": "project-integration",
+        "risks": [],
+        "session": {
+          "marker": {
+            "attempt": "attempt:4bcfef009a28b6a78566338744a72e38",
+            "handoff_digest": "sha256:54cea113bdcb2085c869e236baad2bec38b0bd4fadffdac76e0f81fdf0193393",
+            "owner": "project-integration"
+          },
+          "path": "/tmp/prifly-integration-54cea113bdcb2085c869e236baad2bec38b0bd4fadffdac76e0f81fdf0193393"
+        },
+        "source_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "66b18d6460807fe14213623b751185751793cae6",
+          "digest": "sha256:146901050c44c0438debc1abbe86cc5e1d7c3491f67ff215d5b2f5ac73a4e6a2",
+          "files_digest": "sha256:d56d19919c1dc91033de30dfb8ea58d387ccd7008d83a0f98ae0d320e19db393",
+          "head_commit": "caa9f90866afa80d8db88e33a81d8bbdf18a5a76",
+          "index_digest": "sha256:6adf9e4a4f4bbcea9fef4c97073ebb903d54fad05ba67854cc5675507ad3a1fd"
+        },
+        "source_gates": [
+          {
+            "gate": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "report_digest": "sha256:e628435c96bba4ee40580f43f153e72c7a021e63f41a0a6eca5c02eb1d32e342",
+            "role": "source-command"
+          }
+        ],
+        "status": "needs_revision",
+        "target_commit": "16ae9fe2c5ceea49316bcdb0f126046a8f51ea9b"
+      },
+      "live": [],
+      "elapsed_seconds": 7.648
+    },
+    {
+      "case": "conflict",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "status": "needs_revision",
+      "program_digest": "sha256:64b6823eb090bbd59edf0f5fe87fb08ac4f44cc40f4271baaeb361efe70cde00",
+      "source_preserved": true,
+      "runs": 1,
+      "claim_count": 0,
+      "provider": null,
+      "mr_creations": 0,
+      "assessment": {
+        "checks": [],
+        "cleanup": "released",
+        "final_gate": null,
+        "final_report": null,
+        "findings": [
+          "Merge conflict: 508c4b97a87c7a37a3a6b7a3956944414a0e2932\n100644 b15b1b0797d64623135bb2d04a67bae078fa44c2 1\tvalue.py\n100644 95cd69154344ef8570ea95a228419bc85e3c7443 2\tvalue.py\n100644 c8fcecdbee381f10bcdb9a323f2859ed96ef7942 3\tvalue.py\n\nAuto-merging value.py\nCONFLICT (content): Merge conflict in value.py\n"
+        ],
+        "handoff_digest": "sha256:dcbb247fb9bf63a4935885d5b6891f46ec4e13c6e62a1b7db637f91d522822c8",
+        "integration_candidate": null,
+        "integration_head": null,
+        "operation": null,
+        "owner": "project-integration",
+        "risks": [],
+        "session": {
+          "marker": {
+            "attempt": "attempt:263db7a309b68df3cee919a5e121e729",
+            "handoff_digest": "sha256:dcbb247fb9bf63a4935885d5b6891f46ec4e13c6e62a1b7db637f91d522822c8",
+            "owner": "project-integration"
+          },
+          "path": "/tmp/prifly-integration-dcbb247fb9bf63a4935885d5b6891f46ec4e13c6e62a1b7db637f91d522822c8"
+        },
+        "source_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "f528012b82af0f307b713b2f41cc61dc3e6b3db7",
+          "digest": "sha256:be56a5a5efad49494dc45f73bee91f904525c47db912b45046a66bb64dbd43f5",
+          "files_digest": "sha256:d56d19919c1dc91033de30dfb8ea58d387ccd7008d83a0f98ae0d320e19db393",
+          "head_commit": "80447af4a837fd9a82142d0a4e690e782503de98",
+          "index_digest": "sha256:6adf9e4a4f4bbcea9fef4c97073ebb903d54fad05ba67854cc5675507ad3a1fd"
+        },
+        "source_gates": [
+          {
+            "gate": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "report_digest": "sha256:45b71ffec36ed34b11360ec6c075b9c4f03229cea6c4e8e745e7a920a2c62b93",
+            "role": "source-command"
+          }
+        ],
+        "status": "needs_revision",
+        "target_commit": "d7ac5e1b2aad4eaa7123a7d40919f2554dff96d8"
+      },
+      "live": [],
+      "elapsed_seconds": 7.223
+    },
+    {
+      "case": "unrelated-target",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "status": "unavailable",
+      "program_digest": "sha256:64b6823eb090bbd59edf0f5fe87fb08ac4f44cc40f4271baaeb361efe70cde00",
+      "source_preserved": true,
+      "runs": 1,
+      "claim_count": 0,
+      "provider": null,
+      "mr_creations": 0,
+      "assessment": {
+        "checks": [],
+        "cleanup": "released",
+        "final_gate": null,
+        "final_report": null,
+        "findings": [
+          "Merge assessment could not run: fatal: refusing to merge unrelated histories\n"
+        ],
+        "handoff_digest": "sha256:9eabbc4ca68d44d0885acaef9b76c967c14ba3621f868a1ac3513db609dd986b",
+        "integration_candidate": null,
+        "integration_head": null,
+        "operation": null,
+        "owner": "project-integration",
+        "risks": [],
+        "session": {
+          "marker": {
+            "attempt": "attempt:8b0340160831575617756b5b34b1d680",
+            "handoff_digest": "sha256:9eabbc4ca68d44d0885acaef9b76c967c14ba3621f868a1ac3513db609dd986b",
+            "owner": "project-integration"
+          },
+          "path": "/tmp/prifly-integration-9eabbc4ca68d44d0885acaef9b76c967c14ba3621f868a1ac3513db609dd986b"
+        },
+        "source_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "14082d0992e8d83fdff9cd2a5bff00814627887b",
+          "digest": "sha256:01cf6ff5d46a999db4b1287cac46bf65b28ddcef512cce78be358d272c412f35",
+          "files_digest": "sha256:d56d19919c1dc91033de30dfb8ea58d387ccd7008d83a0f98ae0d320e19db393",
+          "head_commit": "f8ef6cc1d6183c892881763cab85785c68312ca4",
+          "index_digest": "sha256:6adf9e4a4f4bbcea9fef4c97073ebb903d54fad05ba67854cc5675507ad3a1fd"
+        },
+        "source_gates": [
+          {
+            "gate": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "report_digest": "sha256:366e433f4659319b54fcd38cd85b653483fdf34de87fc12a9a855b3ce102d6f8",
+            "role": "source-command"
+          }
+        ],
+        "status": "unavailable",
+        "target_commit": "5dc63c5400c6b31963f0703d5d09b1d8b389582b"
+      },
+      "live": [],
+      "elapsed_seconds": 8.353
+    },
+    {
+      "case": "owner-required",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "status": "owner_required",
+      "program_digest": "sha256:64b6823eb090bbd59edf0f5fe87fb08ac4f44cc40f4271baaeb361efe70cde00",
+      "source_preserved": true,
+      "runs": 1,
+      "claim_count": 0,
+      "provider": null,
+      "mr_creations": 0,
+      "assessment": {
+        "checks": [
+          {
+            "argv": [
+              "/usr/bin/python3",
+              "-B",
+              "acceptance.py"
+            ],
+            "exit_code": 0,
+            "id": "regression",
+            "reason": "",
+            "result": "passed",
+            "stderr": "",
+            "stderr_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout": "accepted integrated behavior\n",
+            "stdout_digest": "sha256:78793af01cff6e67dc252b2093557d39223565d15363acb1810b28133e82d27c",
+            "truncated": false
+          }
+        ],
+        "cleanup": "released",
+        "final_gate": null,
+        "final_report": null,
+        "findings": [
+          "Project risk decision required for: migrations"
+        ],
+        "handoff_digest": "sha256:44d4f1e1c6f1bec0900df0e1078eaf6724fd48b1da8c3ea817b8a5c18910ea70",
+        "integration_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "b21cefbe26087541832a32c6fec59391e1dbef8c",
+          "digest": "sha256:5b2399c5558599db554e01b70415b84abf017ef8cc9d46b5ee09c275ca00ebfe",
+          "files_digest": "sha256:bdc5ee45405df3bcae6bfbbf4c12c261c3ff15087b59edb2c287b0069e5ad8de",
+          "head_commit": "756aae9998e83036beec2aefc1c235ce792de8fa",
+          "index_digest": "sha256:61f77f2cadcef78aa72c77c36bcd2815343d81029213dadcbcec3e2770f34d38"
+        },
+        "integration_head": "756aae9998e83036beec2aefc1c235ce792de8fa",
+        "operation": null,
+        "owner": "project-integration",
+        "risks": [
+          {
+            "category": "migrations",
+            "paths": [
+              "migrations/001.sql"
+            ],
+            "reason": "Project escalation paths changed"
+          }
+        ],
+        "session": {
+          "marker": {
+            "attempt": "attempt:eadfa281e16fcc1e5760e8bdfc42d5ea",
+            "handoff_digest": "sha256:44d4f1e1c6f1bec0900df0e1078eaf6724fd48b1da8c3ea817b8a5c18910ea70",
+            "owner": "project-integration"
+          },
+          "path": "/tmp/prifly-integration-44d4f1e1c6f1bec0900df0e1078eaf6724fd48b1da8c3ea817b8a5c18910ea70"
+        },
+        "source_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "db0501366b8a9a984e86fd3729829362c13e1f71",
+          "digest": "sha256:2aed76d152c0a7ef1a4f670e970cac0ddca268f3614583ed3e17345d8a6f3b4c",
+          "files_digest": "sha256:8d43c002b2616f79fc92356a0c5eb3d52a78f5f63936276a4de3f069de5d2519",
+          "head_commit": "7855a73dbd52e70f33720e442697c6372c5b5a56",
+          "index_digest": "sha256:10fe4c445456554ced249dd7f3e3f897696f2f3f07ded206ab3302f308b26f99"
+        },
+        "source_gates": [
+          {
+            "gate": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "report_digest": "sha256:dd3b7c77ed2af5fbae13402f0a8ad5610ec664ee462014d3c8b7a4f1436ad8d0",
+            "role": "source-command"
+          }
+        ],
+        "status": "owner_required",
+        "target_commit": "b21cefbe26087541832a32c6fec59391e1dbef8c"
+      },
+      "live": [],
+      "elapsed_seconds": 10.079
+    },
+    {
+      "case": "owner-approved",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "status": "ready",
+      "program_digest": "sha256:64b6823eb090bbd59edf0f5fe87fb08ac4f44cc40f4271baaeb361efe70cde00",
+      "source_preserved": true,
+      "runs": 1,
+      "claim_count": 1,
+      "provider": null,
+      "mr_creations": 0,
+      "assessment": {
+        "checks": [
+          {
+            "argv": [
+              "/usr/bin/python3",
+              "-B",
+              "acceptance.py"
+            ],
+            "exit_code": 0,
+            "id": "regression",
+            "reason": "",
+            "result": "passed",
+            "stderr": "",
+            "stderr_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout": "accepted integrated behavior\n",
+            "stdout_digest": "sha256:78793af01cff6e67dc252b2093557d39223565d15363acb1810b28133e82d27c",
+            "truncated": false
+          }
+        ],
+        "cleanup": "released",
+        "final_gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "Model profile unavailable; independent model not established"
+          ],
+          "gate": "review",
+          "status": "warnings",
+          "suggested_next": "continue"
+        },
+        "final_report": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "606c6d3b8098a22388bfa56c82c0077d6154e4de",
+            "digest": "sha256:333fa55aa1214512418e0f4357f632e70cbd27e599a41b5e926b5b31ee1ce56d",
+            "files_digest": "sha256:bdc5ee45405df3bcae6bfbbf4c12c261c3ff15087b59edb2c287b0069e5ad8de",
+            "head_commit": "ae4adf68107f748321c16ed08fac6ddb280f775d",
+            "index_digest": "sha256:61f77f2cadcef78aa72c77c36bcd2815343d81029213dadcbcec3e2770f34d38"
+          },
+          "checks": [
+            {
+              "evidence": [
+                {
+                  "exit_code": null,
+                  "locator": "consumer.py",
+                  "method": "code",
+                  "observation": "Synthetic reader report; no real model qualification.",
+                  "tool": "synthetic-fixture"
+                }
+              ],
+              "id": "combined-behavior",
+              "reason": "",
+              "result": "passed",
+              "status": "executed"
+            }
+          ],
+          "model": null,
+          "model_profile": "unavailable",
+          "request_digest": "sha256:5a86371c72dfc45c109e1d6b414e0687cf3aec14344f240ce38a841c64d11d7d",
+          "round": 1,
+          "session": "shared"
+        },
+        "findings": [],
+        "handoff_digest": "sha256:54068811984cb2a213ed3b80b9a12ad24459b269c3bd3e9a6e5d0412f3049cd4",
+        "integration_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "606c6d3b8098a22388bfa56c82c0077d6154e4de",
+          "digest": "sha256:333fa55aa1214512418e0f4357f632e70cbd27e599a41b5e926b5b31ee1ce56d",
+          "files_digest": "sha256:bdc5ee45405df3bcae6bfbbf4c12c261c3ff15087b59edb2c287b0069e5ad8de",
+          "head_commit": "ae4adf68107f748321c16ed08fac6ddb280f775d",
+          "index_digest": "sha256:61f77f2cadcef78aa72c77c36bcd2815343d81029213dadcbcec3e2770f34d38"
+        },
+        "integration_head": "ae4adf68107f748321c16ed08fac6ddb280f775d",
+        "operation": null,
+        "owner": "project-integration",
+        "risks": [
+          {
+            "category": "migrations",
+            "paths": [
+              "migrations/001.sql"
+            ],
+            "reason": "Project escalation paths changed"
+          }
+        ],
+        "session": {
+          "marker": {
+            "attempt": "attempt:5d2c8cce9a6351f354b2b897513a5d40",
+            "handoff_digest": "sha256:54068811984cb2a213ed3b80b9a12ad24459b269c3bd3e9a6e5d0412f3049cd4",
+            "owner": "project-integration"
+          },
+          "path": "/tmp/prifly-integration-54068811984cb2a213ed3b80b9a12ad24459b269c3bd3e9a6e5d0412f3049cd4"
+        },
+        "source_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "7b7c28d9a941e823b60ac8e3de8865a7f34999e8",
+          "digest": "sha256:d8e14f4071649d0daaf2f6cfd1171d844ab7b03dc4dfd7c121fabbfea03d1c1a",
+          "files_digest": "sha256:8d43c002b2616f79fc92356a0c5eb3d52a78f5f63936276a4de3f069de5d2519",
+          "head_commit": "ad832b3c7b280cbd092fb6f31b7b4a880d7d1511",
+          "index_digest": "sha256:10fe4c445456554ced249dd7f3e3f897696f2f3f07ded206ab3302f308b26f99"
+        },
+        "source_gates": [
+          {
+            "gate": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "report_digest": "sha256:eebf860eccc446d94d84715c4706e1c6e7324295583b30c1d7e7fdf5d0c2b690",
+            "role": "source-command"
+          }
+        ],
+        "status": "ready",
+        "target_commit": "606c6d3b8098a22388bfa56c82c0077d6154e4de"
+      },
+      "live": [],
+      "elapsed_seconds": 14.052
+    },
+    {
+      "case": "missing-tool",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "status": "unavailable",
+      "program_digest": "sha256:64b6823eb090bbd59edf0f5fe87fb08ac4f44cc40f4271baaeb361efe70cde00",
+      "source_preserved": true,
+      "runs": 1,
+      "claim_count": 0,
+      "provider": null,
+      "mr_creations": 0,
+      "assessment": {
+        "checks": [
+          {
+            "argv": [
+              "/no/such/owned/fixture/tool"
+            ],
+            "exit_code": null,
+            "id": "regression",
+            "reason": "[Errno 2] No such file or directory: '/no/such/owned/fixture/tool'",
+            "result": "unavailable",
+            "stderr": "",
+            "stderr_digest": null,
+            "stdout": "",
+            "stdout_digest": null,
+            "truncated": false
+          }
+        ],
+        "cleanup": "released",
+        "final_gate": null,
+        "final_report": null,
+        "findings": [
+          "An integrated command could not judge the result"
+        ],
+        "handoff_digest": "sha256:bd3885d8b0cfeb60b6e69477bdd0c13a5dd9d1005c9e8db27029b8616334abdc",
+        "integration_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "484ae71ee1c10fae2c56e1b11458392811409db5",
+          "digest": "sha256:6dd85c7a9eaf2614de851f7b6a8e81a940ad766caa2837290c800dc077e0a698",
+          "files_digest": "sha256:b4565b178a29e44b8775e109bc5c2214401b2fd9982c81ce954402a0db7d6801",
+          "head_commit": "55ed438f2b7db2d104db0f4a502d1f0d4795b745",
+          "index_digest": "sha256:fd935df58f9e604a4693d5146efd2a084b3bb6a12e3999ab6072011b7e69ae70"
+        },
+        "integration_head": "55ed438f2b7db2d104db0f4a502d1f0d4795b745",
+        "operation": null,
+        "owner": "project-integration",
+        "risks": [],
+        "session": {
+          "marker": {
+            "attempt": "attempt:59c6fd311d4546ea9ae8a069813b2a97",
+            "handoff_digest": "sha256:bd3885d8b0cfeb60b6e69477bdd0c13a5dd9d1005c9e8db27029b8616334abdc",
+            "owner": "project-integration"
+          },
+          "path": "/tmp/prifly-integration-bd3885d8b0cfeb60b6e69477bdd0c13a5dd9d1005c9e8db27029b8616334abdc"
+        },
+        "source_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "5772a4567c75518299d51fa20d61df41803a5b42",
+          "digest": "sha256:4b94f9492e42e6ef1ad544ad171e72ee2b8346b9f4f390b2ea4d592ba0500be0",
+          "files_digest": "sha256:d56d19919c1dc91033de30dfb8ea58d387ccd7008d83a0f98ae0d320e19db393",
+          "head_commit": "b9fc45130ce78496b6e520cefd98ff988ca7219f",
+          "index_digest": "sha256:6adf9e4a4f4bbcea9fef4c97073ebb903d54fad05ba67854cc5675507ad3a1fd"
+        },
+        "source_gates": [
+          {
+            "gate": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "report_digest": "sha256:69e127aa7af184f6a98336accbcf878cf9a782e7525c7cbdf4e4f464c875ffce",
+            "role": "source-command"
+          }
+        ],
+        "status": "unavailable",
+        "target_commit": "484ae71ee1c10fae2c56e1b11458392811409db5"
+      },
+      "live": [],
+      "elapsed_seconds": 9.582
+    },
+    {
+      "case": "source-stale",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "status": "unavailable",
+      "program_digest": "sha256:64b6823eb090bbd59edf0f5fe87fb08ac4f44cc40f4271baaeb361efe70cde00",
+      "source_preserved": true,
+      "runs": 1,
+      "claim_count": 0,
+      "provider": null,
+      "mr_creations": 0,
+      "assessment": {
+        "checks": [],
+        "cleanup": "not_needed",
+        "final_gate": null,
+        "final_report": null,
+        "findings": [
+          "Source acceptance is not ready: source-command"
+        ],
+        "handoff_digest": "sha256:166908e9994d0ec52d580c08cb8699ee7ec35eb471e73f5c71e0879fb9853943",
+        "integration_candidate": null,
+        "integration_head": null,
+        "operation": null,
+        "owner": "project-integration",
+        "risks": [],
+        "session": null,
+        "source_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "88847874cd4c7f085d9fe9b6a9e7306f6e3f72cf",
+          "digest": "sha256:768ea28076b96dd5abc14fda2eba3141c1d693aa82adc8262e5ebed0143a8219",
+          "files_digest": "sha256:d56d19919c1dc91033de30dfb8ea58d387ccd7008d83a0f98ae0d320e19db393",
+          "head_commit": "a2f640ec2076054ef4eb9ad0b3a9627790d21329",
+          "index_digest": "sha256:6adf9e4a4f4bbcea9fef4c97073ebb903d54fad05ba67854cc5675507ad3a1fd"
+        },
+        "source_gates": [
+          {
+            "gate": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Report belongs to a different declared check composition/request"
+              ],
+              "gate": "review",
+              "status": "blocked",
+              "suggested_next": "continue"
+            },
+            "report_digest": "sha256:62428e5d1b2a598db62eddeb0fec80080efc0bb3033d7dc62572e2168b287dff",
+            "role": "source-command"
+          }
+        ],
+        "status": "unavailable",
+        "target_commit": "15cfee3400734a00da26b981f1e98e95c6579ae9"
+      },
+      "live": [],
+      "elapsed_seconds": 7.966
+    },
+    {
+      "case": "dirty-start",
+      "host": "codex-cli",
+      "outcome": "refused",
+      "status": "checkout_dirty",
+      "source_preserved": true,
+      "runs": 0,
+      "claim_count": 0,
+      "provider": null,
+      "mr_creations": 0,
+      "assessment": null,
+      "live": [],
+      "elapsed_seconds": 3.353
+    },
+    {
+      "case": "dirty-source",
+      "host": "codex-cli",
+      "outcome": "cancelled",
+      "status": "effect_not_permitted",
+      "source_preserved": true,
+      "runs": 1,
+      "claim_count": 1,
+      "provider": null,
+      "mr_creations": 0,
+      "assessment": null,
+      "live": [],
+      "named_refusal": "effect_not_permitted",
+      "elapsed_seconds": 9.285
+    },
+    {
+      "case": "moving-candidate",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "status": "unavailable",
+      "program_digest": "sha256:64b6823eb090bbd59edf0f5fe87fb08ac4f44cc40f4271baaeb361efe70cde00",
+      "source_preserved": true,
+      "runs": 1,
+      "claim_count": 1,
+      "provider": null,
+      "mr_creations": 0,
+      "assessment": {
+        "checks": [
+          {
+            "argv": [
+              "/usr/bin/python3",
+              "-B",
+              "acceptance.py"
+            ],
+            "exit_code": 0,
+            "id": "regression",
+            "reason": "",
+            "result": "passed",
+            "stderr": "",
+            "stderr_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout": "accepted integrated behavior\n",
+            "stdout_digest": "sha256:78793af01cff6e67dc252b2093557d39223565d15363acb1810b28133e82d27c",
+            "truncated": false
+          }
+        ],
+        "cleanup": "released",
+        "final_gate": null,
+        "final_report": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "5be62de48be65b0c3b41142c857cd4e7bdf4518f",
+            "digest": "sha256:df49bb45af0461b2f29aef50fe73fb09a992b43d071287f16b3beb57dc194491",
+            "files_digest": "sha256:b4565b178a29e44b8775e109bc5c2214401b2fd9982c81ce954402a0db7d6801",
+            "head_commit": "dfc06300a204866f7c61805ff4e1982d47945e5c",
+            "index_digest": "sha256:fd935df58f9e604a4693d5146efd2a084b3bb6a12e3999ab6072011b7e69ae70"
+          },
+          "checks": [
+            {
+              "evidence": [
+                {
+                  "exit_code": null,
+                  "locator": "consumer.py",
+                  "method": "code",
+                  "observation": "Synthetic reader report; no real model qualification.",
+                  "tool": "synthetic-fixture"
+                }
+              ],
+              "id": "combined-behavior",
+              "reason": "",
+              "result": "passed",
+              "status": "executed"
+            }
+          ],
+          "model": null,
+          "model_profile": "unavailable",
+          "request_digest": "sha256:eb4ab493c3213901933dd2bb00694d687a111e97a7d9bc67d4dc36cb25526b18",
+          "round": 1,
+          "session": "shared"
+        },
+        "findings": [
+          "Commit and review the actual dirty/staged/untracked work before integration"
+        ],
+        "handoff_digest": "sha256:79b4090ebea317f6f5abfce667f7c6f87e5e4616d994866c54c3455ecf3be6b9",
+        "integration_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "5be62de48be65b0c3b41142c857cd4e7bdf4518f",
+          "digest": "sha256:df49bb45af0461b2f29aef50fe73fb09a992b43d071287f16b3beb57dc194491",
+          "files_digest": "sha256:b4565b178a29e44b8775e109bc5c2214401b2fd9982c81ce954402a0db7d6801",
+          "head_commit": "dfc06300a204866f7c61805ff4e1982d47945e5c",
+          "index_digest": "sha256:fd935df58f9e604a4693d5146efd2a084b3bb6a12e3999ab6072011b7e69ae70"
+        },
+        "integration_head": "dfc06300a204866f7c61805ff4e1982d47945e5c",
+        "operation": null,
+        "owner": "project-integration",
+        "risks": [],
+        "session": {
+          "marker": {
+            "attempt": "attempt:832b5ba8cc3d1105683d4b959c7ebe16",
+            "handoff_digest": "sha256:79b4090ebea317f6f5abfce667f7c6f87e5e4616d994866c54c3455ecf3be6b9",
+            "owner": "project-integration"
+          },
+          "path": "/tmp/prifly-integration-79b4090ebea317f6f5abfce667f7c6f87e5e4616d994866c54c3455ecf3be6b9"
+        },
+        "source_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "bceccdf49abb7d8a3117dcdecef1d1c04b5481bb",
+          "digest": "sha256:b5b3d6c197b07862cae2eeef7d2e535a879513154daad512c9afa79e147a191c",
+          "files_digest": "sha256:d56d19919c1dc91033de30dfb8ea58d387ccd7008d83a0f98ae0d320e19db393",
+          "head_commit": "26ea46d9d42d33d40b0aeb31ec32a7fe13f4c3ba",
+          "index_digest": "sha256:6adf9e4a4f4bbcea9fef4c97073ebb903d54fad05ba67854cc5675507ad3a1fd"
+        },
+        "source_gates": [
+          {
+            "gate": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "report_digest": "sha256:26abe134a8d599fbf8107f7523a7500f40548197aa5a092c8902ef30253188bc",
+            "role": "source-command"
+          }
+        ],
+        "status": "unavailable",
+        "target_commit": "5be62de48be65b0c3b41142c857cd4e7bdf4518f"
+      },
+      "live": [],
+      "elapsed_seconds": 17.367
+    },
+    {
+      "case": "moving-target",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "status": "unavailable",
+      "program_digest": "sha256:64b6823eb090bbd59edf0f5fe87fb08ac4f44cc40f4271baaeb361efe70cde00",
+      "source_preserved": true,
+      "runs": 1,
+      "claim_count": 1,
+      "provider": null,
+      "mr_creations": 0,
+      "assessment": {
+        "checks": [
+          {
+            "argv": [
+              "/usr/bin/python3",
+              "-B",
+              "acceptance.py"
+            ],
+            "exit_code": 0,
+            "id": "regression",
+            "reason": "",
+            "result": "passed",
+            "stderr": "",
+            "stderr_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout": "accepted integrated behavior\n",
+            "stdout_digest": "sha256:78793af01cff6e67dc252b2093557d39223565d15363acb1810b28133e82d27c",
+            "truncated": false
+          }
+        ],
+        "cleanup": "released",
+        "final_gate": null,
+        "final_report": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "fe4439aff59c9d3bd3a8756813d27bb171c34667",
+            "digest": "sha256:1d47b5537dcbe2e1be00e479687768d032ebc8e0eb8f70c8117e440a7a1ee23c",
+            "files_digest": "sha256:b4565b178a29e44b8775e109bc5c2214401b2fd9982c81ce954402a0db7d6801",
+            "head_commit": "86d5dc765178c2025434223a4bfcde3a03399f2a",
+            "index_digest": "sha256:fd935df58f9e604a4693d5146efd2a084b3bb6a12e3999ab6072011b7e69ae70"
+          },
+          "checks": [
+            {
+              "evidence": [
+                {
+                  "exit_code": null,
+                  "locator": "consumer.py",
+                  "method": "code",
+                  "observation": "Synthetic reader report; no real model qualification.",
+                  "tool": "synthetic-fixture"
+                }
+              ],
+              "id": "combined-behavior",
+              "reason": "",
+              "result": "passed",
+              "status": "executed"
+            }
+          ],
+          "model": null,
+          "model_profile": "unavailable",
+          "request_digest": "sha256:f2dec56126fa7618b4dc24c68488102fbfeb5f5bdda555a2fdb9ec483b2bfacc",
+          "round": 1,
+          "session": "shared"
+        },
+        "findings": [
+          "Target moved after acceptance"
+        ],
+        "handoff_digest": "sha256:d04436590d31931d41426e904df3a156a02ba42d4da633b0284cf4d0d090b426",
+        "integration_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "fe4439aff59c9d3bd3a8756813d27bb171c34667",
+          "digest": "sha256:1d47b5537dcbe2e1be00e479687768d032ebc8e0eb8f70c8117e440a7a1ee23c",
+          "files_digest": "sha256:b4565b178a29e44b8775e109bc5c2214401b2fd9982c81ce954402a0db7d6801",
+          "head_commit": "86d5dc765178c2025434223a4bfcde3a03399f2a",
+          "index_digest": "sha256:fd935df58f9e604a4693d5146efd2a084b3bb6a12e3999ab6072011b7e69ae70"
+        },
+        "integration_head": "86d5dc765178c2025434223a4bfcde3a03399f2a",
+        "operation": null,
+        "owner": "project-integration",
+        "risks": [],
+        "session": {
+          "marker": {
+            "attempt": "attempt:5b129bcf807f7cb582b24032f296da37",
+            "handoff_digest": "sha256:d04436590d31931d41426e904df3a156a02ba42d4da633b0284cf4d0d090b426",
+            "owner": "project-integration"
+          },
+          "path": "/tmp/prifly-integration-d04436590d31931d41426e904df3a156a02ba42d4da633b0284cf4d0d090b426"
+        },
+        "source_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "4414da760bdd0eb5ebf32be866893745bbb30607",
+          "digest": "sha256:03ca5b645335dc993c4251b582f2bd2ef4fbc21be20455417ee6bccd79fb13ab",
+          "files_digest": "sha256:d56d19919c1dc91033de30dfb8ea58d387ccd7008d83a0f98ae0d320e19db393",
+          "head_commit": "0075156431ccd007b836897b978fe8f1f98aed9b",
+          "index_digest": "sha256:6adf9e4a4f4bbcea9fef4c97073ebb903d54fad05ba67854cc5675507ad3a1fd"
+        },
+        "source_gates": [
+          {
+            "gate": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "report_digest": "sha256:5e5827c869b1a1c22ad15e8b2acc4ced070adff26a4beb3aaf9f9b64e3a4676d",
+            "role": "source-command"
+          }
+        ],
+        "status": "unavailable",
+        "target_commit": "fe4439aff59c9d3bd3a8756813d27bb171c34667"
+      },
+      "live": [],
+      "elapsed_seconds": 14.671
+    },
+    {
+      "case": "final-defect",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "status": "needs_revision",
+      "program_digest": "sha256:64b6823eb090bbd59edf0f5fe87fb08ac4f44cc40f4271baaeb361efe70cde00",
+      "source_preserved": true,
+      "runs": 1,
+      "claim_count": 1,
+      "provider": null,
+      "mr_creations": 0,
+      "assessment": {
+        "checks": [
+          {
+            "argv": [
+              "/usr/bin/python3",
+              "-B",
+              "acceptance.py"
+            ],
+            "exit_code": 0,
+            "id": "regression",
+            "reason": "",
+            "result": "passed",
+            "stderr": "",
+            "stderr_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout": "accepted integrated behavior\n",
+            "stdout_digest": "sha256:78793af01cff6e67dc252b2093557d39223565d15363acb1810b28133e82d27c",
+            "truncated": false
+          }
+        ],
+        "cleanup": "released",
+        "final_gate": {
+          "blocking": true,
+          "blocking_owner_only": false,
+          "findings": [
+            "combined-behavior: Synthetic final-reader defect",
+            "Model profile unavailable; independent model not established"
+          ],
+          "gate": "review",
+          "status": "failed",
+          "suggested_next": "/aif-fix"
+        },
+        "final_report": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "2ecbafff9cd875d612c114752052c69a5479e63e",
+            "digest": "sha256:4065eb4f6b53fa9a7ff87181ba42770fe0261c17fb7d4b3ca714c2049c01cd4b",
+            "files_digest": "sha256:b4565b178a29e44b8775e109bc5c2214401b2fd9982c81ce954402a0db7d6801",
+            "head_commit": "89baf8806a77a86923c019c0b141fc4bf8995c9c",
+            "index_digest": "sha256:fd935df58f9e604a4693d5146efd2a084b3bb6a12e3999ab6072011b7e69ae70"
+          },
+          "checks": [
+            {
+              "evidence": [
+                {
+                  "exit_code": null,
+                  "locator": "consumer.py",
+                  "method": "code",
+                  "observation": "Synthetic reader report; no real model qualification.",
+                  "tool": "synthetic-fixture"
+                }
+              ],
+              "id": "combined-behavior",
+              "reason": "Synthetic final-reader defect",
+              "result": "failed",
+              "status": "executed"
+            }
+          ],
+          "model": null,
+          "model_profile": "unavailable",
+          "request_digest": "sha256:2c3761cbb138159e2aaae62db4f357ebfae696f92d9d855e054c8cabfc1d27c0",
+          "round": 1,
+          "session": "shared"
+        },
+        "findings": [
+          "combined-behavior: Synthetic final-reader defect; Model profile unavailable; independent model not established"
+        ],
+        "handoff_digest": "sha256:d000df451fd9fe3022268455211f76fdef9930e7e57117e926b383ac00d3eb64",
+        "integration_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "2ecbafff9cd875d612c114752052c69a5479e63e",
+          "digest": "sha256:4065eb4f6b53fa9a7ff87181ba42770fe0261c17fb7d4b3ca714c2049c01cd4b",
+          "files_digest": "sha256:b4565b178a29e44b8775e109bc5c2214401b2fd9982c81ce954402a0db7d6801",
+          "head_commit": "89baf8806a77a86923c019c0b141fc4bf8995c9c",
+          "index_digest": "sha256:fd935df58f9e604a4693d5146efd2a084b3bb6a12e3999ab6072011b7e69ae70"
+        },
+        "integration_head": "89baf8806a77a86923c019c0b141fc4bf8995c9c",
+        "operation": null,
+        "owner": "project-integration",
+        "risks": [],
+        "session": {
+          "marker": {
+            "attempt": "attempt:e27ea50a1917510f70e52fd3dd24047f",
+            "handoff_digest": "sha256:d000df451fd9fe3022268455211f76fdef9930e7e57117e926b383ac00d3eb64",
+            "owner": "project-integration"
+          },
+          "path": "/tmp/prifly-integration-d000df451fd9fe3022268455211f76fdef9930e7e57117e926b383ac00d3eb64"
+        },
+        "source_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "77ecce0eec169bc5568355ce1b9e6319358877a5",
+          "digest": "sha256:a4dc830707898ce5de77f2fd11ca2dcfcfae32ee67645a2c65084fa5f5cf5176",
+          "files_digest": "sha256:d56d19919c1dc91033de30dfb8ea58d387ccd7008d83a0f98ae0d320e19db393",
+          "head_commit": "81a3360530dc460bbeabeb4b6718d66680654d02",
+          "index_digest": "sha256:6adf9e4a4f4bbcea9fef4c97073ebb903d54fad05ba67854cc5675507ad3a1fd"
+        },
+        "source_gates": [
+          {
+            "gate": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "report_digest": "sha256:0c7ef659d5dbc0f051a0cb027f4e6425ade5d46edb8c907bb2fce5aa4085cec3",
+            "role": "source-command"
+          }
+        ],
+        "status": "needs_revision",
+        "target_commit": "2ecbafff9cd875d612c114752052c69a5479e63e"
+      },
+      "live": [],
+      "elapsed_seconds": 12.145
+    },
+    {
+      "case": "missing-spot",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "status": "unavailable",
+      "program_digest": "sha256:64b6823eb090bbd59edf0f5fe87fb08ac4f44cc40f4271baaeb361efe70cde00",
+      "source_preserved": true,
+      "runs": 1,
+      "claim_count": 1,
+      "provider": null,
+      "mr_creations": 0,
+      "assessment": {
+        "checks": [
+          {
+            "argv": [
+              "/usr/bin/python3",
+              "-B",
+              "acceptance.py"
+            ],
+            "exit_code": 0,
+            "id": "regression",
+            "reason": "",
+            "result": "passed",
+            "stderr": "",
+            "stderr_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout": "accepted integrated behavior\n",
+            "stdout_digest": "sha256:78793af01cff6e67dc252b2093557d39223565d15363acb1810b28133e82d27c",
+            "truncated": false
+          }
+        ],
+        "cleanup": "released",
+        "final_gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "Missing or unknown reported checks",
+            "Model profile unavailable; independent model not established"
+          ],
+          "gate": "review",
+          "status": "blocked",
+          "suggested_next": "continue"
+        },
+        "final_report": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "381295831742e5ebcece1114a7a0d0687d588af4",
+            "digest": "sha256:6761b8fafa80652800702bc427d9c4b46b2ef35bc063f4712137b8197a1ca4f3",
+            "files_digest": "sha256:b4565b178a29e44b8775e109bc5c2214401b2fd9982c81ce954402a0db7d6801",
+            "head_commit": "bd660313db9a6f524d9872150a6c45e913796663",
+            "index_digest": "sha256:fd935df58f9e604a4693d5146efd2a084b3bb6a12e3999ab6072011b7e69ae70"
+          },
+          "checks": [],
+          "model": null,
+          "model_profile": "unavailable",
+          "request_digest": "sha256:a693109b39d2f03b424f99040015829dafe7327fecfcc17d5fa31fc0e01a58d8",
+          "round": 1,
+          "session": "shared"
+        },
+        "findings": [
+          "Missing or unknown reported checks; Model profile unavailable; independent model not established"
+        ],
+        "handoff_digest": "sha256:709ac5b785f4b84310b1a0dcb0e0f0990d863b89fb14c038d20260debff41255",
+        "integration_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "381295831742e5ebcece1114a7a0d0687d588af4",
+          "digest": "sha256:6761b8fafa80652800702bc427d9c4b46b2ef35bc063f4712137b8197a1ca4f3",
+          "files_digest": "sha256:b4565b178a29e44b8775e109bc5c2214401b2fd9982c81ce954402a0db7d6801",
+          "head_commit": "bd660313db9a6f524d9872150a6c45e913796663",
+          "index_digest": "sha256:fd935df58f9e604a4693d5146efd2a084b3bb6a12e3999ab6072011b7e69ae70"
+        },
+        "integration_head": "bd660313db9a6f524d9872150a6c45e913796663",
+        "operation": null,
+        "owner": "project-integration",
+        "risks": [],
+        "session": {
+          "marker": {
+            "attempt": "attempt:59cbd06b37397e83838395a63a0a1531",
+            "handoff_digest": "sha256:709ac5b785f4b84310b1a0dcb0e0f0990d863b89fb14c038d20260debff41255",
+            "owner": "project-integration"
+          },
+          "path": "/tmp/prifly-integration-709ac5b785f4b84310b1a0dcb0e0f0990d863b89fb14c038d20260debff41255"
+        },
+        "source_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "5fc468689c36403dc349f4bb54b9bd9097acca56",
+          "digest": "sha256:c5f2676f20fb12de6bc10933f0747a7e56dc7432bb8fefc0ca58726726efb332",
+          "files_digest": "sha256:d56d19919c1dc91033de30dfb8ea58d387ccd7008d83a0f98ae0d320e19db393",
+          "head_commit": "1cfb5c5688d0aabdfe9d6edb3529c9bd7f68a7f5",
+          "index_digest": "sha256:6adf9e4a4f4bbcea9fef4c97073ebb903d54fad05ba67854cc5675507ad3a1fd"
+        },
+        "source_gates": [
+          {
+            "gate": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "report_digest": "sha256:0839d3ad651cb0cb85e81a5f6fed2cf55dd3396c45f8c209e0bd84cfcf835b05",
+            "role": "source-command"
+          }
+        ],
+        "status": "unavailable",
+        "target_commit": "381295831742e5ebcece1114a7a0d0687d588af4"
+      },
+      "live": [],
+      "elapsed_seconds": 13.785
+    },
+    {
+      "case": "reader-unavailable",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "status": "unavailable",
+      "program_digest": "sha256:64b6823eb090bbd59edf0f5fe87fb08ac4f44cc40f4271baaeb361efe70cde00",
+      "source_preserved": true,
+      "runs": 1,
+      "claim_count": 1,
+      "provider": null,
+      "mr_creations": 0,
+      "assessment": {
+        "checks": [
+          {
+            "argv": [
+              "/usr/bin/python3",
+              "-B",
+              "acceptance.py"
+            ],
+            "exit_code": 0,
+            "id": "regression",
+            "reason": "",
+            "result": "passed",
+            "stderr": "",
+            "stderr_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout": "accepted integrated behavior\n",
+            "stdout_digest": "sha256:78793af01cff6e67dc252b2093557d39223565d15363acb1810b28133e82d27c",
+            "truncated": false
+          }
+        ],
+        "cleanup": "released",
+        "final_gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "combined-behavior: Actual fixture tool unavailable",
+            "Model profile unavailable; independent model not established"
+          ],
+          "gate": "review",
+          "status": "blocked",
+          "suggested_next": "continue"
+        },
+        "final_report": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "086127bef8b9ed0e444041af6b409ea0288e22f4",
+            "digest": "sha256:f4973f85154cc989c55ca4a7e4e46a40b593cfc5a428d9230f72ea271dd05f65",
+            "files_digest": "sha256:b4565b178a29e44b8775e109bc5c2214401b2fd9982c81ce954402a0db7d6801",
+            "head_commit": "ec1ecc865d8e26884552d3f0238550eadd287e78",
+            "index_digest": "sha256:fd935df58f9e604a4693d5146efd2a084b3bb6a12e3999ab6072011b7e69ae70"
+          },
+          "checks": [
+            {
+              "evidence": [],
+              "id": "combined-behavior",
+              "reason": "Actual fixture tool unavailable",
+              "result": "not_run",
+              "status": "unavailable"
+            }
+          ],
+          "model": null,
+          "model_profile": "unavailable",
+          "request_digest": "sha256:57f8cd728b2308a05873f734b4eab21704546fb0fddba36702bc57194894111b",
+          "round": 1,
+          "session": "shared"
+        },
+        "findings": [
+          "combined-behavior: Actual fixture tool unavailable; Model profile unavailable; independent model not established"
+        ],
+        "handoff_digest": "sha256:040237537b827913e5202a026b4e51cd143174c06e91e3f1db34b0f19d0755ab",
+        "integration_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "086127bef8b9ed0e444041af6b409ea0288e22f4",
+          "digest": "sha256:f4973f85154cc989c55ca4a7e4e46a40b593cfc5a428d9230f72ea271dd05f65",
+          "files_digest": "sha256:b4565b178a29e44b8775e109bc5c2214401b2fd9982c81ce954402a0db7d6801",
+          "head_commit": "ec1ecc865d8e26884552d3f0238550eadd287e78",
+          "index_digest": "sha256:fd935df58f9e604a4693d5146efd2a084b3bb6a12e3999ab6072011b7e69ae70"
+        },
+        "integration_head": "ec1ecc865d8e26884552d3f0238550eadd287e78",
+        "operation": null,
+        "owner": "project-integration",
+        "risks": [],
+        "session": {
+          "marker": {
+            "attempt": "attempt:bb50e0db1771a9e19c578260c5024a7b",
+            "handoff_digest": "sha256:040237537b827913e5202a026b4e51cd143174c06e91e3f1db34b0f19d0755ab",
+            "owner": "project-integration"
+          },
+          "path": "/tmp/prifly-integration-040237537b827913e5202a026b4e51cd143174c06e91e3f1db34b0f19d0755ab"
+        },
+        "source_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "c635f378eea8e95b2008ea6bc4d919d0ff045792",
+          "digest": "sha256:54b312a74ee798749a976a2f093a0a9c39141b5f93c5c58f9ddf3849f70e57d9",
+          "files_digest": "sha256:d56d19919c1dc91033de30dfb8ea58d387ccd7008d83a0f98ae0d320e19db393",
+          "head_commit": "e61f2247352ca186c3c559b5109ed558f3d554e7",
+          "index_digest": "sha256:6adf9e4a4f4bbcea9fef4c97073ebb903d54fad05ba67854cc5675507ad3a1fd"
+        },
+        "source_gates": [
+          {
+            "gate": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "report_digest": "sha256:cf251ead496df84115746508283e7bb1c2e5210d3d3707a2b87afb204b3ae274",
+            "role": "source-command"
+          }
+        ],
+        "status": "unavailable",
+        "target_commit": "086127bef8b9ed0e444041af6b409ea0288e22f4"
+      },
+      "live": [],
+      "elapsed_seconds": 13.289
+    },
+    {
+      "case": "reader-no-report",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "status": "unavailable",
+      "program_digest": "sha256:64b6823eb090bbd59edf0f5fe87fb08ac4f44cc40f4271baaeb361efe70cde00",
+      "source_preserved": true,
+      "runs": 1,
+      "claim_count": 1,
+      "provider": null,
+      "mr_creations": 0,
+      "assessment": {
+        "checks": [
+          {
+            "argv": [
+              "/usr/bin/python3",
+              "-B",
+              "acceptance.py"
+            ],
+            "exit_code": 0,
+            "id": "regression",
+            "reason": "",
+            "result": "passed",
+            "stderr": "",
+            "stderr_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout": "accepted integrated behavior\n",
+            "stdout_digest": "sha256:78793af01cff6e67dc252b2093557d39223565d15363acb1810b28133e82d27c",
+            "truncated": false
+          }
+        ],
+        "cleanup": "released",
+        "final_gate": null,
+        "final_report": null,
+        "findings": [
+          "Final reader produced no usable report"
+        ],
+        "handoff_digest": "sha256:f114a4be5d7704f86ea0bd529d13c1d47de3918476be8611c4f58e2cb5c5fa87",
+        "integration_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "cfde757ada5df3d51471145c06cef68ca33f0a1f",
+          "digest": "sha256:874877987d69d2cc009c2eccbcee4ac348032425168563e262435ebefecfbe0d",
+          "files_digest": "sha256:b4565b178a29e44b8775e109bc5c2214401b2fd9982c81ce954402a0db7d6801",
+          "head_commit": "f663c95633b19801429d0ab0b70ddf4195382177",
+          "index_digest": "sha256:fd935df58f9e604a4693d5146efd2a084b3bb6a12e3999ab6072011b7e69ae70"
+        },
+        "integration_head": "f663c95633b19801429d0ab0b70ddf4195382177",
+        "operation": null,
+        "owner": "project-integration",
+        "risks": [],
+        "session": {
+          "marker": {
+            "attempt": "attempt:27951f0cd9201da73580001cc3dc2e86",
+            "handoff_digest": "sha256:f114a4be5d7704f86ea0bd529d13c1d47de3918476be8611c4f58e2cb5c5fa87",
+            "owner": "project-integration"
+          },
+          "path": "/tmp/prifly-integration-f114a4be5d7704f86ea0bd529d13c1d47de3918476be8611c4f58e2cb5c5fa87"
+        },
+        "source_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "79297d0acb279ff40d82eeec952b36ed4b59271b",
+          "digest": "sha256:83b0c8e40145ce2b22d155f68120dc73213f73857fb9c9eae9c2450641949896",
+          "files_digest": "sha256:d56d19919c1dc91033de30dfb8ea58d387ccd7008d83a0f98ae0d320e19db393",
+          "head_commit": "4645e495d17c94a4fc9f1bbf9e22f464fa08357e",
+          "index_digest": "sha256:6adf9e4a4f4bbcea9fef4c97073ebb903d54fad05ba67854cc5675507ad3a1fd"
+        },
+        "source_gates": [
+          {
+            "gate": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "report_digest": "sha256:9397361713d07068ba4b93744d79d00a04282b54a7b667c936d7d864c3c1fa25",
+            "role": "source-command"
+          }
+        ],
+        "status": "unavailable",
+        "target_commit": "cfde757ada5df3d51471145c06cef68ca33f0a1f"
+      },
+      "live": [],
+      "elapsed_seconds": 10.687
+    },
+    {
+      "case": "partial-resume",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "status": "ready",
+      "program_digest": "sha256:64b6823eb090bbd59edf0f5fe87fb08ac4f44cc40f4271baaeb361efe70cde00",
+      "source_preserved": true,
+      "runs": 2,
+      "claim_count": 1,
+      "provider": null,
+      "mr_creations": 0,
+      "assessment": {
+        "checks": [
+          {
+            "argv": [
+              "/usr/bin/python3",
+              "-B",
+              "acceptance.py"
+            ],
+            "exit_code": 0,
+            "id": "regression",
+            "reason": "",
+            "result": "passed",
+            "stderr": "",
+            "stderr_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout": "accepted integrated behavior\n",
+            "stdout_digest": "sha256:78793af01cff6e67dc252b2093557d39223565d15363acb1810b28133e82d27c",
+            "truncated": false
+          }
+        ],
+        "cleanup": "released",
+        "final_gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "Model profile unavailable; independent model not established"
+          ],
+          "gate": "review",
+          "status": "warnings",
+          "suggested_next": "continue"
+        },
+        "final_report": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "c821a483b88caed15add11659ff2a7c2313a7d61",
+            "digest": "sha256:705a9dd0bb133e0ebad9aa36145faf6857d5c2c872710630757e36038ed7581c",
+            "files_digest": "sha256:b4565b178a29e44b8775e109bc5c2214401b2fd9982c81ce954402a0db7d6801",
+            "head_commit": "e06bb8af4085c9c31b66bc7c5b6ed73032708cde",
+            "index_digest": "sha256:fd935df58f9e604a4693d5146efd2a084b3bb6a12e3999ab6072011b7e69ae70"
+          },
+          "checks": [
+            {
+              "evidence": [
+                {
+                  "exit_code": null,
+                  "locator": "consumer.py",
+                  "method": "code",
+                  "observation": "Synthetic reader report; no real model qualification.",
+                  "tool": "synthetic-fixture"
+                }
+              ],
+              "id": "combined-behavior",
+              "reason": "",
+              "result": "passed",
+              "status": "executed"
+            }
+          ],
+          "model": null,
+          "model_profile": "unavailable",
+          "request_digest": "sha256:c9bbfd1c81758f0cb1ef1e72926fd2fc88d1fe33ed20cdc2bc6ca1d0ae083867",
+          "round": 1,
+          "session": "shared"
+        },
+        "findings": [],
+        "handoff_digest": "sha256:032c49e01c5576c8b377f8fb54e4783aef3558834aa1de388adf96ab05b4b8f2",
+        "integration_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "c821a483b88caed15add11659ff2a7c2313a7d61",
+          "digest": "sha256:705a9dd0bb133e0ebad9aa36145faf6857d5c2c872710630757e36038ed7581c",
+          "files_digest": "sha256:b4565b178a29e44b8775e109bc5c2214401b2fd9982c81ce954402a0db7d6801",
+          "head_commit": "e06bb8af4085c9c31b66bc7c5b6ed73032708cde",
+          "index_digest": "sha256:fd935df58f9e604a4693d5146efd2a084b3bb6a12e3999ab6072011b7e69ae70"
+        },
+        "integration_head": "e06bb8af4085c9c31b66bc7c5b6ed73032708cde",
+        "operation": null,
+        "owner": "project-integration",
+        "risks": [],
+        "session": {
+          "marker": {
+            "attempt": "attempt:ec5e178c524fb5a3d7e1720633955a73",
+            "handoff_digest": "sha256:032c49e01c5576c8b377f8fb54e4783aef3558834aa1de388adf96ab05b4b8f2",
+            "owner": "project-integration"
+          },
+          "path": "/tmp/prifly-integration-032c49e01c5576c8b377f8fb54e4783aef3558834aa1de388adf96ab05b4b8f2"
+        },
+        "source_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "377b76f0a707edbb6ab770be29211ca89e76cc51",
+          "digest": "sha256:d8c0a9f21e9aea7d1c8e2f79261cf4831c821bc713cc4dbffe3b4d0433d006f7",
+          "files_digest": "sha256:d56d19919c1dc91033de30dfb8ea58d387ccd7008d83a0f98ae0d320e19db393",
+          "head_commit": "77e7e800eb397b5ee9d5b9adf0bad7b040c211e2",
+          "index_digest": "sha256:6adf9e4a4f4bbcea9fef4c97073ebb903d54fad05ba67854cc5675507ad3a1fd"
+        },
+        "source_gates": [
+          {
+            "gate": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "report_digest": "sha256:d5f5c9cb7e59c54ccb7934ba54c9c19e73c800d0bddd0766dbd1c03b16628565",
+            "role": "source-command"
+          }
+        ],
+        "status": "ready",
+        "target_commit": "c821a483b88caed15add11659ff2a7c2313a7d61"
+      },
+      "live": [],
+      "elapsed_seconds": 21.752
+    },
+    {
+      "case": "cancel-resume",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "status": "ready",
+      "program_digest": "sha256:64b6823eb090bbd59edf0f5fe87fb08ac4f44cc40f4271baaeb361efe70cde00",
+      "source_preserved": true,
+      "runs": 2,
+      "claim_count": 1,
+      "provider": null,
+      "mr_creations": 0,
+      "assessment": {
+        "checks": [
+          {
+            "argv": [
+              "/usr/bin/python3",
+              "-B",
+              "acceptance.py"
+            ],
+            "exit_code": 0,
+            "id": "regression",
+            "reason": "",
+            "result": "passed",
+            "stderr": "",
+            "stderr_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout": "accepted integrated behavior\n",
+            "stdout_digest": "sha256:78793af01cff6e67dc252b2093557d39223565d15363acb1810b28133e82d27c",
+            "truncated": false
+          }
+        ],
+        "cleanup": "released",
+        "final_gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "Model profile unavailable; independent model not established"
+          ],
+          "gate": "review",
+          "status": "warnings",
+          "suggested_next": "continue"
+        },
+        "final_report": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "b602a347a64664eec35071e1d27e1ceeb5d7bc37",
+            "digest": "sha256:d3660b7e45a9a19e80ec30e72685f52b2d6facc0a852c4c83653cf5c3b2cc2d4",
+            "files_digest": "sha256:b4565b178a29e44b8775e109bc5c2214401b2fd9982c81ce954402a0db7d6801",
+            "head_commit": "4ab89add62e0a261af7aaac8120329955d497e36",
+            "index_digest": "sha256:fd935df58f9e604a4693d5146efd2a084b3bb6a12e3999ab6072011b7e69ae70"
+          },
+          "checks": [
+            {
+              "evidence": [
+                {
+                  "exit_code": null,
+                  "locator": "consumer.py",
+                  "method": "code",
+                  "observation": "Synthetic reader report; no real model qualification.",
+                  "tool": "synthetic-fixture"
+                }
+              ],
+              "id": "combined-behavior",
+              "reason": "",
+              "result": "passed",
+              "status": "executed"
+            }
+          ],
+          "model": null,
+          "model_profile": "unavailable",
+          "request_digest": "sha256:393ee138ee870b04ce7ab09f1449efaa27902f9ac8be3618a1b3cc648d767269",
+          "round": 1,
+          "session": "shared"
+        },
+        "findings": [],
+        "handoff_digest": "sha256:2a107eb43dfe778824639f1348de89e149c52746f2334cd60f3a0f85b850ef8a",
+        "integration_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "b602a347a64664eec35071e1d27e1ceeb5d7bc37",
+          "digest": "sha256:d3660b7e45a9a19e80ec30e72685f52b2d6facc0a852c4c83653cf5c3b2cc2d4",
+          "files_digest": "sha256:b4565b178a29e44b8775e109bc5c2214401b2fd9982c81ce954402a0db7d6801",
+          "head_commit": "4ab89add62e0a261af7aaac8120329955d497e36",
+          "index_digest": "sha256:fd935df58f9e604a4693d5146efd2a084b3bb6a12e3999ab6072011b7e69ae70"
+        },
+        "integration_head": "4ab89add62e0a261af7aaac8120329955d497e36",
+        "operation": null,
+        "owner": "project-integration",
+        "risks": [],
+        "session": {
+          "marker": {
+            "attempt": "attempt:5a8bf884aecf7cce907334a86ef80898",
+            "handoff_digest": "sha256:2a107eb43dfe778824639f1348de89e149c52746f2334cd60f3a0f85b850ef8a",
+            "owner": "project-integration"
+          },
+          "path": "/tmp/prifly-integration-2a107eb43dfe778824639f1348de89e149c52746f2334cd60f3a0f85b850ef8a"
+        },
+        "source_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "c52741211c7eda686c7a9ad206b9648f1845b302",
+          "digest": "sha256:3e9664b0a2f4cc4148d57a695ba800c6a0e178e7796cba175ab36a05faadf602",
+          "files_digest": "sha256:d56d19919c1dc91033de30dfb8ea58d387ccd7008d83a0f98ae0d320e19db393",
+          "head_commit": "d7bf6af43be5bf869a32dbb89396aea615772ee1",
+          "index_digest": "sha256:6adf9e4a4f4bbcea9fef4c97073ebb903d54fad05ba67854cc5675507ad3a1fd"
+        },
+        "source_gates": [
+          {
+            "gate": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "report_digest": "sha256:d6540d0068b7298b10640bee898624e22492e3b52454f396bd4985490a707bed",
+            "role": "source-command"
+          }
+        ],
+        "status": "ready",
+        "target_commit": "b602a347a64664eec35071e1d27e1ceeb5d7bc37"
+      },
+      "live": [],
+      "elapsed_seconds": 21.32
+    },
+    {
+      "case": "draft-repeat",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "status": "ready",
+      "program_digest": "sha256:64b6823eb090bbd59edf0f5fe87fb08ac4f44cc40f4271baaeb361efe70cde00",
+      "source_preserved": true,
+      "runs": 1,
+      "claim_count": 1,
+      "provider": "offline fixture only",
+      "mr_creations": 1,
+      "assessment": {
+        "checks": [
+          {
+            "argv": [
+              "/usr/bin/python3",
+              "-B",
+              "acceptance.py"
+            ],
+            "exit_code": 0,
+            "id": "regression",
+            "reason": "",
+            "result": "passed",
+            "stderr": "",
+            "stderr_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout": "accepted integrated behavior\n",
+            "stdout_digest": "sha256:78793af01cff6e67dc252b2093557d39223565d15363acb1810b28133e82d27c",
+            "truncated": false
+          }
+        ],
+        "cleanup": "released",
+        "final_gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "Model profile unavailable; independent model not established"
+          ],
+          "gate": "review",
+          "status": "warnings",
+          "suggested_next": "continue"
+        },
+        "final_report": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "0da88314fb8bb032f957ad535d804b294ade1835",
+            "digest": "sha256:d36f7a8c9b7e1fd2c323e24be5f0b6c097f83cee5a77e910a640148a358c3ff5",
+            "files_digest": "sha256:b4565b178a29e44b8775e109bc5c2214401b2fd9982c81ce954402a0db7d6801",
+            "head_commit": "f492b226afa0b4113e3be7b3763ffa671f925c7e",
+            "index_digest": "sha256:fd935df58f9e604a4693d5146efd2a084b3bb6a12e3999ab6072011b7e69ae70"
+          },
+          "checks": [
+            {
+              "evidence": [
+                {
+                  "exit_code": null,
+                  "locator": "consumer.py",
+                  "method": "code",
+                  "observation": "Synthetic reader report; no real model qualification.",
+                  "tool": "synthetic-fixture"
+                }
+              ],
+              "id": "combined-behavior",
+              "reason": "",
+              "result": "passed",
+              "status": "executed"
+            }
+          ],
+          "model": null,
+          "model_profile": "unavailable",
+          "request_digest": "sha256:10c294d670fd77258815d7f9500d8034f73648176ef7622e3cdc498800060fd9",
+          "round": 1,
+          "session": "shared"
+        },
+        "findings": [],
+        "handoff_digest": "sha256:3f12e594eb0fec6ba0a11a9184bdb09fa337acb8668efd51beb8832acdce9f19",
+        "integration_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "0da88314fb8bb032f957ad535d804b294ade1835",
+          "digest": "sha256:d36f7a8c9b7e1fd2c323e24be5f0b6c097f83cee5a77e910a640148a358c3ff5",
+          "files_digest": "sha256:b4565b178a29e44b8775e109bc5c2214401b2fd9982c81ce954402a0db7d6801",
+          "head_commit": "f492b226afa0b4113e3be7b3763ffa671f925c7e",
+          "index_digest": "sha256:fd935df58f9e604a4693d5146efd2a084b3bb6a12e3999ab6072011b7e69ae70"
+        },
+        "integration_head": "f492b226afa0b4113e3be7b3763ffa671f925c7e",
+        "operation": {
+          "body_digest": "sha256:b4cab9ade22e1a276439b040cd0a3c16843ed339085a749567aaf02639dec1fa",
+          "candidate_commit": "370900f24b987155c7fd8f8217d9e1d8b477cf22",
+          "handoff_digest": "sha256:3f12e594eb0fec6ba0a11a9184bdb09fa337acb8668efd51beb8832acdce9f19",
+          "identity": "fixture-one",
+          "observed_target_commit": "0da88314fb8bb032f957ad535d804b294ade1835",
+          "reason": "",
+          "revision": 1,
+          "status": "reused",
+          "target_commit": "0da88314fb8bb032f957ad535d804b294ade1835",
+          "url": "https://gitlab.example.invalid/project/-/merge_requests/1"
+        },
+        "owner": "project-integration",
+        "risks": [],
+        "session": {
+          "marker": {
+            "attempt": "attempt:f2cedcc6dcc94df9ffd3f934196b2e52",
+            "handoff_digest": "sha256:3f12e594eb0fec6ba0a11a9184bdb09fa337acb8668efd51beb8832acdce9f19",
+            "owner": "project-integration"
+          },
+          "path": "/tmp/prifly-integration-3f12e594eb0fec6ba0a11a9184bdb09fa337acb8668efd51beb8832acdce9f19"
+        },
+        "source_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "b46d576fece955fc795f3720eb7873859cb0df3e",
+          "digest": "sha256:2a24d66029f3db567d40e51af3fc9c59b754179057634b58ff51f7c1d68a8f70",
+          "files_digest": "sha256:d56d19919c1dc91033de30dfb8ea58d387ccd7008d83a0f98ae0d320e19db393",
+          "head_commit": "370900f24b987155c7fd8f8217d9e1d8b477cf22",
+          "index_digest": "sha256:6adf9e4a4f4bbcea9fef4c97073ebb903d54fad05ba67854cc5675507ad3a1fd"
+        },
+        "source_gates": [
+          {
+            "gate": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "report_digest": "sha256:f7d46556338f6174de61ec231b8bc859ec299d42c0c37804a2e25169a90a1ff5",
+            "role": "source-command"
+          }
+        ],
+        "status": "ready",
+        "target_commit": "0da88314fb8bb032f957ad535d804b294ade1835"
+      },
+      "live": [],
+      "elapsed_seconds": 17.465
+    },
+    {
+      "case": "draft-lost-ack",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "status": "ready",
+      "program_digest": "sha256:64b6823eb090bbd59edf0f5fe87fb08ac4f44cc40f4271baaeb361efe70cde00",
+      "source_preserved": true,
+      "runs": 1,
+      "claim_count": 1,
+      "provider": "offline fixture only",
+      "mr_creations": 1,
+      "assessment": {
+        "checks": [
+          {
+            "argv": [
+              "/usr/bin/python3",
+              "-B",
+              "acceptance.py"
+            ],
+            "exit_code": 0,
+            "id": "regression",
+            "reason": "",
+            "result": "passed",
+            "stderr": "",
+            "stderr_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout": "accepted integrated behavior\n",
+            "stdout_digest": "sha256:78793af01cff6e67dc252b2093557d39223565d15363acb1810b28133e82d27c",
+            "truncated": false
+          }
+        ],
+        "cleanup": "released",
+        "final_gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "Model profile unavailable; independent model not established"
+          ],
+          "gate": "review",
+          "status": "warnings",
+          "suggested_next": "continue"
+        },
+        "final_report": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "a1d6b6c92822d4a087cc3f901a47eec434dc3de7",
+            "digest": "sha256:f2cbbef02f008530e363d35ecdb36debef710670c9773ecd4afc37913a0d0e5b",
+            "files_digest": "sha256:b4565b178a29e44b8775e109bc5c2214401b2fd9982c81ce954402a0db7d6801",
+            "head_commit": "92adf2fdd70aa34f822b0ce4db226e5e4db45f9e",
+            "index_digest": "sha256:fd935df58f9e604a4693d5146efd2a084b3bb6a12e3999ab6072011b7e69ae70"
+          },
+          "checks": [
+            {
+              "evidence": [
+                {
+                  "exit_code": null,
+                  "locator": "consumer.py",
+                  "method": "code",
+                  "observation": "Synthetic reader report; no real model qualification.",
+                  "tool": "synthetic-fixture"
+                }
+              ],
+              "id": "combined-behavior",
+              "reason": "",
+              "result": "passed",
+              "status": "executed"
+            }
+          ],
+          "model": null,
+          "model_profile": "unavailable",
+          "request_digest": "sha256:cc2b82b9033952e2300e705fb1a5f120d8d43bcd80e0fdc99832522a151c31e6",
+          "round": 1,
+          "session": "shared"
+        },
+        "findings": [],
+        "handoff_digest": "sha256:fc09f8fef953781fe34c95c099b7714468d890f6d764b6d803c9b90ab343fa7c",
+        "integration_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "a1d6b6c92822d4a087cc3f901a47eec434dc3de7",
+          "digest": "sha256:f2cbbef02f008530e363d35ecdb36debef710670c9773ecd4afc37913a0d0e5b",
+          "files_digest": "sha256:b4565b178a29e44b8775e109bc5c2214401b2fd9982c81ce954402a0db7d6801",
+          "head_commit": "92adf2fdd70aa34f822b0ce4db226e5e4db45f9e",
+          "index_digest": "sha256:fd935df58f9e604a4693d5146efd2a084b3bb6a12e3999ab6072011b7e69ae70"
+        },
+        "integration_head": "92adf2fdd70aa34f822b0ce4db226e5e4db45f9e",
+        "operation": {
+          "body_digest": "sha256:b4cab9ade22e1a276439b040cd0a3c16843ed339085a749567aaf02639dec1fa",
+          "candidate_commit": "c53a4db9d7d908d1712234bb8737a1766335dfba",
+          "handoff_digest": "sha256:fc09f8fef953781fe34c95c099b7714468d890f6d764b6d803c9b90ab343fa7c",
+          "identity": "fixture-one",
+          "observed_target_commit": "a1d6b6c92822d4a087cc3f901a47eec434dc3de7",
+          "reason": "Write acknowledgement lost; existing MR inspected",
+          "revision": 1,
+          "status": "reused",
+          "target_commit": "a1d6b6c92822d4a087cc3f901a47eec434dc3de7",
+          "url": "https://gitlab.example.invalid/project/-/merge_requests/1"
+        },
+        "owner": "project-integration",
+        "risks": [],
+        "session": {
+          "marker": {
+            "attempt": "attempt:96a1ca1278c09a9613160ede246e6f04",
+            "handoff_digest": "sha256:fc09f8fef953781fe34c95c099b7714468d890f6d764b6d803c9b90ab343fa7c",
+            "owner": "project-integration"
+          },
+          "path": "/tmp/prifly-integration-fc09f8fef953781fe34c95c099b7714468d890f6d764b6d803c9b90ab343fa7c"
+        },
+        "source_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "1d5ee1958bbc6162c12f88ab805870e8ee89ed27",
+          "digest": "sha256:b13a2e6c1e3e69e425e5582e354754b789daf0690686334c7aee354de1ba0623",
+          "files_digest": "sha256:d56d19919c1dc91033de30dfb8ea58d387ccd7008d83a0f98ae0d320e19db393",
+          "head_commit": "c53a4db9d7d908d1712234bb8737a1766335dfba",
+          "index_digest": "sha256:6adf9e4a4f4bbcea9fef4c97073ebb903d54fad05ba67854cc5675507ad3a1fd"
+        },
+        "source_gates": [
+          {
+            "gate": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "report_digest": "sha256:6cf5f16d9aa4b291afa7f09235ba2208e34cf26e99f96e662bb882c4d1c4a10d",
+            "role": "source-command"
+          }
+        ],
+        "status": "ready",
+        "target_commit": "a1d6b6c92822d4a087cc3f901a47eec434dc3de7"
+      },
+      "live": [],
+      "elapsed_seconds": 17.886
+    },
+    {
+      "case": "draft-format",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "status": "reconcile_required",
+      "program_digest": "sha256:64b6823eb090bbd59edf0f5fe87fb08ac4f44cc40f4271baaeb361efe70cde00",
+      "source_preserved": true,
+      "runs": 1,
+      "claim_count": 1,
+      "provider": "offline fixture only",
+      "mr_creations": 1,
+      "assessment": {
+        "checks": [
+          {
+            "argv": [
+              "/usr/bin/python3",
+              "-B",
+              "acceptance.py"
+            ],
+            "exit_code": 0,
+            "id": "regression",
+            "reason": "",
+            "result": "passed",
+            "stderr": "",
+            "stderr_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout": "accepted integrated behavior\n",
+            "stdout_digest": "sha256:78793af01cff6e67dc252b2093557d39223565d15363acb1810b28133e82d27c",
+            "truncated": false
+          }
+        ],
+        "cleanup": "reconcile_required",
+        "final_gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "Model profile unavailable; independent model not established"
+          ],
+          "gate": "review",
+          "status": "warnings",
+          "suggested_next": "continue"
+        },
+        "final_report": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "4d4c6cce6218ff0ea8d3b1993d9acce282967934",
+            "digest": "sha256:0ab2f2be004e6225cd8bf2f5a72af81597f21fdcac7b773f5fb5868e629fd817",
+            "files_digest": "sha256:c472f225681bbc2916956202ca47d50967fa9a857b9f06e32f157e5f085b673f",
+            "head_commit": "9935c1c617f88582e2a2e79e1783b0705514d7d6",
+            "index_digest": "sha256:8eb51187a5d3f8b4565eae13887ea1097460dcf2ea9987dff9472c33658d4d22"
+          },
+          "checks": [
+            {
+              "evidence": [
+                {
+                  "exit_code": null,
+                  "locator": "consumer.py",
+                  "method": "code",
+                  "observation": "Synthetic reader report; no real model qualification.",
+                  "tool": "synthetic-fixture"
+                }
+              ],
+              "id": "combined-behavior",
+              "reason": "",
+              "result": "passed",
+              "status": "executed"
+            }
+          ],
+          "model": null,
+          "model_profile": "unavailable",
+          "request_digest": "sha256:88a64bb39778740fc5021f4d020a23ae0e099a44deafe070ae1d418e5978be87",
+          "round": 1,
+          "session": "shared"
+        },
+        "findings": [
+          "External publication requires reconciliation: MR exists; post-write identity/format validation failed"
+        ],
+        "handoff_digest": "sha256:6c01a711a4a2448707372e6b6ba534e650f5fb54177c87fb9b9d6e4dc7f196ae",
+        "integration_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "4d4c6cce6218ff0ea8d3b1993d9acce282967934",
+          "digest": "sha256:0ab2f2be004e6225cd8bf2f5a72af81597f21fdcac7b773f5fb5868e629fd817",
+          "files_digest": "sha256:c472f225681bbc2916956202ca47d50967fa9a857b9f06e32f157e5f085b673f",
+          "head_commit": "9935c1c617f88582e2a2e79e1783b0705514d7d6",
+          "index_digest": "sha256:8eb51187a5d3f8b4565eae13887ea1097460dcf2ea9987dff9472c33658d4d22"
+        },
+        "integration_head": "9935c1c617f88582e2a2e79e1783b0705514d7d6",
+        "operation": {
+          "body_digest": "sha256:b4cab9ade22e1a276439b040cd0a3c16843ed339085a749567aaf02639dec1fa",
+          "candidate_commit": "400db8c950c095cedb5502cd43d9026d7bac7176",
+          "handoff_digest": "sha256:6c01a711a4a2448707372e6b6ba534e650f5fb54177c87fb9b9d6e4dc7f196ae",
+          "identity": "fixture-one",
+          "observed_target_commit": "4d4c6cce6218ff0ea8d3b1993d9acce282967934",
+          "reason": "MR exists; post-write identity/format validation failed",
+          "revision": 1,
+          "status": "reconcile_required",
+          "target_commit": "4d4c6cce6218ff0ea8d3b1993d9acce282967934",
+          "url": "https://gitlab.example.invalid/project/-/merge_requests/1"
+        },
+        "owner": "project-integration",
+        "risks": [],
+        "session": {
+          "marker": {
+            "attempt": "attempt:b00fb028bbf46b9a0daecb4fcb95d804",
+            "handoff_digest": "sha256:6c01a711a4a2448707372e6b6ba534e650f5fb54177c87fb9b9d6e4dc7f196ae",
+            "owner": "project-integration"
+          },
+          "path": "/tmp/prifly-integration-6c01a711a4a2448707372e6b6ba534e650f5fb54177c87fb9b9d6e4dc7f196ae"
+        },
+        "source_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "28e747dad6e5cb1450b89eb981afe861532ed1b4",
+          "digest": "sha256:0ccbea7fab55d87a31cf2755483d2c0b9fb2cb14ae65fc05ef22588b5f800eef",
+          "files_digest": "sha256:d3611a8dc2737845e41e00aa1da01e4e6f0fea33d05e468590b060f67925ed29",
+          "head_commit": "400db8c950c095cedb5502cd43d9026d7bac7176",
+          "index_digest": "sha256:ece60649f522664cb84e1170fd28ca731c37b0683e11a44ad913b226936c978d"
+        },
+        "source_gates": [
+          {
+            "gate": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "report_digest": "sha256:b4200c9a8393ce7f688b75334369a7f78a8be7437c4454c7f86f1d100ab8a152",
+            "role": "source-command"
+          }
+        ],
+        "status": "reconcile_required",
+        "target_commit": "4d4c6cce6218ff0ea8d3b1993d9acce282967934"
+      },
+      "live": [],
+      "elapsed_seconds": 18.277
+    },
+    {
+      "case": "draft-unknown",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "status": "reconcile_required",
+      "program_digest": "sha256:64b6823eb090bbd59edf0f5fe87fb08ac4f44cc40f4271baaeb361efe70cde00",
+      "source_preserved": true,
+      "runs": 1,
+      "claim_count": 1,
+      "provider": "offline fixture only",
+      "mr_creations": 1,
+      "assessment": {
+        "checks": [
+          {
+            "argv": [
+              "/usr/bin/python3",
+              "-B",
+              "acceptance.py"
+            ],
+            "exit_code": 0,
+            "id": "regression",
+            "reason": "",
+            "result": "passed",
+            "stderr": "",
+            "stderr_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout": "accepted integrated behavior\n",
+            "stdout_digest": "sha256:78793af01cff6e67dc252b2093557d39223565d15363acb1810b28133e82d27c",
+            "truncated": false
+          }
+        ],
+        "cleanup": "reconcile_required",
+        "final_gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "Model profile unavailable; independent model not established"
+          ],
+          "gate": "review",
+          "status": "warnings",
+          "suggested_next": "continue"
+        },
+        "final_report": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "1c765c034858338fc2560c106296349e637abc11",
+            "digest": "sha256:fd74c3db7b3a42479b13376d4b7c05244b7f75d81b4152a991bc1779997cb937",
+            "files_digest": "sha256:c472f225681bbc2916956202ca47d50967fa9a857b9f06e32f157e5f085b673f",
+            "head_commit": "a997e65ad87e07fc24f52625f636b89f44c7a4cb",
+            "index_digest": "sha256:8eb51187a5d3f8b4565eae13887ea1097460dcf2ea9987dff9472c33658d4d22"
+          },
+          "checks": [
+            {
+              "evidence": [
+                {
+                  "exit_code": null,
+                  "locator": "consumer.py",
+                  "method": "code",
+                  "observation": "Synthetic reader report; no real model qualification.",
+                  "tool": "synthetic-fixture"
+                }
+              ],
+              "id": "combined-behavior",
+              "reason": "",
+              "result": "passed",
+              "status": "executed"
+            }
+          ],
+          "model": null,
+          "model_profile": "unavailable",
+          "request_digest": "sha256:d2cba8a0e41b644a1df589fb5adbfa4a4c6706a4b3cbdfc976285e81256e0f79",
+          "round": 1,
+          "session": "shared"
+        },
+        "findings": [
+          "External publication requires reconciliation: Provider acknowledgement/state unavailable"
+        ],
+        "handoff_digest": "sha256:21a4c48981c2a86330b4001679525bdaae4b51f54d73aa331dbd92128453db3a",
+        "integration_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "1c765c034858338fc2560c106296349e637abc11",
+          "digest": "sha256:fd74c3db7b3a42479b13376d4b7c05244b7f75d81b4152a991bc1779997cb937",
+          "files_digest": "sha256:c472f225681bbc2916956202ca47d50967fa9a857b9f06e32f157e5f085b673f",
+          "head_commit": "a997e65ad87e07fc24f52625f636b89f44c7a4cb",
+          "index_digest": "sha256:8eb51187a5d3f8b4565eae13887ea1097460dcf2ea9987dff9472c33658d4d22"
+        },
+        "integration_head": "a997e65ad87e07fc24f52625f636b89f44c7a4cb",
+        "operation": {
+          "body_digest": "sha256:b4cab9ade22e1a276439b040cd0a3c16843ed339085a749567aaf02639dec1fa",
+          "candidate_commit": "0aa38e80f00304a5fa3da317a6acc1f16aaf6638",
+          "handoff_digest": "sha256:21a4c48981c2a86330b4001679525bdaae4b51f54d73aa331dbd92128453db3a",
+          "identity": "fixture-one",
+          "observed_target_commit": "1c765c034858338fc2560c106296349e637abc11",
+          "reason": "Provider acknowledgement/state unavailable",
+          "revision": 1,
+          "status": "reconcile_required",
+          "target_commit": "1c765c034858338fc2560c106296349e637abc11",
+          "url": null
+        },
+        "owner": "project-integration",
+        "risks": [],
+        "session": {
+          "marker": {
+            "attempt": "attempt:37f3fe358b746db03f87fd54f9086372",
+            "handoff_digest": "sha256:21a4c48981c2a86330b4001679525bdaae4b51f54d73aa331dbd92128453db3a",
+            "owner": "project-integration"
+          },
+          "path": "/tmp/prifly-integration-21a4c48981c2a86330b4001679525bdaae4b51f54d73aa331dbd92128453db3a"
+        },
+        "source_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "07b216a8514512804da2ef884283b9f3f1d2ead4",
+          "digest": "sha256:cde2985cde38b24a7072361455aa83cfaccab622a0090e4e5fa2f1cab8b5116d",
+          "files_digest": "sha256:d3611a8dc2737845e41e00aa1da01e4e6f0fea33d05e468590b060f67925ed29",
+          "head_commit": "0aa38e80f00304a5fa3da317a6acc1f16aaf6638",
+          "index_digest": "sha256:ece60649f522664cb84e1170fd28ca731c37b0683e11a44ad913b226936c978d"
+        },
+        "source_gates": [
+          {
+            "gate": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "report_digest": "sha256:a93dd03a6fbf22a4ae132f5852fdcd9410a0ddc8d851278ef4cd29c6807a8edc",
+            "role": "source-command"
+          }
+        ],
+        "status": "reconcile_required",
+        "target_commit": "1c765c034858338fc2560c106296349e637abc11"
+      },
+      "live": [],
+      "elapsed_seconds": 17.529
+    },
+    {
+      "case": "draft-no-receipt",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "status": "reconcile_required",
+      "program_digest": "sha256:64b6823eb090bbd59edf0f5fe87fb08ac4f44cc40f4271baaeb361efe70cde00",
+      "source_preserved": true,
+      "runs": 1,
+      "claim_count": 1,
+      "provider": "offline fixture only",
+      "mr_creations": 1,
+      "assessment": {
+        "checks": [
+          {
+            "argv": [
+              "/usr/bin/python3",
+              "-B",
+              "acceptance.py"
+            ],
+            "exit_code": 0,
+            "id": "regression",
+            "reason": "",
+            "result": "passed",
+            "stderr": "",
+            "stderr_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout": "accepted integrated behavior\n",
+            "stdout_digest": "sha256:78793af01cff6e67dc252b2093557d39223565d15363acb1810b28133e82d27c",
+            "truncated": false
+          }
+        ],
+        "cleanup": "reconcile_required",
+        "final_gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "Model profile unavailable; independent model not established"
+          ],
+          "gate": "review",
+          "status": "warnings",
+          "suggested_next": "continue"
+        },
+        "final_report": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "a9f40fa6b244e2f2db5f6a67f0f4f6fd8edcfe53",
+            "digest": "sha256:5847279ac19a5fd8fe609ee2a212592cf9a41e0feeb24b63d764a66d6d41825c",
+            "files_digest": "sha256:c472f225681bbc2916956202ca47d50967fa9a857b9f06e32f157e5f085b673f",
+            "head_commit": "0cd8b909a650ed3051a4b258ecb954343caa7b54",
+            "index_digest": "sha256:8eb51187a5d3f8b4565eae13887ea1097460dcf2ea9987dff9472c33658d4d22"
+          },
+          "checks": [
+            {
+              "evidence": [
+                {
+                  "exit_code": null,
+                  "locator": "consumer.py",
+                  "method": "code",
+                  "observation": "Synthetic reader report; no real model qualification.",
+                  "tool": "synthetic-fixture"
+                }
+              ],
+              "id": "combined-behavior",
+              "reason": "",
+              "result": "passed",
+              "status": "executed"
+            }
+          ],
+          "model": null,
+          "model_profile": "unavailable",
+          "request_digest": "sha256:f60381a117a5ce6e1e0240c09287732ceb517b6782215623a3023c8db4bc2643",
+          "round": 1,
+          "session": "shared"
+        },
+        "findings": [
+          "Publication host produced no receipt; inspect external identity before any retry"
+        ],
+        "handoff_digest": "sha256:94150234ad896c89b9483d9fbd6d67f86c82f6be5f405d580931c576216cceaa",
+        "integration_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "a9f40fa6b244e2f2db5f6a67f0f4f6fd8edcfe53",
+          "digest": "sha256:5847279ac19a5fd8fe609ee2a212592cf9a41e0feeb24b63d764a66d6d41825c",
+          "files_digest": "sha256:c472f225681bbc2916956202ca47d50967fa9a857b9f06e32f157e5f085b673f",
+          "head_commit": "0cd8b909a650ed3051a4b258ecb954343caa7b54",
+          "index_digest": "sha256:8eb51187a5d3f8b4565eae13887ea1097460dcf2ea9987dff9472c33658d4d22"
+        },
+        "integration_head": "0cd8b909a650ed3051a4b258ecb954343caa7b54",
+        "operation": null,
+        "owner": "project-integration",
+        "risks": [],
+        "session": {
+          "marker": {
+            "attempt": "attempt:451c3ef96ab2b9bb48a588526cdd5b83",
+            "handoff_digest": "sha256:94150234ad896c89b9483d9fbd6d67f86c82f6be5f405d580931c576216cceaa",
+            "owner": "project-integration"
+          },
+          "path": "/tmp/prifly-integration-94150234ad896c89b9483d9fbd6d67f86c82f6be5f405d580931c576216cceaa"
+        },
+        "source_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "00f969e49fa74ab3357b2cea5870591acdc1c953",
+          "digest": "sha256:0b9432a704ef60653b571a00d506e864093beeb1e72b66e2798feca8a4a5527d",
+          "files_digest": "sha256:d3611a8dc2737845e41e00aa1da01e4e6f0fea33d05e468590b060f67925ed29",
+          "head_commit": "b9535b72159f3d192278b6efad50cbcab4fbe073",
+          "index_digest": "sha256:ece60649f522664cb84e1170fd28ca731c37b0683e11a44ad913b226936c978d"
+        },
+        "source_gates": [
+          {
+            "gate": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "report_digest": "sha256:ca5f1ac3413dfe81d2626c5df7a77c2a7c565882b5bd2db26f90b8a4aa61102f",
+            "role": "source-command"
+          }
+        ],
+        "status": "reconcile_required",
+        "target_commit": "a9f40fa6b244e2f2db5f6a67f0f4f6fd8edcfe53"
+      },
+      "live": [],
+      "elapsed_seconds": 15.869
+    },
+    {
+      "case": "draft-reentry",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "status": "reconcile_required",
+      "program_digest": "sha256:64b6823eb090bbd59edf0f5fe87fb08ac4f44cc40f4271baaeb361efe70cde00",
+      "source_preserved": true,
+      "runs": 2,
+      "claim_count": 1,
+      "provider": "offline fixture only",
+      "mr_creations": 1,
+      "assessment": {
+        "checks": [],
+        "cleanup": "reconcile_required",
+        "final_gate": null,
+        "final_report": null,
+        "findings": [
+          "Previous owned integration session remains; inspect/reconcile/release it before re-entry"
+        ],
+        "handoff_digest": "sha256:bbab15cf891a432a4a21f6b0e8dfaa47006a08e788a52d580cfa7e401ad03042",
+        "integration_candidate": null,
+        "integration_head": null,
+        "operation": null,
+        "owner": "project-integration",
+        "risks": [],
+        "session": {
+          "marker": {
+            "attempt": "attempt:c30287f4a094a5b60629c0613c7c95ff",
+            "handoff_digest": "sha256:bbab15cf891a432a4a21f6b0e8dfaa47006a08e788a52d580cfa7e401ad03042",
+            "owner": "project-integration"
+          },
+          "path": "/tmp/prifly-integration-bbab15cf891a432a4a21f6b0e8dfaa47006a08e788a52d580cfa7e401ad03042"
+        },
+        "source_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "2f6e17c0724215052e6d0dc148fb6639067ff1e9",
+          "digest": "sha256:c54f3554ea2c856f172a5493dd7140a8815bf9ee70935d4d881a76f2af408e44",
+          "files_digest": "sha256:d3611a8dc2737845e41e00aa1da01e4e6f0fea33d05e468590b060f67925ed29",
+          "head_commit": "85412c7aa6fb841094e9309216bd16c50532f90f",
+          "index_digest": "sha256:ece60649f522664cb84e1170fd28ca731c37b0683e11a44ad913b226936c978d"
+        },
+        "source_gates": [
+          {
+            "gate": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "report_digest": "sha256:7bc57eb5f71bbd7fa28df6a84ca10aa67df383cc617157a9711e1c02659b6655",
+            "role": "source-command"
+          }
+        ],
+        "status": "reconcile_required",
+        "target_commit": "03efaf3d8fb34f4864a0fa9f7d850a3f187472e8"
+      },
+      "live": [],
+      "elapsed_seconds": 26.41
+    },
+    {
+      "case": "assess",
+      "host": "codex-app",
+      "outcome": "succeeded",
+      "status": "ready",
+      "program_digest": "sha256:64b6823eb090bbd59edf0f5fe87fb08ac4f44cc40f4271baaeb361efe70cde00",
+      "source_preserved": true,
+      "runs": 1,
+      "claim_count": 1,
+      "provider": null,
+      "mr_creations": 0,
+      "assessment": {
+        "checks": [
+          {
+            "argv": [
+              "/usr/bin/python3",
+              "-B",
+              "acceptance.py"
+            ],
+            "exit_code": 0,
+            "id": "regression",
+            "reason": "",
+            "result": "passed",
+            "stderr": "",
+            "stderr_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout": "accepted integrated behavior\n",
+            "stdout_digest": "sha256:78793af01cff6e67dc252b2093557d39223565d15363acb1810b28133e82d27c",
+            "truncated": false
+          }
+        ],
+        "cleanup": "released",
+        "final_gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "Model profile unavailable; independent model not established"
+          ],
+          "gate": "review",
+          "status": "warnings",
+          "suggested_next": "continue"
+        },
+        "final_report": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "7b5bd64bfe4ea3cf7d270559a465d6453512c09b",
+            "digest": "sha256:0d239cb89d79a66ba515ecf0012d565dee37fee814d4c3c773185a28cca379bf",
+            "files_digest": "sha256:c472f225681bbc2916956202ca47d50967fa9a857b9f06e32f157e5f085b673f",
+            "head_commit": "e5fa53cd4e5a653f64440de452e9d0be69ffa4aa",
+            "index_digest": "sha256:8eb51187a5d3f8b4565eae13887ea1097460dcf2ea9987dff9472c33658d4d22"
+          },
+          "checks": [
+            {
+              "evidence": [
+                {
+                  "exit_code": null,
+                  "locator": "consumer.py",
+                  "method": "code",
+                  "observation": "Synthetic reader report; no real model qualification.",
+                  "tool": "synthetic-fixture"
+                }
+              ],
+              "id": "combined-behavior",
+              "reason": "",
+              "result": "passed",
+              "status": "executed"
+            }
+          ],
+          "model": null,
+          "model_profile": "unavailable",
+          "request_digest": "sha256:92bef0031a522daa7c4a0a1d19b29c9712ae99ff51fb2ccf4c3eaaeecb62de69",
+          "round": 1,
+          "session": "shared"
+        },
+        "findings": [],
+        "handoff_digest": "sha256:f53041e42a6ed845813cb720b8dc17b1537857444400299a3ae5fd4721f8c2c1",
+        "integration_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "7b5bd64bfe4ea3cf7d270559a465d6453512c09b",
+          "digest": "sha256:0d239cb89d79a66ba515ecf0012d565dee37fee814d4c3c773185a28cca379bf",
+          "files_digest": "sha256:c472f225681bbc2916956202ca47d50967fa9a857b9f06e32f157e5f085b673f",
+          "head_commit": "e5fa53cd4e5a653f64440de452e9d0be69ffa4aa",
+          "index_digest": "sha256:8eb51187a5d3f8b4565eae13887ea1097460dcf2ea9987dff9472c33658d4d22"
+        },
+        "integration_head": "e5fa53cd4e5a653f64440de452e9d0be69ffa4aa",
+        "operation": null,
+        "owner": "project-integration",
+        "risks": [],
+        "session": {
+          "marker": {
+            "attempt": "attempt:3eb578c7b71fddbcc237701793643358",
+            "handoff_digest": "sha256:f53041e42a6ed845813cb720b8dc17b1537857444400299a3ae5fd4721f8c2c1",
+            "owner": "project-integration"
+          },
+          "path": "/tmp/prifly-integration-f53041e42a6ed845813cb720b8dc17b1537857444400299a3ae5fd4721f8c2c1"
+        },
+        "source_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "59b70a017b87d8c5099706caf92194e633903ded",
+          "digest": "sha256:25c039783cf07af3ea66d561714852c32cd41051675ee613ab07acc02913c683",
+          "files_digest": "sha256:d3611a8dc2737845e41e00aa1da01e4e6f0fea33d05e468590b060f67925ed29",
+          "head_commit": "8f332fdc31d03e987cea77828d0f0e46292baba7",
+          "index_digest": "sha256:ece60649f522664cb84e1170fd28ca731c37b0683e11a44ad913b226936c978d"
+        },
+        "source_gates": [
+          {
+            "gate": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "report_digest": "sha256:6b19c5613bf61a883afd74c601c6a36dd33eac882fc1c5fb3205553a50433147",
+            "role": "source-command"
+          }
+        ],
+        "status": "ready",
+        "target_commit": "7b5bd64bfe4ea3cf7d270559a465d6453512c09b"
+      },
+      "live": [],
+      "elapsed_seconds": 13.947
+    },
+    {
+      "case": "assess",
+      "host": "claude-code",
+      "outcome": "succeeded",
+      "status": "ready",
+      "program_digest": "sha256:64b6823eb090bbd59edf0f5fe87fb08ac4f44cc40f4271baaeb361efe70cde00",
+      "source_preserved": true,
+      "runs": 1,
+      "claim_count": 1,
+      "provider": null,
+      "mr_creations": 0,
+      "assessment": {
+        "checks": [
+          {
+            "argv": [
+              "/usr/bin/python3",
+              "-B",
+              "acceptance.py"
+            ],
+            "exit_code": 0,
+            "id": "regression",
+            "reason": "",
+            "result": "passed",
+            "stderr": "",
+            "stderr_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout": "accepted integrated behavior\n",
+            "stdout_digest": "sha256:78793af01cff6e67dc252b2093557d39223565d15363acb1810b28133e82d27c",
+            "truncated": false
+          }
+        ],
+        "cleanup": "released",
+        "final_gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "Model profile unavailable; independent model not established"
+          ],
+          "gate": "review",
+          "status": "warnings",
+          "suggested_next": "continue"
+        },
+        "final_report": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "8957790ce90eb3e581eed553da1955096a213e77",
+            "digest": "sha256:d984386b5054ad7d53aae6e21b227ce0d03585d99c85bc9fed8c6d6c7acc41f2",
+            "files_digest": "sha256:c472f225681bbc2916956202ca47d50967fa9a857b9f06e32f157e5f085b673f",
+            "head_commit": "8efa6d01250e89bc97d66d264e559a5e90dabb6e",
+            "index_digest": "sha256:8eb51187a5d3f8b4565eae13887ea1097460dcf2ea9987dff9472c33658d4d22"
+          },
+          "checks": [
+            {
+              "evidence": [
+                {
+                  "exit_code": null,
+                  "locator": "consumer.py",
+                  "method": "code",
+                  "observation": "Synthetic reader report; no real model qualification.",
+                  "tool": "synthetic-fixture"
+                }
+              ],
+              "id": "combined-behavior",
+              "reason": "",
+              "result": "passed",
+              "status": "executed"
+            }
+          ],
+          "model": null,
+          "model_profile": "unavailable",
+          "request_digest": "sha256:840416cfe07b245cf730cee06e052705c4f956a66c321206f0c5ddd0acac3b65",
+          "round": 1,
+          "session": "shared"
+        },
+        "findings": [],
+        "handoff_digest": "sha256:ad1f00f4477be682b46f9666bdc6fcc17175b7174c9f387023b1c1ab72e44aa6",
+        "integration_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "8957790ce90eb3e581eed553da1955096a213e77",
+          "digest": "sha256:d984386b5054ad7d53aae6e21b227ce0d03585d99c85bc9fed8c6d6c7acc41f2",
+          "files_digest": "sha256:c472f225681bbc2916956202ca47d50967fa9a857b9f06e32f157e5f085b673f",
+          "head_commit": "8efa6d01250e89bc97d66d264e559a5e90dabb6e",
+          "index_digest": "sha256:8eb51187a5d3f8b4565eae13887ea1097460dcf2ea9987dff9472c33658d4d22"
+        },
+        "integration_head": "8efa6d01250e89bc97d66d264e559a5e90dabb6e",
+        "operation": null,
+        "owner": "project-integration",
+        "risks": [],
+        "session": {
+          "marker": {
+            "attempt": "attempt:236d7168f645c45a81443e4987b845f5",
+            "handoff_digest": "sha256:ad1f00f4477be682b46f9666bdc6fcc17175b7174c9f387023b1c1ab72e44aa6",
+            "owner": "project-integration"
+          },
+          "path": "/tmp/prifly-integration-ad1f00f4477be682b46f9666bdc6fcc17175b7174c9f387023b1c1ab72e44aa6"
+        },
+        "source_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "f1a2caad2a738523eb937b7e89bf043025926c26",
+          "digest": "sha256:31d8f7dca7285810967d2a193520b9a103a4237c4c069c6a020c4c0b180a3aa4",
+          "files_digest": "sha256:d3611a8dc2737845e41e00aa1da01e4e6f0fea33d05e468590b060f67925ed29",
+          "head_commit": "87312789deb413cf131144a81213952801b6436c",
+          "index_digest": "sha256:ece60649f522664cb84e1170fd28ca731c37b0683e11a44ad913b226936c978d"
+        },
+        "source_gates": [
+          {
+            "gate": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "report_digest": "sha256:3de8be287e05c172c02256d672a72911e556d45a5423430c724098bc87566352",
+            "role": "source-command"
+          }
+        ],
+        "status": "ready",
+        "target_commit": "8957790ce90eb3e581eed553da1955096a213e77"
+      },
+      "live": [],
+      "elapsed_seconds": 11.807
+    }
+  ]
+}

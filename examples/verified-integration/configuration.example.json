@@ -1,0 +1,60 @@
+{
+  "owner": "project-integration",
+  "candidate_commit": "0000000000000000000000000000000000000000",
+  "target": {
+    "repository": "/absolute/local-origin.git",
+    "ref": "refs/heads/main",
+    "commit": "0000000000000000000000000000000000000000"
+  },
+  "mode": "assess",
+  "integrated_checks": [
+    {
+      "id": "regression",
+      "description": "Run the project acceptance command on the exact integrated code.",
+      "argv": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover"
+      ],
+      "timeout_seconds": 60
+    }
+  ],
+  "spot_checks": [
+    {
+      "id": "combined-behavior",
+      "description": "Inspect the merged implementation and its callers against the feature acceptance criteria.",
+      "method": "code",
+      "required": true,
+      "enabled": true,
+      "applicable": true
+    }
+  ],
+  "policy": {
+    "escalation_paths": {
+      "auth_money": [
+        "auth/**",
+        "payments/**"
+      ],
+      "migrations": [
+        "migrations/**"
+      ],
+      "dependencies": [
+        "requirements*.txt",
+        "package*.json",
+        "*-lock.*"
+      ],
+      "deploy": [
+        "deploy/**",
+        ".github/workflows/**"
+      ],
+      "business_assumptions": []
+    },
+    "declared_risks": []
+  },
+  "risk_approval": null,
+  "require_separate_session": false,
+  "optional_policy": "ignore",
+  "publication": null
+}

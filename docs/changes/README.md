@@ -1,13 +1,15 @@
 # План изменений workflow после сравнения с Software Factory
 
-Дата: 2026-10-14. W1: **committed/pushed, CI PASS**; W2: **committed/pushed, CI и fresh CLI acceptance PASS**; W3–W5: **proposed**. Выпуск не выполнен.
+Дата: 2026-10-15. W1–W3: **committed/pushed, CI PASS**, с отдельными live observations;
+W4: **implemented, locally pilot qualified**; W5: **proposed**. Выпуск не выполнен.
 База: released Pri-Fly **0.13.76**, пакеты этого репозитория **v1.51.2**.
 Stable проверен перед оформлением: новых выпусков нет. Это не новый прогон ворот.
 
 В этом репозитории нет инициализированного OpenSpec-проекта. Change хранятся
 как репозиторная документация: `proposal.md` задаёт объём и критерии приёмки,
 `design.md` — решения и границы, `tasks.md` — ещё не выполненные работы.
-Документы change описывают scope; executable реализации W1/W2 находятся в отдельных новых папках.
+Документы change описывают scope; executable реализации W1–W3 находятся в отдельных
+новых папках, W4 — в standalone project example `examples/verified-integration`.
 
 ## Реестр
 
@@ -15,8 +17,8 @@ Stable проверен перед оформлением: новых выпус
 |---|---|---|---|---|
 | W1 | P1, первым | [Явные доказательства ревью](add-explicit-review-evidence/proposal.md) | Нет; безопасный baseline обязателен там, где используется | committed/pushed, CI PASS / unreleased |
 | W2 | P1 | [UI/UX-компоненты](add-ui-ux-review-components/proposal.md) | W1; standalone контракт среды из #2 | committed/pushed, CI + fresh CLI PASS; model/consumer limits / unreleased |
-| W3 | P1 | [Короткий workflow для фич](add-bounded-feature-workflow/proposal.md) | W1; W2 для интерфейсного профиля | proposed |
-| W4 | P1/P2 | [Приёмка перед интеграцией](document-verified-integration-handoff/proposal.md) | W1; проектный интегратор, #1 при GitLab | proposed |
+| W3 | P1 | [Короткий workflow для фич](add-bounded-feature-workflow/proposal.md) | W1; W2 для интерфейсного профиля | committed/pushed, CI + live PASS; forced writer cancel deferred / unreleased |
+| W4 | P1/P2 | [Приёмка перед интеграцией](document-verified-integration-handoff/proposal.md) | W1; проектный интегратор, #1 при GitLab | implemented, locally pilot qualified; real provider limits / unreleased |
 | W5 | P2 | [Квалификация параллельного ревью](qualify-parallel-implementation-review/proposal.md) | W1, W2, W3; сначала последовательная приёмка | proposed |
 
 Каждый change выпускается отдельно с собственным bump изменённых компонентов,
@@ -56,8 +58,12 @@ W1–W4 не зависят от E1/E2. Не добавляем обязател
   [сохранённый issue body](engine/E1-run-board.md). Статус: open, P2.
 - [E2: Pri-Fly #5 — локальная очередь](https://github.com/StenHigh/prifly/issues/5),
   [сохранённый issue body](engine/E2-task-queue.md). Статус: open, P3.
-- E3 пока не создаётся: основание — только результаты W5, если stable не
-  предоставляет нужную передачу независимых Attempts, join, cancel или recovery.
+- [E3: prepared writer-cancellation follow-up](add-bounded-feature-workflow/engine-followup.md)
+  воспроизведён в W3: resolved cancelled writer ещё не допускает reviewed continue
+  (`recover_source_unsettled`). Issue body подготовлен локально, issue не опубликован;
+  ordinary partial/read-only cancellation W3/W4 эту возможность не требуют.
+  Дополнительные engine issues по W5 нужны только при воспроизводимом отсутствии
+  контракта independent Attempts, join, cancel или recovery.
 
 В Pri-Fly 0.13.76 уже есть monitor, title задачи, `parallel`/join, ресурсы,
 model-profile reports и одна типизированная привязка входа extension. Не

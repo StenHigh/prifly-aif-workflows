@@ -1,0 +1,198 @@
+authoring: prifly-project-workflow/1
+package:
+  id: aif-integration:package/verified-integration-example
+  version: 1.0.0
+  description: 'Project example: acceptance of exact merged code before a separate
+    local or Draft operation.'
+  requires_core_protocol: '1'
+  references:
+    process: core:adapter/local-process@2.0.0
+    session: core:adapter/assisted-session@1.0.0
+    policy: core:policy/local@4.0.0
+    result: core:schema/step-result@1.0.0
+    result_v2: core:schema/step-result@2.0.0
+id: aif-integration:workflow/verified-integration
+schema_version: '8'
+version: 1.0.0
+title: Verified project integration example
+refs:
+  schema_handoff: '{{schema_handoff}}'
+  schema_assessment: '{{schema_assessment}}'
+  step_configure: '{{step_configure}}'
+  workflow_assessment: '{{workflow_assessment}}'
+  policy: '{{policy}}'
+inputs:
+  handoff:
+    schema_ref: schema_handoff
+outputs:
+  assessment:
+    schema_ref: schema_assessment
+    required_for:
+    - succeeded
+    - partial
+policy_ref: policy
+resumable:
+  from_outcomes:
+  - partial
+  - rejected
+  from_cancelled: true
+entry: configure
+limits:
+  max_step_instances: 9
+  max_control_transitions: 38
+  max_parallelism: 1
+  max_child_depth: 2
+stages:
+  configure:
+    kind: step
+    step_ref: step_configure
+    input_bindings:
+      handoff: $inputs.handoff
+    'on':
+      pass: assessment
+      needs_revision: abandoned
+      fail: abandoned
+      no_work: abandoned
+    impossible_verdicts:
+    - blocked
+  assessment:
+    kind: call
+    workflow_ref: workflow_assessment
+    input_bindings:
+      handoff: $stages.configure.handoff
+    'on':
+      succeeded: done
+      partial: standing
+      rejected: abandoned
+  done:
+    kind: finish
+    outcome: succeeded
+    output_bindings:
+      assessment: $stages.assessment.assessment
+  standing:
+    kind: finish
+    outcome: partial
+    output_bindings:
+      assessment: $stages.assessment.assessment
+  abandoned:
+    kind: finish
+    outcome: rejected
+execution_bindings:
+  steps:
+    aif-integration:step/configure:
+      executable: python
+      args:
+      - -B
+      - integration.py
+      - configure
+      files:
+        integration.py: files/integration.py
+        evidence.py: files/evidence.py
+      timeout_ms: 180000
+      grace_ms: 500
+      max_output_bytes: 4194304
+      live_output: true
+    aif-integration:step/prepare:
+      executable: python
+      args:
+      - -B
+      - integration.py
+      - prepare
+      files:
+        integration.py: files/integration.py
+        evidence.py: files/evidence.py
+      timeout_ms: 3600000
+      grace_ms: 500
+      max_output_bytes: 4194304
+      live_output: true
+    aif-integration:step/evaluate:
+      executable: python
+      args:
+      - -B
+      - integration.py
+      - evaluate
+      files:
+        integration.py: files/integration.py
+        evidence.py: files/evidence.py
+      timeout_ms: 180000
+      grace_ms: 500
+      max_output_bytes: 4194304
+      live_output: true
+    aif-integration:step/local-merge:
+      executable: python
+      args:
+      - -B
+      - integration.py
+      - local-merge
+      files:
+        integration.py: files/integration.py
+        evidence.py: files/evidence.py
+      timeout_ms: 180000
+      grace_ms: 500
+      max_output_bytes: 4194304
+      live_output: true
+    aif-integration:step/publication-result:
+      executable: python
+      args:
+      - -B
+      - integration.py
+      - publication-result
+      files:
+        integration.py: files/integration.py
+        evidence.py: files/evidence.py
+      timeout_ms: 180000
+      grace_ms: 500
+      max_output_bytes: 4194304
+      live_output: true
+    aif-integration:step/release:
+      executable: python
+      args:
+      - -B
+      - integration.py
+      - release
+      files:
+        integration.py: files/integration.py
+        evidence.py: files/evidence.py
+      timeout_ms: 180000
+      grace_ms: 500
+      max_output_bytes: 4194304
+      live_output: true
+    aif-integration:step/reader-unavailable:
+      executable: python
+      args:
+      - -B
+      - integration.py
+      - reader-unavailable
+      files:
+        integration.py: files/integration.py
+        evidence.py: files/evidence.py
+      timeout_ms: 180000
+      grace_ms: 500
+      max_output_bytes: 4194304
+      live_output: true
+    aif-integration:step/publication-unknown:
+      executable: python
+      args:
+      - -B
+      - integration.py
+      - publication-unknown
+      files:
+        integration.py: files/integration.py
+        evidence.py: files/evidence.py
+      timeout_ms: 180000
+      grace_ms: 500
+      max_output_bytes: 4194304
+      live_output: true
+    aif-integration:step/extension:
+      executable: python
+      args:
+      - -B
+      - integration.py
+      - extension
+      files:
+        integration.py: files/integration.py
+        evidence.py: files/evidence.py
+      timeout_ms: 180000
+      grace_ms: 500
+      max_output_bytes: 4194304
+      live_output: true

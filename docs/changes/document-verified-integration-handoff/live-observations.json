@@ -1,0 +1,216 @@
+{
+  "prifly": "0.13.76",
+  "binary_sha256": "03ac382112a12001ea9e2a86e5a20db2d5e24ec79ce5339f6257c473d0f3322d",
+  "cases": [
+    {
+      "case": "assess",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "status": "ready",
+      "program_digest": "sha256:64b6823eb090bbd59edf0f5fe87fb08ac4f44cc40f4271baaeb361efe70cde00",
+      "source_preserved": true,
+      "runs": 1,
+      "claim_count": 1,
+      "provider": null,
+      "mr_creations": 0,
+      "assessment": {
+        "checks": [
+          {
+            "argv": [
+              "/usr/bin/python3",
+              "-B",
+              "acceptance.py"
+            ],
+            "exit_code": 0,
+            "id": "regression",
+            "reason": "",
+            "result": "passed",
+            "stderr": "",
+            "stderr_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout": "accepted integrated behavior\n",
+            "stdout_digest": "sha256:78793af01cff6e67dc252b2093557d39223565d15363acb1810b28133e82d27c",
+            "truncated": false
+          }
+        ],
+        "cleanup": "released",
+        "final_gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "Model profile unavailable; independent model not established"
+          ],
+          "gate": "review",
+          "status": "warnings",
+          "suggested_next": "continue"
+        },
+        "final_report": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "0c96031f8667425ca7430c2f7e10367659b2373b",
+            "digest": "sha256:4254777b0dfe8902256852a7215e7788bb5ebc30428620b4b8f7c5e76d1f7f7a",
+            "files_digest": "sha256:d9679bbfe587b05ec89e4e532c1f17f52236fed571eeba96285aa98a09088e8b",
+            "head_commit": "9666690a3011aeb53b123680f5d527ec4b1882a4",
+            "index_digest": "sha256:40718a561bdb0c8a8ba8e10ddd68d8b12689185fa62e456e2443a1006b1eab6a"
+          },
+          "checks": [
+            {
+              "evidence": [
+                {
+                  "exit_code": null,
+                  "locator": "/tmp/prifly-integration-da565e6d24ab379e8200fae470237430df2e986fb49624b987f15dedb0cf0410/tree/consumer.py:1-4; /tmp/prifly-integration-da565e6d24ab379e8200fae470237430df2e986fb49624b987f15dedb0cf0410/tree/value.py:1",
+                  "method": "code",
+                  "observation": "consumer.py imports VALUE from value and effective() returns VALUE directly. value.py sets VALUE = 2. Inspection therefore establishes effective() returns 2.",
+                  "tool": "functions.exec / exec_command (python3 pathlib read_text)"
+                },
+                {
+                  "exit_code": null,
+                  "locator": "/tmp/prifly-integration-da565e6d24ab379e8200fae470237430df2e986fb49624b987f15dedb0cf0410/tree/consumer.py:1-4; /tmp/prifly-integration-da565e6d24ab379e8200fae470237430df2e986fb49624b987f15dedb0cf0410/tree/target-note.txt:1; target commit 0c96031f8667425ca7430c2f7e10367659b2373b",
+                  "method": "code",
+                  "observation": "The target commit's consumer.py also imports and returns VALUE, and its target-note.txt reads 'Target work remains intact'; both remain unchanged in the integrated tree. The full target-to-integration diff changes only value.py from VALUE = 1 to VALUE = 2 and adds acceptance.py. owner.txt still reads 'Owner work remains intact'. The merged worktree has no differences from HEAD and no untracked files.",
+                  "tool": "functions.exec / exec_command (python3 pathlib read_text; git show; git diff)"
+                },
+                {
+                  "exit_code": null,
+                  "locator": "/tmp/prifly-integration-da565e6d24ab379e8200fae470237430df2e986fb49624b987f15dedb0cf0410/tree/acceptance.py:1-3",
+                  "method": "code",
+                  "observation": "The merged acceptance code imports effective, asserts effective() == 2, and prints 'accepted integrated behavior'. This checks the actual consumer result. The named source fixture contains the same consumer, value and acceptance code; its bound report and the assessment's integrated report record successful execution as supplementary context, rather than replacing this code inspection.",
+                  "tool": "functions.exec / exec_command (python3 pathlib read_text)"
+                }
+              ],
+              "id": "combined-behavior",
+              "reason": "Inspected the exact owned merged tree after owner.json equalled assessment.session.marker and HEAD equalled assessment.integration_head. The required, enabled, applicable code check is satisfied: effective() returns VALUE, which is 2, and existing target work is preserved. Supplementary context: the bound source-command report and integrated regression command report both passed; the source report digest, request digest and candidate bindings match. The source gate warning that an independent model was not established remains valid: this is a separate reader session, but no alternate-model mapping is supplied, so model_profile is unavailable and model is null. Assessment escalation findings are empty. Optional architecture, rules, roadmap and project review context files are absent; no owner decision or business assumption is inferred.",
+              "result": "passed",
+              "status": "executed"
+            }
+          ],
+          "model": null,
+          "model_profile": "unavailable",
+          "request_digest": "sha256:681c36fc34b92804b4c4c43f7117d86c10422a2e194ab62909c0dff1106b96c1",
+          "round": 1,
+          "session": "separate"
+        },
+        "findings": [],
+        "handoff_digest": "sha256:da565e6d24ab379e8200fae470237430df2e986fb49624b987f15dedb0cf0410",
+        "integration_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "0c96031f8667425ca7430c2f7e10367659b2373b",
+          "digest": "sha256:4254777b0dfe8902256852a7215e7788bb5ebc30428620b4b8f7c5e76d1f7f7a",
+          "files_digest": "sha256:d9679bbfe587b05ec89e4e532c1f17f52236fed571eeba96285aa98a09088e8b",
+          "head_commit": "9666690a3011aeb53b123680f5d527ec4b1882a4",
+          "index_digest": "sha256:40718a561bdb0c8a8ba8e10ddd68d8b12689185fa62e456e2443a1006b1eab6a"
+        },
+        "integration_head": "9666690a3011aeb53b123680f5d527ec4b1882a4",
+        "operation": null,
+        "owner": "project-integration",
+        "risks": [],
+        "session": {
+          "marker": {
+            "attempt": "attempt:542b064a2c6ed2a26e50fd88bc485d50",
+            "handoff_digest": "sha256:da565e6d24ab379e8200fae470237430df2e986fb49624b987f15dedb0cf0410",
+            "owner": "project-integration"
+          },
+          "path": "/tmp/prifly-integration-da565e6d24ab379e8200fae470237430df2e986fb49624b987f15dedb0cf0410"
+        },
+        "source_candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "b419a58ac267e8ec24679c99d697bbf9bdbca970",
+          "digest": "sha256:f5a48288f26cf336104c2e1cc75e74122e3a179e6131dd863bbfee2cef7df2fd",
+          "files_digest": "sha256:fa747711dc8055f3a63345d461c95ba354b1850745e580d71892817f6f10841f",
+          "head_commit": "44357faf8f73720c84a90b869df497f88d45f995",
+          "index_digest": "sha256:c59352d08984056335d1eaecb634641d55cd49f2ad938f5eb9ef9f946fbddd92"
+        },
+        "source_gates": [
+          {
+            "gate": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "report_digest": "sha256:9463fc19135b8a5222a7d631d5301512696ff60b2eb39b26c9781504f299916a",
+            "role": "source-command"
+          }
+        ],
+        "status": "ready",
+        "target_commit": "0c96031f8667425ca7430c2f7e10367659b2373b"
+      },
+      "live": [
+        {
+          "cli": "codex-cli 0.162.1",
+          "session": "01a13d0e-8d9a-70f3-8914-1091400d6ffd",
+          "elapsed_seconds": 114.553,
+          "submission_digest": "sha256:c2425edcbe70d13f0e8454a59d0bb3cdf7c1f725809d001bbe8e186736759f99",
+          "report_digest": "sha256:dcaa256b2ecc63e591c5ae28b725e8e4cf190fd7b93814aba161a1c5da35904f",
+          "event_digest": "sha256:ed57e4c313435bcb979acc2c724f5c1408c124a117142146e9a8715eececcdaa",
+          "report": {
+            "round": 1,
+            "request_digest": "sha256:681c36fc34b92804b4c4c43f7117d86c10422a2e194ab62909c0dff1106b96c1",
+            "candidate": {
+              "algorithm": "git-candidate/1",
+              "base_commit": "0c96031f8667425ca7430c2f7e10367659b2373b",
+              "digest": "sha256:4254777b0dfe8902256852a7215e7788bb5ebc30428620b4b8f7c5e76d1f7f7a",
+              "files_digest": "sha256:d9679bbfe587b05ec89e4e532c1f17f52236fed571eeba96285aa98a09088e8b",
+              "head_commit": "9666690a3011aeb53b123680f5d527ec4b1882a4",
+              "index_digest": "sha256:40718a561bdb0c8a8ba8e10ddd68d8b12689185fa62e456e2443a1006b1eab6a"
+            },
+            "session": "separate",
+            "model_profile": "unavailable",
+            "model": null,
+            "checks": [
+              {
+                "id": "combined-behavior",
+                "status": "executed",
+                "result": "passed",
+                "reason": "Inspected the exact owned merged tree after owner.json equalled assessment.session.marker and HEAD equalled assessment.integration_head. The required, enabled, applicable code check is satisfied: effective() returns VALUE, which is 2, and existing target work is preserved. Supplementary context: the bound source-command report and integrated regression command report both passed; the source report digest, request digest and candidate bindings match. The source gate warning that an independent model was not established remains valid: this is a separate reader session, but no alternate-model mapping is supplied, so model_profile is unavailable and model is null. Assessment escalation findings are empty. Optional architecture, rules, roadmap and project review context files are absent; no owner decision or business assumption is inferred.",
+                "evidence": [
+                  {
+                    "method": "code",
+                    "tool": "functions.exec / exec_command (python3 pathlib read_text)",
+                    "locator": "/tmp/prifly-integration-da565e6d24ab379e8200fae470237430df2e986fb49624b987f15dedb0cf0410/tree/consumer.py:1-4; /tmp/prifly-integration-da565e6d24ab379e8200fae470237430df2e986fb49624b987f15dedb0cf0410/tree/value.py:1",
+                    "observation": "consumer.py imports VALUE from value and effective() returns VALUE directly. value.py sets VALUE = 2. Inspection therefore establishes effective() returns 2.",
+                    "exit_code": null
+                  },
+                  {
+                    "method": "code",
+                    "tool": "functions.exec / exec_command (python3 pathlib read_text; git show; git diff)",
+                    "locator": "/tmp/prifly-integration-da565e6d24ab379e8200fae470237430df2e986fb49624b987f15dedb0cf0410/tree/consumer.py:1-4; /tmp/prifly-integration-da565e6d24ab379e8200fae470237430df2e986fb49624b987f15dedb0cf0410/tree/target-note.txt:1; target commit 0c96031f8667425ca7430c2f7e10367659b2373b",
+                    "observation": "The target commit's consumer.py also imports and returns VALUE, and its target-note.txt reads 'Target work remains intact'; both remain unchanged in the integrated tree. The full target-to-integration diff changes only value.py from VALUE = 1 to VALUE = 2 and adds acceptance.py. owner.txt still reads 'Owner work remains intact'. The merged worktree has no differences from HEAD and no untracked files.",
+                    "exit_code": null
+                  },
+                  {
+                    "method": "code",
+                    "tool": "functions.exec / exec_command (python3 pathlib read_text)",
+                    "locator": "/tmp/prifly-integration-da565e6d24ab379e8200fae470237430df2e986fb49624b987f15dedb0cf0410/tree/acceptance.py:1-3",
+                    "observation": "The merged acceptance code imports effective, asserts effective() == 2, and prints 'accepted integrated behavior'. This checks the actual consumer result. The named source fixture contains the same consumer, value and acceptance code; its bound report and the assessment's integrated report record successful execution as supplementary context, rather than replacing this code inspection.",
+                    "exit_code": null
+                  }
+                ]
+              }
+            ]
+          },
+          "usage": [
+            {
+              "type": "turn.completed",
+              "usage": {
+                "input_tokens": 411429,
+                "cached_input_tokens": 361472,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 5104,
+                "reasoning_output_tokens": 544
+              }
+            }
+          ],
+          "source_unchanged": true,
+          "authority_unchanged_by_reader": true,
+          "submission_unedited": true,
+          "other_model_attested": false
+        }
+      ],
+      "elapsed_seconds": 130.084
+    }
+  ]
+}
