@@ -1,6 +1,6 @@
 # Независимые UI/UX в aif-feature
 
-В неопубликованном `aif-feature@1.2.1` можно явно выбрать `parallel-ui-ux`.
+В неопубликованном `aif-feature@1.2.2` можно явно выбрать `parallel-ui-ux`.
 Нужны released Pri-Fly **0.13.77**, Python 3, Codex CLI с доступной авторизацией,
 AI Factory skills (квалификация на 2.19.0) и проверенный browser adapter проекта.
 По умолчанию feature остаётся sequential. Core и классические workflows не меняются.
@@ -31,6 +31,8 @@ extensions: []
 Восьмираундовый frontend Run на released binary получил
 `storage_budget_exhausted`; публичного CLI override этого бюджета нет.
 Ограничение не увеличивает SQLite budget и не отменяет native storage guards.
+Pure begin каждого круга повторяет проверку по typed limit, включая continuation
+и внутренние вызовы; устаревшего host admission для обхода недостаточно.
 
 Task содержит обычную frontend product configuration с UI/UX criteria и scenarios.
 В ней `environment.shared_resource` должен быть `null`; поддерживается только

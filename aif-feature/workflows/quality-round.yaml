@@ -1,7 +1,7 @@
 authoring: prifly-workflow/1
 schema_version: '6'
 id: aif-feature:workflow/quality-round
-version: 1.2.1
+version: 1.2.2
 title: Bounded feature quality-round
 refs:
   policy: '{{policy}}'
@@ -95,6 +95,7 @@ stages:
       round: $inputs.round
       review_mode: $inputs.review_mode
       browser_adapter: $inputs.browser_adapter
+      limit: $inputs.limit
     'on':
       pass: capture
       needs_revision: abandoned

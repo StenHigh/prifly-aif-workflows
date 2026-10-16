@@ -41,6 +41,7 @@ def check_feature(binary, authority, repository, root):
     assert reviews['diagnostic']['on']['pass']=='unavailable'
     assert documents['aif-feature:step/collect-uiux'].get('repository_workspace')==documents['aif-feature:step/configure'].get('repository_workspace')
     round_graph=documents['aif-feature:workflow/quality-round']['definition']['stages']
+    assert round_graph['begin']['input_bindings']['limit']=={'from':'workflow_input','port':'limit'}
     assert round_graph['checks']['on']['pass']=='review-mode'
     assert round_graph['parallel-reviews']['on_error']=='abandoned'
     assert round_graph['collect-reviews']['on']['blocked']=='aggregate-parallel'

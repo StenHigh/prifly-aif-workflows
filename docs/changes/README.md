@@ -20,7 +20,7 @@ W4: **committed/pushed, pilot qualified, CI PASS**; W5: **qualification recorded
 | W2 | P1 | [UI/UX-компоненты](add-ui-ux-review-components/proposal.md) | W1; standalone контракт среды из #2 | committed/pushed, CI + fresh CLI PASS; model/consumer limits / unreleased |
 | W3 | P1 | [Короткий workflow для фич](add-bounded-feature-workflow/proposal.md) | W1; W2 для интерфейсного профиля | committed/pushed, CI + live PASS; forced writer cancel deferred / unreleased |
 | W4 | P1/P2 | [Приёмка перед интеграцией](document-verified-integration-handoff/proposal.md) | W1; проектный интегратор, #1 при GitLab | committed/pushed, pilot qualified, CI PASS; real provider limits / unreleased |
-| W5 | P2 | [Квалификация параллельного ревью](qualify-parallel-implementation-review/proposal.md) | W1, W2, W3; сначала последовательная приёмка | backend opt-in/adapter d515a85; UI/UX qualification0bdc632: local17/CI job PASS для isolated stand, shared limit1 sequential; frontend1.2.1: CLI4 sessions PASS; native1–3 rounds qualified,4–8 refused before writers; full34/CI pending; App/Claude unqualified / unreleased |
+| W5 | P2 | [Квалификация параллельного ревью](qualify-parallel-implementation-review/proposal.md) | W1, W2, W3; сначала последовательная приёмка | backend opt-in/adapter d515a85; UI/UX qualification0bdc632: local17/CI job PASS для isolated stand, shared limit1 sequential; frontend1.2.2: CLI4 sessions PASS; native1–3 rounds qualified,4–8 refused before writers; full35/CI pending; App/Claude unqualified / unreleased |
 
 Каждый change выпускается отдельно с собственным bump изменённых компонентов,
 пакета и зависимых workflow по действующим правилам. Версии здесь не назначены:

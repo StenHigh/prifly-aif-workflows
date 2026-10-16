@@ -58,8 +58,10 @@ def configuration(task, surface=None, review_mode='sequential', browser_adapter=
         raise w1.Invalid('Package profile disagrees with task surface')
 
 
-def begin(task, base, previous, review_mode='sequential', browser_adapter=None):
+def begin(task, base, previous, review_mode='sequential', browser_adapter=None, limit=3):
     configuration(task, review_mode=review_mode, browser_adapter=browser_adapter)
+    if review_mode == 'parallel-ui-ux' and (type(limit) is not int or not 1 <= limit <= 3):
+        raise w1.Invalid('parallel-ui-ux requires 1-3 full quality rounds; review the configured limit before continuing')
     if type(previous) is not int or not 0 <= previous < 8:
         raise w1.Invalid('Round counter is outside the declared limit')
     round_number = previous + 1
@@ -140,7 +142,7 @@ def worker(operation):
             configuration(read('task'), read('surface'), read('review_mode'), read('browser_adapter'))
             output('round', 0)
         elif operation == 'begin':
-            count, requests, config = begin(read('task'), base, read('round'), read('review_mode'), read('browser_adapter'))
+            count, requests, config = begin(read('task'), base, read('round'), read('review_mode'), read('browser_adapter'), read('limit'))
             output('round', count)
             for lens in LENSES:
                 output(lens + '_request', requests[lens])

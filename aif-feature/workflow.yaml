@@ -1,7 +1,7 @@
 authoring: prifly-project-workflow/1
 schema_version: '8'
 id: aif-feature:workflow/feature
-version: 1.2.1
+version: 1.2.2
 title: Bounded feature feature
 refs:
   policy: '{{policy}}'
@@ -240,7 +240,7 @@ stages:
     default: abandoned
 package:
   id: aif-feature:package/feature
-  version: 1.2.1
+  version: 1.2.2
   description: 'Bounded small feature: sequential default, explicit parallel backend or isolated UI/UX review.'
   requires_core_protocol: '1'
   profiles:

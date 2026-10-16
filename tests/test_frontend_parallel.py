@@ -42,6 +42,12 @@ def inputs(optional_policy='ignore'):
 
 
 class FrontendParallelTest(unittest.TestCase):
+    def test_round_guard_rechecks_limit_without_trusting_cached_admission(self):
+        data=inputs();task=task_input(True)
+        with self.assertRaises(w1.Invalid):feature.begin(task,'0'*40,0,'parallel-ui-ux',data[4],limit=8)
+        for mode in ('sequential','parallel-backend'):
+            self.assertEqual(feature.begin(task_input(),'0'*40,0,mode,limit=8)[0],1)
+
     def test_sealed_quality_limit_admission_does_not_lower_an_owner_request(self):
         def state(value):
             return {'workflow_configurations':{'sealed-digest':{

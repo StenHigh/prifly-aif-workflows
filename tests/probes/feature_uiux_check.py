@@ -41,6 +41,7 @@ CASES = {
     'last-round': ('exhaustion', None, None, 'partial'),
     'max-budget': ('max-budget', None, None, 'rejected'),
     'parallel-budget': ('max-budget', None, None, 'partial'),
+    'limit-guard': ('max-budget', 'limit-guard', None, 'rejected'),
     'cancel-before': ('frontend-cancel', 'cancel-before', None, 'succeeded'),
     'cancel-after-first': ('frontend-cancel', 'cancel-after-first', None, 'succeeded'),
     'cancel-during-browser': ('frontend-cancel', 'cancel-browser', 'hold-browser', 'succeeded'),
@@ -210,7 +211,8 @@ class UIUXHost(FeatureHost):
                     'reason': 'Synthetic independent-session capability; real browser/source/resource admission checked separately'}
                 try:
                     if self.launch_host != 'codex-cli': raise ValueError('Unsupported independent session host')
-                    frontend.admit(self.binary, self.authority, task, self.evidence_root)
+                    if self.fault != 'limit-guard': frontend.admit(self.binary, self.authority, task, self.evidence_root)
+                    else: value['reason']='Test-only forged/cached capability; native round guard must still reject limit8'
                 except (ValueError, OSError, subprocess.SubprocessError) as error:
                     value.update(status='unavailable', reason=str(error))
                 controller.submit_values(self.binary, self.authority, task, {'admission': value})
@@ -292,7 +294,10 @@ def check(binary, name, library, skills=None, artifacts=None):
         skills=skills, artifacts=artifacts, host_factory=factory, adapter_factory=adapter_factory, task_mutator=mutate,
         expected_outcome=expected, quality_limit=3 if name=='parallel-budget' else None)
     row['scenario'] = name
-    if expected == 'rejected': assert not {'plan','implement','repair','commit'} & set(row['steps']) and not row['uiux_pairs']
+    if expected == 'rejected' and name!='limit-guard': assert not {'plan','implement','repair','commit'} & set(row['steps']) and not row['uiux_pairs']
+    if name=='limit-guard':
+        assert {'plan','implement'} <= set(row['steps'])
+        assert not {'checks','frontend-environment','repair','commit'} & set(row['steps']) and not row['uiux_pairs']
     if expected == 'partial' and case not in ('exhaustion','max-budget','repair-ui'):
         assert 'repair' not in row['steps'] and 'commit' not in row['steps']
     if name in ('repair-ui','repair-ux','repair-checks','stale-after-repair','commit-replay'):

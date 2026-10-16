@@ -1,6 +1,6 @@
 authoring: prifly-step/1
 id: aif-feature:step/capture-candidate
-version: 1.2.1
+version: 1.2.2
 title: Bounded feature capture
 kind: worker
 inputs:

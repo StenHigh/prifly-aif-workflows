@@ -10,50 +10,33 @@
 
 Ворота выверены против выпущенного Pri-Fly `v0.13.77`.
 
-- **W5 frontend1.2.1, финальная приёмка:** после CI7f2f57a/98665bc найдена
-  native граница `storage_budget_exhausted` у8 UI/UX rounds. Это named failure,
-  не PASS/timeout; логи/hashes в feature-uiux-storage-negative.json. Core не
-  меняется. Новый admission читает public sealed quality.limit:1–3 разрешены,
-  4–8/unknown/ambiguous отказ до writers, без снижения запроса. Старые sequential
-  и backend диапазон1–8 прежние. Native cases PASS:8 early rejected,3 full rounds
-  с2 repairs/3 released environments/partial на последнем дефекте. Unit14,
-  compile120/79/7 PASS. Live4 CLI sessions на7f2f57a остаются точной историей;
-  dispatch/observe/environment/release/cleanup и остальные6 pinned modules
-  побайтно/function-source прежние, это проверено admission-delta.json.
-  32 native cases до admission-only delta +2 новых budget cases сохранены
-  раздельно; full single-revision34 и полный CI пока НЕ объявляются PASS.
-  Публикации tag/catalog нет;233 файла остальных6 пакетов неизменны.
-
-- **W5 frontend composition, текущая работа (2026-10-16):** aif-feature1.2.0,
-  opt-in `parallel-ui-ux`; default sequential/backend parallel сохранены.
-  Только пакет feature + tests/CI/docs; 233 tracked файла остальных шести
-  пакетов побайтно совпадают с f95f2c4, Core/classic/profiled не менялись.
-  Configure/admission до writers, pinned project browser descriptor, UI||UX
-  с разными sealed grants/context/identity, all/wait и original raw collection.
-  Checks/security/code review sequential; общий capture, cleanup до repair/commit.
-  Quality122/root128/depth7; diagnostic error boundary не обходит cleanup.
-  Latest stable повторно проверен:0.13.77, новых нет. Compile120/79/7 PASS,
-  unit frontend13/transport12/feature8/product14 PASS, install/update PASS.
-  Actual CLI UI/UX: repair-ui succeeded,4 уникальные sessions/2 pairs,
-  original reports/submissions/event/PNG hashes проверены, final native bundle
-  bytes совпадают; cleanup обоих окружений и guard/commit PASS. Author/repair
-  и checks/security/review synthetic; другая модель/OS isolation не заявляются.
-  Критическая native/browser matrix8/8 PASS (cancel before/after-first/active
-  browser, timeout sibling/replay, evaluate failure, cleanup interrupted/foreign,
-  owner stop). Полная matrix33 выполняется; полные legacy local matrices
-  прерваны намеренно после smoke, чтобы не перегружать live Run. Полный legacy
-  gate сохранён в CI; ни его локальный PASS, ни новый CI пока не заявляются.
-  Guide: docs/parallel-ui-ux.md; evidence prefix feature-uiux-*, прежние
-  frontend-* описывают исторический prototype. Implementation checkpoint
-  committed/pushed main:7f2f57abed93f8a3bc0074c8ab807d5904ae5c51. Новый CI
-  38843640963 выполняется; последующий bookkeeping сохранит полную matrix/CI.
-  Focused default sequential frontend с actual Chromium также PASS.
-  Test-only fix98665bce432b000207408cbd1f470bb99014ef20 pushed: finalizer
-  выбирает exact current session lease, не historical round; unit13 PASS.
-  Он понадобился при ручной остановке local max-budget перед старым outer900s
-  deadline. Own fixture daemon/registration адресно убраны; это не Core fault
-  и не успешное production recovery. Остальные непроверенные cases идут отдельно;
-  max-budget/полная matrix также выполняются в CI38844244900.
+- **W5 frontend1.2.2 — независимые UI/UX и подключение к feature:**
+  Default sequential сохранён; opt-in parallel-ui-ux — Codex CLI, owned loopback
+  project adapter, отдельные contexts/identities/Attempts и source pins7 files.
+  Checks/security/code review sequential, UI||UX all/wait, original raw reports,
+  cleanup до repair/commit, новый candidate/environment/grants после repair.
+  Live на7f2f57a:4 actual CLI sessions/2 rounds, defect→repair→acceptance/commit,
+  original report/submission/event/PNG hashes проверены. Модель не аттестована,
+  App/Claude concurrency unqualified; writer/checks/code readers synthetic.
+  Source lineage доказывает неизменность CLI/browser/lifecycle functions и шести
+  companion modules; supported begin projections совпадают с live checkpoint.
+  В8 UI/UX rounds CI7f2f57a/98665bc получил native storage_budget_exhausted;
+  failure/log hashes сохранены, это не PASS/timeout. Core budget не меняется.
+  В1.2.1 admission проверяет public sealed quality.limit:1–3 разрешены,4–8/
+  unknown/ambiguous отказ до writers. Native3 rounds/2 repairs/3 releases PASS,
+  reject8 до writers PASS. В1.2.2 pure begin повторяет typed limit guard для
+  replay/internal calls: forged/cached admission8 rejected до quality/browser.
+  Native hard-guard и обычный frontend PASS, unit15/compile120/79/7/install PASS.
+  Sequential/backend диапазон1–8 сохранён. Legacy verify на7f2f57a полностью
+  SUCCESS: default feature35/backend parallel24 и все прежние ворота/Classic.
+  Его общий CI failed только из-за отдельного UI/UX8 storage negative.
+  Final single-revision35 и полный CI новой версии пока НЕ объявляются PASS.
+  Source implementation7f2f57a, test-only current-lease finalizer98665bc,
+  admission cap8c92cf6 (CI38846192650 выполняется), hard guard готов к push.
+  Latest stable повторно сверён0.13.77; новых нет.233 tracked files остальных6
+  пакетов совпадают с f95f2c4; Core/classic/profiled не менялись. Нет tag/catalog
+  publication. Guide docs/parallel-ui-ux.md; evidence feature-uiux-*, historical
+  prototype frontend-* и backend feature-* не переписываются.
 
 - **W5: parallel UI/UX, отдельная browser qualification (2026-10-16):**
   Implementation0bdc6320b8017ca353dc43091dad4b425cec44c1 committed/pushed main.
@@ -1187,8 +1170,3 @@
 - Справка движка (`examples/authoring/workflow-authoring-reference.yaml`)
   ссылается на раздел README «Вердикты и WorkflowRevision v4», закреплённый на
   `98fd856`; раздел с v1.45.0 называется «Вердикты: WorkflowRevision v4 и v6».
-
-Текущая W5 матрица:32/33 individually passed assertions сохранены в
-feature-uiux-runtime-results.json (union critical/prefix/remaining original batches,
-с их hashes); max-budget8 запущен отдельно без конкуренции/outer900s deadline.
-Последняя проверка latest CI38844244900: выполняется; никаких full PASS claims.

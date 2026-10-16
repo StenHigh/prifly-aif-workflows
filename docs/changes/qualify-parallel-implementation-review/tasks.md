@@ -2,7 +2,7 @@
 
 Qualification evidence: [acceptance.md](acceptance.md). Backend fixture and real
 CLI normal delivery are qualified; **E4 fixed in 0.13.77; backend composition implemented**.
-Package portion changes aif-feature1.2.1 only, with default sequential and
+Package portion changes aif-feature1.2.2 only, with default sequential and
 explicit codex-cli backend adapter. No Core/classic/profiled changes or tag/catalog publication. See
 [feature composition](feature-composition.md) and
 [released requalification](release-0.13.77.md); the old named cancellation
@@ -72,3 +72,6 @@ cases PASS. Полная matrix33 и новый CI ещё выполняются
 Patch1.2.1: native storage refusal8 rounds сохранён как negative; admission
 явно разрешает1–3, не снижая4–8. Native3 rounds/2 repairs/3 releases PASS,
 reject8 до writers PASS, unit14/compile120/79 PASS. Final34-case CI ещё pending.
+
+1.2.2 pure begin повторяет typed limit guard для replay/internal calls. Unit15
+и native forged/cached-admission guard PASS; final35-case CI остаётся отдельным.

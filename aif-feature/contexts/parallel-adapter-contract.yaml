@@ -1,5 +1,5 @@
 id: aif-feature:context/parallel-adapter-contract
-version: 1.2.1
+version: 1.2.2
 media_type: text/plain; charset=utf-8
 text: '{"files": {"browser_contract.py": "sha256:33a40a9575a17135566607f6e2a7ab1b7fddee0f3ea12851de80f94c0b9ae7bb",
   "evidence.py": "sha256:0ac845481c7fb4dd3a57d7e80726e42f67c1075ff2407916c7607ddc1a450c76", "frontend_host.py":

@@ -1,6 +1,6 @@
 # W5: отдельные UI/UX-сессии в aif-feature
 
-В `aif-feature@1.2.1` добавлен явный `parallel-ui-ux`, default sequential сохранён.
+В `aif-feature@1.2.2` добавлен явный `parallel-ui-ux`, default sequential сохранён.
 Изменений Pri-Fly и классического workflow нет. Другие шесть пакетов остаются
 побайтно прежними. Пакет не опубликован в каталоге; установка не подключает
 runner автоматически. [Настройка](../../parallel-ui-ux.md).
@@ -117,3 +117,15 @@ live checkpoint7f2f57a не менялись. Повторный расход LL
 не требуется: source lineage фиксируется отдельно, новый admission проверяется
 unit14 и native cases. Старые live bytes/context hashes сохраняются как история,
 не переписываются под новый source contract.
+
+## 1.2.2: защита начала каждого круга
+
+Pure program begin получает typed limit из quality-round и повторно проверяет
+1–3 до checks/browser work. Это защищает внутренние вызовы и reviewed continuation,
+даже если host отдал устаревший/неправильный admission. Обычный fresh launch
+отказывает4–8 ещё до plan/implement; программа кругов не доверяет одному этому
+заявлению. Unit15 проверяет limit8 refusal и прежний begin8 для sequential/backend.
+Native limit-guard с намеренно подставленным capability остановился rejected
+после writer, до checks/environment/repair/commit; это test-only forged/cached
+host response, не production bypass option. Обычный frontend path проверяется
+отдельно; final single-revision CI содержит35 cases.

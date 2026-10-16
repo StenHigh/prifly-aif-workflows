@@ -1,7 +1,7 @@
 authoring: prifly-workflow/1
 schema_version: '6'
 id: aif-feature:workflow/parallel-reviews
-version: 1.2.1
+version: 1.2.2
 title: All-join independent backend readers
 refs:
   policy: '{{policy}}'

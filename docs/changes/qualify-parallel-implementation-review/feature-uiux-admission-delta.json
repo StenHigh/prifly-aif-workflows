@@ -1,7 +1,7 @@
 {
   "live_checkpoint": "7f2f57abed93f8a3bc0074c8ab807d5904ae5c51",
-  "current_package_version": "1.2.1",
-  "scope": "Only frontend admission has a new sealed quality.limit guard; no reader instruction/observation/transport/lifecycle function changes",
+  "current_package_version": "1.2.2",
+  "scope": "Frontend admission and pure feature.begin enforce1-3 rounds; CLI reader instructions/dispatch/observe/transport/lifecycle functions remain identical to live checkpoint",
   "new_functions": [
     "quality_limit"
   ],
@@ -29,6 +29,37 @@
     "aif-feature/files/frontend_quality.py"
   ],
   "live_context_and_delivery_bytes_preserved": true,
-  "new_admission_unit_tests": 14,
-  "new_admission_native_cases": "passed: limit8 rejected before writers; limit3 completed three rounds/two repairs/three owned releases"
+  "new_admission_unit_tests": 15,
+  "new_admission_native_cases": "passed: limit8 rejected before writers; limit3 completed three rounds/two repairs/three owned releases",
+  "changed_feature_program_functions": [
+    "begin: validate typed limit before round work",
+    "worker: pass sealed limit to begin"
+  ],
+  "supported_begin_projection_equivalence": [
+    {
+      "mode": "sequential",
+      "previous_round": 0,
+      "limit": 8,
+      "all_projected_requests_configuration_identical": true
+    },
+    {
+      "mode": "parallel-backend",
+      "previous_round": 0,
+      "limit": 8,
+      "all_projected_requests_configuration_identical": true
+    },
+    {
+      "mode": "parallel-ui-ux",
+      "previous_round": 0,
+      "limit": 3,
+      "all_projected_requests_configuration_identical": true
+    },
+    {
+      "mode": "parallel-ui-ux",
+      "previous_round": 2,
+      "limit": 3,
+      "all_projected_requests_configuration_identical": true
+    }
+  ],
+  "hard_round_guard_native": "passed: forged/cached admission8 cannot enter checks/browser/repair/commit; ordinary frontend succeeds"
 }

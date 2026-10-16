@@ -1,5 +1,5 @@
 id: aif-feature:context/feature-parallel-admission
-version: 1.2.1
+version: 1.2.2
 media_type: text/markdown; charset=utf-8
 text: Before plan/writers, the reviewed controller verifies its sealed source contract. Backend needs the explicit
   codex-cli pair adapter. parallel-ui-ux additionally requires the sealed reviewed project browser adapter, available

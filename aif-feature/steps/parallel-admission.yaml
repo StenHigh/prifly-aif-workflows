@@ -1,6 +1,6 @@
 authoring: prifly-step/2
 id: aif-feature:step/parallel-admission
-version: 1.2.1
+version: 1.2.2
 title: Admit independent CLI review host
 kind: worker
 inputs:
