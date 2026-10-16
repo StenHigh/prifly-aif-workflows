@@ -18,9 +18,9 @@
     "extend": "preserved",
     "local_edit": "refused"
   },
-  "full_new_browser_matrix": "32 prior native cases + new budget2 and pure round-guard delta; final single-revision35 CI is separate",
+  "full_new_browser_matrix": "Final exact-SHA CI38848759987/f43eb43: all35 native/browser assertions passed; historical local32 + budget2 + guard delta retained separately",
   "full_legacy_local_matrix": "intentionally interrupted after smoke successes to avoid competing with live UI/UX; not a full PASS",
-  "full_legacy_gate": "retained unchanged in CI",
+  "full_legacy_gate": "PASS in final exact-SHA CI38848759987/f43eb43: default feature35/backend parallel24 and all existing gates; local interrupted matrix remains not a full PASS",
   "qualification_sources": {
     "tests/probes/feature_uiux_check.py": "sha256:d61ddbdf4870ca07d7b7cc447aa9a49ee9a777918e4e2c12c31b6c1a18bd553b",
     "tests/test_frontend_parallel.py": "sha256:14d67fc540aab5ffde8edc1a2517dbb86d4c751401022502b1bf38767dfb2620",
@@ -54,5 +54,13 @@
   },
   "current_package_version": "1.2.3",
   "storage_boundary": "8 UI/UX rounds refused by native storage budget in two CI jobs; patch1.2.1 explicitly qualifies1-3, refuses4-8 before writers; no Core changes/SQLite overrides",
-  "cli_error_settlement": "unit PASS: before callback unknown rejects operator cleanup; after complete callback later native refusal retains settled"
+  "cli_error_settlement": "unit PASS: before callback unknown rejects operator cleanup; after complete callback later native refusal retains settled",
+  "final_ci": {
+    "run_id": 38848759987,
+    "head_sha": "f43eb4389adde5aa6adc1c18228fc70cb0549354",
+    "conclusion": "success",
+    "evidence": "feature-uiux-ci-results.json#final_error_refinement",
+    "frontend_unit_tests": 16,
+    "shipping_native_cases": 35
+  }
 }

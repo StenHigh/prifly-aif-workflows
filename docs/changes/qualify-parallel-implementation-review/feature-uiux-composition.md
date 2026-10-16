@@ -146,4 +146,16 @@ browser/report/lifecycle functions не менялись, кроме состо�
 точным сравнением prefix инструкций dispatcher с live checkpoint7f2f57a.
 
 Final source f43eb43 pushed, package1.2.3. Его [CI38848759987](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38848759987)
-повторяет35 cases с unit16; пока выполняется. Full CI PASS не заявляется.
+завершился **SUCCESS** на exact SHA `f43eb4389adde5aa6adc1c18228fc70cb0549354`:
+оба jobs `parallel-ui-ux` и `verify` зелёные. Проверены35 original native/browser
+case lines (все cleanup завершены),16 unit tests и17 прежних browser fixture cases.
+В `verify` прошли default feature35/backend24, compile120/79/7, Classic
+compatibility и все остальные gates. Terminal job steps, SHA256 полных logs и
+original35 rows сохранены в [CI evidence](feature-uiux-ci-results.json),
+поле `final_error_refinement`. CI использует deterministic actors, без live LLM.
+
+Пакетная часть W5 завершена в заявленном scope: explicit Codex CLI, reviewed
+owned isolated loopback adapter,1–3 quality rounds;4–8 отказ до writers.
+App/Claude live concurrency, независимые модели и unknown external-write recovery
+не квалифицированы. Пакет1.2.3 остаётся unpublished; tag/catalog не выпускались.
+Pri-Fly и классический workflow не менялись.

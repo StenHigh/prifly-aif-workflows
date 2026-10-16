@@ -211,10 +211,18 @@ CI привязан к implementation SHA выше; последующий bookk
 - [validation-results.json](validation-results.json): static7/version3/derive и
   parse новых entry points; [ci-results.json](ci-results.json) — exact full CI.
 
-## Frontend consumer1.2.0: новая приёмка
+## Frontend consumer1.2.3: пакетная приёмка завершена
 
-Исторические fixture/backend результаты выше не являются frontend consumer PASS.
-Новая [composition](feature-uiux-composition.md) и evidence `feature-uiux-*`
-разделяют 33-case deterministic browser matrix, actual independent CLI UI/UX
-и полный CI. Scope только explicit codex-cli + isolated owned loopback adapter;
-App/Claude, разные модели и unknown external-write recovery не квалифицированы.
+Исторические fixture/backend результаты выше сохраняют свой исходный scope.
+[Composition](feature-uiux-composition.md) и evidence `feature-uiux-*` разделяют
+историческую browser matrix,4 actual independent CLI sessions/2 rounds и
+финальный [CI38848759987](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38848759987).
+Оба jobs SUCCESS на exact source `f43eb4389adde5aa6adc1c18228fc70cb0549354`:
+UI/UX35/unit16 и все legacy gates, включая default feature35/backend24.
+Original case lines, terminal steps и полные log hashes — в
+`feature-uiux-ci-results.json`, поле `final_error_refinement`. CI не запускает live LLM.
+
+Пакетная часть W5 завершена: explicit codex-cli + isolated owned loopback adapter,
+1–3 rounds;4–8 отказ до writers. App/Claude, разные модели и unknown external-write
+recovery не квалифицированы. Пакет1.2.3 не опубликован; Pri-Fly/classic/profiled
+не менялись. Это не общий W5 A1–A10 PASS для всех hosts и моделей.

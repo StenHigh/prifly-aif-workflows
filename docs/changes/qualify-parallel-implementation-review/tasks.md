@@ -62,8 +62,11 @@ negatives below describe the original 0.13.76 qualification.
   pure begin guard15 unit/native cases PASS на5ac14a3. Model/App/Claude limits
   сохраняются; [scope/evidence](feature-uiux-composition.md).
 - [x] Проверить35-case UI/UX job на5ac14a3: SUCCESS, exact log hash сохранён.
-- [ ] Проверить полный final exact-SHA CI38848759987 наf43eb43, включая
-  UI/UX35/unit16 и legacy verify; его успех ещё не заявлен.
+- [x] Проверить полный final exact-SHA CI38848759987 наf43eb43: оба jobs
+  SUCCESS, UI/UX35/unit16, default feature35/backend24 и все legacy gates PASS.
+  Terminal steps, original case lines и SHA256 полных logs сохранены в
+  [CI evidence](feature-uiux-ci-results.json). Пакетная часть W5 завершена
+  в заявленном Codex CLI/isolated stand/1–3 rounds scope; пакет не опубликован.
 - [x] Пройти новую backend приёмку actual feature graph: 24 native scenarios,
   unit12, three-host compile и scoped actual CLI observation; feature1.1.0.
   Старый fixture не заменяет эту приёмку. Default/full CI отражаются отдельно;
@@ -79,8 +82,9 @@ Patch1.2.1: native storage refusal8 rounds сохранён как negative; adm
 reject8 до writers PASS, unit14/compile120/79 PASS. CI34-case job SUCCESS на8c92cf6; полный run/последний patch отражаются отдельно.
 
 1.2.2 pure begin повторяет typed limit guard для replay/internal calls. Unit15
-и native forged/cached-admission guard PASS; final35-case CI остаётся отдельным.
+и native forged/cached-admission guard PASS; final35-case CI на1.2.3 также PASS.
 
 1.2.3 dispatcher errors до evidence callback сохраняют unknown, cleanup
 блокируется; после callback поздний native refusal сохраняет settled. Unit16
-обоих исходов и fresh native frontend/compile PASS. Последний CI отдельно.
+обоих исходов и fresh native frontend/compile PASS. Полный final CI SUCCESS
+на exact source f43eb43; ограничения моделей/hosts и unknown effects сохранены.

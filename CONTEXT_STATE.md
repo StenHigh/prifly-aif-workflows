@@ -35,19 +35,22 @@
   SUCCESS: default feature35/backend parallel24 и все прежние ворота/Classic.
   Его общий CI failed только из-за отдельного UI/UX8 storage negative.
   На5ac14a3 UI/UX job35 SUCCESS, exact log hash/case lines сохранены.
-  Финальный error-only refinement f43eb43 имеет unit16/native smoke/compile
-  PASS локально; его полный CI38848759987 ещё выполняется, PASS не заявлен.
-  Source implementation7f2f57a, test-only current-lease finalizer98665bc,
-  admission cap8c92cf6: UI/UX CI job34 SUCCESS/log hash сохранён. Hard guard
-  5ac14a35754d1f91fb627b2865a836e37c70229f pushed; его UI/UX35 job SUCCESS.
-  Последний source f43eb4389adde5aa6adc1c18228fc70cb0549354 pushed.
-  Незавершённое наблюдение — exact-SHA CI38848759987 (UI/UX35 + legacy);
-  implementation и локальная приёмка закончены. Новые tag/catalog не выпускать
-  до проверки final CI и повторной сверки latest stable по AGENTS.md.
-  Latest stable повторно сверён0.13.77; новых нет.233 tracked files остальных6
-  пакетов совпадают с f95f2c4; Core/classic/profiled не менялись. Нет tag/catalog
-  publication. Guide docs/parallel-ui-ux.md; evidence feature-uiux-*, historical
-  prototype frontend-* и backend feature-* не переписываются.
+  Финальный source f43eb4389adde5aa6adc1c18228fc70cb0549354: полный
+  CI38848759987 SUCCESS, оба jobs parallel-ui-ux/verify зелёные. В exact logs:
+  UI/UX35 (cleanup всех завершён), unit16, prototype17; default feature35,
+  backend24, compile120/79/7, Classic compatibility и все legacy gates PASS.
+  Terminal steps, original35 case lines и SHA256 полных logs записаны в
+  feature-uiux-ci-results.json → final_error_refinement. CI без live LLM;
+  live4 sessions/2 rounds остаются отдельной qualification на7f2f57a.
+  Пакетная часть W5 завершена в заявленном scope Codex CLI/owned isolated
+  loopback adapter/1–3 rounds. App/Claude live, разные модели и unknown external
+  effects recovery этим не квалифицированы;4–8 frontend rounds отказ до writers.
+  Latest stable повторно сверён0.13.77; новых нет, финальные ворота проверены
+  именно на нём.233 tracked files остальных6 пакетов совпадают с f95f2c4;
+  Core/classic/profiled не менялись. aif-feature1.2.3 остаётся unpublished:
+  tag/catalog не выпускались; перед будущим тегом повторить сверку AGENTS.md.
+  Guide docs/parallel-ui-ux.md; evidence feature-uiux-*; historical prototype
+  frontend-* и backend feature-* сохраняют исходные revisions/scope.
 
 - **W5: parallel UI/UX, отдельная browser qualification (2026-10-16):**
   Implementation0bdc6320b8017ca353dc43091dad4b425cec44c1 committed/pushed main.
