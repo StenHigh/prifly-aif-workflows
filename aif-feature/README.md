@@ -1,7 +1,7 @@
 # Небольшая новая фича
 
-Самостоятельный `aif-feature:package/feature@1.0.0`, launch **aif-feature**.
-Требует released Pri-Fly **0.13.76**, Python 3 stdlib для declared programs
+Самостоятельный `aif-feature:package/feature@1.1.0`, launch **aif-feature**.
+Требует released Pri-Fly **0.13.77**, Python 3 stdlib для declared programs
 и AI Factory skills (контракт сверён с **2.19.0**). Пакет пока не выпущен.
 
 ```text
@@ -67,8 +67,73 @@ warnings/skips и unavailable model mapping следуют task.optional_policy
 Последний неуспешный круг не редактирует код; возвращает последний gate/evidence.
 До 14 StepInstances на frontend round, максимум 7×14+13=111 в rounds + guard/commit =113 в acceptance и 117
 в root с warmup/configure/plan/implement/guard/commit. Declared budgets: quality
-114, root128, sequential parallelism1, child depth4; control budgets с запасом.
+114, root128. Backend parallel round требует до восьми шагов, admission добавляет
+один шаг до plan. Declared parallelism2 и child depth5 покрывают opt-in ветви;
+при default sequential активен один reader. Control budgets с запасом.
 Это budget одного Run; reviewed continuation даёт новый bounded acceptance call.
+
+## Опциональное параллельное backend-ревью
+
+По умолчанию проверки, безопасность и ревью идут последовательно. Если проект
+хочет запустить два независимых reader одновременно, можно явно выбрать
+`parallel-backend` в своём `extend.yaml`:
+
+```yaml
+profile: backend
+settings:
+  feature:
+    review_mode: parallel-backend
+  quality:
+    limit: 3
+exclude: []
+extensions: []
+```
+
+Маршрут: `checks → {security || review} → ожидание обеих ветвей → aggregate`.
+Каждый reader получает общий candidate и свой каталог критериев. Для этих двух
+отчётов отдельная сессия обязательна независимо от общего
+`task.require_separate_session`. Другая модель этим не обещается. Даже первый
+неуспешный отчёт не запускает repair, пока вторая ветвь не завершена. После repair
+повторяются checks и оба reader; guard и commit остаются в общей replay unit.
+
+Режим требует **явного host adapter**. Перед plan хост отвечает на
+`parallel-admission`: без подходящего dispatcher маршрут останавливается.
+В этом варианте поставляется только dispatcher независимых Codex CLI sessions;
+App/Claude и параллельные UI/UX не объявляются поддержанными. Для frontend
+выбирать `sequential`; попытка включить этот режим отвергается до plan/implement.
+
+Контроллер существующего host loop после `run drive` может обработать один
+готовый batch поставляемой командой:
+
+```sh
+python3 -B .prifly/workflows/aif-feature/files/parallel_host.py \
+  --binary /absolute/released/prifly --project /absolute/selected/authority \
+  --run run:<ID> --host codex-cli --artifacts /absolute/owned/evidence
+```
+
+Команда обслуживает только capability admission, пару security/review и сбор
+их отчётов. `handled:false` возвращает обычный этап основному хосту: writers,
+checks, выбор workflow и управление Run остаются в существующем runner.
+Папка evidence должна находиться вне claimed репозитория. Эту команду хост
+вызывает явно; новая версия пакета сама не меняет installed
+runner и не включает фоновый запуск. Для другой среды до opt-in нужен собственный
+проверенный adapter. Корневая папка evidence принадлежит запуску; внутри каждая
+Attempt получает отдельный каталог. Повторный запуск той же Attempt блокируется
+локальным marker; после неизвестного результата сначала останавливают и сверяют
+реального actor, затем применяют штатные cancel/recovery и новые Attempts.
+
+Collector использует публичный `artifact export`, переносит исходные bytes в
+base64 и не принимает решения о качестве. Программный aggregate сверяет exact
+refs/digests/полноту, затем заново применяет W1. Источник каждого отчёта и его
+исходные bytes сохраняются в evidence; одинаковые observations не исчезают и
+не становятся дополнительными критериями. Ошибка экспорта, stale/missing/bad
+digest → diagnostic partial без repair/commit. Предел транспорта — 4 MiB на
+отчёт; превышение даёт явную недоступность без усечения.
+
+Исходники адаптера закреплены hashes в sealed context. Несовпадение установленного
+helper с reviewed Run запрещает его использование. После обновления пакета
+нужно заново просмотреть prepare; источник старого Run не переписывается.
+[Приёмка и ограничения W5](../docs/changes/qualify-parallel-implementation-review/feature-composition.md).
 
 ## Native plan и решения
 

@@ -1,8 +1,10 @@
 # Tasks W5
 
 Qualification evidence: [acceptance.md](acceptance.md). Backend fixture and real
-CLI normal delivery are qualified; **E4 fixed in 0.13.77; production composition pending**.
-No Core or shipping package changes or tag/catalog publication. See
+CLI normal delivery are qualified; **E4 fixed in 0.13.77; backend composition implemented**.
+Package portion changes aif-feature1.1.0 only, with default sequential and
+explicit codex-cli backend adapter. No Core/classic/profiled changes or tag/catalog publication. See
+[feature composition](feature-composition.md) and
 [released requalification](release-0.13.77.md); the old named cancellation
 negatives below describe the original 0.13.76 qualification.
 
@@ -39,14 +41,18 @@ negatives below describe the original 0.13.76 qualification.
   reviewed continue. PASS на 0.13.77, включая owner edit/effect_not_permitted;
   отдельный abandon case проверяет native claim release. В рамках W5 пакетов
   Core не меняется (backend portion A5/A6; frontend остаётся ниже).
-- [ ] Реализовать reviewed host/project adapter получения raw reports после
+- [x] Реализовать reviewed host/project adapter получения raw reports после
   manifest, с детерминированной проверкой каждого digest и W1 gate.
-- [ ] Встроить opt-in composition в W3 quality/guard/commit replay unit, сохранить
+- [x] Встроить opt-in composition в W3 quality/guard/commit replay unit, сохранить
   preliminary sequential checks и default sequential; автоматический repair
   запускать только после settlement всех включённых readers (A1, A4).
-- [ ] Проверить capability/admission до dispatch и native production host loop;
-  ручной probe dispatcher не выдавать за автоматическую поддержку host (A8).
+- [x] Проверить capability/admission до dispatch и native production host loop
+  для явного codex-cli backend adapter; final actual two-reader loop прошёл
+  через shipped helper, raw collection, W1/guard/commit. Native App/Claude
+  concurrency этим не заявляются; установка не меняет existing runner (A8).
 - [ ] Квалифицировать параллельный frontend: browser contexts/identity/ports,
   shared stand conflicts, cleanup/cancel, новый candidate после repair (A6).
-- [ ] Пройти полную новую приёмку изменённого feature graph и назначить version
-  bump по его фактическим bytes; текущий fixture не заменяет эту приёмку.
+- [x] Пройти новую backend приёмку actual feature graph: 24 native scenarios,
+  unit12, three-host compile и scoped actual CLI observation; feature1.1.0.
+  Старый fixture не заменяет эту приёмку. Default/full CI отражаются отдельно;
+  полный W5 A1–A10 для всех hosts/frontend этим не объявляется.

@@ -6,11 +6,16 @@ from pathlib import Path
 import sys
 import evidence as w1
 import product as w2
+import parallel_reports as parallel
 
 LENSES = ('checks', 'security', 'review')
 
 
-def configuration(task, surface=None):
+def configuration(task, surface=None, review_mode='sequential'):
+    if review_mode not in ('sequential', 'parallel-backend'):
+        raise w1.Invalid('Unknown review mode')
+    if review_mode == 'parallel-backend' and (task.get('product') is not None or surface == 'frontend'):
+        raise w1.Invalid('Parallel frontend resources are not qualified; select sequential review')
     w1.obj(task, ('title', 'description', 'scope', 'assumptions', *LENSES,
                   'optional_policy', 'require_separate_session', 'product'), 'feature task')
     for field, bound in (('title', 400), ('description', 12000)):
@@ -48,14 +53,17 @@ def configuration(task, surface=None):
         raise w1.Invalid('Package profile disagrees with task surface')
 
 
-def begin(task, base, previous):
-    configuration(task)
+def begin(task, base, previous, review_mode='sequential'):
+    configuration(task, review_mode=review_mode)
     if type(previous) is not int or not 0 <= previous < 8:
         raise w1.Invalid('Round counter is outside the declared limit')
     round_number = previous + 1
     requests = {lens: {'base_commit': base, 'round': round_number, 'checks': task[lens],
                       'optional_policy': task['optional_policy'],
                       'require_separate_session': task['require_separate_session']} for lens in LENSES}
+    if review_mode == 'parallel-backend':
+        for lens in parallel.READERS:
+            requests[lens]['require_separate_session'] = True
     for request in requests.values():
         w1.request(request)
     product = copy.deepcopy(task['product'])
@@ -124,10 +132,10 @@ def worker(operation):
     try:
         base = read('implementation')['base_commit']
         if operation == 'configure':
-            configuration(read('task'), read('surface'))
+            configuration(read('task'), read('surface'), read('review_mode'))
             output('round', 0)
         elif operation == 'begin':
-            count, requests, config = begin(read('task'), base, read('round'))
+            count, requests, config = begin(read('task'), base, read('round'), read('review_mode'))
             output('round', count)
             for lens in LENSES:
                 output(lens + '_request', requests[lens])
@@ -140,18 +148,32 @@ def worker(operation):
             task = read('task')
             captured = read('candidate')
             requests = {lens: read(lens + '_request') for lens in LENSES}
-            reports = {lens: read(lens + '_report') for lens in LENSES}
+            provenance = None
+            transport_error = None
+            if operation == 'aggregate-parallel':
+                manifest, bundle = read('manifest'), read('bundle')
+                provenance = {'manifest': manifest, 'bundle': bundle}
+                reports = {'checks': read('checks_report')}
+                try:
+                    reports.update(parallel.unpack(manifest, context['inputs']['manifest']['ref']['digest'], bundle))
+                except (ValueError, OSError, KeyError, TypeError) as error:
+                    transport_error = str(error)
+            else:
+                reports = {lens: read(lens + '_report') for lens in LENSES}
             digests = {lens: w1.digest(Path(context['inputs'][lens + '_request']['path']).read_bytes()) for lens in LENSES}
-            product = None if operation.endswith('backend') else {
+            product = None if operation in ('aggregate-backend', 'aggregate-parallel') else {
                 'gate': read('product_gate'), **{p: read(p) for p in ('ui_report', 'ux_report', 'environment', 'release')}}
             try:
+                if transport_error:
+                    raise w1.Invalid('Parallel report transport: ' + transport_error)
                 current = w1.snapshot(os.environ['PRIFLY_REPOSITORY_WORKSPACE'], base)
                 gate = aggregate(task, captured, current, requests, reports, digests, product)
             except (w1.Invalid, OSError, w1.subprocess.SubprocessError) as error:
                 gate = feature_gate('blocked', ['Candidate cannot be assessed: ' + str(error)])
             output('gate', gate)
             output('evidence', {'round': read('round'), 'task_digest': w1.digest(Path(context['inputs']['task']['path']).read_bytes()),
-                                'candidate': captured, 'requests': requests, 'reports': reports, 'product': product, 'gate': gate})
+                                'candidate': captured, 'requests': requests, 'reports': reports, 'product': product, 'gate': gate,
+                                **({'parallel': provenance} if provenance is not None else {})})
         elif operation == 'guard':
             try:
                 gate = guard(read('candidate'), w1.snapshot(os.environ['PRIFLY_REPOSITORY_WORKSPACE'], base), read('gate'))

@@ -3,6 +3,8 @@
 Дата: 2026-10-16. [Выпуск](https://github.com/StenHigh/prifly/releases/tag/v0.13.77)
 закрыл [E4 / #6](https://github.com/StenHigh/prifly/issues/6).
 Native cancellation blocker снят; production parallel profile ещё не включён.
+Это отчёт об обновлении движка **до** следующего пакетного изменения;
+актуальная backend composition описана отдельно в [feature-composition.md](feature-composition.md).
 
 ## Что изменилось
 

@@ -21,6 +21,8 @@ from run_check import clean, git_out
 from fix_check import Host, implementation
 from product_environment import OwnedEnvironment
 from product_check import live_reader
+sys.path.insert(0, str(verify.ROOT / 'aif-feature/files'))
+import parallel_host
 
 CASES = ('backend', 'frontend', 'repair-checks', 'repair-security', 'repair-review', 'repair-ui', 'repair-ux',
          'required-unavailable', 'owner-stop', 'exhaustion', 'max-budget', 'too-large', 'requirement-conflict',
@@ -60,6 +62,8 @@ class FeatureHost(Host):
         self.envs, self.env, self.rounds, self.observations, self.run_ids = [], None, [], [], []
         self.plan_captures=[]
         self.iteration, self.cancelled, self.started_at = 0, False, time.monotonic()
+        self.review_mode, self.parallel_fault, self.parallel_live = 'sequential', None, False
+        self.parallel_batches, self.parallel_observations = [], []
 
     def state(self, rid):
         return self.call('run', 'status', rid)['run']
@@ -72,15 +76,67 @@ class FeatureHost(Host):
                 state = self.state(rid)
                 assert state['status'] in ('completed', 'failed', 'cancelled'),{k:state.get(k) for k in ('status','outcome','diagnostics')}
                 return state
+            if self.review_mode == 'parallel-backend' and len(tasks) == 2:
+                assert {parallel_host.role(t) for t in tasks} == {'security', 'review'}
+                # Public task listing is not branch order. Targeted first/last
+                # cancellation/edit cases must settle security before review.
+                tasks.sort(key=lambda t: ('security', 'review').index(parallel_host.role(t)))
+                assert len({t['attempt_id'] for t in tasks}) == len({t['workspace'] for t in tasks}) == 2
+                assert len({t['claim_id'] for t in tasks}) == 1
+                assert read(tasks[0], 'candidate') == read(tasks[1], 'candidate')
+                self.parallel_batches.append({'attempts': [t['attempt_id'] for t in tasks],
+                                              'candidate': read(tasks[0], 'candidate'), 'round': read(tasks[0], 'request')['round']})
+                if self.parallel_fault == 'one-timeout' and not self.cancelled:
+                    self.cancelled = True
+                    time.sleep(31)
+                    self.call('run', 'drive', rid)
+                    state = self.state(rid)
+                    assert state['status'] == 'running' and state.get('outcome') is None, state['status']
+                    surviving = self.call('session', 'task', '--run', rid, '--all')['tasks']
+                    assert len(surviving) == 1 and parallel_host.role(surviving[0]) == 'review'
+                    task = surviving[0]
+                    self.tree = Path(task['repository_workspace']); self.claims.add(task['claim_id'])
+                    self.seen.append({'run': rid, 'step': 'review'})
+                    verdict, values = self.answer_feature(task, 'review')
+                    assert self.submit(rid, task, verdict, values) is None
+                    self.call('run', 'drive', rid)
+                    return self.state(rid)
+                if self.parallel_live:
+                    self.tree = Path(tasks[0]['repository_workspace']); self.claims.add(tasks[0]['claim_id'])
+                    for task in tasks:
+                        name = parallel_host.role(task)
+                        self.seen.append({'run': rid, 'step': name})
+                        request = read(task, 'request')
+                        self.rounds.append({'run': rid, 'lens': name, 'round': request['round'],
+                                            'digest': read(task, 'candidate')['digest'], 'base': self.base})
+                    observation = parallel_host.service(self.binary, self.authority, tasks, host='codex-cli',
+                                                         artifacts=self.artifacts / ('round-' + str(len(self.parallel_batches))))
+                    self.parallel_observations.extend(observation['observations'])
+                    continue
             for task in tasks:
                 name = task['skill_refs'][0]['id'].rsplit('/', 1)[-1].removeprefix('feature-').removesuffix('-bridge')
                 self.seen.append({'run': rid, 'step': name})
-                self.tree = Path(task['repository_workspace']); self.claims.add(task['claim_id'])
+                if task.get('repository_workspace'): self.tree = Path(task['repository_workspace'])
+                if task.get('claim_id'): self.claims.add(task['claim_id'])
                 if name != 'warmup' and 'implementation' in task['context']['inputs']:
                     assert read(task, 'implementation')['base_commit'] == self.base
                 if self.case in ('cancel-resume', 'plan-cancel', 'implement-cancel','frontend-cancel') and not self.cancelled and name == {
-                    'cancel-resume': 'checks', 'plan-cancel': 'plan', 'implement-cancel': 'implement','frontend-cancel':'ui'}[self.case]:
+                    'cancel-resume': 'review' if self.review_mode == 'parallel-backend' else 'checks',
+                    'plan-cancel': 'plan', 'implement-cancel': 'implement','frontend-cancel':'ui'}[self.case]:
                     # A cancelled writer may leave its own plan bytes. Native continue must reconcile them.
+                    if self.parallel_fault == 'timeout':
+                        self.cancelled = True
+                        time.sleep(31)
+                        self.call('run', 'drive', rid)
+                        state = self.state(rid)
+                        assert all(a.get('settled') for a in state['attempts'].values())
+                        assert any(d['code'] == 'attempt_deadline_expired' for d in state['diagnostics'])
+                        return state
+                    if self.parallel_fault == 'during-reader-edit':
+                        (self.tree / 'owner.txt').write_text('Owner edit while last parallel reader was active\n')
+                        verdict, values = self.answer_feature(task, name)
+                        refused = self.submit(rid, task, verdict, values)
+                        assert refused and refused['code'] == 'effect_not_permitted', refused
                     if name == 'plan':
                         path = self.tree / '.ai-factory/PLAN.md'; path.parent.mkdir(exist_ok=True)
                         path.write_text('Interrupted owner plan bytes\n')
@@ -107,13 +163,42 @@ class FeatureHost(Host):
                     continue
                 verdict, values = self.answer_feature(task, name)
                 refusal=self.submit(rid, task, verdict, values)
-                assert refusal is None,refusal
+                assert refusal is None,(name,refusal)
                 if self.case == 'stale-after-review' and name == 'review':
+                    # Both reports are accepted, before drive hands out the
+                    # transport Attempt. Editing during any live assisted
+                    # Attempt correctly fails the native none-effects guard.
                     (self.tree / 'owner.txt').write_text('Owner edited after reader\n')
+                if self.review_mode == 'parallel-backend' and name in ('security', 'review'):
+                    self.call('run', 'drive', rid)
+                    outstanding = self.call('session', 'task', '--run', rid, '--all')['tasks']
+                    if name == 'security':
+                        assert len(outstanding)==1 and parallel_host.role(outstanding[0])=='review'
+                    if outstanding:
+                        state = self.state(rid)
+                        active_steps = [state['steps'][a['step_instance_id']]['definition_ref']['id']
+                                        for a in state['attempts'].values() if not a.get('settled')]
+                        assert 'aif-feature:step/repair' not in active_steps and 'aif-feature:step/commit' not in active_steps
         raise AssertionError('W3 Run did not settle within fixture bound')
 
     def answer_feature(self, task, name):
         tree = self.tree
+        if name == 'parallel-admission':
+            parallel_host.verify_adapter(task)
+            value = (parallel_host.admission(self.binary, self.authority, 'codex-cli') if self.parallel_live else
+                     {'protocol': parallel_host.PROTOCOL, 'status': 'ready', 'host': 'codex-cli',
+                      'reason': 'Synthetic capability for native graph assertions; not actual host qualification.'})
+            if self.parallel_fault == 'unsupported-host':
+                value.update(status='unavailable', host='claude-code', reason='No qualified independent host dispatcher')
+            return 'pass' if value['status'] == 'ready' else 'blocked', {'admission': value}
+        if name == 'collect-reviews':
+            value = parallel_host.collect(self.binary, self.authority, task)
+            if self.parallel_fault == 'bad-digest': value['reports'][0]['raw_base64'] = 'e30='
+            if self.parallel_fault == 'stale-bundle': value['manifest_digest'] = 'sha256:' + '0' * 64
+            if self.parallel_fault == 'missing-report': value['reports'] = value['reports'][:1]
+            if self.parallel_fault == 'export-unavailable':
+                value = parallel_host.collect(Path('/bin/false'), self.authority, task)
+            return 'pass' if value['status'] == 'ready' else 'blocked', {'bundle': value}
         if name == 'warmup':
             self.base = git_out(tree, 'rev-parse', 'HEAD')
             return 'pass', {'handoff': {'summary': 'Small isolated feature fixture.', 'entry_points': ['index.html' if self.frontend else 'greeting.py'],
@@ -160,6 +245,9 @@ class FeatureHost(Host):
             request, candidate = read(task, 'request'), read(task, 'candidate')
             count = request['round']; self.rounds.append({'run': task['run_id'], 'lens': name, 'round': count, 'digest': candidate['digest'], 'base': candidate['base_commit']})
             value = report(request, candidate)
+            if self.review_mode == 'parallel-backend' and name in ('security', 'review'):
+                value['session'] = 'separate' if self.parallel_fault != 'shared-session' else 'shared'
+                if self.parallel_fault == 'stale-report': value['round'] += 1
             value['request_digest'] = task['context']['inputs']['request']['ref']['digest']
             for i, check in enumerate(request['checks']):
                 entry = copy.deepcopy(value['checks'][0]); value['checks'][i:i+1] = [entry]
@@ -167,9 +255,11 @@ class FeatureHost(Host):
                 skip = 'excluded' if not check['enabled'] else 'not_applicable' if not check['applicable'] else None
                 unavailable = self.case == 'required-unavailable' and name == 'checks' or self.case in ('blocked-resume', 'upgrade', 'upgrade-refusal') and self.iteration == 0 and name == 'checks' or self.case == 'chained-resume' and self.iteration < 2 and name == 'checks'
                 if unavailable: skip = 'unavailable'
+                if self.parallel_fault == 'failed-unavailable' and name == 'review': skip = 'unavailable'
                 failing = (self.case == 'repair-' + name and count == 1 or self.case == 'repair-too-large' and name == 'checks'
                            or self.case in ('exhaustion', 'max-budget') and name == 'checks'
                            or self.case == 'verdict-independent' and count == 1 and name == 'checks')
+                if self.parallel_fault == 'failed-unavailable' and name == 'security': failing = True
                 if skip:
                     entry.update(status=skip, result='not_run', reason='Declared skip / required environment unavailable', evidence=[])
                 elif name in ('ui', 'ux'):
@@ -227,7 +317,9 @@ class FeatureHost(Host):
             if git_out(tree, 'ls-files', '--', '.ai-factory/PLAN.md'): paths.append('.ai-factory/PLAN.md')
             verify.git('-C', tree, 'add', '--', *paths)
             if git_out(tree,'diff','--cached','--name-only'): verify.git('-C',tree,'commit','-qm','feat: scoped fixture')
-            return 'pass', {'implementation':implementation(tree,self.base),'result':result()}
+            committed = implementation(tree,self.base)
+            committed['changed_files'] = git_out(tree,'-c','core.quotepath=off','diff','--name-only',self.base+'..HEAD').splitlines()
+            return 'pass', {'implementation':committed,'result':result()}
         raise AssertionError(name)
 
     def live_attempt(self, rid, task, name):
@@ -304,13 +396,14 @@ def read_output(task, name):
     return json.loads((Path(task['workspace'])/task['context']['outputs'][name]['path']).read_text())
 
 
-def run_case(binary, case, host='codex-cli', library=None, live=False, artifacts=None, skills=None):
+def run_case(binary, case, host='codex-cli', library=None, live=False, artifacts=None, skills=None,
+             review_mode='sequential', parallel_fault=None, parallel_live=False):
     with tempfile.TemporaryDirectory(prefix='w3-run-') as directory:
         root = Path(directory); repository, authority = verify.prepare_repository(binary, root); runs=[]; h=None
         try:
             frontend = case in ('frontend','repair-ui','repair-ux','frontend-unavailable','frontend-cancel')
             if case=='live-frontend':frontend=True
-            if live:
+            if live or parallel_live:
                 source=skills or Path('/tmp/w3-upstream')
                 import product_check
                 product_check.AUTO_REVIEW=True
@@ -340,7 +433,10 @@ def run_case(binary, case, host='codex-cli', library=None, live=False, artifacts
                 path=repository/'.ai-factory/config.yaml';path.parent.mkdir(exist_ok=True);path.write_text('paths:\n  plan: other/PLAN.md\n')
             package=repository/'.prifly/workflows/aif-feature'
             limit=8 if case == 'max-budget' else 2 if case == 'exhaustion' else 3
-            (package/'extend.yaml').write_text(f'profile: {"frontend" if frontend else "backend"}\nsettings:\n  quality: {{limit: {limit}}}\nexclude: []\nextensions: []\n')
+            (package/'extend.yaml').write_text(f'profile: {"frontend" if frontend else "backend"}\nsettings:\n  quality: {{limit: {limit}}}\n  feature: {{review_mode: {review_mode}}}\nexclude: []\nextensions: []\n')
+            if parallel_fault in ('timeout','one-timeout'):
+                path = package/'steps'/('security.yaml' if parallel_fault=='one-timeout' else 'review.yaml')
+                path.write_text(path.read_text().replace('active_timeout_ms: null', 'active_timeout_ms: 30000'))
             verify.git('-C',repository,'add','.');verify.git('-C',repository,'commit','-qm','Feature fixture')
             value=task_input(frontend)
             if live:
@@ -359,6 +455,7 @@ def run_case(binary, case, host='codex-cli', library=None, live=False, artifacts
             prepared=verify.run(binary,*args[:3],'questionnaire',*args[4:],'--prepare')
             rid=verify.run(binary,*args,'--expected-launch-digest',prepared['review_digest'])['run']['run']['id'];runs.append(rid)
             h=FeatureHost(binary,authority,case,root,frontend,library,live,artifacts)
+            h.review_mode, h.parallel_fault, h.parallel_live = review_mode, parallel_fault, parallel_live
             state=h.drive_feature(rid); source_outcome=state.get('outcome') or state['status']
             initial_state=copy.deepcopy(state)
             if live and artifacts:
@@ -367,7 +464,8 @@ def run_case(binary, case, host='codex-cli', library=None, live=False, artifacts
                 assert state['status']=='failed' and any(x['code']=='workspace_tree_output_exists' for x in state['diagnostics']),{k:state.get(k) for k in ('status','outcome','diagnostics')}
                 assert (h.tree/'.ai-factory/PLAN.md').read_text()=='Foreign native plan bytes\n'
             if case in ('blocked-resume','cancel-resume','chained-resume','plan-cancel','implement-cancel','upgrade','upgrade-refusal','live-resume','frontend-cancel','commit-resume'):
-                assert source_outcome in ('partial','cancelled') or case in ('plan-cancel','implement-cancel') and source_outcome=='failed', {k:state.get(k) for k in ('status','outcome','diagnostics')}
+                assert (source_outcome in ('partial','cancelled') or case in ('plan-cancel','implement-cancel') and source_outcome=='failed'
+                        or parallel_fault in ('timeout','one-timeout') and source_outcome=='rejected'), {k:state.get(k) for k in ('status','outcome','diagnostics')}
                 if case == 'plan-cancel':
                     # Preparation must refuse the partial producer's bytes rather than discard them.
                     before=(h.tree/'.ai-factory/PLAN.md').read_bytes()
@@ -416,12 +514,19 @@ def run_case(binary, case, host='codex-cli', library=None, live=False, artifacts
                     state=h.drive_feature(rid)
                 assert (h.tree/'owner.txt').read_text()=='Preserved owner edit across continuation\n'
             expected='succeeded' if case in ('backend','frontend','repair-checks','repair-security','repair-review','repair-ui','repair-ux','retained-plan','blocked-resume','cancel-resume','chained-resume','implement-cancel','upgrade','excluded-security','verdict-independent') else 'partial'
+            if parallel_fault and parallel_fault not in ('timeout','one-timeout','during-reader-edit'):
+                expected = 'rejected' if parallel_fault == 'unsupported-host' else 'partial'
+            if review_mode == 'parallel-backend' and frontend: expected = 'rejected'
             if case.startswith('live-') or case in ('frontend-cancel','commit-resume'):expected='succeeded'
             if case not in ('foreign-plan','plan-cancel'):assert state.get('outcome')==expected,{k:state.get(k) for k in ('status','outcome','diagnostics')}
             if expected=='succeeded':
                 assert {'implementation','result','plan','gate','evidence'} <= state['output_artifacts'].keys()
                 assert git_out(h.tree,'rev-parse','HEAD') != h.base
             names=[x['step'] for x in h.seen]
+            if parallel_fault and parallel_fault not in ('timeout','one-timeout','during-reader-edit') or review_mode == 'parallel-backend' and frontend:
+                assert 'repair' not in names and 'commit' not in names
+            if parallel_fault == 'unsupported-host' or review_mode == 'parallel-backend' and frontend:
+                assert 'plan' not in names and 'implement' not in names and not h.parallel_batches
             if case in ('required-unavailable','owner-stop','too-large','requirement-conflict','stale-after-review','frontend-unavailable'):
                 assert 'repair' not in names and 'commit' not in names
             if case in ('exhaustion','max-budget'):
@@ -443,20 +548,25 @@ def run_case(binary, case, host='codex-cli', library=None, live=False, artifacts
             elif case not in ('foreign-plan','plan-cancel'):assert not (h.tree/'.ai-factory/PLAN.md').exists(), 'Owned untracked plan must be captured, not lost or left blocking next Run'
             if case=='foreign-fix-plan':assert (h.tree/'.ai-factory/FIX_PLAN.md').read_text()=='Foreign fix plan bytes\n'
             actual_outputs={}
-            if live:
+            if live or review_mode == 'parallel-backend' and 'evidence' in state['output_artifacts']:
                 for port,reference in state['output_artifacts'].items():
                     ref_file=root/(port+'-ref.json');out_file=root/(port+'-export.json');ref_file.write_text(json.dumps(reference))
                     h.call('artifact','export','--ref',ref_file,'--output',out_file)
                     actual_outputs[port]=json.loads(out_file.read_text())
-                (artifacts/'final-state.json').write_text(json.dumps(state,indent=2))
-                (artifacts/'final-outputs.json').write_text(json.dumps(actual_outputs,indent=2))
-                assert actual_outputs['implementation']['base_commit']==h.base
-                assert actual_outputs['implementation']['head_commit']==git_out(h.tree,'rev-parse','HEAD')
-                assert actual_outputs['implementation']['changed_files']==git_out(h.tree,'-c','core.quotepath=off','diff','--name-only',h.base+'..HEAD').splitlines()
+                if artifacts:
+                    (artifacts/'final-state.json').write_text(json.dumps(state,indent=2))
+                    (artifacts/'final-outputs.json').write_text(json.dumps(actual_outputs,indent=2))
+                if expected == 'succeeded':
+                    assert actual_outputs['implementation']['base_commit']==h.base
+                    assert actual_outputs['implementation']['head_commit']==git_out(h.tree,'rev-parse','HEAD')
+                    assert actual_outputs['implementation']['changed_files']==git_out(h.tree,'-c','core.quotepath=off','diff','--name-only',h.base+'..HEAD').splitlines()
                 verify.git('-C',h.tree,'status','--porcelain')
             return {'case':case,'host':host,'mode':'fresh actual Codex CLI writers/readers, unedited submissions' if live else 'actual browser with deterministic writer/reader assertions' if library else 'synthetic host, real programs/Git',
                     'source_outcome':source_outcome,'outcome':state.get('outcome') or state['status'],'runs':len(runs),
                     'steps':names,'rounds':h.rounds,'plan_captures':h.plan_captures,'elapsed_seconds':round(time.monotonic()-h.started_at,3),'cleaned':True,
+                    'review_mode':review_mode,'parallel_fault':parallel_fault,'parallel_batches':h.parallel_batches,
+                    'parallel_observations':h.parallel_observations,
+                    **({'parallel_outputs':actual_outputs} if review_mode=='parallel-backend' else {}),
                     **({'observations':h.observations,'outputs':actual_outputs} if live else
                        {'browser_observations':h.observations} if library else {})}
         finally:

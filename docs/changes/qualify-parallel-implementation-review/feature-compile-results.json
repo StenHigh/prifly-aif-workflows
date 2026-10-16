@@ -1,0 +1,18 @@
+{
+  "outcome": "passed",
+  "prifly": "0.13.77",
+  "binary_sha256": "sha256:d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa",
+  "platform": "linux/x86_64",
+  "packages": [
+    "aif-classic",
+    "aif-fanout",
+    "aif-feature",
+    "aif-fix",
+    "aif-profiled",
+    "aif-review-evidence",
+    "aif-ui-ux"
+  ],
+  "components_read": 106,
+  "steps_read": 70,
+  "registry_entries_removed": 1
+}

@@ -10,6 +10,52 @@
 
 Ворота выверены против выпущенного Pri-Fly `v0.13.77`.
 
+- **W5: aif-feature1.1.0, opt-in backend composition (2026-10-16):**
+  Latest stable повторно проверен в начале: 0.13.77, новых выпусков нет.
+  Меняется только отдельный aif-feature: default review_mode=sequential,
+  opt-in settings.feature.review_mode=parallel-backend. Configure отвергает
+  frontend+parallel до writers; host admission до plan разрешает только явный
+  codex-cli adapter. Native checks остаются последовательными, далее два
+  read-only readers security/review, common capture, distinct Attempts, all/wait.
+  Collector переносит original bytes через public artifact export; program
+  aggregate сверяет exact refs/digests/manifest, повторяет W1 и сохраняет
+  manifest/raw_base64/provenance. Никакого quality verdict от host collector.
+  Repair после settlement, весь checks/readers/aggregate/guard/commit остаётся
+  replay unit. Runtime budgets114/128 сохранены, depth5/parallelism2, предел8 rounds.
+  Shipped parallel_host.py обслуживает только admission/pair/collection;
+  обычные writers/Run control остаются имеющемуся host loop. Native take/template/
+  submit сериализованы controller; только actors параллельны. Adapter hashes
+  pinned в sealed context, exclusive per-Attempt marker запрещает blind repeat,
+  каждый actor имеет собственный evidence folder. Установка сама не меняет runner.
+  Новые компоненты initial1.0.0; изменённые feature components/package1.1.0.
+  Все233 files шести прочих пакетов побайтно прежние; core/classic/profiled
+  не меняются, W1/W2 shared workers/contexts остаются прежними. Source boundary
+  и результаты в docs/changes/qualify-parallel-implementation-review/feature-*.
+  verify PASS106 definitions/70 source steps/7 packages на3 hosts/profiles,
+  compatibility PASS5 launches/4 builds/4 packages (legacy state41), install/update
+  PASS с сохранением extend/project и отказом при local upstream edit; static7,
+  versions3, derive check, feature unit8 и transport/adaptor unit12 PASS.
+  Actual normal CLI readers через final shipped dispatcher PASS: два unique
+  sessions, overlap100.940s, unedited submissions/original raw digests, W1 gate
+  warnings (unavailable model mapping), current guard и local commit succeeded.
+  Author/checks в этой fixture синтетические; live writers, другой model,
+  native App/Claude concurrency и parallel frontend не заявляются. Raw exact
+  events/submissions в /tmp/aif-w5-feature-live-shipping; derived public
+  feature-live-results.json. Полная backend native matrix24/24 assertions PASS,
+  включая после-first cancel/edit/timeout, живой sibling после одного timeout,
+  partial/commit replay, промежуточный owner edit и семь transport/identity negatives.
+  Collector не получает Git workspace, но native effects guard не обходится.
+  Targeted fixture задаёт security-before-review: список session task --all
+  не обещает branch order; первая ветвь проверяется terminal до cancel/edit.
+  Synthetic commit fixture сообщает только actual committed changed_files,
+  сохраняя dirty owner work отдельно. Полная default sequential matrix35/35
+  assertions PASS, включая frontend/cancel/commit replay и named writer
+  negatives; это не35 successful Runs. Actual browser или live Claude/App
+  этим локальным повтором не заявляются. Feature validation/evidence сохранены.
+  Предыдущий полный CI adoption0.13.77 /8aea794 /38825450834 SUCCESS.
+  No tag/catalog/package publication; frontend resources и E3 writer boundary
+  остаются отдельной работой. Детали: W5 feature-composition.md.
+
 - **Pri-Fly 0.13.77: совместимость и повторная квалификация W5 (2026-10-16):**
   Latest stable 0.13.77; пропущенных stable между 0.13.76 и 0.13.77 нет.
   Release body перечисляет signed assets; изменения сверены по официальному

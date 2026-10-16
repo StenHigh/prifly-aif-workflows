@@ -7,7 +7,7 @@ categories:
 workflows:
   aif-feature:
     title: AI Factory small feature workflow
-    description: Native fast plan, implementation, bounded sequential quality and local commit. Requires Pri-Fly 0.13.76; no push or merge.
+    description: Native fast plan, bounded quality and local commit. Sequential by default; opt-in backend parallel review needs its CLI host adapter. Requires Pri-Fly 0.13.77; no push or merge.
     category: software-delivery
     repository: https://github.com/StenHigh/prifly-aif-workflows.git
     path: aif-feature

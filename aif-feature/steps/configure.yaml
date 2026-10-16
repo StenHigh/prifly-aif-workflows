@@ -1,6 +1,6 @@
 authoring: prifly-step/1
 id: aif-feature:step/configure
-version: 1.0.0
+version: 1.1.0
 title: Bounded feature configure
 kind: worker
 inputs:
@@ -10,6 +10,8 @@ inputs:
     schema_ref: '{{schema_implementation}}'
   surface:
     schema_ref: '{{schema_surface}}'
+  review_mode:
+    schema_ref: '{{schema_review-mode}}'
 outputs:
   round:
     schema_ref: '{{schema_round}}'

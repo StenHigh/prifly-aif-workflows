@@ -1,0 +1,436 @@
+{
+  "prifly": "0.13.77",
+  "binary_sha256": "d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa",
+  "boundary": "Whole shipping feature graph; actual public report export and deterministic aggregate. Synthetic author/checks, actual fresh CLI security/review via shipped dispatcher.",
+  "selected_cases": [
+    "backend"
+  ],
+  "cases": [
+    {
+      "case": "backend",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "succeeded",
+      "outcome": "succeeded",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "parallel-admission",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "collect-reviews",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:ff9020cf3cb9ed786eb7ded993f403a5f7f614b6c56b649e0f0a0dad8a3a50e1",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:0f3de46801dc5cf5888e79602bdb9d4540b827dc282de400f7748ab03f8e1fa9",
+          "base": "9d80f048dfdcc5512b3f6a050df46f144cfbeac0"
+        },
+        {
+          "run": "run:ff9020cf3cb9ed786eb7ded993f403a5f7f614b6c56b649e0f0a0dad8a3a50e1",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:0f3de46801dc5cf5888e79602bdb9d4540b827dc282de400f7748ab03f8e1fa9",
+          "base": "9d80f048dfdcc5512b3f6a050df46f144cfbeac0"
+        },
+        {
+          "run": "run:ff9020cf3cb9ed786eb7ded993f403a5f7f614b6c56b649e0f0a0dad8a3a50e1",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:0f3de46801dc5cf5888e79602bdb9d4540b827dc282de400f7748ab03f8e1fa9",
+          "base": "9d80f048dfdcc5512b3f6a050df46f144cfbeac0"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "8f60b02649fea4712aa4d78ca411c4318c2ada404f06ddaf4ec681f5e88cc21d"
+        },
+        {
+          "stage": "implement",
+          "sha256": "15fca2146b111279ed4c201112e36c738c3acd4cf4c3c85b3dba73220a068773"
+        }
+      ],
+      "elapsed_seconds": 247.269,
+      "cleaned": true,
+      "review_mode": "parallel-backend",
+      "parallel_fault": null,
+      "parallel_batches": [
+        {
+          "attempts": [
+            "attempt:5f66696470558df6c3b09f4839dfac1b",
+            "attempt:96d00d034cca7a06f8a0f50abe3b0b86"
+          ],
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "9d80f048dfdcc5512b3f6a050df46f144cfbeac0",
+            "digest": "sha256:0f3de46801dc5cf5888e79602bdb9d4540b827dc282de400f7748ab03f8e1fa9",
+            "files_digest": "sha256:9a4031d0b7dc591724641ac9dcfca88875ec90d5f058553f1cac979fcadee8d7",
+            "head_commit": "9d80f048dfdcc5512b3f6a050df46f144cfbeac0",
+            "index_digest": "sha256:fe53ce3abf52e46906e297f216bb36ede3146b2f120880a78958493d3fe1284d"
+          },
+          "round": 1
+        }
+      ],
+      "parallel_observations": [
+        {
+          "role": "security",
+          "attempt_id": "attempt:5f66696470558df6c3b09f4839dfac1b",
+          "session_id": "01a1422f-7230-7a33-9f0d-5f90df877629",
+          "started_monotonic": 386657.743584009,
+          "ended_monotonic": 386758.683646338,
+          "usage": {
+            "input_tokens": 309313,
+            "cached_input_tokens": 210432,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 3894,
+            "reasoning_output_tokens": 658
+          },
+          "submission": "/tmp/w3-run-u83i7snn/authority/.prifly/work/5f66696470558df6c3b09f4839dfac1b/parallel-submission.json",
+          "submission_digest": "sha256:3faeb0b5783071340a4d425688aa9aa7cccbdc72a97d126f508c071cfd1755e2",
+          "report_digest": "sha256:aac1c734a7dba9996b30538f1881dafbf44870259531dd3aa2ac3021c947003e",
+          "events_digest": "sha256:7b7ba26c9ebe76c89a390e54feeed1d128abfd8a2641302ef38aae14e45f73c6"
+        },
+        {
+          "role": "review",
+          "attempt_id": "attempt:96d00d034cca7a06f8a0f50abe3b0b86",
+          "session_id": "01a1422f-722e-7b22-8306-c0e8e5fc347a",
+          "started_monotonic": 386657.697305894,
+          "ended_monotonic": 386782.399676858,
+          "usage": {
+            "input_tokens": 402797,
+            "cached_input_tokens": 372096,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 5209,
+            "reasoning_output_tokens": 610
+          },
+          "submission": "/tmp/w3-run-u83i7snn/authority/.prifly/work/96d00d034cca7a06f8a0f50abe3b0b86/parallel-submission.json",
+          "submission_digest": "sha256:2fa8b207b46474f7c347a06b1089af999359a5f6e7b741544b959793e15f6f47",
+          "report_digest": "sha256:a54c4a045c5c7210d6a9d560e78258fbed527e001b85ada88766625b40451afe",
+          "events_digest": "sha256:fe2b4bb5781b803419b41a888f0525faecf92f8519a1643cc7890ebf3b22b7bf"
+        }
+      ],
+      "parallel_outputs": {
+        "evidence": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "9d80f048dfdcc5512b3f6a050df46f144cfbeac0",
+            "digest": "sha256:0f3de46801dc5cf5888e79602bdb9d4540b827dc282de400f7748ab03f8e1fa9",
+            "files_digest": "sha256:9a4031d0b7dc591724641ac9dcfca88875ec90d5f058553f1cac979fcadee8d7",
+            "head_commit": "9d80f048dfdcc5512b3f6a050df46f144cfbeac0",
+            "index_digest": "sha256:fe53ce3abf52e46906e297f216bb36ede3146b2f120880a78958493d3fe1284d"
+          },
+          "gate": {
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "checks: Model profile unavailable; independent model not established",
+              "security: Model profile unavailable; independent model not established",
+              "review: Model profile unavailable; independent model not established",
+              "review: review_acceptance: No blocking correctness issue found within the declared scope and nonempty-string assumption. The pinned review skill treats missing optional architecture, rules, and roadmap context as a nonblocking warning; those artifacts and the review-specific project context are absent. No dependency or environment setup was needed for this code inspection."
+            ],
+            "gate": "feature",
+            "status": "warnings",
+            "suggested_next": "continue"
+          },
+          "parallel": {
+            "bundle": {
+              "manifest_digest": "sha256:a275cd4d6bef092723f2d97d9eba24fe6bfce1e74949c18c2a5ee52606061b4a",
+              "reason": "",
+              "reports": [
+                {
+                  "branch": "security",
+                  "raw_base64": "ewogICJyb3VuZCI6IDEsCiAgInJlcXVlc3RfZGlnZXN0IjogInNoYTI1Njo0ZDNmMjNjZjdjNjgyMjdjY2FlNDk3ZmE5NzgzYmJmMzEwZDlmMDY3NTUzZDA5ZTIzOGJkZTYxODM5YWNmZDI4IiwKICAiY2FuZGlkYXRlIjogewogICAgImFsZ29yaXRobSI6ICJnaXQtY2FuZGlkYXRlLzEiLAogICAgImJhc2VfY29tbWl0IjogIjlkODBmMDQ4ZGZkY2M1NTEyYjNmNmEwNTBkZjQ2ZjE0NGNmYmVhYzAiLAogICAgImRpZ2VzdCI6ICJzaGEyNTY6MGYzZGU0NjgwMWRjNWNmNTg4OGU3OTYwMmJkYjlkNDU0MGI4MjdkYzI4MmRlNDAwZjc3NDhhYjAzZjhlMWZhOSIsCiAgICAiZmlsZXNfZGlnZXN0IjogInNoYTI1Njo5YTQwMzFkMGI3ZGM1OTE3MjQ2NDFhYzlkY2ZjYTg4ODc1ZWM5MGQ1ZjA1ODU1M2YxY2FjOTc5ZmNhZGVlOGQ3IiwKICAgICJoZWFkX2NvbW1pdCI6ICI5ZDgwZjA0OGRmZGNjNTUxMmIzZjZhMDUwZGY0NmYxNDRjZmJlYWMwIiwKICAgICJpbmRleF9kaWdlc3QiOiAic2hhMjU2OmZlNTNjZTNhYmY1MmU0NjkwNmUyOTdmMjE2YmIzNmVkZTMxNDZiMmYxMjA4ODBhNzg5NTg0OTNkM2ZlMTI4NGQiCiAgfSwKICAic2Vzc2lvbiI6ICJzZXBhcmF0ZSIsCiAgIm1vZGVsX3Byb2ZpbGUiOiAidW5hdmFpbGFibGUiLAogICJtb2RlbCI6IG51bGwsCiAgImNoZWNrcyI6IFsKICAgIHsKICAgICAgImlkIjogInNlY3VyaXR5X2FjY2VwdGFuY2UiLAogICAgICAic3RhdHVzIjogImV4ZWN1dGVkIiwKICAgICAgInJlc3VsdCI6ICJwYXNzZWQiLAogICAgICAicmVhc29uIjogIiIsCiAgICAgICJldmlkZW5jZSI6IFsKICAgICAgICB7CiAgICAgICAgICAibWV0aG9kIjogImNvZGUiLAogICAgICAgICAgInRvb2wiOiAiZXhlY19jb21tYW5kIiwKICAgICAgICAgICJsb2NhdG9yIjogIi90bXAvdzMtcnVuLXU4M2k3c25uL2F1dGhvcml0eS8ucHJpZmx5L3dvcmsvY2xhaW1zLzdmMWQ1YTZhYjRiMzRhMjg0ODI2MmVhNmRlNmQzYWI3MDUzYjRhNGEwOWJjODU1OGMxYjUwYTM3NGM3MTc5YzMvZ3JlZXRpbmcucHk6MS0yIiwKICAgICAgICAgICJvYnNlcnZhdGlvbiI6ICJSZWFkIGJvdGggaW1wbGVtZW50YXRpb24gbGluZXMuIGdyZWV0aW5nKG5hbWUpIHJldHVybnMgZlwiSGVsbG8sIHtuYW1lfSFcIi4gRm9yIHRoZSBkZWNsYXJlZCBub25lbXB0eS1zdHJpbmcgaW5wdXQsIGl0IG9ubHkgaW50ZXJwb2xhdGVzIHRleHQ7IGl0IGNvbnRhaW5zIG5vIGNyZWRlbnRpYWxzLCBpbXBvcnRzLCBldmFsL2V4ZWMsIHNoZWxsIG9yIHN1YnByb2Nlc3MgZXhlY3V0aW9uLCBmaWxlL25ldHdvcmsgb3BlcmF0aW9ucywgb3IgbmV3IGRlcGVuZGVuY3kuIiwKICAgICAgICAgICJleGl0X2NvZGUiOiBudWxsCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAibWV0aG9kIjogImNvZGUiLAogICAgICAgICAgInRvb2wiOiAiZXhlY19jb21tYW5kIiwKICAgICAgICAgICJsb2NhdG9yIjogIi90bXAvdzMtcnVuLXU4M2k3c25uL2F1dGhvcml0eS8ucHJpZmx5L3dvcmsvY2xhaW1zLzdmMWQ1YTZhYjRiMzRhMjg0ODI2MmVhNmRlNmQzYWI3MDUzYjRhNGEwOWJjODU1OGMxYjUwYTM3NGM3MTc5YzMvdGVzdF9ncmVldGluZy5weToxLTQiLAogICAgICAgICAgIm9ic2VydmF0aW9uIjogIlJlYWQgYWxsIGZvdXIgdGVzdCBsaW5lcy4gVGhlIHRlc3QgaW1wb3J0cyB1bml0dGVzdCBhbmQgZ3JlZXRpbmcgYW5kIGFzc2VydHMgZ3JlZXRpbmcoXCJBZGFcIikgZXF1YWxzIFwiSGVsbG8sIEFkYSFcIi4gTm8gc2VjcmV0cyBvciB1bnNhZmUgZXhlY3V0aW9uIGFyZSBwcmVzZW50LiBSZXBvc2l0b3J5IEFHRU5UUy5tZCwgLmFpLWZhY3RvcnkvY29uZmlnLnlhbWwsIC5haS1mYWN0b3J5L1NFQ1VSSVRZLm1kLCBhbmQgLmFpLWZhY3Rvcnkvc2tpbGwtY29udGV4dC9haWYtc2VjdXJpdHktY2hlY2tsaXN0L1NLSUxMLm1kIHdlcmUgY2hlY2tlZCBhbmQgYWJzZW50LiBJbnNwZWN0aW9uIHdhcyBsaW1pdGVkIHRvIHRoZSBzZWFsZWQgZ3JlZXRpbmcgc2NvcGU7IHRoZSBzZXBhcmF0ZSBjb21tYW5kLXRlc3QgY3JpdGVyaW9uIHdhcyBub3QgcGFydCBvZiB0aGlzIHJlcXVlc3QuIiwKICAgICAgICAgICJleGl0X2NvZGUiOiBudWxsCiAgICAgICAgfQogICAgICBdCiAgICB9CiAgXQp9Cg==",
+                  "ref": {
+                    "artifact_id": "artifact:2c11d576790b14d4a6c52ddbada3aeac5e4962c070687927559d49b6eab0e54a",
+                    "digest": "sha256:aac1c734a7dba9996b30538f1881dafbf44870259531dd3aa2ac3021c947003e",
+                    "revision": 1
+                  }
+                },
+                {
+                  "branch": "review",
+                  "raw_base64": "ewogICJyb3VuZCI6IDEsCiAgInJlcXVlc3RfZGlnZXN0IjogInNoYTI1Njo3NWI5OTNkYmU3YmVmNjg4YzMxNTk0YjFlODRmNzA1ZjBiYzZkOTlmMWUwMmU2MWQ2Nzg5OTc3ZWY5ODA0YjY0IiwKICAiY2FuZGlkYXRlIjogewogICAgImFsZ29yaXRobSI6ICJnaXQtY2FuZGlkYXRlLzEiLAogICAgImJhc2VfY29tbWl0IjogIjlkODBmMDQ4ZGZkY2M1NTEyYjNmNmEwNTBkZjQ2ZjE0NGNmYmVhYzAiLAogICAgImRpZ2VzdCI6ICJzaGEyNTY6MGYzZGU0NjgwMWRjNWNmNTg4OGU3OTYwMmJkYjlkNDU0MGI4MjdkYzI4MmRlNDAwZjc3NDhhYjAzZjhlMWZhOSIsCiAgICAiZmlsZXNfZGlnZXN0IjogInNoYTI1Njo5YTQwMzFkMGI3ZGM1OTE3MjQ2NDFhYzlkY2ZjYTg4ODc1ZWM5MGQ1ZjA1ODU1M2YxY2FjOTc5ZmNhZGVlOGQ3IiwKICAgICJoZWFkX2NvbW1pdCI6ICI5ZDgwZjA0OGRmZGNjNTUxMmIzZjZhMDUwZGY0NmYxNDRjZmJlYWMwIiwKICAgICJpbmRleF9kaWdlc3QiOiAic2hhMjU2OmZlNTNjZTNhYmY1MmU0NjkwNmUyOTdmMjE2YmIzNmVkZTMxNDZiMmYxMjA4ODBhNzg5NTg0OTNkM2ZlMTI4NGQiCiAgfSwKICAic2Vzc2lvbiI6ICJzZXBhcmF0ZSIsCiAgIm1vZGVsX3Byb2ZpbGUiOiAidW5hdmFpbGFibGUiLAogICJtb2RlbCI6IG51bGwsCiAgImNoZWNrcyI6IFsKICAgIHsKICAgICAgImlkIjogInJldmlld19hY2NlcHRhbmNlIiwKICAgICAgInN0YXR1cyI6ICJleGVjdXRlZCIsCiAgICAgICJyZXN1bHQiOiAid2FybmluZ3MiLAogICAgICAicmVhc29uIjogIk5vIGJsb2NraW5nIGNvcnJlY3RuZXNzIGlzc3VlIGZvdW5kIHdpdGhpbiB0aGUgZGVjbGFyZWQgc2NvcGUgYW5kIG5vbmVtcHR5LXN0cmluZyBhc3N1bXB0aW9uLiBUaGUgcGlubmVkIHJldmlldyBza2lsbCB0cmVhdHMgbWlzc2luZyBvcHRpb25hbCBhcmNoaXRlY3R1cmUsIHJ1bGVzLCBhbmQgcm9hZG1hcCBjb250ZXh0IGFzIGEgbm9uYmxvY2tpbmcgd2FybmluZzsgdGhvc2UgYXJ0aWZhY3RzIGFuZCB0aGUgcmV2aWV3LXNwZWNpZmljIHByb2plY3QgY29udGV4dCBhcmUgYWJzZW50LiBObyBkZXBlbmRlbmN5IG9yIGVudmlyb25tZW50IHNldHVwIHdhcyBuZWVkZWQgZm9yIHRoaXMgY29kZSBpbnNwZWN0aW9uLiIsCiAgICAgICJldmlkZW5jZSI6IFsKICAgICAgICB7CiAgICAgICAgICAibWV0aG9kIjogImNvZGUiLAogICAgICAgICAgInRvb2wiOiAiZnVuY3Rpb25zLmV4ZWMgLyB0b29scy5leGVjX2NvbW1hbmQgKHJlYWQtb25seSBmaWxlIGFuZCBkaWZmIGluc3BlY3Rpb24pIiwKICAgICAgICAgICJsb2NhdG9yIjogIi90bXAvdzMtcnVuLXU4M2k3c25uL2F1dGhvcml0eS8ucHJpZmx5L3dvcmsvY2xhaW1zLzdmMWQ1YTZhYjRiMzRhMjg0ODI2MmVhNmRlNmQzYWI3MDUzYjRhNGEwOWJjODU1OGMxYjUwYTM3NGM3MTc5YzMvZ3JlZXRpbmcucHk6MS0yIiwKICAgICAgICAgICJvYnNlcnZhdGlvbiI6ICJSZWFkIHRoZSBjb21wbGV0ZSBpbXBsZW1lbnRhdGlvbjogZGVmIGdyZWV0aW5nKG5hbWUpOiByZXR1cm4gZlwiSGVsbG8sIHtuYW1lfSFcIi4gVGhlIGxpdGVyYWwgcHJlZml4LCBjb21tYSwgc3BhY2UsIGFuZCBleGNsYW1hdGlvbiBtYXJrIG1hdGNoIHRoZSBhY2NlcHRhbmNlIGNvbnRyYWN0LiBJbnRlcnBvbGF0aW9uIHByZXNlcnZlcyB0aGUgc3VwcGxpZWQgbm9uZW1wdHkgc3RyaW5nLCBpbmNsdWRpbmcgVW5pY29kZSwgcHVuY3R1YXRpb24sIGFuZCB3aGl0ZXNwYWNlLiBFbXB0eSBvciBub24tc3RyaW5nIGlucHV0cyBhcmUgb3V0c2lkZSB0aGUgc3RhdGVkIGFzc3VtcHRpb24uIE5vIGRlcGVuZGVuY2llcyBvciB1bnNhZmUgZXhlY3V0aW9uIGFwcGVhciBpbiB0aGlzIHR3by1saW5lIGltcGxlbWVudGF0aW9uLiBHaXQgc3RhdHVzIHNob3dlZCB0aGlzIGZpbGUgdW50cmFja2VkOyBib3RoIHNjb3BlZCBzdGFnZWQgYW5kIHVuc3RhZ2VkIGRpZmZzIHdlcmUgZW1wdHksIHNvIHRoZSBjdXJyZW50IGZpbGUgY29udGVudHMgd2VyZSBpbnNwZWN0ZWQgZGlyZWN0bHkuIiwKICAgICAgICAgICJleGl0X2NvZGUiOiBudWxsCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAibWV0aG9kIjogImNvZGUiLAogICAgICAgICAgInRvb2wiOiAiZnVuY3Rpb25zLmV4ZWMgLyB0b29scy5leGVjX2NvbW1hbmQgKHJlYWQtb25seSBmaWxlIGluc3BlY3Rpb24pIiwKICAgICAgICAgICJsb2NhdG9yIjogIi90bXAvdzMtcnVuLXU4M2k3c25uL2F1dGhvcml0eS8ucHJpZmx5L3dvcmsvY2xhaW1zLzdmMWQ1YTZhYjRiMzRhMjg0ODI2MmVhNmRlNmQzYWI3MDUzYjRhNGEwOWJjODU1OGMxYjUwYTM3NGM3MTc5YzMvdGVzdF9ncmVldGluZy5weToxLTQiLAogICAgICAgICAgIm9ic2VydmF0aW9uIjogIlJlYWQgdGhlIGNvbXBsZXRlIHVuaXR0ZXN0IGZpbGUuIEdyZWV0aW5nVGVzdC50ZXN0X25hbWUgaW1wb3J0cyBncmVldGluZyBhbmQgYXNzZXJ0cyBncmVldGluZyhcIkFkYVwiKSBlcXVhbHMgXCJIZWxsbywgQWRhIVwiLCBjb3ZlcmluZyBleGFjdCBwdW5jdHVhdGlvbiBhbmQgc3BhY2luZyBmb3IgdGhlIHJlcXVlc3RlZCBiZWhhdmlvci4gT3RoZXIgbm9uZW1wdHkgc3RyaW5ncyBmb2xsb3cgdGhlIHNhbWUgaW50ZXJwb2xhdGlvbiBwYXRoIGJ5IGNvZGUgaW5zcGVjdGlvbi4gVGhpcyBhdHRlbXB0IGRlY2xhcmVzIGEgY29kZSBjaGVjayBvbmx5OyBubyB0ZXN0IGV4ZWN1dGlvbiBpcyBjbGFpbWVkLiIsCiAgICAgICAgICAiZXhpdF9jb2RlIjogbnVsbAogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgIm1ldGhvZCI6ICJjb2RlIiwKICAgICAgICAgICJ0b29sIjogImZ1bmN0aW9ucy5leGVjIC8gdG9vbHMuZXhlY19jb21tYW5kIChyZWFkLW9ubHkgcHJvamVjdC1jb250ZXh0IGluc3BlY3Rpb24pIiwKICAgICAgICAgICJsb2NhdG9yIjogIi90bXAvdzMtcnVuLXU4M2k3c25uL2F1dGhvcml0eS8ucHJpZmx5L3dvcmsvY2xhaW1zLzdmMWQ1YTZhYjRiMzRhMjg0ODI2MmVhNmRlNmQzYWI3MDUzYjRhNGEwOWJjODU1OGMxYjUwYTM3NGM3MTc5YzMvLmFpLWZhY3RvcnkvIiwKICAgICAgICAgICJvYnNlcnZhdGlvbiI6ICJDaGVja2VkIEFHRU5UUy5tZCwgLmFpLWZhY3RvcnkvY29uZmlnLnlhbWwsIC5haS1mYWN0b3J5L3NraWxsLWNvbnRleHQvYWlmLXJldmlldy9TS0lMTC5tZCwgLmFpLWZhY3RvcnkvREVTQ1JJUFRJT04ubWQsIC5haS1mYWN0b3J5L0FSQ0hJVEVDVFVSRS5tZCwgLmFpLWZhY3RvcnkvUlVMRVMubWQsIGFuZCAuYWktZmFjdG9yeS9ST0FETUFQLm1kOyBhbGwgd2VyZSBhYnNlbnQuIERlZmF1bHQgY29udGV4dCBsb2NhdGlvbnMgdGhlcmVmb3JlIGFwcGx5LiBBcmNoaXRlY3R1cmUsIHJ1bGVzLCBhbmQgcm9hZG1hcCBhbGlnbm1lbnQgY2Fubm90IGJlIGFzc2Vzc2VkIGZyb20gb3B0aW9uYWwgYXJ0aWZhY3RzOyB0aGUgcGlubmVkIHNraWxsIGNsYXNzaWZpZXMgdGhlaXIgYWJzZW5jZSBhcyBXQVJOLCB3aXRoIG5vIGV4cGxpY2l0IGJsb2NraW5nIGNvbnRleHQgY3JpdGVyaW9uLiIsCiAgICAgICAgICAiZXhpdF9jb2RlIjogbnVsbAogICAgICAgIH0KICAgICAgXQogICAgfQogIF0KfQo=",
+                  "ref": {
+                    "artifact_id": "artifact:a25ddf67d5ab75d52cbb222af007123e796f4223514e8ca028b990ad077e97a1",
+                    "digest": "sha256:a54c4a045c5c7210d6a9d560e78258fbed527e001b85ada88766625b40451afe",
+                    "revision": 1
+                  }
+                }
+              ],
+              "schema_version": "1",
+              "status": "ready"
+            },
+            "manifest": {
+              "branches": [
+                {
+                  "effect_receipt_refs": [],
+                  "has_waivers": false,
+                  "id": "security",
+                  "outcome": "succeeded",
+                  "output_refs": {
+                    "report": {
+                      "artifact_id": "artifact:2c11d576790b14d4a6c52ddbada3aeac5e4962c070687927559d49b6eab0e54a",
+                      "digest": "sha256:aac1c734a7dba9996b30538f1881dafbf44870259531dd3aa2ac3021c947003e",
+                      "revision": 1
+                    }
+                  },
+                  "run_id": "run:ff9020cf3cb9ed786eb7ded993f403a5f7f614b6c56b649e0f0a0dad8a3a50e1",
+                  "status": "completed",
+                  "workflow_invocation_id": "invocation:b1faecb05a15cfb8aa76fd0ac57ff9bf47a9b392d0872981b3843297626bb0b6"
+                },
+                {
+                  "effect_receipt_refs": [],
+                  "has_waivers": false,
+                  "id": "review",
+                  "outcome": "succeeded",
+                  "output_refs": {
+                    "report": {
+                      "artifact_id": "artifact:a25ddf67d5ab75d52cbb222af007123e796f4223514e8ca028b990ad077e97a1",
+                      "digest": "sha256:a54c4a045c5c7210d6a9d560e78258fbed527e001b85ada88766625b40451afe",
+                      "revision": 1
+                    }
+                  },
+                  "run_id": "run:ff9020cf3cb9ed786eb7ded993f403a5f7f614b6c56b649e0f0a0dad8a3a50e1",
+                  "status": "completed",
+                  "workflow_invocation_id": "invocation:93f67dd526dd65b8f266261363dd02339fdcb3cb7e15780c09384bd66c003bf7"
+                }
+              ],
+              "join_result": "satisfied",
+              "schema_version": "1",
+              "selected_branch_ids": [
+                "security",
+                "review"
+              ],
+              "selection_seq": 1,
+              "stage_activation_id": "activation:8075e87fd91c01bf463e4776aab1f536"
+            }
+          },
+          "product": null,
+          "reports": {
+            "checks": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "9d80f048dfdcc5512b3f6a050df46f144cfbeac0",
+                "digest": "sha256:0f3de46801dc5cf5888e79602bdb9d4540b827dc282de400f7748ab03f8e1fa9",
+                "files_digest": "sha256:9a4031d0b7dc591724641ac9dcfca88875ec90d5f058553f1cac979fcadee8d7",
+                "head_commit": "9d80f048dfdcc5512b3f6a050df46f144cfbeac0",
+                "index_digest": "sha256:fe53ce3abf52e46906e297f216bb36ede3146b2f120880a78958493d3fe1284d"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": 0,
+                      "locator": "/tmp/w3-run-u83i7snn/authority/.prifly/work/claims/7f1d5a6ab4b34a2848262ea6de6d3ab7053b4a4a09bc8558c1b50a374c7179c3",
+                      "method": "command",
+                      "observation": "exit=0; stdout=''; stderr='.\\n----------------------------------------------------------------------\\nRan 1 test in 0.000s\\n\\nOK\\n'",
+                      "tool": "python3 -B -m unittest test_greeting"
+                    }
+                  ],
+                  "id": "checks_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:37ffb210bf159e608d1952ab59966a84767ecee48c35f79ce96b52bdf6c39929",
+              "round": 1,
+              "session": "shared"
+            },
+            "review": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "9d80f048dfdcc5512b3f6a050df46f144cfbeac0",
+                "digest": "sha256:0f3de46801dc5cf5888e79602bdb9d4540b827dc282de400f7748ab03f8e1fa9",
+                "files_digest": "sha256:9a4031d0b7dc591724641ac9dcfca88875ec90d5f058553f1cac979fcadee8d7",
+                "head_commit": "9d80f048dfdcc5512b3f6a050df46f144cfbeac0",
+                "index_digest": "sha256:fe53ce3abf52e46906e297f216bb36ede3146b2f120880a78958493d3fe1284d"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "/tmp/w3-run-u83i7snn/authority/.prifly/work/claims/7f1d5a6ab4b34a2848262ea6de6d3ab7053b4a4a09bc8558c1b50a374c7179c3/greeting.py:1-2",
+                      "method": "code",
+                      "observation": "Read the complete implementation: def greeting(name): return f\"Hello, {name}!\". The literal prefix, comma, space, and exclamation mark match the acceptance contract. Interpolation preserves the supplied nonempty string, including Unicode, punctuation, and whitespace. Empty or non-string inputs are outside the stated assumption. No dependencies or unsafe execution appear in this two-line implementation. Git status showed this file untracked; both scoped staged and unstaged diffs were empty, so the current file contents were inspected directly.",
+                      "tool": "functions.exec / tools.exec_command (read-only file and diff inspection)"
+                    },
+                    {
+                      "exit_code": null,
+                      "locator": "/tmp/w3-run-u83i7snn/authority/.prifly/work/claims/7f1d5a6ab4b34a2848262ea6de6d3ab7053b4a4a09bc8558c1b50a374c7179c3/test_greeting.py:1-4",
+                      "method": "code",
+                      "observation": "Read the complete unittest file. GreetingTest.test_name imports greeting and asserts greeting(\"Ada\") equals \"Hello, Ada!\", covering exact punctuation and spacing for the requested behavior. Other nonempty strings follow the same interpolation path by code inspection. This attempt declares a code check only; no test execution is claimed.",
+                      "tool": "functions.exec / tools.exec_command (read-only file inspection)"
+                    },
+                    {
+                      "exit_code": null,
+                      "locator": "/tmp/w3-run-u83i7snn/authority/.prifly/work/claims/7f1d5a6ab4b34a2848262ea6de6d3ab7053b4a4a09bc8558c1b50a374c7179c3/.ai-factory/",
+                      "method": "code",
+                      "observation": "Checked AGENTS.md, .ai-factory/config.yaml, .ai-factory/skill-context/aif-review/SKILL.md, .ai-factory/DESCRIPTION.md, .ai-factory/ARCHITECTURE.md, .ai-factory/RULES.md, and .ai-factory/ROADMAP.md; all were absent. Default context locations therefore apply. Architecture, rules, and roadmap alignment cannot be assessed from optional artifacts; the pinned skill classifies their absence as WARN, with no explicit blocking context criterion.",
+                      "tool": "functions.exec / tools.exec_command (read-only project-context inspection)"
+                    }
+                  ],
+                  "id": "review_acceptance",
+                  "reason": "No blocking correctness issue found within the declared scope and nonempty-string assumption. The pinned review skill treats missing optional architecture, rules, and roadmap context as a nonblocking warning; those artifacts and the review-specific project context are absent. No dependency or environment setup was needed for this code inspection.",
+                  "result": "warnings",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:75b993dbe7bef688c31594b1e84f705f0bc6d99f1e02e61d6789977ef9804b64",
+              "round": 1,
+              "session": "separate"
+            },
+            "security": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "9d80f048dfdcc5512b3f6a050df46f144cfbeac0",
+                "digest": "sha256:0f3de46801dc5cf5888e79602bdb9d4540b827dc282de400f7748ab03f8e1fa9",
+                "files_digest": "sha256:9a4031d0b7dc591724641ac9dcfca88875ec90d5f058553f1cac979fcadee8d7",
+                "head_commit": "9d80f048dfdcc5512b3f6a050df46f144cfbeac0",
+                "index_digest": "sha256:fe53ce3abf52e46906e297f216bb36ede3146b2f120880a78958493d3fe1284d"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "/tmp/w3-run-u83i7snn/authority/.prifly/work/claims/7f1d5a6ab4b34a2848262ea6de6d3ab7053b4a4a09bc8558c1b50a374c7179c3/greeting.py:1-2",
+                      "method": "code",
+                      "observation": "Read both implementation lines. greeting(name) returns f\"Hello, {name}!\". For the declared nonempty-string input, it only interpolates text; it contains no credentials, imports, eval/exec, shell or subprocess execution, file/network operations, or new dependency.",
+                      "tool": "exec_command"
+                    },
+                    {
+                      "exit_code": null,
+                      "locator": "/tmp/w3-run-u83i7snn/authority/.prifly/work/claims/7f1d5a6ab4b34a2848262ea6de6d3ab7053b4a4a09bc8558c1b50a374c7179c3/test_greeting.py:1-4",
+                      "method": "code",
+                      "observation": "Read all four test lines. The test imports unittest and greeting and asserts greeting(\"Ada\") equals \"Hello, Ada!\". No secrets or unsafe execution are present. Repository AGENTS.md, .ai-factory/config.yaml, .ai-factory/SECURITY.md, and .ai-factory/skill-context/aif-security-checklist/SKILL.md were checked and absent. Inspection was limited to the sealed greeting scope; the separate command-test criterion was not part of this request.",
+                      "tool": "exec_command"
+                    }
+                  ],
+                  "id": "security_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:4d3f23cf7c68227ccae497fa9783bbf310d9f067553d09e238bde61839acfd28",
+              "round": 1,
+              "session": "separate"
+            }
+          },
+          "requests": {
+            "checks": {
+              "base_commit": "9d80f048dfdcc5512b3f6a050df46f144cfbeac0",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "python3 -B -m unittest test_greeting",
+                  "enabled": true,
+                  "id": "checks_acceptance",
+                  "method": "command",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            },
+            "review": {
+              "base_commit": "9d80f048dfdcc5512b3f6a050df46f144cfbeac0",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect greeting(name) returns exact expected text, test and edge cases within scope",
+                  "enabled": true,
+                  "id": "review_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": true,
+              "round": 1
+            },
+            "security": {
+              "base_commit": "9d80f048dfdcc5512b3f6a050df46f144cfbeac0",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect greeting implementation against scope; no secrets or unsafe execution",
+                  "enabled": true,
+                  "id": "security_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": true,
+              "round": 1
+            }
+          },
+          "round": 1,
+          "task_digest": "sha256:b06478ff1eaea617ff5516d6e25d2d8487dffbfeb16b3c1be7b7f2a0de01f2f5"
+        },
+        "gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "checks: Model profile unavailable; independent model not established",
+            "security: Model profile unavailable; independent model not established",
+            "review: Model profile unavailable; independent model not established",
+            "review: review_acceptance: No blocking correctness issue found within the declared scope and nonempty-string assumption. The pinned review skill treats missing optional architecture, rules, and roadmap context as a nonblocking warning; those artifacts and the review-specific project context are absent. No dependency or environment setup was needed for this code inspection."
+          ],
+          "gate": "feature",
+          "status": "warnings",
+          "suggested_next": "continue"
+        },
+        "implementation": {
+          "base_commit": "9d80f048dfdcc5512b3f6a050df46f144cfbeac0",
+          "head_commit": "ec204cede209019caf35e874744b2e4c5cd234df",
+          "changed_files": [
+            "greeting.py",
+            "test_greeting.py"
+          ]
+        },
+        "plan": {
+          "entrypoint": "PLAN.md",
+          "files": [
+            {
+              "path": "PLAN.md",
+              "ref": {
+                "artifact_id": "artifact:7c2030cb7ebb29254ccfd0b94d6fe9cd322a793a0722ee88191d1d41e5bc4509",
+                "digest": "sha256:15fca2146b111279ed4c201112e36c738c3acd4cf4c3c85b3dba73220a068773",
+                "revision": 1
+              }
+            }
+          ],
+          "root": ".ai-factory",
+          "schema_version": "workspace-tree-manifest/1"
+        },
+        "result": {
+          "outcome": "implemented",
+          "reason": "Synthetic feature host",
+          "work": [
+            "Preserved task work and original base."
+          ]
+        }
+      },
+      "reader_turn_overlap_seconds": 100.94006232899847,
+      "scenario": "backend"
+    }
+  ],
+  "matrix_complete": true
+}

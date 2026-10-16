@@ -1,7 +1,7 @@
 authoring: prifly-project-workflow/1
 schema_version: '8'
 id: aif-feature:workflow/feature
-version: 1.0.0
+version: 1.1.0
 title: Bounded feature feature
 refs:
   policy: '{{policy}}'
@@ -17,6 +17,9 @@ refs:
   step_warmup: '{{step_warmup}}'
   workflow_quality: '{{workflow_quality}}'
   schema_surface: '{{schema_surface}}'
+  schema_review_mode: '{{schema_review-mode}}'
+  schema_parallel_admission: '{{schema_parallel-admission}}'
+  step_parallel_admission: '{{step_parallel-admission}}'
 inputs:
   task: schema_task
   surface:
@@ -25,6 +28,12 @@ inputs:
     configuration:
       scope: project
       default: '{{surface}}'
+  review_mode:
+    schema_ref: schema_review_mode
+    required: false
+    configuration:
+      scope: project
+      default: sequential
 outputs:
   implementation:
     schema_ref: schema_implementation
@@ -48,8 +57,8 @@ outputs:
 limits:
   max_step_instances: 128
   max_control_transitions: 936
-  max_parallelism: 1
-  max_child_depth: 4
+  max_parallelism: 2
+  max_child_depth: 5
 policy_ref: policy
 entry: warmup
 stages:
@@ -71,8 +80,9 @@ stages:
       task: $inputs.task
       surface: $inputs.surface
       implementation: $stages.warmup.implementation
+      review_mode: $inputs.review_mode
     'on':
-      pass: plan
+      pass: review-mode
       needs_revision: abandoned
       fail: abandoned
       no_work: abandoned
@@ -137,6 +147,7 @@ stages:
       result: $stages.implement.result
       round: $stages.configure.round
       surface: $inputs.surface
+      review_mode: $inputs.review_mode
     'on':
       succeeded: done
       partial: quality-stopped
@@ -177,11 +188,43 @@ stages:
     kind: finish
     outcome: rejected
     output_bindings: {}
+  review-mode:
+    kind: choice
+    selection: first_match
+    branches:
+    - id: parallel
+      predicate:
+        op: eq
+        left: $inputs.review_mode
+        right: parallel-backend
+      next: parallel-admission
+    default: plan
+  parallel-admission:
+    kind: step
+    step_ref: step_parallel_admission
+    input_bindings:
+      review_mode: $inputs.review_mode
+    'on':
+      pass: parallel-ready
+      needs_revision: abandoned
+      blocked: abandoned
+      fail: abandoned
+      no_work: abandoned
+  parallel-ready:
+    kind: choice
+    selection: first_match
+    branches:
+    - id: ready
+      predicate:
+        op: eq
+        left: $stages.parallel-admission.admission#/status
+        right: ready
+      next: plan
+    default: abandoned
 package:
   id: aif-feature:package/feature
-  version: 1.0.0
-  description: Native fast plan, implementation and bounded sequential acceptance
-    for a small new feature.
+  version: 1.1.0
+  description: Native fast plan and bounded acceptance; sequential by default, opt-in independent backend review.
   requires_core_protocol: '1'
   profiles:
     default: backend
@@ -203,6 +246,7 @@ package:
     result: core:schema/step-result@1.0.0
     result_v2: core:schema/step-result@2.0.0
     workspace_tree_manifest: core:schema/workspace-tree-manifest@1.0.0
+    aggregate_manifest: core:schema/aggregate-manifest@1.0.0
 resumable:
   from_outcomes:
   - partial
@@ -260,6 +304,7 @@ execution_bindings:
         feature.py: files/feature.py
         evidence.py: files/evidence.py
         product.py: files/product.py
+        parallel_reports.py: files/parallel_reports.py
       timeout_ms: 120000
       grace_ms: 100
       max_output_bytes: 1048576
@@ -273,6 +318,7 @@ execution_bindings:
         feature.py: files/feature.py
         evidence.py: files/evidence.py
         product.py: files/product.py
+        parallel_reports.py: files/parallel_reports.py
       timeout_ms: 120000
       grace_ms: 100
       max_output_bytes: 1048576
@@ -286,6 +332,7 @@ execution_bindings:
         feature.py: files/feature.py
         evidence.py: files/evidence.py
         product.py: files/product.py
+        parallel_reports.py: files/parallel_reports.py
       timeout_ms: 120000
       grace_ms: 100
       max_output_bytes: 1048576
@@ -299,6 +346,7 @@ execution_bindings:
         feature.py: files/feature.py
         evidence.py: files/evidence.py
         product.py: files/product.py
+        parallel_reports.py: files/parallel_reports.py
       timeout_ms: 120000
       grace_ms: 100
       max_output_bytes: 1048576
@@ -312,6 +360,7 @@ execution_bindings:
         feature.py: files/feature.py
         evidence.py: files/evidence.py
         product.py: files/product.py
+        parallel_reports.py: files/parallel_reports.py
       timeout_ms: 120000
       grace_ms: 100
       max_output_bytes: 1048576
@@ -325,6 +374,21 @@ execution_bindings:
         feature.py: files/feature.py
         evidence.py: files/evidence.py
         product.py: files/product.py
+        parallel_reports.py: files/parallel_reports.py
+      timeout_ms: 120000
+      grace_ms: 100
+      max_output_bytes: 1048576
+    aif-feature:step/aggregate-parallel:
+      executable: python
+      args:
+      - -B
+      - feature.py
+      - aggregate-parallel
+      files:
+        feature.py: files/feature.py
+        evidence.py: files/evidence.py
+        product.py: files/product.py
+        parallel_reports.py: files/parallel_reports.py
       timeout_ms: 120000
       grace_ms: 100
       max_output_bytes: 1048576

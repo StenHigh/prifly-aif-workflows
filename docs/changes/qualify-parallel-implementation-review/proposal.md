@@ -1,14 +1,16 @@
 # W5 — Квалификация параллельного ревью реализации
 
-Статус: **qualification recorded; E4 fixed; production composition pending**.
+Статус: **E4 fixed; backend opt-in composition implemented; frontend deferred**.
 Приоритет: **P2**. Дата: 2026-10-14; повторная квалификация: 2026-10-16.
 Актуальная база: released Pri-Fly 0.13.77 / пакеты v1.51.2.
 Native cancellation blocker снят; [результаты повторной проверки](release-0.13.77.md).
+Пакетная часть: [feature1.1.0, adapter и границы](feature-composition.md).
 
 Результат и ограничения: [acceptance.md](acceptance.md). Квалификация использует
-released Core без его изменений. Все shipping packages, включая sequential
-`aif-feature` и canonical classic/profiled, остаются прежними. Включение
-production parallel profile не выполнено и не объявлено прошедшим приёмку.
+released Core без его изменений. Остальные шесть пакетов, включая classic/profiled
+и W1/W2, не правятся; меняется только `aif-feature` с default sequential
+и явным backend opt-in. Непроверенные hosts/frontend не объявляются прошедшими
+параллельную приёмку; результаты самого пакета отделены от старого fixture.
 
 ## Проблема и результат
 

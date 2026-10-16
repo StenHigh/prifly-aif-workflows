@@ -1,6 +1,6 @@
 authoring: prifly-step/2
 id: aif-feature:step/security
-version: 1.0.0
+version: 1.1.0
 title: Bounded feature security
 kind: worker
 inputs:
@@ -24,6 +24,7 @@ executor:
   operation: session
 instructions_ref: '{{context_feature-security}}'
 context_refs:
+- '{{context_parallel-adapter-contract}}'
 - '{{context_aif-security}}'
 effects:
   class: none

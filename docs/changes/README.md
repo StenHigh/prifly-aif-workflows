@@ -20,7 +20,7 @@ W4: **committed/pushed, pilot qualified, CI PASS**; W5: **qualification recorded
 | W2 | P1 | [UI/UX-компоненты](add-ui-ux-review-components/proposal.md) | W1; standalone контракт среды из #2 | committed/pushed, CI + fresh CLI PASS; model/consumer limits / unreleased |
 | W3 | P1 | [Короткий workflow для фич](add-bounded-feature-workflow/proposal.md) | W1; W2 для интерфейсного профиля | committed/pushed, CI + live PASS; forced writer cancel deferred / unreleased |
 | W4 | P1/P2 | [Приёмка перед интеграцией](document-verified-integration-handoff/proposal.md) | W1; проектный интегратор, #1 при GitLab | committed/pushed, pilot qualified, CI PASS; real provider limits / unreleased |
-| W5 | P2 | [Квалификация параллельного ревью](qualify-parallel-implementation-review/proposal.md) | W1, W2, W3; сначала последовательная приёмка | qualification recorded; E4 исправлен в 0.13.77; production composition и host/frontend qualification остаются |
+| W5 | P2 | [Квалификация параллельного ревью](qualify-parallel-implementation-review/proposal.md) | W1, W2, W3; сначала последовательная приёмка | E4 исправлен; backend opt-in и checked report adapter реализованы в feature1.1.0; frontend/другие hosts остаются / unreleased |
 
 Каждый change выпускается отдельно с собственным bump изменённых компонентов,
 пакета и зависимых workflow по действующим правилам. Версии здесь не назначены:

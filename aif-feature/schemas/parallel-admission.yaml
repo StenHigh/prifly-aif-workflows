@@ -1,0 +1,36 @@
+id: aif-feature:schema/parallel-admission
+version: 1.0.0
+$schema: https://json-schema.org/draft/2020-12/schema
+type: object
+additionalProperties: false
+required:
+- protocol
+- status
+- host
+- reason
+properties:
+  protocol:
+    const: aif-feature-parallel-host/1
+  status:
+    enum:
+    - ready
+    - unavailable
+  host:
+    enum:
+    - codex-cli
+    - codex-app
+    - claude-code
+    - unavailable
+  reason:
+    type: string
+    minLength: 1
+    maxLength: 4000
+allOf:
+- if:
+    properties:
+      status:
+        const: ready
+  then:
+    properties:
+      host:
+        const: codex-cli

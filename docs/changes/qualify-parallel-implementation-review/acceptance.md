@@ -4,8 +4,10 @@
 Повторная проверка требует terminal cancellation, отказ late report, стабильный
 повтор drive, native claim release либо reviewed continue с двумя свежими readers.
 Результаты и оставшаяся работа — в [release-0.13.77.md](release-0.13.77.md).
-Полная production composition, host adapter и parallel frontend всё ещё не готовы;
-`aif-feature` сохраняет последовательное ревью. Нового live LLM замера нет.
+Следующее пакетное изменение добавляет backend opt-in и host adapter в
+`aif-feature1.1.0`; [его отдельная приёмка](feature-composition.md) не подменяется
+старым fixture. Default sequential сохранён; parallel frontend остаётся вне scope.
+Результаты ниже — прежняя квалификация, не live benchmark новой композиции.
 
 ## Историческая квалификация на 0.13.76
 

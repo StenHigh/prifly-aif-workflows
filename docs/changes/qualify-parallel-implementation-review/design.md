@@ -1,13 +1,14 @@
 # Design W5
 
-Квалификация 2026-10-15: [результат, host matrix и границы](acceptance.md).
-Выбран отдельный backend fixture; production feature profile блокирован native
-cancellation после settled sibling, затем требует host adapter и frontend
-resources. Нужный timeout replay реализован
-внутренним call/on_error, возвращающим normal rejected во внешний replayable
-root call. Root-only on_error не заменяет эту обёртку. Новый Core operator
-не требуется; [E4](engine-followup.md) запрашивает корректное завершение existing
-cancel после settlement всех параллельных read-only Attempts.
+Первичная квалификация 2026-10-15: [результат, host matrix и границы](acceptance.md).
+E4 устранён в released0.13.77; [повторная квалификация](release-0.13.77.md)
+подтвердила terminal cancel/native release/full-round replay. Пакетная часть
+2026-10-16 добавляет opt-in backend mode в aif-feature1.1.0 и reviewed adapter
+исходных bytes; [итоговое устройство и приёмка](feature-composition.md).
+Default sequential и classic/profiled сохраняются. Frontend parallel resources
+остаются отдельным scope. Inner call/on_error внутри quality round превращает
+technical failure в обработанный исход внешнего quality/guard/commit replay unit;
+root-only error handler не подменяет этот boundary. Новый Core operator не нужен.
 
 ## Сначала квалификация
 

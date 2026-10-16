@@ -1,0 +1,9 @@
+id: aif-feature:context/parallel-adapter-contract
+version: 1.0.0
+media_type: text/plain; charset=utf-8
+text: '{"files": {"evidence.py": "sha256:0ac845481c7fb4dd3a57d7e80726e42f67c1075ff2407916c7607ddc1a450c76",
+  "parallel_host.py": "sha256:2dfc10dbc381e3d23974e6ea7e686cc6c2f61dd9bcd5233756a9366f5efb1537",
+  "parallel_reports.py": "sha256:5c0014fbc186cf46ca1b9adbc0b5458430f6dacf1953c64d2d278b2b99d039ca"},
+  "protocol": "aif-feature-parallel-host/1"}
+
+  '
