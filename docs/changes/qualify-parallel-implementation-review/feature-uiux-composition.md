@@ -129,7 +129,8 @@ Pure program begin получает typed limit из quality-round и повто
 Native limit-guard с намеренно подставленным capability остановился rejected
 после writer, до checks/environment/repair/commit; это test-only forged/cached
 host response, не production bypass option. Обычный frontend path также PASS; [native results](feature-uiux-round-guard-results.json).
-Final single-revision CI38847358894 на5ac14a3 содержит35 cases и пока выполняется.
+CI38847358894 на5ac14a3: UI/UX job35 SUCCESS, все35 original case lines
+проверены в [CI evidence](feature-uiux-ci-results.json); полный verify отдельно.
 
 ## 1.2.3: неопределённость при ошибке CLI
 
@@ -143,3 +144,6 @@ receipts/PNG files. Поэтому последующий native submit refusal 
 browser/report/lifecycle functions не менялись, кроме состояния dispatch errors.
 Исторические live delivery bytes не переписываются. Source lineage дополнена
 точным сравнением prefix инструкций dispatcher с live checkpoint7f2f57a.
+
+Final source f43eb43 pushed, package1.2.3. Его [CI38848759987](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38848759987)
+повторяет35 cases с unit16; пока выполняется. Full CI PASS не заявляется.

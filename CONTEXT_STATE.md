@@ -34,12 +34,16 @@
   Sequential/backend диапазон1–8 сохранён. Legacy verify на7f2f57a полностью
   SUCCESS: default feature35/backend parallel24 и все прежние ворота/Classic.
   Его общий CI failed только из-за отдельного UI/UX8 storage negative.
-  Final single-revision35 и полный CI новой версии пока НЕ объявляются PASS.
+  На5ac14a3 UI/UX job35 SUCCESS, exact log hash/case lines сохранены.
+  Финальный error-only refinement f43eb43 имеет unit16/native smoke/compile
+  PASS локально; его полный CI38848759987 ещё выполняется, PASS не заявлен.
   Source implementation7f2f57a, test-only current-lease finalizer98665bc,
   admission cap8c92cf6: UI/UX CI job34 SUCCESS/log hash сохранён. Hard guard
-  5ac14a35754d1f91fb627b2865a836e37c70229f pushed; CI38847358894 выполняется,
-  его35/full PASS ещё НЕ заявлены. Последний error-only patch1.2.3 готов
-  к push; его CI будет последним. Implementation/локальная приёмка закончены.
+  5ac14a35754d1f91fb627b2865a836e37c70229f pushed; его UI/UX35 job SUCCESS.
+  Последний source f43eb4389adde5aa6adc1c18228fc70cb0549354 pushed.
+  Незавершённое наблюдение — exact-SHA CI38848759987 (UI/UX35 + legacy);
+  implementation и локальная приёмка закончены. Новые tag/catalog не выпускать
+  до проверки final CI и повторной сверки latest stable по AGENTS.md.
   Latest stable повторно сверён0.13.77; новых нет.233 tracked files остальных6
   пакетов совпадают с f95f2c4; Core/classic/profiled не менялись. Нет tag/catalog
   publication. Guide docs/parallel-ui-ux.md; evidence feature-uiux-*, historical

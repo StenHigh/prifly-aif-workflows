@@ -61,8 +61,9 @@ negatives below describe the original 0.13.76 qualification.
   quality/repair/guard/commit и original deliveries. CI34 SUCCESS на8c92cf6;
   pure begin guard15 unit/native cases PASS на5ac14a3. Model/App/Claude limits
   сохраняются; [scope/evidence](feature-uiux-composition.md).
-- [ ] Дождаться полного exact-SHA CI38847358894 на5ac14a3, включая35-case matrix
-  и legacy verify; успех этого прогона ещё не заявлен.
+- [x] Проверить35-case UI/UX job на5ac14a3: SUCCESS, exact log hash сохранён.
+- [ ] Проверить полный final exact-SHA CI38848759987 наf43eb43, включая
+  UI/UX35/unit16 и legacy verify; его успех ещё не заявлен.
 - [x] Пройти новую backend приёмку actual feature graph: 24 native scenarios,
   unit12, three-host compile и scoped actual CLI observation; feature1.1.0.
   Старый fixture не заменяет эту приёмку. Default/full CI отражаются отдельно;

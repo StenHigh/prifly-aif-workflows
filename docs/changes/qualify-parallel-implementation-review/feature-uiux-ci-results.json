@@ -569,5 +569,586 @@
     "status": "in_progress",
     "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38847358894",
     "full_ci_pass_claimed": false
+  },
+  "hard_guard_job": {
+    "run_id": 38847358894,
+    "head_sha": "5ac14a35754d1f91fb627b2865a836e37c70229f",
+    "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38847358894/job/116800807950",
+    "job_conclusion": "success",
+    "shipping_native_case_count": 35,
+    "shipping_native_cases": [
+      {
+        "scenario": "frontend",
+        "source_outcome": "succeeded",
+        "outcome": "succeeded",
+        "pairs": 1,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "repair-ui",
+        "source_outcome": "succeeded",
+        "outcome": "succeeded",
+        "pairs": 2,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "repair-ux",
+        "source_outcome": "succeeded",
+        "outcome": "succeeded",
+        "pairs": 2,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "required-unavailable",
+        "source_outcome": "partial",
+        "outcome": "partial",
+        "pairs": 1,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "owner-stop",
+        "source_outcome": "partial",
+        "outcome": "partial",
+        "pairs": 1,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "repair-checks",
+        "source_outcome": "succeeded",
+        "outcome": "succeeded",
+        "pairs": 2,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "max-budget",
+        "source_outcome": "rejected",
+        "outcome": "rejected",
+        "pairs": 0,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "limit-guard",
+        "source_outcome": "rejected",
+        "outcome": "rejected",
+        "pairs": 0,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "last-round",
+        "source_outcome": "partial",
+        "outcome": "partial",
+        "pairs": 2,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "cancel-before",
+        "source_outcome": "cancelled",
+        "outcome": "succeeded",
+        "pairs": 2,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "parallel-budget",
+        "source_outcome": "partial",
+        "outcome": "partial",
+        "pairs": 3,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "cancel-after-first",
+        "source_outcome": "cancelled",
+        "outcome": "succeeded",
+        "pairs": 2,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "cancel-during-browser",
+        "source_outcome": "cancelled",
+        "outcome": "succeeded",
+        "pairs": 2,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "evaluate-failure",
+        "source_outcome": "partial",
+        "outcome": "partial",
+        "pairs": 1,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "one-timeout",
+        "source_outcome": "partial",
+        "outcome": "succeeded",
+        "pairs": 2,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "commit-replay",
+        "source_outcome": "partial",
+        "outcome": "succeeded",
+        "pairs": 2,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "intervening-edit",
+        "source_outcome": "partial",
+        "outcome": "partial",
+        "pairs": 1,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "wrong-origin",
+        "source_outcome": "partial",
+        "outcome": "partial",
+        "pairs": 1,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "shared-session",
+        "source_outcome": "partial",
+        "outcome": "partial",
+        "pairs": 1,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "stale-after-repair",
+        "source_outcome": "partial",
+        "outcome": "partial",
+        "pairs": 2,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "bad-digest",
+        "source_outcome": "partial",
+        "outcome": "partial",
+        "pairs": 1,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "missing-report",
+        "source_outcome": "partial",
+        "outcome": "partial",
+        "pairs": 1,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "missing-environment",
+        "source_outcome": "partial",
+        "outcome": "partial",
+        "pairs": 0,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "stale-bundle",
+        "source_outcome": "partial",
+        "outcome": "partial",
+        "pairs": 1,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "runtime-browser-unavailable",
+        "source_outcome": "partial",
+        "outcome": "partial",
+        "pairs": 1,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "unsupported-host",
+        "source_outcome": "rejected",
+        "outcome": "rejected",
+        "pairs": 0,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "unsupported-browser",
+        "source_outcome": "rejected",
+        "outcome": "rejected",
+        "pairs": 0,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "wrong-cleanup-owner",
+        "source_outcome": "partial",
+        "outcome": "partial",
+        "pairs": 1,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "cleanup-interrupted",
+        "source_outcome": "partial",
+        "outcome": "partial",
+        "pairs": 1,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "shared-context",
+        "source_outcome": "rejected",
+        "outcome": "rejected",
+        "pairs": 0,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "shared-identity",
+        "source_outcome": "rejected",
+        "outcome": "rejected",
+        "pairs": 0,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "shared-resource",
+        "source_outcome": "rejected",
+        "outcome": "rejected",
+        "pairs": 0,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "capacity-one",
+        "source_outcome": "rejected",
+        "outcome": "rejected",
+        "pairs": 0,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "no-adapter",
+        "source_outcome": "rejected",
+        "outcome": "rejected",
+        "pairs": 0,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      },
+      {
+        "scenario": "source-drift",
+        "source_outcome": "rejected",
+        "outcome": "rejected",
+        "pairs": 0,
+        "actual_llm_sessions": 0,
+        "cleaned": true
+      }
+    ],
+    "unit_tests": 15,
+    "log_sha256": "sha256:eb64b2e0b044dbbfcc7a4b7e36c572113935bae111a7a91152d69f399864fb65",
+    "log_bytes": 53231,
+    "full_ci_pass_claimed": false
+  },
+  "final_error_refinement": {
+    "run_id": 38848759987,
+    "observed_utc": "2026-10-16T04:09:48.146562+00:00",
+    "conclusion": "",
+    "headSha": "f43eb4389adde5aa6adc1c18228fc70cb0549354",
+    "jobs": [
+      {
+        "completedAt": "0001-01-01T00:00:00Z",
+        "conclusion": "",
+        "databaseId": 116805084458,
+        "name": "parallel-ui-ux",
+        "startedAt": "2026-10-16T04:05:06Z",
+        "status": "in_progress",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install Pri-Fly from the latest stable release",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Parallel UI and UX qualification retains the W2 contracts on three hosts",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-node@v4",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install the exact browser fixture tool",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Parallel UI and UX browser isolation, owned cleanup and whole-round recovery",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Sealed frontend grants, provenance and cleanup boundaries",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "",
+            "name": "Whole feature UI and UX sessions, admission and lifecycle",
+            "number": 9,
+            "status": "in_progress"
+          },
+          {
+            "conclusion": "",
+            "name": "Post Run actions/setup-node@v4",
+            "number": 17,
+            "status": "pending"
+          },
+          {
+            "conclusion": "",
+            "name": "Post Run actions/checkout@v4",
+            "number": 18,
+            "status": "pending"
+          }
+        ],
+        "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38848759987/job/116805084458"
+      },
+      {
+        "completedAt": "0001-01-01T00:00:00Z",
+        "conclusion": "",
+        "databaseId": 116805084752,
+        "name": "verify",
+        "startedAt": "2026-10-16T04:05:06Z",
+        "status": "in_progress",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install Pri-Fly from the latest stable release",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Released versions moved with the bytes",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Static folder contract",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Explicit review coverage and dirty candidate identity",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Product review coverage and owned environment lifecycle",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Feature admission, whole-round freshness and owner blockers",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Parallel report transport rejects substituted refs and bytes",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Verified integration freshness, semantic regression and owned publication",
+            "number": 10,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Compile all packages with the installed Pri-Fly",
+            "number": 11,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "One authority carries Classic across every plan profile",
+            "number": 12,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Standalone integration graph and one-input extension contracts",
+            "number": 13,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Parallel review qualification contracts on three hosts",
+            "number": 14,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "A real Run is handed past the verify gate",
+            "number": 15,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "A gate that could not judge ends the Run partial with its gate",
+            "number": 16,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "A Run stopped blocked resumes with the same workflow at verify",
+            "number": 17,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "A Run cancelled at the gate resumes with the same workflow",
+            "number": 18,
+            "status": "completed"
+          },
+          {
+            "conclusion": "",
+            "name": "Bug workflow finishes direct, planned, repaired and resumed Runs",
+            "number": 19,
+            "status": "in_progress"
+          },
+          {
+            "conclusion": "",
+            "name": "Explicit review evidence finishes and resumes on the released runtime",
+            "number": 20,
+            "status": "pending"
+          },
+          {
+            "conclusion": "",
+            "name": "UI and UX components finish, block and resume with owned environments",
+            "number": 21,
+            "status": "pending"
+          },
+          {
+            "conclusion": "",
+            "name": "Standalone feature catalog install and update preserve project ownership",
+            "number": 22,
+            "status": "pending"
+          },
+          {
+            "conclusion": "",
+            "name": "Small feature direct, repaired, stopped and resumed Runs",
+            "number": 23,
+            "status": "pending"
+          },
+          {
+            "conclusion": "",
+            "name": "Whole feature parallel review, sealed reports and full-round replay",
+            "number": 24,
+            "status": "pending"
+          },
+          {
+            "conclusion": "",
+            "name": "Exact merged acceptance, explicit local integration and offline publication",
+            "number": 25,
+            "status": "pending"
+          },
+          {
+            "conclusion": "",
+            "name": "Parallel readers, all-join barriers and whole-round recovery",
+            "number": 26,
+            "status": "pending"
+          },
+          {
+            "conclusion": "",
+            "name": "Run actions/setup-node@v4",
+            "number": 27,
+            "status": "pending"
+          },
+          {
+            "conclusion": "",
+            "name": "Install the exact browser fixture tool",
+            "number": 28,
+            "status": "pending"
+          },
+          {
+            "conclusion": "",
+            "name": "Real browser scenarios, defects, repair and cancellation",
+            "number": 29,
+            "status": "pending"
+          },
+          {
+            "conclusion": "",
+            "name": "Small frontend feature with real browser and full quality replay",
+            "number": 30,
+            "status": "pending"
+          },
+          {
+            "conclusion": "",
+            "name": "Post Run actions/checkout@v4",
+            "number": 60,
+            "status": "pending"
+          }
+        ],
+        "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38848759987/job/116805084752"
+      }
+    ],
+    "status": "in_progress",
+    "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38848759987",
+    "full_ci_pass_claimed": false,
+    "local_unit_tests": 16,
+    "local_native_smoke": "passed",
+    "scope": "Only CLI dispatcher failure journal settlement refined after green35-case gate; this exact-SHA CI still in progress"
   }
 }
