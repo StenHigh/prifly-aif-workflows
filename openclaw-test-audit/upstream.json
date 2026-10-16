@@ -1,0 +1,19 @@
+{
+  "repository": "https://github.com/openclaw/openclaw",
+  "commit": "70bfdc2b58e42f02af5bdc4d345875a9e6ad3928",
+  "files": [
+    {
+      "path": ".agents/skills/test-audit/SKILL.md",
+      "sha256": "1390c61901a1b9ec46778901ebd24f96b201989977d7b8dea2f05b7e593ab025"
+    },
+    {
+      "path": ".agents/skills/test-audit/references/audit.md",
+      "sha256": "c08a62bcf4bfad6ac76dd491e7a471af893827f0e29634e05c20d70ab0323332"
+    },
+    {
+      "path": "docs/help/testing/writing-tests.md",
+      "sha256": "f864039371249c2deb4332c01d6533838f2e1b815bf773267d87187afe1560e3"
+    }
+  ],
+  "adaptation": "Embedded focused review checklist; no runtime host skill, OpenClaw tools, write campaign or PR workflow dependency."
+}

@@ -1,0 +1,28 @@
+authoring: prifly-step/1
+id: openclaw:step/prepare
+version: 1.0.0
+title: Test audit prepare
+kind: worker
+inputs:
+  config:
+    schema_ref: '{{schema_config}}'
+outputs:
+  request:
+    schema_ref: '{{schema_request}}'
+    required_for:
+    - pass
+  report:
+    schema_ref: '{{schema_report}}'
+    required_for:
+    - no_work
+  gate:
+    schema_ref: '{{schema_gate}}'
+    required_for:
+    - no_work
+executor:
+  adapter_ref: '{{process}}'
+  operation: process
+effects:
+  class: none
+  retry_class: never
+result_schema_ref: '{{result}}'

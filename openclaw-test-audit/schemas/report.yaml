@@ -1,0 +1,126 @@
+id: openclaw:schema/report
+version: 1.0.0
+$schema: https://json-schema.org/draft/2020-12/schema
+type: object
+required:
+- request_digest
+- candidate
+- round
+- session
+- model
+- files
+- skip_reason
+additionalProperties: false
+properties:
+  request_digest:
+    type: string
+    pattern: ^sha256:[0-9a-f]{64}$
+  candidate:
+    type: object
+    required:
+    - algorithm
+    - base_commit
+    - head_commit
+    - index_digest
+    - files_digest
+    - digest
+    additionalProperties: false
+    properties:
+      algorithm:
+        const: git-candidate/1
+      base_commit:
+        type: string
+        pattern: ^[0-9a-f]{40}$
+      head_commit:
+        type: string
+        pattern: ^[0-9a-f]{40}$
+      index_digest:
+        type: string
+        pattern: ^sha256:[0-9a-f]{64}$
+      files_digest:
+        type: string
+        pattern: ^sha256:[0-9a-f]{64}$
+      digest:
+        type: string
+        pattern: ^sha256:[0-9a-f]{64}$
+  round:
+    type: integer
+    minimum: 1
+    maximum: 10000
+  session:
+    enum:
+    - separate
+    - shared
+    - unavailable
+    - not_run
+  model:
+    type:
+    - string
+    - 'null'
+    minLength: 1
+    maxLength: 4000
+  files:
+    type: array
+    items:
+      type: object
+      required:
+      - path
+      - status
+      - behavior
+      - regression
+      - existing_proof
+      - evidence
+      - findings
+      additionalProperties: false
+      properties:
+        path:
+          type: string
+          minLength: 1
+          maxLength: 4000
+        status:
+          enum:
+          - passed
+          - failed
+          - unavailable
+        behavior:
+          type: string
+          minLength: 1
+          maxLength: 4000
+        regression:
+          type: string
+          minLength: 1
+          maxLength: 4000
+        existing_proof:
+          type: string
+          minLength: 1
+          maxLength: 4000
+        evidence:
+          type: array
+          items:
+            type: object
+            required:
+            - locator
+            - observation
+            additionalProperties: false
+            properties:
+              locator:
+                type: string
+                minLength: 1
+                maxLength: 4000
+              observation:
+                type: string
+                minLength: 1
+                maxLength: 4000
+          minItems: 1
+          maxItems: 40
+        findings:
+          type: array
+          items:
+            type: string
+            minLength: 1
+            maxLength: 4000
+          maxItems: 40
+    maxItems: 200
+  skip_reason:
+    type: string
+    maxLength: 4000

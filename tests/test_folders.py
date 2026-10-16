@@ -14,11 +14,12 @@ FIX = ROOT / "aif-fix"
 EVIDENCE = ROOT / "aif-review-evidence"
 PRODUCT = ROOT / "aif-ui-ux"
 FEATURE = ROOT / "aif-feature"
+TEST_AUDIT = ROOT / "openclaw-test-audit"
 
 
 class WorkflowFolderTest(unittest.TestCase):
     def test_folders_are_marked_workflow_folders(self):
-        for folder in (CLASSIC, FANOUT, FIX, PROFILED, EVIDENCE, PRODUCT, FEATURE):
+        for folder in (CLASSIC, FANOUT, FIX, PROFILED, EVIDENCE, PRODUCT, FEATURE, TEST_AUDIT):
             workflow = (folder / "workflow.yaml").read_text()
             self.assertTrue(workflow.startswith("authoring: prifly-project-workflow/1\n"), folder)
             self.assertTrue((folder / "extend.yaml").is_file(), folder)

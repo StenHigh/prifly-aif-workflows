@@ -1,0 +1,15 @@
+# Standalone release entry; the central catalog adds the exact source commit pin.
+schema_version: prifly-workflow-catalog/1
+title: OpenClaw test audit
+categories:
+  software-delivery:
+    title: Software delivery
+workflows:
+  openclaw-test-audit:
+    title: OpenClaw test audit
+    description: Audit changed tests against an adapted OpenClaw checklist, with explicit skip, coverage and candidate freshness. Read-only; no repair or commit. No AI Factory skills required. Requires Pri-Fly 0.13.77.
+    category: software-delivery
+    repository: https://github.com/StenHigh/prifly-aif-workflows.git
+    path: openclaw-test-audit
+    ref: v1.53.0
+    tags: [openclaw, test-audit, testing, review, codex-cli, codex-app, claude-code]

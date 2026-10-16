@@ -11,5 +11,5 @@ workflows:
     category: software-delivery
     repository: https://github.com/StenHigh/prifly-aif-workflows.git
     path: aif-ui-ux
-    ref: v1.52.0
+    ref: v1.53.0
     tags: [ai-factory, ui-ux, codex-cli, codex-app, claude-code]

@@ -3,7 +3,7 @@
 Дата: 2026-10-16. W1–W3: **committed/pushed, CI PASS**, с отдельными live observations;
 W4: **committed/pushed, pilot qualified, CI PASS**; W5: **пакетная часть завершена, scoped qualification и final CI PASS; v1.52.0**.
 Пакеты включены в [выпуск v1.52.0](../releases/v1.52.0.md). Актуальная база совместимости: released Pri-Fly
-**0.13.77**, пакеты этого репозитория **v1.52.0**. Прежние CI/live evidence на
+**0.13.77**, выпуск репозитория **v1.53.0**. Прежние CI/live evidence на
 0.13.76 остаются историческими; повторная проверка нового stable записана отдельно.
 
 В этом репозитории нет инициализированного OpenSpec-проекта. Change хранятся
@@ -13,6 +13,12 @@ W4: **committed/pushed, pilot qualified, CI PASS**; W5: **пакетная ча�
 новых папках, W4 — в standalone project example `examples/verified-integration`.
 
 ## Реестр
+
+Отдельно от W1–W6 выпускается
+[OpenClaw test audit](add-standalone-test-audit/proposal.md) — самостоятельный
+`openclaw-test-audit@1.0.0` в [v1.53.0](../releases/v1.53.0.md), без AI Factory
+skills и автоматических вставок в другие workflow. Восемь пакетов репозитория
+проверены на 0.13.77; семь прежних сохраняют bytes/версии v1.52.0.
 
 | ID | Приоритет | Change | Зависимости | Статус |
 |---|---|---|---|---|

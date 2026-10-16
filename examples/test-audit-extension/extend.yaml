@@ -1,0 +1,15 @@
+extensions:
+- id: audit
+  workflow: test-audit-extension
+  step: audit
+  between:
+    from: prepare
+    to: evaluate
+  input_bindings:
+    request: $stages.prepare.request
+  'on':
+    pass: evaluate
+    needs_revision: evaluate
+    blocked: evaluate
+    fail: abandoned
+    no_work: abandoned

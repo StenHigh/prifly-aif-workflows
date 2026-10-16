@@ -1,0 +1,141 @@
+authoring: prifly-project-workflow/1
+package:
+  id: openclaw:package/test-audit-extension
+  version: 1.0.0
+  description: 'Project opt-in example: insert audit between prepared test selection and evaluation.'
+  requires_core_protocol: '1'
+  references:
+    process: core:adapter/local-process@2.0.0
+    session: core:adapter/assisted-session@1.0.0
+    policy: core:policy/local@4.0.0
+    result: core:schema/step-result@1.0.0
+    result_v2: core:schema/step-result@2.0.0
+id: openclaw:workflow/test-audit-extension
+schema_version: '8'
+version: 1.0.0
+title: Opt-in test audit through extend.yaml
+refs:
+  step_prepare: '{{step_prepare}}'
+  step_audit: '{{step_audit}}'
+  step_evaluate: '{{step_evaluate}}'
+  schema_config: '{{schema_config}}'
+  schema_gate: '{{schema_gate}}'
+  schema_report: '{{schema_report}}'
+  policy: '{{policy}}'
+inputs:
+  config:
+    schema_ref: schema_config
+outputs:
+  gate:
+    schema_ref: schema_gate
+    required_for:
+    - succeeded
+    - partial
+  report:
+    schema_ref: schema_report
+    required_for:
+    - succeeded
+    - partial
+policy_ref: policy
+entry: prepare
+limits:
+  max_step_instances: 3
+  max_control_transitions: 14
+  max_parallelism: 1
+  max_child_depth: 1
+stages:
+  prepare:
+    kind: step
+    step_ref: step_prepare
+    input_bindings:
+      config: $inputs.config
+    'on':
+      pass: evaluate
+      no_work: skipped
+      needs_revision: abandoned
+      fail: abandoned
+    impossible_verdicts:
+    - blocked
+  evaluate:
+    kind: step
+    step_ref: step_evaluate
+    input_bindings:
+      request: $stages.prepare.request
+      report: $stages.audit.report
+    'on':
+      pass: decide
+      needs_revision: abandoned
+      fail: abandoned
+      no_work: abandoned
+    impossible_verdicts:
+    - blocked
+  decide:
+    kind: choice
+    selection: first_match
+    branches:
+    - id: blocking
+      predicate:
+        op: eq
+        left: $stages.evaluate.gate#/blocking
+        right: true
+      next: standing
+    default: done
+  done:
+    kind: finish
+    outcome: succeeded
+    output_bindings:
+      gate: $stages.evaluate.gate
+      report: $stages.audit.report
+  standing:
+    kind: finish
+    outcome: partial
+    output_bindings:
+      gate: $stages.evaluate.gate
+      report: $stages.audit.report
+  skipped:
+    kind: finish
+    outcome: succeeded
+    output_bindings:
+      gate: $stages.prepare.gate
+      report: $stages.prepare.report
+  abandoned:
+    kind: finish
+    outcome: rejected
+execution_bindings:
+  steps:
+    openclaw:step/configure:
+      executable: python
+      args:
+      - -B
+      - audit.py
+      - configure
+      files:
+        audit.py: files/audit.py
+        candidate.py: files/candidate.py
+      timeout_ms: 120000
+      grace_ms: 100
+      max_output_bytes: 4194304
+    openclaw:step/prepare:
+      executable: python
+      args:
+      - -B
+      - audit.py
+      - prepare
+      files:
+        audit.py: files/audit.py
+        candidate.py: files/candidate.py
+      timeout_ms: 120000
+      grace_ms: 100
+      max_output_bytes: 4194304
+    openclaw:step/evaluate:
+      executable: python
+      args:
+      - -B
+      - audit.py
+      - evaluate
+      files:
+        audit.py: files/audit.py
+        candidate.py: files/candidate.py
+      timeout_ms: 120000
+      grace_ms: 100
+      max_output_bytes: 4194304

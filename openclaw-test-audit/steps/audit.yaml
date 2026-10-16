@@ -1,0 +1,31 @@
+authoring: prifly-step/2
+id: openclaw:step/audit
+version: 1.0.0
+title: Test audit audit
+kind: worker
+inputs:
+  request:
+    schema_ref: '{{schema_request}}'
+outputs:
+  report:
+    schema_ref: '{{schema_report}}'
+    required_for:
+    - pass
+    - needs_revision
+    - blocked
+executor:
+  adapter_ref: '{{session}}'
+  operation: session
+effects:
+  class: none
+  retry_class: pure
+result_schema_ref: '{{result_v2}}'
+repository_workspace: read_only
+instructions_ref: '{{context_audit-bridge}}'
+context_refs:
+- '{{context_test-audit}}'
+session_limits:
+  active_timeout_ms: null
+model_profile:
+  requested: independent-review
+  reason: Use a separate test reviewer session when available; report actual session and model honestly.

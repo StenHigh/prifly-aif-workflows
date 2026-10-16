@@ -1,0 +1,28 @@
+id: openclaw:schema/gate
+version: 1.0.0
+$schema: https://json-schema.org/draft/2020-12/schema
+type: object
+required:
+- gate
+- status
+- blocking
+- findings
+additionalProperties: false
+properties:
+  gate:
+    const: test-audit
+  status:
+    enum:
+    - passed
+    - failed
+    - blocked
+    - skipped
+  blocking:
+    type: boolean
+  findings:
+    type: array
+    items:
+      type: string
+      minLength: 1
+      maxLength: 4000
+    maxItems: 8001

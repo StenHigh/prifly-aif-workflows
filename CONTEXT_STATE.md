@@ -10,6 +10,19 @@
 
 Ворота выверены против выпущенного Pri-Fly `v0.13.77`.
 
+- **v1.53.0 подготовлен к публикации (2026-10-16):**
+  Новый самостоятельный openclaw-test-audit1.0.0, namespace openclaw:, встроенный
+  pinned OpenClaw checklist/MIT; AI Factory skills не нужны. Вставок в существующие
+  маршруты нет;350 tracked files семи прежних пакетов совпадают с v1.52.0.
+  Latest stable0.13.77, новых нет. Version3/folder7/derive/verify126/83/8/
+  compatibility5/4/4 PASS, unit102, native18 expected outcomes, catalog local
+  add/update3 hosts без AIF skills, overlay preservation/local edit refusal и
+  Classic verify handoff smoke PASS. Ledger docs/releases/v1.53.0-results.json.
+  Release guide v1.53.0.md; standalone catalog entry добавлен, прежние manifests
+  переведены на новый tag. До тега повторить latest stable; после публикации
+  проверить default-catalog add/update и полные native Runs. Новый CI пока не
+  запущен; прежний полный CI38888136979 SUCCESS подтверждает неизменные7 пакетов.
+
 - **W6 / E5 — call extensions для review/UI/UX (2026-10-16):**
   Открыт Pri-Fly #9: native вложенный workflow через project extend, typed
   multiple inputs, exact refs/outputs/outcomes, budgets, prepare/continue и
@@ -21,6 +34,31 @@
   только opt-in. W1/W2 dependencies; W5 parallel и test-audit не входят в scope.
   Latest stable сверён0.13.77, новых нет. CI тега v1.52.0 теперь SUCCESS:
   38888136979/c639480, оба jobs verify/parallel-ui-ux зелёные; source прежний.
+
+- **Самостоятельный openclaw-test-audit1.0.0, локальная подготовка (2026-10-16):**
+  Vendor prefix по уточнению владельца: openclaw-test-audit, namespace openclaw:;
+  AI Factory skills не используются. Initial1.0.0, прежнее имя не публиковалось.
+  По уточнению владельца отдельный workflow; вставок в classic/прочие маршруты
+  нет. Все7 прежних package trees побайтно прежние. Latest stable0.13.77,
+  новых выпусков нет. OpenClaw test-audit адаптирован встроенным checklist,
+  pinned commit70bfdc2/MIT/source hashes в новом пакете, host skill не требуется.
+  Config задаёт original base/round/project patterns/session policy. Quality
+  выбирает base→worktree/index+nonignored untracked тестовые пути; empty→skip
+  без AI, иначе read-only audit→coverage/freshness evaluator. Report/gate,
+  passed/skipped→succeeded, defect/unavailable/stale→partial, invalid prepare
+  →rejected. Без edits/repair/commit. Continue повторяет весь quality с теми же
+  config/base и сохранённым деревом. Pattern detection и judgement — явные
+  границы. Standalone checkout start требует чистое дерево (checkout_dirty);
+  незакоммиченная реализация Run проверяется композицией внутри него.
+  examples/test-audit-extension даёт отдельный graph+extend: один typed request,
+  prepare→inserted audit→evaluate, без магического cross-package import.
+  Unit10/folder7/versions3/derive PASS; verify126/83/8, compatibility5/4/4
+  (core-state41) PASS на official0.13.77. Native18 expected outcomes PASS,
+  включая no-reader skip, defects/blocked/stale, untracked fresh selection,
+  partial/cancel replay, extension3 и synthetic3 hosts. Live LLM/test execution
+  этим не заявлены; CI добавлен, нового CI run нет. Evidence/source hashes:
+  docs/changes/add-standalone-test-audit/qualification.json и acceptance.md.
+  Новый пакет не опубликован; tag/catalog/bump общего release/push не делались.
 
 - **Выпущен v1.52.0 (2026-10-16):** source/tag c6394802cb69660fbc12d133750f2fa7cc9bff34,
   review-evidence1.0.0, ui-ux1.0.0, feature1.2.3 доступны в центральном каталоге.

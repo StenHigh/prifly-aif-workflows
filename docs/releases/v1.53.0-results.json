@@ -1,0 +1,347 @@
+{
+  "release": "v1.53.0",
+  "package": "openclaw:package/test-audit@1.0.0",
+  "date": "2026-10-16",
+  "phase": "pre-tag gates passed",
+  "prifly": "0.13.77",
+  "binary_sha256": "d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa",
+  "source_parent": "0f77a2f27b746d1253f40b0fc19b18289dbf1dcd",
+  "unchanged_packages": [
+    "aif-classic",
+    "aif-profiled",
+    "aif-fanout",
+    "aif-fix",
+    "aif-feature",
+    "aif-review-evidence",
+    "aif-ui-ux"
+  ],
+  "unchanged_against": "v1.52.0",
+  "unchanged_tracked_files": 350,
+  "package_sha256": {
+    "openclaw-test-audit/LICENSE.openclaw": "9efd316ecf1c4c60f6fd5d26433142fff2b6794d7d328e9bc6179b29bf9c82a4",
+    "openclaw-test-audit/PROVENANCE.md": "dfce5dbdf62b1f8f596cc5cc8b9018af10e4f6e7757684eb882b7926ace83b30",
+    "openclaw-test-audit/README.md": "6c18a9fdae819434e402c56597b9770003b36b7fa2a0a04b8662172c53bdb24c",
+    "openclaw-test-audit/contexts/audit-bridge.yaml": "7b8dbc4c3f6ca45c7eb16e52e2c0cb134f492a5d48afe178e0e293885be19f71",
+    "openclaw-test-audit/contexts/test-audit.yaml": "cb77659c17714d9870f6a266a9b7acb95bf472ef8e811a69716d155dea856e0b",
+    "openclaw-test-audit/extend.yaml": "450c1d157d11f7c7141bbd10ada9f22a947a5d33dd7521f2d8cb7f09d0592839",
+    "openclaw-test-audit/files/audit.py": "f3722509e67481613082f380171e4e0397becad4045ba0da0b510ea4b290c716",
+    "openclaw-test-audit/files/candidate.py": "d1853ca4bdb71bc5310218a7820dcc95d28aed5dc990b574801a257bf8ae0840",
+    "openclaw-test-audit/schemas/config.yaml": "1bb51d182827a7ba9bb36b99aeea5a7c72d5983621c853e448111dbf05e8dcd8",
+    "openclaw-test-audit/schemas/gate.yaml": "4b8120072f6ad4b172bb511f898ed3aa8dd004d2d1eef4ec8987e7a447763cd3",
+    "openclaw-test-audit/schemas/report.yaml": "ff8e6cecf75d503523109bae878da1e18e5d44f15472a0a6000736ff469893b5",
+    "openclaw-test-audit/schemas/request.yaml": "cc2dac9a939a64bb09ecc3b98812c0a4f37d84067bc73045d9d6c96066b56e87",
+    "openclaw-test-audit/steps/audit.yaml": "ea69c218bafa01e3831be840971a4d0052ee8fb6da8e7e02c62052a10b7cbea2",
+    "openclaw-test-audit/steps/configure.yaml": "81a4acdc2d8c3686ec1a244aa5690e3d829be771f55c5a322af43787bebdddaf",
+    "openclaw-test-audit/steps/evaluate.yaml": "d88365ed36b58459678df5de100abaf8110a9819a446b03d44151352fcc599c0",
+    "openclaw-test-audit/steps/prepare.yaml": "9839b7fa56a4256fe686fc9f6c1ef3b951e5c14f4bc12d9827bd6d37d2c82e3e",
+    "openclaw-test-audit/upstream.json": "9f9f4d86dadc1dd9a02cec6eaf23f2045facb6d52a2e0c172a7dd338b5d7e595",
+    "openclaw-test-audit/workflow.yaml": "aa711f5d6681b627fb673caacdf94ef2eb42502857330f552ffe6c18e8311869",
+    "openclaw-test-audit/workflows/quality.yaml": "90ed3cf59e71aba11613a49ea851242bc49ca3633c50273c640baae4d9c8515b"
+  },
+  "gates": {
+    "versions": {
+      "outcome": "passed",
+      "tests": 3
+    },
+    "folders": {
+      "outcome": "passed",
+      "tests": 7
+    },
+    "derive_profiled": {
+      "outcome": "passed"
+    },
+    "verify": {
+      "outcome": "passed",
+      "prifly": "0.13.77",
+      "binary_sha256": "sha256:d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa",
+      "platform": "linux/x86_64",
+      "packages": [
+        "aif-classic",
+        "aif-fanout",
+        "aif-feature",
+        "aif-fix",
+        "aif-profiled",
+        "aif-review-evidence",
+        "aif-ui-ux",
+        "openclaw-test-audit"
+      ],
+      "components_read": 126,
+      "steps_read": 83,
+      "registry_entries_removed": 1
+    },
+    "compatibility": {
+      "outcome": "passed",
+      "prifly": "0.13.77",
+      "binary_sha256": "sha256:d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa",
+      "platform": "linux/x86_64",
+      "launches": 5,
+      "distinct_builds": 4,
+      "trusted_packages": 4,
+      "profiled_sealed_as": "core-state/41",
+      "boundary": "assisted handoff dispatched; no AI host answers it here",
+      "registry_entries_removed": 1
+    },
+    "unit": {
+      "outcome": "passed",
+      "tests": 102,
+      "log_sha256": "ec8064cc830b1408821c6f5f14341a0338981d3d6e40bac03c448c0962bd4d48"
+    },
+    "classic_verify_smoke": {
+      "prifly": "0.13.77",
+      "package": "working tree",
+      "verify_verdict": "pass",
+      "answered": [
+        "aif-warmup-bridge",
+        "aif-plan-bridge",
+        "aif-implement-bridge",
+        "aif-verify-bridge",
+        "aif-security-bridge",
+        "aif-review-challenge-bridge"
+      ],
+      "handed_a_tree": [
+        "aif-implement-bridge",
+        "aif-plan-bridge",
+        "aif-review-challenge-bridge",
+        "aif-security-bridge",
+        "aif-verify-bridge"
+      ],
+      "verify_task": {
+        "routed_verdicts": [
+          "pass",
+          "fail",
+          "needs_revision",
+          "no_work",
+          "blocked"
+        ],
+        "result_schema": "2.0.0"
+      },
+      "run_status": "running",
+      "run_outcome": null,
+      "refusal": null,
+      "stand": null
+    },
+    "catalog_install": {
+      "outcome": "passed",
+      "origin": {
+        "repository": "file:///tmp/test-audit-install-ocfg01k0/source",
+        "path": "openclaw-test-audit",
+        "ref": "main",
+        "commit": "f6e323b3e2f02f3c1d9b1e00cf96d6aaa80c403a",
+        "digest": "sha256:53d7b7adcea44a9c16e63dd991522bf700befa2b288b25ffd15db78dbaa84045",
+        "extend_digest": "sha256:450c1d157d11f7c7141bbd10ada9f22a947a5d33dd7521f2d8cb7f09d0592839",
+        "catalog": "file:///tmp/test-audit-install-ocfg01k0/source"
+      },
+      "installed_files": 19,
+      "hosts_without_ai_factory_skills": [
+        "codex-cli",
+        "codex-app",
+        "claude-code"
+      ],
+      "installed_bytes": "matched",
+      "update": "preserved extend and project overlay",
+      "local_edit": "refused"
+    },
+    "native": {
+      "prifly": "0.13.77",
+      "binary_sha256": "d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa",
+      "host": "synthetic, no LLM judgement qualification",
+      "cases": [
+        {
+          "case": "pass",
+          "host": "codex-cli",
+          "outcome": "succeeded",
+          "gate": "passed",
+          "reader_deliveries": 1,
+          "runs": 1,
+          "original_repository_unchanged": true
+        },
+        {
+          "case": "skip",
+          "host": "codex-cli",
+          "outcome": "succeeded",
+          "gate": "skipped",
+          "reader_deliveries": 0,
+          "runs": 1,
+          "original_repository_unchanged": true
+        },
+        {
+          "case": "untracked",
+          "host": "codex-cli",
+          "outcome": "succeeded",
+          "gate": "passed",
+          "reader_deliveries": 2,
+          "runs": 2,
+          "original_repository_unchanged": true
+        },
+        {
+          "case": "failed",
+          "host": "codex-cli",
+          "outcome": "partial",
+          "gate": "failed",
+          "reader_deliveries": 1,
+          "runs": 1,
+          "original_repository_unchanged": true
+        },
+        {
+          "case": "unavailable",
+          "host": "codex-cli",
+          "outcome": "partial",
+          "gate": "blocked",
+          "reader_deliveries": 1,
+          "runs": 1,
+          "original_repository_unchanged": true
+        },
+        {
+          "case": "missing",
+          "host": "codex-cli",
+          "outcome": "partial",
+          "gate": "blocked",
+          "reader_deliveries": 1,
+          "runs": 1,
+          "original_repository_unchanged": true
+        },
+        {
+          "case": "stale-request",
+          "host": "codex-cli",
+          "outcome": "partial",
+          "gate": "blocked",
+          "reader_deliveries": 1,
+          "runs": 1,
+          "original_repository_unchanged": true
+        },
+        {
+          "case": "stale-production",
+          "host": "codex-cli",
+          "outcome": "partial",
+          "gate": "blocked",
+          "reader_deliveries": 1,
+          "runs": 1,
+          "original_repository_unchanged": true
+        },
+        {
+          "case": "needs-revision",
+          "host": "codex-cli",
+          "outcome": "partial",
+          "gate": "failed",
+          "reader_deliveries": 1,
+          "runs": 1,
+          "original_repository_unchanged": true
+        },
+        {
+          "case": "reader-blocked",
+          "host": "codex-cli",
+          "outcome": "partial",
+          "gate": "blocked",
+          "reader_deliveries": 1,
+          "runs": 1,
+          "original_repository_unchanged": true
+        },
+        {
+          "case": "session-unavailable",
+          "host": "codex-cli",
+          "outcome": "partial",
+          "gate": "blocked",
+          "reader_deliveries": 1,
+          "runs": 1,
+          "original_repository_unchanged": true
+        },
+        {
+          "case": "partial-resume",
+          "host": "codex-cli",
+          "outcome": "succeeded",
+          "gate": "passed",
+          "reader_deliveries": 2,
+          "runs": 2,
+          "original_repository_unchanged": true
+        },
+        {
+          "case": "cancel-resume",
+          "host": "codex-cli",
+          "outcome": "succeeded",
+          "gate": "passed",
+          "reader_deliveries": 2,
+          "runs": 2,
+          "original_repository_unchanged": true
+        },
+        {
+          "case": "extension-pass",
+          "host": "codex-cli",
+          "outcome": "succeeded",
+          "gate": "passed",
+          "reader_deliveries": 1,
+          "runs": 1,
+          "original_repository_unchanged": true
+        },
+        {
+          "case": "extension-failed",
+          "host": "codex-cli",
+          "outcome": "partial",
+          "gate": "failed",
+          "reader_deliveries": 1,
+          "runs": 1,
+          "original_repository_unchanged": true
+        },
+        {
+          "case": "extension-skip",
+          "host": "codex-cli",
+          "outcome": "succeeded",
+          "gate": "skipped",
+          "reader_deliveries": 0,
+          "runs": 1,
+          "original_repository_unchanged": true
+        },
+        {
+          "case": "pass",
+          "host": "codex-app",
+          "outcome": "succeeded",
+          "gate": "passed",
+          "reader_deliveries": 1,
+          "runs": 1,
+          "original_repository_unchanged": true
+        },
+        {
+          "case": "pass",
+          "host": "claude-code",
+          "outcome": "succeeded",
+          "gate": "passed",
+          "reader_deliveries": 1,
+          "runs": 1,
+          "original_repository_unchanged": true
+        }
+      ]
+    },
+    "post_format_smoke": {
+      "prifly": "0.13.77",
+      "binary_sha256": "d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa",
+      "host": "synthetic, no LLM judgement qualification",
+      "cases": [
+        {
+          "case": "pass",
+          "host": "codex-cli",
+          "outcome": "succeeded",
+          "gate": "passed",
+          "reader_deliveries": 1,
+          "runs": 1,
+          "original_repository_unchanged": true
+        }
+      ]
+    }
+  },
+  "previous_full_ci": {
+    "run": 38888136979,
+    "conclusion": "success",
+    "source": "c6394802cb69660fbc12d133750f2fa7cc9bff34",
+    "scope": "seven unchanged package trees"
+  },
+  "limits": [
+    "Native reader synthetic; no live LLM judgement/model attestation or dynamic regression test execution.",
+    "New full CI and published catalog smoke recorded after publication."
+  ],
+  "pre_tag_formatting": {
+    "path": "openclaw-test-audit/files/candidate.py",
+    "change": "Remove trailing blank line at EOF",
+    "ast_unchanged": true,
+    "previous_sha256": "b51ee18e468f885d6a52e0b25703c18a6460bfe02f4e35c1e06f27c9aa4ff1d4"
+  },
+  "latest_stable_before_tag": "v0.13.77"
+}

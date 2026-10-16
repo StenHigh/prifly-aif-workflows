@@ -1,0 +1,256 @@
+{
+  "date": "2026-10-16",
+  "status": "local qualification, unpublished",
+  "source_head": "0ef7479ac425f68d26baf1a6294495a489e1628e",
+  "unchanged_packages": [
+    "aif-classic",
+    "aif-profiled",
+    "aif-fanout",
+    "aif-fix",
+    "aif-feature",
+    "aif-review-evidence",
+    "aif-ui-ux"
+  ],
+  "unchanged_tracked_files": 350,
+  "authoring_and_executable_sha256": {
+    "aif-test-audit/contexts/audit-bridge.yaml": "a6934a7dd251b84fc83fa95b5a7051d1648b2254598fef6d3b1343b7ae196662",
+    "aif-test-audit/contexts/test-audit.yaml": "56d4eaea0af2e42f5a59c0181f4ca71fa9df375fddd35e45de07db20a580e675",
+    "aif-test-audit/extend.yaml": "450c1d157d11f7c7141bbd10ada9f22a947a5d33dd7521f2d8cb7f09d0592839",
+    "aif-test-audit/files/audit.py": "f3722509e67481613082f380171e4e0397becad4045ba0da0b510ea4b290c716",
+    "aif-test-audit/files/candidate.py": "b51ee18e468f885d6a52e0b25703c18a6460bfe02f4e35c1e06f27c9aa4ff1d4",
+    "aif-test-audit/schemas/config.yaml": "719f4388b042f634733339abb29a3cd1e32c7ca310843f8273c1bc0272e05b18",
+    "aif-test-audit/schemas/gate.yaml": "1ea88c3d076764878e1f2a1fc3144215bf0ef1ff871752ff2b3974cf2f070dae",
+    "aif-test-audit/schemas/report.yaml": "46430727bc612046ca9c182e15aaa09f3a29bfaad12d51d06a730d65b1e42f69",
+    "aif-test-audit/schemas/request.yaml": "0872fe6ba261e5ee7d83eac0bf8a0efea0d54b0debb426a583fb577a86350f7e",
+    "aif-test-audit/steps/audit.yaml": "a8bb67280af84e6b394afa0d7fada3569b5852715f8ac82ade6399f8cf211e3a",
+    "aif-test-audit/steps/configure.yaml": "0ed8c6c71347a77cf77e92aff3c6c3507486ef052db84393f54c090ced980fe0",
+    "aif-test-audit/steps/evaluate.yaml": "c4cdd29c5ba811dd3b9efd5b22c38bd285507f28af16fd32b0785bf9ba1269fb",
+    "aif-test-audit/steps/prepare.yaml": "fca760ad95cf24931a586be40c50ae0bf06ada6e26beae940e79af195dc236ce",
+    "aif-test-audit/workflow.yaml": "521616482c3b1a4f27261cb4d5f10add4e989abd4cba712c0100dfdac9ec955c",
+    "aif-test-audit/workflows/quality.yaml": "e7e50d236c913eff6a76d005ece0cf678a8bceefd51f79dab70ee2e911ae6858",
+    "examples/test-audit-extension/extend.yaml": "6d402277379e6b9b778ae0a9f51bea012ebd25f9a3de2ce2aac260e7ee3f6da8",
+    "examples/test-audit-extension/workflow.yaml": "f4c20c6242a2a99ab57a41943dbacad7cf5806ef66dd25bf98970b47f87198d1"
+  },
+  "compile": {
+    "outcome": "passed",
+    "prifly": "0.13.77",
+    "binary_sha256": "sha256:d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa",
+    "platform": "linux/x86_64",
+    "packages": [
+      "aif-classic",
+      "aif-fanout",
+      "aif-feature",
+      "aif-fix",
+      "aif-profiled",
+      "aif-review-evidence",
+      "aif-test-audit",
+      "aif-ui-ux"
+    ],
+    "components_read": 126,
+    "steps_read": 83,
+    "registry_entries_removed": 1
+  },
+  "compatibility": {
+    "outcome": "passed",
+    "prifly": "0.13.77",
+    "binary_sha256": "sha256:d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa",
+    "platform": "linux/x86_64",
+    "launches": 5,
+    "distinct_builds": 4,
+    "trusted_packages": 4,
+    "profiled_sealed_as": "core-state/41",
+    "boundary": "assisted handoff dispatched; no AI host answers it here",
+    "registry_entries_removed": 1
+  },
+  "unit": {
+    "command": "python3 -B tests/test_test_audit.py",
+    "tests": 10,
+    "outcome": "passed"
+  },
+  "other_local_gates": {
+    "folders": {
+      "tests": 7,
+      "outcome": "passed"
+    },
+    "versions": {
+      "tests": 3,
+      "outcome": "passed"
+    },
+    "derive_profiled": "passed",
+    "diff_check": "passed"
+  },
+  "native": {
+    "prifly": "0.13.77",
+    "binary_sha256": "d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa",
+    "host": "synthetic, no LLM judgement qualification",
+    "cases": [
+      {
+        "case": "pass",
+        "host": "codex-cli",
+        "outcome": "succeeded",
+        "gate": "passed",
+        "reader_deliveries": 1,
+        "runs": 1,
+        "original_repository_unchanged": true
+      },
+      {
+        "case": "skip",
+        "host": "codex-cli",
+        "outcome": "succeeded",
+        "gate": "skipped",
+        "reader_deliveries": 0,
+        "runs": 1,
+        "original_repository_unchanged": true
+      },
+      {
+        "case": "untracked",
+        "host": "codex-cli",
+        "outcome": "succeeded",
+        "gate": "passed",
+        "reader_deliveries": 2,
+        "runs": 2,
+        "original_repository_unchanged": true
+      },
+      {
+        "case": "failed",
+        "host": "codex-cli",
+        "outcome": "partial",
+        "gate": "failed",
+        "reader_deliveries": 1,
+        "runs": 1,
+        "original_repository_unchanged": true
+      },
+      {
+        "case": "unavailable",
+        "host": "codex-cli",
+        "outcome": "partial",
+        "gate": "blocked",
+        "reader_deliveries": 1,
+        "runs": 1,
+        "original_repository_unchanged": true
+      },
+      {
+        "case": "missing",
+        "host": "codex-cli",
+        "outcome": "partial",
+        "gate": "blocked",
+        "reader_deliveries": 1,
+        "runs": 1,
+        "original_repository_unchanged": true
+      },
+      {
+        "case": "stale-request",
+        "host": "codex-cli",
+        "outcome": "partial",
+        "gate": "blocked",
+        "reader_deliveries": 1,
+        "runs": 1,
+        "original_repository_unchanged": true
+      },
+      {
+        "case": "stale-production",
+        "host": "codex-cli",
+        "outcome": "partial",
+        "gate": "blocked",
+        "reader_deliveries": 1,
+        "runs": 1,
+        "original_repository_unchanged": true
+      },
+      {
+        "case": "needs-revision",
+        "host": "codex-cli",
+        "outcome": "partial",
+        "gate": "failed",
+        "reader_deliveries": 1,
+        "runs": 1,
+        "original_repository_unchanged": true
+      },
+      {
+        "case": "reader-blocked",
+        "host": "codex-cli",
+        "outcome": "partial",
+        "gate": "blocked",
+        "reader_deliveries": 1,
+        "runs": 1,
+        "original_repository_unchanged": true
+      },
+      {
+        "case": "session-unavailable",
+        "host": "codex-cli",
+        "outcome": "partial",
+        "gate": "blocked",
+        "reader_deliveries": 1,
+        "runs": 1,
+        "original_repository_unchanged": true
+      },
+      {
+        "case": "partial-resume",
+        "host": "codex-cli",
+        "outcome": "succeeded",
+        "gate": "passed",
+        "reader_deliveries": 2,
+        "runs": 2,
+        "original_repository_unchanged": true
+      },
+      {
+        "case": "cancel-resume",
+        "host": "codex-cli",
+        "outcome": "succeeded",
+        "gate": "passed",
+        "reader_deliveries": 2,
+        "runs": 2,
+        "original_repository_unchanged": true
+      },
+      {
+        "case": "extension-pass",
+        "host": "codex-cli",
+        "outcome": "succeeded",
+        "gate": "passed",
+        "reader_deliveries": 1,
+        "runs": 1,
+        "original_repository_unchanged": true
+      },
+      {
+        "case": "extension-failed",
+        "host": "codex-cli",
+        "outcome": "partial",
+        "gate": "failed",
+        "reader_deliveries": 1,
+        "runs": 1,
+        "original_repository_unchanged": true
+      },
+      {
+        "case": "extension-skip",
+        "host": "codex-cli",
+        "outcome": "succeeded",
+        "gate": "skipped",
+        "reader_deliveries": 0,
+        "runs": 1,
+        "original_repository_unchanged": true
+      },
+      {
+        "case": "pass",
+        "host": "codex-app",
+        "outcome": "succeeded",
+        "gate": "passed",
+        "reader_deliveries": 1,
+        "runs": 1,
+        "original_repository_unchanged": true
+      },
+      {
+        "case": "pass",
+        "host": "claude-code",
+        "outcome": "succeeded",
+        "gate": "passed",
+        "reader_deliveries": 1,
+        "runs": 1,
+        "original_repository_unchanged": true
+      }
+    ]
+  },
+  "limits": [
+    "Synthetic reader observations; no live LLM judgement, independent model or actual test execution claimed.",
+    "CI jobs added, not executed as part of this local qualification.",
+    "Project patterns define test-path detection. Checkout new-start requires clean tree on 0.13.77."
+  ]
+}

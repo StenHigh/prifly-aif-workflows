@@ -1,0 +1,20 @@
+authoring: prifly-step/1
+id: openclaw:step/configure
+version: 1.0.0
+title: Test audit configure
+kind: worker
+inputs:
+  config:
+    schema_ref: '{{schema_config}}'
+outputs:
+  config:
+    schema_ref: '{{schema_config}}'
+    required_for:
+    - pass
+executor:
+  adapter_ref: '{{process}}'
+  operation: process
+effects:
+  class: none
+  retry_class: never
+result_schema_ref: '{{result}}'

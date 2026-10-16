@@ -1,0 +1,102 @@
+authoring: prifly-workflow/1
+schema_version: '6'
+id: openclaw:workflow/quality
+version: 1.0.0
+title: Select changed tests, audit and validate the current candidate
+refs:
+  step_prepare: '{{step_prepare}}'
+  step_audit: '{{step_audit}}'
+  step_evaluate: '{{step_evaluate}}'
+  schema_config: '{{schema_config}}'
+  schema_gate: '{{schema_gate}}'
+  schema_report: '{{schema_report}}'
+  policy: '{{policy}}'
+inputs:
+  config: schema_config
+outputs:
+  gate:
+    schema_ref: schema_gate
+    required_for:
+    - succeeded
+    - partial
+  report:
+    schema_ref: schema_report
+    required_for:
+    - succeeded
+    - partial
+entry: prepare
+policy_ref: policy
+limits:
+  max_step_instances: 3
+  max_control_transitions: 14
+  max_parallelism: 1
+  max_child_depth: 1
+stages:
+  prepare:
+    kind: step
+    step_ref: step_prepare
+    input_bindings:
+      config: $inputs.config
+    'on':
+      pass: audit
+      no_work: skipped
+      needs_revision: abandoned
+      fail: abandoned
+    impossible_verdicts:
+    - blocked
+  audit:
+    kind: step
+    step_ref: step_audit
+    input_bindings:
+      request: $stages.prepare.request
+    'on':
+      pass: evaluate
+      needs_revision: evaluate
+      blocked: evaluate
+      fail: abandoned
+      no_work: abandoned
+  evaluate:
+    kind: step
+    step_ref: step_evaluate
+    input_bindings:
+      request: $stages.prepare.request
+      report: $stages.audit.report
+    'on':
+      pass: decide
+      needs_revision: abandoned
+      fail: abandoned
+      no_work: abandoned
+    impossible_verdicts:
+    - blocked
+  decide:
+    kind: choice
+    selection: first_match
+    branches:
+    - id: blocking
+      predicate:
+        op: eq
+        left: $stages.evaluate.gate#/blocking
+        right: true
+      next: standing
+    default: done
+  done:
+    kind: finish
+    outcome: succeeded
+    output_bindings:
+      gate: $stages.evaluate.gate
+      report: $stages.audit.report
+  standing:
+    kind: finish
+    outcome: partial
+    output_bindings:
+      gate: $stages.evaluate.gate
+      report: $stages.audit.report
+  skipped:
+    kind: finish
+    outcome: succeeded
+    output_bindings:
+      gate: $stages.prepare.gate
+      report: $stages.prepare.report
+  abandoned:
+    kind: finish
+    outcome: rejected

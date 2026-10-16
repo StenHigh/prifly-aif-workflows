@@ -28,6 +28,8 @@ jobs:
         run: python3 -B tests/test_folders.py
       - name: Explicit review coverage and dirty candidate identity
         run: python3 -B tests/test_review_evidence.py
+      - name: Test audit selection, evidence coverage and candidate freshness
+        run: python3 -B tests/test_test_audit.py
       - name: Product review coverage and owned environment lifecycle
         run: python3 -B tests/test_product_review.py
       - name: Feature admission, whole-round freshness and owner blockers
@@ -56,6 +58,10 @@ jobs:
         run: python3 -B tests/probes/fix_check.py --binary "$HOME/.local/bin/prifly" --report /tmp/aif-fix-results.json
       - name: Explicit review evidence finishes and resumes on the released runtime
         run: python3 -B tests/probes/evidence_check.py --binary "$HOME/.local/bin/prifly" --report /tmp/aif-evidence-results.json
+      - name: Standalone test audit skips, reports, stops and replays
+        run: python3 -B tests/probes/test_audit_check.py --binary "$HOME/.local/bin/prifly" --report /tmp/openclaw-test-audit-results.json
+      - name: OpenClaw test audit catalog install without AI Factory skills
+        run: python3 -B tests/test_audit_install.py --binary "$HOME/.local/bin/prifly"
       - name: UI and UX components finish, block and resume with owned environments
         run: python3 -B tests/probes/product_check.py --binary "$HOME/.local/bin/prifly" --report /tmp/aif-product-results.json
       - name: Standalone feature catalog install and update preserve project ownership
