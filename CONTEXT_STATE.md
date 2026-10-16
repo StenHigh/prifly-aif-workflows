@@ -10,6 +10,18 @@
 
 Ворота выверены против выпущенного Pri-Fly `v0.13.77`.
 
+- **W6 / E5 — call extensions для review/UI/UX (2026-10-16):**
+  Открыт Pri-Fly #9: native вложенный workflow через project extend, typed
+  multiple inputs, exact refs/outputs/outcomes, budgets, prepare/continue и
+  legacy step compatibility. Сохранён body engine/E5-nested-workflow-extensions.md.
+  Новый change add-review-uiux-call-extensions: proposal/design/tasks/acceptance,
+  W6-A1–A10; review-only/UI/UX-only/combined project recipes. Implementation
+  ждёт released stable E5 и собственных probes; сейчас0.13.77 step-only extend.
+  Classic/profiled upstream bytes и templates не меняются; project additions
+  только opt-in. W1/W2 dependencies; W5 parallel и test-audit не входят в scope.
+  Latest stable сверён0.13.77, новых нет. CI тега v1.52.0 теперь SUCCESS:
+  38888136979/c639480, оба jobs verify/parallel-ui-ux зелёные; source прежний.
+
 - **Выпущен v1.52.0 (2026-10-16):** source/tag c6394802cb69660fbc12d133750f2fa7cc9bff34,
   review-evidence1.0.0, ui-ux1.0.0, feature1.2.3 доступны в центральном каталоге.
   Catalog commit24d0837; все4 прежние записи/pins сохранены. Все7 shipping

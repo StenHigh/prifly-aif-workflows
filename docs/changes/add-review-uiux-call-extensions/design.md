@@ -1,0 +1,79 @@
+# W6 — проектная композиция приёмки
+
+## Native граница
+
+У root graph и project extension разные authoring contracts. Существующий
+`kind: call` достаточен для собственного authored consumer; для вставки в
+установленный classic нужен released E5. Дочерний workflow исполняется native
+внутри parent Run, с явными input/output refs. Worker не эмулирует scheduler.
+
+Первый scope — последовательный review и UI/UX. W5 helper и parallel grants
+не подключаются автоматически, независимые модели не подразумеваются.
+
+## Bundle и зависимости
+
+Предпочтительный результат — examples с project-owned integration files и
+проверенным способом разрешения W1/W2 компонентов. Точный layout/refs определить
+по released E5 contract и доказать compile fixture. Одна установка двух
+standalone пакетов сама по себе не создаёт cross-package imports.
+
+Если Core поддержит только components объявленного bundle, использовать явно
+вендоренный набор с provenance, exact hashes и однозначными aliases/schema refs.
+Учитывать collisions имён configure/capture/quality, сравнить source dependencies
+с W1/W2 и описать обновление. Не сканировать «любые установленные» packages и не
+выбирать latest-compatible компонент по короткому имени. Если нужный binding
+невозможен по released contract, зафиксировать blocker, а не скрытый subprocess.
+
+В classic-рецепте проект добавляет свои files/config/extend. Сам root YAML,
+его shipped steps/workflows/contexts/schemas и canonical extend в нашем
+репозитории неизменны. Fixture устанавливает release и хранит project additions
+отдельно от baseline. Profiled также остаётся неизменным и не перегенерируется.
+
+## Producer → child → решение родителя
+
+1. Проект задаёт explicit checks и product scenarios/environment contract.
+   Конфигурация входит в declared/sealed source/input contract; свободный prose
+   из соседней host conversation не становится скрытым входом.
+2. Project producer/adaptor связывает исходный base, текущую implementation,
+   candidate и round с typed W1 request либо W2 configuration/ui/ux. Для classic
+   надо доказать реальную доступность producer outputs на выбранном ребре.
+   Перекодирование schema выполняется явным шагом, exact refs не подменяются.
+3. Extension вызывает quality child с declared refs. Child делает fresh capture,
+   readers/evaluation, для UI/UX — environment/release/finalize.
+4. Родитель читает только guaranteed outputs для достигнутого outcome. Диагностика
+   передаёт точный gate/report refs. Partial/rejected/unavailable не становятся
+   успешной приёмкой через маршрутизацию. Warnings policy задаётся явно.
+5. Продолжение к следующим gates/commit разрешено только по принятому результату
+   и завершённому cleanup. Fixture проверяет порядок и смысл, не только compile.
+
+Не выбирать универсальное место вставки «перед commit» заранее: последующие
+writer/repair стадии могут инвалидировать отчёт. В recipe описать конкретное
+ребро и доказать, что последняя проверка относится к фактически коммитящемуся
+candidate. Если upstream root не даёт нужной гарантии через доступные рёбра,
+показать диагностическую остановку/явный самостоятельный consumer graph, а не
+заявлять такой classic-рецепт qualified. Считать это blocker для W6-A2 до решения.
+
+## Сбой и продолжение
+
+Native cancel/timeout завершает Attempts по правилам Core; это не свидетельство
+остановки внешних actors. Project controller отвечает за exact owner/session
+cleanup и явную reconciliation после unknown ensure/release. Не очищать чужой
+listener, не повторять внешний эффект вслепую и не переписывать outcome Run.
+
+После исправления/изменения candidate нужны fresh capture/reports. Для продолжения
+использовать native prepare/continue и документированную replay boundary:
+changed effective accepted prefix может требовать повтор более ранней стадии.
+При несовместимости — named refusal, сохранённые base/claim/work и решение
+владельца. Общая проблема forced writer cancellation E3 этим change не решается.
+
+## Бюджет и совместимость
+
+Callee учитывается в root limits/depth/resources/effects, даже когда добавлен
+проектом. Расчёт для выбранной вставки — часть приёмки, silent budget override
+запрещён. Если canonical limits недостаточны и project mechanism не даёт
+допустимого решения без правки upstream, documented blocker остаётся открытым.
+
+Version bump выбирать по фактическому implementation diff. Существующие выпущенные
+W1/W2 не менять ради изменения слова «компонент»; если нужны новые definitions,
+публиковать новую identity/version и инструкции update/continue. Один recipe не
+даёт универсальную квалификацию всех hosts, моделей или приватных приложений.
