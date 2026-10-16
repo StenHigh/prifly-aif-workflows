@@ -1,0 +1,26 @@
+authoring: prifly-step/1
+id: aif-feature:step/finalize-uiux
+version: 1.0.0
+title: Program finalize-uiux
+kind: worker
+inputs:
+  assessment:
+    schema_ref: '{{schema_uiux-evidence}}'
+  release:
+    schema_ref: '{{schema_release}}'
+outputs:
+  gate:
+    schema_ref: '{{schema_gate}}'
+    required_for:
+    - pass
+  evidence:
+    schema_ref: '{{schema_uiux-evidence}}'
+    required_for:
+    - pass
+executor:
+  adapter_ref: '{{process}}'
+  operation: process
+effects:
+  class: none
+  retry_class: never
+result_schema_ref: '{{result}}'

@@ -1,0 +1,19 @@
+{
+  "outcome": "passed",
+  "prifly": "0.13.77",
+  "binary_sha256": "sha256:d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa",
+  "components_read": 120,
+  "steps_read": 79,
+  "packages": 7,
+  "feature_definitions": 45,
+  "hosts": [
+    "codex-cli",
+    "codex-app",
+    "claude-code"
+  ],
+  "profiles": [
+    "backend",
+    "frontend"
+  ],
+  "scope": "Compilation/authoring contract, no runtime App/Claude sessions claimed"
+}

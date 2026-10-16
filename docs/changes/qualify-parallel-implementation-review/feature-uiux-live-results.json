@@ -1,0 +1,1624 @@
+{
+  "prifly": "0.13.77",
+  "binary_sha256": "d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa",
+  "cases": [
+    {
+      "case": "repair-ui",
+      "host": "codex-cli",
+      "mode": "Synthetic author/checks/code readers, actual independent CLI UI/UX with unedited submissions",
+      "source_outcome": "succeeded",
+      "outcome": "succeeded",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "parallel-admission",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "frontend-environment",
+        "ui",
+        "ux",
+        "collect-uiux",
+        "frontend-release",
+        "repair",
+        "checks",
+        "security",
+        "review",
+        "frontend-environment",
+        "ui",
+        "ux",
+        "collect-uiux",
+        "frontend-release",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:1e09a86491a30e9c5239a3b6cf53dab621c8611129b6f868327bf745cab0aaf9",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:9e6cec275a6208ce7273339e73b4c5def9ec11bad779af805c87179277663edb",
+          "base": "4a81cd94569a55072b2f603751e7098b8d557463"
+        },
+        {
+          "run": "run:1e09a86491a30e9c5239a3b6cf53dab621c8611129b6f868327bf745cab0aaf9",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:9e6cec275a6208ce7273339e73b4c5def9ec11bad779af805c87179277663edb",
+          "base": "4a81cd94569a55072b2f603751e7098b8d557463"
+        },
+        {
+          "run": "run:1e09a86491a30e9c5239a3b6cf53dab621c8611129b6f868327bf745cab0aaf9",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:9e6cec275a6208ce7273339e73b4c5def9ec11bad779af805c87179277663edb",
+          "base": "4a81cd94569a55072b2f603751e7098b8d557463"
+        },
+        {
+          "run": "run:1e09a86491a30e9c5239a3b6cf53dab621c8611129b6f868327bf745cab0aaf9",
+          "lens": "ui",
+          "round": 1,
+          "digest": "sha256:9e6cec275a6208ce7273339e73b4c5def9ec11bad779af805c87179277663edb",
+          "base": "4a81cd94569a55072b2f603751e7098b8d557463"
+        },
+        {
+          "run": "run:1e09a86491a30e9c5239a3b6cf53dab621c8611129b6f868327bf745cab0aaf9",
+          "lens": "ux",
+          "round": 1,
+          "digest": "sha256:9e6cec275a6208ce7273339e73b4c5def9ec11bad779af805c87179277663edb",
+          "base": "4a81cd94569a55072b2f603751e7098b8d557463"
+        },
+        {
+          "run": "run:1e09a86491a30e9c5239a3b6cf53dab621c8611129b6f868327bf745cab0aaf9",
+          "lens": "checks",
+          "round": 2,
+          "digest": "sha256:561d863184955a5b3a8880861a1ac1a9449817cefb9223f2f8cebcc19f87925a",
+          "base": "4a81cd94569a55072b2f603751e7098b8d557463"
+        },
+        {
+          "run": "run:1e09a86491a30e9c5239a3b6cf53dab621c8611129b6f868327bf745cab0aaf9",
+          "lens": "security",
+          "round": 2,
+          "digest": "sha256:561d863184955a5b3a8880861a1ac1a9449817cefb9223f2f8cebcc19f87925a",
+          "base": "4a81cd94569a55072b2f603751e7098b8d557463"
+        },
+        {
+          "run": "run:1e09a86491a30e9c5239a3b6cf53dab621c8611129b6f868327bf745cab0aaf9",
+          "lens": "review",
+          "round": 2,
+          "digest": "sha256:561d863184955a5b3a8880861a1ac1a9449817cefb9223f2f8cebcc19f87925a",
+          "base": "4a81cd94569a55072b2f603751e7098b8d557463"
+        },
+        {
+          "run": "run:1e09a86491a30e9c5239a3b6cf53dab621c8611129b6f868327bf745cab0aaf9",
+          "lens": "ui",
+          "round": 2,
+          "digest": "sha256:561d863184955a5b3a8880861a1ac1a9449817cefb9223f2f8cebcc19f87925a",
+          "base": "4a81cd94569a55072b2f603751e7098b8d557463"
+        },
+        {
+          "run": "run:1e09a86491a30e9c5239a3b6cf53dab621c8611129b6f868327bf745cab0aaf9",
+          "lens": "ux",
+          "round": 2,
+          "digest": "sha256:561d863184955a5b3a8880861a1ac1a9449817cefb9223f2f8cebcc19f87925a",
+          "base": "4a81cd94569a55072b2f603751e7098b8d557463"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "b01832c0e29a52f2fa24abb1f9dceb3aa611fe5bff4ce4e58c4b5b8e82b76c82"
+        },
+        {
+          "stage": "implement",
+          "sha256": "1a51b2f59e40281f0df26a8f6350367454fc982f0adb218046d089e974017d5f"
+        }
+      ],
+      "elapsed_seconds": 749.93,
+      "cleaned": true,
+      "review_mode": "parallel-ui-ux",
+      "parallel_fault": null,
+      "parallel_batches": [],
+      "parallel_observations": [],
+      "parallel_outputs": {
+        "evidence": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+            "digest": "sha256:561d863184955a5b3a8880861a1ac1a9449817cefb9223f2f8cebcc19f87925a",
+            "files_digest": "sha256:834a250fc5277685392e687d27320a011ff9404f19ac26ac79c5001fc2df23c4",
+            "head_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+            "index_digest": "sha256:c98ca24832ac7204185d94cf9d4f9cafe4794bb75fa5ffcf2654903800e056e6"
+          },
+          "gate": {
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "checks: Model profile unavailable; independent model not established",
+              "security: Model profile unavailable; independent model not established",
+              "review: Model profile unavailable; independent model not established",
+              "product: ui: Model profile unavailable; independent model not established",
+              "product: ux: Model profile unavailable; independent model not established"
+            ],
+            "gate": "feature",
+            "status": "warnings",
+            "suggested_next": "continue"
+          },
+          "product": {
+            "adapter_digest": "sha256:81c20c080a06d07225123af79b88a1cb82f9bc5af1621586f9460d7d3b5779c5",
+            "browser_sessions": {
+              "ui": {
+                "adapter_digest": "sha256:81c20c080a06d07225123af79b88a1cb82f9bc5af1621586f9460d7d3b5779c5",
+                "allocation": {
+                  "token": "e4260769101940478d479ecb65e65e3a"
+                },
+                "candidate_digest": "sha256:561d863184955a5b3a8880861a1ac1a9449817cefb9223f2f8cebcc19f87925a",
+                "configuration_digest": "sha256:19031348e2e9ac7a2e05ed087b8475737cc9b6b8826a0b61dc0d401a6d71a897",
+                "context_id": "context-a8cfdb223f604d78a22f8f779db21c68",
+                "environment_session": "environment-0516815d8c0b40209077d83105e91355",
+                "identity_id": "identity-944d1f4449d84103950abbc2d9c546ea",
+                "lens": "ui",
+                "owner": "fixture-owned",
+                "protocol": "aif-feature-browser/1",
+                "reason": "",
+                "request_digest": "sha256:80ac94e557e11de2edbd852ad5c8a9a6de728a4039d990d0c11feab5600f4f1b",
+                "round": 2,
+                "run_id": "run:1e09a86491a30e9c5239a3b6cf53dab621c8611129b6f868327bf745cab0aaf9",
+                "status": "ready"
+              },
+              "ux": {
+                "adapter_digest": "sha256:81c20c080a06d07225123af79b88a1cb82f9bc5af1621586f9460d7d3b5779c5",
+                "allocation": {
+                  "token": "1b3ca9897f2a4404a8dbf87b41be066e"
+                },
+                "candidate_digest": "sha256:561d863184955a5b3a8880861a1ac1a9449817cefb9223f2f8cebcc19f87925a",
+                "configuration_digest": "sha256:19031348e2e9ac7a2e05ed087b8475737cc9b6b8826a0b61dc0d401a6d71a897",
+                "context_id": "context-c1765f2092ad4fc385573ae6de5d2968",
+                "environment_session": "environment-0516815d8c0b40209077d83105e91355",
+                "identity_id": "identity-e8220479aa85401fbe411ac13d65bd0a",
+                "lens": "ux",
+                "owner": "fixture-owned",
+                "protocol": "aif-feature-browser/1",
+                "reason": "",
+                "request_digest": "sha256:b157976af0e2a10bf3183b62ebda6720249199c0e88d44672fa608528469170b",
+                "round": 2,
+                "run_id": "run:1e09a86491a30e9c5239a3b6cf53dab621c8611129b6f868327bf745cab0aaf9",
+                "status": "ready"
+              }
+            },
+            "candidate": {
+              "algorithm": "git-candidate/1",
+              "base_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+              "digest": "sha256:561d863184955a5b3a8880861a1ac1a9449817cefb9223f2f8cebcc19f87925a",
+              "files_digest": "sha256:834a250fc5277685392e687d27320a011ff9404f19ac26ac79c5001fc2df23c4",
+              "head_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+              "index_digest": "sha256:c98ca24832ac7204185d94cf9d4f9cafe4794bb75fa5ffcf2654903800e056e6"
+            },
+            "configuration": {
+              "environment": {
+                "allowed_operations": [
+                  "navigate",
+                  "input",
+                  "submit_test"
+                ],
+                "browser_adapter": "project Playwright adapter",
+                "cleanup": "fixture release exact owned session",
+                "owner": "fixture-owned",
+                "profile": "all-checks",
+                "setup": "fixture ensure owned claimed tree",
+                "shared_resource": null,
+                "test_identity": "isolated anonymous test only"
+              },
+              "scenarios": [
+                {
+                  "actions": [],
+                  "check_id": "ui_acceptance",
+                  "expectations": [
+                    "No overflow; readable consistent design"
+                  ],
+                  "id": "desktop",
+                  "lens": "ui",
+                  "path": "/index.html",
+                  "viewport": {
+                    "height": 800,
+                    "width": 1280
+                  }
+                },
+                {
+                  "actions": [],
+                  "check_id": "ui_acceptance",
+                  "expectations": [
+                    "No overflow; readable consistent design"
+                  ],
+                  "id": "mobile",
+                  "lens": "ui",
+                  "path": "/index.html",
+                  "viewport": {
+                    "height": 800,
+                    "width": 375
+                  }
+                },
+                {
+                  "actions": [
+                    "Use keyboard and submit isolated test form"
+                  ],
+                  "check_id": "ux_acceptance",
+                  "expectations": [
+                    "Observe empty/loading/error/success states and labelled keyboard flow"
+                  ],
+                  "id": "flow",
+                  "lens": "ux",
+                  "path": "/index.html",
+                  "viewport": {
+                    "height": 800,
+                    "width": 375
+                  }
+                }
+              ],
+              "scope_reason": "Declared interface change",
+              "surface": "frontend",
+              "ui": {
+                "base_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+                "checks": [
+                  {
+                    "applicable": true,
+                    "description": "ui acceptance",
+                    "enabled": true,
+                    "id": "ui_acceptance",
+                    "method": "browser",
+                    "required": true
+                  }
+                ],
+                "optional_policy": "ignore",
+                "require_separate_session": true,
+                "round": 2
+              },
+              "ux": {
+                "base_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+                "checks": [
+                  {
+                    "applicable": true,
+                    "description": "ux acceptance",
+                    "enabled": true,
+                    "id": "ux_acceptance",
+                    "method": "browser",
+                    "required": true
+                  }
+                ],
+                "optional_policy": "ignore",
+                "require_separate_session": true,
+                "round": 2
+              }
+            },
+            "configuration_digest": "sha256:19031348e2e9ac7a2e05ed087b8475737cc9b6b8826a0b61dc0d401a6d71a897",
+            "environment": {
+              "candidate_digest": "sha256:561d863184955a5b3a8880861a1ac1a9449817cefb9223f2f8cebcc19f87925a",
+              "configuration_digest": "sha256:19031348e2e9ac7a2e05ed087b8475737cc9b6b8826a0b61dc0d401a6d71a897",
+              "owner": "fixture-owned",
+              "profile": "all-checks",
+              "reason": "",
+              "session": "environment-0516815d8c0b40209077d83105e91355",
+              "status": "ready",
+              "url": "http://127.0.0.1:39645"
+            },
+            "gate": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "ui: Model profile unavailable; independent model not established",
+                "ux: Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "parallel": {
+              "bundle": {
+                "manifest_digest": "sha256:99953f9b6565ff586e825ebf8ee66fece2e8bd1358c4951c5b2bc2f60b268382",
+                "reason": "",
+                "reports": [
+                  {
+                    "branch": "ui",
+                    "raw_base64": "ewogICJyb3VuZCI6IDIsCiAgInJlcXVlc3RfZGlnZXN0IjogInNoYTI1Njo4MGFjOTRlNTU3ZTExZGUyZWRiZDg1MmFkNWM4YTlhNmRlNzI4YTQwMzlkOTkwZDBjMTFmZWFiNTYwMGY0ZjFiIiwKICAiY2FuZGlkYXRlIjogewogICAgImFsZ29yaXRobSI6ICJnaXQtY2FuZGlkYXRlLzEiLAogICAgImJhc2VfY29tbWl0IjogIjRhODFjZDk0NTY5YTU1MDcyYjJmNjAzNzUxZTcwOThiOGQ1NTc0NjMiLAogICAgImRpZ2VzdCI6ICJzaGEyNTY6NTYxZDg2MzE4NDk1NWE1YjNhODg4MDg2MWExYWMxYTk0NDk4MTdjZWZiOTIyM2YyZjhjZWJjYzE5Zjg3OTI1YSIsCiAgICAiZmlsZXNfZGlnZXN0IjogInNoYTI1Njo4MzRhMjUwZmM1Mjc3Njg1MzkyZTY4N2QyNzMyMGEwMTFmZjk0MDRmMTlhYzI2YWM3OWM1MDAxZmMyZGYyM2M0IiwKICAgICJoZWFkX2NvbW1pdCI6ICI0YTgxY2Q5NDU2OWE1NTA3MmIyZjYwMzc1MWU3MDk4YjhkNTU3NDYzIiwKICAgICJpbmRleF9kaWdlc3QiOiAic2hhMjU2OmM5OGNhMjQ4MzJhYzcyMDQxODVkOTRjZjlkNGY5Y2FmZTQ3OTRiYjc1ZmE1ZmZjZjI2NTQ5MDM4MDBlMDU2ZTYiCiAgfSwKICAic2Vzc2lvbiI6ICJzZXBhcmF0ZSIsCiAgIm1vZGVsX3Byb2ZpbGUiOiAidW5hdmFpbGFibGUiLAogICJtb2RlbCI6IG51bGwsCiAgImNoZWNrcyI6IFsKICAgIHsKICAgICAgImlkIjogInVpX2FjY2VwdGFuY2UiLAogICAgICAic3RhdHVzIjogImV4ZWN1dGVkIiwKICAgICAgInJlc3VsdCI6ICJwYXNzZWQiLAogICAgICAicmVhc29uIjogIiIsCiAgICAgICJldmlkZW5jZSI6IFsKICAgICAgICB7CiAgICAgICAgICAibWV0aG9kIjogImJyb3dzZXIiLAogICAgICAgICAgInRvb2wiOiAiUGxheXdyaWdodCAxLjY0LjEgLyBDaHJvbWl1bSAxNTYuMC44MDc4LjQiLAogICAgICAgICAgImxvY2F0b3IiOiAiaHR0cDovLzEyNy4wLjAuMTozOTY0NS9pbmRleC5odG1sIiwKICAgICAgICAgICJvYnNlcnZhdGlvbiI6ICJ7XCJzY2VuYXJpb1wiOlwiZGVza3RvcFwiLFwidmlld3BvcnRcIjp7XCJoZWlnaHRcIjo4MDAsXCJ3aWR0aFwiOjEyODB9LFwidXJsXCI6XCJodHRwOi8vMTI3LjAuMC4xOjM5NjQ1L2luZGV4Lmh0bWxcIixcIm9ic2VydmF0aW9uc1wiOlwiVmlzdWFsbHkgaW5zcGVjdGVkIHRoZSAxMjgwIGJ5IDgwMCBzY3JlZW5zaG90OiB0aGUgNjgwcHggd2hpdGUgY2FyZCBpcyBjZW50ZXJlZCB3aXRoIGdlbmVyb3VzIHN1cnJvdW5kaW5nIHNwYWNlOyBOb3RlcyBhbmQgQWRkIGEgbm90ZSBmb3JtIGEgY2xlYXIgaGVhZGluZyBoaWVyYXJjaHkuIFRoZSBsYWJlbCwgZnVsbC13aWR0aCBpbnB1dCwgYmx1ZSBTYXZlIG5vdGUgYnV0dG9uIGFuZCBlbXB0eS1zdGF0ZSB0ZXh0IGFsaWduIGNvbnNpc3RlbnRseSB3aXRoIDI0cHggY2FyZCBwYWRkaW5nLiBUeXBvZ3JhcGh5IGlzIHJlYWRhYmxlIGFuZCBjb25zaXN0ZW50LCB0ZXh0IGNvbnRyYXN0cyBjbGVhcmx5IGFnYWluc3QgdGhlIHBhbGUgcGFnZSBhbmQgd2hpdGUgY2FyZCwgYW5kIHRoZSB3aGl0ZSBidXR0b24gdGV4dCBpcyBsZWdpYmxlIG9uIGRhcmsgYmx1ZS4gTm8gY2xpcHBpbmcsIG92ZXJsYXAgb3IgaG9yaXpvbnRhbCBvdmVyZmxvdyBpcyB2aXNpYmxlLiBCcm93c2VyIG1lYXN1cmVtZW50czogdmlld3BvcnQgd2lkdGggMTI4MHB4OyBzY3JvbGxXaWR0aCAxMjgwcHg7IGJvZHkgY29sb3IgcmdiKDIzLCAzMiwgNTEpIG9uIHJnYigyNDQsIDI0NiwgMjUwKTsgYnV0dG9uIGNvbG9yIHJnYigyNTUsIDI1NSwgMjU1KSBvbiByZ2IoMjMsIDY5LCAxNjEpLiBBZGFwdGVyIGZpeHR1cmUgZmFpbHVyZXM6IFtdLiBTY3JlZW5zaG90IGluc3BlY3RlZCB3aXRoIHZpZXdfaW1hZ2U6IC90bXAvdzMtcnVuLWtuOTdjaTJoL2F1dGhvcml0eS8ucHJpZmx5L3dvcmsvOWE5NmQzZGRhYzYwYzNjYTRmODM3MmFhYmJiOTI2ZDIvYnJvd3Nlci84YTBkYzEyNC01MGY3LTQxMGQtODQ2Yi00YTRhNTU1MWUxMDUvdWktZGVza3RvcC5wbmcgKHNoYTI1NjozN2UzNzQyOGRhZGZkNDhjODcyODBlMDA3MDA0MWVhYjA3NjNhMzM5MDllNDM3YjczNGI4Nzk3MmIxNDIxMjkxKS5cIn0iLAogICAgICAgICAgImV4aXRfY29kZSI6IG51bGwKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJtZXRob2QiOiAiYnJvd3NlciIsCiAgICAgICAgICAidG9vbCI6ICJQbGF5d3JpZ2h0IDEuNjQuMSAvIENocm9taXVtIDE1Ni4wLjgwNzguNCIsCiAgICAgICAgICAibG9jYXRvciI6ICJodHRwOi8vMTI3LjAuMC4xOjM5NjQ1L2luZGV4Lmh0bWwiLAogICAgICAgICAgIm9ic2VydmF0aW9uIjogIntcInNjZW5hcmlvXCI6XCJtb2JpbGVcIixcInZpZXdwb3J0XCI6e1wiaGVpZ2h0XCI6ODAwLFwid2lkdGhcIjozNzV9LFwidXJsXCI6XCJodHRwOi8vMTI3LjAuMC4xOjM5NjQ1L2luZGV4Lmh0bWxcIixcIm9ic2VydmF0aW9uc1wiOlwiVmlzdWFsbHkgaW5zcGVjdGVkIHRoZSAzNzUgYnkgODAwIHNjcmVlbnNob3Q6IHRoZSB3aGl0ZSBjYXJkIGZpdHMgd2l0aGluIDE2cHggcGFnZSBndXR0ZXJzLCB3aXRoIGNvbnNpc3RlbnQgaW50ZXJpb3Igc3BhY2luZy4gTm90ZXMgYW5kIEFkZCBhIG5vdGUgcmVtYWluIGRpc3RpbmN0LCBhbmQgdGhlIGxhYmVsLCBpbnB1dCwgU2F2ZSBub3RlIGJ1dHRvbiBhbmQgTm8gbm90ZXMgeWV0IHRleHQgYXJlIGZ1bGx5IHJlYWRhYmxlIGFuZCBjb250YWluZWQuIERhcmsgdGV4dCBvbiBsaWdodCBzdXJmYWNlcyBhbmQgd2hpdGUgdGV4dCBvbiB0aGUgZGFyayBibHVlIGJ1dHRvbiByZW1haW4gY2xlYXIuIE5vIGNsaXBwaW5nLCBvdmVybGFwIG9yIGhvcml6b250YWwgb3ZlcmZsb3cgaXMgdmlzaWJsZTsgdGhlIGRlc2lnbiBtYXRjaGVzIGRlc2t0b3AuIEJyb3dzZXIgbWVhc3VyZW1lbnRzOiB2aWV3cG9ydCB3aWR0aCAzNzVweDsgc2Nyb2xsV2lkdGggMzc1cHg7IGJvZHkgY29sb3IgcmdiKDIzLCAzMiwgNTEpIG9uIHJnYigyNDQsIDI0NiwgMjUwKTsgYnV0dG9uIGNvbG9yIHJnYigyNTUsIDI1NSwgMjU1KSBvbiByZ2IoMjMsIDY5LCAxNjEpLiBBZGFwdGVyIGZpeHR1cmUgZmFpbHVyZXM6IFtdLiBTY3JlZW5zaG90IGluc3BlY3RlZCB3aXRoIHZpZXdfaW1hZ2U6IC90bXAvdzMtcnVuLWtuOTdjaTJoL2F1dGhvcml0eS8ucHJpZmx5L3dvcmsvOWE5NmQzZGRhYzYwYzNjYTRmODM3MmFhYmJiOTI2ZDIvYnJvd3Nlci84YTBkYzEyNC01MGY3LTQxMGQtODQ2Yi00YTRhNTU1MWUxMDUvdWktbW9iaWxlLnBuZyAoc2hhMjU2OjgzOTVlNDVhYzJiYWJhOGY0OGNmZjQyNTM4MDI2MmM2Y2UyMTM1ZjAwNTdhNmFhZTRmOGVjZWE2OWQ4YjA4NmQpLlwifSIsCiAgICAgICAgICAiZXhpdF9jb2RlIjogbnVsbAogICAgICAgIH0KICAgICAgXQogICAgfQogIF0KfQo=",
+                    "ref": {
+                      "artifact_id": "artifact:ab2f55ced14f1106f794b544e9a725d0e8dd48f27533a41bf874fd41c7dd584c",
+                      "digest": "sha256:30ae8cc88e7969e6f386eed71c5ec77676ec962c5552f590f05723e38f7338d3",
+                      "revision": 1
+                    }
+                  },
+                  {
+                    "branch": "ux",
+                    "raw_base64": "ewogICJyb3VuZCI6IDIsCiAgInJlcXVlc3RfZGlnZXN0IjogInNoYTI1NjpiMTU3OTc2YWYwZTJhMTBiZjMxODNiNjJlYmRhNjcyMDI0OTE5OWMwZTg4ZDQ0NjcyZmE2MDg1Mjg0NjkxNzBiIiwKICAiY2FuZGlkYXRlIjogewogICAgImFsZ29yaXRobSI6ICJnaXQtY2FuZGlkYXRlLzEiLAogICAgImJhc2VfY29tbWl0IjogIjRhODFjZDk0NTY5YTU1MDcyYjJmNjAzNzUxZTcwOThiOGQ1NTc0NjMiLAogICAgImRpZ2VzdCI6ICJzaGEyNTY6NTYxZDg2MzE4NDk1NWE1YjNhODg4MDg2MWExYWMxYTk0NDk4MTdjZWZiOTIyM2YyZjhjZWJjYzE5Zjg3OTI1YSIsCiAgICAiZmlsZXNfZGlnZXN0IjogInNoYTI1Njo4MzRhMjUwZmM1Mjc3Njg1MzkyZTY4N2QyNzMyMGEwMTFmZjk0MDRmMTlhYzI2YWM3OWM1MDAxZmMyZGYyM2M0IiwKICAgICJoZWFkX2NvbW1pdCI6ICI0YTgxY2Q5NDU2OWE1NTA3MmIyZjYwMzc1MWU3MDk4YjhkNTU3NDYzIiwKICAgICJpbmRleF9kaWdlc3QiOiAic2hhMjU2OmM5OGNhMjQ4MzJhYzcyMDQxODVkOTRjZjlkNGY5Y2FmZTQ3OTRiYjc1ZmE1ZmZjZjI2NTQ5MDM4MDBlMDU2ZTYiCiAgfSwKICAic2Vzc2lvbiI6ICJzZXBhcmF0ZSIsCiAgIm1vZGVsX3Byb2ZpbGUiOiAidW5hdmFpbGFibGUiLAogICJtb2RlbCI6IG51bGwsCiAgImNoZWNrcyI6IFsKICAgIHsKICAgICAgImlkIjogInV4X2FjY2VwdGFuY2UiLAogICAgICAic3RhdHVzIjogImV4ZWN1dGVkIiwKICAgICAgInJlc3VsdCI6ICJwYXNzZWQiLAogICAgICAicmVhc29uIjogIiIsCiAgICAgICJldmlkZW5jZSI6IFsKICAgICAgICB7CiAgICAgICAgICAibWV0aG9kIjogImJyb3dzZXIiLAogICAgICAgICAgInRvb2wiOiAiUGxheXdyaWdodCAxLjY0LjEgLyBDaHJvbWl1bSAxNTYuMC44MDc4LjQiLAogICAgICAgICAgImxvY2F0b3IiOiAiaHR0cDovLzEyNy4wLjAuMTozOTY0NS9pbmRleC5odG1sIiwKICAgICAgICAgICJvYnNlcnZhdGlvbiI6ICJ7XCJzY2VuYXJpb1wiOlwiZmxvd1wiLFwidmlld3BvcnRcIjp7XCJoZWlnaHRcIjo4MDAsXCJ3aWR0aFwiOjM3NX0sXCJ1cmxcIjpcImh0dHA6Ly8xMjcuMC4wLjE6Mzk2NDUvaW5kZXguaHRtbFwiLFwib2JzZXJ2YXRpb25zXCI6XCJUaGUgaXNvbGF0ZWQgVVggYnJvd3NlciBmbG93IG9ic2VydmVkIGVtcHR5LCB2YWxpZGF0aW9uLWVycm9yLCBsb2FkaW5nIGFuZCBzdWNjZXNzIHN0YXRlczsgdGhlIGZvY3VzZWQgY29udHJvbCB3YXMgbm90ZSwgaXRzIG91dGxpbmUgd2FzIHNvbGlkLCBhbmQgaXRzIGFjY2Vzc2libGUgbGFiZWwgd2FzIE5vdGUgdGV4dC4gVGhlIGZpbmFsIGJyb3dzZXIgdGV4dCB3YXMgU2F2ZWQ6IEEgdGVzdCBub3RlLiBUaGUgYWRhcHRlciByZXBvcnRlZCBubyBzY2VuYXJpbyBmYWlsdXJlcy4gSSBpbnNwZWN0ZWQgdGhlIGFjdHVhbCBzY3JlZW5zaG90OiB0aGUgTm90ZXMgaGVhZGluZywgQWRkIGEgbm90ZSBoZWFkaW5nLCBOb3RlIHRleHQgbGFiZWwsIHRleHRhcmVhLCBTYXZlIG5vdGUgYnV0dG9uIGFuZCBzYXZlZCBjb25maXJtYXRpb24gYXJlIGxlZ2libGUgd2l0aGluIHRoZSAzNzUgYnkgODAwIHZpZXdwb3J0LiBUaGUgZm9jdXNlZCB0ZXh0YXJlYSBoYXMgYSBjbGVhcmx5IHZpc2libGUgb3JhbmdlIG91dGxpbmU7IHRoZSBjb250cm9scyBhbmQgY29uZmlybWF0aW9uIGFyZSB1bm9ic3RydWN0ZWQsIGFuZCB0aGUgd29yZGluZyBtYWtlcyB0aGUgYWN0aW9uIGFuZCBvdXRjb21lIGNsZWFyLiBObyBpbWFnZXJ5IHJlcXVpcmluZyBhbHQgdGV4dCBpcyBwcmVzZW50IGluIHRoZSBjYXB0dXJlZCBmb3JtLiBUaGUgc2F2ZWQgY29uZmlybWF0aW9uIGlkZW50aWZpZXMgdGhlIHN1Ym1pdHRlZCBub3RlIHdoaWxlIHRoZSBmaWVsZCBpcyBjbGVhcmVkLiBUaGVzZSBvYnNlcnZlZCBzdGF0ZXMsIGxhYmVsLCBmb2N1cyB0cmVhdG1lbnQgYW5kIHZpc3VhbCByZXN1bHQgc2F0aXNmeSB0aGUgZGVjbGFyZWQgVVggc2NlbmFyaW87IG5vIG1hdGVyaWFsIFVYIGRlZmVjdCB3YXMgb2JzZXJ2ZWQuIFNjcmVlbnNob3QgaW5zcGVjdGVkOiAvdG1wL3czLXJ1bi1rbjk3Y2kyaC9hdXRob3JpdHkvLnByaWZseS93b3JrLzljOTc0ZDc0MjU2ZjViOTYyYWRmNmE1YmQ3YzE4Y2M4L2Jyb3dzZXIvMzVmYWViMTctOWYzNC00YWYxLWE4NWItZGFjN2E0MGQ0NjNhL3V4LWZsb3cucG5nIChzaGEyNTY6YzEwZjZjMzBmZTQ3ZmNhYWM1MDQ3MGIxNzQzMTUzNDUzNTAwNmUzMDVhNDQ0NmExOTY0MWZlMDY0ZWE2NGRmYikuIEJyb3dzZXIgb2JzZXJ2YXRpb25zOiAvdG1wL3czLXJ1bi1rbjk3Y2kyaC9hdXRob3JpdHkvLnByaWZseS93b3JrLzljOTc0ZDc0MjU2ZjViOTYyYWRmNmE1YmQ3YzE4Y2M4L2Jyb3dzZXIvb2JzZXJ2YXRpb25zLmpzb24uXCJ9IiwKICAgICAgICAgICJleGl0X2NvZGUiOiBudWxsCiAgICAgICAgfQogICAgICBdCiAgICB9CiAgXQp9Cg==",
+                    "ref": {
+                      "artifact_id": "artifact:1922bedc70a47c2be5d3e3e981dbaf7653be2f3ed3782c23e8e047e61f6919c6",
+                      "digest": "sha256:6db583a88452bf88bd2bf094c540c61a3a6dd19a1861aa592854b3c88d989949",
+                      "revision": 1
+                    }
+                  }
+                ],
+                "schema_version": "1",
+                "status": "ready"
+              },
+              "manifest": {
+                "branches": [
+                  {
+                    "effect_receipt_refs": [],
+                    "has_waivers": false,
+                    "id": "ui",
+                    "outcome": "succeeded",
+                    "output_refs": {
+                      "report": {
+                        "artifact_id": "artifact:ab2f55ced14f1106f794b544e9a725d0e8dd48f27533a41bf874fd41c7dd584c",
+                        "digest": "sha256:30ae8cc88e7969e6f386eed71c5ec77676ec962c5552f590f05723e38f7338d3",
+                        "revision": 1
+                      }
+                    },
+                    "run_id": "run:1e09a86491a30e9c5239a3b6cf53dab621c8611129b6f868327bf745cab0aaf9",
+                    "status": "completed",
+                    "workflow_invocation_id": "invocation:896081c0993308048949b841d7634f4f56fc118fddd20ce2e6b1318c8a9cbb69"
+                  },
+                  {
+                    "effect_receipt_refs": [],
+                    "has_waivers": false,
+                    "id": "ux",
+                    "outcome": "succeeded",
+                    "output_refs": {
+                      "report": {
+                        "artifact_id": "artifact:1922bedc70a47c2be5d3e3e981dbaf7653be2f3ed3782c23e8e047e61f6919c6",
+                        "digest": "sha256:6db583a88452bf88bd2bf094c540c61a3a6dd19a1861aa592854b3c88d989949",
+                        "revision": 1
+                      }
+                    },
+                    "run_id": "run:1e09a86491a30e9c5239a3b6cf53dab621c8611129b6f868327bf745cab0aaf9",
+                    "status": "completed",
+                    "workflow_invocation_id": "invocation:ca807349896f3ef0f5a3297ce25dd408677134dbab5c0827779dd7c13a89253e"
+                  }
+                ],
+                "join_result": "satisfied",
+                "schema_version": "1",
+                "selected_branch_ids": [
+                  "ui",
+                  "ux"
+                ],
+                "selection_seq": 2,
+                "stage_activation_id": "activation:733889848b44068aa615e2330d8e4eba"
+              },
+              "manifest_digest": "sha256:99953f9b6565ff586e825ebf8ee66fece2e8bd1358c4951c5b2bc2f60b268382"
+            },
+            "release": {
+              "owner": "fixture-owned",
+              "reason": "",
+              "session": "environment-0516815d8c0b40209077d83105e91355",
+              "status": "released"
+            },
+            "reports": {
+              "ui": {
+                "candidate": {
+                  "algorithm": "git-candidate/1",
+                  "base_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+                  "digest": "sha256:561d863184955a5b3a8880861a1ac1a9449817cefb9223f2f8cebcc19f87925a",
+                  "files_digest": "sha256:834a250fc5277685392e687d27320a011ff9404f19ac26ac79c5001fc2df23c4",
+                  "head_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+                  "index_digest": "sha256:c98ca24832ac7204185d94cf9d4f9cafe4794bb75fa5ffcf2654903800e056e6"
+                },
+                "checks": [
+                  {
+                    "evidence": [
+                      {
+                        "exit_code": null,
+                        "locator": "http://127.0.0.1:39645/index.html",
+                        "method": "browser",
+                        "observation": "{\"scenario\":\"desktop\",\"viewport\":{\"height\":800,\"width\":1280},\"url\":\"http://127.0.0.1:39645/index.html\",\"observations\":\"Visually inspected the 1280 by 800 screenshot: the 680px white card is centered with generous surrounding space; Notes and Add a note form a clear heading hierarchy. The label, full-width input, blue Save note button and empty-state text align consistently with 24px card padding. Typography is readable and consistent, text contrasts clearly against the pale page and white card, and the white button text is legible on dark blue. No clipping, overlap or horizontal overflow is visible. Browser measurements: viewport width 1280px; scrollWidth 1280px; body color rgb(23, 32, 51) on rgb(244, 246, 250); button color rgb(255, 255, 255) on rgb(23, 69, 161). Adapter fixture failures: []. Screenshot inspected with view_image: /tmp/w3-run-kn97ci2h/authority/.prifly/work/9a96d3ddac60c3ca4f8372aabbb926d2/browser/8a0dc124-50f7-410d-846b-4a4a5551e105/ui-desktop.png (sha256:37e37428dadfd48c87280e0070041eab0763a33909e437b734b87972b1421291).\"}",
+                        "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4"
+                      },
+                      {
+                        "exit_code": null,
+                        "locator": "http://127.0.0.1:39645/index.html",
+                        "method": "browser",
+                        "observation": "{\"scenario\":\"mobile\",\"viewport\":{\"height\":800,\"width\":375},\"url\":\"http://127.0.0.1:39645/index.html\",\"observations\":\"Visually inspected the 375 by 800 screenshot: the white card fits within 16px page gutters, with consistent interior spacing. Notes and Add a note remain distinct, and the label, input, Save note button and No notes yet text are fully readable and contained. Dark text on light surfaces and white text on the dark blue button remain clear. No clipping, overlap or horizontal overflow is visible; the design matches desktop. Browser measurements: viewport width 375px; scrollWidth 375px; body color rgb(23, 32, 51) on rgb(244, 246, 250); button color rgb(255, 255, 255) on rgb(23, 69, 161). Adapter fixture failures: []. Screenshot inspected with view_image: /tmp/w3-run-kn97ci2h/authority/.prifly/work/9a96d3ddac60c3ca4f8372aabbb926d2/browser/8a0dc124-50f7-410d-846b-4a4a5551e105/ui-mobile.png (sha256:8395e45ac2baba8f48cff425380262c6ce2135f0057a6aae4f8ecea69d8b086d).\"}",
+                        "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4"
+                      }
+                    ],
+                    "id": "ui_acceptance",
+                    "reason": "",
+                    "result": "passed",
+                    "status": "executed"
+                  }
+                ],
+                "model": null,
+                "model_profile": "unavailable",
+                "request_digest": "sha256:80ac94e557e11de2edbd852ad5c8a9a6de728a4039d990d0c11feab5600f4f1b",
+                "round": 2,
+                "session": "separate"
+              },
+              "ux": {
+                "candidate": {
+                  "algorithm": "git-candidate/1",
+                  "base_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+                  "digest": "sha256:561d863184955a5b3a8880861a1ac1a9449817cefb9223f2f8cebcc19f87925a",
+                  "files_digest": "sha256:834a250fc5277685392e687d27320a011ff9404f19ac26ac79c5001fc2df23c4",
+                  "head_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+                  "index_digest": "sha256:c98ca24832ac7204185d94cf9d4f9cafe4794bb75fa5ffcf2654903800e056e6"
+                },
+                "checks": [
+                  {
+                    "evidence": [
+                      {
+                        "exit_code": null,
+                        "locator": "http://127.0.0.1:39645/index.html",
+                        "method": "browser",
+                        "observation": "{\"scenario\":\"flow\",\"viewport\":{\"height\":800,\"width\":375},\"url\":\"http://127.0.0.1:39645/index.html\",\"observations\":\"The isolated UX browser flow observed empty, validation-error, loading and success states; the focused control was note, its outline was solid, and its accessible label was Note text. The final browser text was Saved: A test note. The adapter reported no scenario failures. I inspected the actual screenshot: the Notes heading, Add a note heading, Note text label, textarea, Save note button and saved confirmation are legible within the 375 by 800 viewport. The focused textarea has a clearly visible orange outline; the controls and confirmation are unobstructed, and the wording makes the action and outcome clear. No imagery requiring alt text is present in the captured form. The saved confirmation identifies the submitted note while the field is cleared. These observed states, label, focus treatment and visual result satisfy the declared UX scenario; no material UX defect was observed. Screenshot inspected: /tmp/w3-run-kn97ci2h/authority/.prifly/work/9c974d74256f5b962adf6a5bd7c18cc8/browser/35faeb17-9f34-4af1-a85b-dac7a40d463a/ux-flow.png (sha256:c10f6c30fe47fcaac50470b17431534535006e305a4446a19641fe064ea64dfb). Browser observations: /tmp/w3-run-kn97ci2h/authority/.prifly/work/9c974d74256f5b962adf6a5bd7c18cc8/browser/observations.json.\"}",
+                        "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4"
+                      }
+                    ],
+                    "id": "ux_acceptance",
+                    "reason": "",
+                    "result": "passed",
+                    "status": "executed"
+                  }
+                ],
+                "model": null,
+                "model_profile": "unavailable",
+                "request_digest": "sha256:b157976af0e2a10bf3183b62ebda6720249199c0e88d44672fa608528469170b",
+                "round": 2,
+                "session": "separate"
+              }
+            },
+            "request_digests": {
+              "ui": "sha256:80ac94e557e11de2edbd852ad5c8a9a6de728a4039d990d0c11feab5600f4f1b",
+              "ux": "sha256:b157976af0e2a10bf3183b62ebda6720249199c0e88d44672fa608528469170b"
+            },
+            "requests": {
+              "ui": {
+                "base_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+                "checks": [
+                  {
+                    "applicable": true,
+                    "description": "ui acceptance\nSealed product contract: {\"environment\":{\"allowed_operations\":[\"navigate\",\"input\",\"submit_test\"],\"browser_adapter\":\"project Playwright adapter\",\"cleanup\":\"fixture release exact owned session\",\"owner\":\"fixture-owned\",\"profile\":\"all-checks\",\"setup\":\"fixture ensure owned claimed tree\",\"shared_resource\":null,\"test_identity\":\"isolated anonymous test only\"},\"lens\":\"ui\",\"scenarios\":[{\"actions\":[],\"check_id\":\"ui_acceptance\",\"expectations\":[\"No overflow; readable consistent design\"],\"id\":\"desktop\",\"lens\":\"ui\",\"path\":\"/index.html\",\"viewport\":{\"height\":800,\"width\":1280}},{\"actions\":[],\"check_id\":\"ui_acceptance\",\"expectations\":[\"No overflow; readable consistent design\"],\"id\":\"mobile\",\"lens\":\"ui\",\"path\":\"/index.html\",\"viewport\":{\"height\":800,\"width\":375}}],\"scope_reason\":\"Declared interface change\"}",
+                    "enabled": true,
+                    "id": "ui_acceptance",
+                    "method": "browser",
+                    "required": true
+                  }
+                ],
+                "optional_policy": "ignore",
+                "require_separate_session": true,
+                "round": 2
+              },
+              "ux": {
+                "base_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+                "checks": [
+                  {
+                    "applicable": true,
+                    "description": "ux acceptance\nSealed product contract: {\"environment\":{\"allowed_operations\":[\"navigate\",\"input\",\"submit_test\"],\"browser_adapter\":\"project Playwright adapter\",\"cleanup\":\"fixture release exact owned session\",\"owner\":\"fixture-owned\",\"profile\":\"all-checks\",\"setup\":\"fixture ensure owned claimed tree\",\"shared_resource\":null,\"test_identity\":\"isolated anonymous test only\"},\"lens\":\"ux\",\"scenarios\":[{\"actions\":[\"Use keyboard and submit isolated test form\"],\"check_id\":\"ux_acceptance\",\"expectations\":[\"Observe empty/loading/error/success states and labelled keyboard flow\"],\"id\":\"flow\",\"lens\":\"ux\",\"path\":\"/index.html\",\"viewport\":{\"height\":800,\"width\":375}}],\"scope_reason\":\"Declared interface change\"}",
+                    "enabled": true,
+                    "id": "ux_acceptance",
+                    "method": "browser",
+                    "required": true
+                  }
+                ],
+                "optional_policy": "ignore",
+                "require_separate_session": true,
+                "round": 2
+              }
+            }
+          },
+          "reports": {
+            "checks": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+                "digest": "sha256:561d863184955a5b3a8880861a1ac1a9449817cefb9223f2f8cebcc19f87925a",
+                "files_digest": "sha256:834a250fc5277685392e687d27320a011ff9404f19ac26ac79c5001fc2df23c4",
+                "head_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+                "index_digest": "sha256:c98ca24832ac7204185d94cf9d4f9cafe4794bb75fa5ffcf2654903800e056e6"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": 0,
+                      "locator": "/tmp/w3-run-kn97ci2h/authority/.prifly/work/claims/cce67951990a96999a59bf7320832ce207bdf88a9f52b14ffcc7d1cebd5bbb8b",
+                      "method": "command",
+                      "observation": "exit=0; stdout=''; stderr=''",
+                      "tool": "python3 -B -c from pathlib import Path; assert 'addEventListener' in Path('index.html').read_text()"
+                    }
+                  ],
+                  "id": "checks_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:595256b177a18f6f0f3b2ff92b11a1b7c00370d94de47a1777c3e44bee03b11d",
+              "round": 2,
+              "session": "shared"
+            },
+            "review": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+                "digest": "sha256:561d863184955a5b3a8880861a1ac1a9449817cefb9223f2f8cebcc19f87925a",
+                "files_digest": "sha256:834a250fc5277685392e687d27320a011ff9404f19ac26ac79c5001fc2df23c4",
+                "head_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+                "index_digest": "sha256:c98ca24832ac7204185d94cf9d4f9cafe4794bb75fa5ffcf2654903800e056e6"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "fixture page/source",
+                      "method": "code",
+                      "observation": "Actual fixture command exited zero",
+                      "tool": "fixture-tool"
+                    }
+                  ],
+                  "id": "review_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:2e4b4c81db48dfd652ee1f6db631e225925b4bfb3daddfd52556ecae915ba57d",
+              "round": 2,
+              "session": "shared"
+            },
+            "security": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+                "digest": "sha256:561d863184955a5b3a8880861a1ac1a9449817cefb9223f2f8cebcc19f87925a",
+                "files_digest": "sha256:834a250fc5277685392e687d27320a011ff9404f19ac26ac79c5001fc2df23c4",
+                "head_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+                "index_digest": "sha256:c98ca24832ac7204185d94cf9d4f9cafe4794bb75fa5ffcf2654903800e056e6"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "fixture page/source",
+                      "method": "code",
+                      "observation": "Actual fixture command exited zero",
+                      "tool": "fixture-tool"
+                    }
+                  ],
+                  "id": "security_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:336325d35dd2d4f31bec9a9cac697af6e9e866a67ca7a6df216ec4efb9a2b070",
+              "round": 2,
+              "session": "shared"
+            }
+          },
+          "requests": {
+            "checks": {
+              "base_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Check index.html contains the declared notes form; python3 -B -c \"from pathlib import Path; assert 'addEventListener' in Path('index.html').read_text()\"",
+                  "enabled": true,
+                  "id": "checks_acceptance",
+                  "method": "command",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 2
+            },
+            "review": {
+              "base_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect scoped notes confirmation: hide empty state, show Saved: <trimmed note>, clear input and restore focus; preserve existing error/loading behavior, responsive design and form IDs.",
+                  "enabled": true,
+                  "id": "review_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 2
+            },
+            "security": {
+              "base_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect index.html notes form for unsafe script execution, outbound effects or exposed secrets; only ephemeral in-page state is authorized.",
+                  "enabled": true,
+                  "id": "security_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 2
+            }
+          },
+          "round": 2,
+          "task_digest": "sha256:4797bcee7a38522c12e2cc1a4cad8590edd7532a41bd93837b3eb47e7f805a2b"
+        },
+        "gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "checks: Model profile unavailable; independent model not established",
+            "security: Model profile unavailable; independent model not established",
+            "review: Model profile unavailable; independent model not established",
+            "product: ui: Model profile unavailable; independent model not established",
+            "product: ux: Model profile unavailable; independent model not established"
+          ],
+          "gate": "feature",
+          "status": "warnings",
+          "suggested_next": "continue"
+        },
+        "implementation": {
+          "base_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+          "head_commit": "69bffdf74f27a96f4a4b29a7b5639433f3c8e369",
+          "changed_files": [
+            "index.html"
+          ]
+        },
+        "plan": {
+          "entrypoint": "PLAN.md",
+          "files": [
+            {
+              "path": "PLAN.md",
+              "ref": {
+                "artifact_id": "artifact:efb6a2cf66ae81ad2610ec0e3b84ec0736cb6caef46bcceaa13b865b3e1178c0",
+                "digest": "sha256:1a51b2f59e40281f0df26a8f6350367454fc982f0adb218046d089e974017d5f",
+                "revision": 1
+              }
+            }
+          ],
+          "root": ".ai-factory",
+          "schema_version": "workspace-tree-manifest/1"
+        },
+        "result": {
+          "outcome": "implemented",
+          "reason": "Synthetic feature host",
+          "work": [
+            "Preserved task work and original base."
+          ]
+        }
+      },
+      "browser_observations": [],
+      "uiux_pairs": [
+        {
+          "run": "run:1e09a86491a30e9c5239a3b6cf53dab621c8611129b6f868327bf745cab0aaf9",
+          "round": 1,
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+            "digest": "sha256:9e6cec275a6208ce7273339e73b4c5def9ec11bad779af805c87179277663edb",
+            "files_digest": "sha256:a7e777693677add586be479ca44d1d7a8b1dea937ab14a57b115ac62dc89787b",
+            "head_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+            "index_digest": "sha256:c98ca24832ac7204185d94cf9d4f9cafe4794bb75fa5ffcf2654903800e056e6"
+          },
+          "attempts": [
+            "attempt:146f984fd2a033c723b4db6c05788292",
+            "attempt:4e328924ce92868eb2c9f754c4c5e9fa"
+          ],
+          "browser_sessions": {
+            "ui": {
+              "adapter_digest": "sha256:81c20c080a06d07225123af79b88a1cb82f9bc5af1621586f9460d7d3b5779c5",
+              "allocation": {
+                "token": "d467b29af5d24e95903c78e0140694c7"
+              },
+              "candidate_digest": "sha256:9e6cec275a6208ce7273339e73b4c5def9ec11bad779af805c87179277663edb",
+              "configuration_digest": "sha256:a7d2c384dc4b4abfb1b139bd060dfb70378bbefc22d83a1d40177a880a65bf85",
+              "context_id": "context-e6138ce4284a4e938234b47a4ee52404",
+              "environment_session": "environment-a493dbbe40a14364a7e5f46551ed957c",
+              "identity_id": "identity-22c6ebdea90e4e27a648518c4b5f8e51",
+              "lens": "ui",
+              "owner": "fixture-owned",
+              "protocol": "aif-feature-browser/1",
+              "reason": "",
+              "request_digest": "sha256:a5e6b743b44cfed8e16575c9226a1777635209bd8592a295eb2db3260969a0de",
+              "round": 1,
+              "run_id": "run:1e09a86491a30e9c5239a3b6cf53dab621c8611129b6f868327bf745cab0aaf9",
+              "status": "ready"
+            },
+            "ux": {
+              "adapter_digest": "sha256:81c20c080a06d07225123af79b88a1cb82f9bc5af1621586f9460d7d3b5779c5",
+              "allocation": {
+                "token": "1c7d3b3e6d65432c95f2de53694577c2"
+              },
+              "candidate_digest": "sha256:9e6cec275a6208ce7273339e73b4c5def9ec11bad779af805c87179277663edb",
+              "configuration_digest": "sha256:a7d2c384dc4b4abfb1b139bd060dfb70378bbefc22d83a1d40177a880a65bf85",
+              "context_id": "context-3ceaf3a4fb714c65b6012147680c012e",
+              "environment_session": "environment-a493dbbe40a14364a7e5f46551ed957c",
+              "identity_id": "identity-8b69275e4fb149829f7decf8d9ba8629",
+              "lens": "ux",
+              "owner": "fixture-owned",
+              "protocol": "aif-feature-browser/1",
+              "reason": "",
+              "request_digest": "sha256:b71a2a9e5b678ffb765179698b431601b15b83053832efd71db7927e0a69519c",
+              "round": 1,
+              "run_id": "run:1e09a86491a30e9c5239a3b6cf53dab621c8611129b6f868327bf745cab0aaf9",
+              "status": "ready"
+            }
+          },
+          "environment": {
+            "candidate_digest": "sha256:9e6cec275a6208ce7273339e73b4c5def9ec11bad779af805c87179277663edb",
+            "configuration_digest": "sha256:a7d2c384dc4b4abfb1b139bd060dfb70378bbefc22d83a1d40177a880a65bf85",
+            "owner": "fixture-owned",
+            "profile": "all-checks",
+            "reason": "",
+            "session": "environment-a493dbbe40a14364a7e5f46551ed957c",
+            "status": "ready",
+            "url": "http://127.0.0.1:42809"
+          },
+          "actual_reader_turn_overlap_seconds": 197.83857542695478
+        },
+        {
+          "run": "run:1e09a86491a30e9c5239a3b6cf53dab621c8611129b6f868327bf745cab0aaf9",
+          "round": 2,
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+            "digest": "sha256:561d863184955a5b3a8880861a1ac1a9449817cefb9223f2f8cebcc19f87925a",
+            "files_digest": "sha256:834a250fc5277685392e687d27320a011ff9404f19ac26ac79c5001fc2df23c4",
+            "head_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+            "index_digest": "sha256:c98ca24832ac7204185d94cf9d4f9cafe4794bb75fa5ffcf2654903800e056e6"
+          },
+          "attempts": [
+            "attempt:9a96d3ddac60c3ca4f8372aabbb926d2",
+            "attempt:9c974d74256f5b962adf6a5bd7c18cc8"
+          ],
+          "browser_sessions": {
+            "ui": {
+              "adapter_digest": "sha256:81c20c080a06d07225123af79b88a1cb82f9bc5af1621586f9460d7d3b5779c5",
+              "allocation": {
+                "token": "e4260769101940478d479ecb65e65e3a"
+              },
+              "candidate_digest": "sha256:561d863184955a5b3a8880861a1ac1a9449817cefb9223f2f8cebcc19f87925a",
+              "configuration_digest": "sha256:19031348e2e9ac7a2e05ed087b8475737cc9b6b8826a0b61dc0d401a6d71a897",
+              "context_id": "context-a8cfdb223f604d78a22f8f779db21c68",
+              "environment_session": "environment-0516815d8c0b40209077d83105e91355",
+              "identity_id": "identity-944d1f4449d84103950abbc2d9c546ea",
+              "lens": "ui",
+              "owner": "fixture-owned",
+              "protocol": "aif-feature-browser/1",
+              "reason": "",
+              "request_digest": "sha256:80ac94e557e11de2edbd852ad5c8a9a6de728a4039d990d0c11feab5600f4f1b",
+              "round": 2,
+              "run_id": "run:1e09a86491a30e9c5239a3b6cf53dab621c8611129b6f868327bf745cab0aaf9",
+              "status": "ready"
+            },
+            "ux": {
+              "adapter_digest": "sha256:81c20c080a06d07225123af79b88a1cb82f9bc5af1621586f9460d7d3b5779c5",
+              "allocation": {
+                "token": "1b3ca9897f2a4404a8dbf87b41be066e"
+              },
+              "candidate_digest": "sha256:561d863184955a5b3a8880861a1ac1a9449817cefb9223f2f8cebcc19f87925a",
+              "configuration_digest": "sha256:19031348e2e9ac7a2e05ed087b8475737cc9b6b8826a0b61dc0d401a6d71a897",
+              "context_id": "context-c1765f2092ad4fc385573ae6de5d2968",
+              "environment_session": "environment-0516815d8c0b40209077d83105e91355",
+              "identity_id": "identity-e8220479aa85401fbe411ac13d65bd0a",
+              "lens": "ux",
+              "owner": "fixture-owned",
+              "protocol": "aif-feature-browser/1",
+              "reason": "",
+              "request_digest": "sha256:b157976af0e2a10bf3183b62ebda6720249199c0e88d44672fa608528469170b",
+              "round": 2,
+              "run_id": "run:1e09a86491a30e9c5239a3b6cf53dab621c8611129b6f868327bf745cab0aaf9",
+              "status": "ready"
+            }
+          },
+          "environment": {
+            "candidate_digest": "sha256:561d863184955a5b3a8880861a1ac1a9449817cefb9223f2f8cebcc19f87925a",
+            "configuration_digest": "sha256:19031348e2e9ac7a2e05ed087b8475737cc9b6b8826a0b61dc0d401a6d71a897",
+            "owner": "fixture-owned",
+            "profile": "all-checks",
+            "reason": "",
+            "session": "environment-0516815d8c0b40209077d83105e91355",
+            "status": "ready",
+            "url": "http://127.0.0.1:39645"
+          },
+          "actual_reader_turn_overlap_seconds": 139.10207002499374
+        }
+      ],
+      "uiux_reader_observations": [
+        {
+          "role": "ui",
+          "attempt_id": "attempt:146f984fd2a033c723b4db6c05788292",
+          "session_id": "01a1429e-a6fb-7632-9b05-2d0198209d43",
+          "started_monotonic": 393946.507342695,
+          "ended_monotonic": 394149.525790058,
+          "usage": {
+            "input_tokens": 739096,
+            "cached_input_tokens": 689664,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 6848,
+            "reasoning_output_tokens": 614
+          },
+          "submission": "/tmp/w3-run-kn97ci2h/authority/.prifly/work/146f984fd2a033c723b4db6c05788292/parallel-submission.json",
+          "submission_digest": "sha256:1a913b14ed0a884c6a83317d8581c27a5b92a22094c808ed4a6cf305aa2fe643",
+          "report_digest": "sha256:0ea0f657ed8a5e1fd2c81da33eb130c9fd24e736bfcda270a317c1f5d88f4ef6",
+          "events_digest": "sha256:f575699be59ea8f15785007bc37d9ee38dd2e7aa6a374eac19fe04c50a1c1097",
+          "browser_evidence": {
+            "directory": "/tmp/aif-w5-feature-uiux-live-final/browser-evidence/attempt-146f984fd2a033c723b4db6c05788292",
+            "files": {
+              "observations.json": "sha256:f9e2366c1f899d8aa71719d67c5d9674e8358717093a1923847ed6e40cd02da8",
+              "browser-session-receipt.json": "sha256:844f8c725f8e639bc9ff390d4274423392e1dda578f36f3000fbf7dfd850e821",
+              "b4b0e4b9-95a4-4f68-bc1f-94b679ca0ed4/ui-desktop.png": "sha256:0ef57f5da2f0f0bce1745f35b4c0d8e05ec98587545d14959df8e3fdce1b0757",
+              "b4b0e4b9-95a4-4f68-bc1f-94b679ca0ed4/ui-mobile.png": "sha256:a6bd7964d62a9fc3730187516fda9aa69fadf0126154174b6141b74ccf05a5f1",
+              "b4b0e4b9-95a4-4f68-bc1f-94b679ca0ed4/observations.json": "sha256:f9e2366c1f899d8aa71719d67c5d9674e8358717093a1923847ed6e40cd02da8"
+            }
+          }
+        },
+        {
+          "role": "ux",
+          "attempt_id": "attempt:4e328924ce92868eb2c9f754c4c5e9fa",
+          "session_id": "01a1429e-a776-78a1-9d83-2f7bf0dd6754",
+          "started_monotonic": 393946.148524463,
+          "ended_monotonic": 394144.345918122,
+          "usage": {
+            "input_tokens": 1002438,
+            "cached_input_tokens": 938496,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 5667,
+            "reasoning_output_tokens": 921
+          },
+          "submission": "/tmp/w3-run-kn97ci2h/authority/.prifly/work/4e328924ce92868eb2c9f754c4c5e9fa/parallel-submission.json",
+          "submission_digest": "sha256:c6c36935ded65c353954b9b87b836bd640c6666f47574148574b681591cf05c9",
+          "report_digest": "sha256:928f49a277ec9d54a42f0a0f6cc653657fae828147367bc9c36f0aa88b3a6276",
+          "events_digest": "sha256:416bd0ba3979b65252c66ae2feb3d6d4fb7852db65c9db89f8c5e34dfc231596",
+          "browser_evidence": {
+            "directory": "/tmp/aif-w5-feature-uiux-live-final/browser-evidence/attempt-4e328924ce92868eb2c9f754c4c5e9fa",
+            "files": {
+              "observations.json": "sha256:10fd1801299909a0a3478012231d438414b635a66e4e76f89914f120735c64f5",
+              "browser-session-receipt.json": "sha256:bdf66ed0cf958302ba704c9c03bf2c8baf0189264b650f36c89d0450e6d3ce23",
+              "dbb77f52-dbae-4a96-98df-832a85e542b2/observations.json": "sha256:10fd1801299909a0a3478012231d438414b635a66e4e76f89914f120735c64f5",
+              "dbb77f52-dbae-4a96-98df-832a85e542b2/ux-flow.png": "sha256:dbcfc36cc3149acb3ba3a690af0a09e1dacc3a15d9fc59d576355245745ddb6a"
+            }
+          }
+        },
+        {
+          "role": "ui",
+          "attempt_id": "attempt:9a96d3ddac60c3ca4f8372aabbb926d2",
+          "session_id": "01a142a4-b8e8-7920-9e2a-376733087c26",
+          "started_monotonic": 394344.101498353,
+          "ended_monotonic": 394504.554527437,
+          "usage": {
+            "input_tokens": 553397,
+            "cached_input_tokens": 509696,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 6192,
+            "reasoning_output_tokens": 596
+          },
+          "submission": "/tmp/w3-run-kn97ci2h/authority/.prifly/work/9a96d3ddac60c3ca4f8372aabbb926d2/parallel-submission.json",
+          "submission_digest": "sha256:a363b7f3664bf89adf74fab51bd6f1c3bf7487bb59ad2a62f668e22d38cc8c9e",
+          "report_digest": "sha256:30ae8cc88e7969e6f386eed71c5ec77676ec962c5552f590f05723e38f7338d3",
+          "events_digest": "sha256:fca0a0c0f43fa10e7acd2b553d413dc7ef551cdcfcaa1fb470d692fde16b063d",
+          "browser_evidence": {
+            "directory": "/tmp/aif-w5-feature-uiux-live-final/browser-evidence/attempt-9a96d3ddac60c3ca4f8372aabbb926d2",
+            "files": {
+              "observations.json": "sha256:0c7b7e26ccc99bafe2bd4499c5855ae646124d750e95a74c3b7c56dd95ef85b6",
+              "browser-session-receipt.json": "sha256:9d5b3fede9d698a1b37a49a4aa9e7b8a86224a8f29a5627486fc5cddecd46552",
+              "8a0dc124-50f7-410d-846b-4a4a5551e105/ui-desktop.png": "sha256:37e37428dadfd48c87280e0070041eab0763a33909e437b734b87972b1421291",
+              "8a0dc124-50f7-410d-846b-4a4a5551e105/ui-mobile.png": "sha256:8395e45ac2baba8f48cff425380262c6ce2135f0057a6aae4f8ecea69d8b086d",
+              "8a0dc124-50f7-410d-846b-4a4a5551e105/observations.json": "sha256:0c7b7e26ccc99bafe2bd4499c5855ae646124d750e95a74c3b7c56dd95ef85b6"
+            }
+          }
+        },
+        {
+          "role": "ux",
+          "attempt_id": "attempt:9c974d74256f5b962adf6a5bd7c18cc8",
+          "session_id": "01a142a4-b68c-7e12-9969-94975478b387",
+          "started_monotonic": 394343.289471783,
+          "ended_monotonic": 394483.203568378,
+          "usage": {
+            "input_tokens": 505796,
+            "cached_input_tokens": 440960,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 4881,
+            "reasoning_output_tokens": 344
+          },
+          "submission": "/tmp/w3-run-kn97ci2h/authority/.prifly/work/9c974d74256f5b962adf6a5bd7c18cc8/parallel-submission.json",
+          "submission_digest": "sha256:49af546f231468dd30e5328773af803a7fcb6a6fecf1638191ae38e1c2840a3e",
+          "report_digest": "sha256:6db583a88452bf88bd2bf094c540c61a3a6dd19a1861aa592854b3c88d989949",
+          "events_digest": "sha256:9a1c28751c7dd5bb83fc81a079f279dc7fc5feb7ec2b14fe0e23cec5d372434a",
+          "browser_evidence": {
+            "directory": "/tmp/aif-w5-feature-uiux-live-final/browser-evidence/attempt-9c974d74256f5b962adf6a5bd7c18cc8",
+            "files": {
+              "observations.json": "sha256:fb7106999777cbc9e3cec9cece5fd7ef28a78ae0a7558d76e4725958ff45836c",
+              "browser-session-receipt.json": "sha256:5d2fd637c1a123a51c90306a2ed66c0d488b6504322ec94f6a81c20564650f07",
+              "35faeb17-9f34-4af1-a85b-dac7a40d463a/observations.json": "sha256:fb7106999777cbc9e3cec9cece5fd7ef28a78ae0a7558d76e4725958ff45836c",
+              "35faeb17-9f34-4af1-a85b-dac7a40d463a/ux-flow.png": "sha256:c10f6c30fe47fcaac50470b17431534535006e305a4446a19641fe064ea64dfb"
+            }
+          }
+        }
+      ],
+      "environment_journals": [
+        {
+          "actor_phase": "settled",
+          "adapter": {
+            "entrypoint": "adapter.py",
+            "files": {
+              "adapter.py": "sha256:f2110375d0e6d67d967c2ac5ddd603fa988de980af195e74bfa45336d211c2f1",
+              "browser.cjs": "sha256:6062a9a854eb5d7fcec2add7613c3966e61a88c7b7fb95f98308abe51bc63a94",
+              "tool-lock.json": "sha256:3b61dc353436423a0af3dc6a0c047079dba90029f07002c2c9dac652f769734a"
+            },
+            "protocol": "aif-feature-browser/1",
+            "root": "/tmp/w3-run-kn97ci2h/browser-adapter",
+            "settings": {
+              "control_release": "/tmp/w3-run-kn97ci2h/browser-continue-ready",
+              "fault": null,
+              "library": "/tmp/aif-w5-uiux-browser-tool/node_modules/playwright",
+              "node": "/usr/local/bin/node",
+              "state_root": "/tmp/w3-run-kn97ci2h/environment-state"
+            }
+          },
+          "adapter_response": {
+            "protocol": "aif-feature-browser/1",
+            "readers": {
+              "ui": {
+                "allocation": {
+                  "token": "d467b29af5d24e95903c78e0140694c7"
+                },
+                "context_id": "context-e6138ce4284a4e938234b47a4ee52404",
+                "identity_id": "identity-22c6ebdea90e4e27a648518c4b5f8e51"
+              },
+              "ux": {
+                "allocation": {
+                  "token": "1c7d3b3e6d65432c95f2de53694577c2"
+                },
+                "context_id": "context-3ceaf3a4fb714c65b6012147680c012e",
+                "identity_id": "identity-8b69275e4fb149829f7decf8d9ba8629"
+              }
+            },
+            "reason": "",
+            "session": "environment-a493dbbe40a14364a7e5f46551ed957c",
+            "status": "ready",
+            "url": "http://127.0.0.1:42809"
+          },
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+            "digest": "sha256:9e6cec275a6208ce7273339e73b4c5def9ec11bad779af805c87179277663edb",
+            "files_digest": "sha256:a7e777693677add586be479ca44d1d7a8b1dea937ab14a57b115ac62dc89787b",
+            "head_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+            "index_digest": "sha256:c98ca24832ac7204185d94cf9d4f9cafe4794bb75fa5ffcf2654903800e056e6"
+          },
+          "configuration": {
+            "environment": {
+              "allowed_operations": [
+                "navigate",
+                "input",
+                "submit_test"
+              ],
+              "browser_adapter": "project Playwright adapter",
+              "cleanup": "fixture release exact owned session",
+              "owner": "fixture-owned",
+              "profile": "all-checks",
+              "setup": "fixture ensure owned claimed tree",
+              "shared_resource": null,
+              "test_identity": "isolated anonymous test only"
+            },
+            "scenarios": [
+              {
+                "actions": [],
+                "check_id": "ui_acceptance",
+                "expectations": [
+                  "No overflow; readable consistent design"
+                ],
+                "id": "desktop",
+                "lens": "ui",
+                "path": "/index.html",
+                "viewport": {
+                  "height": 800,
+                  "width": 1280
+                }
+              },
+              {
+                "actions": [],
+                "check_id": "ui_acceptance",
+                "expectations": [
+                  "No overflow; readable consistent design"
+                ],
+                "id": "mobile",
+                "lens": "ui",
+                "path": "/index.html",
+                "viewport": {
+                  "height": 800,
+                  "width": 375
+                }
+              },
+              {
+                "actions": [
+                  "Use keyboard and submit isolated test form"
+                ],
+                "check_id": "ux_acceptance",
+                "expectations": [
+                  "Observe empty/loading/error/success states and labelled keyboard flow"
+                ],
+                "id": "flow",
+                "lens": "ux",
+                "path": "/index.html",
+                "viewport": {
+                  "height": 800,
+                  "width": 375
+                }
+              }
+            ],
+            "scope_reason": "Declared interface change",
+            "surface": "frontend",
+            "ui": {
+              "base_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "ui acceptance",
+                  "enabled": true,
+                  "id": "ui_acceptance",
+                  "method": "browser",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": true,
+              "round": 1
+            },
+            "ux": {
+              "base_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "ux acceptance",
+                  "enabled": true,
+                  "id": "ux_acceptance",
+                  "method": "browser",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": true,
+              "round": 1
+            }
+          },
+          "environment_attempt": "attempt:b7430240cb38edf40aad233f814f40c6",
+          "environment_ref": {
+            "artifact_id": "artifact:7e42e1ddb404422d19c9c4d44c8828e433d9ad7e30bca1de37093361a72a50b0",
+            "digest": "sha256:fb9726784531f734c0261acb41f661ed44dde3dd1d5056187bf451cb4bea0f8d",
+            "revision": 1
+          },
+          "reader_attempts": [
+            "attempt:146f984fd2a033c723b4db6c05788292",
+            "attempt:4e328924ce92868eb2c9f754c4c5e9fa"
+          ],
+          "reader_observations": [
+            {
+              "attempt_id": "attempt:146f984fd2a033c723b4db6c05788292",
+              "browser_evidence": {
+                "directory": "/tmp/aif-w5-feature-uiux-live-final/browser-evidence/attempt-146f984fd2a033c723b4db6c05788292",
+                "files": {
+                  "b4b0e4b9-95a4-4f68-bc1f-94b679ca0ed4/observations.json": "sha256:f9e2366c1f899d8aa71719d67c5d9674e8358717093a1923847ed6e40cd02da8",
+                  "b4b0e4b9-95a4-4f68-bc1f-94b679ca0ed4/ui-desktop.png": "sha256:0ef57f5da2f0f0bce1745f35b4c0d8e05ec98587545d14959df8e3fdce1b0757",
+                  "b4b0e4b9-95a4-4f68-bc1f-94b679ca0ed4/ui-mobile.png": "sha256:a6bd7964d62a9fc3730187516fda9aa69fadf0126154174b6141b74ccf05a5f1",
+                  "browser-session-receipt.json": "sha256:844f8c725f8e639bc9ff390d4274423392e1dda578f36f3000fbf7dfd850e821",
+                  "observations.json": "sha256:f9e2366c1f899d8aa71719d67c5d9674e8358717093a1923847ed6e40cd02da8"
+                }
+              },
+              "ended_monotonic": 394149.525790058,
+              "events_digest": "sha256:f575699be59ea8f15785007bc37d9ee38dd2e7aa6a374eac19fe04c50a1c1097",
+              "report_digest": "sha256:0ea0f657ed8a5e1fd2c81da33eb130c9fd24e736bfcda270a317c1f5d88f4ef6",
+              "role": "ui",
+              "session_id": "01a1429e-a6fb-7632-9b05-2d0198209d43",
+              "started_monotonic": 393946.507342695,
+              "submission": "/tmp/w3-run-kn97ci2h/authority/.prifly/work/146f984fd2a033c723b4db6c05788292/parallel-submission.json",
+              "submission_digest": "sha256:1a913b14ed0a884c6a83317d8581c27a5b92a22094c808ed4a6cf305aa2fe643",
+              "usage": {
+                "cache_write_input_tokens": 0,
+                "cached_input_tokens": 689664,
+                "input_tokens": 739096,
+                "output_tokens": 6848,
+                "reasoning_output_tokens": 614
+              }
+            },
+            {
+              "attempt_id": "attempt:4e328924ce92868eb2c9f754c4c5e9fa",
+              "browser_evidence": {
+                "directory": "/tmp/aif-w5-feature-uiux-live-final/browser-evidence/attempt-4e328924ce92868eb2c9f754c4c5e9fa",
+                "files": {
+                  "browser-session-receipt.json": "sha256:bdf66ed0cf958302ba704c9c03bf2c8baf0189264b650f36c89d0450e6d3ce23",
+                  "dbb77f52-dbae-4a96-98df-832a85e542b2/observations.json": "sha256:10fd1801299909a0a3478012231d438414b635a66e4e76f89914f120735c64f5",
+                  "dbb77f52-dbae-4a96-98df-832a85e542b2/ux-flow.png": "sha256:dbcfc36cc3149acb3ba3a690af0a09e1dacc3a15d9fc59d576355245745ddb6a",
+                  "observations.json": "sha256:10fd1801299909a0a3478012231d438414b635a66e4e76f89914f120735c64f5"
+                }
+              },
+              "ended_monotonic": 394144.345918122,
+              "events_digest": "sha256:416bd0ba3979b65252c66ae2feb3d6d4fb7852db65c9db89f8c5e34dfc231596",
+              "report_digest": "sha256:928f49a277ec9d54a42f0a0f6cc653657fae828147367bc9c36f0aa88b3a6276",
+              "role": "ux",
+              "session_id": "01a1429e-a776-78a1-9d83-2f7bf0dd6754",
+              "started_monotonic": 393946.148524463,
+              "submission": "/tmp/w3-run-kn97ci2h/authority/.prifly/work/4e328924ce92868eb2c9f754c4c5e9fa/parallel-submission.json",
+              "submission_digest": "sha256:c6c36935ded65c353954b9b87b836bd640c6666f47574148574b681591cf05c9",
+              "usage": {
+                "cache_write_input_tokens": 0,
+                "cached_input_tokens": 938496,
+                "input_tokens": 1002438,
+                "output_tokens": 5667,
+                "reasoning_output_tokens": 921
+              }
+            }
+          ],
+          "release": {
+            "owner": "fixture-owned",
+            "reason": "",
+            "session": "environment-a493dbbe40a14364a7e5f46551ed957c",
+            "status": "released"
+          },
+          "repository_workspace": "/tmp/w3-run-kn97ci2h/authority/.prifly/work/claims/cce67951990a96999a59bf7320832ce207bdf88a9f52b14ffcc7d1cebd5bbb8b",
+          "run_id": "run:1e09a86491a30e9c5239a3b6cf53dab621c8611129b6f868327bf745cab0aaf9",
+          "state": "release_returned",
+          "values": {
+            "environment": {
+              "candidate_digest": "sha256:9e6cec275a6208ce7273339e73b4c5def9ec11bad779af805c87179277663edb",
+              "configuration_digest": "sha256:a7d2c384dc4b4abfb1b139bd060dfb70378bbefc22d83a1d40177a880a65bf85",
+              "owner": "fixture-owned",
+              "profile": "all-checks",
+              "reason": "",
+              "session": "environment-a493dbbe40a14364a7e5f46551ed957c",
+              "status": "ready",
+              "url": "http://127.0.0.1:42809"
+            },
+            "ui_session": {
+              "adapter_digest": "sha256:81c20c080a06d07225123af79b88a1cb82f9bc5af1621586f9460d7d3b5779c5",
+              "allocation": {
+                "token": "d467b29af5d24e95903c78e0140694c7"
+              },
+              "candidate_digest": "sha256:9e6cec275a6208ce7273339e73b4c5def9ec11bad779af805c87179277663edb",
+              "configuration_digest": "sha256:a7d2c384dc4b4abfb1b139bd060dfb70378bbefc22d83a1d40177a880a65bf85",
+              "context_id": "context-e6138ce4284a4e938234b47a4ee52404",
+              "environment_session": "environment-a493dbbe40a14364a7e5f46551ed957c",
+              "identity_id": "identity-22c6ebdea90e4e27a648518c4b5f8e51",
+              "lens": "ui",
+              "owner": "fixture-owned",
+              "protocol": "aif-feature-browser/1",
+              "reason": "",
+              "request_digest": "sha256:a5e6b743b44cfed8e16575c9226a1777635209bd8592a295eb2db3260969a0de",
+              "round": 1,
+              "run_id": "run:1e09a86491a30e9c5239a3b6cf53dab621c8611129b6f868327bf745cab0aaf9",
+              "status": "ready"
+            },
+            "ux_session": {
+              "adapter_digest": "sha256:81c20c080a06d07225123af79b88a1cb82f9bc5af1621586f9460d7d3b5779c5",
+              "allocation": {
+                "token": "1c7d3b3e6d65432c95f2de53694577c2"
+              },
+              "candidate_digest": "sha256:9e6cec275a6208ce7273339e73b4c5def9ec11bad779af805c87179277663edb",
+              "configuration_digest": "sha256:a7d2c384dc4b4abfb1b139bd060dfb70378bbefc22d83a1d40177a880a65bf85",
+              "context_id": "context-3ceaf3a4fb714c65b6012147680c012e",
+              "environment_session": "environment-a493dbbe40a14364a7e5f46551ed957c",
+              "identity_id": "identity-8b69275e4fb149829f7decf8d9ba8629",
+              "lens": "ux",
+              "owner": "fixture-owned",
+              "protocol": "aif-feature-browser/1",
+              "reason": "",
+              "request_digest": "sha256:b71a2a9e5b678ffb765179698b431601b15b83053832efd71db7927e0a69519c",
+              "round": 1,
+              "run_id": "run:1e09a86491a30e9c5239a3b6cf53dab621c8611129b6f868327bf745cab0aaf9",
+              "status": "ready"
+            }
+          }
+        },
+        {
+          "actor_phase": "settled",
+          "adapter": {
+            "entrypoint": "adapter.py",
+            "files": {
+              "adapter.py": "sha256:f2110375d0e6d67d967c2ac5ddd603fa988de980af195e74bfa45336d211c2f1",
+              "browser.cjs": "sha256:6062a9a854eb5d7fcec2add7613c3966e61a88c7b7fb95f98308abe51bc63a94",
+              "tool-lock.json": "sha256:3b61dc353436423a0af3dc6a0c047079dba90029f07002c2c9dac652f769734a"
+            },
+            "protocol": "aif-feature-browser/1",
+            "root": "/tmp/w3-run-kn97ci2h/browser-adapter",
+            "settings": {
+              "control_release": "/tmp/w3-run-kn97ci2h/browser-continue-ready",
+              "fault": null,
+              "library": "/tmp/aif-w5-uiux-browser-tool/node_modules/playwright",
+              "node": "/usr/local/bin/node",
+              "state_root": "/tmp/w3-run-kn97ci2h/environment-state"
+            }
+          },
+          "adapter_response": {
+            "protocol": "aif-feature-browser/1",
+            "readers": {
+              "ui": {
+                "allocation": {
+                  "token": "e4260769101940478d479ecb65e65e3a"
+                },
+                "context_id": "context-a8cfdb223f604d78a22f8f779db21c68",
+                "identity_id": "identity-944d1f4449d84103950abbc2d9c546ea"
+              },
+              "ux": {
+                "allocation": {
+                  "token": "1b3ca9897f2a4404a8dbf87b41be066e"
+                },
+                "context_id": "context-c1765f2092ad4fc385573ae6de5d2968",
+                "identity_id": "identity-e8220479aa85401fbe411ac13d65bd0a"
+              }
+            },
+            "reason": "",
+            "session": "environment-0516815d8c0b40209077d83105e91355",
+            "status": "ready",
+            "url": "http://127.0.0.1:39645"
+          },
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+            "digest": "sha256:561d863184955a5b3a8880861a1ac1a9449817cefb9223f2f8cebcc19f87925a",
+            "files_digest": "sha256:834a250fc5277685392e687d27320a011ff9404f19ac26ac79c5001fc2df23c4",
+            "head_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+            "index_digest": "sha256:c98ca24832ac7204185d94cf9d4f9cafe4794bb75fa5ffcf2654903800e056e6"
+          },
+          "configuration": {
+            "environment": {
+              "allowed_operations": [
+                "navigate",
+                "input",
+                "submit_test"
+              ],
+              "browser_adapter": "project Playwright adapter",
+              "cleanup": "fixture release exact owned session",
+              "owner": "fixture-owned",
+              "profile": "all-checks",
+              "setup": "fixture ensure owned claimed tree",
+              "shared_resource": null,
+              "test_identity": "isolated anonymous test only"
+            },
+            "scenarios": [
+              {
+                "actions": [],
+                "check_id": "ui_acceptance",
+                "expectations": [
+                  "No overflow; readable consistent design"
+                ],
+                "id": "desktop",
+                "lens": "ui",
+                "path": "/index.html",
+                "viewport": {
+                  "height": 800,
+                  "width": 1280
+                }
+              },
+              {
+                "actions": [],
+                "check_id": "ui_acceptance",
+                "expectations": [
+                  "No overflow; readable consistent design"
+                ],
+                "id": "mobile",
+                "lens": "ui",
+                "path": "/index.html",
+                "viewport": {
+                  "height": 800,
+                  "width": 375
+                }
+              },
+              {
+                "actions": [
+                  "Use keyboard and submit isolated test form"
+                ],
+                "check_id": "ux_acceptance",
+                "expectations": [
+                  "Observe empty/loading/error/success states and labelled keyboard flow"
+                ],
+                "id": "flow",
+                "lens": "ux",
+                "path": "/index.html",
+                "viewport": {
+                  "height": 800,
+                  "width": 375
+                }
+              }
+            ],
+            "scope_reason": "Declared interface change",
+            "surface": "frontend",
+            "ui": {
+              "base_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "ui acceptance",
+                  "enabled": true,
+                  "id": "ui_acceptance",
+                  "method": "browser",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": true,
+              "round": 2
+            },
+            "ux": {
+              "base_commit": "4a81cd94569a55072b2f603751e7098b8d557463",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "ux acceptance",
+                  "enabled": true,
+                  "id": "ux_acceptance",
+                  "method": "browser",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": true,
+              "round": 2
+            }
+          },
+          "environment_attempt": "attempt:f054a212d82f7a292b5bb5035d6a7080",
+          "environment_ref": {
+            "artifact_id": "artifact:17eed05bbfe57bde134ff40313112c9cb99de472302174add79f47c3445ae30d",
+            "digest": "sha256:2e358787b5c60ed8dbf9f812d547f9e0521ba4f6d95a194adfb06cb066c49c94",
+            "revision": 1
+          },
+          "reader_attempts": [
+            "attempt:9a96d3ddac60c3ca4f8372aabbb926d2",
+            "attempt:9c974d74256f5b962adf6a5bd7c18cc8"
+          ],
+          "reader_observations": [
+            {
+              "attempt_id": "attempt:9a96d3ddac60c3ca4f8372aabbb926d2",
+              "browser_evidence": {
+                "directory": "/tmp/aif-w5-feature-uiux-live-final/browser-evidence/attempt-9a96d3ddac60c3ca4f8372aabbb926d2",
+                "files": {
+                  "8a0dc124-50f7-410d-846b-4a4a5551e105/observations.json": "sha256:0c7b7e26ccc99bafe2bd4499c5855ae646124d750e95a74c3b7c56dd95ef85b6",
+                  "8a0dc124-50f7-410d-846b-4a4a5551e105/ui-desktop.png": "sha256:37e37428dadfd48c87280e0070041eab0763a33909e437b734b87972b1421291",
+                  "8a0dc124-50f7-410d-846b-4a4a5551e105/ui-mobile.png": "sha256:8395e45ac2baba8f48cff425380262c6ce2135f0057a6aae4f8ecea69d8b086d",
+                  "browser-session-receipt.json": "sha256:9d5b3fede9d698a1b37a49a4aa9e7b8a86224a8f29a5627486fc5cddecd46552",
+                  "observations.json": "sha256:0c7b7e26ccc99bafe2bd4499c5855ae646124d750e95a74c3b7c56dd95ef85b6"
+                }
+              },
+              "ended_monotonic": 394504.554527437,
+              "events_digest": "sha256:fca0a0c0f43fa10e7acd2b553d413dc7ef551cdcfcaa1fb470d692fde16b063d",
+              "report_digest": "sha256:30ae8cc88e7969e6f386eed71c5ec77676ec962c5552f590f05723e38f7338d3",
+              "role": "ui",
+              "session_id": "01a142a4-b8e8-7920-9e2a-376733087c26",
+              "started_monotonic": 394344.101498353,
+              "submission": "/tmp/w3-run-kn97ci2h/authority/.prifly/work/9a96d3ddac60c3ca4f8372aabbb926d2/parallel-submission.json",
+              "submission_digest": "sha256:a363b7f3664bf89adf74fab51bd6f1c3bf7487bb59ad2a62f668e22d38cc8c9e",
+              "usage": {
+                "cache_write_input_tokens": 0,
+                "cached_input_tokens": 509696,
+                "input_tokens": 553397,
+                "output_tokens": 6192,
+                "reasoning_output_tokens": 596
+              }
+            },
+            {
+              "attempt_id": "attempt:9c974d74256f5b962adf6a5bd7c18cc8",
+              "browser_evidence": {
+                "directory": "/tmp/aif-w5-feature-uiux-live-final/browser-evidence/attempt-9c974d74256f5b962adf6a5bd7c18cc8",
+                "files": {
+                  "35faeb17-9f34-4af1-a85b-dac7a40d463a/observations.json": "sha256:fb7106999777cbc9e3cec9cece5fd7ef28a78ae0a7558d76e4725958ff45836c",
+                  "35faeb17-9f34-4af1-a85b-dac7a40d463a/ux-flow.png": "sha256:c10f6c30fe47fcaac50470b17431534535006e305a4446a19641fe064ea64dfb",
+                  "browser-session-receipt.json": "sha256:5d2fd637c1a123a51c90306a2ed66c0d488b6504322ec94f6a81c20564650f07",
+                  "observations.json": "sha256:fb7106999777cbc9e3cec9cece5fd7ef28a78ae0a7558d76e4725958ff45836c"
+                }
+              },
+              "ended_monotonic": 394483.203568378,
+              "events_digest": "sha256:9a1c28751c7dd5bb83fc81a079f279dc7fc5feb7ec2b14fe0e23cec5d372434a",
+              "report_digest": "sha256:6db583a88452bf88bd2bf094c540c61a3a6dd19a1861aa592854b3c88d989949",
+              "role": "ux",
+              "session_id": "01a142a4-b68c-7e12-9969-94975478b387",
+              "started_monotonic": 394343.289471783,
+              "submission": "/tmp/w3-run-kn97ci2h/authority/.prifly/work/9c974d74256f5b962adf6a5bd7c18cc8/parallel-submission.json",
+              "submission_digest": "sha256:49af546f231468dd30e5328773af803a7fcb6a6fecf1638191ae38e1c2840a3e",
+              "usage": {
+                "cache_write_input_tokens": 0,
+                "cached_input_tokens": 440960,
+                "input_tokens": 505796,
+                "output_tokens": 4881,
+                "reasoning_output_tokens": 344
+              }
+            }
+          ],
+          "release": {
+            "owner": "fixture-owned",
+            "reason": "",
+            "session": "environment-0516815d8c0b40209077d83105e91355",
+            "status": "released"
+          },
+          "repository_workspace": "/tmp/w3-run-kn97ci2h/authority/.prifly/work/claims/cce67951990a96999a59bf7320832ce207bdf88a9f52b14ffcc7d1cebd5bbb8b",
+          "run_id": "run:1e09a86491a30e9c5239a3b6cf53dab621c8611129b6f868327bf745cab0aaf9",
+          "state": "release_returned",
+          "values": {
+            "environment": {
+              "candidate_digest": "sha256:561d863184955a5b3a8880861a1ac1a9449817cefb9223f2f8cebcc19f87925a",
+              "configuration_digest": "sha256:19031348e2e9ac7a2e05ed087b8475737cc9b6b8826a0b61dc0d401a6d71a897",
+              "owner": "fixture-owned",
+              "profile": "all-checks",
+              "reason": "",
+              "session": "environment-0516815d8c0b40209077d83105e91355",
+              "status": "ready",
+              "url": "http://127.0.0.1:39645"
+            },
+            "ui_session": {
+              "adapter_digest": "sha256:81c20c080a06d07225123af79b88a1cb82f9bc5af1621586f9460d7d3b5779c5",
+              "allocation": {
+                "token": "e4260769101940478d479ecb65e65e3a"
+              },
+              "candidate_digest": "sha256:561d863184955a5b3a8880861a1ac1a9449817cefb9223f2f8cebcc19f87925a",
+              "configuration_digest": "sha256:19031348e2e9ac7a2e05ed087b8475737cc9b6b8826a0b61dc0d401a6d71a897",
+              "context_id": "context-a8cfdb223f604d78a22f8f779db21c68",
+              "environment_session": "environment-0516815d8c0b40209077d83105e91355",
+              "identity_id": "identity-944d1f4449d84103950abbc2d9c546ea",
+              "lens": "ui",
+              "owner": "fixture-owned",
+              "protocol": "aif-feature-browser/1",
+              "reason": "",
+              "request_digest": "sha256:80ac94e557e11de2edbd852ad5c8a9a6de728a4039d990d0c11feab5600f4f1b",
+              "round": 2,
+              "run_id": "run:1e09a86491a30e9c5239a3b6cf53dab621c8611129b6f868327bf745cab0aaf9",
+              "status": "ready"
+            },
+            "ux_session": {
+              "adapter_digest": "sha256:81c20c080a06d07225123af79b88a1cb82f9bc5af1621586f9460d7d3b5779c5",
+              "allocation": {
+                "token": "1b3ca9897f2a4404a8dbf87b41be066e"
+              },
+              "candidate_digest": "sha256:561d863184955a5b3a8880861a1ac1a9449817cefb9223f2f8cebcc19f87925a",
+              "configuration_digest": "sha256:19031348e2e9ac7a2e05ed087b8475737cc9b6b8826a0b61dc0d401a6d71a897",
+              "context_id": "context-c1765f2092ad4fc385573ae6de5d2968",
+              "environment_session": "environment-0516815d8c0b40209077d83105e91355",
+              "identity_id": "identity-e8220479aa85401fbe411ac13d65bd0a",
+              "lens": "ux",
+              "owner": "fixture-owned",
+              "protocol": "aif-feature-browser/1",
+              "reason": "",
+              "request_digest": "sha256:b157976af0e2a10bf3183b62ebda6720249199c0e88d44672fa608528469170b",
+              "round": 2,
+              "run_id": "run:1e09a86491a30e9c5239a3b6cf53dab621c8611129b6f868327bf745cab0aaf9",
+              "status": "ready"
+            }
+          }
+        }
+      ],
+      "fixture_teardown": [],
+      "actual_independent_llm_sessions": 4,
+      "scenario": "repair-ui"
+    }
+  ],
+  "matrix_complete": true,
+  "scope": "Whole shipping feature, separate sealed browser grants; actual fresh CLI UI/UX",
+  "original_cli_deliveries": [
+    {
+      "role": "ui",
+      "attempt_id": "attempt:146f984fd2a033c723b4db6c05788292",
+      "report_digest": "sha256:0ea0f657ed8a5e1fd2c81da33eb130c9fd24e736bfcda270a317c1f5d88f4ef6",
+      "raw_report_base64": "ewogICJyb3VuZCI6IDEsCiAgInJlcXVlc3RfZGlnZXN0IjogInNoYTI1NjphNWU2Yjc0M2I0NGNmZWQ4ZTE2NTc1YzkyMjZhMTc3NzYzNTIwOWJkODU5MmEyOTVlYjJkYjMyNjA5NjlhMGRlIiwKICAiY2FuZGlkYXRlIjogewogICAgImFsZ29yaXRobSI6ICJnaXQtY2FuZGlkYXRlLzEiLAogICAgImJhc2VfY29tbWl0IjogIjRhODFjZDk0NTY5YTU1MDcyYjJmNjAzNzUxZTcwOThiOGQ1NTc0NjMiLAogICAgImRpZ2VzdCI6ICJzaGEyNTY6OWU2Y2VjMjc1YTYyMDhjZTcyNzMzMzllNzNiNGM1ZGVmOWVjMTFiYWQ3NzlhZjgwNWM4NzE3OTI3NzY2M2VkYiIsCiAgICAiZmlsZXNfZGlnZXN0IjogInNoYTI1NjphN2U3Nzc2OTM2NzdhZGQ1ODZiZTQ3OWNhNDRkMWQ3YThiMWRlYTkzN2FiMTRhNTdiMTE1YWM2MmRjODk3ODdiIiwKICAgICJoZWFkX2NvbW1pdCI6ICI0YTgxY2Q5NDU2OWE1NTA3MmIyZjYwMzc1MWU3MDk4YjhkNTU3NDYzIiwKICAgICJpbmRleF9kaWdlc3QiOiAic2hhMjU2OmM5OGNhMjQ4MzJhYzcyMDQxODVkOTRjZjlkNGY5Y2FmZTQ3OTRiYjc1ZmE1ZmZjZjI2NTQ5MDM4MDBlMDU2ZTYiCiAgfSwKICAic2Vzc2lvbiI6ICJzZXBhcmF0ZSIsCiAgIm1vZGVsX3Byb2ZpbGUiOiAidW5hdmFpbGFibGUiLAogICJtb2RlbCI6IG51bGwsCiAgImNoZWNrcyI6IFsKICAgIHsKICAgICAgImlkIjogInVpX2FjY2VwdGFuY2UiLAogICAgICAic3RhdHVzIjogImV4ZWN1dGVkIiwKICAgICAgInJlc3VsdCI6ICJmYWlsZWQiLAogICAgICAicmVhc29uIjogIlRoZSBkZXNrdG9wIHNjZW5hcmlvIG1lZXRzIHRoZSBkZWNsYXJlZCB2aXN1YWwgZXhwZWN0YXRpb25zLiBUaGUgbW9iaWxlIHNjZW5hcmlvIGZhaWxzIG5vIG92ZXJmbG93OiBhdCB0aGUgY29uZmlndXJlZCAzNzV4ODAwIHZpZXdwb3J0LCBzY3JvbGxXaWR0aCBpcyA4MTZweCBhbmQgdmlzdWFsIGluc3BlY3Rpb24gY29uZmlybXMgdGhhdCB0aGUgcGFuZWwgYW5kIGlucHV0IGV4dGVuZCBiZXlvbmQgdGhlIHZpZXdwb3J0LiBUeXBvZ3JhcGh5LCBoaWVyYXJjaHksIHNwYWNpbmcgYW5kIHRleHQgY29udHJhc3QgYXJlIG90aGVyd2lzZSByZWFkYWJsZSBhbmQgY29uc2lzdGVudC4gVGhpcyBwcm9kdWN0IGRlZmVjdCBmYWlscyB0aGUgcmVxdWlyZWQgVUkgYWNjZXB0YW5jZSBjaGVjay4iLAogICAgICAiZXZpZGVuY2UiOiBbCiAgICAgICAgewogICAgICAgICAgIm1ldGhvZCI6ICJicm93c2VyIiwKICAgICAgICAgICJ0b29sIjogIlBsYXl3cmlnaHQgMS42NC4xIC8gQ2hyb21pdW0gMTU2LjAuODA3OC40IiwKICAgICAgICAgICJsb2NhdG9yIjogImh0dHA6Ly8xMjcuMC4wLjE6NDI4MDkvaW5kZXguaHRtbCIsCiAgICAgICAgICAib2JzZXJ2YXRpb24iOiAie1wic2NlbmFyaW9cIjpcImRlc2t0b3BcIixcInZpZXdwb3J0XCI6e1wiaGVpZ2h0XCI6ODAwLFwid2lkdGhcIjoxMjgwfSxcInVybFwiOlwiaHR0cDovLzEyNy4wLjAuMTo0MjgwOS9pbmRleC5odG1sXCIsXCJvYnNlcnZhdGlvbnNcIjpcIlZpc3VhbGx5IGluc3BlY3RlZCB0aGUgc2NyZWVuc2hvdDogdGhlIE5vdGVzIGhlYWRpbmcgYW5kIEFkZCBhIG5vdGUgc3ViaGVhZGluZyBlc3RhYmxpc2ggYSBjbGVhciBoaWVyYXJjaHk7IGRhcmsgc2Fucy1zZXJpZiB0ZXh0IGlzIHJlYWRhYmxlIG9uIHRoZSBwYWxlIHBhZ2UgYW5kIHdoaXRlIHBhbmVsLiBUaGUgbGFiZWxsZWQgaW5wdXQsIGJsdWUgU2F2ZSBub3RlIGJ1dHRvbiB3aXRoIHdoaXRlIHRleHQsIGFuZCBlbXB0eS1zdGF0ZSB0ZXh0IGhhdmUgY29uc2lzdGVudCBhbGlnbm1lbnQsIHNwYWNpbmcgYW5kIHJvdW5kZWQgc3R5bGluZywgd2l0aCBubyBvdmVybGFwIG9yIGNsaXBwaW5nLiBCcm93c2VyIG1lYXN1cmVtZW50czogdmlld3BvcnQgd2lkdGggMTI4MHB4LCBzY3JvbGxXaWR0aCAxMjgwcHgsIHNvIG5vIGhvcml6b250YWwgb3ZlcmZsb3cgYXQgMTI4MHg4MDAuIEJvZHkgdGV4dCByZ2IoMjMsIDMyLCA1MSkgb24gcmdiKDI0NCwgMjQ2LCAyNTApOyBidXR0b24gdGV4dCByZ2IoMjU1LCAyNTUsIDI1NSkgb24gcmdiKDIzLCA2OSwgMTYxKSwgY29uc2lzdGVudCB3aXRoIHRoZSB2aXNpYmx5IHN0cm9uZyB0ZXh0IGNvbnRyYXN0LiBTY3JlZW5zaG90IGluc3BlY3RlZDogL3RtcC93My1ydW4ta245N2NpMmgvYXV0aG9yaXR5Ly5wcmlmbHkvd29yay8xNDZmOTg0ZmQyYTAzM2M3MjNiNGRiNmMwNTc4ODI5Mi9icm93c2VyL2I0YjBlNGI5LTk1YTQtNGY2OC1iYzFmLTk0YjY3OWNhMGVkNC91aS1kZXNrdG9wLnBuZyAoc2hhMjU2OjBlZjU3ZjVkYTJmMGYwYmNlMTc0NWYzNWI0YzBkOGUwNWVjOTg1ODc1NDVkMTQ5NTlkZjhlM2ZkY2UxYjA3NTcpLlwifSIsCiAgICAgICAgICAiZXhpdF9jb2RlIjogbnVsbAogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgIm1ldGhvZCI6ICJicm93c2VyIiwKICAgICAgICAgICJ0b29sIjogIlBsYXl3cmlnaHQgMS42NC4xIC8gQ2hyb21pdW0gMTU2LjAuODA3OC40IiwKICAgICAgICAgICJsb2NhdG9yIjogImh0dHA6Ly8xMjcuMC4wLjE6NDI4MDkvaW5kZXguaHRtbCIsCiAgICAgICAgICAib2JzZXJ2YXRpb24iOiAie1wic2NlbmFyaW9cIjpcIm1vYmlsZVwiLFwidmlld3BvcnRcIjp7XCJoZWlnaHRcIjo4MDAsXCJ3aWR0aFwiOjM3NX0sXCJ1cmxcIjpcImh0dHA6Ly8xMjcuMC4wLjE6NDI4MDkvaW5kZXguaHRtbFwiLFwib2JzZXJ2YXRpb25zXCI6XCJWaXN1YWxseSBpbnNwZWN0ZWQgdGhlIGZ1bGwtcGFnZSBzY3JlZW5zaG90OiB0aGUgTm90ZXMgaGVhZGluZywgQWRkIGEgbm90ZSBzdWJoZWFkaW5nLCBsYWJlbCwgYnV0dG9uIGFuZCBlbXB0eS1zdGF0ZSB0ZXh0IHJldGFpbiByZWFkYWJsZSB0eXBvZ3JhcGh5IGFuZCBjb25zaXN0ZW50IGNvbG9ycyBhbmQgc3BhY2luZywgYnV0IHRoZSB3aGl0ZSBmb3JtIHBhbmVsIGFuZCBpbnB1dCByZW1haW4gZGVza3RvcC13aWR0aCBpbnN0ZWFkIG9mIGZpdHRpbmcgdGhlIDM3NXB4IHZpZXdwb3J0LiBUaGUgc2NyZWVuc2hvdCBzcGFucyB0aGUgb3ZlcmZsb3dpbmcgY29udGVudCBhdCA4MTZweCB3aWRlLiBCcm93c2VyIG1lYXN1cmVtZW50cyBpbmRlcGVuZGVudGx5IHNob3cgdmlld3BvcnQgd2lkdGggMzc1cHggYW5kIHNjcm9sbFdpZHRoIDgxNnB4LCBhbiBleGNlc3Mgb2YgNDQxcHg7IHRoZSBwYW5lbCBhbmQgaW5wdXQgcmlnaHQgZWRnZXMgbGllIG91dHNpZGUgdGhlIGluaXRpYWwgdmlld3BvcnQsIHJlcXVpcmluZyBob3Jpem9udGFsIHNjcm9sbGluZy4gVGhpcyBmYWlscyB0aGUgZGVjbGFyZWQgbm8tb3ZlcmZsb3cgZXhwZWN0YXRpb24gYXQgMzc1eDgwMC4gVGhlIHNjb3BlZCBwYWdlIGRlc2lnbiBydWxlIHNlY3Rpb24geyBtaW4td2lkdGg6IDgwMHB4OyB9IGNvcnJvYm9yYXRlcyB0aGUgYnJvd3Nlci12aXNpYmxlIGxheW91dCBkZWZlY3QuIEJvZHkgdGV4dCByZ2IoMjMsIDMyLCA1MSkgb24gcmdiKDI0NCwgMjQ2LCAyNTApLCBhbmQgd2hpdGUgYnV0dG9uIHRleHQgb24gcmdiKDIzLCA2OSwgMTYxKSwgcmVtYWluIHZpc2libHkgZGlzdGluY3QuIFNjcmVlbnNob3QgaW5zcGVjdGVkOiAvdG1wL3czLXJ1bi1rbjk3Y2kyaC9hdXRob3JpdHkvLnByaWZseS93b3JrLzE0NmY5ODRmZDJhMDMzYzcyM2I0ZGI2YzA1Nzg4MjkyL2Jyb3dzZXIvYjRiMGU0YjktOTVhNC00ZjY4LWJjMWYtOTRiNjc5Y2EwZWQ0L3VpLW1vYmlsZS5wbmcgKHNoYTI1NjphNmJkNzk2NGQ2MmE5ZmMzNzMwMTg3NTE2ZmRhOWFhNjlmYWRmMDEyNjE1NDE3NGI2MTQxYjc0Y2NmMDVhNWYxKS5cIn0iLAogICAgICAgICAgImV4aXRfY29kZSI6IG51bGwKICAgICAgICB9CiAgICAgIF0KICAgIH0KICBdCn0K",
+      "submission_digest": "sha256:1a913b14ed0a884c6a83317d8581c27a5b92a22094c808ed4a6cf305aa2fe643",
+      "raw_submission_base64": "ewogICJhdHRlbXB0X2lkIjogImF0dGVtcHQ6MTQ2Zjk4NGZkMmEwMzNjNzIzYjRkYjZjMDU3ODgyOTIiLAogICJlbnZlbG9wZV9kaWdlc3QiOiAic2hhMjU2OmNiZTc1ZTdmMmM3MWRmZDM5NTRjNzY4OWI0NDg1ZGZjNzAyZTJlNGVhN2YwNTBjOTIxNmUyZmRiYjRmOWRmM2MiLAogICJtb2RlbF9wcm9maWxlIjogewogICAgIm91dGNvbWUiOiAidW5hdmFpbGFibGUiLAogICAgInJlYXNvbiI6ICJGcmVzaCBzZXBhcmF0ZSBDTEkgc2Vzc2lvbjsgbm8gaW5kZXBlbmRlbnQtbW9kZWwgdHJhbnNsYXRpb24gb3IgYWN0dWFsIGluZGVwZW5kZW50IG1vZGVsIGlkZW50aXR5IHdhcyBlc3RhYmxpc2hlZC4iCiAgfSwKICAicmVzdWx0IjogewogICAgImF0dGVtcHRfaWQiOiAiYXR0ZW1wdDoxNDZmOTg0ZmQyYTAzM2M3MjNiNGRiNmMwNTc4ODI5MiIsCiAgICAiZWZmZWN0X3JlY2VpcHRfcmVmcyI6IFtdLAogICAgImVudmVsb3BlX2RpZ2VzdCI6ICJzaGEyNTY6Y2JlNzVlN2YyYzcxZGZkMzk1NGM3Njg5YjQ0ODVkZmM3MDJlMmU0ZWE3ZjA1MGM5MjE2ZTJmZGJiNGY5ZGYzYyIsCiAgICAiZXZpZGVuY2VfcmVmcyI6IFtdLAogICAgIm91dHB1dHMiOiB7CiAgICAgICJyZXBvcnQiOiB7CiAgICAgICAgImFydGlmYWN0X2lkIjogImFydGlmYWN0OmU5NjgwMTkwMTNlNTdkNGUwZTY5MzQ0NjY1NTRjMjMyYWI1OWU4N2I4YTgzMjRiYjU3NWRmNDliMDJmZmQ2YzkiLAogICAgICAgICJkaWdlc3QiOiAic2hhMjU2OjBlYTBmNjU3ZWQ4YTVlMWZkMmM4MWRhMzNlYjEzMGM5ZmQyNGU3MzZiZmNkYTI3MGEzMTdjMWY1ZDg4ZjRlZjYiLAogICAgICAgICJyZXZpc2lvbiI6IDEKICAgICAgfQogICAgfSwKICAgICJydW5faWQiOiAicnVuOjFlMDlhODY0OTFhMzBlOWM1MjM5YTNiNmNmNTNkYWI2MjFjODYxMTEyOWI2Zjg2ODMyN2JmNzQ1Y2FiMGFhZjkiLAogICAgInNjaGVtYV92ZXJzaW9uIjogIjEiLAogICAgInN0ZXBfaW5zdGFuY2VfaWQiOiAic3RlcDoxMzhhNjYyMDYwYWFjNGFmZmI3YWU0MjE5YzVhZWIyOCIsCiAgICAic3VtbWFyeSI6ICJVSSByZXZpZXcgZXhlY3V0ZWQgYm90aCBzZWFsZWQgZGVza3RvcCBhbmQgbW9iaWxlIHNjZW5hcmlvcyB3aXRoIFBsYXl3cmlnaHQvQ2hyb21pdW0gYW5kIHZpc3VhbCBzY3JlZW5zaG90IGluc3BlY3Rpb24uIHVpX2FjY2VwdGFuY2UgZmFpbGVkIGJlY2F1c2UgdGhlIDM3NXB4IG1vYmlsZSB2aWV3cG9ydCBoYXMgODE2cHggY29udGVudCB3aWR0aC4gVGhlIGRpYWdub3N0aWMgcmVwb3J0IGlzIHVzYWJsZTsgbW9kZWwgcHJvZmlsZSBpcyB1bmF2YWlsYWJsZS4iLAogICAgInZlcmRpY3QiOiAicGFzcyIKICB9LAogICJydW5faWQiOiAicnVuOjFlMDlhODY0OTFhMzBlOWM1MjM5YTNiNmNmNTNkYWI2MjFjODYxMTEyOWI2Zjg2ODMyN2JmNzQ1Y2FiMGFhZjkiLAogICJzY2hlbWFfdmVyc2lvbiI6ICJhc3Npc3RlZC1zZXNzaW9uLzciLAogICJhbnN3ZXJlZF9xdWVzdGlvbnMiOiBbXQp9Cg==",
+      "checks": [
+        {
+          "id": "ui_acceptance",
+          "status": "executed",
+          "result": "failed",
+          "reason": "The desktop scenario meets the declared visual expectations. The mobile scenario fails no overflow: at the configured 375x800 viewport, scrollWidth is 816px and visual inspection confirms that the panel and input extend beyond the viewport. Typography, hierarchy, spacing and text contrast are otherwise readable and consistent. This product defect fails the required UI acceptance check.",
+          "evidence": [
+            {
+              "method": "browser",
+              "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+              "locator": "http://127.0.0.1:42809/index.html",
+              "observation": "{\"scenario\":\"desktop\",\"viewport\":{\"height\":800,\"width\":1280},\"url\":\"http://127.0.0.1:42809/index.html\",\"observations\":\"Visually inspected the screenshot: the Notes heading and Add a note subheading establish a clear hierarchy; dark sans-serif text is readable on the pale page and white panel. The labelled input, blue Save note button with white text, and empty-state text have consistent alignment, spacing and rounded styling, with no overlap or clipping. Browser measurements: viewport width 1280px, scrollWidth 1280px, so no horizontal overflow at 1280x800. Body text rgb(23, 32, 51) on rgb(244, 246, 250); button text rgb(255, 255, 255) on rgb(23, 69, 161), consistent with the visibly strong text contrast. Screenshot inspected: /tmp/w3-run-kn97ci2h/authority/.prifly/work/146f984fd2a033c723b4db6c05788292/browser/b4b0e4b9-95a4-4f68-bc1f-94b679ca0ed4/ui-desktop.png (sha256:0ef57f5da2f0f0bce1745f35b4c0d8e05ec98587545d14959df8e3fdce1b0757).\"}",
+              "exit_code": null
+            },
+            {
+              "method": "browser",
+              "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+              "locator": "http://127.0.0.1:42809/index.html",
+              "observation": "{\"scenario\":\"mobile\",\"viewport\":{\"height\":800,\"width\":375},\"url\":\"http://127.0.0.1:42809/index.html\",\"observations\":\"Visually inspected the full-page screenshot: the Notes heading, Add a note subheading, label, button and empty-state text retain readable typography and consistent colors and spacing, but the white form panel and input remain desktop-width instead of fitting the 375px viewport. The screenshot spans the overflowing content at 816px wide. Browser measurements independently show viewport width 375px and scrollWidth 816px, an excess of 441px; the panel and input right edges lie outside the initial viewport, requiring horizontal scrolling. This fails the declared no-overflow expectation at 375x800. The scoped page design rule section { min-width: 800px; } corroborates the browser-visible layout defect. Body text rgb(23, 32, 51) on rgb(244, 246, 250), and white button text on rgb(23, 69, 161), remain visibly distinct. Screenshot inspected: /tmp/w3-run-kn97ci2h/authority/.prifly/work/146f984fd2a033c723b4db6c05788292/browser/b4b0e4b9-95a4-4f68-bc1f-94b679ca0ed4/ui-mobile.png (sha256:a6bd7964d62a9fc3730187516fda9aa69fadf0126154174b6141b74ccf05a5f1).\"}",
+              "exit_code": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "role": "ux",
+      "attempt_id": "attempt:4e328924ce92868eb2c9f754c4c5e9fa",
+      "report_digest": "sha256:928f49a277ec9d54a42f0a0f6cc653657fae828147367bc9c36f0aa88b3a6276",
+      "raw_report_base64": "ewogICJyb3VuZCI6IDEsCiAgInJlcXVlc3RfZGlnZXN0IjogInNoYTI1NjpiNzFhMmE5ZTViNjc4ZmZiNzY1MTc5Njk4YjQzMTYwMWIxNWI4MzA1MzgzMmVmZDcxZGI3OTI3ZTBhNjk1MTljIiwKICAiY2FuZGlkYXRlIjogewogICAgImFsZ29yaXRobSI6ICJnaXQtY2FuZGlkYXRlLzEiLAogICAgImJhc2VfY29tbWl0IjogIjRhODFjZDk0NTY5YTU1MDcyYjJmNjAzNzUxZTcwOThiOGQ1NTc0NjMiLAogICAgImRpZ2VzdCI6ICJzaGEyNTY6OWU2Y2VjMjc1YTYyMDhjZTcyNzMzMzllNzNiNGM1ZGVmOWVjMTFiYWQ3NzlhZjgwNWM4NzE3OTI3NzY2M2VkYiIsCiAgICAiZmlsZXNfZGlnZXN0IjogInNoYTI1NjphN2U3Nzc2OTM2NzdhZGQ1ODZiZTQ3OWNhNDRkMWQ3YThiMWRlYTkzN2FiMTRhNTdiMTE1YWM2MmRjODk3ODdiIiwKICAgICJoZWFkX2NvbW1pdCI6ICI0YTgxY2Q5NDU2OWE1NTA3MmIyZjYwMzc1MWU3MDk4YjhkNTU3NDYzIiwKICAgICJpbmRleF9kaWdlc3QiOiAic2hhMjU2OmM5OGNhMjQ4MzJhYzcyMDQxODVkOTRjZjlkNGY5Y2FmZTQ3OTRiYjc1ZmE1ZmZjZjI2NTQ5MDM4MDBlMDU2ZTYiCiAgfSwKICAic2Vzc2lvbiI6ICJzZXBhcmF0ZSIsCiAgIm1vZGVsX3Byb2ZpbGUiOiAidW5hdmFpbGFibGUiLAogICJtb2RlbCI6IG51bGwsCiAgImNoZWNrcyI6IFsKICAgIHsKICAgICAgImlkIjogInV4X2FjY2VwdGFuY2UiLAogICAgICAic3RhdHVzIjogImV4ZWN1dGVkIiwKICAgICAgInJlc3VsdCI6ICJwYXNzZWQiLAogICAgICAicmVhc29uIjogIiIsCiAgICAgICJldmlkZW5jZSI6IFsKICAgICAgICB7CiAgICAgICAgICAibWV0aG9kIjogImJyb3dzZXIiLAogICAgICAgICAgInRvb2wiOiAiUGxheXdyaWdodCAxLjY0LjEgLyBDaHJvbWl1bSAxNTYuMC44MDc4LjQiLAogICAgICAgICAgImxvY2F0b3IiOiAiaHR0cDovLzEyNy4wLjAuMTo0MjgwOS9pbmRleC5odG1sIiwKICAgICAgICAgICJvYnNlcnZhdGlvbiI6ICJ7XCJzY2VuYXJpb1wiOlwiZmxvd1wiLFwidmlld3BvcnRcIjp7XCJoZWlnaHRcIjo4MDAsXCJ3aWR0aFwiOjM3NX0sXCJ1cmxcIjpcImh0dHA6Ly8xMjcuMC4wLjE6NDI4MDkvaW5kZXguaHRtbFwiLFwib2JzZXJ2YXRpb25zXCI6XCJUaGUgaXNvbGF0ZWQga2V5Ym9hcmQvdGVzdC1zdWJtaXQgZmxvdyBvYnNlcnZlZCB0aGUgaW5pdGlhbCBlbXB0eSBzdGF0ZSwgdmFsaWRhdGlvbiBlcnJvciwgbG9hZGluZyBzdGF0ZSwgYW5kIHN1Y2Nlc3NmdWwgc2F2ZS4gQnJvd3NlciBvYnNlcnZhdGlvbnMgcmVjb3JkIGZvY3VzIG9uIHRoZSBub3RlIGlucHV0LCBhIHNvbGlkIGZvY3VzIG91dGxpbmUsIHRoZSBhY2Nlc3NpYmxlIGxhYmVsIFxcXCJOb3RlIHRleHRcXFwiLCBhbmQgY29uZmlybWF0aW9uIFxcXCJTYXZlZDogQSB0ZXN0IG5vdGVcXFwiOyBubyBmaXh0dXJlIGZhaWx1cmVzIHdlcmUgcmVwb3J0ZWQuIEkgaW5zcGVjdGVkIHRoZSBhY3R1YWwgc2NyZWVuc2hvdDogaXQgc2hvd3MgdGhlIE5vdGVzIC8gQWRkIGEgbm90ZSBmb3JtLCB0aGUgdmlzaWJsZSBOb3RlIHRleHQgbGFiZWwsIGFuIGVtcHR5IGlucHV0IHdpdGggYSBwcm9taW5lbnQgb3JhbmdlIGZvY3VzIHJpbmcsIHRoZSBTYXZlIG5vdGUgYnV0dG9uLCBhbmQgdGhlIHNhdmVkLW5vdGUgY29uZmlybWF0aW9uLiBUaGUgZnVsbC1wYWdlIGNhcHR1cmUgZXh0ZW5kcyB0byA4MTYgcGl4ZWxzIHdpZGUgYXQgdGhlIGNvbmZpZ3VyZWQgMzc1LWJ5LTgwMCB2aWV3cG9ydCwgc2hvd2luZyBhIGZvcm0gd2lkZXIgdGhhbiB0aGUgdmlld3BvcnQuIFRoZSBkZWNsYXJlZCBVWCBzdGF0ZSBhbmQgbGFiZWxsZWQga2V5Ym9hcmQtZmxvdyBleHBlY3RhdGlvbnMgYXJlIHNhdGlzZmllZC4gU2NyZWVuc2hvdDogL3RtcC93My1ydW4ta245N2NpMmgvYXV0aG9yaXR5Ly5wcmlmbHkvd29yay80ZTMyODkyNGNlOTI4NjhlYjJjOWY3NTRjNGM1ZTlmYS9icm93c2VyL2RiYjc3ZjUyLWRiYWUtNGE5Ni05OGRmLTgzMmE4NWU1NDJiMi91eC1mbG93LnBuZzsgU0hBLTI1Njogc2hhMjU2OmRiY2ZjMzZjYzMxNDlhY2IzYmEzYTY5MGFmMGEwOWUxZGFjYzNhMTVkOWZjNTlkNTc2MzU1MjQ1NzQ1ZGRiNmEuXCJ9IiwKICAgICAgICAgICJleGl0X2NvZGUiOiBudWxsCiAgICAgICAgfQogICAgICBdCiAgICB9CiAgXQp9Cg==",
+      "submission_digest": "sha256:c6c36935ded65c353954b9b87b836bd640c6666f47574148574b681591cf05c9",
+      "raw_submission_base64": "ewogICJhdHRlbXB0X2lkIjogImF0dGVtcHQ6NGUzMjg5MjRjZTkyODY4ZWIyYzlmNzU0YzRjNWU5ZmEiLAogICJlbnZlbG9wZV9kaWdlc3QiOiAic2hhMjU2OmMxOWMzZTkyYzk4NGZmNjMxMjhhODUxYmYzNmQ0MDI2NWJiMzJmYjY2YjQzMmZlYzFmYjY4YjIwOTM5ZGU2YmYiLAogICJtb2RlbF9wcm9maWxlIjogewogICAgIm91dGNvbWUiOiAidW5hdmFpbGFibGUiLAogICAgInJlYXNvbiI6ICJGcmVzaCBzZXBhcmF0ZSBDTEkgc2Vzc2lvbjsgbm8gaW5kZXBlbmRlbnQtbW9kZWwgdHJhbnNsYXRpb24gb3IgYWN0dWFsIG1vZGVsIG1hcHBpbmcgd2FzIHN1cHBsaWVkIG9yIGVzdGFibGlzaGVkLiIKICB9LAogICJyZXN1bHQiOiB7CiAgICAiYXR0ZW1wdF9pZCI6ICJhdHRlbXB0OjRlMzI4OTI0Y2U5Mjg2OGViMmM5Zjc1NGM0YzVlOWZhIiwKICAgICJlZmZlY3RfcmVjZWlwdF9yZWZzIjogW10sCiAgICAiZW52ZWxvcGVfZGlnZXN0IjogInNoYTI1NjpjMTljM2U5MmM5ODRmZjYzMTI4YTg1MWJmMzZkNDAyNjViYjMyZmI2NmI0MzJmZWMxZmI2OGIyMDkzOWRlNmJmIiwKICAgICJldmlkZW5jZV9yZWZzIjogW10sCiAgICAib3V0cHV0cyI6IHsKICAgICAgInJlcG9ydCI6IHsKICAgICAgICAiYXJ0aWZhY3RfaWQiOiAiYXJ0aWZhY3Q6MWY3ZmVmZjBlNDIxMDk5MDBjOTU0ZjEyNjkyNTYxNTg5ZGZiYmIxZTMyZmIxZTE5YmM5MTA2ZDdkYzE0M2E2ZCIsCiAgICAgICAgImRpZ2VzdCI6ICJzaGEyNTY6OTI4ZjQ5YTI3N2VjOWQ1NGE0MmYwYTBmNmNjNjUzNjU3ZmFlODI4MTQ3MzY3YmM5YzM2ZjBhYTg4YjNhNjI3NiIsCiAgICAgICAgInJldmlzaW9uIjogMQogICAgICB9CiAgICB9LAogICAgInJ1bl9pZCI6ICJydW46MWUwOWE4NjQ5MWEzMGU5YzUyMzlhM2I2Y2Y1M2RhYjYyMWM4NjExMTI5YjZmODY4MzI3YmY3NDVjYWIwYWFmOSIsCiAgICAic2NoZW1hX3ZlcnNpb24iOiAiMSIsCiAgICAic3RlcF9pbnN0YW5jZV9pZCI6ICJzdGVwOjRiYzdkZDNmZTQ1MWVkMzE1ZWViYzJiMWRiZjg3ZDg1IiwKICAgICJzdW1tYXJ5IjogIkV4ZWN1dGVkIHRoZSBzb2xlIGRlY2xhcmVkIFVYIGJyb3dzZXIgc2NlbmFyaW8gYW5kIGluc3BlY3RlZCBpdHMgc2NyZWVuc2hvdC4gRW1wdHkvZXJyb3IvbG9hZGluZy9zdWNjZXNzIHN0YXRlcyBhbmQgbGFiZWxsZWQga2V5Ym9hcmQgZmxvdyBwYXNzZWQuIFRoZSBtb2JpbGUgY2FwdHVyZSBzaG93cyBhIHdpZGUgZm9ybS4gU2Vzc2lvbiBzZXBhcmF0ZTsgbW9kZWwgcHJvZmlsZSB1bmF2YWlsYWJsZSBhbmQgbW9kZWwgbnVsbC4iLAogICAgInZlcmRpY3QiOiAicGFzcyIKICB9LAogICJydW5faWQiOiAicnVuOjFlMDlhODY0OTFhMzBlOWM1MjM5YTNiNmNmNTNkYWI2MjFjODYxMTEyOWI2Zjg2ODMyN2JmNzQ1Y2FiMGFhZjkiLAogICJzY2hlbWFfdmVyc2lvbiI6ICJhc3Npc3RlZC1zZXNzaW9uLzciLAogICJhbnN3ZXJlZF9xdWVzdGlvbnMiOiBbXQp9Cg==",
+      "checks": [
+        {
+          "id": "ux_acceptance",
+          "status": "executed",
+          "result": "passed",
+          "reason": "",
+          "evidence": [
+            {
+              "method": "browser",
+              "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+              "locator": "http://127.0.0.1:42809/index.html",
+              "observation": "{\"scenario\":\"flow\",\"viewport\":{\"height\":800,\"width\":375},\"url\":\"http://127.0.0.1:42809/index.html\",\"observations\":\"The isolated keyboard/test-submit flow observed the initial empty state, validation error, loading state, and successful save. Browser observations record focus on the note input, a solid focus outline, the accessible label \\\"Note text\\\", and confirmation \\\"Saved: A test note\\\"; no fixture failures were reported. I inspected the actual screenshot: it shows the Notes / Add a note form, the visible Note text label, an empty input with a prominent orange focus ring, the Save note button, and the saved-note confirmation. The full-page capture extends to 816 pixels wide at the configured 375-by-800 viewport, showing a form wider than the viewport. The declared UX state and labelled keyboard-flow expectations are satisfied. Screenshot: /tmp/w3-run-kn97ci2h/authority/.prifly/work/4e328924ce92868eb2c9f754c4c5e9fa/browser/dbb77f52-dbae-4a96-98df-832a85e542b2/ux-flow.png; SHA-256: sha256:dbcfc36cc3149acb3ba3a690af0a09e1dacc3a15d9fc59d576355245745ddb6a.\"}",
+              "exit_code": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "role": "ui",
+      "attempt_id": "attempt:9a96d3ddac60c3ca4f8372aabbb926d2",
+      "report_digest": "sha256:30ae8cc88e7969e6f386eed71c5ec77676ec962c5552f590f05723e38f7338d3",
+      "raw_report_base64": "ewogICJyb3VuZCI6IDIsCiAgInJlcXVlc3RfZGlnZXN0IjogInNoYTI1Njo4MGFjOTRlNTU3ZTExZGUyZWRiZDg1MmFkNWM4YTlhNmRlNzI4YTQwMzlkOTkwZDBjMTFmZWFiNTYwMGY0ZjFiIiwKICAiY2FuZGlkYXRlIjogewogICAgImFsZ29yaXRobSI6ICJnaXQtY2FuZGlkYXRlLzEiLAogICAgImJhc2VfY29tbWl0IjogIjRhODFjZDk0NTY5YTU1MDcyYjJmNjAzNzUxZTcwOThiOGQ1NTc0NjMiLAogICAgImRpZ2VzdCI6ICJzaGEyNTY6NTYxZDg2MzE4NDk1NWE1YjNhODg4MDg2MWExYWMxYTk0NDk4MTdjZWZiOTIyM2YyZjhjZWJjYzE5Zjg3OTI1YSIsCiAgICAiZmlsZXNfZGlnZXN0IjogInNoYTI1Njo4MzRhMjUwZmM1Mjc3Njg1MzkyZTY4N2QyNzMyMGEwMTFmZjk0MDRmMTlhYzI2YWM3OWM1MDAxZmMyZGYyM2M0IiwKICAgICJoZWFkX2NvbW1pdCI6ICI0YTgxY2Q5NDU2OWE1NTA3MmIyZjYwMzc1MWU3MDk4YjhkNTU3NDYzIiwKICAgICJpbmRleF9kaWdlc3QiOiAic2hhMjU2OmM5OGNhMjQ4MzJhYzcyMDQxODVkOTRjZjlkNGY5Y2FmZTQ3OTRiYjc1ZmE1ZmZjZjI2NTQ5MDM4MDBlMDU2ZTYiCiAgfSwKICAic2Vzc2lvbiI6ICJzZXBhcmF0ZSIsCiAgIm1vZGVsX3Byb2ZpbGUiOiAidW5hdmFpbGFibGUiLAogICJtb2RlbCI6IG51bGwsCiAgImNoZWNrcyI6IFsKICAgIHsKICAgICAgImlkIjogInVpX2FjY2VwdGFuY2UiLAogICAgICAic3RhdHVzIjogImV4ZWN1dGVkIiwKICAgICAgInJlc3VsdCI6ICJwYXNzZWQiLAogICAgICAicmVhc29uIjogIiIsCiAgICAgICJldmlkZW5jZSI6IFsKICAgICAgICB7CiAgICAgICAgICAibWV0aG9kIjogImJyb3dzZXIiLAogICAgICAgICAgInRvb2wiOiAiUGxheXdyaWdodCAxLjY0LjEgLyBDaHJvbWl1bSAxNTYuMC44MDc4LjQiLAogICAgICAgICAgImxvY2F0b3IiOiAiaHR0cDovLzEyNy4wLjAuMTozOTY0NS9pbmRleC5odG1sIiwKICAgICAgICAgICJvYnNlcnZhdGlvbiI6ICJ7XCJzY2VuYXJpb1wiOlwiZGVza3RvcFwiLFwidmlld3BvcnRcIjp7XCJoZWlnaHRcIjo4MDAsXCJ3aWR0aFwiOjEyODB9LFwidXJsXCI6XCJodHRwOi8vMTI3LjAuMC4xOjM5NjQ1L2luZGV4Lmh0bWxcIixcIm9ic2VydmF0aW9uc1wiOlwiVmlzdWFsbHkgaW5zcGVjdGVkIHRoZSAxMjgwIGJ5IDgwMCBzY3JlZW5zaG90OiB0aGUgNjgwcHggd2hpdGUgY2FyZCBpcyBjZW50ZXJlZCB3aXRoIGdlbmVyb3VzIHN1cnJvdW5kaW5nIHNwYWNlOyBOb3RlcyBhbmQgQWRkIGEgbm90ZSBmb3JtIGEgY2xlYXIgaGVhZGluZyBoaWVyYXJjaHkuIFRoZSBsYWJlbCwgZnVsbC13aWR0aCBpbnB1dCwgYmx1ZSBTYXZlIG5vdGUgYnV0dG9uIGFuZCBlbXB0eS1zdGF0ZSB0ZXh0IGFsaWduIGNvbnNpc3RlbnRseSB3aXRoIDI0cHggY2FyZCBwYWRkaW5nLiBUeXBvZ3JhcGh5IGlzIHJlYWRhYmxlIGFuZCBjb25zaXN0ZW50LCB0ZXh0IGNvbnRyYXN0cyBjbGVhcmx5IGFnYWluc3QgdGhlIHBhbGUgcGFnZSBhbmQgd2hpdGUgY2FyZCwgYW5kIHRoZSB3aGl0ZSBidXR0b24gdGV4dCBpcyBsZWdpYmxlIG9uIGRhcmsgYmx1ZS4gTm8gY2xpcHBpbmcsIG92ZXJsYXAgb3IgaG9yaXpvbnRhbCBvdmVyZmxvdyBpcyB2aXNpYmxlLiBCcm93c2VyIG1lYXN1cmVtZW50czogdmlld3BvcnQgd2lkdGggMTI4MHB4OyBzY3JvbGxXaWR0aCAxMjgwcHg7IGJvZHkgY29sb3IgcmdiKDIzLCAzMiwgNTEpIG9uIHJnYigyNDQsIDI0NiwgMjUwKTsgYnV0dG9uIGNvbG9yIHJnYigyNTUsIDI1NSwgMjU1KSBvbiByZ2IoMjMsIDY5LCAxNjEpLiBBZGFwdGVyIGZpeHR1cmUgZmFpbHVyZXM6IFtdLiBTY3JlZW5zaG90IGluc3BlY3RlZCB3aXRoIHZpZXdfaW1hZ2U6IC90bXAvdzMtcnVuLWtuOTdjaTJoL2F1dGhvcml0eS8ucHJpZmx5L3dvcmsvOWE5NmQzZGRhYzYwYzNjYTRmODM3MmFhYmJiOTI2ZDIvYnJvd3Nlci84YTBkYzEyNC01MGY3LTQxMGQtODQ2Yi00YTRhNTU1MWUxMDUvdWktZGVza3RvcC5wbmcgKHNoYTI1NjozN2UzNzQyOGRhZGZkNDhjODcyODBlMDA3MDA0MWVhYjA3NjNhMzM5MDllNDM3YjczNGI4Nzk3MmIxNDIxMjkxKS5cIn0iLAogICAgICAgICAgImV4aXRfY29kZSI6IG51bGwKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJtZXRob2QiOiAiYnJvd3NlciIsCiAgICAgICAgICAidG9vbCI6ICJQbGF5d3JpZ2h0IDEuNjQuMSAvIENocm9taXVtIDE1Ni4wLjgwNzguNCIsCiAgICAgICAgICAibG9jYXRvciI6ICJodHRwOi8vMTI3LjAuMC4xOjM5NjQ1L2luZGV4Lmh0bWwiLAogICAgICAgICAgIm9ic2VydmF0aW9uIjogIntcInNjZW5hcmlvXCI6XCJtb2JpbGVcIixcInZpZXdwb3J0XCI6e1wiaGVpZ2h0XCI6ODAwLFwid2lkdGhcIjozNzV9LFwidXJsXCI6XCJodHRwOi8vMTI3LjAuMC4xOjM5NjQ1L2luZGV4Lmh0bWxcIixcIm9ic2VydmF0aW9uc1wiOlwiVmlzdWFsbHkgaW5zcGVjdGVkIHRoZSAzNzUgYnkgODAwIHNjcmVlbnNob3Q6IHRoZSB3aGl0ZSBjYXJkIGZpdHMgd2l0aGluIDE2cHggcGFnZSBndXR0ZXJzLCB3aXRoIGNvbnNpc3RlbnQgaW50ZXJpb3Igc3BhY2luZy4gTm90ZXMgYW5kIEFkZCBhIG5vdGUgcmVtYWluIGRpc3RpbmN0LCBhbmQgdGhlIGxhYmVsLCBpbnB1dCwgU2F2ZSBub3RlIGJ1dHRvbiBhbmQgTm8gbm90ZXMgeWV0IHRleHQgYXJlIGZ1bGx5IHJlYWRhYmxlIGFuZCBjb250YWluZWQuIERhcmsgdGV4dCBvbiBsaWdodCBzdXJmYWNlcyBhbmQgd2hpdGUgdGV4dCBvbiB0aGUgZGFyayBibHVlIGJ1dHRvbiByZW1haW4gY2xlYXIuIE5vIGNsaXBwaW5nLCBvdmVybGFwIG9yIGhvcml6b250YWwgb3ZlcmZsb3cgaXMgdmlzaWJsZTsgdGhlIGRlc2lnbiBtYXRjaGVzIGRlc2t0b3AuIEJyb3dzZXIgbWVhc3VyZW1lbnRzOiB2aWV3cG9ydCB3aWR0aCAzNzVweDsgc2Nyb2xsV2lkdGggMzc1cHg7IGJvZHkgY29sb3IgcmdiKDIzLCAzMiwgNTEpIG9uIHJnYigyNDQsIDI0NiwgMjUwKTsgYnV0dG9uIGNvbG9yIHJnYigyNTUsIDI1NSwgMjU1KSBvbiByZ2IoMjMsIDY5LCAxNjEpLiBBZGFwdGVyIGZpeHR1cmUgZmFpbHVyZXM6IFtdLiBTY3JlZW5zaG90IGluc3BlY3RlZCB3aXRoIHZpZXdfaW1hZ2U6IC90bXAvdzMtcnVuLWtuOTdjaTJoL2F1dGhvcml0eS8ucHJpZmx5L3dvcmsvOWE5NmQzZGRhYzYwYzNjYTRmODM3MmFhYmJiOTI2ZDIvYnJvd3Nlci84YTBkYzEyNC01MGY3LTQxMGQtODQ2Yi00YTRhNTU1MWUxMDUvdWktbW9iaWxlLnBuZyAoc2hhMjU2OjgzOTVlNDVhYzJiYWJhOGY0OGNmZjQyNTM4MDI2MmM2Y2UyMTM1ZjAwNTdhNmFhZTRmOGVjZWE2OWQ4YjA4NmQpLlwifSIsCiAgICAgICAgICAiZXhpdF9jb2RlIjogbnVsbAogICAgICAgIH0KICAgICAgXQogICAgfQogIF0KfQo=",
+      "submission_digest": "sha256:a363b7f3664bf89adf74fab51bd6f1c3bf7487bb59ad2a62f668e22d38cc8c9e",
+      "raw_submission_base64": "ewogICJhdHRlbXB0X2lkIjogImF0dGVtcHQ6OWE5NmQzZGRhYzYwYzNjYTRmODM3MmFhYmJiOTI2ZDIiLAogICJlbnZlbG9wZV9kaWdlc3QiOiAic2hhMjU2OjAwMzgwZDVjMmU3MzdmNDMwYzA5MWYyYmE3Yzc3ZWEyNGY2MmZmN2QxNGMzZTI3NDE1Mjk0YjU1MTRjNWQ5MTUiLAogICJtb2RlbF9wcm9maWxlIjogewogICAgIm91dGNvbWUiOiAidW5hdmFpbGFibGUiLAogICAgInJlYXNvbiI6ICJGcmVzaCBzZXBhcmF0ZSBDTEkgc2Vzc2lvbjsgbm8gaW5kZXBlbmRlbnRseSBlc3RhYmxpc2hlZCBtb2RlbCBpZGVudGl0eSBvciBpbmRlcGVuZGVudC1tb2RlbCB0cmFuc2xhdGlvbiBpcyBzdXBwbGllZC4iCiAgfSwKICAicmVzdWx0IjogewogICAgImF0dGVtcHRfaWQiOiAiYXR0ZW1wdDo5YTk2ZDNkZGFjNjBjM2NhNGY4MzcyYWFiYmI5MjZkMiIsCiAgICAiZWZmZWN0X3JlY2VpcHRfcmVmcyI6IFtdLAogICAgImVudmVsb3BlX2RpZ2VzdCI6ICJzaGEyNTY6MDAzODBkNWMyZTczN2Y0MzBjMDkxZjJiYTdjNzdlYTI0ZjYyZmY3ZDE0YzNlMjc0MTUyOTRiNTUxNGM1ZDkxNSIsCiAgICAiZXZpZGVuY2VfcmVmcyI6IFtdLAogICAgIm91dHB1dHMiOiB7CiAgICAgICJyZXBvcnQiOiB7CiAgICAgICAgImFydGlmYWN0X2lkIjogImFydGlmYWN0OmFiMmY1NWNlZDE0ZjExMDZmNzk0YjU0NGU5YTcyNWQwZThkZDQ4ZjI3NTMzYTQxYmY4NzRmZDQxYzdkZDU4NGMiLAogICAgICAgICJkaWdlc3QiOiAic2hhMjU2OjMwYWU4Y2M4OGU3OTY5ZTZmMzg2ZWVkNzFjNWVjNzc2NzZlYzk2MmM1NTUyZjU5MGYwNTcyM2UzOGY3MzM4ZDMiLAogICAgICAgICJyZXZpc2lvbiI6IDEKICAgICAgfQogICAgfSwKICAgICJydW5faWQiOiAicnVuOjFlMDlhODY0OTFhMzBlOWM1MjM5YTNiNmNmNTNkYWI2MjFjODYxMTEyOWI2Zjg2ODMyN2JmNzQ1Y2FiMGFhZjkiLAogICAgInNjaGVtYV92ZXJzaW9uIjogIjEiLAogICAgInN0ZXBfaW5zdGFuY2VfaWQiOiAic3RlcDo1NzdjMDgxM2I5YTE0MzI5MDUxYjk3ZGZjOGVhNzgyMiIsCiAgICAic3VtbWFyeSI6ICJVSSBhY2NlcHRhbmNlIHBhc3NlZCBhZnRlciBicm93c2VyIG9ic2VydmF0aW9uIGFuZCB2aXN1YWwgaW5zcGVjdGlvbiBvZiBib3RoIHNlYWxlZCBkZXNrdG9wIGFuZCBtb2JpbGUgc2NlbmFyaW9zLiBGcmVzaCBzZXBhcmF0ZSBDTEkgc2Vzc2lvbjsgbW9kZWwgcHJvZmlsZSB1bmF2YWlsYWJsZSBhbmQgbW9kZWwgbnVsbDsgdGhpcyBkb2VzIG5vdCBhdHRlc3QgYSBkaWZmZXJlbnQgbW9kZWwuIiwKICAgICJ2ZXJkaWN0IjogInBhc3MiCiAgfSwKICAicnVuX2lkIjogInJ1bjoxZTA5YTg2NDkxYTMwZTljNTIzOWEzYjZjZjUzZGFiNjIxYzg2MTExMjliNmY4NjgzMjdiZjc0NWNhYjBhYWY5IiwKICAic2NoZW1hX3ZlcnNpb24iOiAiYXNzaXN0ZWQtc2Vzc2lvbi83IiwKICAiYW5zd2VyZWRfcXVlc3Rpb25zIjogW10KfQo=",
+      "checks": [
+        {
+          "id": "ui_acceptance",
+          "status": "executed",
+          "result": "passed",
+          "reason": "",
+          "evidence": [
+            {
+              "method": "browser",
+              "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+              "locator": "http://127.0.0.1:39645/index.html",
+              "observation": "{\"scenario\":\"desktop\",\"viewport\":{\"height\":800,\"width\":1280},\"url\":\"http://127.0.0.1:39645/index.html\",\"observations\":\"Visually inspected the 1280 by 800 screenshot: the 680px white card is centered with generous surrounding space; Notes and Add a note form a clear heading hierarchy. The label, full-width input, blue Save note button and empty-state text align consistently with 24px card padding. Typography is readable and consistent, text contrasts clearly against the pale page and white card, and the white button text is legible on dark blue. No clipping, overlap or horizontal overflow is visible. Browser measurements: viewport width 1280px; scrollWidth 1280px; body color rgb(23, 32, 51) on rgb(244, 246, 250); button color rgb(255, 255, 255) on rgb(23, 69, 161). Adapter fixture failures: []. Screenshot inspected with view_image: /tmp/w3-run-kn97ci2h/authority/.prifly/work/9a96d3ddac60c3ca4f8372aabbb926d2/browser/8a0dc124-50f7-410d-846b-4a4a5551e105/ui-desktop.png (sha256:37e37428dadfd48c87280e0070041eab0763a33909e437b734b87972b1421291).\"}",
+              "exit_code": null
+            },
+            {
+              "method": "browser",
+              "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+              "locator": "http://127.0.0.1:39645/index.html",
+              "observation": "{\"scenario\":\"mobile\",\"viewport\":{\"height\":800,\"width\":375},\"url\":\"http://127.0.0.1:39645/index.html\",\"observations\":\"Visually inspected the 375 by 800 screenshot: the white card fits within 16px page gutters, with consistent interior spacing. Notes and Add a note remain distinct, and the label, input, Save note button and No notes yet text are fully readable and contained. Dark text on light surfaces and white text on the dark blue button remain clear. No clipping, overlap or horizontal overflow is visible; the design matches desktop. Browser measurements: viewport width 375px; scrollWidth 375px; body color rgb(23, 32, 51) on rgb(244, 246, 250); button color rgb(255, 255, 255) on rgb(23, 69, 161). Adapter fixture failures: []. Screenshot inspected with view_image: /tmp/w3-run-kn97ci2h/authority/.prifly/work/9a96d3ddac60c3ca4f8372aabbb926d2/browser/8a0dc124-50f7-410d-846b-4a4a5551e105/ui-mobile.png (sha256:8395e45ac2baba8f48cff425380262c6ce2135f0057a6aae4f8ecea69d8b086d).\"}",
+              "exit_code": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "role": "ux",
+      "attempt_id": "attempt:9c974d74256f5b962adf6a5bd7c18cc8",
+      "report_digest": "sha256:6db583a88452bf88bd2bf094c540c61a3a6dd19a1861aa592854b3c88d989949",
+      "raw_report_base64": "ewogICJyb3VuZCI6IDIsCiAgInJlcXVlc3RfZGlnZXN0IjogInNoYTI1NjpiMTU3OTc2YWYwZTJhMTBiZjMxODNiNjJlYmRhNjcyMDI0OTE5OWMwZTg4ZDQ0NjcyZmE2MDg1Mjg0NjkxNzBiIiwKICAiY2FuZGlkYXRlIjogewogICAgImFsZ29yaXRobSI6ICJnaXQtY2FuZGlkYXRlLzEiLAogICAgImJhc2VfY29tbWl0IjogIjRhODFjZDk0NTY5YTU1MDcyYjJmNjAzNzUxZTcwOThiOGQ1NTc0NjMiLAogICAgImRpZ2VzdCI6ICJzaGEyNTY6NTYxZDg2MzE4NDk1NWE1YjNhODg4MDg2MWExYWMxYTk0NDk4MTdjZWZiOTIyM2YyZjhjZWJjYzE5Zjg3OTI1YSIsCiAgICAiZmlsZXNfZGlnZXN0IjogInNoYTI1Njo4MzRhMjUwZmM1Mjc3Njg1MzkyZTY4N2QyNzMyMGEwMTFmZjk0MDRmMTlhYzI2YWM3OWM1MDAxZmMyZGYyM2M0IiwKICAgICJoZWFkX2NvbW1pdCI6ICI0YTgxY2Q5NDU2OWE1NTA3MmIyZjYwMzc1MWU3MDk4YjhkNTU3NDYzIiwKICAgICJpbmRleF9kaWdlc3QiOiAic2hhMjU2OmM5OGNhMjQ4MzJhYzcyMDQxODVkOTRjZjlkNGY5Y2FmZTQ3OTRiYjc1ZmE1ZmZjZjI2NTQ5MDM4MDBlMDU2ZTYiCiAgfSwKICAic2Vzc2lvbiI6ICJzZXBhcmF0ZSIsCiAgIm1vZGVsX3Byb2ZpbGUiOiAidW5hdmFpbGFibGUiLAogICJtb2RlbCI6IG51bGwsCiAgImNoZWNrcyI6IFsKICAgIHsKICAgICAgImlkIjogInV4X2FjY2VwdGFuY2UiLAogICAgICAic3RhdHVzIjogImV4ZWN1dGVkIiwKICAgICAgInJlc3VsdCI6ICJwYXNzZWQiLAogICAgICAicmVhc29uIjogIiIsCiAgICAgICJldmlkZW5jZSI6IFsKICAgICAgICB7CiAgICAgICAgICAibWV0aG9kIjogImJyb3dzZXIiLAogICAgICAgICAgInRvb2wiOiAiUGxheXdyaWdodCAxLjY0LjEgLyBDaHJvbWl1bSAxNTYuMC44MDc4LjQiLAogICAgICAgICAgImxvY2F0b3IiOiAiaHR0cDovLzEyNy4wLjAuMTozOTY0NS9pbmRleC5odG1sIiwKICAgICAgICAgICJvYnNlcnZhdGlvbiI6ICJ7XCJzY2VuYXJpb1wiOlwiZmxvd1wiLFwidmlld3BvcnRcIjp7XCJoZWlnaHRcIjo4MDAsXCJ3aWR0aFwiOjM3NX0sXCJ1cmxcIjpcImh0dHA6Ly8xMjcuMC4wLjE6Mzk2NDUvaW5kZXguaHRtbFwiLFwib2JzZXJ2YXRpb25zXCI6XCJUaGUgaXNvbGF0ZWQgVVggYnJvd3NlciBmbG93IG9ic2VydmVkIGVtcHR5LCB2YWxpZGF0aW9uLWVycm9yLCBsb2FkaW5nIGFuZCBzdWNjZXNzIHN0YXRlczsgdGhlIGZvY3VzZWQgY29udHJvbCB3YXMgbm90ZSwgaXRzIG91dGxpbmUgd2FzIHNvbGlkLCBhbmQgaXRzIGFjY2Vzc2libGUgbGFiZWwgd2FzIE5vdGUgdGV4dC4gVGhlIGZpbmFsIGJyb3dzZXIgdGV4dCB3YXMgU2F2ZWQ6IEEgdGVzdCBub3RlLiBUaGUgYWRhcHRlciByZXBvcnRlZCBubyBzY2VuYXJpbyBmYWlsdXJlcy4gSSBpbnNwZWN0ZWQgdGhlIGFjdHVhbCBzY3JlZW5zaG90OiB0aGUgTm90ZXMgaGVhZGluZywgQWRkIGEgbm90ZSBoZWFkaW5nLCBOb3RlIHRleHQgbGFiZWwsIHRleHRhcmVhLCBTYXZlIG5vdGUgYnV0dG9uIGFuZCBzYXZlZCBjb25maXJtYXRpb24gYXJlIGxlZ2libGUgd2l0aGluIHRoZSAzNzUgYnkgODAwIHZpZXdwb3J0LiBUaGUgZm9jdXNlZCB0ZXh0YXJlYSBoYXMgYSBjbGVhcmx5IHZpc2libGUgb3JhbmdlIG91dGxpbmU7IHRoZSBjb250cm9scyBhbmQgY29uZmlybWF0aW9uIGFyZSB1bm9ic3RydWN0ZWQsIGFuZCB0aGUgd29yZGluZyBtYWtlcyB0aGUgYWN0aW9uIGFuZCBvdXRjb21lIGNsZWFyLiBObyBpbWFnZXJ5IHJlcXVpcmluZyBhbHQgdGV4dCBpcyBwcmVzZW50IGluIHRoZSBjYXB0dXJlZCBmb3JtLiBUaGUgc2F2ZWQgY29uZmlybWF0aW9uIGlkZW50aWZpZXMgdGhlIHN1Ym1pdHRlZCBub3RlIHdoaWxlIHRoZSBmaWVsZCBpcyBjbGVhcmVkLiBUaGVzZSBvYnNlcnZlZCBzdGF0ZXMsIGxhYmVsLCBmb2N1cyB0cmVhdG1lbnQgYW5kIHZpc3VhbCByZXN1bHQgc2F0aXNmeSB0aGUgZGVjbGFyZWQgVVggc2NlbmFyaW87IG5vIG1hdGVyaWFsIFVYIGRlZmVjdCB3YXMgb2JzZXJ2ZWQuIFNjcmVlbnNob3QgaW5zcGVjdGVkOiAvdG1wL3czLXJ1bi1rbjk3Y2kyaC9hdXRob3JpdHkvLnByaWZseS93b3JrLzljOTc0ZDc0MjU2ZjViOTYyYWRmNmE1YmQ3YzE4Y2M4L2Jyb3dzZXIvMzVmYWViMTctOWYzNC00YWYxLWE4NWItZGFjN2E0MGQ0NjNhL3V4LWZsb3cucG5nIChzaGEyNTY6YzEwZjZjMzBmZTQ3ZmNhYWM1MDQ3MGIxNzQzMTUzNDUzNTAwNmUzMDVhNDQ0NmExOTY0MWZlMDY0ZWE2NGRmYikuIEJyb3dzZXIgb2JzZXJ2YXRpb25zOiAvdG1wL3czLXJ1bi1rbjk3Y2kyaC9hdXRob3JpdHkvLnByaWZseS93b3JrLzljOTc0ZDc0MjU2ZjViOTYyYWRmNmE1YmQ3YzE4Y2M4L2Jyb3dzZXIvb2JzZXJ2YXRpb25zLmpzb24uXCJ9IiwKICAgICAgICAgICJleGl0X2NvZGUiOiBudWxsCiAgICAgICAgfQogICAgICBdCiAgICB9CiAgXQp9Cg==",
+      "submission_digest": "sha256:49af546f231468dd30e5328773af803a7fcb6a6fecf1638191ae38e1c2840a3e",
+      "raw_submission_base64": "ewogICJhdHRlbXB0X2lkIjogImF0dGVtcHQ6OWM5NzRkNzQyNTZmNWI5NjJhZGY2YTViZDdjMThjYzgiLAogICJlbnZlbG9wZV9kaWdlc3QiOiAic2hhMjU2OjI4ZTE4NTUzYzIzMzllMzJiZGU5ZDQyZDgxYzM3YjViOWQ3Mzk4NThjODcxNjMyYzVmZjhkOWFjODIwNTgxNzUiLAogICJtb2RlbF9wcm9maWxlIjogewogICAgIm91dGNvbWUiOiAidW5hdmFpbGFibGUiLAogICAgInJlYXNvbiI6ICJGcmVzaCBzZXBhcmF0ZSBDTEkgc2Vzc2lvbjsgbm8gaW5kZXBlbmRlbnQtbW9kZWwgdHJhbnNsYXRpb24gb3IgYWN0dWFsIG1vZGVsIGlkZW50aXR5IHdhcyBlc3RhYmxpc2hlZC4iCiAgfSwKICAicmVzdWx0IjogewogICAgImF0dGVtcHRfaWQiOiAiYXR0ZW1wdDo5Yzk3NGQ3NDI1NmY1Yjk2MmFkZjZhNWJkN2MxOGNjOCIsCiAgICAiZWZmZWN0X3JlY2VpcHRfcmVmcyI6IFtdLAogICAgImVudmVsb3BlX2RpZ2VzdCI6ICJzaGEyNTY6MjhlMTg1NTNjMjMzOWUzMmJkZTlkNDJkODFjMzdiNWI5ZDczOTg1OGM4NzE2MzJjNWZmOGQ5YWM4MjA1ODE3NSIsCiAgICAiZXZpZGVuY2VfcmVmcyI6IFtdLAogICAgIm91dHB1dHMiOiB7CiAgICAgICJyZXBvcnQiOiB7CiAgICAgICAgImFydGlmYWN0X2lkIjogImFydGlmYWN0OjE5MjJiZWRjNzBhNDdjMmJlNWQzZTNlOTgxZGJhZjc2NTNiZTJmM2VkMzc4MmMyM2U4ZTA0N2U2MWY2OTE5YzYiLAogICAgICAgICJkaWdlc3QiOiAic2hhMjU2OjZkYjU4M2E4ODQ1MmJmODhiZDJiZjA5NGM1NDBjNjFhM2E2ZGQxOWExODYxYWE1OTI4NTRiM2M4OGQ5ODk5NDkiLAogICAgICAgICJyZXZpc2lvbiI6IDEKICAgICAgfQogICAgfSwKICAgICJydW5faWQiOiAicnVuOjFlMDlhODY0OTFhMzBlOWM1MjM5YTNiNmNmNTNkYWI2MjFjODYxMTEyOWI2Zjg2ODMyN2JmNzQ1Y2FiMGFhZjkiLAogICAgInNjaGVtYV92ZXJzaW9uIjogIjEiLAogICAgInN0ZXBfaW5zdGFuY2VfaWQiOiAic3RlcDoxOWNiYmY5NWYxZWMyM2RkMGI3Y2FiNmM3NDlmNGMwMCIsCiAgICAic3VtbWFyeSI6ICJDb21wbGV0ZWQgdGhlIHNpbmdsZSBkZWNsYXJlZCBVWCBicm93c2VyIGNoZWNrIGluIHRoZSBib3VuZCBpc29sYXRlZCBjb250ZXh0IGFuZCBpbnNwZWN0ZWQgaXRzIHNjcmVlbnNob3QuIEtleWJvYXJkIGZvY3VzLCBsYWJlbCwgZW1wdHkvZXJyb3IvbG9hZGluZy9zdWNjZXNzIHN0YXRlcyBhbmQgZmluYWwgY29uZmlybWF0aW9uIHN1cHBvcnQgYSBwYXNzZWQgVVggY2hlY2suIEZyZXNoIHNlcGFyYXRlIENMSSBzZXNzaW9uOyBtb2RlbCBwcm9maWxlIHVuYXZhaWxhYmxlIGFuZCBtb2RlbCBudWxsLiIsCiAgICAidmVyZGljdCI6ICJwYXNzIgogIH0sCiAgInJ1bl9pZCI6ICJydW46MWUwOWE4NjQ5MWEzMGU5YzUyMzlhM2I2Y2Y1M2RhYjYyMWM4NjExMTI5YjZmODY4MzI3YmY3NDVjYWIwYWFmOSIsCiAgInNjaGVtYV92ZXJzaW9uIjogImFzc2lzdGVkLXNlc3Npb24vNyIsCiAgImFuc3dlcmVkX3F1ZXN0aW9ucyI6IFtdCn0K",
+      "checks": [
+        {
+          "id": "ux_acceptance",
+          "status": "executed",
+          "result": "passed",
+          "reason": "",
+          "evidence": [
+            {
+              "method": "browser",
+              "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+              "locator": "http://127.0.0.1:39645/index.html",
+              "observation": "{\"scenario\":\"flow\",\"viewport\":{\"height\":800,\"width\":375},\"url\":\"http://127.0.0.1:39645/index.html\",\"observations\":\"The isolated UX browser flow observed empty, validation-error, loading and success states; the focused control was note, its outline was solid, and its accessible label was Note text. The final browser text was Saved: A test note. The adapter reported no scenario failures. I inspected the actual screenshot: the Notes heading, Add a note heading, Note text label, textarea, Save note button and saved confirmation are legible within the 375 by 800 viewport. The focused textarea has a clearly visible orange outline; the controls and confirmation are unobstructed, and the wording makes the action and outcome clear. No imagery requiring alt text is present in the captured form. The saved confirmation identifies the submitted note while the field is cleared. These observed states, label, focus treatment and visual result satisfy the declared UX scenario; no material UX defect was observed. Screenshot inspected: /tmp/w3-run-kn97ci2h/authority/.prifly/work/9c974d74256f5b962adf6a5bd7c18cc8/browser/35faeb17-9f34-4af1-a85b-dac7a40d463a/ux-flow.png (sha256:c10f6c30fe47fcaac50470b17431534535006e305a4446a19641fe064ea64dfb). Browser observations: /tmp/w3-run-kn97ci2h/authority/.prifly/work/9c974d74256f5b962adf6a5bd7c18cc8/browser/observations.json.\"}",
+              "exit_code": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "visual_inspection_boundary": "Original PNG bytes/hashes verified; reviewers state screenshot inspection. JSON event stream is not an independent machine attestation of visual judgement.",
+  "source_report_digest": "sha256:532cb25fe2e83f588d9dc10e1ac358841bb5d2b372f9ab1be04d89b427173dd1"
+}

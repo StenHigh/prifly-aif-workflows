@@ -108,8 +108,7 @@ class ParallelReportTest(unittest.TestCase):
         with self.assertRaises(p.w1.Invalid): feature.configuration(task_input(True), 'frontend', 'parallel-backend')
 
     def test_host_controller_must_match_the_sealed_source_contract(self):
-        files = {'parallel_host.py': Path(parallel_host.__file__), 'parallel_reports.py': Path(p.__file__),
-                 'evidence.py': Path(p.w1.__file__)}
+        files = {name: Path(parallel_host.__file__).with_name(name) for name in parallel_host.ADAPTER_FILES}
         contract = {'protocol': parallel_host.PROTOCOL, 'files': {name: p.w1.digest(path.read_bytes()) for name,path in files.items()}}
         with tempfile.TemporaryDirectory(prefix='w5-adapter-pin-') as directory:
             root = Path(directory); path = root/'context/skills/aif-feature-context-parallel-adapter-contract-1.0.0'

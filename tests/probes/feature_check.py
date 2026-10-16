@@ -397,11 +397,12 @@ def read_output(task, name):
 
 
 def run_case(binary, case, host='codex-cli', library=None, live=False, artifacts=None, skills=None,
-             review_mode='sequential', parallel_fault=None, parallel_live=False):
+             review_mode='sequential', parallel_fault=None, parallel_live=False,
+             host_factory=None, adapter_factory=None, task_mutator=None, expected_outcome=None):
     with tempfile.TemporaryDirectory(prefix='w3-run-') as directory:
         root = Path(directory); repository, authority = verify.prepare_repository(binary, root); runs=[]; h=None
         try:
-            frontend = case in ('frontend','repair-ui','repair-ux','frontend-unavailable','frontend-cancel')
+            frontend = review_mode == 'parallel-ui-ux' or case in ('frontend','repair-ui','repair-ux','frontend-unavailable','frontend-cancel')
             if case=='live-frontend':frontend=True
             if live or parallel_live:
                 source=skills or Path('/tmp/w3-upstream')
@@ -434,11 +435,17 @@ def run_case(binary, case, host='codex-cli', library=None, live=False, artifacts
             package=repository/'.prifly/workflows/aif-feature'
             limit=8 if case == 'max-budget' else 2 if case == 'exhaustion' else 3
             (package/'extend.yaml').write_text(f'profile: {"frontend" if frontend else "backend"}\nsettings:\n  quality: {{limit: {limit}}}\n  feature: {{review_mode: {review_mode}}}\nexclude: []\nextensions: []\n')
+            if adapter_factory:
+                adapter = adapter_factory(root, repository, package)
+                path = package/'extend.yaml'
+                path.write_text(path.read_text().replace('{review_mode: '+review_mode+'}',
+                    json.dumps({'review_mode': review_mode, 'browser_adapter': adapter})))
             if parallel_fault in ('timeout','one-timeout'):
                 path = package/'steps'/('security.yaml' if parallel_fault=='one-timeout' else 'review.yaml')
                 path.write_text(path.read_text().replace('active_timeout_ms: null', 'active_timeout_ms: 30000'))
             verify.git('-C',repository,'add','.');verify.git('-C',repository,'commit','-qm','Feature fixture')
             value=task_input(frontend)
+            if task_mutator: task_mutator(value)
             if live:
                 value['require_separate_session']=True
                 if value['product']:
@@ -454,7 +461,7 @@ def run_case(binary, case, host='codex-cli', library=None, live=False, artifacts
             args=('--project',authority,'project','start','--repository',repository,'--launch','aif-feature','--host',host,'--workspace','worktree','--input','task='+str(task_path),'--allow-execution', '--decision-policy','autonomous','--preflight-answer','plan_retention='+json.dumps('retain' if case=='retained-plan' else 'capture'),'--preflight-answer','plan_tests=true','--preflight-answer','plan_constraints=""')
             prepared=verify.run(binary,*args[:3],'questionnaire',*args[4:],'--prepare')
             rid=verify.run(binary,*args,'--expected-launch-digest',prepared['review_digest'])['run']['run']['id'];runs.append(rid)
-            h=FeatureHost(binary,authority,case,root,frontend,library,live,artifacts)
+            h=(host_factory or FeatureHost)(binary,authority,case,root,frontend,library,live,artifacts)
             h.review_mode, h.parallel_fault, h.parallel_live = review_mode, parallel_fault, parallel_live
             state=h.drive_feature(rid); source_outcome=state.get('outcome') or state['status']
             initial_state=copy.deepcopy(state)
@@ -518,6 +525,7 @@ def run_case(binary, case, host='codex-cli', library=None, live=False, artifacts
                 expected = 'rejected' if parallel_fault == 'unsupported-host' else 'partial'
             if review_mode == 'parallel-backend' and frontend: expected = 'rejected'
             if case.startswith('live-') or case in ('frontend-cancel','commit-resume'):expected='succeeded'
+            if expected_outcome is not None: expected=expected_outcome
             if case not in ('foreign-plan','plan-cancel'):assert state.get('outcome')==expected,{k:state.get(k) for k in ('status','outcome','diagnostics')}
             if expected=='succeeded':
                 assert {'implementation','result','plan','gate','evidence'} <= state['output_artifacts'].keys()
@@ -548,7 +556,7 @@ def run_case(binary, case, host='codex-cli', library=None, live=False, artifacts
             elif case not in ('foreign-plan','plan-cancel'):assert not (h.tree/'.ai-factory/PLAN.md').exists(), 'Owned untracked plan must be captured, not lost or left blocking next Run'
             if case=='foreign-fix-plan':assert (h.tree/'.ai-factory/FIX_PLAN.md').read_text()=='Foreign fix plan bytes\n'
             actual_outputs={}
-            if live or review_mode == 'parallel-backend' and 'evidence' in state['output_artifacts']:
+            if live or review_mode in ('parallel-backend','parallel-ui-ux') and 'evidence' in state['output_artifacts']:
                 for port,reference in state['output_artifacts'].items():
                     ref_file=root/(port+'-ref.json');out_file=root/(port+'-export.json');ref_file.write_text(json.dumps(reference))
                     h.call('artifact','export','--ref',ref_file,'--output',out_file)
@@ -566,11 +574,13 @@ def run_case(binary, case, host='codex-cli', library=None, live=False, artifacts
                     'steps':names,'rounds':h.rounds,'plan_captures':h.plan_captures,'elapsed_seconds':round(time.monotonic()-h.started_at,3),'cleaned':True,
                     'review_mode':review_mode,'parallel_fault':parallel_fault,'parallel_batches':h.parallel_batches,
                     'parallel_observations':h.parallel_observations,
-                    **({'parallel_outputs':actual_outputs} if review_mode=='parallel-backend' else {}),
+                    **({'parallel_outputs':actual_outputs} if review_mode in ('parallel-backend','parallel-ui-ux') else {}),
                     **({'observations':h.observations,'outputs':actual_outputs} if live else
-                       {'browser_observations':h.observations} if library else {})}
+                       {'browser_observations':h.observations} if library else {}),
+                    **(h.extra_result() if hasattr(h,'extra_result') else {})}
         finally:
             if h:
+                if hasattr(h,'cleanup_fixture'): h.cleanup_fixture()
                 for env in h.envs:env.close()
             runs=list(dict.fromkeys(runs+[r['run_id'] for r in verify.run(binary,'--project',authority,'run','list')['runs']]))
             try:

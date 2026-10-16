@@ -1,0 +1,53 @@
+authoring: prifly-step/2
+id: aif-feature:step/frontend-environment
+version: 1.0.0
+title: Owned parallel UI/UX frontend-environment
+kind: worker
+inputs:
+  configuration:
+    schema_ref: '{{schema_configuration}}'
+  candidate:
+    schema_ref: '{{schema_candidate}}'
+  browser_adapter:
+    schema_ref: '{{schema_browser-adapter}}'
+  ui:
+    schema_ref: '{{schema_request}}'
+  ux:
+    schema_ref: '{{schema_request}}'
+outputs:
+  environment:
+    schema_ref: '{{schema_environment}}'
+    required_for:
+    - pass
+    - blocked
+    - needs_revision
+  ui_session:
+    schema_ref: '{{schema_browser-session}}'
+    required_for:
+    - pass
+    - blocked
+    - needs_revision
+  ux_session:
+    schema_ref: '{{schema_browser-session}}'
+    required_for:
+    - pass
+    - blocked
+    - needs_revision
+executor:
+  adapter_ref: '{{session}}'
+  operation: session
+effects:
+  class: external_write
+  retry_class: reconcile_required
+result_schema_ref: '{{result_v2}}'
+repository_workspace: read_only
+instructions_ref: '{{context_feature-frontend-environment}}'
+session_limits:
+  active_timeout_ms: null
+external_write:
+  system: project-test-environment
+  operations:
+  - ensure
+  target: Only the ephemeral environment named by sealed configuration.environment.owner and its exact owned receipt.session
+context_refs:
+- '{{context_parallel-adapter-contract}}'

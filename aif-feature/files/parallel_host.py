@@ -21,6 +21,8 @@ import evidence as w1
 import parallel_reports as transport
 
 PROTOCOL = 'aif-feature-parallel-host/1'
+ADAPTER_FILES = ('parallel_host.py', 'parallel_reports.py', 'evidence.py', 'product.py',
+                 'browser_contract.py', 'frontend_host.py', 'frontend_quality.py')
 
 
 def verify_adapter(task):
@@ -35,8 +37,7 @@ def verify_adapter(task):
     if w1.digest(raw) != ref['digest']:
         raise w1.Invalid('Parallel adapter contract bytes differ from pinned context')
     contract = transport.strict_json(raw)
-    files = {'parallel_host.py': Path(__file__), 'parallel_reports.py': Path(transport.__file__),
-             'evidence.py': Path(w1.__file__)}
+    files = {name: Path(__file__).with_name(name) for name in ADAPTER_FILES}
     if contract.get('protocol') != PROTOCOL or set(contract.get('files', {})) != set(files):
         raise w1.Invalid('Unsupported parallel adapter contract')
     for name, path in files.items():
@@ -75,7 +76,7 @@ def role(task):
 
 def admission(binary, authority, host, codex='codex'):
     value = {'protocol': PROTOCOL, 'status': 'unavailable', 'host': host,
-             'reason': 'Only the explicit codex-cli dispatcher is qualified for backend review.'}
+             'reason': 'Only the explicit codex-cli independent-reader dispatcher is qualified.'}
     if host != 'codex-cli':
         return value
     try:
@@ -95,7 +96,7 @@ def admission(binary, authority, host, codex='codex'):
     return value
 
 
-def collect(binary, authority, task):
+def collect(binary, authority, task, readers=transport.READERS):
     """Export only manifest refs; encode original bytes, never serialize reports."""
     reference = task['context']['inputs']['manifest']['ref']
     expected = reference['digest']
@@ -105,7 +106,7 @@ def collect(binary, authority, task):
         if w1.digest(path.read_bytes()) != expected:
             raise w1.Invalid('Delivered manifest differs from its sealed digest')
         manifest = read(task, 'manifest')
-        refs = transport.report_refs(manifest)
+        refs = transport.report_refs(manifest, readers)
         entries = []
         with tempfile.TemporaryDirectory(prefix='sealed-reports-', dir=task['workspace']) as temporary:
             for branch, ref in refs.items():
@@ -120,7 +121,7 @@ def collect(binary, authority, task):
                     raise w1.Invalid('Exported report differs from its sealed digest')
                 entries.append({'branch': branch, 'ref': ref, 'raw_base64': base64.b64encode(raw).decode('ascii')})
         bundle = {'schema_version': '1', 'manifest_digest': expected, 'status': 'ready', 'reason': '', 'reports': entries}
-        transport.unpack(manifest, expected, bundle)
+        transport.unpack(manifest, expected, bundle, readers)
         return bundle
     except (ValueError, OSError, KeyError, TypeError, subprocess.SubprocessError) as error:
         return transport.unavailable(expected, error)
@@ -134,7 +135,7 @@ def submit_values(binary, authority, task, values):
         raw = w1.encoded(value) + b'\n'
         path.write_bytes(raw)
         template['result']['outputs'][port]['digest'] = w1.digest(raw)
-    ready = all(value.get('status') == 'ready' for value in values.values())
+    ready = all(value.get('status') in ('ready', 'released', 'not_needed') for value in values.values())
     template['result'].update(verdict='pass' if ready else 'blocked', summary='Exact host adapter output; no quality verdict chosen.')
     template['answered_questions'] = []
     path = Path(task['workspace']) / 'host-adapter-submission.json'
@@ -142,7 +143,7 @@ def submit_values(binary, authority, task, values):
     call(binary, authority, 'session', 'submit', '--file', path)
 
 
-def reader(task, codex, destination, timeout):
+def reader(task, codex, destination, timeout, extra_instructions=''):
     """One fresh, bounded CLI actor; it gets no authority handle or writer role."""
     workspace = Path(task['workspace'])
     prompt = '''Execute exactly one read-only Pri-Fly reader Attempt. Read parallel-task.json,
@@ -162,7 +163,7 @@ Write the report in its output slot, calculate the exact SHA-256 and write a nat
 submission to parallel-submission.json. Do not submit it: controller submits unchanged.
 Commands retain sandbox and automatic review. If bwrap blocks a scoped command,
 request require_escalated for that exact command; a rejection means unavailable.
-'''
+''' + extra_instructions
     (destination / 'prompt.txt').write_text(prompt)
     command = [str(codex), 'exec', '--ephemeral', '--json', '--approve-for-me', '--add-dir', task['repository_workspace'],
                '-C', str(workspace), '--skip-git-repo-check', '-o', str(workspace / 'parallel-final.txt'), '-']
@@ -208,11 +209,12 @@ request require_escalated for that exact command; a rejection means unavailable.
             'report_digest': w1.digest(report.read_bytes()), 'events_digest': w1.digest((destination / 'events.jsonl').read_bytes())}
 
 
-def dispatch(binary, authority, tasks, *, codex='codex', artifacts, timeout=600):
+def dispatch(binary, authority, tasks, *, codex='codex', artifacts, timeout=600,
+             readers=transport.READERS, instructions=None, before_submit=None):
     """Wait for every actor before any submission; no repair or unknown-effect retry."""
-    tasks = sorted(tasks, key=lambda t: transport.READERS.index(role(t)) if role(t) in transport.READERS else 99)
-    if [role(t) for t in tasks] != list(transport.READERS):
-        raise w1.Invalid('Dispatcher requires exactly the security/review pair')
+    tasks = sorted(tasks, key=lambda t: readers.index(role(t)) if role(t) in readers else 99)
+    if [role(t) for t in tasks] != list(readers):
+        raise w1.Invalid('Dispatcher requires exactly the selected reader pair')
     for task in tasks:
         verify_adapter(task)
     if (len({t['run_id'] for t in tasks}) != 1 or len({t['attempt_id'] for t in tasks}) != 2
@@ -242,12 +244,14 @@ def dispatch(binary, authority, tasks, *, codex='codex', artifacts, timeout=600)
         (workspace / 'parallel-task.json').write_bytes(w1.encoded(task))
         (workspace / 'parallel-template.json').write_bytes(w1.encoded(template))
     with ThreadPoolExecutor(max_workers=2) as pool:
-        futures = [pool.submit(reader, task, codex, destination, timeout) for task,destination in zip(tasks,destinations)]
+        futures = [pool.submit(reader, task, codex, destination, timeout, (instructions or {}).get(role(task), ''))
+                   for task,destination in zip(tasks,destinations)]
         observations = [future.result() for future in futures]
     if len({o['session_id'] for o in observations}) != 2:
         raise w1.Invalid('Host reused a reader session')
     if w1.snapshot(tasks[0]['repository_workspace'], basis['base_commit']) != before:
         raise w1.Invalid('Read-only actor changed candidate; preserve work and use native recovery')
+    if before_submit: before_submit(tasks, observations)
     for observation in observations:
         call(binary, authority, 'session', 'submit', '--file', observation['submission'])
     return observations
@@ -256,11 +260,18 @@ def dispatch(binary, authority, tasks, *, codex='codex', artifacts, timeout=600)
 def service(binary, authority, tasks, *, host, codex='codex', artifacts=None):
     """One handoff batch. False means the normal host must handle these tasks."""
     roles = [role(t) for t in tasks]
+    if any(r in ('frontend-environment', 'frontend-release', 'collect-uiux', 'ui', 'ux') for r in roles):
+        import frontend_host
+        return frontend_host.service(binary, authority, tasks, host=host, codex=codex, artifacts=artifacts)
     if roles == ['parallel-admission']:
         try:
             verify_adapter(tasks[0])
             value = admission(binary, authority, host, codex)
-        except (ValueError, OSError, KeyError, TypeError) as error:
+            if read(tasks[0], 'review_mode') == 'parallel-ui-ux' and value['status'] == 'ready':
+                import frontend_host
+                frontend_host.admit(binary, authority, tasks[0], artifacts)
+                value['reason'] += '; reviewed isolated browser adapter is ready'
+        except (ValueError, OSError, KeyError, TypeError, subprocess.SubprocessError) as error:
             value = {'protocol': PROTOCOL, 'status': 'unavailable', 'host': host, 'reason': str(error)[:4000]}
         submit_values(binary, authority, tasks[0], {'admission': value})
         return {'handled': True, 'role': roles[0]}

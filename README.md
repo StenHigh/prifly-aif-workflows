@@ -74,7 +74,10 @@ UI/UX-проверки в браузере. По умолчанию допуск
 после обычных проверок безопасность и code review выполняются в отдельных
 CLI-сессиях, затем workflow ждёт обоих перед решением об исправлении.
 Нужны Pri-Fly 0.13.77 и подключённый host adapter. По умолчанию маршрут остаётся
-последовательным; параллельный UI/UX пока не поддерживается.
+последовательным. Для frontend есть отдельный opt-in `parallel-ui-ux`: UI и UX
+работают в свежих CLI-сессиях с отдельными browser contexts и identities после
+обычных проверок и code review. Нужен проверенный адаптер проекта;
+[подключение и ограничения](docs/parallel-ui-ux.md).
 [Настройка и границы](aif-feature/README.md#опциональное-параллельное-backend-ревью).
 
 Этот репозиторий — workflow repository для каталога
@@ -414,8 +417,8 @@ AI Factory runtime и LLM не нужны ни одной проверке. GitH
 
 Отдельная [квалификация параллельного UI/UX](docs/changes/qualify-parallel-implementation-review/frontend-qualification.md)
 проверяет browser contexts, тестовые identities, порты, cleanup и отмену на
-Pri-Fly 0.13.77. Это тестовая композиция: frontend в `aif-feature` остаётся
-последовательным. Общий стенд с native resource `limit: 1` для параллельной пары
+Pri-Fly 0.13.77. Подключение к полному `aif-feature` описано в
+[guide](docs/parallel-ui-ux.md); default остаётся последовательным. Общий стенд с native resource `limit: 1` для параллельной пары
 не подходит, потому что лимит считает активные Attempts одного Run.
 
 ## Backlog

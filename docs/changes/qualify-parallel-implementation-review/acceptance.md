@@ -210,3 +210,11 @@ CI привязан к implementation SHA выше; последующий bookk
   files совпадают с baseline 942269b; закреплены собственные qualification sources.
 - [validation-results.json](validation-results.json): static7/version3/derive и
   parse новых entry points; [ci-results.json](ci-results.json) — exact full CI.
+
+## Frontend consumer1.2.0: новая приёмка
+
+Исторические fixture/backend результаты выше не являются frontend consumer PASS.
+Новая [composition](feature-uiux-composition.md) и evidence `feature-uiux-*`
+разделяют 33-case deterministic browser matrix, actual independent CLI UI/UX
+и полный CI. Scope только explicit codex-cli + isolated owned loopback adapter;
+App/Claude, разные модели и unknown external-write recovery не квалифицированы.

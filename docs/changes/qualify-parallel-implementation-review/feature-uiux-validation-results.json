@@ -1,0 +1,39 @@
+{
+  "prifly": "0.13.77",
+  "binary_sha256": "sha256:d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa",
+  "unit_tests": {
+    "frontend_parallel": 12,
+    "parallel_reports": 12,
+    "feature": 8,
+    "product_review": 14,
+    "versions": 3,
+    "folders": 7
+  },
+  "unit_outcome": "passed",
+  "install_update": {
+    "outcome": "passed",
+    "catalog": "local unpublished fixture",
+    "installed_bytes": "matched",
+    "project_overlay": "preserved",
+    "extend": "preserved",
+    "local_edit": "refused"
+  },
+  "full_new_browser_matrix": "running; not claimed passed yet",
+  "full_legacy_local_matrix": "intentionally interrupted after smoke successes to avoid competing with live UI/UX; not a full PASS",
+  "full_legacy_gate": "retained unchanged in CI",
+  "qualification_sources": {
+    "tests/probes/feature_uiux_check.py": "sha256:20bdfdf12bce4ac49496e35244683b47e33bdbd7af04dbcb5ff3f91b832f5f10",
+    "tests/test_frontend_parallel.py": "sha256:8d903803216d48718170009cf55a21a6275b94177682ef6f7d5fd61bbaf8a7e9",
+    "tests/probes/feature_check.py": "sha256:5b803561e7a216138f0a47ed1e9a31355ad8c1f236d7e2e2ecddb1da7c4b688d",
+    "tests/fixtures/feature-browser/adapter.py": "sha256:f2110375d0e6d67d967c2ac5ddd603fa988de980af195e74bfa45336d211c2f1",
+    "tests/fixtures/feature-browser/browser.cjs": "sha256:6062a9a854eb5d7fcec2add7613c3966e61a88c7b7fb95f98308abe51bc63a94",
+    "tests/fixtures/feature-browser/tool-lock.json": "sha256:3b61dc353436423a0af3dc6a0c047079dba90029f07002c2c9dac652f769734a"
+  },
+  "known_limits": [
+    "explicit codex-cli only",
+    "reviewed owned-loopback project adapter",
+    "no independent model attestation",
+    "unknown external-write effects require reconciliation",
+    "live actor statements do not machine-attest visual judgement"
+  ]
+}

@@ -1,12 +1,8 @@
 id: aif-feature:context/feature-parallel-admission
-version: 1.0.0
+version: 1.2.0
 media_type: text/markdown; charset=utf-8
-text: This is a host capability handoff, not a product reviewer. Before any parallel reader is dispatched, the existing
-  host controller must use the shipped files/parallel_host.py adapter on released Pri-Fly >=0.13.77. Only its codex-cli
-  independent-session dispatcher is supported in this change. Report protocol aif-feature-parallel-host/1, status
-  ready, host codex-cli only when that dispatcher is actually available and the controller will invoke it for both
-  readers. A model's ability to imagine concurrent tasks is not a capability. If the host cannot run the adapter,
-  return blocked with status unavailable and the actual reason; never silently serialize the requested parallel
-  mode or claim another host is qualified. Do not start readers, other workflows, mutate code or authority, install
-  tools or change settings here. The trusted controller submits the exact adapter output through session submit
-  --template; answered_questions=[] if none. No model profile is requested.
+text: Before plan/writers, the reviewed controller verifies its sealed source contract. Backend needs the explicit
+  codex-cli pair adapter. parallel-ui-ux additionally requires the sealed reviewed project browser adapter, available
+  browser, owned artifact root, isolated loopback lifecycle/identities/contexts, null shared_resource and no quality
+  resource with fewer than two Attempt slots. Unavailable capability rejects this requested mode, without fallback
+  or setup.

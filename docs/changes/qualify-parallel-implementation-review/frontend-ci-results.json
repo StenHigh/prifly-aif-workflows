@@ -2,10 +2,10 @@
   "implementation_commit": "0bdc6320b8017ca353dc43091dad4b425cec44c1",
   "run_id": 38836777994,
   "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38836777994",
-  "observed_utc": "2026-10-16T01:55:26.085749+00:00",
-  "status": "in_progress",
-  "conclusion": "",
-  "full_ci_pass_claimed": false,
+  "observed_utc": "2026-10-16T02:37:55.879281+00:00",
+  "status": "completed",
+  "conclusion": "success",
+  "full_ci_pass_claimed": true,
   "qualified_job": {
     "completedAt": "2026-10-16T01:46:43Z",
     "conclusion": "success",
@@ -375,12 +375,12 @@
   "definitions_per_host": 14,
   "all_jobs": [
     {
-      "completedAt": "0001-01-01T00:00:00Z",
-      "conclusion": "",
+      "completedAt": "2026-10-16T02:27:56Z",
+      "conclusion": "success",
       "databaseId": 116767571466,
       "name": "verify",
       "startedAt": "2026-10-16T01:44:58Z",
-      "status": "in_progress",
+      "status": "completed",
       "steps": [
         {
           "conclusion": "success",
@@ -515,58 +515,70 @@
           "status": "completed"
         },
         {
-          "conclusion": "",
+          "conclusion": "success",
           "name": "Small feature direct, repaired, stopped and resumed Runs",
           "number": 23,
-          "status": "in_progress"
+          "status": "completed"
         },
         {
-          "conclusion": "",
+          "conclusion": "success",
           "name": "Whole feature parallel review, sealed reports and full-round replay",
           "number": 24,
-          "status": "pending"
+          "status": "completed"
         },
         {
-          "conclusion": "",
+          "conclusion": "success",
           "name": "Exact merged acceptance, explicit local integration and offline publication",
           "number": 25,
-          "status": "pending"
+          "status": "completed"
         },
         {
-          "conclusion": "",
+          "conclusion": "success",
           "name": "Parallel readers, all-join barriers and whole-round recovery",
           "number": 26,
-          "status": "pending"
+          "status": "completed"
         },
         {
-          "conclusion": "",
+          "conclusion": "success",
           "name": "Run actions/setup-node@v4",
           "number": 27,
-          "status": "pending"
+          "status": "completed"
         },
         {
-          "conclusion": "",
+          "conclusion": "success",
           "name": "Install the exact browser fixture tool",
           "number": 28,
-          "status": "pending"
+          "status": "completed"
         },
         {
-          "conclusion": "",
+          "conclusion": "success",
           "name": "Real browser scenarios, defects, repair and cancellation",
           "number": 29,
-          "status": "pending"
+          "status": "completed"
         },
         {
-          "conclusion": "",
+          "conclusion": "success",
           "name": "Small frontend feature with real browser and full quality replay",
           "number": 30,
-          "status": "pending"
+          "status": "completed"
         },
         {
-          "conclusion": "",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-node@v4",
+          "number": 59,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
           "name": "Post Run actions/checkout@v4",
           "number": 60,
-          "status": "pending"
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 61,
+          "status": "completed"
         }
       ],
       "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38836777994/job/116767571466"
@@ -648,5 +660,7 @@
     "head_sha": "d515a856b985a12b2dbb6c519b0f1b13348003a9",
     "conclusion": "success",
     "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38833536583"
-  }
+  },
+  "full_log_sha256": "e7b9aabe9aded93da3c86e477f7d6f5aa54bad6539f46a53944370074ab13af2",
+  "full_log_bytes": 248370
 }

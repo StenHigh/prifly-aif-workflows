@@ -57,3 +57,8 @@ Host-specific ограничения фиксируются, не выдаютс
   measurements не заменяется заявлением об экономии.
 
 Детали: [design.md](design.md). Работы: [tasks.md](tasks.md).
+
+Frontend consumer1.2.0 с independent CLI UI/UX и pinned project adapter описан
+в [отдельной приёмке](feature-uiux-composition.md); evidence `feature-uiux-*`
+не смешивается с историческим browser prototype. Default sequential и остальные
+шесть пакетов сохранены.

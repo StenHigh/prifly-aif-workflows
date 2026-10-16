@@ -1,0 +1,44 @@
+authoring: prifly-step/1
+id: aif-feature:step/aggregate-uiux
+version: 1.0.0
+title: Aggregate feature and validated parallel product evidence
+kind: worker
+inputs:
+  task:
+    schema_ref: '{{schema_task}}'
+  implementation:
+    schema_ref: '{{schema_implementation}}'
+  candidate:
+    schema_ref: '{{schema_candidate}}'
+  round:
+    schema_ref: '{{schema_round}}'
+  checks_request:
+    schema_ref: '{{schema_request}}'
+  checks_report:
+    schema_ref: '{{schema_report}}'
+  security_request:
+    schema_ref: '{{schema_request}}'
+  security_report:
+    schema_ref: '{{schema_report}}'
+  review_request:
+    schema_ref: '{{schema_request}}'
+  review_report:
+    schema_ref: '{{schema_report}}'
+  product_evidence:
+    schema_ref: '{{schema_uiux-evidence}}'
+outputs:
+  gate:
+    schema_ref: '{{schema_feature-gate}}'
+    required_for:
+    - pass
+  evidence:
+    schema_ref: '{{schema_evidence}}'
+    required_for:
+    - pass
+executor:
+  adapter_ref: '{{process}}'
+  operation: process
+effects:
+  class: none
+  retry_class: never
+result_schema_ref: '{{result}}'

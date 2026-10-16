@@ -7,13 +7,13 @@ from verify import HOSTS, ROOT, STEP_VERDICTS, compile_package, run
 def check_feature(binary, authority, repository, root):
     result, documents=compile_package(binary,authority,repository,'aif-feature',root/'feature')
     assert result['package']['id']=='aif-feature:package/feature'
-    assert len(documents)==31
+    assert len(documents)==45
     graph=documents['aif-feature:workflow/feature']
     assert graph['resumable']=={'from_outcomes':['partial','rejected'],'from_cancelled':True}
     assert set(graph['outputs'])=={'implementation','result','plan','gate','evidence'}
     assert not any('/fix' in key or '/improve' in key or '/challenge' in key for key in documents)
     assert graph['limits']['max_step_instances']>=118
-    assert graph['limits']['max_child_depth']==5
+    assert graph['limits']['max_child_depth']==7
     assert graph['inputs']['review_mode']['configuration']['default']=='sequential'
     assert graph['definition']['stages']['configure']['on']['pass']=='review-mode'
     assert graph['definition']['stages']['parallel-admission']['on']['blocked']=='abandoned'
@@ -23,6 +23,23 @@ def check_feature(binary, authority, repository, root):
     assert fanout['kind']=='parallel' and fanout['max_parallelism']==2
     assert fanout['join']=={'mode':'all','accept_outcomes':['succeeded'],'selection':'all','remainder':'wait'}
     assert [b['id'] for b in fanout['branches']]==['security','review']
+    assert graph['inputs']['browser_adapter']['configuration']['default'] is None
+    pair=documents['aif-feature:workflow/parallel-uiux']['definition']['stages']['readers']
+    assert pair['join']==fanout['join'] and pair['max_parallelism']==2
+    assert [b['id'] for b in pair['branches']]==['ui','ux']
+    for lens in ('ui','ux'):
+        reader=documents['aif-feature:step/parallel-'+lens]
+        assert reader['repository_workspace']=='read_only' and reader['effects']['class']=='none'
+        assert 'browser_session' in reader['inputs']
+        assert 'ui_session' not in reader['inputs'] and 'ux_session' not in reader['inputs']
+    product=documents['aif-feature:workflow/product-parallel']['definition']['stages']
+    assert product['reviews']['on']['succeeded']=='release'
+    assert product['release']['on']['pass']=='finalize'
+    reviews=documents['aif-feature:workflow/product-review']['definition']['stages']
+    assert reviews['readers']['on_error']=='diagnostic'
+    assert reviews['evaluate']['on_error']=='diagnostic'
+    assert reviews['diagnostic']['on']['pass']=='unavailable'
+    assert documents['aif-feature:step/collect-uiux'].get('repository_workspace')==documents['aif-feature:step/configure'].get('repository_workspace')
     round_graph=documents['aif-feature:workflow/quality-round']['definition']['stages']
     assert round_graph['checks']['on']['pass']=='review-mode'
     assert round_graph['parallel-reviews']['on_error']=='abandoned'
@@ -31,11 +48,11 @@ def check_feature(binary, authority, repository, root):
     binding=round_graph['repair-parallel']['input_bindings']['gate']
     assert binding['from']=='stage_output' and binding['stage_id']=='aggregate-parallel' and binding['port']=='gate'
     contract={'protocol':'aif-feature-parallel-host/1','files':{name:'sha256:'+hashlib.sha256((ROOT/'aif-feature/files'/name).read_bytes()).hexdigest()
-              for name in ('parallel_host.py','parallel_reports.py','evidence.py')}}
+              for name in ('parallel_host.py', 'parallel_reports.py', 'evidence.py', 'product.py', 'browser_contract.py', 'frontend_host.py', 'frontend_quality.py')}}
     pinned=next(x['ref'] for x in result['components'] if x['ref']['id']=='aif-feature:context/parallel-adapter-contract')
     assert pinned['digest']=='sha256:'+hashlib.sha256((json.dumps(contract,sort_keys=True)+'\n').encode()).hexdigest()
     acceptance=documents['aif-feature:workflow/quality']
-    assert acceptance['limits']['max_step_instances']==114
+    assert acceptance['limits']['max_step_instances']==122
     assert 'commit' in acceptance['definition']['stages'] and 'commit' not in graph['definition']['stages']
     assert acceptance['definition']['stages']['round']['on_complete']['succeeded']=='guard'
     snapshot=next(x['ref'] for x in result['components'] if x['ref']['id']=='aif-feature:context/candidate-snapshot')

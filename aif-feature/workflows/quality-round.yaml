@@ -1,7 +1,7 @@
 authoring: prifly-workflow/1
 schema_version: '6'
 id: aif-feature:workflow/quality-round
-version: 1.1.0
+version: 1.2.0
 title: Bounded feature quality-round
 refs:
   policy: '{{policy}}'
@@ -28,6 +28,9 @@ refs:
   step_collect_reviews: '{{step_collect-reviews}}'
   step_aggregate_parallel: '{{step_aggregate-parallel}}'
   workflow_parallel_reviews: '{{workflow_parallel-reviews}}'
+  schema_browser_adapter: '{{schema_browser-adapter}}'
+  workflow_product_parallel: '{{workflow_product-parallel}}'
+  step_aggregate_uiux: '{{step_aggregate-uiux}}'
 inputs:
   task: schema_task
   handoff: schema_warmup-handoff
@@ -37,6 +40,7 @@ inputs:
   limit: schema_round-limit
   surface: schema_surface
   review_mode: schema_review_mode
+  browser_adapter: schema_browser_adapter
 outputs:
   implementation:
     schema_ref: schema_implementation
@@ -75,10 +79,10 @@ outputs:
     - partial
     - rejected
 limits:
-  max_step_instances: 14
+  max_step_instances: 15
   max_control_transitions: 138
   max_parallelism: 2
-  max_child_depth: 3
+  max_child_depth: 5
 policy_ref: policy
 entry: begin
 stages:
@@ -90,6 +94,7 @@ stages:
       implementation: $inputs.implementation
       round: $inputs.round
       review_mode: $inputs.review_mode
+      browser_adapter: $inputs.browser_adapter
     'on':
       pass: capture
       needs_revision: abandoned
@@ -160,7 +165,7 @@ stages:
         op: eq
         left: $inputs.surface
         right: frontend
-      next: product
+      next: product-mode
     default: aggregate-backend
   product:
     kind: call
@@ -565,3 +570,144 @@ stages:
     default: unresolved-parallel
     kind: choice
     selection: first_match
+  product-mode:
+    kind: choice
+    selection: first_match
+    branches:
+    - id: parallel-ui-ux
+      predicate:
+        op: eq
+        left: $inputs.review_mode
+        right: parallel-ui-ux
+      next: product-parallel
+    default: product
+  product-parallel:
+    kind: call
+    workflow_ref: workflow_product_parallel
+    input_bindings:
+      configuration: $stages.begin.configuration
+      candidate: $stages.capture.candidate
+      ui: $stages.begin.ui
+      ux: $stages.begin.ux
+      browser_adapter: $inputs.browser_adapter
+    'on':
+      succeeded: aggregate-uiux
+      partial: aggregate-uiux
+      rejected: abandoned
+  aggregate-uiux:
+    kind: step
+    step_ref: step_aggregate_uiux
+    input_bindings:
+      task: $inputs.task
+      implementation: $inputs.implementation
+      candidate: $stages.capture.candidate
+      round: $stages.begin.round
+      checks_request: $stages.begin.checks_request
+      checks_report: $stages.checks.report
+      security_request: $stages.begin.security_request
+      security_report: $stages.security.report
+      review_request: $stages.begin.review_request
+      review_report: $stages.review.report
+      product_evidence: $stages.product-parallel.evidence
+    'on':
+      pass: decide-uiux
+      needs_revision: abandoned
+      fail: abandoned
+      no_work: abandoned
+    impossible_verdicts:
+    - blocked
+  decide-uiux:
+    kind: choice
+    selection: first_match
+    branches:
+    - id: unavailable
+      predicate:
+        op: eq
+        left: $stages.aggregate-uiux.gate#/status
+        right: blocked
+      next: standing-uiux
+    - id: owner
+      predicate:
+        op: eq
+        left: $stages.aggregate-uiux.gate#/blocking_owner_only
+        right: true
+      next: standing-uiux
+    - id: clean
+      predicate:
+        op: eq
+        left: $stages.aggregate-uiux.gate#/blocking
+        right: false
+      next: passed-uiux
+    - id: limit
+      predicate:
+        op: eq
+        left: $stages.begin.round
+        right: $inputs.limit
+      next: standing-uiux
+    default: repair-uiux
+  repair-uiux:
+    kind: step
+    step_ref: step_repair
+    input_bindings:
+      task: $inputs.task
+      handoff: $inputs.handoff
+      implementation: $inputs.implementation
+      result: $inputs.result
+      gate: $stages.aggregate-uiux.gate
+    'on':
+      pass: repair-ready-uiux
+      needs_revision: unresolved-uiux
+      blocked: unresolved-uiux
+      fail: unresolved-uiux
+      no_work: unresolved-uiux
+  passed-uiux:
+    kind: finish
+    outcome: succeeded
+    output_bindings:
+      implementation: $inputs.implementation
+      result: $inputs.result
+      round: $stages.begin.round
+      gate: $stages.aggregate-uiux.gate
+      evidence: $stages.aggregate-uiux.evidence
+      candidate: $stages.capture.candidate
+  standing-uiux:
+    kind: finish
+    outcome: rejected
+    output_bindings:
+      implementation: $inputs.implementation
+      result: $inputs.result
+      round: $stages.begin.round
+      gate: $stages.aggregate-uiux.gate
+      evidence: $stages.aggregate-uiux.evidence
+      candidate: $stages.capture.candidate
+  fixed-uiux:
+    kind: finish
+    outcome: partial
+    output_bindings:
+      implementation: $stages.repair-uiux.implementation
+      result: $stages.repair-uiux.result
+      round: $stages.begin.round
+      gate: $stages.aggregate-uiux.gate
+      evidence: $stages.aggregate-uiux.evidence
+      candidate: $stages.capture.candidate
+  unresolved-uiux:
+    kind: finish
+    outcome: rejected
+    output_bindings:
+      implementation: $stages.repair-uiux.implementation
+      result: $stages.repair-uiux.result
+      round: $stages.begin.round
+      gate: $stages.aggregate-uiux.gate
+      evidence: $stages.aggregate-uiux.evidence
+      candidate: $stages.capture.candidate
+  repair-ready-uiux:
+    kind: choice
+    selection: first_match
+    branches:
+    - id: implemented
+      predicate:
+        op: eq
+        left: $stages.repair-uiux.result#/outcome
+        right: implemented
+      next: fixed-uiux
+    default: unresolved-uiux

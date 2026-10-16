@@ -1,11 +1,15 @@
 authoring: prifly-step/2
 id: aif-feature:step/parallel-admission
-version: 1.0.0
+version: 1.2.0
 title: Admit independent CLI review host
 kind: worker
 inputs:
   review_mode:
     schema_ref: '{{schema_review-mode}}'
+  task:
+    schema_ref: '{{schema_task}}'
+  browser_adapter:
+    schema_ref: '{{schema_browser-adapter}}'
 outputs:
   admission:
     schema_ref: '{{schema_parallel-admission}}'

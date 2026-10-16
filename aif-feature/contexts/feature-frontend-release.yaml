@@ -1,0 +1,7 @@
+id: aif-feature:context/feature-frontend-release
+version: 1.0.0
+media_type: text/plain; charset=utf-8
+text: 'Reviewed host controller only: use frontend_host.release with exact native environment receipt and owned
+  journal. All actual UI/UX actors and native reader Attempts must be settled first. Release only exact owner/session
+  through the pinned adapter, preserving intent and blocked/reconcile_required receipts. No blanket cleanup, repair,
+  implicit retry or native Run control.'

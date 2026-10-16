@@ -10,12 +10,36 @@
 
 Ворота выверены против выпущенного Pri-Fly `v0.13.77`.
 
+- **W5 frontend composition, текущая работа (2026-10-16):** aif-feature1.2.0,
+  opt-in `parallel-ui-ux`; default sequential/backend parallel сохранены.
+  Только пакет feature + tests/CI/docs; 233 tracked файла остальных шести
+  пакетов побайтно совпадают с f95f2c4, Core/classic/profiled не менялись.
+  Configure/admission до writers, pinned project browser descriptor, UI||UX
+  с разными sealed grants/context/identity, all/wait и original raw collection.
+  Checks/security/code review sequential; общий capture, cleanup до repair/commit.
+  Quality122/root128/depth7; diagnostic error boundary не обходит cleanup.
+  Latest stable повторно проверен:0.13.77, новых нет. Compile120/79/7 PASS,
+  unit frontend12/transport12/feature8/product14 PASS, install/update PASS.
+  Actual CLI UI/UX: repair-ui succeeded,4 уникальные sessions/2 pairs,
+  original reports/submissions/event/PNG hashes проверены, final native bundle
+  bytes совпадают; cleanup обоих окружений и guard/commit PASS. Author/repair
+  и checks/security/review synthetic; другая модель/OS isolation не заявляются.
+  Критическая native/browser matrix8/8 PASS (cancel before/after-first/active
+  browser, timeout sibling/replay, evaluate failure, cleanup interrupted/foreign,
+  owner stop). Полная matrix33 выполняется; полные legacy local matrices
+  прерваны намеренно после smoke, чтобы не перегружать live Run. Полный legacy
+  gate сохранён в CI; ни его локальный PASS, ни новый CI пока не заявляются.
+  Guide: docs/parallel-ui-ux.md; evidence prefix feature-uiux-*, прежние
+  frontend-* описывают исторический prototype. Implementation checkpoint
+  готовится к commit/push; последующий bookkeeping сохранит полную matrix/CI.
+
 - **W5: parallel UI/UX, отдельная browser qualification (2026-10-16):**
   Implementation0bdc6320b8017ca353dc43091dad4b425cec44c1 committed/pushed main.
   Новый CI38836777994: job parallel-ui-ux SUCCESS,17 actual case lines verified,
   log SHA2568d1dad33c83e141a88b7e4531a037e075e07d9ba04f53c9f32ec4206ec6657b3;
   https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38836777994/job/116767571808.
-  Полный новый legacy verify job ещё выполняется; full CI PASS не заявлен.
+  Полный CI38836777994 теперь SUCCESS на0bdc632 (verify и parallel-ui-ux);
+  terminal jobs/full log hash записаны в frontend-ci-results.json.
   frontend-ci-results.json хранит exact-SHA job/log/case evidence. Bookkeeping
   после implementation меняет только docs, executable sources прежние.
   Latest stable в начале задачи по gh release list —0.13.77, новых нет.

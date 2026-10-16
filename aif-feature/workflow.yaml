@@ -1,7 +1,7 @@
 authoring: prifly-project-workflow/1
 schema_version: '8'
 id: aif-feature:workflow/feature
-version: 1.1.0
+version: 1.2.0
 title: Bounded feature feature
 refs:
   policy: '{{policy}}'
@@ -20,6 +20,7 @@ refs:
   schema_review_mode: '{{schema_review-mode}}'
   schema_parallel_admission: '{{schema_parallel-admission}}'
   step_parallel_admission: '{{step_parallel-admission}}'
+  schema_browser_adapter: '{{schema_browser-adapter}}'
 inputs:
   task: schema_task
   surface:
@@ -34,6 +35,12 @@ inputs:
     configuration:
       scope: project
       default: sequential
+  browser_adapter:
+    schema_ref: schema_browser_adapter
+    required: false
+    configuration:
+      scope: project
+      default: null
 outputs:
   implementation:
     schema_ref: schema_implementation
@@ -58,7 +65,7 @@ limits:
   max_step_instances: 128
   max_control_transitions: 936
   max_parallelism: 2
-  max_child_depth: 5
+  max_child_depth: 7
 policy_ref: policy
 entry: warmup
 stages:
@@ -81,6 +88,7 @@ stages:
       surface: $inputs.surface
       implementation: $stages.warmup.implementation
       review_mode: $inputs.review_mode
+      browser_adapter: $inputs.browser_adapter
     'on':
       pass: review-mode
       needs_revision: abandoned
@@ -148,6 +156,7 @@ stages:
       round: $stages.configure.round
       surface: $inputs.surface
       review_mode: $inputs.review_mode
+      browser_adapter: $inputs.browser_adapter
     'on':
       succeeded: done
       partial: quality-stopped
@@ -198,12 +207,20 @@ stages:
         left: $inputs.review_mode
         right: parallel-backend
       next: parallel-admission
+    - id: parallel-ui-ux
+      predicate:
+        op: eq
+        left: $inputs.review_mode
+        right: parallel-ui-ux
+      next: parallel-admission
     default: plan
   parallel-admission:
     kind: step
     step_ref: step_parallel_admission
     input_bindings:
       review_mode: $inputs.review_mode
+      task: $inputs.task
+      browser_adapter: $inputs.browser_adapter
     'on':
       pass: parallel-ready
       needs_revision: abandoned
@@ -223,8 +240,8 @@ stages:
     default: abandoned
 package:
   id: aif-feature:package/feature
-  version: 1.1.0
-  description: Native fast plan and bounded acceptance; sequential by default, opt-in independent backend review.
+  version: 1.2.0
+  description: 'Bounded small feature: sequential default, explicit parallel backend or isolated UI/UX review.'
   requires_core_protocol: '1'
   profiles:
     default: backend
@@ -305,6 +322,7 @@ execution_bindings:
         evidence.py: files/evidence.py
         product.py: files/product.py
         parallel_reports.py: files/parallel_reports.py
+        browser_contract.py: files/browser_contract.py
       timeout_ms: 120000
       grace_ms: 100
       max_output_bytes: 1048576
@@ -319,6 +337,7 @@ execution_bindings:
         evidence.py: files/evidence.py
         product.py: files/product.py
         parallel_reports.py: files/parallel_reports.py
+        browser_contract.py: files/browser_contract.py
       timeout_ms: 120000
       grace_ms: 100
       max_output_bytes: 1048576
@@ -333,6 +352,7 @@ execution_bindings:
         evidence.py: files/evidence.py
         product.py: files/product.py
         parallel_reports.py: files/parallel_reports.py
+        browser_contract.py: files/browser_contract.py
       timeout_ms: 120000
       grace_ms: 100
       max_output_bytes: 1048576
@@ -347,6 +367,7 @@ execution_bindings:
         evidence.py: files/evidence.py
         product.py: files/product.py
         parallel_reports.py: files/parallel_reports.py
+        browser_contract.py: files/browser_contract.py
       timeout_ms: 120000
       grace_ms: 100
       max_output_bytes: 1048576
@@ -361,6 +382,7 @@ execution_bindings:
         evidence.py: files/evidence.py
         product.py: files/product.py
         parallel_reports.py: files/parallel_reports.py
+        browser_contract.py: files/browser_contract.py
       timeout_ms: 120000
       grace_ms: 100
       max_output_bytes: 1048576
@@ -375,6 +397,7 @@ execution_bindings:
         evidence.py: files/evidence.py
         product.py: files/product.py
         parallel_reports.py: files/parallel_reports.py
+        browser_contract.py: files/browser_contract.py
       timeout_ms: 120000
       grace_ms: 100
       max_output_bytes: 1048576
@@ -389,6 +412,67 @@ execution_bindings:
         evidence.py: files/evidence.py
         product.py: files/product.py
         parallel_reports.py: files/parallel_reports.py
+        browser_contract.py: files/browser_contract.py
+      timeout_ms: 120000
+      grace_ms: 100
+      max_output_bytes: 1048576
+    aif-feature:step/evaluate-uiux:
+      executable: python
+      args:
+      - -B
+      - frontend_quality.py
+      - evaluate
+      files:
+        frontend_quality.py: files/frontend_quality.py
+        product.py: files/product.py
+        evidence.py: files/evidence.py
+        browser_contract.py: files/browser_contract.py
+        parallel_reports.py: files/parallel_reports.py
+      timeout_ms: 120000
+      grace_ms: 100
+      max_output_bytes: 1048576
+    aif-feature:step/diagnostic-uiux:
+      executable: python
+      args:
+      - -B
+      - frontend_quality.py
+      - diagnostic
+      files:
+        frontend_quality.py: files/frontend_quality.py
+        product.py: files/product.py
+        evidence.py: files/evidence.py
+        browser_contract.py: files/browser_contract.py
+        parallel_reports.py: files/parallel_reports.py
+      timeout_ms: 120000
+      grace_ms: 100
+      max_output_bytes: 1048576
+    aif-feature:step/finalize-uiux:
+      executable: python
+      args:
+      - -B
+      - frontend_quality.py
+      - finalize
+      files:
+        frontend_quality.py: files/frontend_quality.py
+        product.py: files/product.py
+        evidence.py: files/evidence.py
+        browser_contract.py: files/browser_contract.py
+        parallel_reports.py: files/parallel_reports.py
+      timeout_ms: 120000
+      grace_ms: 100
+      max_output_bytes: 1048576
+    aif-feature:step/aggregate-uiux:
+      executable: python
+      args:
+      - -B
+      - feature.py
+      - aggregate-uiux
+      files:
+        feature.py: files/feature.py
+        evidence.py: files/evidence.py
+        product.py: files/product.py
+        parallel_reports.py: files/parallel_reports.py
+        browser_contract.py: files/browser_contract.py
       timeout_ms: 120000
       grace_ms: 100
       max_output_bytes: 1048576

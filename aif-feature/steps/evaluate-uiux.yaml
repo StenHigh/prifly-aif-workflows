@@ -1,0 +1,38 @@
+authoring: prifly-step/1
+id: aif-feature:step/evaluate-uiux
+version: 1.0.0
+title: Program evaluate-uiux
+kind: worker
+inputs:
+  configuration:
+    schema_ref: '{{schema_configuration}}'
+  candidate:
+    schema_ref: '{{schema_candidate}}'
+  environment:
+    schema_ref: '{{schema_environment}}'
+  ui:
+    schema_ref: '{{schema_request}}'
+  ux:
+    schema_ref: '{{schema_request}}'
+  ui_session:
+    schema_ref: '{{schema_browser-session}}'
+  ux_session:
+    schema_ref: '{{schema_browser-session}}'
+  browser_adapter:
+    schema_ref: '{{schema_browser-adapter}}'
+  manifest:
+    schema_ref: '{{aggregate_manifest}}'
+  bundle:
+    schema_ref: '{{schema_uiux-bundle}}'
+outputs:
+  assessment:
+    schema_ref: '{{schema_uiux-evidence}}'
+    required_for:
+    - pass
+executor:
+  adapter_ref: '{{process}}'
+  operation: process
+effects:
+  class: none
+  retry_class: never
+result_schema_ref: '{{result}}'

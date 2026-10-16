@@ -2,7 +2,7 @@
 
 Qualification evidence: [acceptance.md](acceptance.md). Backend fixture and real
 CLI normal delivery are qualified; **E4 fixed in 0.13.77; backend composition implemented**.
-Package portion changes aif-feature1.1.0 only, with default sequential and
+Package portion changes aif-feature1.2.0 only, with default sequential and
 explicit codex-cli backend adapter. No Core/classic/profiled changes or tag/catalog publication. See
 [feature composition](feature-composition.md) and
 [released requalification](release-0.13.77.md); the old named cancellation
@@ -55,7 +55,7 @@ negatives below describe the original 0.13.76 qualification.
   после repair (scoped A6). Изолированный owned stand работает на0.13.77 без Core
   changes; shared stand с native limit1 даёт named resource_busy внутри того же
   Run и остаётся sequential. См. [границы и результаты](frontend-qualification.md).
-- [ ] Отдельная production frontend composition: admission до writers, pinned
+- [ ] Завершить полную приёмку уже реализованной frontend composition: admission до writers, pinned
   host/browser/report adapter, две actual independent UI/UX reader-сессии и
   приёмка полного aif-feature quality/repair/guard/commit. Browser fixture с
   детерминированными reports эту работу и A7/A8/A10 для frontend не заменяет.
@@ -63,3 +63,8 @@ negatives below describe the original 0.13.76 qualification.
   unit12, three-host compile и scoped actual CLI observation; feature1.1.0.
   Старый fixture не заменяет эту приёмку. Default/full CI отражаются отдельно;
   полный W5 A1–A10 для всех hosts/frontend этим не объявляется.
+
+Frontend1.2.0 implementation checkpoint: pinned host/browser adapter и scoped
+actual CLI repair-ui PASS (4 sessions/2 rounds), compile120/79, critical8 native
+cases PASS. Полная matrix33 и новый CI ещё выполняются; checklist выше не
+выдаёт их за общий frontend PASS. [Evidence](feature-uiux-composition.md).

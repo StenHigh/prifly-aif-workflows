@@ -20,16 +20,16 @@ def strict_json(raw):
                       parse_constant=lambda value: (_ for _ in ()).throw(w1.Invalid('Nonfinite JSON number')))
 
 
-def report_refs(manifest):
+def report_refs(manifest, readers=READERS):
     if not isinstance(manifest, dict):
         raise w1.Invalid('Expected native manifest object')
     if manifest.get('schema_version') != '1' or manifest.get('join_result') != 'satisfied':
         raise w1.Invalid('Parallel review did not satisfy all-join')
     rows = manifest.get('branches')
     if (not isinstance(rows, list) or any(not isinstance(r, dict) for r in rows)
-            or [r.get('id') for r in rows] != list(READERS)):
+            or [r.get('id') for r in rows] != list(readers)):
         raise w1.Invalid('Missing, duplicate, reordered or unknown reader branch')
-    if manifest.get('selected_branch_ids') != list(READERS):
+    if manifest.get('selected_branch_ids') != list(readers):
         raise w1.Invalid('Parallel selection does not include every reader')
     refs = {}
     for row in rows:
@@ -45,7 +45,7 @@ def report_refs(manifest):
                 or not isinstance(ref['digest'], str) or not w1.DIGEST.fullmatch(ref['digest'])):
             raise w1.Invalid('Invalid sealed report ref')
         refs[row['id']] = ref
-    if len({(r['artifact_id'], r['revision']) for r in refs.values()}) != len(READERS):
+    if len({(r['artifact_id'], r['revision']) for r in refs.values()}) != len(readers):
         raise w1.Invalid('Readers cannot share the same report artifact')
     return refs
 
@@ -55,9 +55,9 @@ def unavailable(manifest_digest, reason):
             'status': 'unavailable', 'reason': str(reason)[:4000], 'reports': []}
 
 
-def unpack(manifest, manifest_digest, bundle):
+def unpack(manifest, manifest_digest, bundle, readers=READERS):
     """Verify original bytes against exact refs, then leave W1 to assess reports."""
-    refs = report_refs(manifest)
+    refs = report_refs(manifest, readers)
     w1.obj(bundle, ('schema_version', 'manifest_digest', 'status', 'reason', 'reports'), 'report bundle')
     if bundle['schema_version'] != '1' or bundle['manifest_digest'] != manifest_digest:
         raise w1.Invalid('Bundle belongs to another manifest')
@@ -65,7 +65,7 @@ def unpack(manifest, manifest_digest, bundle):
         raise w1.Invalid('Sealed reports unavailable: ' + str(bundle['reason']))
     entries = bundle['reports']
     if (not isinstance(entries, list) or any(not isinstance(r, dict) for r in entries)
-            or [r.get('branch') for r in entries] != list(READERS)):
+            or [r.get('branch') for r in entries] != list(readers)):
         raise w1.Invalid('Bundle must contain every reader exactly once in sealed order')
     reports = {}
     for entry in entries:

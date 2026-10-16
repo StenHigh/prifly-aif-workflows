@@ -1,0 +1,27 @@
+authoring: prifly-step/2
+id: aif-feature:step/collect-uiux
+version: 1.0.0
+title: Transport exact UI/UX reports
+kind: worker
+inputs:
+  manifest:
+    schema_ref: '{{aggregate_manifest}}'
+outputs:
+  bundle:
+    schema_ref: '{{schema_uiux-bundle}}'
+    required_for:
+    - pass
+    - needs_revision
+    - blocked
+executor:
+  adapter_ref: '{{session}}'
+  operation: session
+instructions_ref: '{{context_feature-collect-uiux}}'
+context_refs:
+- '{{context_parallel-adapter-contract}}'
+effects:
+  class: none
+  retry_class: pure
+session_limits:
+  active_timeout_ms: null
+result_schema_ref: '{{result_v2}}'

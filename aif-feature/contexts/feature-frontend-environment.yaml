@@ -1,0 +1,7 @@
+id: aif-feature:context/feature-frontend-environment
+version: 1.0.0
+media_type: text/plain; charset=utf-8
+text: 'Reviewed host controller only: use frontend_host.environment and exact pinned browser_adapter. Preserve external-write
+  intent before ensure; allocate separate sealed UI/UX browser sessions for this Run/candidate/request pair. Do
+  not execute setup prose, reuse foreign resources, retry unknown effects, or report ready without owned loopback
+  environment and distinct contexts/identities. Submit original receipts. Unknown ensure outcome requires reconciliation.'

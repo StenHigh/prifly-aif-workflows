@@ -7,15 +7,20 @@ import sys
 import evidence as w1
 import product as w2
 import parallel_reports as parallel
+import browser_contract as browser
 
 LENSES = ('checks', 'security', 'review')
 
 
-def configuration(task, surface=None, review_mode='sequential'):
-    if review_mode not in ('sequential', 'parallel-backend'):
+def configuration(task, surface=None, review_mode='sequential', browser_adapter=None):
+    if review_mode not in ('sequential', 'parallel-backend', 'parallel-ui-ux'):
         raise w1.Invalid('Unknown review mode')
     if review_mode == 'parallel-backend' and (task.get('product') is not None or surface == 'frontend'):
         raise w1.Invalid('Parallel frontend resources are not qualified; select sequential review')
+    browser.descriptor(browser_adapter, required=review_mode == 'parallel-ui-ux')
+    if review_mode == 'parallel-ui-ux':
+        if task.get('product') is None: raise w1.Invalid('parallel-ui-ux requires frontend product criteria')
+        browser.isolated(task['product'])
     w1.obj(task, ('title', 'description', 'scope', 'assumptions', *LENSES,
                   'optional_policy', 'require_separate_session', 'product'), 'feature task')
     for field, bound in (('title', 400), ('description', 12000)):
@@ -53,8 +58,8 @@ def configuration(task, surface=None, review_mode='sequential'):
         raise w1.Invalid('Package profile disagrees with task surface')
 
 
-def begin(task, base, previous, review_mode='sequential'):
-    configuration(task, review_mode=review_mode)
+def begin(task, base, previous, review_mode='sequential', browser_adapter=None):
+    configuration(task, review_mode=review_mode, browser_adapter=browser_adapter)
     if type(previous) is not int or not 0 <= previous < 8:
         raise w1.Invalid('Round counter is outside the declared limit')
     round_number = previous + 1
@@ -79,7 +84,7 @@ def begin(task, base, previous, review_mode='sequential'):
     for lens in w2.LENSES:
         product[lens].update(base_commit=base, round=round_number,
                              optional_policy=task['optional_policy'],
-                             require_separate_session=task['require_separate_session'])
+                             require_separate_session=True if review_mode == 'parallel-ui-ux' else task['require_separate_session'])
     w2.configuration(product)
     return round_number, requests, product
 
@@ -132,10 +137,10 @@ def worker(operation):
     try:
         base = read('implementation')['base_commit']
         if operation == 'configure':
-            configuration(read('task'), read('surface'), read('review_mode'))
+            configuration(read('task'), read('surface'), read('review_mode'), read('browser_adapter'))
             output('round', 0)
         elif operation == 'begin':
-            count, requests, config = begin(read('task'), base, read('round'), read('review_mode'))
+            count, requests, config = begin(read('task'), base, read('round'), read('review_mode'), read('browser_adapter'))
             output('round', count)
             for lens in LENSES:
                 output(lens + '_request', requests[lens])
@@ -161,7 +166,7 @@ def worker(operation):
             else:
                 reports = {lens: read(lens + '_report') for lens in LENSES}
             digests = {lens: w1.digest(Path(context['inputs'][lens + '_request']['path']).read_bytes()) for lens in LENSES}
-            product = None if operation in ('aggregate-backend', 'aggregate-parallel') else {
+            product = read('product_evidence') if operation == 'aggregate-uiux' else None if operation in ('aggregate-backend', 'aggregate-parallel') else {
                 'gate': read('product_gate'), **{p: read(p) for p in ('ui_report', 'ux_report', 'environment', 'release')}}
             try:
                 if transport_error:

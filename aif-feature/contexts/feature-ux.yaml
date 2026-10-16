@@ -1,0 +1,7 @@
+id: aif-feature:context/feature-ux
+version: 1.0.0
+media_type: text/plain; charset=utf-8
+text: Use the sealed UX bridge and pinned aif-review for the UX lens only. Execute the reviewed frontend_host.py
+  observe command supplied by the controller in this Attempt. Inspect actual screenshots and complete declared user/keyboard/state
+  scenarios. Use only the bound browser_session and its isolated test identity; no environment setup/release, repair,
+  installs, Run control or other reader context. Report actual session/model capability without invented mapping.

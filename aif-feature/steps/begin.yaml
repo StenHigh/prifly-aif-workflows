@@ -1,6 +1,6 @@
 authoring: prifly-step/1
 id: aif-feature:step/begin
-version: 1.1.0
+version: 1.2.0
 title: Bounded feature begin
 kind: worker
 inputs:
@@ -12,6 +12,8 @@ inputs:
     schema_ref: '{{schema_round}}'
   review_mode:
     schema_ref: '{{schema_review-mode}}'
+  browser_adapter:
+    schema_ref: '{{schema_browser-adapter}}'
 outputs:
   round:
     schema_ref: '{{schema_round}}'

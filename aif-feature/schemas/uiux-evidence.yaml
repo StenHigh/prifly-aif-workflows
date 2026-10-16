@@ -1,0 +1,44 @@
+id: aif-feature:schema/uiux-evidence
+version: 1.0.0
+$schema: https://json-schema.org/draft/2020-12/schema
+type: object
+additionalProperties: false
+required:
+- configuration
+- candidate
+- environment
+- browser_sessions
+- requests
+- request_digests
+- reports
+- parallel
+- gate
+- adapter_digest
+- configuration_digest
+properties:
+  configuration:
+    type: object
+  candidate:
+    type: object
+  environment:
+    type: object
+  browser_sessions:
+    type: object
+  requests:
+    type: object
+  request_digests:
+    type: object
+  reports:
+    type: object
+  parallel:
+    type: object
+  gate:
+    type: object
+  adapter_digest:
+    type: string
+    pattern: ^sha256:[0-9a-f]{64}$
+  configuration_digest:
+    type: string
+    pattern: ^sha256:[0-9a-f]{64}$
+  release:
+    type: object

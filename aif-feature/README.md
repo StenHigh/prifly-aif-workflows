@@ -1,6 +1,6 @@
 # Небольшая новая фича
 
-Самостоятельный `aif-feature:package/feature@1.1.0`, launch **aif-feature**.
+Самостоятельный `aif-feature:package/feature@1.2.0`, launch **aif-feature**.
 Требует released Pri-Fly **0.13.77**, Python 3 stdlib для declared programs
 и AI Factory skills (контракт сверён с **2.19.0**). Пакет пока не выпущен.
 
@@ -65,12 +65,42 @@ warnings/skips и unavailable model mapping следуют task.optional_policy
 `settings.quality.limit` в [extend.yaml](extend.yaml) — число **полных quality
 кругов**, default 3, диапазон 1–8. Limit=1 означает проверить без repair.
 Последний неуспешный круг не редактирует код; возвращает последний gate/evidence.
-До 14 StepInstances на frontend round, максимум 7×14+13=111 в rounds + guard/commit =113 в acceptance и 117
-в root с warmup/configure/plan/implement/guard/commit. Declared budgets: quality
-114, root128. Backend parallel round требует до восьми шагов, admission добавляет
-один шаг до plan. Declared parallelism2 и child depth5 покрывают opt-in ветви;
-при default sequential активен один reader. Control budgets с запасом.
+Для нового UI/UX round требуется до 15 StepInstances, включая диагностический
+путь; quality budget122, root128, child depth7, parallelism2. Sequential/backend
+используют прежние ветви в том же bounded graph; default limit3, максимум8.
 Это budget одного Run; reviewed continuation даёт новый bounded acceptance call.
+
+## Как выбрать режим ревью
+
+| Режим | Когда нужен | Что выполняется одновременно |
+| --- | --- | --- |
+| `sequential` (default) | Обычный запуск, существующий host runner, общий тестовый стенд | Ничего |
+| `parallel-backend` | Backend-фича и подключённый Codex CLI dispatcher | Security и code review после checks |
+| `parallel-ui-ux` | Frontend-фича, Codex CLI dispatcher и проверенный browser adapter проекта | UI и UX после checks/security/code review |
+
+## Параллельные UI и UX
+
+`parallel-ui-ux` выполняет одновременно два продуктовых ревью небольшой
+интерфейсной фичи. Каждый reviewer запускается в новой CLI-сессии, получает
+свои критерии и отдельные browser context/test identity; candidate и окружение
+общие. Workflow ждёт оба отчёта и освобождает своё окружение перед repair или
+commit. После repair повторяются все проверки, UI/UX получают новые grants и
+окружение. Другую модель новая сессия не гарантирует.
+
+Это явное подключение проекта: выбрать `profile: frontend`, задать
+`settings.feature.review_mode: parallel-ui-ux` и project configuration input
+`browser_adapter`. Последний — JSON descriptor с точными source hashes и
+настройками проверенного адаптера. Подробная настройка и протокол:
+[guide](../docs/parallel-ui-ux.md). Пример адаптера для квалификации:
+[fixture](../tests/fixtures/feature-browser/adapter.py); его нельзя переносить
+в проект без проверки и настройки сценариев.
+
+До plan/implement проверяются доступность browser adapter и двух изолированных
+contexts/identities, Codex CLI и достаточная native capacity. Только owned
+loopback environment, `shared_resource: null`; quality resource `limit: 1`
+отвергается. Requested parallel не переключается молча на sequential.
+Нужен явный вызов shipped host helper из существующего runner; одна установка
+пакета этого не делает. Native App/Claude пока не квалифицированы.
 
 ## Опциональное параллельное backend-ревью
 
@@ -99,8 +129,8 @@ extensions: []
 Режим требует **явного host adapter**. Перед plan хост отвечает на
 `parallel-admission`: без подходящего dispatcher маршрут останавливается.
 В этом варианте поставляется только dispatcher независимых Codex CLI sessions;
-App/Claude и параллельные UI/UX не объявляются поддержанными. Для frontend
-выбирать `sequential`; попытка включить этот режим отвергается до plan/implement.
+App/Claude concurrency не квалифицирована. `parallel-backend` допускается только
+для backend; для frontend предусмотрен отдельный режим ниже.
 
 Контроллер существующего host loop после `run drive` может обработать один
 готовый batch поставляемой командой:

@@ -1,0 +1,6 @@
+id: aif-feature:context/feature-collect-uiux
+version: 1.0.0
+media_type: text/plain; charset=utf-8
+text: 'Reviewed host transport only: use parallel_host.collect with readers ui,ux. Export exact selected native
+  manifest refs through public artifact export, verify original digests, and retain canonical base64 of unedited
+  bytes. Return unavailable on failure. Do not infer a quality gate or manufacture reports.'

@@ -45,3 +45,10 @@ Runtime fixtures дают воспроизводимые barriers/negative cases
 Сравнение sequential/parallel фиксирует task scope, состав checks и окружение.
 Четыре agents могут сократить ожидание и увеличить токены; качество и стоимость
 не выводятся из самого числа параллельных ветвей.
+
+## Frontend consumer1.2.0
+
+[Composition и границы](feature-uiux-composition.md): admission до writers,
+общий quality snapshot, отдельные sealed browser grants, UI||UX all/wait,
+original bytes collection, pure diagnostic boundary, exact-owner cleanup до
+repair/commit. Public Run/artifact API достаточно на0.13.77; Core не меняется.

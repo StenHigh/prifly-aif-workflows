@@ -1,7 +1,7 @@
 authoring: prifly-workflow/1
 schema_version: '6'
 id: aif-feature:workflow/quality
-version: 1.1.0
+version: 1.2.0
 title: Full bounded acceptance and local commit for the small feature
 refs:
   policy: '{{policy}}'
@@ -19,6 +19,7 @@ refs:
   step_guard: '{{step_guard}}'
   step_commit: '{{step_commit}}'
   schema_review_mode: '{{schema_review-mode}}'
+  schema_browser_adapter: '{{schema_browser-adapter}}'
 inputs:
   task: schema_task
   handoff: schema_warmup-handoff
@@ -33,6 +34,7 @@ inputs:
       scope: project
       default: 3
   review_mode: schema_review_mode
+  browser_adapter: schema_browser_adapter
 outputs:
   implementation:
     schema_ref: schema_implementation
@@ -65,10 +67,10 @@ outputs:
     - succeeded
     - partial
 limits:
-  max_step_instances: 114
+  max_step_instances: 122
   max_control_transitions: 850
   max_parallelism: 2
-  max_child_depth: 4
+  max_child_depth: 6
 policy_ref: policy
 entry: round
 stages:
@@ -84,6 +86,7 @@ stages:
       surface: $inputs.surface
       limit: $inputs.limit
       review_mode: $inputs.review_mode
+      browser_adapter: $inputs.browser_adapter
     next_bindings:
       task: $inputs.task
       handoff: $inputs.handoff
@@ -93,6 +96,7 @@ stages:
       surface: $inputs.surface
       limit: $inputs.limit
       review_mode: $inputs.review_mode
+      browser_adapter: $inputs.browser_adapter
     continue_on:
     - partial
     until: false

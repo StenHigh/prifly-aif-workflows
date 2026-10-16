@@ -1,6 +1,7 @@
 id: aif-feature:schema/review-mode
-version: 1.0.0
+version: 1.2.0
 $schema: https://json-schema.org/draft/2020-12/schema
 enum:
 - sequential
 - parallel-backend
+- parallel-ui-ux

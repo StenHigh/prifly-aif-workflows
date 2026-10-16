@@ -1,0 +1,33 @@
+id: aif-feature:schema/browser-adapter
+version: 1.0.0
+$schema: https://json-schema.org/draft/2020-12/schema
+type:
+- object
+- 'null'
+additionalProperties: false
+required:
+- protocol
+- root
+- entrypoint
+- files
+- settings
+properties:
+  protocol:
+    const: aif-feature-browser/1
+  root:
+    type: string
+    minLength: 1
+    maxLength: 4000
+  entrypoint:
+    type: string
+    minLength: 1
+    maxLength: 4000
+  files:
+    type: object
+    minProperties: 1
+    maxProperties: 32
+    additionalProperties:
+      type: string
+      pattern: ^sha256:[0-9a-f]{64}$
+  settings:
+    type: object
