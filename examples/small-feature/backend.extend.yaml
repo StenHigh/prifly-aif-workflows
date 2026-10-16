@@ -1,0 +1,8 @@
+profile: backend
+settings:
+  feature:
+    review_mode: sequential
+  quality:
+    limit: 3
+exclude: []
+extensions: []

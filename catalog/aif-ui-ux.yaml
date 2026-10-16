@@ -1,0 +1,15 @@
+# Standalone release entry; the central catalog adds the exact source commit pin.
+schema_version: prifly-workflow-catalog/1
+title: AI Factory UI and UX review
+categories:
+  software-delivery:
+    title: Software delivery
+workflows:
+  aif-ui-ux:
+    title: AI Factory UI and UX review
+    description: Review declared screens and user flows on a project-owned browser environment, preserve UI/UX reports and release owned resources. Requires Pri-Fly 0.13.76.
+    category: software-delivery
+    repository: https://github.com/StenHigh/prifly-aif-workflows.git
+    path: aif-ui-ux
+    ref: v1.52.0
+    tags: [ai-factory, ui-ux, codex-cli, codex-app, claude-code]

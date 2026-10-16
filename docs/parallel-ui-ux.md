@@ -1,6 +1,6 @@
 # Независимые UI/UX в aif-feature
 
-В неопубликованном `aif-feature@1.2.3` можно явно выбрать `parallel-ui-ux`.
+В `aif-feature@1.2.3` (выпуск [v1.52.0](releases/v1.52.0.md)) можно явно выбрать `parallel-ui-ux`.
 Нужны released Pri-Fly **0.13.77**, Python 3, Codex CLI с доступной авторизацией,
 AI Factory skills (квалификация на 2.19.0) и проверенный browser adapter проекта.
 По умолчанию feature остаётся sequential. Core и классические workflows не меняются.

@@ -1,0 +1,8 @@
+profile: backend
+settings:
+  feature:
+    review_mode: parallel-backend
+  quality:
+    limit: 3
+exclude: []
+extensions: []

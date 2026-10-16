@@ -10,7 +10,7 @@
 <p align="center">
   <a href="https://github.com/StenHigh/prifly-aif-workflows/actions/workflows/verify.yml"><img src="https://github.com/StenHigh/prifly-aif-workflows/actions/workflows/verify.yml/badge.svg" alt="verify"></a>
   <a href="https://github.com/StenHigh/prifly-aif-workflows/tags"><img src="https://img.shields.io/github/v/tag/StenHigh/prifly-aif-workflows?label=release&amp;color=1f6feb" alt="latest tag"></a>
-  <img src="https://img.shields.io/badge/pri--fly-%E2%89%A5%200.6.0-00ADD8" alt="Pri-Fly ≥ 0.6.0">
+  <img src="https://img.shields.io/badge/pri--fly-%E2%89%A5%200.13.77-00ADD8" alt="Pri-Fly ≥ 0.13.77">
   <img src="https://img.shields.io/badge/hosts-codex--cli%20%C2%B7%20codex--app%20%C2%B7%20claude--code-4b5563" alt="hosts">
 </p>
 
@@ -57,12 +57,11 @@ UI/UX-проверки в браузере. По умолчанию допуск
 связана с реализацией и повторяется после исправлений. Для браузерных проверок
 понадобится [контракт тестовой среды проекта](docs/product-review-environment.md).
 
-**Доступность новых пакетов.** `aif-review-evidence`, `aif-ui-ux` и
-`aif-feature` находятся в `main` и прошли CI, но ещё не выпущены в каталоге.
-Для локального пилота используйте инструкции в README этих пакетов;
-для review/UI/UX нужен Pri-Fly **0.13.76**, для feature — **0.13.77** и новее.
-Команды установки из каталога ниже
-относятся к опубликованным пакетам.
+**Выпуск v1.52.0.** В каталоге доступны `aif-review-evidence@1.0.0`,
+`aif-ui-ux@1.0.0` и `aif-feature@1.2.3`. Для review/UI/UX нужен Pri-Fly
+**0.13.76**, для feature — **0.13.77** и новее. Выпуск проверен на **0.13.77**.
+[Установка, обновление и состав выпуска](docs/releases/v1.52.0.md),
+[примеры небольшой фичи](examples/small-feature/README.md).
 
 **Перед объединением веток** можно подключить
 [проектный пример приёмки результата интеграции](examples/verified-integration/README.md).
@@ -89,14 +88,18 @@ AI Factory развиваются здесь.
 
 ## Установка в проект
 
-С Pri-Fly `v0.6.0` и новее (установка из GitHub Releases):
+Для всех пакетов текущего выпуска используйте Pri-Fly **0.13.77** и новее
+(официальный бинарник из GitHub Releases):
 
 ```sh
 prifly project workflows add aif-classic          # запись официального каталога
 prifly project workflows add aif-fanout
 prifly project workflows add aif-fix              # Pri-Fly >= 0.13.76
+prifly project workflows add aif-review-evidence  # проверка готового кода; >= 0.13.76
+prifly project workflows add aif-ui-ux            # проверка интерфейса; >= 0.13.76
+prifly project workflows add aif-feature          # небольшая новая фича; >= 0.13.77
 # или напрямую из этого репозитория
-prifly project workflows add StenHigh/prifly-aif-workflows --path aif-classic --ref v1.0.0
+prifly project workflows add StenHigh/prifly-aif-workflows --path aif-feature --ref v1.52.0
 ```
 
 Команда копирует папку в `.prifly/workflows/aif-classic/`, объявляет package и
@@ -394,17 +397,27 @@ finish, несущий `gate` со `status: blocked`: не в починку, к
 
 ## Проверки
 
+Путь `RELEASED_PRIFLY` ниже должен указывать на официальный бинарник latest
+stable из GitHub Releases; установленный локально бинарник может быть dev-сборкой.
+
 ```sh
-python3 -B tests/test_versions.py                         # версия сдвинулась вместе с байтами
-python3 -B tests/test_folders.py                          # статический контракт папок
-python3 -B tests/verify.py --binary "$HOME/.local/bin/prifly"   # compile обоих package настоящим Pri-Fly
-python3 -B tests/compatibility.py --binary "$HOME/.local/bin/prifly"  # import и start всех profile в одной authority
+python3 -B tests/test_versions.py
+python3 -B tests/test_folders.py
+python3 -B tools/derive_profiled.py --check
+python3 -B tests/verify.py --binary "$RELEASED_PRIFLY"
+python3 -B tests/compatibility.py --binary "$RELEASED_PRIFLY"
 ```
 
-`tests/verify.py` создаёт временный Git-репозиторий, ставит обе папки, пишет
-stub skills и проверяет questionnaire, sealed decision catalog, profiles
-Fast/Full/Ultra, `exclude`/`settings`, порядок classic route, read-only gates,
-parallel fan-out и оба host roots. Он ничего не импортирует и не запускает.
+`tests/verify.py` ставит все семь пакетов во временный Git-репозиторий,
+создаёт stub skills и проверяет компиляцию, profiles, questionnaire, решения,
+расширения и контракты workflow. `derive_profiled.py --check` только сверяет
+производный пакет с classic. Эти проверки не вызывают LLM.
+
+[Полный CI](.github/workflows/verify.yml) дополнительно проверяет W1/W2,
+последовательную фичу, параллельное backend- и UI/UX-ревью, приёмку перед
+интеграцией, cleanup и продолжение Runs. Browser cases используют настоящий
+Chromium и детерминированные отчёты; живые LLM-наблюдения записаны отдельно
+в [приёмке W5](docs/changes/qualify-parallel-implementation-review/feature-uiux-composition.md).
 
 `tests/compatibility.py` идёт дальше: в одной authority он ведёт Classic по
 Fast → Full → Ultra → default → Fast с собственным `extend.yaml` владельца и

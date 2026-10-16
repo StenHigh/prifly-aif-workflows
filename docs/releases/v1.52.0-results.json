@@ -1,0 +1,235 @@
+{
+  "release": "v1.52.0",
+  "observed_utc": "2026-10-16T10:34:12.155349+00:00",
+  "stage": "pre-tag gates passed; publication not yet claimed",
+  "prifly": "0.13.77",
+  "binary_sha256": "d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa",
+  "local_gates": {
+    "static": {
+      "outcome": "passed",
+      "log_sha256": "43c6565014dc095cfca99fdabbe4b8b2d0282b1d8408636156e50e3e69c4b3af",
+      "log_bytes": 4397
+    },
+    "verify": {
+      "outcome": "passed",
+      "log_sha256": "c3930720f3ec57cd4a37639f716bcccdd66457e186d1b222a0ba1ae78840eb81",
+      "log_bytes": 357,
+      "result": {
+        "outcome": "passed",
+        "prifly": "0.13.77",
+        "binary_sha256": "sha256:d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa",
+        "platform": "linux/x86_64",
+        "packages": [
+          "aif-classic",
+          "aif-fanout",
+          "aif-feature",
+          "aif-fix",
+          "aif-profiled",
+          "aif-review-evidence",
+          "aif-ui-ux"
+        ],
+        "components_read": 120,
+        "steps_read": 79,
+        "registry_entries_removed": 1
+      }
+    },
+    "compatibility": {
+      "outcome": "passed",
+      "log_sha256": "e27b9b767642f28ca565bcc9a1f503397aa0f3f83ee373353417358928172c3f",
+      "log_bytes": 364,
+      "result": {
+        "outcome": "passed",
+        "prifly": "0.13.77",
+        "binary_sha256": "sha256:d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa",
+        "platform": "linux/x86_64",
+        "launches": 5,
+        "distinct_builds": 4,
+        "trusted_packages": 4,
+        "profiled_sealed_as": "core-state/41",
+        "boundary": "assisted handoff dispatched; no AI host answers it here",
+        "registry_entries_removed": 1
+      }
+    },
+    "integration_contract": {
+      "outcome": "passed",
+      "log_sha256": "8eb6ec88f7a7894d4cdcce95a2d7cab6133c7d95974df2e440886a87df04b184",
+      "log_bytes": 2792,
+      "result": {
+        "prifly": "0.13.77",
+        "binary_sha256": "d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa",
+        "cases": [
+          {
+            "case": "full-graph",
+            "host": "codex-cli",
+            "definitions": 13,
+            "build_key": "sha256:40c49fed905353a4a642173c21a327e6d14609a4fc62334256ba558fdb628bda"
+          },
+          {
+            "case": "full-graph",
+            "host": "codex-app",
+            "definitions": 13,
+            "build_key": "sha256:40c49fed905353a4a642173c21a327e6d14609a4fc62334256ba558fdb628bda"
+          },
+          {
+            "case": "full-graph",
+            "host": "claude-code",
+            "definitions": 13,
+            "build_key": "sha256:40c49fed905353a4a642173c21a327e6d14609a4fc62334256ba558fdb628bda"
+          },
+          {
+            "case": "one-input",
+            "host": "codex-cli",
+            "build_key": "sha256:937b4115f03c152bff70c175c3803334343db50e6d21a20ebffe72c5180789d7"
+          },
+          {
+            "case": "unknown-producer",
+            "refused": "{\"schema_version\":\"1\",\"code\":\"project_extension_unknown_stage\",\"message\":\"absent\",\"retryable\":false,\"correlation_id\":\"correlation:9f467f5d673a9580a406d1a8aa4edfbb\",\"violations\":[],\"safe_next_actions\":[\"help\"]}\n"
+          },
+          {
+            "case": "unavailable-producer",
+            "refused": "{\"schema_version\":\"1\",\"code\":\"project_compile_invalid_workflow\",\"message\":\"unavailable_output at /definition/stages/extension/input_bindings/handoff/stage_id: producer has not executed on any incoming path\",\"retryable\":false,\"correlation_id\":\"correlation:4008340447fd4332ddef34be88dede09\",\"violations\":[],\"safe_next_actions\":[\"help\"]}\n"
+          },
+          {
+            "case": "unknown-output",
+            "refused": "{\"schema_version\":\"1\",\"code\":\"project_compile_invalid_workflow\",\"message\":\"unknown_port at /definition/stages/extension/input_bindings/handoff/port: producer output does not exist\",\"retryable\":false,\"correlation_id\":\"correlation:07e2090fca54738a8608621553dd1918\",\"violations\":[],\"safe_next_actions\":[\"help\"]}\n"
+          },
+          {
+            "case": "incompatible-schema",
+            "refused": "{\"schema_version\":\"1\",\"code\":\"project_compile_invalid_workflow\",\"message\":\"port_type_mismatch at /definition/stages/extension/input_bindings/handoff: JSON ports require the same exact schema reference\",\"retryable\":false,\"correlation_id\":\"correlation:ad7b566f74c68283ffc07f08167acb38\",\"violations\":[],\"safe_next_actions\":[\"help\"]}\n"
+          },
+          {
+            "case": "multiple-bindings",
+            "refused": "{\"schema_version\":\"1\",\"code\":\"invalid_usage\",\"message\":\"project_extension_invalid: extensions/0 input_bindings must declare exactly one input of the inserted step\",\"retryable\":false,\"correlation_id\":\"correlation:f8edb7f42d4695780e1380df4365aeca\",\"violations\":[],\"safe_next_actions\":[\"help\"]}\n"
+          }
+        ]
+      }
+    },
+    "parallel_contract": {
+      "outcome": "passed",
+      "log_sha256": "e02930696b371a7515ac64dcfb766445b246ac15ab95adafed46f15c8b26754c",
+      "log_bytes": 810,
+      "result": {
+        "prifly": "0.13.77",
+        "binary_sha256": "d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa",
+        "cases": [
+          {
+            "host": "codex-cli",
+            "definitions": 8,
+            "build_key": "sha256:af9b8c18943f7b2c77980d3c0bb05b5c2dcb9d2d2b293519071a314499b87ae9",
+            "scope": "compile only; not actual host execution or overlap"
+          },
+          {
+            "host": "codex-app",
+            "definitions": 8,
+            "build_key": "sha256:af9b8c18943f7b2c77980d3c0bb05b5c2dcb9d2d2b293519071a314499b87ae9",
+            "scope": "compile only; not actual host execution or overlap"
+          },
+          {
+            "host": "claude-code",
+            "definitions": 8,
+            "build_key": "sha256:af9b8c18943f7b2c77980d3c0bb05b5c2dcb9d2d2b293519071a314499b87ae9",
+            "scope": "compile only; not actual host execution or overlap"
+          }
+        ]
+      }
+    },
+    "parallel_product_contract": {
+      "outcome": "passed",
+      "log_sha256": "3b0b7f82e97a47c5b3d026d42c9552435a57403dd4f132fd3d479d441f656261",
+      "log_bytes": 768,
+      "result": {
+        "prifly": "0.13.77",
+        "binary_sha256": "d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa",
+        "cases": [
+          {
+            "host": "codex-cli",
+            "definitions": 14,
+            "build_key": "sha256:b5a1e35948676d2348551ccea6b8a23c9368550f95bade5155e19e4690073ba8",
+            "scope": "compile; no live host/session claim"
+          },
+          {
+            "host": "codex-app",
+            "definitions": 14,
+            "build_key": "sha256:b5a1e35948676d2348551ccea6b8a23c9368550f95bade5155e19e4690073ba8",
+            "scope": "compile; no live host/session claim"
+          },
+          {
+            "host": "claude-code",
+            "definitions": 14,
+            "build_key": "sha256:b5a1e35948676d2348551ccea6b8a23c9368550f95bade5155e19e4690073ba8",
+            "scope": "compile; no live host/session claim"
+          }
+        ]
+      }
+    },
+    "feature_install": {
+      "outcome": "passed",
+      "log_sha256": "3dfd82d09894e4e541e841fa2b4a15d1d2de969776e0c908825a958ab8bacc98",
+      "log_bytes": 172,
+      "result": {
+        "outcome": "passed",
+        "catalog": "local unpublished fixture",
+        "installed_bytes": "matched",
+        "project_overlay": "preserved",
+        "extend": "preserved",
+        "local_edit": "refused"
+      }
+    }
+  },
+  "static_commands": [
+    "tests/test_versions.py",
+    "tests/test_folders.py",
+    "tools/derive_profiled.py --check",
+    "tests/test_review_evidence.py",
+    "tests/test_product_review.py",
+    "tests/test_feature.py",
+    "tests/test_parallel_reports.py",
+    "tests/test_frontend_parallel.py",
+    "tests/test_integration.py"
+  ],
+  "package_versions": {
+    "aif-classic": "1.47.0",
+    "aif-profiled": "1.48.0",
+    "aif-fanout": "1.4.0",
+    "aif-fix": "1.0.2",
+    "aif-review-evidence": "1.0.0",
+    "aif-ui-ux": "1.0.0",
+    "aif-feature": "1.2.3"
+  },
+  "package_git_trees": {
+    "aif-classic": "f39ab425408867f0950d65fe019a81af11587725",
+    "aif-profiled": "bd157cfaf2f5cc5d38407ff4294f9a3a33fc3891",
+    "aif-fanout": "dbc4eb238210a84aacfcae93df888784b243caeb",
+    "aif-fix": "5bd18eaff3361e49b19c365fd184d34d9fbd2d2e",
+    "aif-review-evidence": "682e75f57bac5d39258af374d68620a4609b3d94",
+    "aif-ui-ux": "02d0801bc455128e6b854fc40b1cab0e4c4af4c6",
+    "aif-feature": "ba7073d1f02131686584e13d3853926cc1c7c1d5"
+  },
+  "full_runtime_ci": {
+    "run_id": 38848759987,
+    "head_sha": "f43eb4389adde5aa6adc1c18228fc70cb0549354",
+    "conclusion": "success",
+    "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38848759987",
+    "scope": "Both jobs passed; all seven package folders identical to release tree. Release changes outside packages only; no new full runtime execution claimed here.",
+    "evidence": "../changes/qualify-parallel-implementation-review/feature-uiux-ci-results.json"
+  },
+  "unchanged_since_v1_51_2": [
+    "aif-classic",
+    "aif-profiled",
+    "aif-fanout",
+    "aif-fix"
+  ],
+  "core_changes": false,
+  "examples": {
+    "json_yaml": "valid",
+    "links": "valid",
+    "task_inputs": "byte-identical to qualified package examples",
+    "preview_backend": "passed",
+    "preview_frontend": "passed"
+  },
+  "publication": {
+    "tag": null,
+    "catalog": null,
+    "published_install": null
+  }
+}

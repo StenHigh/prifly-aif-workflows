@@ -1,0 +1,15 @@
+# Standalone release entry; the central catalog adds the exact source commit pin.
+schema_version: prifly-workflow-catalog/1
+title: AI Factory explicit review evidence
+categories:
+  software-delivery:
+    title: Software delivery
+workflows:
+  aif-review-evidence:
+    title: AI Factory explicit review evidence
+    description: Review existing code against declared checks, with candidate identity, coverage and a sealed report. No repair or commit. Requires Pri-Fly 0.13.76.
+    category: software-delivery
+    repository: https://github.com/StenHigh/prifly-aif-workflows.git
+    path: aif-review-evidence
+    ref: v1.52.0
+    tags: [ai-factory, review, codex-cli, codex-app, claude-code]

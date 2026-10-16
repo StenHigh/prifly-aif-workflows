@@ -10,6 +10,12 @@
 
 Ворота выверены против выпущенного Pri-Fly `v0.13.77`.
 
+- **Подготовка выпуска v1.52.0:** новые catalog entries review-evidence1.0.0,
+  ui-ux1.0.0, feature1.2.3; release guide и small-feature examples обновлены.
+  Все shipping package bytes сохранены как на CI f43eb43; classic/profiled/
+  fanout/fix не меняются. Final pre-tag gates/latest stable и публикация
+  фиксируются в docs/releases/v1.52.0-results.json после проверки.
+
 - **W5 frontend1.2.3 — независимые UI/UX и подключение к feature:**
   Default sequential сохранён; opt-in parallel-ui-ux — Codex CLI, owned loopback
   project adapter, отдельные contexts/identities/Attempts и source pins7 files.

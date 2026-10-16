@@ -1,0 +1,8 @@
+profile: frontend
+settings:
+  feature:
+    review_mode: parallel-ui-ux
+  quality:
+    limit: 3
+exclude: []
+extensions: []

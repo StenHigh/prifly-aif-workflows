@@ -21,6 +21,9 @@
 
 Это самостоятельный запускаемый пример `verified-integration`, initial version
 **1.0.0**, для адаптации в проекте. Он находится вне опубликованных пакетов.
+Выпускается как проектный пример в [v1.52.0](../../docs/releases/v1.52.0.md),
+с проверкой на Pri-Fly0.13.77. Отдельной записи каталога для него нет;
+копируйте папку из этого release tag, затем адаптируйте конфигурацию проекта.
 Требуются Pri-Fly **0.13.76**, POSIX, Python 3.10+, Git с `merge-tree --write-tree`
 ([Git 2.38+](https://git-scm.com/docs/git-merge-tree/2.38.0)) и host skills `aif-review` с `references/SEVERITY.md`, сверенные с
 AI Factory 2.19.0. Python programs используют только стандартную библиотеку.
