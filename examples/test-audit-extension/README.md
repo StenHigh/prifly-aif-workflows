@@ -4,15 +4,59 @@
 связывает их своим корневым графом и вставляет assisted-шаг через overlay.
 В существующие пакеты репозитория ничего не вставляется.
 
-В локальной копии пакета для эксперимента:
+Для обычного отдельного запуска есть
+[готовые config и команды preview/start/continue](../test-audit/README.md).
+Ниже — сборка собственного маршрута. Нужны Pri-Fly ≥0.13.77 и Python 3;
+AI Factory skills не нужны.
 
-1. Скопируйте папку `openclaw-test-audit` в отдельную проектную папку.
-2. Замените её `workflow.yaml` и `extend.yaml` файлами из этого примера.
-3. Поместите получившуюся папку в `.prifly/workflows/my-test-audit` своего
-   тестового проекта и объявите package/launch `my-test-audit` по образцу
-   README пакета. Не изменяйте установленный upstream-пакет ради примера.
-4. Используйте config и команды запуска из [README пакета](../../openclaw-test-audit/README.md),
-   указав свой launch `my-test-audit`.
+Из корня инициализированного тестового проекта выберите новую, ещё не существующую
+папку `my-test-audit`. Подставьте путь к checkout репозитория с примерами:
+
+```sh
+cp -R /absolute/path/to/aif-workflows/openclaw-test-audit .prifly/workflows/my-test-audit
+cp /absolute/path/to/aif-workflows/examples/test-audit-extension/workflow.yaml .prifly/workflows/my-test-audit/workflow.yaml
+cp /absolute/path/to/aif-workflows/examples/test-audit-extension/extend.yaml .prifly/workflows/my-test-audit/extend.yaml
+```
+
+Добавьте элементы в существующие mappings `.prifly/project.yaml`, сохранив
+остальные packages и launches:
+
+```yaml
+packages:
+  my-test-audit:
+    source: .prifly/workflows/my-test-audit
+launches:
+  my-test-audit:
+    title: Project test audit
+    description: Test audit inserted through the project overlay.
+    kind: workflow
+    workflow: .prifly/workflows/my-test-audit/workflow.yaml
+```
+
+Создайте config с исходной базой задачи через
+[prepare_config.py](../test-audit/prepare_config.py), разрешите Python программы
+и проверьте компиляцию:
+
+```sh
+prifly project local set --repository . --allow-executable python=/absolute/path/to/python3
+prifly project compile --repository . --package my-test-audit --host codex-cli \
+  --output /tmp/my-test-audit-compiled
+prifly project questionnaire --repository . --launch my-test-audit --host codex-cli \
+  --workspace worktree --input config=/tmp/openclaw-audit-config.json \
+  --allow-execution --prepare
+```
+
+После проверки summary:
+
+```sh
+prifly project start --repository . --launch my-test-audit --host codex-cli \
+  --workspace worktree --input config=/tmp/openclaw-audit-config.json \
+  --allow-execution --expected-launch-digest REVIEW_DIGEST
+```
+
+Сохраните установку и изменения задачи в commits до отдельного worktree запуска.
+Этот проектный пример поддерживает сам проект; обновление установленного
+`openclaw-test-audit` не синхронизирует скопированные компоненты автоматически.
 
 Исходное ребро prepare → evaluate заменяется prepare → audit → evaluate.
 Prepare выдаёт bundle config/candidate/paths. Вставленный шаг получает его
@@ -33,4 +77,7 @@ Prepare выдаёт bundle config/candidate/paths. Вставленный ша�
 forward-вставка сама не создаёт повторный аудит после исправлений.
 
 `tests/verify.py` компилирует эту пару на трёх хостах; native probe исполняет
-clean/defect/empty-selection сценарии с синтетическим reviewer.
+clean/defect/empty-selection сценарии с синтетическим reviewer. Пример завершает
+Run при partial и не объявляет resumable; команды continue из standalone
+примера относятся к исходному launch `openclaw-test-audit`. Для собственного
+repair/continue маршрута проект должен явно объявить и проверить его граф.

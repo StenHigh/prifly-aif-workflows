@@ -1,0 +1,100 @@
+{
+  "prifly": "0.13.77",
+  "outcome": "passed",
+  "released_package": "openclaw:package/test-audit@1.0.0",
+  "package_bytes": "unchanged from v1.53.0",
+  "source_sha256": {
+    "examples/test-audit/monorepo.config.json": "e7a9a1b7f22f1e39816c6a185bd2d6a592bf6e2ef107765b6e23729405c35fb9",
+    "examples/test-audit/node.config.json": "4237033e77c55a7b5393b7b7ac2183f36c63215ab2b6aa0a32cf04eb9feef3df",
+    "examples/test-audit/python.config.json": "79cb6ef7e9901cfbf4b31e24f8c2975fcd5b99b61eec61fd8ca3676fb4275012",
+    "examples/test-audit/prepare_config.py": "8eeeef79fa7a3db97e71f66643fceee5ff629100d5ef06b1b508f867d031b1ee",
+    "examples/test-audit-extension/workflow.yaml": "cd8a48eacb77f731845bce221bc5d5cd1586f8be7c5f26f95c153f4b19fc1b0b",
+    "examples/test-audit-extension/extend.yaml": "6d402277379e6b9b778ae0a9f51bea012ebd25f9a3de2ce2aac260e7ee3f6da8"
+  },
+  "config_generation_and_selection": {
+    "prifly": "0.13.77",
+    "outcome": "passed",
+    "scope": "Real Git fixtures and shipped config/selection program; no LLM",
+    "cases": [
+      {
+        "template": "python",
+        "selected_path": "tests/test_greeting.py",
+        "config_valid": true,
+        "empty_selection": true,
+        "changed_existing_file": true,
+        "repository_unchanged_by_helper": true,
+        "overwrite_and_inside_tree_refused": true,
+        "unknown_base_refused": true,
+        "separate_session_option": true
+      },
+      {
+        "template": "node",
+        "selected_path": "src/greeting.test.ts",
+        "config_valid": true,
+        "empty_selection": true,
+        "changed_existing_file": true,
+        "repository_unchanged_by_helper": true,
+        "overwrite_and_inside_tree_refused": true,
+        "unknown_base_refused": true,
+        "separate_session_option": true
+      },
+      {
+        "template": "monorepo",
+        "selected_path": "packages/greeting/tests/greeting.spec.ts",
+        "config_valid": true,
+        "empty_selection": true,
+        "changed_existing_file": true,
+        "repository_unchanged_by_helper": true,
+        "overwrite_and_inside_tree_refused": true,
+        "unknown_base_refused": true,
+        "separate_session_option": true
+      }
+    ]
+  },
+  "project_example_launches": {
+    "prifly": "0.13.77",
+    "outcome": "passed",
+    "cases": [
+      {
+        "template": "python",
+        "launch": "my-test-audit",
+        "compile_hosts": [
+          "codex-cli",
+          "codex-app",
+          "claude-code"
+        ],
+        "native_outcome": "succeeded",
+        "selected_path": "tests/test_greeting.py",
+        "reader": "synthetic"
+      },
+      {
+        "template": "node",
+        "launch": "my-test-audit",
+        "compile_hosts": [
+          "codex-cli",
+          "codex-app",
+          "claude-code"
+        ],
+        "native_outcome": "succeeded",
+        "selected_path": "src/greeting.test.ts",
+        "reader": "synthetic"
+      },
+      {
+        "template": "monorepo",
+        "launch": "my-test-audit",
+        "compile_hosts": [
+          "codex-cli",
+          "codex-app",
+          "claude-code"
+        ],
+        "native_outcome": "succeeded",
+        "selected_path": "packages/greeting/tests/greeting.spec.ts",
+        "reader": "synthetic"
+      }
+    ]
+  },
+  "limits": [
+    "Native reader synthetic; test semantics or a different model are not attested.",
+    "Added documentation/examples are published on main; release tag and package bytes are unchanged."
+  ]
+}

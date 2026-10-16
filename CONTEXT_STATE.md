@@ -10,6 +10,19 @@
 
 Ворота выверены против выпущенного Pri-Fly `v0.13.77`.
 
+- **Документация и runnable examples OpenClaw audit (2026-10-16):**
+  По напоминанию владельца AGENTS.md закрепляет docs/examples в той же задаче.
+  examples/README.md — index; examples/test-audit — три config Python/Node/
+  monorepo, prepare_config.py (явный local base SHA, output вне target tree,
+  без перезаписи), preview/start/continue и результат/skip. Extension README
+  теперь даёт copy/registration/compile/start своего my-test-audit, явно без
+  resumable. Root README и release guide связаны с examples. Последний stable
+  по gh release list0.13.77, новых нет. Helper/config selection на3 Git fixtures
+  PASS;9 host compiles/3 native project Runs succeeded, reader synthetic.
+  Evidence docs/changes/add-standalone-test-audit/examples-results.json.
+  Все8 package trees прежние относительно v1.53.0; дополнение вне packages,
+  release tag и package versions не меняются, docs/examples публикуются на main.
+
 - **Выпущен v1.53.0 (2026-10-16):**
   source/tag c85306050df060dc4b381ba7512173806250b3a6; openclaw-test-audit1.0.0
   доступен в default catalog, commit9a384ef3f26f553db8b60e60a59cfbbb285e6c0c.

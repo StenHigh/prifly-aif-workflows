@@ -53,3 +53,20 @@ pre-fix/post-fix test proof не квалифицированы. CI дополн
 Предрелизные gates и реальные default-catalog install/update/native smoke
 сохранены в [release ledger](../../releases/v1.53.0-results.json) и
 [published results](../../releases/v1.53.0-published-results.json).
+
+## Документация и examples после выпуска
+
+Добавлены index examples, Python/Node/monorepo config, stdlib helper с явной
+базой задачи и полные preview/start/continue команды. В extension guide даны
+команды сборки нового project package, точная регистрация package/launch и
+compile/prepare/start; отдельно обозначено отсутствие resumable у этого graph.
+Root README и release guide ссылаются на готовые примеры. В AGENTS.md закреплена
+актуализация документации и проверяемых examples в той же задаче.
+
+[examples-results.json](examples-results.json): три конфига прошли реальный Git
+selection/skip и проверку валидатором выпущенного worker; helper сохраняет дерево,
+отказывает при неизвестной базе, перезаписи и output внутри repository.
+Project `my-test-audit` с этими тремя config компилируется на трёх хостах; три
+полных native Runs succeeded с синтетическим reader. Все восемь опубликованных
+package trees совпадают с v1.53.0. Это дополнение docs/examples на main;
+существующий release tag и каталог source pins сохранены.

@@ -1,10 +1,10 @@
-<h1 align="center">Pri-Fly workflows for AI Factory</h1>
+<h1 align="center">Pri-Fly workflows</h1>
 
 <p align="center">
-  Сценарии разработки по практике AI Factory для
+  Сценарии разработки и проверки для
   <a href="https://github.com/StenHigh/prifly">Pri-Fly</a>:
-  полный цикл разработки, небольшие фичи, исправление багов
-  и проверка готовых изменений.
+  маршруты AI Factory для полного цикла, небольших фичей и исправления багов,
+  проверка готовых изменений и независимый аудит тестов по OpenClaw.
 </p>
 
 <p align="center">
@@ -19,6 +19,7 @@
   <a href="#установка-в-проект">Установка</a> ·
   <a href="#что-нужно-целевому-проекту">Требования</a> ·
   <a href="#настройка-командой">Настройка</a> ·
+  <a href="examples/README.md">Примеры</a> ·
   <a href="#версии">Версии</a> ·
   <a href="#проверки">Проверки</a> ·
   <a href="https://github.com/StenHigh/prifly-workflows">Каталог сценариев</a> ·
@@ -62,6 +63,8 @@ UI/UX-проверки в браузере. По умолчанию допуск
 аудит изменённых тестов по адаптированному checklist OpenClaw. Требует Pri-Fly
 **0.13.77** и Python 3; AI Factory skills не нужны. Семь прежних пакетов сохраняют
 содержимое и версии. [Установка и границы выпуска](docs/releases/v1.53.0.md).
+Готовые [конфиги Python/Node/monorepo и команды запуска](examples/test-audit/README.md),
+[opt-in подключение через extend.yaml](examples/test-audit-extension/README.md).
 
 **Выпуск v1.52.0.** В каталоге доступны `aif-review-evidence@1.0.0`,
 `aif-ui-ux@1.0.0` и `aif-feature@1.2.3`. Для review/UI/UX нужен Pri-Fly
@@ -145,6 +148,8 @@ launches:
 
 ## Что нужно целевому проекту
 
+- Для `openclaw-test-audit` нужны Python 3 и выбранный coding host. Checklist
+  встроен в пакет; AI Factory/OpenClaw skills устанавливать не требуется.
 - Навыки AI Factory, установленные для выбранного host: `aif-warmup`,
   `aif-plan`, `aif-improve`, `aif-implement`, `aif-verify`, `aif-security-checklist`,
   `aif-review`, `aif-commit` для `aif-classic` и `aif-improve` для

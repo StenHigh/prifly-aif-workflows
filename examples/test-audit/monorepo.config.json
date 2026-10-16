@@ -1,0 +1,6 @@
+{
+  "base_commit": "0000000000000000000000000000000000000000",
+  "round": 1,
+  "test_patterns": ["tests/*", "packages/*/tests/*", "packages/*.test.*", "packages/*.spec.*", "apps/*/tests/*", "apps/*.test.*", "apps/*.spec.*"],
+  "require_separate_session": false
+}
