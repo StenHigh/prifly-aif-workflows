@@ -41,7 +41,9 @@
     "tests/feature_contract.py": "51ad585aea1e6f58b30f2cd0079f99f4b94f760c91729fecbe2e19b71a47c102",
     "tests/test_parallel_reports.py": "05547f8437855856e5d34ae9a5ba97f33d5b385f929792bb3e9e2caa6f4a45b9"
   },
-  "full_ci_status": "pending new implementation commit",
+  "full_ci_status": "in_progress",
   "tag_catalog_publication": false,
-  "scope_note": "Grouped local backend assertions; default runs progressed during implementation. Full exact-SHA CI is recorded separately; old fixture and old CI evidence do not qualify this new feature mode."
+  "scope_note": "Grouped local backend assertions; default runs progressed during implementation. Full exact-SHA CI is recorded separately; old fixture and old CI evidence do not qualify this new feature mode.",
+  "implementation_commit": "d515a856b985a12b2dbb6c519b0f1b13348003a9",
+  "full_ci_url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38833536583"
 }

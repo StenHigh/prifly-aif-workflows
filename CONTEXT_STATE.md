@@ -11,6 +11,12 @@
 Ворота выверены против выпущенного Pri-Fly `v0.13.77`.
 
 - **W5: aif-feature1.1.0, opt-in backend composition (2026-10-16):**
+  Implementation d515a856b985a12b2dbb6c519b0f1b13348003a9 committed/pushed main.
+  Exact-SHA CI38833536583 IN PROGRESS, полный CI PASS пока не заявлен:
+  https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38833536583.
+  feature-ci-results.json фиксирует наблюдённые jobs/steps; локальная приёмка
+  завершена. Последующие bookkeeping правят только docs/state, executable bytes
+  и версии пакета соответствуют implementation d515a85.
   Latest stable повторно проверен в начале: 0.13.77, новых выпусков нет.
   Меняется только отдельный aif-feature: default review_mode=sequential,
   opt-in settings.feature.review_mode=parallel-backend. Configure отвергает

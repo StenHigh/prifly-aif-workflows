@@ -2,6 +2,10 @@
 
 Дата: 2026-10-16. Пакет `aif-feature` переходит с подготовленной 1.0.0 на
 **1.1.0**. Выпуск/тег/центральный каталог не входят в это изменение.
+Implementation [d515a856b985](https://github.com/StenHigh/prifly-aif-workflows/commit/d515a856b985a12b2dbb6c519b0f1b13348003a9)
+committed/pushed main. [Полный exact-SHA CI](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38833536583)
+выполняется; локальная приёмка ниже завершена, полный CI PASS пока не заявлен.
+[CI status](feature-ci-results.json) и [сводка проверки](feature-validation-results.json).
 Pri-Fly **0.13.77** используется как выпущенный бинарник, Core не меняется.
 Classic/profiled и остальные workflow вне feature не меняются.
 
