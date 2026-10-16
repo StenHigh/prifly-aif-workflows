@@ -1,7 +1,6 @@
 # Tasks W1
 
-Реализация выполнена локально; evidence и ограничения — в [acceptance.md](acceptance.md).
-Выпуск пакета/тега и каталог в эту сессию не входят.
+Реализация и публикация завершены; evidence и ограничения — в [acceptance.md](acceptance.md).
 
 - [x] Сверить текущие gate/challenge/session schemas и определить минимальный
   report и consumers без скрытого изменения shared contract (A1, A7, A9).
@@ -19,6 +18,5 @@
 - [x] Провести живую host-приёмку; указать honoured/unavailable отдельно,
   сохранить реальные versions, команды и наблюдения (A7, A8).
 - [x] Записать acceptance matrix A1–A9, ограничения и migration notes.
-- [ ] Выпустить отдельный package/repository release и обновить каталог после
-  release-поручения. Новая папка подготовлена с initial version 1.0.0;
-  тег и центральный каталог пока не опубликованы.
+- [x] Выпустить пакет1.0.0 в [v1.52.0](../../releases/v1.52.0.md): tag опубликован, центральный каталог
+  закрепляет source c6394802cb69660fbc12d133750f2fa7cc9bff34.

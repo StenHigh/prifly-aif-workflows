@@ -1,0 +1,1724 @@
+{
+  "release": "v1.52.0",
+  "source_commit": "c6394802cb69660fbc12d133750f2fa7cc9bff34",
+  "catalog_commit": "24d08372cbc99a84dd046c9945159ed1e7eb3353",
+  "prifly": "0.13.77",
+  "observed_utc": "2026-10-16T10:40:58.080347+00:00",
+  "outcome": "passed",
+  "installations": [
+    {
+      "catalog_commit": "24d08372cbc99a84dd046c9945159ed1e7eb3353",
+      "installed": [
+        {
+          "name": "aif-review-evidence",
+          "origin": {
+            "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+            "path": "aif-review-evidence",
+            "ref": "v1.52.0",
+            "commit": "c6394802cb69660fbc12d133750f2fa7cc9bff34",
+            "digest": "sha256:d1e6dfe3c903d2273e2d3ba81478c1c46404809c8503a269afc9f663086db09d",
+            "extend_digest": "sha256:10939f1f38c85ce5296ab5b444ef3dc13cc108cc4076c598e3595682e5f97da2",
+            "catalog": "https://github.com/StenHigh/prifly-workflows.git"
+          },
+          "bytes": "matched release package",
+          "update": "passed; extend/overlay preserved"
+        },
+        {
+          "name": "aif-ui-ux",
+          "origin": {
+            "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+            "path": "aif-ui-ux",
+            "ref": "v1.52.0",
+            "commit": "c6394802cb69660fbc12d133750f2fa7cc9bff34",
+            "digest": "sha256:7b81dc3cca2769fe64ef3943d68e8a5352f22b7125b4e32daffbce4d7ea76bc2",
+            "extend_digest": "sha256:10939f1f38c85ce5296ab5b444ef3dc13cc108cc4076c598e3595682e5f97da2",
+            "catalog": "https://github.com/StenHigh/prifly-workflows.git"
+          },
+          "bytes": "matched release package",
+          "update": "passed; extend/overlay preserved"
+        },
+        {
+          "name": "aif-feature",
+          "origin": {
+            "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+            "path": "aif-feature",
+            "ref": "v1.52.0",
+            "commit": "c6394802cb69660fbc12d133750f2fa7cc9bff34",
+            "digest": "sha256:cfbbcf7db13d16b48d8e255a2723da43d255c40c619451e8dd2da4f96ccc00ee",
+            "extend_digest": "sha256:4e6fb8f6f3279c655be3f66af0cef19d5d7602ff4f04428ae499c12c1332001a",
+            "catalog": "https://github.com/StenHigh/prifly-workflows.git"
+          },
+          "bytes": "matched release package",
+          "update": "passed; extend/overlay preserved"
+        }
+      ]
+    },
+    {
+      "catalog_commit": "24d08372cbc99a84dd046c9945159ed1e7eb3353",
+      "installed": [
+        {
+          "name": "aif-review-evidence",
+          "origin": {
+            "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+            "path": "aif-review-evidence",
+            "ref": "v1.52.0",
+            "commit": "c6394802cb69660fbc12d133750f2fa7cc9bff34",
+            "digest": "sha256:d1e6dfe3c903d2273e2d3ba81478c1c46404809c8503a269afc9f663086db09d",
+            "extend_digest": "sha256:10939f1f38c85ce5296ab5b444ef3dc13cc108cc4076c598e3595682e5f97da2",
+            "catalog": "https://github.com/StenHigh/prifly-workflows.git"
+          },
+          "bytes": "matched release package",
+          "update": "passed; extend/overlay preserved"
+        },
+        {
+          "name": "aif-ui-ux",
+          "origin": {
+            "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+            "path": "aif-ui-ux",
+            "ref": "v1.52.0",
+            "commit": "c6394802cb69660fbc12d133750f2fa7cc9bff34",
+            "digest": "sha256:7b81dc3cca2769fe64ef3943d68e8a5352f22b7125b4e32daffbce4d7ea76bc2",
+            "extend_digest": "sha256:10939f1f38c85ce5296ab5b444ef3dc13cc108cc4076c598e3595682e5f97da2",
+            "catalog": "https://github.com/StenHigh/prifly-workflows.git"
+          },
+          "bytes": "matched release package",
+          "update": "passed; extend/overlay preserved"
+        },
+        {
+          "name": "aif-feature",
+          "origin": {
+            "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+            "path": "aif-feature",
+            "ref": "v1.52.0",
+            "commit": "c6394802cb69660fbc12d133750f2fa7cc9bff34",
+            "digest": "sha256:cfbbcf7db13d16b48d8e255a2723da43d255c40c619451e8dd2da4f96ccc00ee",
+            "extend_digest": "sha256:4e6fb8f6f3279c655be3f66af0cef19d5d7602ff4f04428ae499c12c1332001a",
+            "catalog": "https://github.com/StenHigh/prifly-workflows.git"
+          },
+          "bytes": "matched release package",
+          "update": "passed; extend/overlay preserved"
+        }
+      ]
+    },
+    {
+      "catalog_commit": "24d08372cbc99a84dd046c9945159ed1e7eb3353",
+      "installed": [
+        {
+          "name": "aif-review-evidence",
+          "origin": {
+            "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+            "path": "aif-review-evidence",
+            "ref": "v1.52.0",
+            "commit": "c6394802cb69660fbc12d133750f2fa7cc9bff34",
+            "digest": "sha256:d1e6dfe3c903d2273e2d3ba81478c1c46404809c8503a269afc9f663086db09d",
+            "extend_digest": "sha256:10939f1f38c85ce5296ab5b444ef3dc13cc108cc4076c598e3595682e5f97da2",
+            "catalog": "https://github.com/StenHigh/prifly-workflows.git"
+          },
+          "bytes": "matched release package",
+          "update": "passed; extend/overlay preserved"
+        },
+        {
+          "name": "aif-ui-ux",
+          "origin": {
+            "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+            "path": "aif-ui-ux",
+            "ref": "v1.52.0",
+            "commit": "c6394802cb69660fbc12d133750f2fa7cc9bff34",
+            "digest": "sha256:7b81dc3cca2769fe64ef3943d68e8a5352f22b7125b4e32daffbce4d7ea76bc2",
+            "extend_digest": "sha256:10939f1f38c85ce5296ab5b444ef3dc13cc108cc4076c598e3595682e5f97da2",
+            "catalog": "https://github.com/StenHigh/prifly-workflows.git"
+          },
+          "bytes": "matched release package",
+          "update": "passed; extend/overlay preserved"
+        },
+        {
+          "name": "aif-feature",
+          "origin": {
+            "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+            "path": "aif-feature",
+            "ref": "v1.52.0",
+            "commit": "c6394802cb69660fbc12d133750f2fa7cc9bff34",
+            "digest": "sha256:cfbbcf7db13d16b48d8e255a2723da43d255c40c619451e8dd2da4f96ccc00ee",
+            "extend_digest": "sha256:4e6fb8f6f3279c655be3f66af0cef19d5d7602ff4f04428ae499c12c1332001a",
+            "catalog": "https://github.com/StenHigh/prifly-workflows.git"
+          },
+          "bytes": "matched release package",
+          "update": "passed; extend/overlay preserved"
+        }
+      ]
+    },
+    {
+      "catalog_commit": "24d08372cbc99a84dd046c9945159ed1e7eb3353",
+      "installed": [
+        {
+          "name": "aif-review-evidence",
+          "origin": {
+            "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+            "path": "aif-review-evidence",
+            "ref": "v1.52.0",
+            "commit": "c6394802cb69660fbc12d133750f2fa7cc9bff34",
+            "digest": "sha256:d1e6dfe3c903d2273e2d3ba81478c1c46404809c8503a269afc9f663086db09d",
+            "extend_digest": "sha256:10939f1f38c85ce5296ab5b444ef3dc13cc108cc4076c598e3595682e5f97da2",
+            "catalog": "https://github.com/StenHigh/prifly-workflows.git"
+          },
+          "bytes": "matched release package",
+          "update": "passed; extend/overlay preserved"
+        },
+        {
+          "name": "aif-ui-ux",
+          "origin": {
+            "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+            "path": "aif-ui-ux",
+            "ref": "v1.52.0",
+            "commit": "c6394802cb69660fbc12d133750f2fa7cc9bff34",
+            "digest": "sha256:7b81dc3cca2769fe64ef3943d68e8a5352f22b7125b4e32daffbce4d7ea76bc2",
+            "extend_digest": "sha256:10939f1f38c85ce5296ab5b444ef3dc13cc108cc4076c598e3595682e5f97da2",
+            "catalog": "https://github.com/StenHigh/prifly-workflows.git"
+          },
+          "bytes": "matched release package",
+          "update": "passed; extend/overlay preserved"
+        },
+        {
+          "name": "aif-feature",
+          "origin": {
+            "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+            "path": "aif-feature",
+            "ref": "v1.52.0",
+            "commit": "c6394802cb69660fbc12d133750f2fa7cc9bff34",
+            "digest": "sha256:cfbbcf7db13d16b48d8e255a2723da43d255c40c619451e8dd2da4f96ccc00ee",
+            "extend_digest": "sha256:4e6fb8f6f3279c655be3f66af0cef19d5d7602ff4f04428ae499c12c1332001a",
+            "catalog": "https://github.com/StenHigh/prifly-workflows.git"
+          },
+          "bytes": "matched release package",
+          "update": "passed; extend/overlay preserved"
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "case": "review-evidence",
+      "result": {
+        "case": "pass",
+        "host": "codex-cli",
+        "outcome": "succeeded",
+        "runs": 1,
+        "reader_deliveries": 1,
+        "candidate_changed": false
+      }
+    },
+    {
+      "case": "ui-ux-browser",
+      "result": {
+        "case": "pass",
+        "host": "codex-cli",
+        "mode": "actual browser / deterministic test adapter",
+        "source_outcome": "succeeded",
+        "outcome": "succeeded",
+        "runs": 1,
+        "candidate_changed": false,
+        "browser_readers": 2,
+        "browser_observations": [
+          {
+            "lens": "ui",
+            "iteration": 0,
+            "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+            "observations": [
+              {
+                "scenario": "desktop",
+                "viewport": {
+                  "height": 800,
+                  "width": 1280
+                },
+                "url": "http://127.0.0.1:44279/index.html",
+                "observations": "{\"viewport\":1280,\"scrollWidth\":1280,\"heading\":\"Notes\",\"bodyColor\":\"rgb(23, 32, 51)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\",\"label\":\"Note text\",\"section\":{\"x\":300,\"y\":92.75,\"width\":680,\"height\":311.8125,\"top\":92.75,\"right\":980,\"bottom\":404.5625,\"left\":300}}\nDeclared design tokens: dark ink on white; white button text on blue. Screenshot requires visual inspection, DOM metrics alone are not a visual review.",
+                "failures": [],
+                "screenshot": "/tmp/w2-run-vrkoinm8/ui-0/ui-desktop.png"
+              },
+              {
+                "scenario": "mobile",
+                "viewport": {
+                  "height": 800,
+                  "width": 375
+                },
+                "url": "http://127.0.0.1:44279/index.html",
+                "observations": "{\"viewport\":375,\"scrollWidth\":375,\"heading\":\"Notes\",\"bodyColor\":\"rgb(23, 32, 51)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\",\"label\":\"Note text\",\"section\":{\"x\":16,\"y\":92.75,\"width\":343,\"height\":311.8125,\"top\":92.75,\"right\":359,\"bottom\":404.5625,\"left\":16}}\nDeclared design tokens: dark ink on white; white button text on blue. Screenshot requires visual inspection, DOM metrics alone are not a visual review.",
+                "failures": [],
+                "screenshot": "/tmp/w2-run-vrkoinm8/ui-0/ui-mobile.png"
+              }
+            ]
+          },
+          {
+            "lens": "ux",
+            "iteration": 0,
+            "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+            "observations": [
+              {
+                "scenario": "flow",
+                "viewport": {
+                  "height": 800,
+                  "width": 375
+                },
+                "url": "http://127.0.0.1:44279/index.html",
+                "observations": "{\"empty\":true,\"focus\":\"note\",\"outline\":\"solid\",\"label\":[\"Note text\"],\"error\":true,\"loading\":true,\"success\":true,\"copy\":\"Saved: A test note\"}",
+                "failures": [],
+                "screenshot": "/tmp/w2-run-vrkoinm8/ux-0/ux-flow.png"
+              }
+            ]
+          }
+        ],
+        "cleaned": true
+      }
+    },
+    {
+      "case": "feature-backend",
+      "result": {
+        "case": "backend",
+        "host": "codex-cli",
+        "mode": "synthetic host, real programs/Git",
+        "source_outcome": "succeeded",
+        "outcome": "succeeded",
+        "runs": 1,
+        "steps": [
+          "warmup",
+          "plan",
+          "implement",
+          "checks",
+          "security",
+          "review",
+          "commit"
+        ],
+        "rounds": [
+          {
+            "run": "run:204647ea2b40a7a30a23fb8afa3f48768a80c347b0f5900a6ddc3075e9fe48d9",
+            "lens": "checks",
+            "round": 1,
+            "digest": "sha256:f37b3d8d2d8db6cd19243a322d0cf79ae73c4a87a7bee984582bfd6603cfbbb1",
+            "base": "eeaa3b2a3b025d59b55420d896e4bfa6651039e3"
+          },
+          {
+            "run": "run:204647ea2b40a7a30a23fb8afa3f48768a80c347b0f5900a6ddc3075e9fe48d9",
+            "lens": "security",
+            "round": 1,
+            "digest": "sha256:f37b3d8d2d8db6cd19243a322d0cf79ae73c4a87a7bee984582bfd6603cfbbb1",
+            "base": "eeaa3b2a3b025d59b55420d896e4bfa6651039e3"
+          },
+          {
+            "run": "run:204647ea2b40a7a30a23fb8afa3f48768a80c347b0f5900a6ddc3075e9fe48d9",
+            "lens": "review",
+            "round": 1,
+            "digest": "sha256:f37b3d8d2d8db6cd19243a322d0cf79ae73c4a87a7bee984582bfd6603cfbbb1",
+            "base": "eeaa3b2a3b025d59b55420d896e4bfa6651039e3"
+          }
+        ],
+        "plan_captures": [
+          {
+            "stage": "plan",
+            "sha256": "d598475c8909ff2c4a0bda02899910dafcb7f465112ebf2f23027e909bc55cc7"
+          },
+          {
+            "stage": "implement",
+            "sha256": "37889f3499d5f524f1330efcfaad8e64b72168c75da58a5bd63fd44b00478fd6"
+          }
+        ],
+        "elapsed_seconds": 34.893,
+        "cleaned": true,
+        "review_mode": "sequential",
+        "parallel_fault": null,
+        "parallel_batches": [],
+        "parallel_observations": []
+      }
+    },
+    {
+      "case": "feature-parallel-uiux-repair",
+      "result": {
+        "case": "repair-ui",
+        "host": "codex-cli",
+        "mode": "Synthetic model/session reports, actual concurrent Chromium/native feature/program/cleanup/commit",
+        "source_outcome": "succeeded",
+        "outcome": "succeeded",
+        "runs": 1,
+        "steps": [
+          "warmup",
+          "parallel-admission",
+          "plan",
+          "implement",
+          "checks",
+          "security",
+          "review",
+          "frontend-environment",
+          "ui",
+          "ux",
+          "collect-uiux",
+          "frontend-release",
+          "repair",
+          "checks",
+          "security",
+          "review",
+          "frontend-environment",
+          "ui",
+          "ux",
+          "collect-uiux",
+          "frontend-release",
+          "commit"
+        ],
+        "rounds": [
+          {
+            "run": "run:a46ba2648514c887af8f73c8837656b6c131d8954beee4e7ca44ff7b61ce7545",
+            "lens": "checks",
+            "round": 1,
+            "digest": "sha256:98d9a1a1a3601f137bec857c79099dcdba3893d9fadb525f6af24b7af73ee54b",
+            "base": "861f8d92f3370fece0c31341678ffb15e40ecb18"
+          },
+          {
+            "run": "run:a46ba2648514c887af8f73c8837656b6c131d8954beee4e7ca44ff7b61ce7545",
+            "lens": "security",
+            "round": 1,
+            "digest": "sha256:98d9a1a1a3601f137bec857c79099dcdba3893d9fadb525f6af24b7af73ee54b",
+            "base": "861f8d92f3370fece0c31341678ffb15e40ecb18"
+          },
+          {
+            "run": "run:a46ba2648514c887af8f73c8837656b6c131d8954beee4e7ca44ff7b61ce7545",
+            "lens": "review",
+            "round": 1,
+            "digest": "sha256:98d9a1a1a3601f137bec857c79099dcdba3893d9fadb525f6af24b7af73ee54b",
+            "base": "861f8d92f3370fece0c31341678ffb15e40ecb18"
+          },
+          {
+            "run": "run:a46ba2648514c887af8f73c8837656b6c131d8954beee4e7ca44ff7b61ce7545",
+            "lens": "ui",
+            "round": 1,
+            "digest": "sha256:98d9a1a1a3601f137bec857c79099dcdba3893d9fadb525f6af24b7af73ee54b",
+            "base": "861f8d92f3370fece0c31341678ffb15e40ecb18"
+          },
+          {
+            "run": "run:a46ba2648514c887af8f73c8837656b6c131d8954beee4e7ca44ff7b61ce7545",
+            "lens": "ux",
+            "round": 1,
+            "digest": "sha256:98d9a1a1a3601f137bec857c79099dcdba3893d9fadb525f6af24b7af73ee54b",
+            "base": "861f8d92f3370fece0c31341678ffb15e40ecb18"
+          },
+          {
+            "run": "run:a46ba2648514c887af8f73c8837656b6c131d8954beee4e7ca44ff7b61ce7545",
+            "lens": "checks",
+            "round": 2,
+            "digest": "sha256:7f4d851d7e4d3ea848998fd23b111c60e322d07e87b8d76080dee58fcabc882d",
+            "base": "861f8d92f3370fece0c31341678ffb15e40ecb18"
+          },
+          {
+            "run": "run:a46ba2648514c887af8f73c8837656b6c131d8954beee4e7ca44ff7b61ce7545",
+            "lens": "security",
+            "round": 2,
+            "digest": "sha256:7f4d851d7e4d3ea848998fd23b111c60e322d07e87b8d76080dee58fcabc882d",
+            "base": "861f8d92f3370fece0c31341678ffb15e40ecb18"
+          },
+          {
+            "run": "run:a46ba2648514c887af8f73c8837656b6c131d8954beee4e7ca44ff7b61ce7545",
+            "lens": "review",
+            "round": 2,
+            "digest": "sha256:7f4d851d7e4d3ea848998fd23b111c60e322d07e87b8d76080dee58fcabc882d",
+            "base": "861f8d92f3370fece0c31341678ffb15e40ecb18"
+          },
+          {
+            "run": "run:a46ba2648514c887af8f73c8837656b6c131d8954beee4e7ca44ff7b61ce7545",
+            "lens": "ui",
+            "round": 2,
+            "digest": "sha256:7f4d851d7e4d3ea848998fd23b111c60e322d07e87b8d76080dee58fcabc882d",
+            "base": "861f8d92f3370fece0c31341678ffb15e40ecb18"
+          },
+          {
+            "run": "run:a46ba2648514c887af8f73c8837656b6c131d8954beee4e7ca44ff7b61ce7545",
+            "lens": "ux",
+            "round": 2,
+            "digest": "sha256:7f4d851d7e4d3ea848998fd23b111c60e322d07e87b8d76080dee58fcabc882d",
+            "base": "861f8d92f3370fece0c31341678ffb15e40ecb18"
+          }
+        ],
+        "plan_captures": [
+          {
+            "stage": "plan",
+            "sha256": "daee61e4e92ce28fde87b07cca4d4a6d8b15a3bd9b271c42060e9f95212555aa"
+          },
+          {
+            "stage": "implement",
+            "sha256": "98a9367657c8cb053c66b74005e1076ab93328830dd64002dfb5cb68c6a9a416"
+          }
+        ],
+        "elapsed_seconds": 148.354,
+        "cleaned": true,
+        "review_mode": "parallel-ui-ux",
+        "parallel_fault": null,
+        "parallel_batches": [],
+        "parallel_observations": [],
+        "parallel_outputs": {
+          "evidence": {
+            "candidate": {
+              "algorithm": "git-candidate/1",
+              "base_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+              "digest": "sha256:7f4d851d7e4d3ea848998fd23b111c60e322d07e87b8d76080dee58fcabc882d",
+              "files_digest": "sha256:f5f5e4bfb33836cf9473f33826a1c82043464ec5b6938940cab04f47f9b13ca9",
+              "head_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+              "index_digest": "sha256:7f9bde956e717be0b9997c522fc21acde8b44bc67331354b5d425a21630f8966"
+            },
+            "gate": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "checks: Model profile unavailable; independent model not established",
+                "security: Model profile unavailable; independent model not established",
+                "review: Model profile unavailable; independent model not established",
+                "product: ui: Model profile unavailable; independent model not established",
+                "product: ux: Model profile unavailable; independent model not established"
+              ],
+              "gate": "feature",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "product": {
+              "adapter_digest": "sha256:720217567668470439db146eaf17f635b907bf6e1a7335cd489c4e402ede4de7",
+              "browser_sessions": {
+                "ui": {
+                  "adapter_digest": "sha256:720217567668470439db146eaf17f635b907bf6e1a7335cd489c4e402ede4de7",
+                  "allocation": {
+                    "token": "e58c708c485e4bed9eb51b79213e4bd9"
+                  },
+                  "candidate_digest": "sha256:7f4d851d7e4d3ea848998fd23b111c60e322d07e87b8d76080dee58fcabc882d",
+                  "configuration_digest": "sha256:adfaca43be684aaeaaebec9388bb5473a445633de078ee591d50d81df0797147",
+                  "context_id": "context-7b0431c683634a59bd3399ed2ae5c86c",
+                  "environment_session": "environment-1e64c9b8105d4b57bc694d3fb00229c6",
+                  "identity_id": "identity-aeec88ab12794bfa94a6ec7686f50f14",
+                  "lens": "ui",
+                  "owner": "fixture-owned",
+                  "protocol": "aif-feature-browser/1",
+                  "reason": "",
+                  "request_digest": "sha256:171d68064b04254d2700b7bbfacba66a12e64122f9f3f646d2f10e5d61c7a525",
+                  "round": 2,
+                  "run_id": "run:a46ba2648514c887af8f73c8837656b6c131d8954beee4e7ca44ff7b61ce7545",
+                  "status": "ready"
+                },
+                "ux": {
+                  "adapter_digest": "sha256:720217567668470439db146eaf17f635b907bf6e1a7335cd489c4e402ede4de7",
+                  "allocation": {
+                    "token": "ac476829d4ac4421814030f12d5f7008"
+                  },
+                  "candidate_digest": "sha256:7f4d851d7e4d3ea848998fd23b111c60e322d07e87b8d76080dee58fcabc882d",
+                  "configuration_digest": "sha256:adfaca43be684aaeaaebec9388bb5473a445633de078ee591d50d81df0797147",
+                  "context_id": "context-6638e92e58954c1092dea5e53aa2d06c",
+                  "environment_session": "environment-1e64c9b8105d4b57bc694d3fb00229c6",
+                  "identity_id": "identity-42e5d71c16f54a1885fd2f536f7667bc",
+                  "lens": "ux",
+                  "owner": "fixture-owned",
+                  "protocol": "aif-feature-browser/1",
+                  "reason": "",
+                  "request_digest": "sha256:8ae75cd378f4380a7c3dd1f4e5e35394e1d9a795fa1e2d1b67d5216a8baff64b",
+                  "round": 2,
+                  "run_id": "run:a46ba2648514c887af8f73c8837656b6c131d8954beee4e7ca44ff7b61ce7545",
+                  "status": "ready"
+                }
+              },
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+                "digest": "sha256:7f4d851d7e4d3ea848998fd23b111c60e322d07e87b8d76080dee58fcabc882d",
+                "files_digest": "sha256:f5f5e4bfb33836cf9473f33826a1c82043464ec5b6938940cab04f47f9b13ca9",
+                "head_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+                "index_digest": "sha256:7f9bde956e717be0b9997c522fc21acde8b44bc67331354b5d425a21630f8966"
+              },
+              "configuration": {
+                "environment": {
+                  "allowed_operations": [
+                    "navigate",
+                    "input",
+                    "submit_test"
+                  ],
+                  "browser_adapter": "project Playwright adapter",
+                  "cleanup": "fixture release exact owned session",
+                  "owner": "fixture-owned",
+                  "profile": "all-checks",
+                  "setup": "fixture ensure owned claimed tree",
+                  "shared_resource": null,
+                  "test_identity": "isolated anonymous test only"
+                },
+                "scenarios": [
+                  {
+                    "actions": [],
+                    "check_id": "ui_acceptance",
+                    "expectations": [
+                      "No overflow; readable consistent design"
+                    ],
+                    "id": "desktop",
+                    "lens": "ui",
+                    "path": "/index.html",
+                    "viewport": {
+                      "height": 800,
+                      "width": 1280
+                    }
+                  },
+                  {
+                    "actions": [],
+                    "check_id": "ui_acceptance",
+                    "expectations": [
+                      "No overflow; readable consistent design"
+                    ],
+                    "id": "mobile",
+                    "lens": "ui",
+                    "path": "/index.html",
+                    "viewport": {
+                      "height": 800,
+                      "width": 375
+                    }
+                  },
+                  {
+                    "actions": [
+                      "Use keyboard and submit isolated test form"
+                    ],
+                    "check_id": "ux_acceptance",
+                    "expectations": [
+                      "Observe empty/loading/error/success states and labelled keyboard flow"
+                    ],
+                    "id": "flow",
+                    "lens": "ux",
+                    "path": "/index.html",
+                    "viewport": {
+                      "height": 800,
+                      "width": 375
+                    }
+                  }
+                ],
+                "scope_reason": "Declared interface change",
+                "surface": "frontend",
+                "ui": {
+                  "base_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+                  "checks": [
+                    {
+                      "applicable": true,
+                      "description": "ui acceptance",
+                      "enabled": true,
+                      "id": "ui_acceptance",
+                      "method": "browser",
+                      "required": true
+                    }
+                  ],
+                  "optional_policy": "ignore",
+                  "require_separate_session": true,
+                  "round": 2
+                },
+                "ux": {
+                  "base_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+                  "checks": [
+                    {
+                      "applicable": true,
+                      "description": "ux acceptance",
+                      "enabled": true,
+                      "id": "ux_acceptance",
+                      "method": "browser",
+                      "required": true
+                    }
+                  ],
+                  "optional_policy": "ignore",
+                  "require_separate_session": true,
+                  "round": 2
+                }
+              },
+              "configuration_digest": "sha256:adfaca43be684aaeaaebec9388bb5473a445633de078ee591d50d81df0797147",
+              "environment": {
+                "candidate_digest": "sha256:7f4d851d7e4d3ea848998fd23b111c60e322d07e87b8d76080dee58fcabc882d",
+                "configuration_digest": "sha256:adfaca43be684aaeaaebec9388bb5473a445633de078ee591d50d81df0797147",
+                "owner": "fixture-owned",
+                "profile": "all-checks",
+                "reason": "",
+                "session": "environment-1e64c9b8105d4b57bc694d3fb00229c6",
+                "status": "ready",
+                "url": "http://127.0.0.1:44559"
+              },
+              "gate": {
+                "blocking": false,
+                "blocking_owner_only": false,
+                "findings": [
+                  "ui: Model profile unavailable; independent model not established",
+                  "ux: Model profile unavailable; independent model not established"
+                ],
+                "gate": "review",
+                "status": "warnings",
+                "suggested_next": "continue"
+              },
+              "parallel": {
+                "bundle": {
+                  "manifest_digest": "sha256:1e317a7a04f63d8af79f98e7d2fa5d8c81c382502174100b397c21a6edf104ac",
+                  "reason": "",
+                  "reports": [
+                    {
+                      "branch": "ui",
+                      "raw_base64": "eyJyb3VuZCI6IDIsICJyZXF1ZXN0X2RpZ2VzdCI6ICJzaGEyNTY6MTcxZDY4MDY0YjA0MjU0ZDI3MDBiN2JiZmFjYmE2NmExMmU2NDEyMmY5ZjNmNjQ2ZDJmMTBlNWQ2MWM3YTUyNSIsICJjYW5kaWRhdGUiOiB7ImFsZ29yaXRobSI6ICJnaXQtY2FuZGlkYXRlLzEiLCAiYmFzZV9jb21taXQiOiAiODYxZjhkOTJmMzM3MGZlY2UwYzMxMzQxNjc4ZmZiMTVlNDBlY2IxOCIsICJkaWdlc3QiOiAic2hhMjU2OjdmNGQ4NTFkN2U0ZDNlYTg0ODk5OGZkMjNiMTExYzYwZTMyMmQwN2U4N2I4ZDc2MDgwZGVlNThmY2FiYzg4MmQiLCAiZmlsZXNfZGlnZXN0IjogInNoYTI1NjpmNWY1ZTRiZmIzMzgzNmNmOTQ3M2YzMzgyNmExYzgyMDQzNDY0ZWM1YjY5Mzg5NDBjYWIwNGY0N2Y5YjEzY2E5IiwgImhlYWRfY29tbWl0IjogIjg2MWY4ZDkyZjMzNzBmZWNlMGMzMTM0MTY3OGZmYjE1ZTQwZWNiMTgiLCAiaW5kZXhfZGlnZXN0IjogInNoYTI1Njo3ZjliZGU5NTZlNzE3YmUwYjk5OTdjNTIyZmMyMWFjZGU4YjQ0YmM2NzMzMTM1NGI1ZDQyNWEyMTYzMGY4OTY2In0sICJzZXNzaW9uIjogInNlcGFyYXRlIiwgIm1vZGVsX3Byb2ZpbGUiOiAidW5hdmFpbGFibGUiLCAibW9kZWwiOiBudWxsLCAiY2hlY2tzIjogW3siaWQiOiAidWlfYWNjZXB0YW5jZSIsICJzdGF0dXMiOiAiZXhlY3V0ZWQiLCAicmVzdWx0IjogInBhc3NlZCIsICJyZWFzb24iOiAiIiwgImV2aWRlbmNlIjogW3sibWV0aG9kIjogImJyb3dzZXIiLCAidG9vbCI6ICJQbGF5d3JpZ2h0IDEuNjQuMSAvIENocm9taXVtIDE1Ni4wLjgwNzguNCIsICJsb2NhdG9yIjogImh0dHA6Ly8xMjcuMC4wLjE6NDQ1NTkvaW5kZXguaHRtbCIsICJvYnNlcnZhdGlvbiI6ICJ7XCJzY2VuYXJpb1wiOiBcImRlc2t0b3BcIiwgXCJ2aWV3cG9ydFwiOiB7XCJoZWlnaHRcIjogODAwLCBcIndpZHRoXCI6IDEyODB9LCBcInVybFwiOiBcImh0dHA6Ly8xMjcuMC4wLjE6NDQ1NTkvaW5kZXguaHRtbFwiLCBcIm9ic2VydmF0aW9uc1wiOiBcIntcXFwidmlld3BvcnRcXFwiOjEyODAsXFxcInNjcm9sbFdpZHRoXFxcIjoxMjgwLFxcXCJoZWFkaW5nXFxcIjpcXFwiTm90ZXNcXFwiLFxcXCJsYWJlbFxcXCI6XFxcIk5vdGUgdGV4dFxcXCIsXFxcImJvZHlDb2xvclxcXCI6XFxcInJnYigyMywgMzIsIDUxKVxcXCIsXFxcImJvZHlCYWNrZ3JvdW5kXFxcIjpcXFwicmdiKDI0NCwgMjQ2LCAyNTApXFxcIixcXFwiYnV0dG9uQ29sb3JcXFwiOlxcXCJyZ2IoMjU1LCAyNTUsIDI1NSlcXFwiLFxcXCJidXR0b25CYWNrZ3JvdW5kXFxcIjpcXFwicmdiKDIzLCA2OSwgMTYxKVxcXCJ9XCJ9IiwgImV4aXRfY29kZSI6IG51bGx9LCB7Im1ldGhvZCI6ICJicm93c2VyIiwgInRvb2wiOiAiUGxheXdyaWdodCAxLjY0LjEgLyBDaHJvbWl1bSAxNTYuMC44MDc4LjQiLCAibG9jYXRvciI6ICJodHRwOi8vMTI3LjAuMC4xOjQ0NTU5L2luZGV4Lmh0bWwiLCAib2JzZXJ2YXRpb24iOiAie1wic2NlbmFyaW9cIjogXCJtb2JpbGVcIiwgXCJ2aWV3cG9ydFwiOiB7XCJoZWlnaHRcIjogODAwLCBcIndpZHRoXCI6IDM3NX0sIFwidXJsXCI6IFwiaHR0cDovLzEyNy4wLjAuMTo0NDU1OS9pbmRleC5odG1sXCIsIFwib2JzZXJ2YXRpb25zXCI6IFwie1xcXCJ2aWV3cG9ydFxcXCI6Mzc1LFxcXCJzY3JvbGxXaWR0aFxcXCI6Mzc1LFxcXCJoZWFkaW5nXFxcIjpcXFwiTm90ZXNcXFwiLFxcXCJsYWJlbFxcXCI6XFxcIk5vdGUgdGV4dFxcXCIsXFxcImJvZHlDb2xvclxcXCI6XFxcInJnYigyMywgMzIsIDUxKVxcXCIsXFxcImJvZHlCYWNrZ3JvdW5kXFxcIjpcXFwicmdiKDI0NCwgMjQ2LCAyNTApXFxcIixcXFwiYnV0dG9uQ29sb3JcXFwiOlxcXCJyZ2IoMjU1LCAyNTUsIDI1NSlcXFwiLFxcXCJidXR0b25CYWNrZ3JvdW5kXFxcIjpcXFwicmdiKDIzLCA2OSwgMTYxKVxcXCJ9XCJ9IiwgImV4aXRfY29kZSI6IG51bGx9XX1dfQ==",
+                      "ref": {
+                        "artifact_id": "artifact:d626b09fe2a540603478165842df58dc78f7fc1a0842f0d6cc01ec36393a9234",
+                        "digest": "sha256:4962f56613058126d06b458c488cb9700c4ffec34794ccaf99181098fa1d235a",
+                        "revision": 1
+                      }
+                    },
+                    {
+                      "branch": "ux",
+                      "raw_base64": "eyJyb3VuZCI6IDIsICJyZXF1ZXN0X2RpZ2VzdCI6ICJzaGEyNTY6OGFlNzVjZDM3OGY0MzgwYTdjM2RkMWY0ZTVlMzUzOTRlMWQ5YTc5NWZhMWUyZDFiNjdkNTIxNmE4YmFmZjY0YiIsICJjYW5kaWRhdGUiOiB7ImFsZ29yaXRobSI6ICJnaXQtY2FuZGlkYXRlLzEiLCAiYmFzZV9jb21taXQiOiAiODYxZjhkOTJmMzM3MGZlY2UwYzMxMzQxNjc4ZmZiMTVlNDBlY2IxOCIsICJkaWdlc3QiOiAic2hhMjU2OjdmNGQ4NTFkN2U0ZDNlYTg0ODk5OGZkMjNiMTExYzYwZTMyMmQwN2U4N2I4ZDc2MDgwZGVlNThmY2FiYzg4MmQiLCAiZmlsZXNfZGlnZXN0IjogInNoYTI1NjpmNWY1ZTRiZmIzMzgzNmNmOTQ3M2YzMzgyNmExYzgyMDQzNDY0ZWM1YjY5Mzg5NDBjYWIwNGY0N2Y5YjEzY2E5IiwgImhlYWRfY29tbWl0IjogIjg2MWY4ZDkyZjMzNzBmZWNlMGMzMTM0MTY3OGZmYjE1ZTQwZWNiMTgiLCAiaW5kZXhfZGlnZXN0IjogInNoYTI1Njo3ZjliZGU5NTZlNzE3YmUwYjk5OTdjNTIyZmMyMWFjZGU4YjQ0YmM2NzMzMTM1NGI1ZDQyNWEyMTYzMGY4OTY2In0sICJzZXNzaW9uIjogInNlcGFyYXRlIiwgIm1vZGVsX3Byb2ZpbGUiOiAidW5hdmFpbGFibGUiLCAibW9kZWwiOiBudWxsLCAiY2hlY2tzIjogW3siaWQiOiAidXhfYWNjZXB0YW5jZSIsICJzdGF0dXMiOiAiZXhlY3V0ZWQiLCAicmVzdWx0IjogInBhc3NlZCIsICJyZWFzb24iOiAiIiwgImV2aWRlbmNlIjogW3sibWV0aG9kIjogImJyb3dzZXIiLCAidG9vbCI6ICJQbGF5d3JpZ2h0IDEuNjQuMSAvIENocm9taXVtIDE1Ni4wLjgwNzguNCIsICJsb2NhdG9yIjogImh0dHA6Ly8xMjcuMC4wLjE6NDQ1NTkvaW5kZXguaHRtbCIsICJvYnNlcnZhdGlvbiI6ICJ7XCJzY2VuYXJpb1wiOiBcImZsb3dcIiwgXCJ2aWV3cG9ydFwiOiB7XCJoZWlnaHRcIjogODAwLCBcIndpZHRoXCI6IDM3NX0sIFwidXJsXCI6IFwiaHR0cDovLzEyNy4wLjAuMTo0NDU1OS9pbmRleC5odG1sXCIsIFwib2JzZXJ2YXRpb25zXCI6IFwie1xcXCJlbXB0eVxcXCI6dHJ1ZSxcXFwiZm9jdXNcXFwiOlxcXCJub3RlXFxcIixcXFwib3V0bGluZVxcXCI6XFxcInNvbGlkXFxcIixcXFwibGFiZWxzXFxcIjpbXFxcIk5vdGUgdGV4dFxcXCJdLFxcXCJlcnJvclxcXCI6dHJ1ZSxcXFwibG9hZGluZ1xcXCI6dHJ1ZSxcXFwic3VjY2Vzc1xcXCI6dHJ1ZSxcXFwiY29weVxcXCI6XFxcIlNhdmVkOiBBIHRlc3Qgbm90ZVxcXCJ9XCJ9IiwgImV4aXRfY29kZSI6IG51bGx9XX1dfQ==",
+                      "ref": {
+                        "artifact_id": "artifact:f805230fa29aa32957458d4f4fc84926460654902c68988025248678fa8db0bd",
+                        "digest": "sha256:6b3408e918040e23f9501acc975ec58dc99086997efa3344e6458b9292e315ec",
+                        "revision": 1
+                      }
+                    }
+                  ],
+                  "schema_version": "1",
+                  "status": "ready"
+                },
+                "manifest": {
+                  "branches": [
+                    {
+                      "effect_receipt_refs": [],
+                      "has_waivers": false,
+                      "id": "ui",
+                      "outcome": "succeeded",
+                      "output_refs": {
+                        "report": {
+                          "artifact_id": "artifact:d626b09fe2a540603478165842df58dc78f7fc1a0842f0d6cc01ec36393a9234",
+                          "digest": "sha256:4962f56613058126d06b458c488cb9700c4ffec34794ccaf99181098fa1d235a",
+                          "revision": 1
+                        }
+                      },
+                      "run_id": "run:a46ba2648514c887af8f73c8837656b6c131d8954beee4e7ca44ff7b61ce7545",
+                      "status": "completed",
+                      "workflow_invocation_id": "invocation:f8ec790c002d6de720eb651513e1cebbaa76900e28e15e0f4ce7f1bd04c2a03e"
+                    },
+                    {
+                      "effect_receipt_refs": [],
+                      "has_waivers": false,
+                      "id": "ux",
+                      "outcome": "succeeded",
+                      "output_refs": {
+                        "report": {
+                          "artifact_id": "artifact:f805230fa29aa32957458d4f4fc84926460654902c68988025248678fa8db0bd",
+                          "digest": "sha256:6b3408e918040e23f9501acc975ec58dc99086997efa3344e6458b9292e315ec",
+                          "revision": 1
+                        }
+                      },
+                      "run_id": "run:a46ba2648514c887af8f73c8837656b6c131d8954beee4e7ca44ff7b61ce7545",
+                      "status": "completed",
+                      "workflow_invocation_id": "invocation:d8b9ae23598f2ac15e8cfc74d4f0e3da1bf0993297fb7b7efe0d2f1cf7cc975a"
+                    }
+                  ],
+                  "join_result": "satisfied",
+                  "schema_version": "1",
+                  "selected_branch_ids": [
+                    "ui",
+                    "ux"
+                  ],
+                  "selection_seq": 2,
+                  "stage_activation_id": "activation:4183cec1a12e1696ecfd967268da9008"
+                },
+                "manifest_digest": "sha256:1e317a7a04f63d8af79f98e7d2fa5d8c81c382502174100b397c21a6edf104ac"
+              },
+              "release": {
+                "owner": "fixture-owned",
+                "reason": "",
+                "session": "environment-1e64c9b8105d4b57bc694d3fb00229c6",
+                "status": "released"
+              },
+              "reports": {
+                "ui": {
+                  "candidate": {
+                    "algorithm": "git-candidate/1",
+                    "base_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+                    "digest": "sha256:7f4d851d7e4d3ea848998fd23b111c60e322d07e87b8d76080dee58fcabc882d",
+                    "files_digest": "sha256:f5f5e4bfb33836cf9473f33826a1c82043464ec5b6938940cab04f47f9b13ca9",
+                    "head_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+                    "index_digest": "sha256:7f9bde956e717be0b9997c522fc21acde8b44bc67331354b5d425a21630f8966"
+                  },
+                  "checks": [
+                    {
+                      "evidence": [
+                        {
+                          "exit_code": null,
+                          "locator": "http://127.0.0.1:44559/index.html",
+                          "method": "browser",
+                          "observation": "{\"scenario\": \"desktop\", \"viewport\": {\"height\": 800, \"width\": 1280}, \"url\": \"http://127.0.0.1:44559/index.html\", \"observations\": \"{\\\"viewport\\\":1280,\\\"scrollWidth\\\":1280,\\\"heading\\\":\\\"Notes\\\",\\\"label\\\":\\\"Note text\\\",\\\"bodyColor\\\":\\\"rgb(23, 32, 51)\\\",\\\"bodyBackground\\\":\\\"rgb(244, 246, 250)\\\",\\\"buttonColor\\\":\\\"rgb(255, 255, 255)\\\",\\\"buttonBackground\\\":\\\"rgb(23, 69, 161)\\\"}\"}",
+                          "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4"
+                        },
+                        {
+                          "exit_code": null,
+                          "locator": "http://127.0.0.1:44559/index.html",
+                          "method": "browser",
+                          "observation": "{\"scenario\": \"mobile\", \"viewport\": {\"height\": 800, \"width\": 375}, \"url\": \"http://127.0.0.1:44559/index.html\", \"observations\": \"{\\\"viewport\\\":375,\\\"scrollWidth\\\":375,\\\"heading\\\":\\\"Notes\\\",\\\"label\\\":\\\"Note text\\\",\\\"bodyColor\\\":\\\"rgb(23, 32, 51)\\\",\\\"bodyBackground\\\":\\\"rgb(244, 246, 250)\\\",\\\"buttonColor\\\":\\\"rgb(255, 255, 255)\\\",\\\"buttonBackground\\\":\\\"rgb(23, 69, 161)\\\"}\"}",
+                          "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4"
+                        }
+                      ],
+                      "id": "ui_acceptance",
+                      "reason": "",
+                      "result": "passed",
+                      "status": "executed"
+                    }
+                  ],
+                  "model": null,
+                  "model_profile": "unavailable",
+                  "request_digest": "sha256:171d68064b04254d2700b7bbfacba66a12e64122f9f3f646d2f10e5d61c7a525",
+                  "round": 2,
+                  "session": "separate"
+                },
+                "ux": {
+                  "candidate": {
+                    "algorithm": "git-candidate/1",
+                    "base_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+                    "digest": "sha256:7f4d851d7e4d3ea848998fd23b111c60e322d07e87b8d76080dee58fcabc882d",
+                    "files_digest": "sha256:f5f5e4bfb33836cf9473f33826a1c82043464ec5b6938940cab04f47f9b13ca9",
+                    "head_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+                    "index_digest": "sha256:7f9bde956e717be0b9997c522fc21acde8b44bc67331354b5d425a21630f8966"
+                  },
+                  "checks": [
+                    {
+                      "evidence": [
+                        {
+                          "exit_code": null,
+                          "locator": "http://127.0.0.1:44559/index.html",
+                          "method": "browser",
+                          "observation": "{\"scenario\": \"flow\", \"viewport\": {\"height\": 800, \"width\": 375}, \"url\": \"http://127.0.0.1:44559/index.html\", \"observations\": \"{\\\"empty\\\":true,\\\"focus\\\":\\\"note\\\",\\\"outline\\\":\\\"solid\\\",\\\"labels\\\":[\\\"Note text\\\"],\\\"error\\\":true,\\\"loading\\\":true,\\\"success\\\":true,\\\"copy\\\":\\\"Saved: A test note\\\"}\"}",
+                          "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4"
+                        }
+                      ],
+                      "id": "ux_acceptance",
+                      "reason": "",
+                      "result": "passed",
+                      "status": "executed"
+                    }
+                  ],
+                  "model": null,
+                  "model_profile": "unavailable",
+                  "request_digest": "sha256:8ae75cd378f4380a7c3dd1f4e5e35394e1d9a795fa1e2d1b67d5216a8baff64b",
+                  "round": 2,
+                  "session": "separate"
+                }
+              },
+              "request_digests": {
+                "ui": "sha256:171d68064b04254d2700b7bbfacba66a12e64122f9f3f646d2f10e5d61c7a525",
+                "ux": "sha256:8ae75cd378f4380a7c3dd1f4e5e35394e1d9a795fa1e2d1b67d5216a8baff64b"
+              },
+              "requests": {
+                "ui": {
+                  "base_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+                  "checks": [
+                    {
+                      "applicable": true,
+                      "description": "ui acceptance\nSealed product contract: {\"environment\":{\"allowed_operations\":[\"navigate\",\"input\",\"submit_test\"],\"browser_adapter\":\"project Playwright adapter\",\"cleanup\":\"fixture release exact owned session\",\"owner\":\"fixture-owned\",\"profile\":\"all-checks\",\"setup\":\"fixture ensure owned claimed tree\",\"shared_resource\":null,\"test_identity\":\"isolated anonymous test only\"},\"lens\":\"ui\",\"scenarios\":[{\"actions\":[],\"check_id\":\"ui_acceptance\",\"expectations\":[\"No overflow; readable consistent design\"],\"id\":\"desktop\",\"lens\":\"ui\",\"path\":\"/index.html\",\"viewport\":{\"height\":800,\"width\":1280}},{\"actions\":[],\"check_id\":\"ui_acceptance\",\"expectations\":[\"No overflow; readable consistent design\"],\"id\":\"mobile\",\"lens\":\"ui\",\"path\":\"/index.html\",\"viewport\":{\"height\":800,\"width\":375}}],\"scope_reason\":\"Declared interface change\"}",
+                      "enabled": true,
+                      "id": "ui_acceptance",
+                      "method": "browser",
+                      "required": true
+                    }
+                  ],
+                  "optional_policy": "ignore",
+                  "require_separate_session": true,
+                  "round": 2
+                },
+                "ux": {
+                  "base_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+                  "checks": [
+                    {
+                      "applicable": true,
+                      "description": "ux acceptance\nSealed product contract: {\"environment\":{\"allowed_operations\":[\"navigate\",\"input\",\"submit_test\"],\"browser_adapter\":\"project Playwright adapter\",\"cleanup\":\"fixture release exact owned session\",\"owner\":\"fixture-owned\",\"profile\":\"all-checks\",\"setup\":\"fixture ensure owned claimed tree\",\"shared_resource\":null,\"test_identity\":\"isolated anonymous test only\"},\"lens\":\"ux\",\"scenarios\":[{\"actions\":[\"Use keyboard and submit isolated test form\"],\"check_id\":\"ux_acceptance\",\"expectations\":[\"Observe empty/loading/error/success states and labelled keyboard flow\"],\"id\":\"flow\",\"lens\":\"ux\",\"path\":\"/index.html\",\"viewport\":{\"height\":800,\"width\":375}}],\"scope_reason\":\"Declared interface change\"}",
+                      "enabled": true,
+                      "id": "ux_acceptance",
+                      "method": "browser",
+                      "required": true
+                    }
+                  ],
+                  "optional_policy": "ignore",
+                  "require_separate_session": true,
+                  "round": 2
+                }
+              }
+            },
+            "reports": {
+              "checks": {
+                "candidate": {
+                  "algorithm": "git-candidate/1",
+                  "base_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+                  "digest": "sha256:7f4d851d7e4d3ea848998fd23b111c60e322d07e87b8d76080dee58fcabc882d",
+                  "files_digest": "sha256:f5f5e4bfb33836cf9473f33826a1c82043464ec5b6938940cab04f47f9b13ca9",
+                  "head_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+                  "index_digest": "sha256:7f9bde956e717be0b9997c522fc21acde8b44bc67331354b5d425a21630f8966"
+                },
+                "checks": [
+                  {
+                    "evidence": [
+                      {
+                        "exit_code": 0,
+                        "locator": "/tmp/w3-run-xq6b0428/authority/.prifly/work/claims/ae8d98315317d410ac735306a0f914137058d5d9bcf2186951839e546cef6fb2",
+                        "method": "command",
+                        "observation": "exit=0; stdout=''; stderr=''",
+                        "tool": "python3 -B -c from pathlib import Path; assert 'addEventListener' in Path('index.html').read_text()"
+                      }
+                    ],
+                    "id": "checks_acceptance",
+                    "reason": "",
+                    "result": "passed",
+                    "status": "executed"
+                  }
+                ],
+                "model": null,
+                "model_profile": "unavailable",
+                "request_digest": "sha256:976d7870b7767bd49b1dc7d4c56335ea9279d9c0768c4c9d1d626cffbb488930",
+                "round": 2,
+                "session": "shared"
+              },
+              "review": {
+                "candidate": {
+                  "algorithm": "git-candidate/1",
+                  "base_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+                  "digest": "sha256:7f4d851d7e4d3ea848998fd23b111c60e322d07e87b8d76080dee58fcabc882d",
+                  "files_digest": "sha256:f5f5e4bfb33836cf9473f33826a1c82043464ec5b6938940cab04f47f9b13ca9",
+                  "head_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+                  "index_digest": "sha256:7f9bde956e717be0b9997c522fc21acde8b44bc67331354b5d425a21630f8966"
+                },
+                "checks": [
+                  {
+                    "evidence": [
+                      {
+                        "exit_code": null,
+                        "locator": "fixture page/source",
+                        "method": "code",
+                        "observation": "Actual fixture command exited zero",
+                        "tool": "fixture-tool"
+                      }
+                    ],
+                    "id": "review_acceptance",
+                    "reason": "",
+                    "result": "passed",
+                    "status": "executed"
+                  }
+                ],
+                "model": null,
+                "model_profile": "unavailable",
+                "request_digest": "sha256:b3a5625a86e5d371b1b695d2d6db381a77ca4280b2bc0f75935a2551b2739cb3",
+                "round": 2,
+                "session": "shared"
+              },
+              "security": {
+                "candidate": {
+                  "algorithm": "git-candidate/1",
+                  "base_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+                  "digest": "sha256:7f4d851d7e4d3ea848998fd23b111c60e322d07e87b8d76080dee58fcabc882d",
+                  "files_digest": "sha256:f5f5e4bfb33836cf9473f33826a1c82043464ec5b6938940cab04f47f9b13ca9",
+                  "head_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+                  "index_digest": "sha256:7f9bde956e717be0b9997c522fc21acde8b44bc67331354b5d425a21630f8966"
+                },
+                "checks": [
+                  {
+                    "evidence": [
+                      {
+                        "exit_code": null,
+                        "locator": "fixture page/source",
+                        "method": "code",
+                        "observation": "Actual fixture command exited zero",
+                        "tool": "fixture-tool"
+                      }
+                    ],
+                    "id": "security_acceptance",
+                    "reason": "",
+                    "result": "passed",
+                    "status": "executed"
+                  }
+                ],
+                "model": null,
+                "model_profile": "unavailable",
+                "request_digest": "sha256:f4bdc0f0781911dd1062fc7439b423d6fff20c9993dd291b969468027c37134a",
+                "round": 2,
+                "session": "shared"
+              }
+            },
+            "requests": {
+              "checks": {
+                "base_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+                "checks": [
+                  {
+                    "applicable": true,
+                    "description": "Check index.html contains the declared notes form; python3 -B -c \"from pathlib import Path; assert 'addEventListener' in Path('index.html').read_text()\"",
+                    "enabled": true,
+                    "id": "checks_acceptance",
+                    "method": "command",
+                    "required": true
+                  }
+                ],
+                "optional_policy": "ignore",
+                "require_separate_session": false,
+                "round": 2
+              },
+              "review": {
+                "base_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+                "checks": [
+                  {
+                    "applicable": true,
+                    "description": "Inspect scoped notes confirmation: hide empty state, show Saved: <trimmed note>, clear input and restore focus; preserve existing error/loading behavior, responsive design and form IDs.",
+                    "enabled": true,
+                    "id": "review_acceptance",
+                    "method": "code",
+                    "required": true
+                  }
+                ],
+                "optional_policy": "ignore",
+                "require_separate_session": false,
+                "round": 2
+              },
+              "security": {
+                "base_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+                "checks": [
+                  {
+                    "applicable": true,
+                    "description": "Inspect index.html notes form for unsafe script execution, outbound effects or exposed secrets; only ephemeral in-page state is authorized.",
+                    "enabled": true,
+                    "id": "security_acceptance",
+                    "method": "code",
+                    "required": true
+                  }
+                ],
+                "optional_policy": "ignore",
+                "require_separate_session": false,
+                "round": 2
+              }
+            },
+            "round": 2,
+            "task_digest": "sha256:4797bcee7a38522c12e2cc1a4cad8590edd7532a41bd93837b3eb47e7f805a2b"
+          },
+          "gate": {
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "checks: Model profile unavailable; independent model not established",
+              "security: Model profile unavailable; independent model not established",
+              "review: Model profile unavailable; independent model not established",
+              "product: ui: Model profile unavailable; independent model not established",
+              "product: ux: Model profile unavailable; independent model not established"
+            ],
+            "gate": "feature",
+            "status": "warnings",
+            "suggested_next": "continue"
+          },
+          "implementation": {
+            "base_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+            "head_commit": "19ab94528b15f40c28e1f934f3cbbc2bad5ae872",
+            "changed_files": [
+              "index.html"
+            ]
+          },
+          "plan": {
+            "entrypoint": "PLAN.md",
+            "files": [
+              {
+                "path": "PLAN.md",
+                "ref": {
+                  "artifact_id": "artifact:4f7e2821da6ef7a6184ff28dddbe32ff870da73764709a2d588a9be384280881",
+                  "digest": "sha256:98a9367657c8cb053c66b74005e1076ab93328830dd64002dfb5cb68c6a9a416",
+                  "revision": 1
+                }
+              }
+            ],
+            "root": ".ai-factory",
+            "schema_version": "workspace-tree-manifest/1"
+          },
+          "result": {
+            "outcome": "implemented",
+            "reason": "Synthetic feature host",
+            "work": [
+              "Preserved task work and original base."
+            ]
+          }
+        },
+        "browser_observations": [],
+        "uiux_pairs": [
+          {
+            "run": "run:a46ba2648514c887af8f73c8837656b6c131d8954beee4e7ca44ff7b61ce7545",
+            "round": 1,
+            "candidate": {
+              "algorithm": "git-candidate/1",
+              "base_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+              "digest": "sha256:98d9a1a1a3601f137bec857c79099dcdba3893d9fadb525f6af24b7af73ee54b",
+              "files_digest": "sha256:1c6c919e8fac51468180083426d99e00e56c725b0ff76f4b0dadf520b9eb9646",
+              "head_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+              "index_digest": "sha256:7f9bde956e717be0b9997c522fc21acde8b44bc67331354b5d425a21630f8966"
+            },
+            "attempts": [
+              "attempt:c77acc453d518f6b8549b6b43a400451",
+              "attempt:77f44fe293f501931f02d5716d8cd609"
+            ],
+            "browser_sessions": {
+              "ui": {
+                "adapter_digest": "sha256:720217567668470439db146eaf17f635b907bf6e1a7335cd489c4e402ede4de7",
+                "allocation": {
+                  "token": "3f4b5a3085944cf29906ed16ff864137"
+                },
+                "candidate_digest": "sha256:98d9a1a1a3601f137bec857c79099dcdba3893d9fadb525f6af24b7af73ee54b",
+                "configuration_digest": "sha256:4282a0580453befdf14bdbe7d8180f1f656acd83e70cefe1f7d64631f174ff41",
+                "context_id": "context-a0e44be0c60a49ab8ef3218b06b45ba8",
+                "environment_session": "environment-36d1ce4caa07491999b2d9533d0db9d9",
+                "identity_id": "identity-74d1bb6a7f6e4184be78a0752fb2f1f8",
+                "lens": "ui",
+                "owner": "fixture-owned",
+                "protocol": "aif-feature-browser/1",
+                "reason": "",
+                "request_digest": "sha256:638848ac072ce1f491d130ebcdad46246dbe5171c98de28c31b01fbc325f534e",
+                "round": 1,
+                "run_id": "run:a46ba2648514c887af8f73c8837656b6c131d8954beee4e7ca44ff7b61ce7545",
+                "status": "ready"
+              },
+              "ux": {
+                "adapter_digest": "sha256:720217567668470439db146eaf17f635b907bf6e1a7335cd489c4e402ede4de7",
+                "allocation": {
+                  "token": "a0ded4d2244c48adb9867e2be3a852b6"
+                },
+                "candidate_digest": "sha256:98d9a1a1a3601f137bec857c79099dcdba3893d9fadb525f6af24b7af73ee54b",
+                "configuration_digest": "sha256:4282a0580453befdf14bdbe7d8180f1f656acd83e70cefe1f7d64631f174ff41",
+                "context_id": "context-57e609bf540242c48328f391430ef81a",
+                "environment_session": "environment-36d1ce4caa07491999b2d9533d0db9d9",
+                "identity_id": "identity-f609f9f72515473bbe386f7ba5194e02",
+                "lens": "ux",
+                "owner": "fixture-owned",
+                "protocol": "aif-feature-browser/1",
+                "reason": "",
+                "request_digest": "sha256:b26c838f651304c3b587e64d152eb77314cb7704c5c5b2fd81bb009047e82758",
+                "round": 1,
+                "run_id": "run:a46ba2648514c887af8f73c8837656b6c131d8954beee4e7ca44ff7b61ce7545",
+                "status": "ready"
+              }
+            },
+            "environment": {
+              "candidate_digest": "sha256:98d9a1a1a3601f137bec857c79099dcdba3893d9fadb525f6af24b7af73ee54b",
+              "configuration_digest": "sha256:4282a0580453befdf14bdbe7d8180f1f656acd83e70cefe1f7d64631f174ff41",
+              "owner": "fixture-owned",
+              "profile": "all-checks",
+              "reason": "",
+              "session": "environment-36d1ce4caa07491999b2d9533d0db9d9",
+              "status": "ready",
+              "url": "http://127.0.0.1:35131"
+            },
+            "browser_work_overlap_seconds": 2.5343934699776582,
+            "browser_observations": {
+              "ui": {
+                "protocol": "aif-feature-browser/1",
+                "status": "ready",
+                "lens": "ui",
+                "context_id": "context-a0e44be0c60a49ab8ef3218b06b45ba8",
+                "identity_id": "identity-74d1bb6a7f6e4184be78a0752fb2f1f8",
+                "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+                "observations": [
+                  {
+                    "scenario": "desktop",
+                    "viewport": {
+                      "height": 800,
+                      "width": 1280
+                    },
+                    "url": "http://127.0.0.1:35131/index.html",
+                    "observations": "{\"viewport\":1280,\"scrollWidth\":1280,\"heading\":\"Notes\",\"label\":\"Note text\",\"bodyColor\":\"rgb(23, 32, 51)\",\"bodyBackground\":\"rgb(244, 246, 250)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\"}",
+                    "failures": [],
+                    "screenshot": "/tmp/w3-run-xq6b0428/authority/.prifly/work/c77acc453d518f6b8549b6b43a400451/browser/bb7d4f90-22f4-4c05-83f1-9114783f6398/ui-desktop.png",
+                    "screenshot_sha256": "sha256:0ef57f5da2f0f0bce1745f35b4c0d8e05ec98587545d14959df8e3fdce1b0757"
+                  },
+                  {
+                    "scenario": "mobile",
+                    "viewport": {
+                      "height": 800,
+                      "width": 375
+                    },
+                    "url": "http://127.0.0.1:35131/index.html",
+                    "observations": "{\"viewport\":375,\"scrollWidth\":816,\"heading\":\"Notes\",\"label\":\"Note text\",\"bodyColor\":\"rgb(23, 32, 51)\",\"bodyBackground\":\"rgb(244, 246, 250)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\"}",
+                    "failures": [
+                      "Horizontal overflow"
+                    ],
+                    "screenshot": "/tmp/w3-run-xq6b0428/authority/.prifly/work/c77acc453d518f6b8549b6b43a400451/browser/bb7d4f90-22f4-4c05-83f1-9114783f6398/ui-mobile.png",
+                    "screenshot_sha256": "sha256:a6bd7964d62a9fc3730187516fda9aa69fadf0126154174b6141b74ccf05a5f1"
+                  }
+                ],
+                "note": "Actual observations and screenshots; the reviewer must inspect images and choose its own assessment."
+              },
+              "ux": {
+                "protocol": "aif-feature-browser/1",
+                "status": "ready",
+                "lens": "ux",
+                "context_id": "context-57e609bf540242c48328f391430ef81a",
+                "identity_id": "identity-f609f9f72515473bbe386f7ba5194e02",
+                "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+                "observations": [
+                  {
+                    "scenario": "flow",
+                    "viewport": {
+                      "height": 800,
+                      "width": 375
+                    },
+                    "url": "http://127.0.0.1:35131/index.html",
+                    "observations": "{\"empty\":true,\"focus\":\"note\",\"outline\":\"solid\",\"labels\":[\"Note text\"],\"error\":true,\"loading\":true,\"success\":true,\"copy\":\"Saved: A test note\"}",
+                    "failures": [],
+                    "screenshot": "/tmp/w3-run-xq6b0428/authority/.prifly/work/77f44fe293f501931f02d5716d8cd609/browser/2c15e595-ce25-498d-baae-f5a0f93ea7a8/ux-flow.png",
+                    "screenshot_sha256": "sha256:dbcfc36cc3149acb3ba3a690af0a09e1dacc3a15d9fc59d576355245745ddb6a"
+                  }
+                ],
+                "note": "Actual observations and screenshots; the reviewer must inspect images and choose its own assessment."
+              }
+            }
+          },
+          {
+            "run": "run:a46ba2648514c887af8f73c8837656b6c131d8954beee4e7ca44ff7b61ce7545",
+            "round": 2,
+            "candidate": {
+              "algorithm": "git-candidate/1",
+              "base_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+              "digest": "sha256:7f4d851d7e4d3ea848998fd23b111c60e322d07e87b8d76080dee58fcabc882d",
+              "files_digest": "sha256:f5f5e4bfb33836cf9473f33826a1c82043464ec5b6938940cab04f47f9b13ca9",
+              "head_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+              "index_digest": "sha256:7f9bde956e717be0b9997c522fc21acde8b44bc67331354b5d425a21630f8966"
+            },
+            "attempts": [
+              "attempt:e902cffb7793ac5d6985c46d54dde5de",
+              "attempt:dab6c2d62944b88bb6237ce9f16e48a5"
+            ],
+            "browser_sessions": {
+              "ui": {
+                "adapter_digest": "sha256:720217567668470439db146eaf17f635b907bf6e1a7335cd489c4e402ede4de7",
+                "allocation": {
+                  "token": "e58c708c485e4bed9eb51b79213e4bd9"
+                },
+                "candidate_digest": "sha256:7f4d851d7e4d3ea848998fd23b111c60e322d07e87b8d76080dee58fcabc882d",
+                "configuration_digest": "sha256:adfaca43be684aaeaaebec9388bb5473a445633de078ee591d50d81df0797147",
+                "context_id": "context-7b0431c683634a59bd3399ed2ae5c86c",
+                "environment_session": "environment-1e64c9b8105d4b57bc694d3fb00229c6",
+                "identity_id": "identity-aeec88ab12794bfa94a6ec7686f50f14",
+                "lens": "ui",
+                "owner": "fixture-owned",
+                "protocol": "aif-feature-browser/1",
+                "reason": "",
+                "request_digest": "sha256:171d68064b04254d2700b7bbfacba66a12e64122f9f3f646d2f10e5d61c7a525",
+                "round": 2,
+                "run_id": "run:a46ba2648514c887af8f73c8837656b6c131d8954beee4e7ca44ff7b61ce7545",
+                "status": "ready"
+              },
+              "ux": {
+                "adapter_digest": "sha256:720217567668470439db146eaf17f635b907bf6e1a7335cd489c4e402ede4de7",
+                "allocation": {
+                  "token": "ac476829d4ac4421814030f12d5f7008"
+                },
+                "candidate_digest": "sha256:7f4d851d7e4d3ea848998fd23b111c60e322d07e87b8d76080dee58fcabc882d",
+                "configuration_digest": "sha256:adfaca43be684aaeaaebec9388bb5473a445633de078ee591d50d81df0797147",
+                "context_id": "context-6638e92e58954c1092dea5e53aa2d06c",
+                "environment_session": "environment-1e64c9b8105d4b57bc694d3fb00229c6",
+                "identity_id": "identity-42e5d71c16f54a1885fd2f536f7667bc",
+                "lens": "ux",
+                "owner": "fixture-owned",
+                "protocol": "aif-feature-browser/1",
+                "reason": "",
+                "request_digest": "sha256:8ae75cd378f4380a7c3dd1f4e5e35394e1d9a795fa1e2d1b67d5216a8baff64b",
+                "round": 2,
+                "run_id": "run:a46ba2648514c887af8f73c8837656b6c131d8954beee4e7ca44ff7b61ce7545",
+                "status": "ready"
+              }
+            },
+            "environment": {
+              "candidate_digest": "sha256:7f4d851d7e4d3ea848998fd23b111c60e322d07e87b8d76080dee58fcabc882d",
+              "configuration_digest": "sha256:adfaca43be684aaeaaebec9388bb5473a445633de078ee591d50d81df0797147",
+              "owner": "fixture-owned",
+              "profile": "all-checks",
+              "reason": "",
+              "session": "environment-1e64c9b8105d4b57bc694d3fb00229c6",
+              "status": "ready",
+              "url": "http://127.0.0.1:44559"
+            },
+            "browser_work_overlap_seconds": 2.527776345028542,
+            "browser_observations": {
+              "ui": {
+                "protocol": "aif-feature-browser/1",
+                "status": "ready",
+                "lens": "ui",
+                "context_id": "context-7b0431c683634a59bd3399ed2ae5c86c",
+                "identity_id": "identity-aeec88ab12794bfa94a6ec7686f50f14",
+                "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+                "observations": [
+                  {
+                    "scenario": "desktop",
+                    "viewport": {
+                      "height": 800,
+                      "width": 1280
+                    },
+                    "url": "http://127.0.0.1:44559/index.html",
+                    "observations": "{\"viewport\":1280,\"scrollWidth\":1280,\"heading\":\"Notes\",\"label\":\"Note text\",\"bodyColor\":\"rgb(23, 32, 51)\",\"bodyBackground\":\"rgb(244, 246, 250)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\"}",
+                    "failures": [],
+                    "screenshot": "/tmp/w3-run-xq6b0428/authority/.prifly/work/e902cffb7793ac5d6985c46d54dde5de/browser/182a19b6-7180-4ed3-bee4-ed12ba0a79f1/ui-desktop.png",
+                    "screenshot_sha256": "sha256:37e37428dadfd48c87280e0070041eab0763a33909e437b734b87972b1421291"
+                  },
+                  {
+                    "scenario": "mobile",
+                    "viewport": {
+                      "height": 800,
+                      "width": 375
+                    },
+                    "url": "http://127.0.0.1:44559/index.html",
+                    "observations": "{\"viewport\":375,\"scrollWidth\":375,\"heading\":\"Notes\",\"label\":\"Note text\",\"bodyColor\":\"rgb(23, 32, 51)\",\"bodyBackground\":\"rgb(244, 246, 250)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\"}",
+                    "failures": [],
+                    "screenshot": "/tmp/w3-run-xq6b0428/authority/.prifly/work/e902cffb7793ac5d6985c46d54dde5de/browser/182a19b6-7180-4ed3-bee4-ed12ba0a79f1/ui-mobile.png",
+                    "screenshot_sha256": "sha256:8395e45ac2baba8f48cff425380262c6ce2135f0057a6aae4f8ecea69d8b086d"
+                  }
+                ],
+                "note": "Actual observations and screenshots; the reviewer must inspect images and choose its own assessment."
+              },
+              "ux": {
+                "protocol": "aif-feature-browser/1",
+                "status": "ready",
+                "lens": "ux",
+                "context_id": "context-6638e92e58954c1092dea5e53aa2d06c",
+                "identity_id": "identity-42e5d71c16f54a1885fd2f536f7667bc",
+                "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+                "observations": [
+                  {
+                    "scenario": "flow",
+                    "viewport": {
+                      "height": 800,
+                      "width": 375
+                    },
+                    "url": "http://127.0.0.1:44559/index.html",
+                    "observations": "{\"empty\":true,\"focus\":\"note\",\"outline\":\"solid\",\"labels\":[\"Note text\"],\"error\":true,\"loading\":true,\"success\":true,\"copy\":\"Saved: A test note\"}",
+                    "failures": [],
+                    "screenshot": "/tmp/w3-run-xq6b0428/authority/.prifly/work/dab6c2d62944b88bb6237ce9f16e48a5/browser/29372a7b-e959-40a0-b623-e416198491c7/ux-flow.png",
+                    "screenshot_sha256": "sha256:c10f6c30fe47fcaac50470b17431534535006e305a4446a19641fe064ea64dfb"
+                  }
+                ],
+                "note": "Actual observations and screenshots; the reviewer must inspect images and choose its own assessment."
+              }
+            }
+          }
+        ],
+        "uiux_reader_observations": [],
+        "environment_journals": [
+          {
+            "actor_phase": "settled",
+            "adapter": {
+              "entrypoint": "adapter.py",
+              "files": {
+                "adapter.py": "sha256:f2110375d0e6d67d967c2ac5ddd603fa988de980af195e74bfa45336d211c2f1",
+                "browser.cjs": "sha256:6062a9a854eb5d7fcec2add7613c3966e61a88c7b7fb95f98308abe51bc63a94",
+                "tool-lock.json": "sha256:3b61dc353436423a0af3dc6a0c047079dba90029f07002c2c9dac652f769734a"
+              },
+              "protocol": "aif-feature-browser/1",
+              "root": "/tmp/w3-run-xq6b0428/browser-adapter",
+              "settings": {
+                "control_release": "/tmp/w3-run-xq6b0428/browser-continue-ready",
+                "fault": null,
+                "library": "/tmp/aif-w5-uiux-browser-tool/node_modules/playwright",
+                "node": "/usr/local/bin/node",
+                "state_root": "/tmp/w3-run-xq6b0428/environment-state"
+              }
+            },
+            "adapter_response": {
+              "protocol": "aif-feature-browser/1",
+              "readers": {
+                "ui": {
+                  "allocation": {
+                    "token": "3f4b5a3085944cf29906ed16ff864137"
+                  },
+                  "context_id": "context-a0e44be0c60a49ab8ef3218b06b45ba8",
+                  "identity_id": "identity-74d1bb6a7f6e4184be78a0752fb2f1f8"
+                },
+                "ux": {
+                  "allocation": {
+                    "token": "a0ded4d2244c48adb9867e2be3a852b6"
+                  },
+                  "context_id": "context-57e609bf540242c48328f391430ef81a",
+                  "identity_id": "identity-f609f9f72515473bbe386f7ba5194e02"
+                }
+              },
+              "reason": "",
+              "session": "environment-36d1ce4caa07491999b2d9533d0db9d9",
+              "status": "ready",
+              "url": "http://127.0.0.1:35131"
+            },
+            "candidate": {
+              "algorithm": "git-candidate/1",
+              "base_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+              "digest": "sha256:98d9a1a1a3601f137bec857c79099dcdba3893d9fadb525f6af24b7af73ee54b",
+              "files_digest": "sha256:1c6c919e8fac51468180083426d99e00e56c725b0ff76f4b0dadf520b9eb9646",
+              "head_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+              "index_digest": "sha256:7f9bde956e717be0b9997c522fc21acde8b44bc67331354b5d425a21630f8966"
+            },
+            "configuration": {
+              "environment": {
+                "allowed_operations": [
+                  "navigate",
+                  "input",
+                  "submit_test"
+                ],
+                "browser_adapter": "project Playwright adapter",
+                "cleanup": "fixture release exact owned session",
+                "owner": "fixture-owned",
+                "profile": "all-checks",
+                "setup": "fixture ensure owned claimed tree",
+                "shared_resource": null,
+                "test_identity": "isolated anonymous test only"
+              },
+              "scenarios": [
+                {
+                  "actions": [],
+                  "check_id": "ui_acceptance",
+                  "expectations": [
+                    "No overflow; readable consistent design"
+                  ],
+                  "id": "desktop",
+                  "lens": "ui",
+                  "path": "/index.html",
+                  "viewport": {
+                    "height": 800,
+                    "width": 1280
+                  }
+                },
+                {
+                  "actions": [],
+                  "check_id": "ui_acceptance",
+                  "expectations": [
+                    "No overflow; readable consistent design"
+                  ],
+                  "id": "mobile",
+                  "lens": "ui",
+                  "path": "/index.html",
+                  "viewport": {
+                    "height": 800,
+                    "width": 375
+                  }
+                },
+                {
+                  "actions": [
+                    "Use keyboard and submit isolated test form"
+                  ],
+                  "check_id": "ux_acceptance",
+                  "expectations": [
+                    "Observe empty/loading/error/success states and labelled keyboard flow"
+                  ],
+                  "id": "flow",
+                  "lens": "ux",
+                  "path": "/index.html",
+                  "viewport": {
+                    "height": 800,
+                    "width": 375
+                  }
+                }
+              ],
+              "scope_reason": "Declared interface change",
+              "surface": "frontend",
+              "ui": {
+                "base_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+                "checks": [
+                  {
+                    "applicable": true,
+                    "description": "ui acceptance",
+                    "enabled": true,
+                    "id": "ui_acceptance",
+                    "method": "browser",
+                    "required": true
+                  }
+                ],
+                "optional_policy": "ignore",
+                "require_separate_session": true,
+                "round": 1
+              },
+              "ux": {
+                "base_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+                "checks": [
+                  {
+                    "applicable": true,
+                    "description": "ux acceptance",
+                    "enabled": true,
+                    "id": "ux_acceptance",
+                    "method": "browser",
+                    "required": true
+                  }
+                ],
+                "optional_policy": "ignore",
+                "require_separate_session": true,
+                "round": 1
+              }
+            },
+            "environment_attempt": "attempt:365ca308e41084613aa0667e28f4499e",
+            "environment_ref": {
+              "artifact_id": "artifact:8d1d8d9760af742006bb74610b7cdaab0eba0459aba5939d261eab9eaf6c44aa",
+              "digest": "sha256:d8783d5624319f194337c9194bde60f6c56c047b424396876d68467a5819840b",
+              "revision": 1
+            },
+            "release": {
+              "owner": "fixture-owned",
+              "reason": "",
+              "session": "environment-36d1ce4caa07491999b2d9533d0db9d9",
+              "status": "released"
+            },
+            "repository_workspace": "/tmp/w3-run-xq6b0428/authority/.prifly/work/claims/ae8d98315317d410ac735306a0f914137058d5d9bcf2186951839e546cef6fb2",
+            "run_id": "run:a46ba2648514c887af8f73c8837656b6c131d8954beee4e7ca44ff7b61ce7545",
+            "state": "release_returned",
+            "values": {
+              "environment": {
+                "candidate_digest": "sha256:98d9a1a1a3601f137bec857c79099dcdba3893d9fadb525f6af24b7af73ee54b",
+                "configuration_digest": "sha256:4282a0580453befdf14bdbe7d8180f1f656acd83e70cefe1f7d64631f174ff41",
+                "owner": "fixture-owned",
+                "profile": "all-checks",
+                "reason": "",
+                "session": "environment-36d1ce4caa07491999b2d9533d0db9d9",
+                "status": "ready",
+                "url": "http://127.0.0.1:35131"
+              },
+              "ui_session": {
+                "adapter_digest": "sha256:720217567668470439db146eaf17f635b907bf6e1a7335cd489c4e402ede4de7",
+                "allocation": {
+                  "token": "3f4b5a3085944cf29906ed16ff864137"
+                },
+                "candidate_digest": "sha256:98d9a1a1a3601f137bec857c79099dcdba3893d9fadb525f6af24b7af73ee54b",
+                "configuration_digest": "sha256:4282a0580453befdf14bdbe7d8180f1f656acd83e70cefe1f7d64631f174ff41",
+                "context_id": "context-a0e44be0c60a49ab8ef3218b06b45ba8",
+                "environment_session": "environment-36d1ce4caa07491999b2d9533d0db9d9",
+                "identity_id": "identity-74d1bb6a7f6e4184be78a0752fb2f1f8",
+                "lens": "ui",
+                "owner": "fixture-owned",
+                "protocol": "aif-feature-browser/1",
+                "reason": "",
+                "request_digest": "sha256:638848ac072ce1f491d130ebcdad46246dbe5171c98de28c31b01fbc325f534e",
+                "round": 1,
+                "run_id": "run:a46ba2648514c887af8f73c8837656b6c131d8954beee4e7ca44ff7b61ce7545",
+                "status": "ready"
+              },
+              "ux_session": {
+                "adapter_digest": "sha256:720217567668470439db146eaf17f635b907bf6e1a7335cd489c4e402ede4de7",
+                "allocation": {
+                  "token": "a0ded4d2244c48adb9867e2be3a852b6"
+                },
+                "candidate_digest": "sha256:98d9a1a1a3601f137bec857c79099dcdba3893d9fadb525f6af24b7af73ee54b",
+                "configuration_digest": "sha256:4282a0580453befdf14bdbe7d8180f1f656acd83e70cefe1f7d64631f174ff41",
+                "context_id": "context-57e609bf540242c48328f391430ef81a",
+                "environment_session": "environment-36d1ce4caa07491999b2d9533d0db9d9",
+                "identity_id": "identity-f609f9f72515473bbe386f7ba5194e02",
+                "lens": "ux",
+                "owner": "fixture-owned",
+                "protocol": "aif-feature-browser/1",
+                "reason": "",
+                "request_digest": "sha256:b26c838f651304c3b587e64d152eb77314cb7704c5c5b2fd81bb009047e82758",
+                "round": 1,
+                "run_id": "run:a46ba2648514c887af8f73c8837656b6c131d8954beee4e7ca44ff7b61ce7545",
+                "status": "ready"
+              }
+            }
+          },
+          {
+            "actor_phase": "settled",
+            "adapter": {
+              "entrypoint": "adapter.py",
+              "files": {
+                "adapter.py": "sha256:f2110375d0e6d67d967c2ac5ddd603fa988de980af195e74bfa45336d211c2f1",
+                "browser.cjs": "sha256:6062a9a854eb5d7fcec2add7613c3966e61a88c7b7fb95f98308abe51bc63a94",
+                "tool-lock.json": "sha256:3b61dc353436423a0af3dc6a0c047079dba90029f07002c2c9dac652f769734a"
+              },
+              "protocol": "aif-feature-browser/1",
+              "root": "/tmp/w3-run-xq6b0428/browser-adapter",
+              "settings": {
+                "control_release": "/tmp/w3-run-xq6b0428/browser-continue-ready",
+                "fault": null,
+                "library": "/tmp/aif-w5-uiux-browser-tool/node_modules/playwright",
+                "node": "/usr/local/bin/node",
+                "state_root": "/tmp/w3-run-xq6b0428/environment-state"
+              }
+            },
+            "adapter_response": {
+              "protocol": "aif-feature-browser/1",
+              "readers": {
+                "ui": {
+                  "allocation": {
+                    "token": "e58c708c485e4bed9eb51b79213e4bd9"
+                  },
+                  "context_id": "context-7b0431c683634a59bd3399ed2ae5c86c",
+                  "identity_id": "identity-aeec88ab12794bfa94a6ec7686f50f14"
+                },
+                "ux": {
+                  "allocation": {
+                    "token": "ac476829d4ac4421814030f12d5f7008"
+                  },
+                  "context_id": "context-6638e92e58954c1092dea5e53aa2d06c",
+                  "identity_id": "identity-42e5d71c16f54a1885fd2f536f7667bc"
+                }
+              },
+              "reason": "",
+              "session": "environment-1e64c9b8105d4b57bc694d3fb00229c6",
+              "status": "ready",
+              "url": "http://127.0.0.1:44559"
+            },
+            "candidate": {
+              "algorithm": "git-candidate/1",
+              "base_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+              "digest": "sha256:7f4d851d7e4d3ea848998fd23b111c60e322d07e87b8d76080dee58fcabc882d",
+              "files_digest": "sha256:f5f5e4bfb33836cf9473f33826a1c82043464ec5b6938940cab04f47f9b13ca9",
+              "head_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+              "index_digest": "sha256:7f9bde956e717be0b9997c522fc21acde8b44bc67331354b5d425a21630f8966"
+            },
+            "configuration": {
+              "environment": {
+                "allowed_operations": [
+                  "navigate",
+                  "input",
+                  "submit_test"
+                ],
+                "browser_adapter": "project Playwright adapter",
+                "cleanup": "fixture release exact owned session",
+                "owner": "fixture-owned",
+                "profile": "all-checks",
+                "setup": "fixture ensure owned claimed tree",
+                "shared_resource": null,
+                "test_identity": "isolated anonymous test only"
+              },
+              "scenarios": [
+                {
+                  "actions": [],
+                  "check_id": "ui_acceptance",
+                  "expectations": [
+                    "No overflow; readable consistent design"
+                  ],
+                  "id": "desktop",
+                  "lens": "ui",
+                  "path": "/index.html",
+                  "viewport": {
+                    "height": 800,
+                    "width": 1280
+                  }
+                },
+                {
+                  "actions": [],
+                  "check_id": "ui_acceptance",
+                  "expectations": [
+                    "No overflow; readable consistent design"
+                  ],
+                  "id": "mobile",
+                  "lens": "ui",
+                  "path": "/index.html",
+                  "viewport": {
+                    "height": 800,
+                    "width": 375
+                  }
+                },
+                {
+                  "actions": [
+                    "Use keyboard and submit isolated test form"
+                  ],
+                  "check_id": "ux_acceptance",
+                  "expectations": [
+                    "Observe empty/loading/error/success states and labelled keyboard flow"
+                  ],
+                  "id": "flow",
+                  "lens": "ux",
+                  "path": "/index.html",
+                  "viewport": {
+                    "height": 800,
+                    "width": 375
+                  }
+                }
+              ],
+              "scope_reason": "Declared interface change",
+              "surface": "frontend",
+              "ui": {
+                "base_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+                "checks": [
+                  {
+                    "applicable": true,
+                    "description": "ui acceptance",
+                    "enabled": true,
+                    "id": "ui_acceptance",
+                    "method": "browser",
+                    "required": true
+                  }
+                ],
+                "optional_policy": "ignore",
+                "require_separate_session": true,
+                "round": 2
+              },
+              "ux": {
+                "base_commit": "861f8d92f3370fece0c31341678ffb15e40ecb18",
+                "checks": [
+                  {
+                    "applicable": true,
+                    "description": "ux acceptance",
+                    "enabled": true,
+                    "id": "ux_acceptance",
+                    "method": "browser",
+                    "required": true
+                  }
+                ],
+                "optional_policy": "ignore",
+                "require_separate_session": true,
+                "round": 2
+              }
+            },
+            "environment_attempt": "attempt:cb9cfa35427c2f5d19d816a66d4e26d5",
+            "environment_ref": {
+              "artifact_id": "artifact:f2d8e44ad0ae0e7d002f5c5c9099d591a96f3a4f729a69c6927d5af0848c8052",
+              "digest": "sha256:974a66d24f83b47f74e08b381583cdd88d1640dca1b1b66faa32271f5c6818a5",
+              "revision": 1
+            },
+            "release": {
+              "owner": "fixture-owned",
+              "reason": "",
+              "session": "environment-1e64c9b8105d4b57bc694d3fb00229c6",
+              "status": "released"
+            },
+            "repository_workspace": "/tmp/w3-run-xq6b0428/authority/.prifly/work/claims/ae8d98315317d410ac735306a0f914137058d5d9bcf2186951839e546cef6fb2",
+            "run_id": "run:a46ba2648514c887af8f73c8837656b6c131d8954beee4e7ca44ff7b61ce7545",
+            "state": "release_returned",
+            "values": {
+              "environment": {
+                "candidate_digest": "sha256:7f4d851d7e4d3ea848998fd23b111c60e322d07e87b8d76080dee58fcabc882d",
+                "configuration_digest": "sha256:adfaca43be684aaeaaebec9388bb5473a445633de078ee591d50d81df0797147",
+                "owner": "fixture-owned",
+                "profile": "all-checks",
+                "reason": "",
+                "session": "environment-1e64c9b8105d4b57bc694d3fb00229c6",
+                "status": "ready",
+                "url": "http://127.0.0.1:44559"
+              },
+              "ui_session": {
+                "adapter_digest": "sha256:720217567668470439db146eaf17f635b907bf6e1a7335cd489c4e402ede4de7",
+                "allocation": {
+                  "token": "e58c708c485e4bed9eb51b79213e4bd9"
+                },
+                "candidate_digest": "sha256:7f4d851d7e4d3ea848998fd23b111c60e322d07e87b8d76080dee58fcabc882d",
+                "configuration_digest": "sha256:adfaca43be684aaeaaebec9388bb5473a445633de078ee591d50d81df0797147",
+                "context_id": "context-7b0431c683634a59bd3399ed2ae5c86c",
+                "environment_session": "environment-1e64c9b8105d4b57bc694d3fb00229c6",
+                "identity_id": "identity-aeec88ab12794bfa94a6ec7686f50f14",
+                "lens": "ui",
+                "owner": "fixture-owned",
+                "protocol": "aif-feature-browser/1",
+                "reason": "",
+                "request_digest": "sha256:171d68064b04254d2700b7bbfacba66a12e64122f9f3f646d2f10e5d61c7a525",
+                "round": 2,
+                "run_id": "run:a46ba2648514c887af8f73c8837656b6c131d8954beee4e7ca44ff7b61ce7545",
+                "status": "ready"
+              },
+              "ux_session": {
+                "adapter_digest": "sha256:720217567668470439db146eaf17f635b907bf6e1a7335cd489c4e402ede4de7",
+                "allocation": {
+                  "token": "ac476829d4ac4421814030f12d5f7008"
+                },
+                "candidate_digest": "sha256:7f4d851d7e4d3ea848998fd23b111c60e322d07e87b8d76080dee58fcabc882d",
+                "configuration_digest": "sha256:adfaca43be684aaeaaebec9388bb5473a445633de078ee591d50d81df0797147",
+                "context_id": "context-6638e92e58954c1092dea5e53aa2d06c",
+                "environment_session": "environment-1e64c9b8105d4b57bc694d3fb00229c6",
+                "identity_id": "identity-42e5d71c16f54a1885fd2f536f7667bc",
+                "lens": "ux",
+                "owner": "fixture-owned",
+                "protocol": "aif-feature-browser/1",
+                "reason": "",
+                "request_digest": "sha256:8ae75cd378f4380a7c3dd1f4e5e35394e1d9a795fa1e2d1b67d5216a8baff64b",
+                "round": 2,
+                "run_id": "run:a46ba2648514c887af8f73c8837656b6c131d8954beee4e7ca44ff7b61ce7545",
+                "status": "ready"
+              }
+            }
+          }
+        ],
+        "fixture_teardown": [],
+        "actual_independent_llm_sessions": 0,
+        "scenario": "repair-ui"
+      }
+    }
+  ],
+  "scope": "Public default catalog exact tag/source install and idempotent update; existing synthetic-host native drivers, actual Chromium for UI/UX. No new live LLM/model attestation. Driver finally blocks clean owned Runs/claims/environment/monitor entries."
+}

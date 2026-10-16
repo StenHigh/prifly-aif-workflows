@@ -3,7 +3,8 @@
 Qualification evidence: [acceptance.md](acceptance.md). Backend fixture and real
 CLI normal delivery are qualified; **E4 fixed in 0.13.77; backend composition implemented**.
 Package portion changes aif-feature1.2.3 only, with default sequential and
-explicit codex-cli backend adapter. No Core/classic/profiled changes or tag/catalog publication. See
+explicit codex-cli backend adapter. Published in [v1.52.0](../../releases/v1.52.0.md);
+no Core/classic/profiled changes. See
 [feature composition](feature-composition.md) and
 [released requalification](release-0.13.77.md); the old named cancellation
 negatives below describe the original 0.13.76 qualification.
@@ -66,7 +67,7 @@ negatives below describe the original 0.13.76 qualification.
   SUCCESS, UI/UX35/unit16, default feature35/backend24 и все legacy gates PASS.
   Terminal steps, original case lines и SHA256 полных logs сохранены в
   [CI evidence](feature-uiux-ci-results.json). Пакетная часть W5 завершена
-  в заявленном Codex CLI/isolated stand/1–3 rounds scope; пакет не опубликован.
+  в заявленном Codex CLI/isolated stand/1–3 rounds scope; пакет опубликован в v1.52.0.
 - [x] Пройти новую backend приёмку actual feature graph: 24 native scenarios,
   unit12, three-host compile и scoped actual CLI observation; feature1.1.0.
   Старый fixture не заменяет эту приёмку. Default/full CI отражаются отдельно;

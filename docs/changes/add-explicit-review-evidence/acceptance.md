@@ -1,5 +1,9 @@
 # W1 — локальная приёмка
 
+Публикация: [v1.52.0](../../releases/v1.52.0.md), 2026-10-16; exact source/catalog и published smoke —
+[release evidence](../../releases/v1.52.0-results.json). Ниже сохранена
+историческая приёмка initial checkpoint с её исходной версией и ограничениями.
+
 Дата: 2026-10-14. Статус: **implemented locally / accepted within limits / unreleased**.
 Реализация: [aif-review-evidence](../../../aif-review-evidence/README.md), initial 1.0.0.
 Classic/profiled/fix/fanout не изменены; изменение движка не требовалось.

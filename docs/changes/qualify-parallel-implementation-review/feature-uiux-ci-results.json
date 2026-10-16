@@ -1504,8 +1504,14 @@
     "head_sha": "f43eb4389adde5aa6adc1c18228fc70cb0549354",
     "run_id": 38848759987,
     "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38848759987",
-    "package_portion_status": "complete; scoped qualification passed; unpublished",
+    "package_portion_status": "complete; scoped qualification passed; published in v1.52.0",
     "evidence": "final_error_refinement",
-    "historical_snapshots": "Other top-level jobs and snapshots retain their original revisions and observation times."
+    "historical_snapshots": "Other top-level jobs and snapshots retain their original revisions and observation times.",
+    "publication": {
+      "tag": "v1.52.0",
+      "source_commit": "c6394802cb69660fbc12d133750f2fa7cc9bff34",
+      "catalog_commit": "24d08372cbc99a84dd046c9945159ed1e7eb3353",
+      "release_evidence": "../../releases/v1.52.0-results.json"
+    }
   }
 }

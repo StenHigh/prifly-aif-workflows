@@ -1,5 +1,9 @@
 # W3 acceptance — separate small feature workflow
 
+Публикация: [v1.52.0](../../releases/v1.52.0.md), 2026-10-16; exact source/catalog и published smoke —
+[release evidence](../../releases/v1.52.0-results.json). Ниже сохранена
+историческая приёмка initial checkpoint с её исходной версией и ограничениями.
+
 Status: **implemented and qualified for pilot**, unreleased; A8 forced-writer
 cancellation remains the explicit deferred E3 portion. No tag/catalog
 publication. Released test binary **Pri-Fly 0.13.76** Linux AMD64 SHA256

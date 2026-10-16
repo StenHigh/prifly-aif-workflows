@@ -10,11 +10,24 @@
 
 Ворота выверены против выпущенного Pri-Fly `v0.13.77`.
 
-- **Подготовка выпуска v1.52.0:** новые catalog entries review-evidence1.0.0,
-  ui-ux1.0.0, feature1.2.3; release guide и small-feature examples обновлены.
-  Все shipping package bytes сохранены как на CI f43eb43; classic/profiled/
-  fanout/fix не меняются. Final pre-tag gates/latest stable и публикация
-  фиксируются в docs/releases/v1.52.0-results.json после проверки.
+- **Выпущен v1.52.0 (2026-10-16):** source/tag c6394802cb69660fbc12d133750f2fa7cc9bff34,
+  review-evidence1.0.0, ui-ux1.0.0, feature1.2.3 доступны в центральном каталоге.
+  Catalog commit24d0837; все4 прежние записи/pins сохранены. Все7 shipping
+  package trees совпадают с f43eb43/полным зелёным CI38848759987. Classic,
+  profiled, fanout, fix побайтно прежние относительно v1.51.2; Core не менялся.
+  До тега повторно проверен latest stable0.13.77; новых нет. Version/folder/
+  derive, compile/compatibility, unit, integration/parallel contracts и local
+  install/update PASS. Release guide docs/releases/v1.52.0.md; examples/small-feature
+  даёт task JSON/4 extend modes/reviewed launch. Project integration example
+  выпускается вне каталога. Package README сохраняют qualified checkpoint bytes;
+  актуальная публикационная инструкция — в release guide и root README.
+  Release-tag CI38888136979 запущен, пока выполняется; его PASS не заявлен.
+  Published default-catalog add/update всех3 пакетов PASS: exact origin/bytes,
+  extend/project overlay сохранены.4 полных Runs succeeded: W1, W2 actual
+  browser, feature backend, feature parallel UI/UX repair→fresh acceptance→commit.
+  Native2 pairs,0 новых LLM sessions; собственные fixtures/claims/monitor очищены.
+  docs/releases/v1.52.0-results.json и v1.52.0-published-results.json содержат
+  gates/provenance/actual published smoke. Дальнейшие W1–W5 записи — история.
 
 - **W5 frontend1.2.3 — независимые UI/UX и подключение к feature:**
   Default sequential сохранён; opt-in parallel-ui-ux — Codex CLI, owned loopback
@@ -53,8 +66,9 @@
   effects recovery этим не квалифицированы;4–8 frontend rounds отказ до writers.
   Latest stable повторно сверён0.13.77; новых нет, финальные ворота проверены
   именно на нём.233 tracked files остальных6 пакетов совпадают с f95f2c4;
-  Core/classic/profiled не менялись. aif-feature1.2.3 остаётся unpublished:
-  tag/catalog не выпускались; перед будущим тегом повторить сверку AGENTS.md.
+  Core/classic/profiled не менялись. На checkpoint1.2.3 был unpublished;
+  теперь опубликован в v1.52.0 (см. запись выше). Перед следующим тегом
+  повторить сверку AGENTS.md.
   Guide docs/parallel-ui-ux.md; evidence feature-uiux-*; historical prototype
   frontend-* и backend feature-* сохраняют исходные revisions/scope.
 

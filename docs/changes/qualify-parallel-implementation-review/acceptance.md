@@ -224,5 +224,5 @@ Original case lines, terminal steps и полные log hashes — в
 
 Пакетная часть W5 завершена: explicit codex-cli + isolated owned loopback adapter,
 1–3 rounds;4–8 отказ до writers. App/Claude, разные модели и unknown external-write
-recovery не квалифицированы. Пакет1.2.3 не опубликован; Pri-Fly/classic/profiled
-не менялись. Это не общий W5 A1–A10 PASS для всех hosts и моделей.
+recovery не квалифицированы. Пакет1.2.3 опубликован в [v1.52.0](../../releases/v1.52.0.md);
+Pri-Fly/classic/profiled не менялись. Это не общий W5 A1–A10 PASS для всех hosts и моделей.

@@ -19,4 +19,4 @@
 - [ ] Consumer qualification issue #2 и другие модели/Claude host; не считать
   проверку fixture доказательством actual PHP stack или модельной независимости.
 - [x] Commit/push реализации W2 (911387c), полный CI PASS; initial versions 1.0.0 подготовлены.
-- [ ] Отдельный release/tag/catalog после принятия финального объёма.
+- [x] Отдельный release/tag/catalog: пакет1.0.0 опубликован в [v1.52.0](../../releases/v1.52.0.md).

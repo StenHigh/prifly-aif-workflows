@@ -157,5 +157,6 @@ original35 rows сохранены в [CI evidence](feature-uiux-ci-results.json
 Пакетная часть W5 завершена в заявленном scope: explicit Codex CLI, reviewed
 owned isolated loopback adapter,1–3 quality rounds;4–8 отказ до writers.
 App/Claude live concurrency, независимые модели и unknown external-write recovery
-не квалифицированы. Пакет1.2.3 остаётся unpublished; tag/catalog не выпускались.
+не квалифицированы. Пакет1.2.3 опубликован в [v1.52.0](../../releases/v1.52.0.md);
+tag и центральный каталог закрепляют те же проверенные package bytes.
 Pri-Fly и классический workflow не менялись.

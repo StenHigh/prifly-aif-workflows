@@ -1,5 +1,9 @@
 # W2 acceptance — 2026-10-14
 
+Публикация: [v1.52.0](../../releases/v1.52.0.md), 2026-10-16; exact source/catalog и published smoke —
+[release evidence](../../releases/v1.52.0-results.json). Ниже сохранена
+историческая приёмка initial checkpoint с её исходной версией и ограничениями.
+
 Status: committed/pushed, complete CI PASS, fresh CLI qualification accepted within the bounds below; unreleased.
 Implementation [911387c](https://github.com/StenHigh/prifly-aif-workflows/commit/911387ce6cc42e2ec53164f221ce4045bd05b56b),
 [complete CI](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38631695137).
