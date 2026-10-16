@@ -4,9 +4,9 @@
   "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38833536583",
   "status": "in_progress",
   "conclusion": "",
-  "observed_utc": "2026-10-16T01:11:02.920334+00:00",
+  "observed_utc": "2026-10-16T01:44:47.729762+00:00",
   "full_ci_pass_claimed": false,
-  "scope": "Full exact-SHA CI including unchanged legacy packages and new feature/W5 checks; execution still in progress when recorded.",
+  "scope": "Exact backend implementation CI, rechecked during frontend qualification; no inference from local passes.",
   "jobs": [
     {
       "completedAt": "0001-01-01T00:00:00Z",
@@ -125,46 +125,46 @@
           "status": "completed"
         },
         {
-          "conclusion": "",
+          "conclusion": "success",
           "name": "Bug workflow finishes direct, planned, repaired and resumed Runs",
           "number": 19,
-          "status": "in_progress"
+          "status": "completed"
         },
         {
-          "conclusion": "",
+          "conclusion": "success",
           "name": "Explicit review evidence finishes and resumes on the released runtime",
           "number": 20,
-          "status": "pending"
+          "status": "completed"
         },
         {
-          "conclusion": "",
+          "conclusion": "success",
           "name": "UI and UX components finish, block and resume with owned environments",
           "number": 21,
-          "status": "pending"
+          "status": "completed"
         },
         {
-          "conclusion": "",
+          "conclusion": "success",
           "name": "Standalone feature catalog install and update preserve project ownership",
           "number": 22,
-          "status": "pending"
+          "status": "completed"
         },
         {
-          "conclusion": "",
+          "conclusion": "success",
           "name": "Small feature direct, repaired, stopped and resumed Runs",
           "number": 23,
-          "status": "pending"
+          "status": "completed"
         },
         {
-          "conclusion": "",
+          "conclusion": "success",
           "name": "Whole feature parallel review, sealed reports and full-round replay",
           "number": 24,
-          "status": "pending"
+          "status": "completed"
         },
         {
           "conclusion": "",
           "name": "Exact merged acceptance, explicit local integration and offline publication",
           "number": 25,
-          "status": "pending"
+          "status": "in_progress"
         },
         {
           "conclusion": "",

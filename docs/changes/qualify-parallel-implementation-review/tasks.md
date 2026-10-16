@@ -50,8 +50,15 @@ negatives below describe the original 0.13.76 qualification.
   для явного codex-cli backend adapter; final actual two-reader loop прошёл
   через shipped helper, raw collection, W1/guard/commit. Native App/Claude
   concurrency этим не заявляются; установка не меняет existing runner (A8).
-- [ ] Квалифицировать параллельный frontend: browser contexts/identity/ports,
-  shared stand conflicts, cleanup/cancel, новый candidate после repair (A6).
+- [x] Квалифицировать параллельный UI/UX в отдельной native/browser fixture:
+  contexts/identity/ports, shared stand conflicts, cleanup/cancel, новый candidate
+  после repair (scoped A6). Изолированный owned stand работает на0.13.77 без Core
+  changes; shared stand с native limit1 даёт named resource_busy внутри того же
+  Run и остаётся sequential. См. [границы и результаты](frontend-qualification.md).
+- [ ] Отдельная production frontend composition: admission до writers, pinned
+  host/browser/report adapter, две actual independent UI/UX reader-сессии и
+  приёмка полного aif-feature quality/repair/guard/commit. Browser fixture с
+  детерминированными reports эту работу и A7/A8/A10 для frontend не заменяет.
 - [x] Пройти новую backend приёмку actual feature graph: 24 native scenarios,
   unit12, three-host compile и scoped actual CLI observation; feature1.1.0.
   Старый fixture не заменяет эту приёмку. Default/full CI отражаются отдельно;

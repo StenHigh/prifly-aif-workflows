@@ -16,10 +16,12 @@ class QuietHandler(SimpleHTTPRequestHandler):
     def log_message(self,*args):pass
 
 class OwnedEnvironment:
-    def __init__(self, state_root, repository, owner, profile='all-checks', shared=None):
+    def __init__(self, state_root, repository, owner, profile='all-checks', shared=None, handler=QuietHandler, port=0):
         self.root=Path(state_root);self.root.mkdir(parents=True,exist_ok=True)
         self.repository=Path(repository);self.owner=owner;self.profile=profile
         self.session='fixture-'+uuid.uuid4().hex;self.server=None;self.thread=None
+        self.handler=handler
+        self.port=port
         self.lease=self.root/((shared or self.session)+'.lease.json');self.interrupted=False
 
     def ensure(self,profile=None,transition=False,owner=None):
@@ -36,7 +38,7 @@ class OwnedEnvironment:
             with self.lease.open('x') as f:json.dump(data,f)
         except FileExistsError:raise LifecycleError('owner_required: existing environment lease')
         try:
-            self.server=ThreadingHTTPServer(('127.0.0.1',0),functools.partial(QuietHandler,directory=str(self.repository)))
+            self.server=ThreadingHTTPServer(('127.0.0.1',self.port),functools.partial(self.handler,directory=str(self.repository)))
             self.thread=threading.Thread(target=self.server.serve_forever,daemon=True);self.thread.start()
             self.profile=desired;self.url='http://127.0.0.1:'+str(self.server.server_port)
             return self.url

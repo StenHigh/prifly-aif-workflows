@@ -10,6 +10,50 @@
 
 Ворота выверены против выпущенного Pri-Fly `v0.13.77`.
 
+- **W5: parallel UI/UX, отдельная browser qualification (2026-10-16):**
+  Latest stable в начале задачи по gh release list —0.13.77, новых нет.
+  Новый неопубликованный test graph собирается из неизменных W2 workers/
+  schemas/bridges: configure/capture/environment, UI||UX all/wait, точные public
+  exports reports, прежние W1/W2 program evaluate/release/finalize. Shipping
+  packages не меняются: все324 tracked files семи пакетов совпадают с7d64e7e;
+  Core, classic/profiled и feature mode/default прежние. Новых tag/catalog/
+  package versions нет. Изменены только tests/CI/docs и тестовый environment
+  helper (default handler/port прежние, добавлены injection и port для fixture).
+  Full final native/browser matrix17/17 expected assertions PASS, включая
+  cancel до reports/после первого/при живом browser, один timeout с активным
+  sibling и полным replay, repair с новым candidate/env/двумя Attempts,
+  stale UI report после repair, owner edit, wrong origin, shared context/identity
+  refusal, unavailable browser, чужой cleanup и interrupted cleanup.
+  Настоящие Playwright1.64.1/Chromium156.0.8078.4,17 пар browser observations,
+  разные contexts/cookies/localStorage/identity-scoped notes API, screenshot
+  hashes, positive overlap операций (не performance comparison).
+  Refusal неизвестной identity/no-cookie, динамические порты и EADDRINUSE без
+  остановки чужого listener; cleanup только exact owner/session. Native cancel
+  не чистит внешнее окружение: controller сначала ждёт собственного browser
+  actor, затем release; finalizer убирает только своё и не меняет blocked Run.
+  **Shared stand native resource limit1 не допускает параллельную пару:**
+  ресурс считает Attempts даже в одном Run; второй reader получает resource_busy.
+  Это проверенный named negative: без waiver/увеличения capacity/implicit
+  fallback; такой стенд остаётся sequential. External lease не пускает другого
+  owner и доступен после owned cleanup. Новый issue Core не требуется.
+  Compile3 hosts PASS14 definitions, W2 copies byte-identical; unit14/static7/
+  versions3/derive PASS, verify106/70/7 и compatibility5launches/4builds/4trusted
+  (legacy state41) PASS. Прежний sequential W2 actual-browser pass также PASS
+  с codex-app envelope/deterministic controller, не live App sessions.
+  Reports в этой matrix детерминированные; LLM visual judgement/другой model/
+  independent reader sessions не заявляются, native App/Claude concurrency
+  не проверена. W2 continue сохраняет configuration/round; full feature round
+  numbering/admission/pinned frontend adapter/quality/repair/guard/commit —
+  следующая пакетная работа. Frontend aif-feature остаётся sequential.
+  Результаты/границы: docs/changes/qualify-parallel-implementation-review/
+  frontend-qualification.md и frontend-*.json. Два новых CI gates в отдельном parallel-ui-ux job; прежний verify job
+  побайтно по YAML-структуре сохранён. Browser cache переносится из исходного
+  HOME до изоляции, final17 cases прошли и без явного PLAYWRIGHT_BROWSERS_PATH;
+  local PASS не объявляется полным CI PASS.
+  Backend exact-SHA CI38833536583 повторно проверен01:36UTC: IN PROGRESS,
+  прежний sequential feature gate уже success, идёт backend parallel matrix;
+  feature-ci-results.json содержит свежие jobs/steps наd515a85.
+
 - **W5: aif-feature1.1.0, opt-in backend composition (2026-10-16):**
   Implementation d515a856b985a12b2dbb6c519b0f1b13348003a9 committed/pushed main.
   Exact-SHA CI38833536583 IN PROGRESS, полный CI PASS пока не заявлен:

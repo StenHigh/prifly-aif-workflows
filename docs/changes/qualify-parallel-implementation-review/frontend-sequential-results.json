@@ -1,0 +1,66 @@
+{
+  "prifly": "0.13.77",
+  "binary_sha256": "sha256:d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa",
+  "cases": [
+    {
+      "case": "pass",
+      "host": "codex-app",
+      "mode": "actual browser / deterministic test adapter",
+      "source_outcome": "succeeded",
+      "outcome": "succeeded",
+      "runs": 1,
+      "candidate_changed": false,
+      "browser_readers": 2,
+      "browser_observations": [
+        {
+          "lens": "ui",
+          "iteration": 0,
+          "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+          "observations": [
+            {
+              "scenario": "desktop",
+              "viewport": {
+                "height": 800,
+                "width": 1280
+              },
+              "url": "http://127.0.0.1:41195/index.html",
+              "observations": "{\"viewport\":1280,\"scrollWidth\":1280,\"heading\":\"Notes\",\"bodyColor\":\"rgb(23, 32, 51)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\",\"label\":\"Note text\",\"section\":{\"x\":300,\"y\":92.75,\"width\":680,\"height\":311.8125,\"top\":92.75,\"right\":980,\"bottom\":404.5625,\"left\":300}}\nDeclared design tokens: dark ink on white; white button text on blue. Screenshot requires visual inspection, DOM metrics alone are not a visual review.",
+              "failures": [],
+              "screenshot": "/tmp/w2-run-_ktrmgr5/ui-0/ui-desktop.png"
+            },
+            {
+              "scenario": "mobile",
+              "viewport": {
+                "height": 800,
+                "width": 375
+              },
+              "url": "http://127.0.0.1:41195/index.html",
+              "observations": "{\"viewport\":375,\"scrollWidth\":375,\"heading\":\"Notes\",\"bodyColor\":\"rgb(23, 32, 51)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\",\"label\":\"Note text\",\"section\":{\"x\":16,\"y\":92.75,\"width\":343,\"height\":311.8125,\"top\":92.75,\"right\":359,\"bottom\":404.5625,\"left\":16}}\nDeclared design tokens: dark ink on white; white button text on blue. Screenshot requires visual inspection, DOM metrics alone are not a visual review.",
+              "failures": [],
+              "screenshot": "/tmp/w2-run-_ktrmgr5/ui-0/ui-mobile.png"
+            }
+          ]
+        },
+        {
+          "lens": "ux",
+          "iteration": 0,
+          "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+          "observations": [
+            {
+              "scenario": "flow",
+              "viewport": {
+                "height": 800,
+                "width": 375
+              },
+              "url": "http://127.0.0.1:41195/index.html",
+              "observations": "{\"empty\":true,\"focus\":\"note\",\"outline\":\"solid\",\"label\":[\"Note text\"],\"error\":true,\"loading\":true,\"success\":true,\"copy\":\"Saved: A test note\"}",
+              "failures": [],
+              "screenshot": "/tmp/w2-run-_ktrmgr5/ux-0/ux-flow.png"
+            }
+          ]
+        }
+      ],
+      "cleaned": true
+    }
+  ]
+}

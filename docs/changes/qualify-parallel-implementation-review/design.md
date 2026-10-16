@@ -5,8 +5,12 @@ E4 устранён в released0.13.77; [повторная квалификац
 подтвердила terminal cancel/native release/full-round replay. Пакетная часть
 2026-10-16 добавляет opt-in backend mode в aif-feature1.1.0 и reviewed adapter
 исходных bytes; [итоговое устройство и приёмка](feature-composition.md).
-Default sequential и classic/profiled сохраняются. Frontend parallel resources
-остаются отдельным scope. Inner call/on_error внутри quality round превращает
+Default sequential и classic/profiled сохраняются. [Frontend resources](frontend-qualification.md)
+проверены отдельной native/browser fixture: изолированное owned окружение,
+contexts/identities и порты, all-join/cleanup/cancel/replay. Capacity-one shared
+stand остаётся sequential: native resource считает Attempts, а не Runs. Ни
+shipping frontend adapter, ни LLM host matrix эта fixture не заменяет.
+Inner call/on_error внутри quality round превращает
 technical failure в обработанный исход внешнего quality/guard/commit replay unit;
 root-only error handler не подменяет этот boundary. Новый Core operator не нужен.
 

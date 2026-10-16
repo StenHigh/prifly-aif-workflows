@@ -85,3 +85,31 @@ jobs:
           python3 -B tests/probes/feature_check.py --binary "$HOME/.local/bin/prifly" \
             --browser-library "$PWD/tests/fixtures/product/node_modules/playwright" \
             --report /tmp/aif-feature-browser-results.json
+  parallel-ui-ux:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Pri-Fly from the latest stable release
+        run: |
+          prifly_installer="$(mktemp)"
+          curl --fail --location --silent --show-error \
+            https://github.com/StenHigh/prifly/releases/latest/download/install.sh \
+            -o "$prifly_installer"
+          sh "$prifly_installer"
+          rm -f "$prifly_installer"
+          "$HOME/.local/bin/prifly" version
+      - name: Parallel UI and UX qualification retains the W2 contracts on three hosts
+        run: python3 -B tests/parallel_product_contract.py --binary "$HOME/.local/bin/prifly"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install the exact browser fixture tool
+        run: |
+          npm ci --ignore-scripts --no-audit --no-fund --prefix tests/fixtures/product
+          tests/fixtures/product/node_modules/.bin/playwright install --with-deps chromium
+      - name: Parallel UI and UX browser isolation, owned cleanup and whole-round recovery
+        run: |
+          python3 -B tests/probes/parallel_product_check.py --binary "$HOME/.local/bin/prifly" \
+            --browser-library "$PWD/tests/fixtures/product/node_modules/playwright" \
+            --jobs 3 --report /tmp/aif-parallel-product-results.json

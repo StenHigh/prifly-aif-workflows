@@ -412,6 +412,12 @@ Fast → Full → Ultra → default → Fast с собственным `extend.y
 AI Factory runtime и LLM не нужны ни одной проверке. GitHub Actions выполняет
 то же самое после установки Pri-Fly официальным installer.
 
+Отдельная [квалификация параллельного UI/UX](docs/changes/qualify-parallel-implementation-review/frontend-qualification.md)
+проверяет browser contexts, тестовые identities, порты, cleanup и отмену на
+Pri-Fly 0.13.77. Это тестовая композиция: frontend в `aif-feature` остаётся
+последовательным. Общий стенд с native resource `limit: 1` для параллельной пары
+не подходит, потому что лимит считает активные Attempts одного Run.
+
 ## Backlog
 
 Перенесено из delivery roadmap Pri-Fly; ведётся здесь.

@@ -1,16 +1,18 @@
 # W5 — Квалификация параллельного ревью реализации
 
-Статус: **E4 fixed; backend opt-in composition implemented; frontend deferred**.
+Статус: **E4 fixed; backend opt-in implemented; isolated UI/UX browser fixture qualified**.
 Приоритет: **P2**. Дата: 2026-10-14; повторная квалификация: 2026-10-16.
 Актуальная база: released Pri-Fly 0.13.77 / пакеты v1.51.2.
 Native cancellation blocker снят; [результаты повторной проверки](release-0.13.77.md).
 Пакетная часть: [feature1.1.0, adapter и границы](feature-composition.md).
+Параллельный UI/UX: [отдельная квалификация окружений и ограничения](frontend-qualification.md).
 
 Результат и ограничения: [acceptance.md](acceptance.md). Квалификация использует
 released Core без его изменений. Остальные шесть пакетов, включая classic/profiled
 и W1/W2, не правятся; меняется только `aif-feature` с default sequential
-и явным backend opt-in. Непроверенные hosts/frontend не объявляются прошедшими
-параллельную приёмку; результаты самого пакета отделены от старого fixture.
+и явным backend opt-in. Следующая UI/UX qualification меняет только тесты и
+документы. Изолированная browser fixture не объявляет frontend feature mode или
+независимые LLM-сессии квалифицированными; результаты пакета и fixtures разделены.
 
 ## Проблема и результат
 
