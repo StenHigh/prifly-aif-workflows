@@ -2,19 +2,19 @@
   "implementation_commit": "d515a856b985a12b2dbb6c519b0f1b13348003a9",
   "run_id": 38833536583,
   "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38833536583",
-  "status": "in_progress",
-  "conclusion": "",
-  "observed_utc": "2026-10-16T01:44:47.729762+00:00",
-  "full_ci_pass_claimed": false,
-  "scope": "Exact backend implementation CI, rechecked during frontend qualification; no inference from local passes.",
+  "status": "completed",
+  "conclusion": "success",
+  "observed_utc": "2026-10-16T01:55:25.385416+00:00",
+  "full_ci_pass_claimed": true,
+  "scope": "Full exact backend implementation CI success, including legacy gates, backend parallel and both existing browser matrices.",
   "jobs": [
     {
-      "completedAt": "0001-01-01T00:00:00Z",
-      "conclusion": "",
+      "completedAt": "2026-10-16T01:53:36Z",
+      "conclusion": "success",
       "databaseId": 116757437674,
       "name": "verify",
       "startedAt": "2026-10-16T01:09:01Z",
-      "status": "in_progress",
+      "status": "completed",
       "steps": [
         {
           "conclusion": "success",
@@ -161,49 +161,69 @@
           "status": "completed"
         },
         {
-          "conclusion": "",
+          "conclusion": "success",
           "name": "Exact merged acceptance, explicit local integration and offline publication",
           "number": 25,
-          "status": "in_progress"
+          "status": "completed"
         },
         {
-          "conclusion": "",
+          "conclusion": "success",
           "name": "Parallel readers, all-join barriers and whole-round recovery",
           "number": 26,
-          "status": "pending"
+          "status": "completed"
         },
         {
-          "conclusion": "",
+          "conclusion": "success",
           "name": "Run actions/setup-node@v4",
           "number": 27,
-          "status": "pending"
+          "status": "completed"
         },
         {
-          "conclusion": "",
+          "conclusion": "success",
           "name": "Install the exact browser fixture tool",
           "number": 28,
-          "status": "pending"
+          "status": "completed"
         },
         {
-          "conclusion": "",
+          "conclusion": "success",
           "name": "Real browser scenarios, defects, repair and cancellation",
           "number": 29,
-          "status": "pending"
+          "status": "completed"
         },
         {
-          "conclusion": "",
+          "conclusion": "success",
           "name": "Small frontend feature with real browser and full quality replay",
           "number": 30,
-          "status": "pending"
+          "status": "completed"
         },
         {
-          "conclusion": "",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-node@v4",
+          "number": 59,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
           "name": "Post Run actions/checkout@v4",
           "number": 60,
-          "status": "pending"
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 61,
+          "status": "completed"
         }
       ],
       "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38833536583/job/116757437674"
     }
-  ]
+  ],
+  "log_sha256": "b91c73165cf68771004e03b1a6d5e193a3f5b81e0e50f387f198fb0ae3f1e547",
+  "log_bytes": 179355,
+  "case_lines_verified": {
+    "Whole feature parallel review, sealed reports and full-round replay": 24,
+    "Small feature direct, repaired, stopped and resumed Runs": 35,
+    "Parallel readers, all-join barriers and whole-round recovery": 25,
+    "Small frontend feature with real browser and full quality replay": 3
+  }
 }

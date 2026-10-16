@@ -1,0 +1,652 @@
+{
+  "implementation_commit": "0bdc6320b8017ca353dc43091dad4b425cec44c1",
+  "run_id": 38836777994,
+  "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38836777994",
+  "observed_utc": "2026-10-16T01:55:26.085749+00:00",
+  "status": "in_progress",
+  "conclusion": "",
+  "full_ci_pass_claimed": false,
+  "qualified_job": {
+    "completedAt": "2026-10-16T01:46:43Z",
+    "conclusion": "success",
+    "databaseId": 116767571808,
+    "name": "parallel-ui-ux",
+    "startedAt": "2026-10-16T01:44:58Z",
+    "status": "completed",
+    "steps": [
+      {
+        "conclusion": "success",
+        "name": "Set up job",
+        "number": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run actions/checkout@v4",
+        "number": 2,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Install Pri-Fly from the latest stable release",
+        "number": 3,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Parallel UI and UX qualification retains the W2 contracts on three hosts",
+        "number": 4,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run actions/setup-node@v4",
+        "number": 5,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Install the exact browser fixture tool",
+        "number": 6,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Parallel UI and UX browser isolation, owned cleanup and whole-round recovery",
+        "number": 7,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Post Run actions/setup-node@v4",
+        "number": 13,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Post Run actions/checkout@v4",
+        "number": 14,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Complete job",
+        "number": 15,
+        "status": "completed"
+      }
+    ],
+    "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38836777994/job/116767571808"
+  },
+  "job_log_sha256": "8d1dad33c83e141a88b7e4531a037e075e07d9ba04f53c9f32ec4206ec6657b3",
+  "job_log_bytes": 46275,
+  "case_lines_verified": 17,
+  "case_summaries": [
+    {
+      "case": "pass",
+      "host": "codex-cli",
+      "first_outcome": "succeeded",
+      "final_outcome": "succeeded",
+      "scope": "native graph / actual Chromium / deterministic reports; no LLM or independent-model attestation",
+      "gate": {
+        "blocking": false,
+        "blocking_owner_only": false,
+        "findings": [
+          "ui: Model profile unavailable; independent model not established",
+          "ux: Model profile unavailable; independent model not established"
+        ],
+        "gate": "review",
+        "status": "warnings",
+        "suggested_next": "continue"
+      },
+      "refusals": [],
+      "cleaned": true
+    },
+    {
+      "case": "cancel-before",
+      "host": "codex-cli",
+      "first_outcome": "cancelled",
+      "final_outcome": "succeeded",
+      "scope": "native graph / actual Chromium / deterministic reports; no LLM or independent-model attestation",
+      "gate": null,
+      "refusals": [],
+      "cleaned": true
+    },
+    {
+      "case": "defect-repair",
+      "host": "codex-cli",
+      "first_outcome": "partial",
+      "final_outcome": "succeeded",
+      "scope": "native graph / actual Chromium / deterministic reports; no LLM or independent-model attestation",
+      "gate": {
+        "blocking": true,
+        "blocking_owner_only": false,
+        "findings": [
+          "ui: ui_acceptance: Horizontal overflow",
+          "ui: Model profile unavailable; independent model not established",
+          "ux: ux_acceptance: Save flow never reaches confirmation",
+          "ux: Model profile unavailable; independent model not established"
+        ],
+        "gate": "review",
+        "status": "failed",
+        "suggested_next": "/aif-fix"
+      },
+      "refusals": [],
+      "cleaned": true
+    },
+    {
+      "case": "cancel-after-first",
+      "host": "codex-cli",
+      "first_outcome": "cancelled",
+      "final_outcome": "succeeded",
+      "scope": "native graph / actual Chromium / deterministic reports; no LLM or independent-model attestation",
+      "gate": null,
+      "refusals": [],
+      "cleaned": true
+    },
+    {
+      "case": "cancel-during-browser",
+      "host": "codex-cli",
+      "first_outcome": "cancelled",
+      "final_outcome": "succeeded",
+      "scope": "native graph / actual Chromium / deterministic reports; no LLM or independent-model attestation",
+      "gate": null,
+      "refusals": [],
+      "cleaned": true
+    },
+    {
+      "case": "intervening-edit",
+      "host": "codex-cli",
+      "first_outcome": "partial",
+      "final_outcome": "partial",
+      "scope": "native graph / actual Chromium / deterministic reports; no LLM or independent-model attestation",
+      "gate": {
+        "blocking": false,
+        "blocking_owner_only": false,
+        "findings": [
+          "Candidate changed after review/cleanup",
+          "ui: Stale candidate: current HEAD/index/bytes/modes differ from captured basis",
+          "ux: Stale candidate: current HEAD/index/bytes/modes differ from captured basis"
+        ],
+        "gate": "review",
+        "status": "blocked",
+        "suggested_next": "continue"
+      },
+      "refusals": [],
+      "cleaned": true
+    },
+    {
+      "case": "stale-report-after-repair",
+      "host": "codex-cli",
+      "first_outcome": "partial",
+      "final_outcome": "partial",
+      "scope": "native graph / actual Chromium / deterministic reports; no LLM or independent-model attestation",
+      "gate": {
+        "blocking": true,
+        "blocking_owner_only": false,
+        "findings": [
+          "ui: ui_acceptance: Horizontal overflow",
+          "ui: Model profile unavailable; independent model not established",
+          "ux: ux_acceptance: Save flow never reaches confirmation",
+          "ux: Model profile unavailable; independent model not established"
+        ],
+        "gate": "review",
+        "status": "failed",
+        "suggested_next": "/aif-fix"
+      },
+      "refusals": [],
+      "cleaned": true
+    },
+    {
+      "case": "wrong-origin",
+      "host": "codex-cli",
+      "first_outcome": "partial",
+      "final_outcome": "partial",
+      "scope": "native graph / actual Chromium / deterministic reports; no LLM or independent-model attestation",
+      "gate": {
+        "blocking": false,
+        "blocking_owner_only": false,
+        "findings": [
+          "Product review cannot be accepted: Wrong scenario viewport or test page"
+        ],
+        "gate": "review",
+        "status": "blocked",
+        "suggested_next": "continue"
+      },
+      "refusals": [],
+      "cleaned": true
+    },
+    {
+      "case": "shared-stand",
+      "host": "codex-cli",
+      "first_outcome": "cancelled",
+      "final_outcome": "cancelled",
+      "scope": "native graph / actual Chromium / deterministic reports; no LLM or independent-model attestation",
+      "gate": null,
+      "refusals": [
+        {
+          "code": "resource_busy",
+          "scope": "one native slot counts Attempts, including siblings in this Run",
+          "safe_mode": "sequential for this shared stand; no waiver, capacity change or automatic fallback",
+          "browser_pair_dispatched": false,
+          "external_lease_reacquired_after_owned_cleanup": true
+        }
+      ],
+      "cleaned": true
+    },
+    {
+      "case": "ports",
+      "host": "codex-cli",
+      "first_outcome": "succeeded",
+      "final_outcome": "succeeded",
+      "scope": "native graph / actual Chromium / deterministic reports; no LLM or independent-model attestation",
+      "gate": {
+        "blocking": false,
+        "blocking_owner_only": false,
+        "findings": [
+          "ui: Model profile unavailable; independent model not established",
+          "ux: Model profile unavailable; independent model not established"
+        ],
+        "gate": "review",
+        "status": "warnings",
+        "suggested_next": "continue"
+      },
+      "refusals": [],
+      "cleaned": true
+    },
+    {
+      "case": "port-conflict",
+      "host": "codex-cli",
+      "first_outcome": "succeeded",
+      "final_outcome": "succeeded",
+      "scope": "native graph / actual Chromium / deterministic reports; no LLM or independent-model attestation",
+      "gate": {
+        "blocking": false,
+        "blocking_owner_only": false,
+        "findings": [
+          "ui: Model profile unavailable; independent model not established",
+          "ux: Model profile unavailable; independent model not established"
+        ],
+        "gate": "review",
+        "status": "warnings",
+        "suggested_next": "continue"
+      },
+      "refusals": [],
+      "cleaned": true
+    },
+    {
+      "case": "shared-context-refused",
+      "host": "codex-cli",
+      "first_outcome": "cancelled",
+      "final_outcome": "cancelled",
+      "scope": "native graph / actual Chromium / deterministic reports; no LLM or independent-model attestation",
+      "gate": null,
+      "refusals": [],
+      "cleaned": true
+    },
+    {
+      "case": "shared-identity-refused",
+      "host": "codex-cli",
+      "first_outcome": "cancelled",
+      "final_outcome": "cancelled",
+      "scope": "native graph / actual Chromium / deterministic reports; no LLM or independent-model attestation",
+      "gate": null,
+      "refusals": [],
+      "cleaned": true
+    },
+    {
+      "case": "one-timeout",
+      "host": "codex-cli",
+      "first_outcome": "rejected",
+      "final_outcome": "succeeded",
+      "scope": "native graph / actual Chromium / deterministic reports; no LLM or independent-model attestation",
+      "gate": null,
+      "refusals": [],
+      "cleaned": true
+    },
+    {
+      "case": "wrong-cleanup-owner",
+      "host": "codex-cli",
+      "first_outcome": "partial",
+      "final_outcome": "partial",
+      "scope": "native graph / actual Chromium / deterministic reports; no LLM or independent-model attestation",
+      "gate": {
+        "blocking": false,
+        "blocking_owner_only": false,
+        "findings": [
+          "Cleanup blocked: Foreign owner refused; exact owner reconciles outside workflow",
+          "ui: Model profile unavailable; independent model not established",
+          "ux: Model profile unavailable; independent model not established"
+        ],
+        "gate": "review",
+        "status": "blocked",
+        "suggested_next": "continue"
+      },
+      "refusals": [],
+      "cleaned": true
+    },
+    {
+      "case": "cleanup-interrupted",
+      "host": "codex-cli",
+      "first_outcome": "partial",
+      "final_outcome": "partial",
+      "scope": "native graph / actual Chromium / deterministic reports; no LLM or independent-model attestation",
+      "gate": {
+        "blocking": false,
+        "blocking_owner_only": false,
+        "findings": [
+          "Cleanup reconcile_required: Process stopped but lease retained; exact owner reconciliation required",
+          "ui: Model profile unavailable; independent model not established",
+          "ux: Model profile unavailable; independent model not established"
+        ],
+        "gate": "review",
+        "status": "blocked",
+        "suggested_next": "continue"
+      },
+      "refusals": [],
+      "cleaned": true
+    },
+    {
+      "case": "missing-browser",
+      "host": "codex-cli",
+      "first_outcome": "partial",
+      "final_outcome": "partial",
+      "scope": "native graph / actual Chromium / deterministic reports; no LLM or independent-model attestation",
+      "gate": {
+        "blocking": false,
+        "blocking_owner_only": false,
+        "findings": [
+          "ui: ui_acceptance: Declared browser adapter unavailable; no code substitution",
+          "ui: Model profile unavailable; independent model not established",
+          "ux: ux_acceptance: Declared browser adapter unavailable; no code substitution",
+          "ux: Model profile unavailable; independent model not established"
+        ],
+        "gate": "review",
+        "status": "blocked",
+        "suggested_next": "continue"
+      },
+      "refusals": [],
+      "cleaned": true
+    }
+  ],
+  "scope": "Separate parallel-ui-ux CI job PASS on exact implementation SHA; full legacy verify job reported independently, no live LLM/visual assessment claimed.",
+  "prifly": "0.13.77",
+  "binary_sha256": "d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa",
+  "compile_hosts": 3,
+  "definitions_per_host": 14,
+  "all_jobs": [
+    {
+      "completedAt": "0001-01-01T00:00:00Z",
+      "conclusion": "",
+      "databaseId": 116767571466,
+      "name": "verify",
+      "startedAt": "2026-10-16T01:44:58Z",
+      "status": "in_progress",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4",
+          "number": 2,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Install Pri-Fly from the latest stable release",
+          "number": 3,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Released versions moved with the bytes",
+          "number": 4,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Static folder contract",
+          "number": 5,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Explicit review coverage and dirty candidate identity",
+          "number": 6,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Product review coverage and owned environment lifecycle",
+          "number": 7,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Feature admission, whole-round freshness and owner blockers",
+          "number": 8,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Parallel report transport rejects substituted refs and bytes",
+          "number": 9,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Verified integration freshness, semantic regression and owned publication",
+          "number": 10,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Compile all packages with the installed Pri-Fly",
+          "number": 11,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "One authority carries Classic across every plan profile",
+          "number": 12,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Standalone integration graph and one-input extension contracts",
+          "number": 13,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Parallel review qualification contracts on three hosts",
+          "number": 14,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "A real Run is handed past the verify gate",
+          "number": 15,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "A gate that could not judge ends the Run partial with its gate",
+          "number": 16,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "A Run stopped blocked resumes with the same workflow at verify",
+          "number": 17,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "A Run cancelled at the gate resumes with the same workflow",
+          "number": 18,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Bug workflow finishes direct, planned, repaired and resumed Runs",
+          "number": 19,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Explicit review evidence finishes and resumes on the released runtime",
+          "number": 20,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "UI and UX components finish, block and resume with owned environments",
+          "number": 21,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Standalone feature catalog install and update preserve project ownership",
+          "number": 22,
+          "status": "completed"
+        },
+        {
+          "conclusion": "",
+          "name": "Small feature direct, repaired, stopped and resumed Runs",
+          "number": 23,
+          "status": "in_progress"
+        },
+        {
+          "conclusion": "",
+          "name": "Whole feature parallel review, sealed reports and full-round replay",
+          "number": 24,
+          "status": "pending"
+        },
+        {
+          "conclusion": "",
+          "name": "Exact merged acceptance, explicit local integration and offline publication",
+          "number": 25,
+          "status": "pending"
+        },
+        {
+          "conclusion": "",
+          "name": "Parallel readers, all-join barriers and whole-round recovery",
+          "number": 26,
+          "status": "pending"
+        },
+        {
+          "conclusion": "",
+          "name": "Run actions/setup-node@v4",
+          "number": 27,
+          "status": "pending"
+        },
+        {
+          "conclusion": "",
+          "name": "Install the exact browser fixture tool",
+          "number": 28,
+          "status": "pending"
+        },
+        {
+          "conclusion": "",
+          "name": "Real browser scenarios, defects, repair and cancellation",
+          "number": 29,
+          "status": "pending"
+        },
+        {
+          "conclusion": "",
+          "name": "Small frontend feature with real browser and full quality replay",
+          "number": 30,
+          "status": "pending"
+        },
+        {
+          "conclusion": "",
+          "name": "Post Run actions/checkout@v4",
+          "number": 60,
+          "status": "pending"
+        }
+      ],
+      "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38836777994/job/116767571466"
+    },
+    {
+      "completedAt": "2026-10-16T01:46:43Z",
+      "conclusion": "success",
+      "databaseId": 116767571808,
+      "name": "parallel-ui-ux",
+      "startedAt": "2026-10-16T01:44:58Z",
+      "status": "completed",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4",
+          "number": 2,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Install Pri-Fly from the latest stable release",
+          "number": 3,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Parallel UI and UX qualification retains the W2 contracts on three hosts",
+          "number": 4,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/setup-node@v4",
+          "number": 5,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Install the exact browser fixture tool",
+          "number": 6,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Parallel UI and UX browser isolation, owned cleanup and whole-round recovery",
+          "number": 7,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/setup-node@v4",
+          "number": 13,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v4",
+          "number": 14,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 15,
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38836777994/job/116767571808"
+    }
+  ],
+  "previous_backend_full_ci": {
+    "run_id": 38833536583,
+    "head_sha": "d515a856b985a12b2dbb6c519b0f1b13348003a9",
+    "conclusion": "success",
+    "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38833536583"
+  }
+}

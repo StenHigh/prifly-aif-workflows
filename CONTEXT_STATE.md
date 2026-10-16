@@ -11,6 +11,13 @@
 Ворота выверены против выпущенного Pri-Fly `v0.13.77`.
 
 - **W5: parallel UI/UX, отдельная browser qualification (2026-10-16):**
+  Implementation0bdc6320b8017ca353dc43091dad4b425cec44c1 committed/pushed main.
+  Новый CI38836777994: job parallel-ui-ux SUCCESS,17 actual case lines verified,
+  log SHA2568d1dad33c83e141a88b7e4531a037e075e07d9ba04f53c9f32ec4206ec6657b3;
+  https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38836777994/job/116767571808.
+  Полный новый legacy verify job ещё выполняется; full CI PASS не заявлен.
+  frontend-ci-results.json хранит exact-SHA job/log/case evidence. Bookkeeping
+  после implementation меняет только docs, executable sources прежние.
   Latest stable в начале задачи по gh release list —0.13.77, новых нет.
   Новый неопубликованный test graph собирается из неизменных W2 workers/
   schemas/bridges: configure/capture/environment, UI||UX all/wait, точные public
@@ -50,15 +57,16 @@
   побайтно по YAML-структуре сохранён. Browser cache переносится из исходного
   HOME до изоляции, final17 cases прошли и без явного PLAYWRIGHT_BROWSERS_PATH;
   local PASS не объявляется полным CI PASS.
-  Backend exact-SHA CI38833536583 повторно проверен01:36UTC: IN PROGRESS,
-  прежний sequential feature gate уже success, идёт backend parallel matrix;
-  feature-ci-results.json содержит свежие jobs/steps наd515a85.
+  Backend exact-SHA CI38833536583 завершился SUCCESS наd515a85, включая
+  legacy gates и обе прежние browser matrices. По полному CI log подтверждены
+  feature35/backend parallel24/старый W5 fixture25/frontend browser3 lines;
+  feature-ci-results.json сохраняет terminal jobs/steps и log SHA256.
 
 - **W5: aif-feature1.1.0, opt-in backend composition (2026-10-16):**
   Implementation d515a856b985a12b2dbb6c519b0f1b13348003a9 committed/pushed main.
-  Exact-SHA CI38833536583 IN PROGRESS, полный CI PASS пока не заявлен:
+  Exact-SHA CI38833536583 SUCCESS, полный CI PASS:
   https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38833536583.
-  feature-ci-results.json фиксирует наблюдённые jobs/steps; локальная приёмка
+  feature-ci-results.json фиксирует terminal jobs/steps и hash полного log; локальная приёмка
   завершена. Последующие bookkeeping правят только docs/state, executable bytes
   и версии пакета соответствуют implementation d515a85.
   Latest stable повторно проверен в начале: 0.13.77, новых выпусков нет.

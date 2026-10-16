@@ -6,6 +6,13 @@
 остаётся последовательным: этот лимит считает Attempts, включая соседние ветви
 одного Run. Повышать лимит вместо проверки владения стендом нельзя.
 
+Implementation `0bdc6320b8017ca353dc43091dad4b425cec44c1` отправлен в main.
+Отдельный [CI job parallel-ui-ux](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38836777994/job/116767571808)
+завершился **success**: в настоящем log проверены все17 scenario lines.
+[CI evidence](frontend-ci-results.json) сохраняет exact SHA, steps и hash log.
+Полный прежний verify job этого нового Run учитывается отдельно; успех нового
+job не объявляется полным CI PASS. Последующий bookkeeping меняет только docs.
+
 Это квалификация тестовой композиции, а не включение frontend-режима в пакет.
 Все семь устанавливаемых пакетов побайтно прежние, включая `aif-feature`,
 `aif-ui-ux`, classic и profiled. В `aif-feature` по-прежнему default sequential
@@ -48,6 +55,10 @@ loopback API разделяет записи по cookie, отвергает н�
 UX отправляет тестовую запись через форму; UI не получает её данные или DOM state.
 Это собственная модель identities для проверки изоляции; реальный login/OAuth,
 production backend и произвольные shared services не квалифицированы.
+Per-Attempt identity map принадлежит test controller и передаётся browser adapter
+отдельным fixture file. Прежний W2 receipt описывает одно окружение и не заверяет
+эту карту. Production adapter должен связать identities/contexts с конкретными
+Attempts и sealed inputs; одного общего `test_identity` для этого недостаточно.
 
 Сервер получает свободный порт у ОС (`port: 0`). Два окружения имеют разные
 порты; занятый фиксированный порт даёт `EADDRINUSE`, чужой listener остаётся
