@@ -1,7 +1,7 @@
 authoring: prifly-workflow/1
 schema_version: '6'
 id: aif-feature:workflow/quality
-version: 1.2.2
+version: 1.2.3
 title: Full bounded acceptance and local commit for the small feature
 refs:
   policy: '{{policy}}'

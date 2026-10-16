@@ -1,7 +1,7 @@
 authoring: prifly-workflow/1
 schema_version: '6'
 id: aif-feature:workflow/parallel-security
-version: 1.2.2
+version: 1.2.3
 title: Independent security reader
 refs:
   policy: '{{policy}}'

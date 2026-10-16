@@ -42,6 +42,30 @@ def inputs(optional_policy='ignore'):
 
 
 class FrontendParallelTest(unittest.TestCase):
+    def test_cli_error_keeps_actors_unknown_until_evidence_callback_completed(self):
+        for callback_completed in (False,True):
+            with self.subTest(callback_completed=callback_completed),tempfile.TemporaryDirectory() as directory:
+                root=Path(directory);journal_path=root/'journal.json';journal={'actor_phase':'not_started','run_id':'run:fixture'}
+                tasks=[]
+                for lens in browser.READERS:
+                    workspace=root/lens;(workspace/'outputs').mkdir(parents=True)
+                    (workspace/'outputs/report').write_text(json.dumps({'checks':[{'status':'unavailable'}]}))
+                    tasks.append({'workspace':str(workspace),'attempt_id':'attempt:'+lens,
+                        'skill_refs':[{'id':'aif-feature:context/feature-'+lens}],
+                        'context':{'outputs':{'report':{'path':'outputs/report'}}}})
+                bindings=[{'context_id':l,'identity_id':l} for l in browser.READERS]
+                def dispatch(binary,authority,deliveries,**kwargs):
+                    if callback_completed:kwargs['before_submit'](deliveries,[{},{}])
+                    raise ValueError('Native submit refused' if callback_completed else 'CLI actor failed before usable evidence')
+                with patch.object(frontend_host,'validate_reader',side_effect=bindings),patch.object(frontend_host,'journal_for',return_value=(journal_path,journal)),patch.object(frontend_host.controller,'dispatch',side_effect=dispatch):
+                    with self.assertRaises(ValueError):frontend_host.dispatch(None,None,tasks,root/'artifacts','codex')
+                saved=json.loads(journal_path.read_text())
+                self.assertEqual(saved['actor_phase'],'settled' if callback_completed else 'unknown')
+                if not callback_completed:
+                    with patch.object(frontend_host.controller,'call',return_value={'run':{'status':'cancelled','attempts':{}}}),patch.object(frontend_host,'release_value') as release:
+                        with self.assertRaises(w1.Invalid):frontend_host.cleanup(None,None,journal_path)
+                        release.assert_not_called()
+
     def test_round_guard_rechecks_limit_without_trusting_cached_admission(self):
         data=inputs();task=task_input(True)
         with self.assertRaises(w1.Invalid):feature.begin(task,'0'*40,0,'parallel-ui-ux',data[4],limit=8)

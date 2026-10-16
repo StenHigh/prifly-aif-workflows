@@ -1,5 +1,5 @@
 id: aif-feature:schema/review-mode
-version: 1.2.2
+version: 1.2.3
 $schema: https://json-schema.org/draft/2020-12/schema
 enum:
 - sequential

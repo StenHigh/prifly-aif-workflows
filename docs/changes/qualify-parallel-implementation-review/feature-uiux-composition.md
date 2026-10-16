@@ -1,6 +1,6 @@
 # W5: отдельные UI/UX-сессии в aif-feature
 
-В `aif-feature@1.2.2` добавлен явный `parallel-ui-ux`, default sequential сохранён.
+В `aif-feature@1.2.3` добавлен явный `parallel-ui-ux`, default sequential сохранён.
 Изменений Pri-Fly и классического workflow нет. Другие шесть пакетов остаются
 побайтно прежними. Пакет не опубликован в каталоге; установка не подключает
 runner автоматически. [Настройка](../../parallel-ui-ux.md).
@@ -89,10 +89,10 @@ Self-reported screenshot inspection не является машинной ат�
 
 [Native/browser результаты](feature-uiux-runtime-results.json):32 из33 индивидуальных
 assertions PASS, включая admission negatives, freshness, cleanup/cancel/timeout и
-commit replay. Max-budget8 проверяется отдельно; полный matrix/CI PASS пока не
-заявляется. Прерванный тест в эту сумму не включён. Test-only finalizer получил
-exact current-session lease guard и регрессию13 (commit98665bc); shipping
-workflow bytes после7f2f57a не менялись.
+commit replay. Это исторические cases до admission guard; отказ8 зафиксирован ниже.
+Их не называют35-case matrix последней версии. Прерванный тест в эту сумму не включён. Test-only finalizer получил
+exact current-session lease guard и регрессию13 (commit98665bc); CLI/browser/lifecycle
+functions после7f2f57a не менялись; последующие admission/begin guards описаны ниже.
 
 ## Уточнение приёмки1.2.1: storage envelope
 
@@ -110,7 +110,8 @@ workflow bytes после7f2f57a не менялись.
 все три окружения released. Unit14 и compile120/79/7 PASS.
 [Source lineage](feature-uiux-admission-delta.json) подтверждает неизменность
 reader/lifecycle functions и остальных шести pinned Python modules. Полная
-34-case matrix на final revision остаётся отдельным CI gate.
+34-case matrix на8c92cf6 прошла: [exact-SHA CI evidence](feature-uiux-ci-results.json).
+Это зелёный parallel-ui-ux job, не полный CI последнего hard-guard patch.
 
 CLI reader dispatch/observe/environment/release/cleanup и report transport после
 live checkpoint7f2f57a не менялись. Повторный расход LLM для admission-only guard
@@ -127,5 +128,18 @@ Pure program begin получает typed limit из quality-round и повто
 заявлению. Unit15 проверяет limit8 refusal и прежний begin8 для sequential/backend.
 Native limit-guard с намеренно подставленным capability остановился rejected
 после writer, до checks/environment/repair/commit; это test-only forged/cached
-host response, не production bypass option. Обычный frontend path проверяется
-отдельно; final single-revision CI содержит35 cases.
+host response, не production bypass option. Обычный frontend path также PASS; [native results](feature-uiux-round-guard-results.json).
+Final single-revision CI38847358894 на5ac14a3 содержит35 cases и пока выполняется.
+
+## 1.2.3: неопределённость при ошибке CLI
+
+Unexpected CLI error/timeout до полного evidence callback не маркирует actors
+settled: journal остаётся unknown, operator cleanup блокируется до фактического
+осмотра/остановки собственных actors и reconciliation. Callback устанавливает
+settled только после возврата обоих CLI actors и проверки original browser
+receipts/PNG files. Поэтому последующий native submit refusal сохраняет уже
+подтверждённое settlement. Unit16 проверяет оба исхода и отказ cleanup для unknown.
+Это уточнение error bookkeeping; reader process/prompt construction, observe и
+browser/report/lifecycle functions не менялись, кроме состояния dispatch errors.
+Исторические live delivery bytes не переписываются. Source lineage дополнена
+точным сравнением prefix инструкций dispatcher с live checkpoint7f2f57a.

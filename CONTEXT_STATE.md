@@ -10,7 +10,7 @@
 
 Ворота выверены против выпущенного Pri-Fly `v0.13.77`.
 
-- **W5 frontend1.2.2 — независимые UI/UX и подключение к feature:**
+- **W5 frontend1.2.3 — независимые UI/UX и подключение к feature:**
   Default sequential сохранён; opt-in parallel-ui-ux — Codex CLI, owned loopback
   project adapter, отдельные contexts/identities/Attempts и source pins7 files.
   Checks/security/code review sequential, UI||UX all/wait, original raw reports,
@@ -18,21 +18,28 @@
   Live на7f2f57a:4 actual CLI sessions/2 rounds, defect→repair→acceptance/commit,
   original report/submission/event/PNG hashes проверены. Модель не аттестована,
   App/Claude concurrency unqualified; writer/checks/code readers synthetic.
-  Source lineage доказывает неизменность CLI/browser/lifecycle functions и шести
-  companion modules; supported begin projections совпадают с live checkpoint.
+  Source lineage доказывает неизменность CLI reader process/prompt prefix,
+  observe/environment/release/cleanup и6 companion modules; supported begin
+  projections совпадают с live checkpoint. В1.2.3 dispatch error bookkeeping
+  оставляет unknown до полного evidence callback; cleanup unknown отказывает,
+  поздний native refusal после callback сохраняет settled. Unit16 обоих путей
+  и fresh native frontend smoke PASS; Core не менялся.
   В8 UI/UX rounds CI7f2f57a/98665bc получил native storage_budget_exhausted;
   failure/log hashes сохранены, это не PASS/timeout. Core budget не меняется.
   В1.2.1 admission проверяет public sealed quality.limit:1–3 разрешены,4–8/
   unknown/ambiguous отказ до writers. Native3 rounds/2 repairs/3 releases PASS,
   reject8 до writers PASS. В1.2.2 pure begin повторяет typed limit guard для
   replay/internal calls: forged/cached admission8 rejected до quality/browser.
-  Native hard-guard и обычный frontend PASS, unit15/compile120/79/7/install PASS.
+  Native hard-guard и обычный frontend PASS, unit16/compile120/79/7/install PASS.
   Sequential/backend диапазон1–8 сохранён. Legacy verify на7f2f57a полностью
   SUCCESS: default feature35/backend parallel24 и все прежние ворота/Classic.
   Его общий CI failed только из-за отдельного UI/UX8 storage negative.
   Final single-revision35 и полный CI новой версии пока НЕ объявляются PASS.
   Source implementation7f2f57a, test-only current-lease finalizer98665bc,
-  admission cap8c92cf6 (CI38846192650 выполняется), hard guard готов к push.
+  admission cap8c92cf6: UI/UX CI job34 SUCCESS/log hash сохранён. Hard guard
+  5ac14a35754d1f91fb627b2865a836e37c70229f pushed; CI38847358894 выполняется,
+  его35/full PASS ещё НЕ заявлены. Последний error-only patch1.2.3 готов
+  к push; его CI будет последним. Implementation/локальная приёмка закончены.
   Latest stable повторно сверён0.13.77; новых нет.233 tracked files остальных6
   пакетов совпадают с f95f2c4; Core/classic/profiled не менялись. Нет tag/catalog
   publication. Guide docs/parallel-ui-ux.md; evidence feature-uiux-*, historical

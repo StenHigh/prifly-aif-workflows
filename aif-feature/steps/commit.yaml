@@ -1,6 +1,6 @@
 authoring: prifly-step/2
 id: aif-feature:step/commit
-version: 1.2.2
+version: 1.2.3
 title: Bounded feature commit
 kind: worker
 inputs:

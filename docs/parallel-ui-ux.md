@@ -1,6 +1,6 @@
 # Независимые UI/UX в aif-feature
 
-В неопубликованном `aif-feature@1.2.2` можно явно выбрать `parallel-ui-ux`.
+В неопубликованном `aif-feature@1.2.3` можно явно выбрать `parallel-ui-ux`.
 Нужны released Pri-Fly **0.13.77**, Python 3, Codex CLI с доступной авторизацией,
 AI Factory skills (квалификация на 2.19.0) и проверенный browser adapter проекта.
 По умолчанию feature остаётся sequential. Core и классические workflows не меняются.
@@ -128,6 +128,11 @@ python3 -B .prifly/workflows/aif-feature/files/frontend_host.py cleanup \
 Команда сверяет journal с native accepted environment и исходными sealed
 configuration/adapter, затем вызывает exact owner/session release. Исходный
 Run она не переводит в success и reviewed continue не запускает.
+Ошибка/timeout CLI до полного evidence callback оставляет `actor_phase: unknown`;
+operator cleanup отказывает даже при terminal Native Run. После подтверждённого
+завершения обоих actors и проверки evidence поздний отказ native submit сохраняет
+`settled`. Native Attempt settlement сам по себе не подтверждает остановку browser.
+
 Если controller был принудительно убит, actor phase неизвестна или ensure/release
 прерван после внешнего эффекта, journal сохраняет intent: нужен осмотр собственных
 процессов и effects, затем явная reconciliation. Автоматического retry, очистки

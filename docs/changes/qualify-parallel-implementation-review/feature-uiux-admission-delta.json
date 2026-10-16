@@ -1,15 +1,15 @@
 {
   "live_checkpoint": "7f2f57abed93f8a3bc0074c8ab807d5904ae5c51",
-  "current_package_version": "1.2.2",
-  "scope": "Frontend admission and pure feature.begin enforce1-3 rounds; CLI reader instructions/dispatch/observe/transport/lifecycle functions remain identical to live checkpoint",
+  "current_package_version": "1.2.3",
+  "scope": "Admission/begin limit guards plus conservative dispatcher error settlement. Fresh CLI reader process, prompt construction, observe/environment/release/cleanup/transport functions remain unchanged; source history preserved.",
   "new_functions": [
     "quality_limit"
   ],
   "changed_functions": [
-    "admit"
+    "admit: sealed round limit",
+    "dispatch: settle only after complete evidence callback; CLI errors before it preserve unknown"
   ],
   "unchanged_frontend_functions": {
-    "dispatch": "sha256:cf057789cc786192ec3dd627567f34c668472e777bc07162db3641793cfa07e9",
     "observe": "sha256:cbca62fb1087ce36b576a8b2f3fcdd2e474332471d1d3a829a45a5fcf06b8027",
     "environment": "sha256:fa70f1683f18383a37e0ddcf399cfeb9d9b304041140744dd5f14e9ca69ba783",
     "release": "sha256:0312873dd8c89843fa30872351afa1aa810ac7d3dc450cb4d9d5ed6df444af78",
@@ -29,7 +29,7 @@
     "aif-feature/files/frontend_quality.py"
   ],
   "live_context_and_delivery_bytes_preserved": true,
-  "new_admission_unit_tests": 15,
+  "new_admission_unit_tests": 16,
   "new_admission_native_cases": "passed: limit8 rejected before writers; limit3 completed three rounds/two repairs/three owned releases",
   "changed_feature_program_functions": [
     "begin: validate typed limit before round work",
@@ -61,5 +61,6 @@
       "all_projected_requests_configuration_identical": true
     }
   ],
-  "hard_round_guard_native": "passed: forged/cached admission8 cannot enter checks/browser/repair/commit; ordinary frontend succeeds"
+  "hard_round_guard_native": "passed: forged/cached admission8 cannot enter checks/browser/repair/commit; ordinary frontend succeeds",
+  "normal_dispatch_reader_setup_instructions_identical": true
 }

@@ -2,7 +2,7 @@
   "prifly": "0.13.77",
   "binary_sha256": "sha256:d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa",
   "unit_tests": {
-    "frontend_parallel": 15,
+    "frontend_parallel": 16,
     "parallel_reports": 12,
     "feature": 8,
     "product_review": 14,
@@ -23,7 +23,7 @@
   "full_legacy_gate": "retained unchanged in CI",
   "qualification_sources": {
     "tests/probes/feature_uiux_check.py": "sha256:d61ddbdf4870ca07d7b7cc447aa9a49ee9a777918e4e2c12c31b6c1a18bd553b",
-    "tests/test_frontend_parallel.py": "sha256:48a6ade3386772b7d94f6f1c536ef0f526d7da46b241398159097b29123e24de",
+    "tests/test_frontend_parallel.py": "sha256:14d67fc540aab5ffde8edc1a2517dbb86d4c751401022502b1bf38767dfb2620",
     "tests/probes/feature_check.py": "sha256:67c67436ae170ab4c48ad8657ea255979be670b9150b178bfe05748e1972192e",
     "tests/fixtures/feature-browser/adapter.py": "sha256:f2110375d0e6d67d967c2ac5ddd603fa988de980af195e74bfa45336d211c2f1",
     "tests/fixtures/feature-browser/browser.cjs": "sha256:6062a9a854eb5d7fcec2add7613c3966e61a88c7b7fb95f98308abe51bc63a94",
@@ -52,6 +52,7 @@
     },
     "test_fix_commit": "98665bce432b000207408cbd1f470bb99014ef20"
   },
-  "current_package_version": "1.2.2",
-  "storage_boundary": "8 UI/UX rounds refused by native storage budget in two CI jobs; patch1.2.1 explicitly qualifies1-3, refuses4-8 before writers; no Core changes/SQLite overrides"
+  "current_package_version": "1.2.3",
+  "storage_boundary": "8 UI/UX rounds refused by native storage budget in two CI jobs; patch1.2.1 explicitly qualifies1-3, refuses4-8 before writers; no Core changes/SQLite overrides",
+  "cli_error_settlement": "unit PASS: before callback unknown rejects operator cleanup; after complete callback later native refusal retains settled"
 }

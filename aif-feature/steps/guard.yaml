@@ -1,6 +1,6 @@
 authoring: prifly-step/1
 id: aif-feature:step/guard
-version: 1.2.2
+version: 1.2.3
 title: Bounded feature guard
 kind: worker
 inputs:

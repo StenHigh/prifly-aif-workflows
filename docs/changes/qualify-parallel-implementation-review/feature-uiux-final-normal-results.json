@@ -1,0 +1,1010 @@
+{
+  "prifly": "0.13.77",
+  "binary_sha256": "d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa",
+  "cases": [
+    {
+      "case": "frontend",
+      "host": "codex-cli",
+      "mode": "Synthetic model/session reports, actual concurrent Chromium/native feature/program/cleanup/commit",
+      "source_outcome": "succeeded",
+      "outcome": "succeeded",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "parallel-admission",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "frontend-environment",
+        "ui",
+        "ux",
+        "collect-uiux",
+        "frontend-release",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:de698230bfe49aae481339f0f52b0c0a728b12033ef93ef71f45b96f999543de",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:7c25db5a5053b3ff18d459bc7b3d2805557c9f3b509a7e7d9e9294eb2af90c5e",
+          "base": "5f3021eaf454b17640ac10ad69ed4dc108971d63"
+        },
+        {
+          "run": "run:de698230bfe49aae481339f0f52b0c0a728b12033ef93ef71f45b96f999543de",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:7c25db5a5053b3ff18d459bc7b3d2805557c9f3b509a7e7d9e9294eb2af90c5e",
+          "base": "5f3021eaf454b17640ac10ad69ed4dc108971d63"
+        },
+        {
+          "run": "run:de698230bfe49aae481339f0f52b0c0a728b12033ef93ef71f45b96f999543de",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:7c25db5a5053b3ff18d459bc7b3d2805557c9f3b509a7e7d9e9294eb2af90c5e",
+          "base": "5f3021eaf454b17640ac10ad69ed4dc108971d63"
+        },
+        {
+          "run": "run:de698230bfe49aae481339f0f52b0c0a728b12033ef93ef71f45b96f999543de",
+          "lens": "ui",
+          "round": 1,
+          "digest": "sha256:7c25db5a5053b3ff18d459bc7b3d2805557c9f3b509a7e7d9e9294eb2af90c5e",
+          "base": "5f3021eaf454b17640ac10ad69ed4dc108971d63"
+        },
+        {
+          "run": "run:de698230bfe49aae481339f0f52b0c0a728b12033ef93ef71f45b96f999543de",
+          "lens": "ux",
+          "round": 1,
+          "digest": "sha256:7c25db5a5053b3ff18d459bc7b3d2805557c9f3b509a7e7d9e9294eb2af90c5e",
+          "base": "5f3021eaf454b17640ac10ad69ed4dc108971d63"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "fadf64673124c150d695d98036ebe9ea1973db70b16b19cbc426841c8eac183c"
+        },
+        {
+          "stage": "implement",
+          "sha256": "c06f940835359a31a0be140696447e5ea7ac7ec48a2778c5bc19fa3190f46df8"
+        }
+      ],
+      "elapsed_seconds": 95.836,
+      "cleaned": true,
+      "review_mode": "parallel-ui-ux",
+      "parallel_fault": null,
+      "parallel_batches": [],
+      "parallel_observations": [],
+      "parallel_outputs": {
+        "evidence": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "5f3021eaf454b17640ac10ad69ed4dc108971d63",
+            "digest": "sha256:7c25db5a5053b3ff18d459bc7b3d2805557c9f3b509a7e7d9e9294eb2af90c5e",
+            "files_digest": "sha256:dc9f24370341b46b066cbd9ddfa3bf186fe94ba94035a1d9eeddd45ff27965c5",
+            "head_commit": "5f3021eaf454b17640ac10ad69ed4dc108971d63",
+            "index_digest": "sha256:cc866ab8b5e083aec8742999e17b1aa00dafe9e922130efd14c952becf14ea97"
+          },
+          "gate": {
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "checks: Model profile unavailable; independent model not established",
+              "security: Model profile unavailable; independent model not established",
+              "review: Model profile unavailable; independent model not established",
+              "product: ui: Model profile unavailable; independent model not established",
+              "product: ux: Model profile unavailable; independent model not established"
+            ],
+            "gate": "feature",
+            "status": "warnings",
+            "suggested_next": "continue"
+          },
+          "product": {
+            "adapter_digest": "sha256:58dd12c257d5b75cf75a88a25fcdca54b18dc3eea9ed9a11e85cc172991f1d57",
+            "browser_sessions": {
+              "ui": {
+                "adapter_digest": "sha256:58dd12c257d5b75cf75a88a25fcdca54b18dc3eea9ed9a11e85cc172991f1d57",
+                "allocation": {
+                  "token": "6fc6cb1775ff448896ffeb7645a382dd"
+                },
+                "candidate_digest": "sha256:7c25db5a5053b3ff18d459bc7b3d2805557c9f3b509a7e7d9e9294eb2af90c5e",
+                "configuration_digest": "sha256:ee1f1a6bed563f6dc1d64d240bcbe25eb62b7fdbf7d096c48b1e1a611bff98ff",
+                "context_id": "context-9d49f2f87de2431c811a96c92ff865ea",
+                "environment_session": "environment-00f19f5fb75c481b9e7c2535b8d3a63f",
+                "identity_id": "identity-60af9e8b6f134c4ca3348a6474db1253",
+                "lens": "ui",
+                "owner": "fixture-owned",
+                "protocol": "aif-feature-browser/1",
+                "reason": "",
+                "request_digest": "sha256:ce63899782945ed8df913667c2ab213ed7cc0e0990f70067424d2aa238f7196f",
+                "round": 1,
+                "run_id": "run:de698230bfe49aae481339f0f52b0c0a728b12033ef93ef71f45b96f999543de",
+                "status": "ready"
+              },
+              "ux": {
+                "adapter_digest": "sha256:58dd12c257d5b75cf75a88a25fcdca54b18dc3eea9ed9a11e85cc172991f1d57",
+                "allocation": {
+                  "token": "2bc49676fb70406980be4d406d21c8b2"
+                },
+                "candidate_digest": "sha256:7c25db5a5053b3ff18d459bc7b3d2805557c9f3b509a7e7d9e9294eb2af90c5e",
+                "configuration_digest": "sha256:ee1f1a6bed563f6dc1d64d240bcbe25eb62b7fdbf7d096c48b1e1a611bff98ff",
+                "context_id": "context-d108b7128fc84621851e4098d6e3693f",
+                "environment_session": "environment-00f19f5fb75c481b9e7c2535b8d3a63f",
+                "identity_id": "identity-fdc9a7f04ffc4046b96b96aa93649283",
+                "lens": "ux",
+                "owner": "fixture-owned",
+                "protocol": "aif-feature-browser/1",
+                "reason": "",
+                "request_digest": "sha256:856a009029df410a2a878127b19c7d5c17adfbee9cf250f3bd4bbbfd2f5eabc3",
+                "round": 1,
+                "run_id": "run:de698230bfe49aae481339f0f52b0c0a728b12033ef93ef71f45b96f999543de",
+                "status": "ready"
+              }
+            },
+            "candidate": {
+              "algorithm": "git-candidate/1",
+              "base_commit": "5f3021eaf454b17640ac10ad69ed4dc108971d63",
+              "digest": "sha256:7c25db5a5053b3ff18d459bc7b3d2805557c9f3b509a7e7d9e9294eb2af90c5e",
+              "files_digest": "sha256:dc9f24370341b46b066cbd9ddfa3bf186fe94ba94035a1d9eeddd45ff27965c5",
+              "head_commit": "5f3021eaf454b17640ac10ad69ed4dc108971d63",
+              "index_digest": "sha256:cc866ab8b5e083aec8742999e17b1aa00dafe9e922130efd14c952becf14ea97"
+            },
+            "configuration": {
+              "environment": {
+                "allowed_operations": [
+                  "navigate",
+                  "input",
+                  "submit_test"
+                ],
+                "browser_adapter": "project Playwright adapter",
+                "cleanup": "fixture release exact owned session",
+                "owner": "fixture-owned",
+                "profile": "all-checks",
+                "setup": "fixture ensure owned claimed tree",
+                "shared_resource": null,
+                "test_identity": "isolated anonymous test only"
+              },
+              "scenarios": [
+                {
+                  "actions": [],
+                  "check_id": "ui_acceptance",
+                  "expectations": [
+                    "No overflow; readable consistent design"
+                  ],
+                  "id": "desktop",
+                  "lens": "ui",
+                  "path": "/index.html",
+                  "viewport": {
+                    "height": 800,
+                    "width": 1280
+                  }
+                },
+                {
+                  "actions": [],
+                  "check_id": "ui_acceptance",
+                  "expectations": [
+                    "No overflow; readable consistent design"
+                  ],
+                  "id": "mobile",
+                  "lens": "ui",
+                  "path": "/index.html",
+                  "viewport": {
+                    "height": 800,
+                    "width": 375
+                  }
+                },
+                {
+                  "actions": [
+                    "Use keyboard and submit isolated test form"
+                  ],
+                  "check_id": "ux_acceptance",
+                  "expectations": [
+                    "Observe empty/loading/error/success states and labelled keyboard flow"
+                  ],
+                  "id": "flow",
+                  "lens": "ux",
+                  "path": "/index.html",
+                  "viewport": {
+                    "height": 800,
+                    "width": 375
+                  }
+                }
+              ],
+              "scope_reason": "Declared interface change",
+              "surface": "frontend",
+              "ui": {
+                "base_commit": "5f3021eaf454b17640ac10ad69ed4dc108971d63",
+                "checks": [
+                  {
+                    "applicable": true,
+                    "description": "ui acceptance",
+                    "enabled": true,
+                    "id": "ui_acceptance",
+                    "method": "browser",
+                    "required": true
+                  }
+                ],
+                "optional_policy": "ignore",
+                "require_separate_session": true,
+                "round": 1
+              },
+              "ux": {
+                "base_commit": "5f3021eaf454b17640ac10ad69ed4dc108971d63",
+                "checks": [
+                  {
+                    "applicable": true,
+                    "description": "ux acceptance",
+                    "enabled": true,
+                    "id": "ux_acceptance",
+                    "method": "browser",
+                    "required": true
+                  }
+                ],
+                "optional_policy": "ignore",
+                "require_separate_session": true,
+                "round": 1
+              }
+            },
+            "configuration_digest": "sha256:ee1f1a6bed563f6dc1d64d240bcbe25eb62b7fdbf7d096c48b1e1a611bff98ff",
+            "environment": {
+              "candidate_digest": "sha256:7c25db5a5053b3ff18d459bc7b3d2805557c9f3b509a7e7d9e9294eb2af90c5e",
+              "configuration_digest": "sha256:ee1f1a6bed563f6dc1d64d240bcbe25eb62b7fdbf7d096c48b1e1a611bff98ff",
+              "owner": "fixture-owned",
+              "profile": "all-checks",
+              "reason": "",
+              "session": "environment-00f19f5fb75c481b9e7c2535b8d3a63f",
+              "status": "ready",
+              "url": "http://127.0.0.1:39669"
+            },
+            "gate": {
+              "blocking": false,
+              "blocking_owner_only": false,
+              "findings": [
+                "ui: Model profile unavailable; independent model not established",
+                "ux: Model profile unavailable; independent model not established"
+              ],
+              "gate": "review",
+              "status": "warnings",
+              "suggested_next": "continue"
+            },
+            "parallel": {
+              "bundle": {
+                "manifest_digest": "sha256:0b44fd0592585cc1d3abe793734b24249567cd1e1ef51668e892c35179c3613d",
+                "reason": "",
+                "reports": [
+                  {
+                    "branch": "ui",
+                    "raw_base64": "eyJyb3VuZCI6IDEsICJyZXF1ZXN0X2RpZ2VzdCI6ICJzaGEyNTY6Y2U2Mzg5OTc4Mjk0NWVkOGRmOTEzNjY3YzJhYjIxM2VkN2NjMGUwOTkwZjcwMDY3NDI0ZDJhYTIzOGY3MTk2ZiIsICJjYW5kaWRhdGUiOiB7ImFsZ29yaXRobSI6ICJnaXQtY2FuZGlkYXRlLzEiLCAiYmFzZV9jb21taXQiOiAiNWYzMDIxZWFmNDU0YjE3NjQwYWMxMGFkNjllZDRkYzEwODk3MWQ2MyIsICJkaWdlc3QiOiAic2hhMjU2OjdjMjVkYjVhNTA1M2IzZmYxOGQ0NTliYzdiM2QyODA1NTU3YzlmM2I1MDlhN2U3ZDllOTI5NGViMmFmOTBjNWUiLCAiZmlsZXNfZGlnZXN0IjogInNoYTI1NjpkYzlmMjQzNzAzNDFiNDZiMDY2Y2JkOWRkZmEzYmYxODZmZTk0YmE5NDAzNWExZDllZWRkZDQ1ZmYyNzk2NWM1IiwgImhlYWRfY29tbWl0IjogIjVmMzAyMWVhZjQ1NGIxNzY0MGFjMTBhZDY5ZWQ0ZGMxMDg5NzFkNjMiLCAiaW5kZXhfZGlnZXN0IjogInNoYTI1NjpjYzg2NmFiOGI1ZTA4M2FlYzg3NDI5OTllMTdiMWFhMDBkYWZlOWU5MjIxMzBlZmQxNGM5NTJiZWNmMTRlYTk3In0sICJzZXNzaW9uIjogInNlcGFyYXRlIiwgIm1vZGVsX3Byb2ZpbGUiOiAidW5hdmFpbGFibGUiLCAibW9kZWwiOiBudWxsLCAiY2hlY2tzIjogW3siaWQiOiAidWlfYWNjZXB0YW5jZSIsICJzdGF0dXMiOiAiZXhlY3V0ZWQiLCAicmVzdWx0IjogInBhc3NlZCIsICJyZWFzb24iOiAiIiwgImV2aWRlbmNlIjogW3sibWV0aG9kIjogImJyb3dzZXIiLCAidG9vbCI6ICJQbGF5d3JpZ2h0IDEuNjQuMSAvIENocm9taXVtIDE1Ni4wLjgwNzguNCIsICJsb2NhdG9yIjogImh0dHA6Ly8xMjcuMC4wLjE6Mzk2NjkvaW5kZXguaHRtbCIsICJvYnNlcnZhdGlvbiI6ICJ7XCJzY2VuYXJpb1wiOiBcImRlc2t0b3BcIiwgXCJ2aWV3cG9ydFwiOiB7XCJoZWlnaHRcIjogODAwLCBcIndpZHRoXCI6IDEyODB9LCBcInVybFwiOiBcImh0dHA6Ly8xMjcuMC4wLjE6Mzk2NjkvaW5kZXguaHRtbFwiLCBcIm9ic2VydmF0aW9uc1wiOiBcIntcXFwidmlld3BvcnRcXFwiOjEyODAsXFxcInNjcm9sbFdpZHRoXFxcIjoxMjgwLFxcXCJoZWFkaW5nXFxcIjpcXFwiTm90ZXNcXFwiLFxcXCJsYWJlbFxcXCI6XFxcIk5vdGUgdGV4dFxcXCIsXFxcImJvZHlDb2xvclxcXCI6XFxcInJnYigyMywgMzIsIDUxKVxcXCIsXFxcImJvZHlCYWNrZ3JvdW5kXFxcIjpcXFwicmdiKDI0NCwgMjQ2LCAyNTApXFxcIixcXFwiYnV0dG9uQ29sb3JcXFwiOlxcXCJyZ2IoMjU1LCAyNTUsIDI1NSlcXFwiLFxcXCJidXR0b25CYWNrZ3JvdW5kXFxcIjpcXFwicmdiKDIzLCA2OSwgMTYxKVxcXCJ9XCJ9IiwgImV4aXRfY29kZSI6IG51bGx9LCB7Im1ldGhvZCI6ICJicm93c2VyIiwgInRvb2wiOiAiUGxheXdyaWdodCAxLjY0LjEgLyBDaHJvbWl1bSAxNTYuMC44MDc4LjQiLCAibG9jYXRvciI6ICJodHRwOi8vMTI3LjAuMC4xOjM5NjY5L2luZGV4Lmh0bWwiLCAib2JzZXJ2YXRpb24iOiAie1wic2NlbmFyaW9cIjogXCJtb2JpbGVcIiwgXCJ2aWV3cG9ydFwiOiB7XCJoZWlnaHRcIjogODAwLCBcIndpZHRoXCI6IDM3NX0sIFwidXJsXCI6IFwiaHR0cDovLzEyNy4wLjAuMTozOTY2OS9pbmRleC5odG1sXCIsIFwib2JzZXJ2YXRpb25zXCI6IFwie1xcXCJ2aWV3cG9ydFxcXCI6Mzc1LFxcXCJzY3JvbGxXaWR0aFxcXCI6Mzc1LFxcXCJoZWFkaW5nXFxcIjpcXFwiTm90ZXNcXFwiLFxcXCJsYWJlbFxcXCI6XFxcIk5vdGUgdGV4dFxcXCIsXFxcImJvZHlDb2xvclxcXCI6XFxcInJnYigyMywgMzIsIDUxKVxcXCIsXFxcImJvZHlCYWNrZ3JvdW5kXFxcIjpcXFwicmdiKDI0NCwgMjQ2LCAyNTApXFxcIixcXFwiYnV0dG9uQ29sb3JcXFwiOlxcXCJyZ2IoMjU1LCAyNTUsIDI1NSlcXFwiLFxcXCJidXR0b25CYWNrZ3JvdW5kXFxcIjpcXFwicmdiKDIzLCA2OSwgMTYxKVxcXCJ9XCJ9IiwgImV4aXRfY29kZSI6IG51bGx9XX1dfQ==",
+                    "ref": {
+                      "artifact_id": "artifact:ba4e21f784cb75c5e22d228d93a34ad74584b3eb3643d634fc857450b9242d9d",
+                      "digest": "sha256:79351ef2156a2cbdf9e0787904085458a546e2025c01ebaad35c449438670e10",
+                      "revision": 1
+                    }
+                  },
+                  {
+                    "branch": "ux",
+                    "raw_base64": "eyJyb3VuZCI6IDEsICJyZXF1ZXN0X2RpZ2VzdCI6ICJzaGEyNTY6ODU2YTAwOTAyOWRmNDEwYTJhODc4MTI3YjE5YzdkNWMxN2FkZmJlZTljZjI1MGYzYmQ0YmJiZmQyZjVlYWJjMyIsICJjYW5kaWRhdGUiOiB7ImFsZ29yaXRobSI6ICJnaXQtY2FuZGlkYXRlLzEiLCAiYmFzZV9jb21taXQiOiAiNWYzMDIxZWFmNDU0YjE3NjQwYWMxMGFkNjllZDRkYzEwODk3MWQ2MyIsICJkaWdlc3QiOiAic2hhMjU2OjdjMjVkYjVhNTA1M2IzZmYxOGQ0NTliYzdiM2QyODA1NTU3YzlmM2I1MDlhN2U3ZDllOTI5NGViMmFmOTBjNWUiLCAiZmlsZXNfZGlnZXN0IjogInNoYTI1NjpkYzlmMjQzNzAzNDFiNDZiMDY2Y2JkOWRkZmEzYmYxODZmZTk0YmE5NDAzNWExZDllZWRkZDQ1ZmYyNzk2NWM1IiwgImhlYWRfY29tbWl0IjogIjVmMzAyMWVhZjQ1NGIxNzY0MGFjMTBhZDY5ZWQ0ZGMxMDg5NzFkNjMiLCAiaW5kZXhfZGlnZXN0IjogInNoYTI1NjpjYzg2NmFiOGI1ZTA4M2FlYzg3NDI5OTllMTdiMWFhMDBkYWZlOWU5MjIxMzBlZmQxNGM5NTJiZWNmMTRlYTk3In0sICJzZXNzaW9uIjogInNlcGFyYXRlIiwgIm1vZGVsX3Byb2ZpbGUiOiAidW5hdmFpbGFibGUiLCAibW9kZWwiOiBudWxsLCAiY2hlY2tzIjogW3siaWQiOiAidXhfYWNjZXB0YW5jZSIsICJzdGF0dXMiOiAiZXhlY3V0ZWQiLCAicmVzdWx0IjogInBhc3NlZCIsICJyZWFzb24iOiAiIiwgImV2aWRlbmNlIjogW3sibWV0aG9kIjogImJyb3dzZXIiLCAidG9vbCI6ICJQbGF5d3JpZ2h0IDEuNjQuMSAvIENocm9taXVtIDE1Ni4wLjgwNzguNCIsICJsb2NhdG9yIjogImh0dHA6Ly8xMjcuMC4wLjE6Mzk2NjkvaW5kZXguaHRtbCIsICJvYnNlcnZhdGlvbiI6ICJ7XCJzY2VuYXJpb1wiOiBcImZsb3dcIiwgXCJ2aWV3cG9ydFwiOiB7XCJoZWlnaHRcIjogODAwLCBcIndpZHRoXCI6IDM3NX0sIFwidXJsXCI6IFwiaHR0cDovLzEyNy4wLjAuMTozOTY2OS9pbmRleC5odG1sXCIsIFwib2JzZXJ2YXRpb25zXCI6IFwie1xcXCJlbXB0eVxcXCI6dHJ1ZSxcXFwiZm9jdXNcXFwiOlxcXCJub3RlXFxcIixcXFwib3V0bGluZVxcXCI6XFxcInNvbGlkXFxcIixcXFwibGFiZWxzXFxcIjpbXFxcIk5vdGUgdGV4dFxcXCJdLFxcXCJlcnJvclxcXCI6dHJ1ZSxcXFwibG9hZGluZ1xcXCI6dHJ1ZSxcXFwic3VjY2Vzc1xcXCI6dHJ1ZSxcXFwiY29weVxcXCI6XFxcIlNhdmVkOiBBIHRlc3Qgbm90ZVxcXCJ9XCJ9IiwgImV4aXRfY29kZSI6IG51bGx9XX1dfQ==",
+                    "ref": {
+                      "artifact_id": "artifact:f712c43515593796aa65df476c067413962f638b683b171c599707174c73d566",
+                      "digest": "sha256:612bbef253c452e4a668cec5b3703bd5106ea955ff15a58d9308fedbe74bcfda",
+                      "revision": 1
+                    }
+                  }
+                ],
+                "schema_version": "1",
+                "status": "ready"
+              },
+              "manifest": {
+                "branches": [
+                  {
+                    "effect_receipt_refs": [],
+                    "has_waivers": false,
+                    "id": "ui",
+                    "outcome": "succeeded",
+                    "output_refs": {
+                      "report": {
+                        "artifact_id": "artifact:ba4e21f784cb75c5e22d228d93a34ad74584b3eb3643d634fc857450b9242d9d",
+                        "digest": "sha256:79351ef2156a2cbdf9e0787904085458a546e2025c01ebaad35c449438670e10",
+                        "revision": 1
+                      }
+                    },
+                    "run_id": "run:de698230bfe49aae481339f0f52b0c0a728b12033ef93ef71f45b96f999543de",
+                    "status": "completed",
+                    "workflow_invocation_id": "invocation:2844cc17360f6bbdc9d1f280e1d72752e8b3b7edbfd2a9fa00b0cc2090f90df6"
+                  },
+                  {
+                    "effect_receipt_refs": [],
+                    "has_waivers": false,
+                    "id": "ux",
+                    "outcome": "succeeded",
+                    "output_refs": {
+                      "report": {
+                        "artifact_id": "artifact:f712c43515593796aa65df476c067413962f638b683b171c599707174c73d566",
+                        "digest": "sha256:612bbef253c452e4a668cec5b3703bd5106ea955ff15a58d9308fedbe74bcfda",
+                        "revision": 1
+                      }
+                    },
+                    "run_id": "run:de698230bfe49aae481339f0f52b0c0a728b12033ef93ef71f45b96f999543de",
+                    "status": "completed",
+                    "workflow_invocation_id": "invocation:2e3155c727b226dd1b06c917de79082901005afcfce77e7ef02e9ca3876079ee"
+                  }
+                ],
+                "join_result": "satisfied",
+                "schema_version": "1",
+                "selected_branch_ids": [
+                  "ui",
+                  "ux"
+                ],
+                "selection_seq": 2,
+                "stage_activation_id": "activation:02cccebbbefdd5aa4a897a5262213c6a"
+              },
+              "manifest_digest": "sha256:0b44fd0592585cc1d3abe793734b24249567cd1e1ef51668e892c35179c3613d"
+            },
+            "release": {
+              "owner": "fixture-owned",
+              "reason": "",
+              "session": "environment-00f19f5fb75c481b9e7c2535b8d3a63f",
+              "status": "released"
+            },
+            "reports": {
+              "ui": {
+                "candidate": {
+                  "algorithm": "git-candidate/1",
+                  "base_commit": "5f3021eaf454b17640ac10ad69ed4dc108971d63",
+                  "digest": "sha256:7c25db5a5053b3ff18d459bc7b3d2805557c9f3b509a7e7d9e9294eb2af90c5e",
+                  "files_digest": "sha256:dc9f24370341b46b066cbd9ddfa3bf186fe94ba94035a1d9eeddd45ff27965c5",
+                  "head_commit": "5f3021eaf454b17640ac10ad69ed4dc108971d63",
+                  "index_digest": "sha256:cc866ab8b5e083aec8742999e17b1aa00dafe9e922130efd14c952becf14ea97"
+                },
+                "checks": [
+                  {
+                    "evidence": [
+                      {
+                        "exit_code": null,
+                        "locator": "http://127.0.0.1:39669/index.html",
+                        "method": "browser",
+                        "observation": "{\"scenario\": \"desktop\", \"viewport\": {\"height\": 800, \"width\": 1280}, \"url\": \"http://127.0.0.1:39669/index.html\", \"observations\": \"{\\\"viewport\\\":1280,\\\"scrollWidth\\\":1280,\\\"heading\\\":\\\"Notes\\\",\\\"label\\\":\\\"Note text\\\",\\\"bodyColor\\\":\\\"rgb(23, 32, 51)\\\",\\\"bodyBackground\\\":\\\"rgb(244, 246, 250)\\\",\\\"buttonColor\\\":\\\"rgb(255, 255, 255)\\\",\\\"buttonBackground\\\":\\\"rgb(23, 69, 161)\\\"}\"}",
+                        "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4"
+                      },
+                      {
+                        "exit_code": null,
+                        "locator": "http://127.0.0.1:39669/index.html",
+                        "method": "browser",
+                        "observation": "{\"scenario\": \"mobile\", \"viewport\": {\"height\": 800, \"width\": 375}, \"url\": \"http://127.0.0.1:39669/index.html\", \"observations\": \"{\\\"viewport\\\":375,\\\"scrollWidth\\\":375,\\\"heading\\\":\\\"Notes\\\",\\\"label\\\":\\\"Note text\\\",\\\"bodyColor\\\":\\\"rgb(23, 32, 51)\\\",\\\"bodyBackground\\\":\\\"rgb(244, 246, 250)\\\",\\\"buttonColor\\\":\\\"rgb(255, 255, 255)\\\",\\\"buttonBackground\\\":\\\"rgb(23, 69, 161)\\\"}\"}",
+                        "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4"
+                      }
+                    ],
+                    "id": "ui_acceptance",
+                    "reason": "",
+                    "result": "passed",
+                    "status": "executed"
+                  }
+                ],
+                "model": null,
+                "model_profile": "unavailable",
+                "request_digest": "sha256:ce63899782945ed8df913667c2ab213ed7cc0e0990f70067424d2aa238f7196f",
+                "round": 1,
+                "session": "separate"
+              },
+              "ux": {
+                "candidate": {
+                  "algorithm": "git-candidate/1",
+                  "base_commit": "5f3021eaf454b17640ac10ad69ed4dc108971d63",
+                  "digest": "sha256:7c25db5a5053b3ff18d459bc7b3d2805557c9f3b509a7e7d9e9294eb2af90c5e",
+                  "files_digest": "sha256:dc9f24370341b46b066cbd9ddfa3bf186fe94ba94035a1d9eeddd45ff27965c5",
+                  "head_commit": "5f3021eaf454b17640ac10ad69ed4dc108971d63",
+                  "index_digest": "sha256:cc866ab8b5e083aec8742999e17b1aa00dafe9e922130efd14c952becf14ea97"
+                },
+                "checks": [
+                  {
+                    "evidence": [
+                      {
+                        "exit_code": null,
+                        "locator": "http://127.0.0.1:39669/index.html",
+                        "method": "browser",
+                        "observation": "{\"scenario\": \"flow\", \"viewport\": {\"height\": 800, \"width\": 375}, \"url\": \"http://127.0.0.1:39669/index.html\", \"observations\": \"{\\\"empty\\\":true,\\\"focus\\\":\\\"note\\\",\\\"outline\\\":\\\"solid\\\",\\\"labels\\\":[\\\"Note text\\\"],\\\"error\\\":true,\\\"loading\\\":true,\\\"success\\\":true,\\\"copy\\\":\\\"Saved: A test note\\\"}\"}",
+                        "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4"
+                      }
+                    ],
+                    "id": "ux_acceptance",
+                    "reason": "",
+                    "result": "passed",
+                    "status": "executed"
+                  }
+                ],
+                "model": null,
+                "model_profile": "unavailable",
+                "request_digest": "sha256:856a009029df410a2a878127b19c7d5c17adfbee9cf250f3bd4bbbfd2f5eabc3",
+                "round": 1,
+                "session": "separate"
+              }
+            },
+            "request_digests": {
+              "ui": "sha256:ce63899782945ed8df913667c2ab213ed7cc0e0990f70067424d2aa238f7196f",
+              "ux": "sha256:856a009029df410a2a878127b19c7d5c17adfbee9cf250f3bd4bbbfd2f5eabc3"
+            },
+            "requests": {
+              "ui": {
+                "base_commit": "5f3021eaf454b17640ac10ad69ed4dc108971d63",
+                "checks": [
+                  {
+                    "applicable": true,
+                    "description": "ui acceptance\nSealed product contract: {\"environment\":{\"allowed_operations\":[\"navigate\",\"input\",\"submit_test\"],\"browser_adapter\":\"project Playwright adapter\",\"cleanup\":\"fixture release exact owned session\",\"owner\":\"fixture-owned\",\"profile\":\"all-checks\",\"setup\":\"fixture ensure owned claimed tree\",\"shared_resource\":null,\"test_identity\":\"isolated anonymous test only\"},\"lens\":\"ui\",\"scenarios\":[{\"actions\":[],\"check_id\":\"ui_acceptance\",\"expectations\":[\"No overflow; readable consistent design\"],\"id\":\"desktop\",\"lens\":\"ui\",\"path\":\"/index.html\",\"viewport\":{\"height\":800,\"width\":1280}},{\"actions\":[],\"check_id\":\"ui_acceptance\",\"expectations\":[\"No overflow; readable consistent design\"],\"id\":\"mobile\",\"lens\":\"ui\",\"path\":\"/index.html\",\"viewport\":{\"height\":800,\"width\":375}}],\"scope_reason\":\"Declared interface change\"}",
+                    "enabled": true,
+                    "id": "ui_acceptance",
+                    "method": "browser",
+                    "required": true
+                  }
+                ],
+                "optional_policy": "ignore",
+                "require_separate_session": true,
+                "round": 1
+              },
+              "ux": {
+                "base_commit": "5f3021eaf454b17640ac10ad69ed4dc108971d63",
+                "checks": [
+                  {
+                    "applicable": true,
+                    "description": "ux acceptance\nSealed product contract: {\"environment\":{\"allowed_operations\":[\"navigate\",\"input\",\"submit_test\"],\"browser_adapter\":\"project Playwright adapter\",\"cleanup\":\"fixture release exact owned session\",\"owner\":\"fixture-owned\",\"profile\":\"all-checks\",\"setup\":\"fixture ensure owned claimed tree\",\"shared_resource\":null,\"test_identity\":\"isolated anonymous test only\"},\"lens\":\"ux\",\"scenarios\":[{\"actions\":[\"Use keyboard and submit isolated test form\"],\"check_id\":\"ux_acceptance\",\"expectations\":[\"Observe empty/loading/error/success states and labelled keyboard flow\"],\"id\":\"flow\",\"lens\":\"ux\",\"path\":\"/index.html\",\"viewport\":{\"height\":800,\"width\":375}}],\"scope_reason\":\"Declared interface change\"}",
+                    "enabled": true,
+                    "id": "ux_acceptance",
+                    "method": "browser",
+                    "required": true
+                  }
+                ],
+                "optional_policy": "ignore",
+                "require_separate_session": true,
+                "round": 1
+              }
+            }
+          },
+          "reports": {
+            "checks": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "5f3021eaf454b17640ac10ad69ed4dc108971d63",
+                "digest": "sha256:7c25db5a5053b3ff18d459bc7b3d2805557c9f3b509a7e7d9e9294eb2af90c5e",
+                "files_digest": "sha256:dc9f24370341b46b066cbd9ddfa3bf186fe94ba94035a1d9eeddd45ff27965c5",
+                "head_commit": "5f3021eaf454b17640ac10ad69ed4dc108971d63",
+                "index_digest": "sha256:cc866ab8b5e083aec8742999e17b1aa00dafe9e922130efd14c952becf14ea97"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": 0,
+                      "locator": "/tmp/w3-run-ghviec2m/authority/.prifly/work/claims/796ae37a39e7fded48ad1e72a485928895ab554fdae4d0a2b2aef57c79dbf497",
+                      "method": "command",
+                      "observation": "exit=0; stdout=''; stderr=''",
+                      "tool": "python3 -B -c from pathlib import Path; assert 'addEventListener' in Path('index.html').read_text()"
+                    }
+                  ],
+                  "id": "checks_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:5a88edf8cae50f7b4f8d72590879e24216a67ea106dae15d9a423ef0ff01b320",
+              "round": 1,
+              "session": "shared"
+            },
+            "review": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "5f3021eaf454b17640ac10ad69ed4dc108971d63",
+                "digest": "sha256:7c25db5a5053b3ff18d459bc7b3d2805557c9f3b509a7e7d9e9294eb2af90c5e",
+                "files_digest": "sha256:dc9f24370341b46b066cbd9ddfa3bf186fe94ba94035a1d9eeddd45ff27965c5",
+                "head_commit": "5f3021eaf454b17640ac10ad69ed4dc108971d63",
+                "index_digest": "sha256:cc866ab8b5e083aec8742999e17b1aa00dafe9e922130efd14c952becf14ea97"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "fixture page/source",
+                      "method": "code",
+                      "observation": "Actual fixture command exited zero",
+                      "tool": "fixture-tool"
+                    }
+                  ],
+                  "id": "review_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:56f17eae8927f8df309e6e3d4597fda492540122b5292bb1a349ef2b2f316d8c",
+              "round": 1,
+              "session": "shared"
+            },
+            "security": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "5f3021eaf454b17640ac10ad69ed4dc108971d63",
+                "digest": "sha256:7c25db5a5053b3ff18d459bc7b3d2805557c9f3b509a7e7d9e9294eb2af90c5e",
+                "files_digest": "sha256:dc9f24370341b46b066cbd9ddfa3bf186fe94ba94035a1d9eeddd45ff27965c5",
+                "head_commit": "5f3021eaf454b17640ac10ad69ed4dc108971d63",
+                "index_digest": "sha256:cc866ab8b5e083aec8742999e17b1aa00dafe9e922130efd14c952becf14ea97"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "fixture page/source",
+                      "method": "code",
+                      "observation": "Actual fixture command exited zero",
+                      "tool": "fixture-tool"
+                    }
+                  ],
+                  "id": "security_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:efbba7ca9336630a7dc70e63ad75592acd00fe844321db387db27cb7d46aaf13",
+              "round": 1,
+              "session": "shared"
+            }
+          },
+          "requests": {
+            "checks": {
+              "base_commit": "5f3021eaf454b17640ac10ad69ed4dc108971d63",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Check index.html contains the declared notes form; python3 -B -c \"from pathlib import Path; assert 'addEventListener' in Path('index.html').read_text()\"",
+                  "enabled": true,
+                  "id": "checks_acceptance",
+                  "method": "command",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            },
+            "review": {
+              "base_commit": "5f3021eaf454b17640ac10ad69ed4dc108971d63",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect scoped notes confirmation: hide empty state, show Saved: <trimmed note>, clear input and restore focus; preserve existing error/loading behavior, responsive design and form IDs.",
+                  "enabled": true,
+                  "id": "review_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            },
+            "security": {
+              "base_commit": "5f3021eaf454b17640ac10ad69ed4dc108971d63",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect index.html notes form for unsafe script execution, outbound effects or exposed secrets; only ephemeral in-page state is authorized.",
+                  "enabled": true,
+                  "id": "security_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            }
+          },
+          "round": 1,
+          "task_digest": "sha256:4797bcee7a38522c12e2cc1a4cad8590edd7532a41bd93837b3eb47e7f805a2b"
+        },
+        "gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "checks: Model profile unavailable; independent model not established",
+            "security: Model profile unavailable; independent model not established",
+            "review: Model profile unavailable; independent model not established",
+            "product: ui: Model profile unavailable; independent model not established",
+            "product: ux: Model profile unavailable; independent model not established"
+          ],
+          "gate": "feature",
+          "status": "warnings",
+          "suggested_next": "continue"
+        },
+        "implementation": {
+          "base_commit": "5f3021eaf454b17640ac10ad69ed4dc108971d63",
+          "head_commit": "7d467dbb782607f94dd4581d4ef8041f172061cc",
+          "changed_files": [
+            "index.html"
+          ]
+        },
+        "plan": {
+          "entrypoint": "PLAN.md",
+          "files": [
+            {
+              "path": "PLAN.md",
+              "ref": {
+                "artifact_id": "artifact:de8d6d0be940c9b9a9d1a01ca4639efad46bfefb8ff1d924756427c647394261",
+                "digest": "sha256:c06f940835359a31a0be140696447e5ea7ac7ec48a2778c5bc19fa3190f46df8",
+                "revision": 1
+              }
+            }
+          ],
+          "root": ".ai-factory",
+          "schema_version": "workspace-tree-manifest/1"
+        },
+        "result": {
+          "outcome": "implemented",
+          "reason": "Synthetic feature host",
+          "work": [
+            "Preserved task work and original base."
+          ]
+        }
+      },
+      "browser_observations": [],
+      "uiux_pairs": [
+        {
+          "run": "run:de698230bfe49aae481339f0f52b0c0a728b12033ef93ef71f45b96f999543de",
+          "round": 1,
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "5f3021eaf454b17640ac10ad69ed4dc108971d63",
+            "digest": "sha256:7c25db5a5053b3ff18d459bc7b3d2805557c9f3b509a7e7d9e9294eb2af90c5e",
+            "files_digest": "sha256:dc9f24370341b46b066cbd9ddfa3bf186fe94ba94035a1d9eeddd45ff27965c5",
+            "head_commit": "5f3021eaf454b17640ac10ad69ed4dc108971d63",
+            "index_digest": "sha256:cc866ab8b5e083aec8742999e17b1aa00dafe9e922130efd14c952becf14ea97"
+          },
+          "attempts": [
+            "attempt:461d41c9cfe4b3976da50b12c2eda215",
+            "attempt:a802b9ab244a0748f782b497d5c4e233"
+          ],
+          "browser_sessions": {
+            "ui": {
+              "adapter_digest": "sha256:58dd12c257d5b75cf75a88a25fcdca54b18dc3eea9ed9a11e85cc172991f1d57",
+              "allocation": {
+                "token": "6fc6cb1775ff448896ffeb7645a382dd"
+              },
+              "candidate_digest": "sha256:7c25db5a5053b3ff18d459bc7b3d2805557c9f3b509a7e7d9e9294eb2af90c5e",
+              "configuration_digest": "sha256:ee1f1a6bed563f6dc1d64d240bcbe25eb62b7fdbf7d096c48b1e1a611bff98ff",
+              "context_id": "context-9d49f2f87de2431c811a96c92ff865ea",
+              "environment_session": "environment-00f19f5fb75c481b9e7c2535b8d3a63f",
+              "identity_id": "identity-60af9e8b6f134c4ca3348a6474db1253",
+              "lens": "ui",
+              "owner": "fixture-owned",
+              "protocol": "aif-feature-browser/1",
+              "reason": "",
+              "request_digest": "sha256:ce63899782945ed8df913667c2ab213ed7cc0e0990f70067424d2aa238f7196f",
+              "round": 1,
+              "run_id": "run:de698230bfe49aae481339f0f52b0c0a728b12033ef93ef71f45b96f999543de",
+              "status": "ready"
+            },
+            "ux": {
+              "adapter_digest": "sha256:58dd12c257d5b75cf75a88a25fcdca54b18dc3eea9ed9a11e85cc172991f1d57",
+              "allocation": {
+                "token": "2bc49676fb70406980be4d406d21c8b2"
+              },
+              "candidate_digest": "sha256:7c25db5a5053b3ff18d459bc7b3d2805557c9f3b509a7e7d9e9294eb2af90c5e",
+              "configuration_digest": "sha256:ee1f1a6bed563f6dc1d64d240bcbe25eb62b7fdbf7d096c48b1e1a611bff98ff",
+              "context_id": "context-d108b7128fc84621851e4098d6e3693f",
+              "environment_session": "environment-00f19f5fb75c481b9e7c2535b8d3a63f",
+              "identity_id": "identity-fdc9a7f04ffc4046b96b96aa93649283",
+              "lens": "ux",
+              "owner": "fixture-owned",
+              "protocol": "aif-feature-browser/1",
+              "reason": "",
+              "request_digest": "sha256:856a009029df410a2a878127b19c7d5c17adfbee9cf250f3bd4bbbfd2f5eabc3",
+              "round": 1,
+              "run_id": "run:de698230bfe49aae481339f0f52b0c0a728b12033ef93ef71f45b96f999543de",
+              "status": "ready"
+            }
+          },
+          "environment": {
+            "candidate_digest": "sha256:7c25db5a5053b3ff18d459bc7b3d2805557c9f3b509a7e7d9e9294eb2af90c5e",
+            "configuration_digest": "sha256:ee1f1a6bed563f6dc1d64d240bcbe25eb62b7fdbf7d096c48b1e1a611bff98ff",
+            "owner": "fixture-owned",
+            "profile": "all-checks",
+            "reason": "",
+            "session": "environment-00f19f5fb75c481b9e7c2535b8d3a63f",
+            "status": "ready",
+            "url": "http://127.0.0.1:39669"
+          },
+          "browser_work_overlap_seconds": 2.790853636979591,
+          "browser_observations": {
+            "ui": {
+              "protocol": "aif-feature-browser/1",
+              "status": "ready",
+              "lens": "ui",
+              "context_id": "context-9d49f2f87de2431c811a96c92ff865ea",
+              "identity_id": "identity-60af9e8b6f134c4ca3348a6474db1253",
+              "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+              "observations": [
+                {
+                  "scenario": "desktop",
+                  "viewport": {
+                    "height": 800,
+                    "width": 1280
+                  },
+                  "url": "http://127.0.0.1:39669/index.html",
+                  "observations": "{\"viewport\":1280,\"scrollWidth\":1280,\"heading\":\"Notes\",\"label\":\"Note text\",\"bodyColor\":\"rgb(23, 32, 51)\",\"bodyBackground\":\"rgb(244, 246, 250)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\"}",
+                  "failures": [],
+                  "screenshot": "/tmp/w3-run-ghviec2m/authority/.prifly/work/461d41c9cfe4b3976da50b12c2eda215/browser/5798fbf8-35da-4602-a74b-2b9ba5917bc8/ui-desktop.png",
+                  "screenshot_sha256": "sha256:37e37428dadfd48c87280e0070041eab0763a33909e437b734b87972b1421291"
+                },
+                {
+                  "scenario": "mobile",
+                  "viewport": {
+                    "height": 800,
+                    "width": 375
+                  },
+                  "url": "http://127.0.0.1:39669/index.html",
+                  "observations": "{\"viewport\":375,\"scrollWidth\":375,\"heading\":\"Notes\",\"label\":\"Note text\",\"bodyColor\":\"rgb(23, 32, 51)\",\"bodyBackground\":\"rgb(244, 246, 250)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\"}",
+                  "failures": [],
+                  "screenshot": "/tmp/w3-run-ghviec2m/authority/.prifly/work/461d41c9cfe4b3976da50b12c2eda215/browser/5798fbf8-35da-4602-a74b-2b9ba5917bc8/ui-mobile.png",
+                  "screenshot_sha256": "sha256:8395e45ac2baba8f48cff425380262c6ce2135f0057a6aae4f8ecea69d8b086d"
+                }
+              ],
+              "note": "Actual observations and screenshots; the reviewer must inspect images and choose its own assessment."
+            },
+            "ux": {
+              "protocol": "aif-feature-browser/1",
+              "status": "ready",
+              "lens": "ux",
+              "context_id": "context-d108b7128fc84621851e4098d6e3693f",
+              "identity_id": "identity-fdc9a7f04ffc4046b96b96aa93649283",
+              "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+              "observations": [
+                {
+                  "scenario": "flow",
+                  "viewport": {
+                    "height": 800,
+                    "width": 375
+                  },
+                  "url": "http://127.0.0.1:39669/index.html",
+                  "observations": "{\"empty\":true,\"focus\":\"note\",\"outline\":\"solid\",\"labels\":[\"Note text\"],\"error\":true,\"loading\":true,\"success\":true,\"copy\":\"Saved: A test note\"}",
+                  "failures": [],
+                  "screenshot": "/tmp/w3-run-ghviec2m/authority/.prifly/work/a802b9ab244a0748f782b497d5c4e233/browser/9fcca09b-46fd-47dd-a831-92715f6a03bc/ux-flow.png",
+                  "screenshot_sha256": "sha256:c10f6c30fe47fcaac50470b17431534535006e305a4446a19641fe064ea64dfb"
+                }
+              ],
+              "note": "Actual observations and screenshots; the reviewer must inspect images and choose its own assessment."
+            }
+          }
+        }
+      ],
+      "uiux_reader_observations": [],
+      "environment_journals": [
+        {
+          "actor_phase": "settled",
+          "adapter": {
+            "entrypoint": "adapter.py",
+            "files": {
+              "adapter.py": "sha256:f2110375d0e6d67d967c2ac5ddd603fa988de980af195e74bfa45336d211c2f1",
+              "browser.cjs": "sha256:6062a9a854eb5d7fcec2add7613c3966e61a88c7b7fb95f98308abe51bc63a94",
+              "tool-lock.json": "sha256:3b61dc353436423a0af3dc6a0c047079dba90029f07002c2c9dac652f769734a"
+            },
+            "protocol": "aif-feature-browser/1",
+            "root": "/tmp/w3-run-ghviec2m/browser-adapter",
+            "settings": {
+              "control_release": "/tmp/w3-run-ghviec2m/browser-continue-ready",
+              "fault": null,
+              "library": "/tmp/aif-w5-uiux-browser-tool/node_modules/playwright",
+              "node": "/usr/local/bin/node",
+              "state_root": "/tmp/w3-run-ghviec2m/environment-state"
+            }
+          },
+          "adapter_response": {
+            "protocol": "aif-feature-browser/1",
+            "readers": {
+              "ui": {
+                "allocation": {
+                  "token": "6fc6cb1775ff448896ffeb7645a382dd"
+                },
+                "context_id": "context-9d49f2f87de2431c811a96c92ff865ea",
+                "identity_id": "identity-60af9e8b6f134c4ca3348a6474db1253"
+              },
+              "ux": {
+                "allocation": {
+                  "token": "2bc49676fb70406980be4d406d21c8b2"
+                },
+                "context_id": "context-d108b7128fc84621851e4098d6e3693f",
+                "identity_id": "identity-fdc9a7f04ffc4046b96b96aa93649283"
+              }
+            },
+            "reason": "",
+            "session": "environment-00f19f5fb75c481b9e7c2535b8d3a63f",
+            "status": "ready",
+            "url": "http://127.0.0.1:39669"
+          },
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "5f3021eaf454b17640ac10ad69ed4dc108971d63",
+            "digest": "sha256:7c25db5a5053b3ff18d459bc7b3d2805557c9f3b509a7e7d9e9294eb2af90c5e",
+            "files_digest": "sha256:dc9f24370341b46b066cbd9ddfa3bf186fe94ba94035a1d9eeddd45ff27965c5",
+            "head_commit": "5f3021eaf454b17640ac10ad69ed4dc108971d63",
+            "index_digest": "sha256:cc866ab8b5e083aec8742999e17b1aa00dafe9e922130efd14c952becf14ea97"
+          },
+          "configuration": {
+            "environment": {
+              "allowed_operations": [
+                "navigate",
+                "input",
+                "submit_test"
+              ],
+              "browser_adapter": "project Playwright adapter",
+              "cleanup": "fixture release exact owned session",
+              "owner": "fixture-owned",
+              "profile": "all-checks",
+              "setup": "fixture ensure owned claimed tree",
+              "shared_resource": null,
+              "test_identity": "isolated anonymous test only"
+            },
+            "scenarios": [
+              {
+                "actions": [],
+                "check_id": "ui_acceptance",
+                "expectations": [
+                  "No overflow; readable consistent design"
+                ],
+                "id": "desktop",
+                "lens": "ui",
+                "path": "/index.html",
+                "viewport": {
+                  "height": 800,
+                  "width": 1280
+                }
+              },
+              {
+                "actions": [],
+                "check_id": "ui_acceptance",
+                "expectations": [
+                  "No overflow; readable consistent design"
+                ],
+                "id": "mobile",
+                "lens": "ui",
+                "path": "/index.html",
+                "viewport": {
+                  "height": 800,
+                  "width": 375
+                }
+              },
+              {
+                "actions": [
+                  "Use keyboard and submit isolated test form"
+                ],
+                "check_id": "ux_acceptance",
+                "expectations": [
+                  "Observe empty/loading/error/success states and labelled keyboard flow"
+                ],
+                "id": "flow",
+                "lens": "ux",
+                "path": "/index.html",
+                "viewport": {
+                  "height": 800,
+                  "width": 375
+                }
+              }
+            ],
+            "scope_reason": "Declared interface change",
+            "surface": "frontend",
+            "ui": {
+              "base_commit": "5f3021eaf454b17640ac10ad69ed4dc108971d63",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "ui acceptance",
+                  "enabled": true,
+                  "id": "ui_acceptance",
+                  "method": "browser",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": true,
+              "round": 1
+            },
+            "ux": {
+              "base_commit": "5f3021eaf454b17640ac10ad69ed4dc108971d63",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "ux acceptance",
+                  "enabled": true,
+                  "id": "ux_acceptance",
+                  "method": "browser",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": true,
+              "round": 1
+            }
+          },
+          "environment_attempt": "attempt:e2c25c395800a2ff1d09202298b92c94",
+          "environment_ref": {
+            "artifact_id": "artifact:1f023e12cc3f676a54913508b6f65ee261ec71132286b13cffb0636ba8716e1a",
+            "digest": "sha256:4d3f56c7d293e5c6a4e55616e48edebe396836ae709955bf0c218560ae17541a",
+            "revision": 1
+          },
+          "release": {
+            "owner": "fixture-owned",
+            "reason": "",
+            "session": "environment-00f19f5fb75c481b9e7c2535b8d3a63f",
+            "status": "released"
+          },
+          "repository_workspace": "/tmp/w3-run-ghviec2m/authority/.prifly/work/claims/796ae37a39e7fded48ad1e72a485928895ab554fdae4d0a2b2aef57c79dbf497",
+          "run_id": "run:de698230bfe49aae481339f0f52b0c0a728b12033ef93ef71f45b96f999543de",
+          "state": "release_returned",
+          "values": {
+            "environment": {
+              "candidate_digest": "sha256:7c25db5a5053b3ff18d459bc7b3d2805557c9f3b509a7e7d9e9294eb2af90c5e",
+              "configuration_digest": "sha256:ee1f1a6bed563f6dc1d64d240bcbe25eb62b7fdbf7d096c48b1e1a611bff98ff",
+              "owner": "fixture-owned",
+              "profile": "all-checks",
+              "reason": "",
+              "session": "environment-00f19f5fb75c481b9e7c2535b8d3a63f",
+              "status": "ready",
+              "url": "http://127.0.0.1:39669"
+            },
+            "ui_session": {
+              "adapter_digest": "sha256:58dd12c257d5b75cf75a88a25fcdca54b18dc3eea9ed9a11e85cc172991f1d57",
+              "allocation": {
+                "token": "6fc6cb1775ff448896ffeb7645a382dd"
+              },
+              "candidate_digest": "sha256:7c25db5a5053b3ff18d459bc7b3d2805557c9f3b509a7e7d9e9294eb2af90c5e",
+              "configuration_digest": "sha256:ee1f1a6bed563f6dc1d64d240bcbe25eb62b7fdbf7d096c48b1e1a611bff98ff",
+              "context_id": "context-9d49f2f87de2431c811a96c92ff865ea",
+              "environment_session": "environment-00f19f5fb75c481b9e7c2535b8d3a63f",
+              "identity_id": "identity-60af9e8b6f134c4ca3348a6474db1253",
+              "lens": "ui",
+              "owner": "fixture-owned",
+              "protocol": "aif-feature-browser/1",
+              "reason": "",
+              "request_digest": "sha256:ce63899782945ed8df913667c2ab213ed7cc0e0990f70067424d2aa238f7196f",
+              "round": 1,
+              "run_id": "run:de698230bfe49aae481339f0f52b0c0a728b12033ef93ef71f45b96f999543de",
+              "status": "ready"
+            },
+            "ux_session": {
+              "adapter_digest": "sha256:58dd12c257d5b75cf75a88a25fcdca54b18dc3eea9ed9a11e85cc172991f1d57",
+              "allocation": {
+                "token": "2bc49676fb70406980be4d406d21c8b2"
+              },
+              "candidate_digest": "sha256:7c25db5a5053b3ff18d459bc7b3d2805557c9f3b509a7e7d9e9294eb2af90c5e",
+              "configuration_digest": "sha256:ee1f1a6bed563f6dc1d64d240bcbe25eb62b7fdbf7d096c48b1e1a611bff98ff",
+              "context_id": "context-d108b7128fc84621851e4098d6e3693f",
+              "environment_session": "environment-00f19f5fb75c481b9e7c2535b8d3a63f",
+              "identity_id": "identity-fdc9a7f04ffc4046b96b96aa93649283",
+              "lens": "ux",
+              "owner": "fixture-owned",
+              "protocol": "aif-feature-browser/1",
+              "reason": "",
+              "request_digest": "sha256:856a009029df410a2a878127b19c7d5c17adfbee9cf250f3bd4bbbfd2f5eabc3",
+              "round": 1,
+              "run_id": "run:de698230bfe49aae481339f0f52b0c0a728b12033ef93ef71f45b96f999543de",
+              "status": "ready"
+            }
+          }
+        }
+      ],
+      "fixture_teardown": [],
+      "actual_independent_llm_sessions": 0,
+      "scenario": "frontend"
+    }
+  ],
+  "matrix_complete": true,
+  "scope": "Whole shipping feature, separate sealed browser grants; deterministic reports, no LLM independence claimed"
+}

@@ -253,15 +253,22 @@ invoke the adapter for another operation. The controller owns the lifecycle.
             shutil.copytree(source, destination)
             observation['browser_evidence'] = {'directory': str(destination),
                 'files': {str(p.relative_to(source)): w1.digest(p.read_bytes()) for p in files}}
+        # This callback runs only after both CLI actors returned and original
+        # browser evidence was validated, before any native submission. A later
+        # submit refusal cannot make those actors live again.
+        journal.update(actor_phase='settled', reader_observations=observations)
+        save(path, journal)
     try:
         observations = controller.dispatch(binary, authority, tasks, codex=codex, artifacts=Path(artifacts) / 'uiux-readers',
             readers=browser.READERS, instructions=instructions, before_submit=archive)
         journal['reader_observations'] = observations
         return observations
     finally:
-        # dispatch's ThreadPool context waits for every actor even if one fails;
-        # each actor waits/kills only its own process group in its own finally.
-        journal['actor_phase'] = 'settled'; save(path, journal)
+        # A CLI error/timeout is not an attestation that every external browser
+        # descendant stopped. Preserve uncertainty unless the complete evidence
+        # callback established settlement. Operator inspection is required.
+        if journal['actor_phase'] != 'settled': journal['actor_phase'] = 'unknown'
+        save(path, journal)
 
 
 def release_value(adapter, config, env):

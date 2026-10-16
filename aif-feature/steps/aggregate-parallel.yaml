@@ -1,6 +1,6 @@
 authoring: prifly-step/1
 id: aif-feature:step/aggregate-parallel
-version: 1.2.2
+version: 1.2.3
 title: Verify sealed backend report bytes and complete W1 coverage
 kind: worker
 inputs:
