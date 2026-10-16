@@ -247,6 +247,9 @@ class UIUXHost(FeatureHost):
             lease = root / ('owner-' + hashlib.sha256(state['owner'].encode()).hexdigest()[:24] + '.lease')
             if not lease.exists(): continue
             assert path.parent == self.root / 'environment-state'
+            # A later round reuses the owner's lease filename. Historical
+            # sessions must never be released using the current session's lease.
+            if json.loads(lease.read_text()) != {'owner': state['owner'], 'session': state['session']}: continue
             env = {'owner': state['owner'], 'session': state['session'], 'url': state['url']}
             config = {'environment': {'owner': state['owner']}}
             value = frontend.release_value(self.adapter, config, env)

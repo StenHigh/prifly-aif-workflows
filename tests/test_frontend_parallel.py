@@ -1,6 +1,7 @@
 """Safety boundaries for typed browser grants, original reports and cleanup."""
 import base64
 import copy
+import hashlib
 import json
 from pathlib import Path
 import sys
@@ -41,6 +42,27 @@ def inputs(optional_policy='ignore'):
 
 
 class FrontendParallelTest(unittest.TestCase):
+    def test_fixture_cleanup_releases_current_round_after_historical_sessions(self):
+        sys.path.insert(0, str(Path(__file__).resolve().parent / 'probes'))
+        from feature_uiux_check import UIUXHost
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);state_root=root/'environment-state';state_root.mkdir()
+            owner='owned-fixture'
+            lease=state_root/('owner-'+hashlib.sha256(owner.encode()).hexdigest()[:24]+'.lease')
+            lease.write_text(json.dumps({'owner':owner,'session':'environment-current'}))
+            for session in ('environment-old','environment-current'):
+                (state_root/(session+'.json')).write_text(json.dumps({'owner':owner,'session':session,'url':'http://127.0.0.1:12345'}))
+            host=UIUXHost.__new__(UIUXHost);host.root=root;host.teardown=[]
+            host.adapter={'settings':{'state_root':str(state_root)}}
+            def release(adapter,config,env):
+                self.assertEqual(env['session'],'environment-current')
+                lease.unlink()
+                return {'status':'released','owner':owner,'session':env['session'],'reason':''}
+            with patch.object(frontend_host,'release_value',side_effect=release) as invoked:
+                host.cleanup_fixture()
+                self.assertEqual(invoked.call_count,1)
+            self.assertEqual([x['session'] for x in host.teardown],['environment-current'])
+
     def test_complete_original_reports_and_grants(self):
         value=quality.assess(*inputs())
         self.assertEqual(value['gate']['status'],'warnings')
