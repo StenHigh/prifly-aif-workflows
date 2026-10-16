@@ -39,7 +39,8 @@ CASES = {
     'required-unavailable': ('required-unavailable', None, None, 'partial'),
     'owner-stop': ('owner-stop', None, None, 'partial'),
     'last-round': ('exhaustion', None, None, 'partial'),
-    'max-budget': ('max-budget', None, None, 'partial'),
+    'max-budget': ('max-budget', None, None, 'rejected'),
+    'parallel-budget': ('max-budget', None, None, 'partial'),
     'cancel-before': ('frontend-cancel', 'cancel-before', None, 'succeeded'),
     'cancel-after-first': ('frontend-cancel', 'cancel-after-first', None, 'succeeded'),
     'cancel-during-browser': ('frontend-cancel', 'cancel-browser', 'hold-browser', 'succeeded'),
@@ -288,7 +289,8 @@ def check(binary, name, library, skills=None, artifacts=None):
         if name == 'owner-stop':
             for lens in browser.READERS: task['product'][lens]['optional_policy'] = 'stop'
     row = run_case(binary, case, host=launch_host, library=library, review_mode='parallel-ui-ux', parallel_live=bool(skills),
-        skills=skills, artifacts=artifacts, host_factory=factory, adapter_factory=adapter_factory, task_mutator=mutate, expected_outcome=expected)
+        skills=skills, artifacts=artifacts, host_factory=factory, adapter_factory=adapter_factory, task_mutator=mutate,
+        expected_outcome=expected, quality_limit=3 if name=='parallel-budget' else None)
     row['scenario'] = name
     if expected == 'rejected': assert not {'plan','implement','repair','commit'} & set(row['steps']) and not row['uiux_pairs']
     if expected == 'partial' and case not in ('exhaustion','max-budget','repair-ui'):
@@ -300,6 +302,11 @@ def check(binary, name, library, skills=None, artifacts=None):
         assert not set(a['attempts']) & set(b['attempts'])
     if name == 'stale-after-repair': assert row['parallel_outputs']['gate']['status'] == 'blocked'
     if name == 'one-timeout': assert row['source_outcome'] == 'partial' and row['outcome'] == 'succeeded'
+    if name == 'parallel-budget':
+        assert len(row['uiux_pairs']) == 3 and row['steps'].count('repair') == 2
+        assert len({p['candidate']['digest'] for p in row['uiux_pairs']}) == 3
+        assert len({p['environment']['session'] for p in row['uiux_pairs']}) == 3
+        assert all(j['release']['status']=='released' for j in row['environment_journals'])
     if skills:
         observations = row['uiux_reader_observations']; assert len(observations) >= 2
         assert len({o['session_id'] for o in observations}) == len(observations)

@@ -2,7 +2,7 @@
   "prifly": "0.13.77",
   "binary_sha256": "sha256:d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa",
   "unit_tests": {
-    "frontend_parallel": 12,
+    "frontend_parallel": 14,
     "parallel_reports": 12,
     "feature": 8,
     "product_review": 14,
@@ -18,13 +18,13 @@
     "extend": "preserved",
     "local_edit": "refused"
   },
-  "full_new_browser_matrix": "running; not claimed passed yet",
+  "full_new_browser_matrix": "32 individually passed cases before admission-only delta + two new native budget cases; final single-revision34 CI pending",
   "full_legacy_local_matrix": "intentionally interrupted after smoke successes to avoid competing with live UI/UX; not a full PASS",
   "full_legacy_gate": "retained unchanged in CI",
   "qualification_sources": {
-    "tests/probes/feature_uiux_check.py": "sha256:20bdfdf12bce4ac49496e35244683b47e33bdbd7af04dbcb5ff3f91b832f5f10",
-    "tests/test_frontend_parallel.py": "sha256:8d903803216d48718170009cf55a21a6275b94177682ef6f7d5fd61bbaf8a7e9",
-    "tests/probes/feature_check.py": "sha256:5b803561e7a216138f0a47ed1e9a31355ad8c1f236d7e2e2ecddb1da7c4b688d",
+    "tests/probes/feature_uiux_check.py": "sha256:e8099e25c764f9b40c882b4e5725158dc0fef3bf4afe250d4e3a7a118a1f413b",
+    "tests/test_frontend_parallel.py": "sha256:56e727ebac006e8c3980d9f816fc11bc8527fdbefbd3272172e075af24102edb",
+    "tests/probes/feature_check.py": "sha256:67c67436ae170ab4c48ad8657ea255979be670b9150b178bfe05748e1972192e",
     "tests/fixtures/feature-browser/adapter.py": "sha256:f2110375d0e6d67d967c2ac5ddd603fa988de980af195e74bfa45336d211c2f1",
     "tests/fixtures/feature-browser/browser.cjs": "sha256:6062a9a854eb5d7fcec2add7613c3966e61a88c7b7fb95f98308abe51bc63a94",
     "tests/fixtures/feature-browser/tool-lock.json": "sha256:3b61dc353436423a0af3dc6a0c047079dba90029f07002c2c9dac652f769734a"
@@ -35,5 +35,23 @@
     "no independent model attestation",
     "unknown external-write effects require reconciliation",
     "live actor statements do not machine-attest visual judgement"
-  ]
+  ],
+  "focused_sequential_frontend_browser": "passed: default sequential frontend, actual Chromium, existing W2 route/cleanup/commit",
+  "local_interruption": {
+    "scope": "max-budget manually interrupted before old outer900s deadline; not a product failure/PASS",
+    "fixture_cleanup_fix": "test finalizer now selects exact current session lease; regression13 passes",
+    "cleanup": {
+      "scope": "Own interrupted qualification fixture only; no native success claimed",
+      "stopped": [
+        {
+          "pid": 600201,
+          "command": "/usr/bin/python3 -I -B /tmp/w3-run-w7c8avqj/browser-adapter/adapter.py --serve /tmp/w3-run-w7c8avqj/environment-state/environment-a4c00761510e443d9136106065e67a30.json"
+        }
+      ],
+      "reason": "Manual interruption exposed historical-session lease selection in test finalizer; shipping cleanup not involved"
+    },
+    "test_fix_commit": "98665bce432b000207408cbd1f470bb99014ef20"
+  },
+  "current_package_version": "1.2.1",
+  "storage_boundary": "8 UI/UX rounds refused by native storage budget in two CI jobs; patch1.2.1 explicitly qualifies1-3, refuses4-8 before writers; no Core changes/SQLite overrides"
 }

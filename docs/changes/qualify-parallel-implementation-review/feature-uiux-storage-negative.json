@@ -1,0 +1,31 @@
+{
+  "observations": [
+    {
+      "run_id": 38843640963,
+      "head_sha": "7f2f57abed93f8a3bc0074c8ab807d5904ae5c51",
+      "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38843640963/job/116789123007",
+      "job": "parallel-ui-ux",
+      "conclusion": "failure",
+      "scenario": "max-budget",
+      "native_refusal": "storage_budget_exhausted",
+      "log_sha256": "sha256:515ed6116265a23820953f7c760203b191641625ff81312df7a48c364b77791b",
+      "log_bytes": 54518,
+      "source_default_limit": 8,
+      "qualified_as_success": false
+    },
+    {
+      "run_id": 38844244900,
+      "head_sha": "98665bce432b000207408cbd1f470bb99014ef20",
+      "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38844244900/job/116791026098",
+      "job": "parallel-ui-ux",
+      "conclusion": "failure",
+      "scenario": "max-budget",
+      "native_refusal": "storage_budget_exhausted",
+      "log_sha256": "sha256:bd362e4012aae559836861583997c817953bc2f4dd8e36bff357cae7698fcf7e",
+      "log_bytes": 53132,
+      "source_default_limit": 8,
+      "qualified_as_success": false
+    }
+  ],
+  "interpretation": "Eight frontend rounds exceeded native authority storage envelope, not a passed max-budget Run. Core is unchanged; no hidden store/soft-limit override. Patch1.2.1 explicitly admits1-3 and refuses4-8 before writers; native3-case qualification is separate."
+}

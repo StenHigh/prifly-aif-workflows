@@ -1,9 +1,9 @@
 id: aif-feature:context/parallel-adapter-contract
-version: 1.2.0
+version: 1.2.1
 media_type: text/plain; charset=utf-8
 text: '{"files": {"browser_contract.py": "sha256:33a40a9575a17135566607f6e2a7ab1b7fddee0f3ea12851de80f94c0b9ae7bb",
   "evidence.py": "sha256:0ac845481c7fb4dd3a57d7e80726e42f67c1075ff2407916c7607ddc1a450c76", "frontend_host.py":
-  "sha256:a8148affde92b0307ef7f941ad8138ffae62c91b1c7cb6568588b8e35ac18f4b", "frontend_quality.py": "sha256:405c9cc814c9cdf52160813ecc717962fe1c9c8a79696296405a5220660fbd28",
+  "sha256:bd979036d9f7cf8cbea34192ded834a310de749c6cbd92de6eedeb74c897a7dd", "frontend_quality.py": "sha256:405c9cc814c9cdf52160813ecc717962fe1c9c8a79696296405a5220660fbd28",
   "parallel_host.py": "sha256:c876b6659dd32ba7dccedb3512c427c4865a2d1aa67a450aa3bbf88f68e3a9de", "parallel_reports.py":
   "sha256:71fdce956ef8f6c5bf195951666e742508f3b893907cad45440c6c8f85b181e2", "product.py": "sha256:4dfc3de4ec56c1f481389093f284d525586b0163553d66ff8a212375124a4f16"},
   "protocol": "aif-feature-parallel-host/1"}

@@ -1,0 +1,34 @@
+{
+  "live_checkpoint": "7f2f57abed93f8a3bc0074c8ab807d5904ae5c51",
+  "current_package_version": "1.2.1",
+  "scope": "Only frontend admission has a new sealed quality.limit guard; no reader instruction/observation/transport/lifecycle function changes",
+  "new_functions": [
+    "quality_limit"
+  ],
+  "changed_functions": [
+    "admit"
+  ],
+  "unchanged_frontend_functions": {
+    "dispatch": "sha256:cf057789cc786192ec3dd627567f34c668472e777bc07162db3641793cfa07e9",
+    "observe": "sha256:cbca62fb1087ce36b576a8b2f3fcdd2e474332471d1d3a829a45a5fcf06b8027",
+    "environment": "sha256:fa70f1683f18383a37e0ddcf399cfeb9d9b304041140744dd5f14e9ca69ba783",
+    "release": "sha256:0312873dd8c89843fa30872351afa1aa810ac7d3dc450cb4d9d5ed6df444af78",
+    "cleanup": "sha256:463abb9a7057ef5407e8e46f78f43a75289e05ef20487617d8e6da080a86f66c",
+    "validate_reader": "sha256:8917739b46f9362784924619d8b886c1e03cf40e0a1e94c55332bd3f2aa30ca3",
+    "verify_project": "sha256:22b68137221f2921eb96096cc0fc50be41d9bc6518a9d4f1e2c58501e4ac1172",
+    "project_call": "sha256:bdc842ef418908c8a4a49b445b8081e6bf635266c674913fc518b7fcc332f421",
+    "journal_for": "sha256:e11f369a43e159bbf4268786b745bc87401b26710b370db002482658ae381019",
+    "release_value": "sha256:1eb780b43c1b2799b6ecf53ae5e9ddcdfbd5e1d88a1f5307662ef34001e5f361"
+  },
+  "other_six_pinned_files_byte_identical": [
+    "aif-feature/files/parallel_host.py",
+    "aif-feature/files/parallel_reports.py",
+    "aif-feature/files/evidence.py",
+    "aif-feature/files/product.py",
+    "aif-feature/files/browser_contract.py",
+    "aif-feature/files/frontend_quality.py"
+  ],
+  "live_context_and_delivery_bytes_preserved": true,
+  "new_admission_unit_tests": 14,
+  "new_admission_native_cases": "passed: limit8 rejected before writers; limit3 completed three rounds/two repairs/three owned releases"
+}

@@ -1,0 +1,127 @@
+{
+  "prifly": "0.13.77",
+  "binary_sha256": "d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa",
+  "cases": [
+    {
+      "case": "frontend",
+      "host": "codex-cli",
+      "mode": "actual browser with deterministic writer/reader assertions",
+      "source_outcome": "succeeded",
+      "outcome": "succeeded",
+      "runs": 1,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "environment",
+        "ui",
+        "ux",
+        "release",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:22c4654fe10bb78be74afb7bc4970301f462c1b58b1d697cb19e3383686dff69",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:b8727f185a5bc1cd125aa9b34e08a9b5da60272cbd5446c71c04241298f6b44d",
+          "base": "090ca52739fb253e05e2a20a3b72bf62bb7e71d2"
+        },
+        {
+          "run": "run:22c4654fe10bb78be74afb7bc4970301f462c1b58b1d697cb19e3383686dff69",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:b8727f185a5bc1cd125aa9b34e08a9b5da60272cbd5446c71c04241298f6b44d",
+          "base": "090ca52739fb253e05e2a20a3b72bf62bb7e71d2"
+        },
+        {
+          "run": "run:22c4654fe10bb78be74afb7bc4970301f462c1b58b1d697cb19e3383686dff69",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:b8727f185a5bc1cd125aa9b34e08a9b5da60272cbd5446c71c04241298f6b44d",
+          "base": "090ca52739fb253e05e2a20a3b72bf62bb7e71d2"
+        },
+        {
+          "run": "run:22c4654fe10bb78be74afb7bc4970301f462c1b58b1d697cb19e3383686dff69",
+          "lens": "ui",
+          "round": 1,
+          "digest": "sha256:b8727f185a5bc1cd125aa9b34e08a9b5da60272cbd5446c71c04241298f6b44d",
+          "base": "090ca52739fb253e05e2a20a3b72bf62bb7e71d2"
+        },
+        {
+          "run": "run:22c4654fe10bb78be74afb7bc4970301f462c1b58b1d697cb19e3383686dff69",
+          "lens": "ux",
+          "round": 1,
+          "digest": "sha256:b8727f185a5bc1cd125aa9b34e08a9b5da60272cbd5446c71c04241298f6b44d",
+          "base": "090ca52739fb253e05e2a20a3b72bf62bb7e71d2"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "a729a478995028e0e70806970d1bf48de95a576f3e3b1c692747a740d55d6305"
+        },
+        {
+          "stage": "implement",
+          "sha256": "5607df84ebfcb67592350f5965bc35ce5bab4f8b1fa36f03934e6ae444266adf"
+        }
+      ],
+      "elapsed_seconds": 98.16,
+      "cleaned": true,
+      "review_mode": "sequential",
+      "parallel_fault": null,
+      "parallel_batches": [],
+      "parallel_observations": [],
+      "browser_observations": [
+        {
+          "lens": "ui",
+          "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+          "observations": [
+            {
+              "scenario": "desktop",
+              "viewport": {
+                "height": 800,
+                "width": 1280
+              },
+              "url": "http://127.0.0.1:44333/index.html",
+              "observations": "{\"viewport\":1280,\"scrollWidth\":1280,\"heading\":\"Notes\",\"bodyColor\":\"rgb(23, 32, 51)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\",\"label\":\"Note text\",\"section\":{\"x\":300,\"y\":92.75,\"width\":680,\"height\":311.8125,\"top\":92.75,\"right\":980,\"bottom\":404.5625,\"left\":300}}\nDeclared design tokens: dark ink on white; white button text on blue. Screenshot requires visual inspection, DOM metrics alone are not a visual review.",
+              "failures": [],
+              "screenshot": "/tmp/w3-run-x_77klpt/authority/.prifly/work/c82b13562d6f11b9ebb795b8f3ca2ee9/browser/ui-desktop.png"
+            },
+            {
+              "scenario": "mobile",
+              "viewport": {
+                "height": 800,
+                "width": 375
+              },
+              "url": "http://127.0.0.1:44333/index.html",
+              "observations": "{\"viewport\":375,\"scrollWidth\":375,\"heading\":\"Notes\",\"bodyColor\":\"rgb(23, 32, 51)\",\"buttonColor\":\"rgb(255, 255, 255)\",\"buttonBackground\":\"rgb(23, 69, 161)\",\"label\":\"Note text\",\"section\":{\"x\":16,\"y\":92.75,\"width\":343,\"height\":311.8125,\"top\":92.75,\"right\":359,\"bottom\":404.5625,\"left\":16}}\nDeclared design tokens: dark ink on white; white button text on blue. Screenshot requires visual inspection, DOM metrics alone are not a visual review.",
+              "failures": [],
+              "screenshot": "/tmp/w3-run-x_77klpt/authority/.prifly/work/c82b13562d6f11b9ebb795b8f3ca2ee9/browser/ui-mobile.png"
+            }
+          ]
+        },
+        {
+          "lens": "ux",
+          "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+          "observations": [
+            {
+              "scenario": "flow",
+              "viewport": {
+                "height": 800,
+                "width": 375
+              },
+              "url": "http://127.0.0.1:44333/index.html",
+              "observations": "{\"empty\":true,\"focus\":\"note\",\"outline\":\"solid\",\"label\":[\"Note text\"],\"error\":true,\"loading\":true,\"success\":true,\"copy\":\"Saved: A test note\"}",
+              "failures": [],
+              "screenshot": "/tmp/w3-run-x_77klpt/authority/.prifly/work/b1bc7bf947509d83b5fee8a913ae6b16/browser/ux-flow.png"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

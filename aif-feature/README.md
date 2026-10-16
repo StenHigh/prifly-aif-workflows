@@ -1,6 +1,6 @@
 # Небольшая новая фича
 
-Самостоятельный `aif-feature:package/feature@1.2.0`, launch **aif-feature**.
+Самостоятельный `aif-feature:package/feature@1.2.1`, launch **aif-feature**.
 Требует released Pri-Fly **0.13.77**, Python 3 stdlib для declared programs
 и AI Factory skills (контракт сверён с **2.19.0**). Пакет пока не выпущен.
 
@@ -63,7 +63,8 @@ warnings/skips и unavailable model mapping следуют task.optional_policy
 `ignore/stop`; fresh session и другая модель отчётливо различаются.
 
 `settings.quality.limit` в [extend.yaml](extend.yaml) — число **полных quality
-кругов**, default 3, диапазон 1–8. Limit=1 означает проверить без repair.
+кругов**, default3. Диапазон1–8 для sequential/backend, **1–3** для
+`parallel-ui-ux` (проверяется до writers). Limit=1 означает проверить без repair.
 Последний неуспешный круг не редактирует код; возвращает последний gate/evidence.
 Для нового UI/UX round требуется до 15 StepInstances, включая диагностический
 путь; quality budget122, root128, child depth7, parallelism2. Sequential/backend
@@ -94,6 +95,10 @@ commit. После repair повторяются все проверки, UI/UX 
 [guide](../docs/parallel-ui-ux.md). Пример адаптера для квалификации:
 [fixture](../tests/fixtures/feature-browser/adapter.py); его нельзя переносить
 в проект без проверки и настройки сценариев.
+
+В этом режиме `quality.limit` допускает **1–3** полных круга; 4–8 отвергаются
+до writers. Это явная граница квалификации storage footprint на released0.13.77;
+sequential/backend сохраняют1–8, budget Core не меняется.
 
 До plan/implement проверяются доступность browser adapter и двух изолированных
 contexts/identities, Codex CLI и достаточная native capacity. Только owned

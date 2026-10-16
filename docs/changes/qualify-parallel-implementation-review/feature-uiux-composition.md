@@ -1,6 +1,6 @@
 # W5: отдельные UI/UX-сессии в aif-feature
 
-В `aif-feature@1.2.0` добавлен явный `parallel-ui-ux`, default sequential сохранён.
+В `aif-feature@1.2.1` добавлен явный `parallel-ui-ux`, default sequential сохранён.
 Изменений Pri-Fly и классического workflow нет. Другие шесть пакетов остаются
 побайтно прежними. Пакет не опубликован в каталоге; установка не подключает
 runner автоматически. [Настройка](../../parallel-ui-ux.md).
@@ -87,4 +87,33 @@ Self-reported screenshot inspection не является машинной ат�
 - [Source boundaries](feature-uiux-source-boundaries.json):233 tracked файла
   остальных шести пакетов совпадают с baseline f95f2c4. Core не менялся.
 
-Полная новая matrix33 и CI пока выполняются; их PASS этим не заявляется.
+[Native/browser результаты](feature-uiux-runtime-results.json):32 из33 индивидуальных
+assertions PASS, включая admission negatives, freshness, cleanup/cancel/timeout и
+commit replay. Max-budget8 проверяется отдельно; полный matrix/CI PASS пока не
+заявляется. Прерванный тест в эту сумму не включён. Test-only finalizer получил
+exact current-session lease guard и регрессию13 (commit98665bc); shipping
+workflow bytes после7f2f57a не менялись.
+
+## Уточнение приёмки1.2.1: storage envelope
+
+Первый CI на7f2f57a выявил `storage_budget_exhausted` у UI/UX max-budget8.
+Это native refusal, не PASS и не timeout теста. Log SHA и точная причина
+сохраняются отдельно. Публичного CLI override не найдено; Core не меняется.
+В1.2.1 explicit admission проверяет public sealed
+`workflow_configurations[...].inputs.limit.value` для exact quality workflow:
+разрешает1–3, отказывает4–8 до writers, не меняя запрос владельца. Отсутствующая
+или неоднозначная configuration также отказывает. Sequential/backend1–8 прежние.
+Теперь max-budget8 — early-refusal assertion, parallel-budget3 — настоящий Run
+с тремя полными quality-кругами, двумя repairs и тремя released environments.
+[Budget cases](feature-uiux-budget-results.json) PASS:8 rejected до writers,
+3 native rounds завершились partial на последнем дефекте без лишнего repair,
+все три окружения released. Unit14 и compile120/79/7 PASS.
+[Source lineage](feature-uiux-admission-delta.json) подтверждает неизменность
+reader/lifecycle functions и остальных шести pinned Python modules. Полная
+34-case matrix на final revision остаётся отдельным CI gate.
+
+CLI reader dispatch/observe/environment/release/cleanup и report transport после
+live checkpoint7f2f57a не менялись. Повторный расход LLM для admission-only guard
+не требуется: source lineage фиксируется отдельно, новый admission проверяется
+unit14 и native cases. Старые live bytes/context hashes сохраняются как история,
+не переписываются под новый source contract.

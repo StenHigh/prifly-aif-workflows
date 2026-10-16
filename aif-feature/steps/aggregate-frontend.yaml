@@ -1,6 +1,6 @@
 authoring: prifly-step/1
 id: aif-feature:step/aggregate-frontend
-version: 1.2.0
+version: 1.2.1
 title: Bounded feature aggregate-frontend
 kind: worker
 inputs:

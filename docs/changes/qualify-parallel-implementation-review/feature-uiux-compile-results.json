@@ -15,5 +15,6 @@
     "backend",
     "frontend"
   ],
-  "scope": "Compilation/authoring contract, no runtime App/Claude sessions claimed"
+  "scope": "Compilation/authoring contract, no runtime App/Claude sessions claimed",
+  "package_version": "1.2.1"
 }

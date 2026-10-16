@@ -81,12 +81,27 @@ def exclusive(path, attempt):
     with os.fdopen(fd, 'w') as file: file.write(attempt + '\n')
 
 
+def quality_limit(state):
+    # Public Run configuration is sealed before admission. Do not reread live
+    # extend.yaml or silently replace the owner's requested number of rounds.
+    configurations = [c for c in (state.get('workflow_configurations') or {}).values()
+        if c.get('workflow_ref', {}).get('id') == 'aif-feature:workflow/quality']
+    if len(configurations) != 1:
+        raise w1.Invalid('Exact sealed quality configuration unavailable or ambiguous')
+    limit = configurations[0].get('inputs', {}).get('limit', {}).get('value')
+    if type(limit) is not int or not 1 <= limit <= 3:
+        raise w1.Invalid('parallel-ui-ux is qualified for 1-3 full quality rounds on released Pri-Fly; '
+                         '4-8 rounds exceed its qualified storage envelope. Select sequential or review a limit of 1-3')
+    return limit
+
+
 def admit(binary, authority, task, artifacts=None):
     owned_root(artifacts, task)
     task_input = input_value(task, 'task'); config = task_input['product']
     w2.configuration(config); browser.isolated(config)
     adapter = input_value(task, 'browser_adapter'); verify_project(adapter)
     state = controller.call(binary, authority, 'run', 'status', task['run_id'])['run']
+    quality_limit(state)
     for name in state.get('stage_resources', {}).get('quality', []):
         if state['resource_limits'][name] < 2:
             raise w1.Invalid('Quality resource ' + name + ' admits one Attempt; select sequential UI/UX')

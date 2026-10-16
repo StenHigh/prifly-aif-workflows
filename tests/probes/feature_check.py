@@ -398,7 +398,7 @@ def read_output(task, name):
 
 def run_case(binary, case, host='codex-cli', library=None, live=False, artifacts=None, skills=None,
              review_mode='sequential', parallel_fault=None, parallel_live=False,
-             host_factory=None, adapter_factory=None, task_mutator=None, expected_outcome=None):
+             host_factory=None, adapter_factory=None, task_mutator=None, expected_outcome=None, quality_limit=None):
     with tempfile.TemporaryDirectory(prefix='w3-run-') as directory:
         root = Path(directory); repository, authority = verify.prepare_repository(binary, root); runs=[]; h=None
         try:
@@ -433,7 +433,7 @@ def run_case(binary, case, host='codex-cli', library=None, live=False, artifacts
             if case == 'configured-plan':
                 path=repository/'.ai-factory/config.yaml';path.parent.mkdir(exist_ok=True);path.write_text('paths:\n  plan: other/PLAN.md\n')
             package=repository/'.prifly/workflows/aif-feature'
-            limit=8 if case == 'max-budget' else 2 if case == 'exhaustion' else 3
+            limit=quality_limit if quality_limit is not None else 8 if case == 'max-budget' else 2 if case == 'exhaustion' else 3
             (package/'extend.yaml').write_text(f'profile: {"frontend" if frontend else "backend"}\nsettings:\n  quality: {{limit: {limit}}}\n  feature: {{review_mode: {review_mode}}}\nexclude: []\nextensions: []\n')
             if adapter_factory:
                 adapter = adapter_factory(root, repository, package)
@@ -537,7 +537,7 @@ def run_case(binary, case, host='codex-cli', library=None, live=False, artifacts
                 assert 'plan' not in names and 'implement' not in names and not h.parallel_batches
             if case in ('required-unavailable','owner-stop','too-large','requirement-conflict','stale-after-review','frontend-unavailable'):
                 assert 'repair' not in names and 'commit' not in names
-            if case in ('exhaustion','max-budget'):
+            if case in ('exhaustion','max-budget') and expected!='rejected':
                 assert names.count('repair')==limit-1 and names.count('checks')==limit and 'commit' not in names
             if case.startswith('repair-') and case!='repair-too-large' or case=='verdict-independent':
                 assert names.count('repair')==1

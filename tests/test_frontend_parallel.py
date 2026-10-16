@@ -42,6 +42,20 @@ def inputs(optional_policy='ignore'):
 
 
 class FrontendParallelTest(unittest.TestCase):
+    def test_sealed_quality_limit_admission_does_not_lower_an_owner_request(self):
+        def state(value):
+            return {'workflow_configurations':{'sealed-digest':{
+                'workflow_ref':{'id':'aif-feature:workflow/quality'},
+                'inputs':{'limit':{'source':'default','value':value}}}}}
+        for value in (1,2,3):self.assertEqual(frontend_host.quality_limit(state(value)),value)
+        for value in (None,0,4,8,True,'3'):
+            data=state(value);before=copy.deepcopy(data)
+            with self.assertRaises(w1.Invalid):frontend_host.quality_limit(data)
+            self.assertEqual(data,before)
+        with self.assertRaises(w1.Invalid):frontend_host.quality_limit({})
+        data=state(3);data['workflow_configurations']['second']=copy.deepcopy(data['workflow_configurations']['sealed-digest'])
+        with self.assertRaises(w1.Invalid):frontend_host.quality_limit(data)
+
     def test_fixture_cleanup_releases_current_round_after_historical_sessions(self):
         sys.path.insert(0, str(Path(__file__).resolve().parent / 'probes'))
         from feature_uiux_check import UIUXHost

@@ -2,7 +2,7 @@
 
 Qualification evidence: [acceptance.md](acceptance.md). Backend fixture and real
 CLI normal delivery are qualified; **E4 fixed in 0.13.77; backend composition implemented**.
-Package portion changes aif-feature1.2.0 only, with default sequential and
+Package portion changes aif-feature1.2.1 only, with default sequential and
 explicit codex-cli backend adapter. No Core/classic/profiled changes or tag/catalog publication. See
 [feature composition](feature-composition.md) and
 [released requalification](release-0.13.77.md); the old named cancellation
@@ -68,3 +68,7 @@ Frontend1.2.0 implementation checkpoint: pinned host/browser adapter и scoped
 actual CLI repair-ui PASS (4 sessions/2 rounds), compile120/79, critical8 native
 cases PASS. Полная matrix33 и новый CI ещё выполняются; checklist выше не
 выдаёт их за общий frontend PASS. [Evidence](feature-uiux-composition.md).
+
+Patch1.2.1: native storage refusal8 rounds сохранён как negative; admission
+явно разрешает1–3, не снижая4–8. Native3 rounds/2 repairs/3 releases PASS,
+reject8 до writers PASS, unit14/compile120/79 PASS. Final34-case CI ещё pending.
