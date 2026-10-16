@@ -10,18 +10,24 @@
 
 Ворота выверены против выпущенного Pri-Fly `v0.13.77`.
 
-- **v1.53.0 подготовлен к публикации (2026-10-16):**
-  Новый самостоятельный openclaw-test-audit1.0.0, namespace openclaw:, встроенный
-  pinned OpenClaw checklist/MIT; AI Factory skills не нужны. Вставок в существующие
-  маршруты нет;350 tracked files семи прежних пакетов совпадают с v1.52.0.
-  Latest stable0.13.77, новых нет. Version3/folder7/derive/verify126/83/8/
-  compatibility5/4/4 PASS, unit102, native18 expected outcomes, catalog local
-  add/update3 hosts без AIF skills, overlay preservation/local edit refusal и
-  Classic verify handoff smoke PASS. Ledger docs/releases/v1.53.0-results.json.
-  Release guide v1.53.0.md; standalone catalog entry добавлен, прежние manifests
-  переведены на новый tag. До тега повторить latest stable; после публикации
-  проверить default-catalog add/update и полные native Runs. Новый CI пока не
-  запущен; прежний полный CI38888136979 SUCCESS подтверждает неизменные7 пакетов.
+- **Выпущен v1.53.0 (2026-10-16):**
+  source/tag c85306050df060dc4b381ba7512173806250b3a6; openclaw-test-audit1.0.0
+  доступен в default catalog, commit9a384ef3f26f553db8b60e60a59cfbbb285e6c0c.
+  Все8 записей этого source repo закреплены на v1.53.0/c853060;350 tracked files
+  семи прежних пакетов совпадают с v1.52.0, их версии и маршруты прежние.
+  Новый namespace openclaw:, pinned embedded OpenClaw checklist/MIT; AIF skills
+  не нужны. Самостоятельный workflow, только opt-in project composition.
+  Latest stable перед задачей/тегом0.13.77, новых нет. Все5 обязательных ворот,
+  unit102, native18, install/update3 hosts без AIF skills, overlay/refusal и
+  Classic verify smoke PASS. EOF-only formatting candidate.py сохраняет AST;
+  после него повторены unit10, installer/compile3 hosts и native pass.
+  Public default-catalog search/add/update, exact source/19 package files,
+  overlay preservation и4 native expected scenarios (pass/skip/failed/partial
+  resume) PASS; все fixtures/claims/registry очищены. Reader synthetic, без
+  нового live LLM/test execution. Ledger docs/releases/v1.53.0-results.json,
+  public smoke v1.53.0-published-results.json, guide v1.53.0.md.
+  CI source38896539906 и tag38896539536 выполняются; их PASS не заявлен.
+  Прежний полный CI38888136979 SUCCESS покрывает неизменные7 package trees.
 
 - **W6 / E5 — call extensions для review/UI/UX (2026-10-16):**
   Открыт Pri-Fly #9: native вложенный workflow через project extend, typed

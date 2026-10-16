@@ -1,0 +1,108 @@
+{
+  "release": "v1.53.0",
+  "package": "openclaw:package/test-audit@1.0.0",
+  "source_commit": "c85306050df060dc4b381ba7512173806250b3a6",
+  "catalog_commit": "9a384ef3f26f553db8b60e60a59cfbbb285e6c0c",
+  "outcome": "passed",
+  "prifly": "0.13.77",
+  "binary_sha256": "d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa",
+  "install_without_ai_factory_skills": {
+    "outcome": "passed",
+    "origin": {
+      "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+      "path": "openclaw-test-audit",
+      "ref": "v1.53.0",
+      "commit": "c85306050df060dc4b381ba7512173806250b3a6",
+      "digest": "sha256:53d7b7adcea44a9c16e63dd991522bf700befa2b288b25ffd15db78dbaa84045",
+      "extend_digest": "sha256:450c1d157d11f7c7141bbd10ada9f22a947a5d33dd7521f2d8cb7f09d0592839",
+      "catalog": "https://github.com/StenHigh/prifly-workflows.git"
+    },
+    "installed_files": 19,
+    "hosts_without_ai_factory_skills": [
+      "codex-cli",
+      "codex-app",
+      "claude-code"
+    ],
+    "installed_bytes": "matched",
+    "update": "preserved extend and project overlay",
+    "local_edit": "refused"
+  },
+  "native_installations": [
+    {
+      "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+      "path": "openclaw-test-audit",
+      "ref": "v1.53.0",
+      "commit": "c85306050df060dc4b381ba7512173806250b3a6",
+      "digest": "sha256:53d7b7adcea44a9c16e63dd991522bf700befa2b288b25ffd15db78dbaa84045",
+      "extend_digest": "sha256:450c1d157d11f7c7141bbd10ada9f22a947a5d33dd7521f2d8cb7f09d0592839",
+      "catalog": "https://github.com/StenHigh/prifly-workflows.git"
+    },
+    {
+      "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+      "path": "openclaw-test-audit",
+      "ref": "v1.53.0",
+      "commit": "c85306050df060dc4b381ba7512173806250b3a6",
+      "digest": "sha256:53d7b7adcea44a9c16e63dd991522bf700befa2b288b25ffd15db78dbaa84045",
+      "extend_digest": "sha256:450c1d157d11f7c7141bbd10ada9f22a947a5d33dd7521f2d8cb7f09d0592839",
+      "catalog": "https://github.com/StenHigh/prifly-workflows.git"
+    },
+    {
+      "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+      "path": "openclaw-test-audit",
+      "ref": "v1.53.0",
+      "commit": "c85306050df060dc4b381ba7512173806250b3a6",
+      "digest": "sha256:53d7b7adcea44a9c16e63dd991522bf700befa2b288b25ffd15db78dbaa84045",
+      "extend_digest": "sha256:450c1d157d11f7c7141bbd10ada9f22a947a5d33dd7521f2d8cb7f09d0592839",
+      "catalog": "https://github.com/StenHigh/prifly-workflows.git"
+    },
+    {
+      "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+      "path": "openclaw-test-audit",
+      "ref": "v1.53.0",
+      "commit": "c85306050df060dc4b381ba7512173806250b3a6",
+      "digest": "sha256:53d7b7adcea44a9c16e63dd991522bf700befa2b288b25ffd15db78dbaa84045",
+      "extend_digest": "sha256:450c1d157d11f7c7141bbd10ada9f22a947a5d33dd7521f2d8cb7f09d0592839",
+      "catalog": "https://github.com/StenHigh/prifly-workflows.git"
+    }
+  ],
+  "cases": [
+    {
+      "case": "pass",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "gate": "passed",
+      "reader_deliveries": 1,
+      "runs": 1,
+      "original_repository_unchanged": true
+    },
+    {
+      "case": "skip",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "gate": "skipped",
+      "reader_deliveries": 0,
+      "runs": 1,
+      "original_repository_unchanged": true
+    },
+    {
+      "case": "failed",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "gate": "failed",
+      "reader_deliveries": 1,
+      "runs": 1,
+      "original_repository_unchanged": true
+    },
+    {
+      "case": "partial-resume",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "gate": "passed",
+      "reader_deliveries": 2,
+      "runs": 2,
+      "original_repository_unchanged": true
+    }
+  ],
+  "scope": "Actual public default catalog, exact tag/source and package bytes, update preserves extend/project; real CLI/programs/Git with synthetic reader, no live LLM judgement.",
+  "observed_utc": "2026-10-16T11:55:44.653983+00:00"
+}

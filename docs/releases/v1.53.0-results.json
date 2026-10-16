@@ -2,7 +2,7 @@
   "release": "v1.53.0",
   "package": "openclaw:package/test-audit@1.0.0",
   "date": "2026-10-16",
-  "phase": "pre-tag gates passed",
+  "phase": "published; public catalog smoke passed",
   "prifly": "0.13.77",
   "binary_sha256": "d0848b299c49206aa59a069cc7e924b36f52b883067180018be7fdd4ee85b6aa",
   "source_parent": "0f77a2f27b746d1253f40b0fc19b18289dbf1dcd",
@@ -335,7 +335,7 @@
   },
   "limits": [
     "Native reader synthetic; no live LLM judgement/model attestation or dynamic regression test execution.",
-    "New full CI and published catalog smoke recorded after publication."
+    "New full CI status is an observed snapshot; no success is claimed while it runs."
   ],
   "pre_tag_formatting": {
     "path": "openclaw-test-audit/files/candidate.py",
@@ -343,5 +343,332 @@
     "ast_unchanged": true,
     "previous_sha256": "b51ee18e468f885d6a52e0b25703c18a6460bfe02f4e35c1e06f27c9aa4ff1d4"
   },
-  "latest_stable_before_tag": "v0.13.77"
+  "latest_stable_before_tag": "v0.13.77",
+  "source_commit": "c85306050df060dc4b381ba7512173806250b3a6",
+  "catalog_commit": "9a384ef3f26f553db8b60e60a59cfbbb285e6c0c",
+  "release_metadata": {
+    "isDraft": false,
+    "isPrerelease": false,
+    "publishedAt": "2026-10-16T11:53:09Z",
+    "tagName": "v1.53.0",
+    "url": "https://github.com/StenHigh/prifly-aif-workflows/releases/tag/v1.53.0"
+  },
+  "ci_runs": [
+    {
+      "conclusion": "",
+      "databaseId": 38896539906,
+      "event": "push",
+      "headBranch": "main",
+      "status": "in_progress",
+      "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38896539906"
+    },
+    {
+      "conclusion": "",
+      "databaseId": 38896539536,
+      "event": "push",
+      "headBranch": "v1.53.0",
+      "status": "in_progress",
+      "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38896539536"
+    }
+  ],
+  "tag_ci": {
+    "conclusion": "",
+    "jobs": [
+      {
+        "completedAt": "0001-01-01T00:00:00Z",
+        "conclusion": "",
+        "databaseId": 116958248076,
+        "name": "parallel-ui-ux",
+        "startedAt": "2026-10-16T11:51:23Z",
+        "status": "in_progress",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install Pri-Fly from the latest stable release",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Parallel UI and UX qualification retains the W2 contracts on three hosts",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-node@v4",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install the exact browser fixture tool",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Parallel UI and UX browser isolation, owned cleanup and whole-round recovery",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Sealed frontend grants, provenance and cleanup boundaries",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "",
+            "name": "Whole feature UI and UX sessions, admission and lifecycle",
+            "number": 9,
+            "status": "in_progress"
+          },
+          {
+            "conclusion": "",
+            "name": "Post Run actions/setup-node@v4",
+            "number": 17,
+            "status": "pending"
+          },
+          {
+            "conclusion": "",
+            "name": "Post Run actions/checkout@v4",
+            "number": 18,
+            "status": "pending"
+          }
+        ],
+        "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38896539536/job/116958248076"
+      },
+      {
+        "completedAt": "0001-01-01T00:00:00Z",
+        "conclusion": "",
+        "databaseId": 116958248459,
+        "name": "verify",
+        "startedAt": "2026-10-16T11:51:23Z",
+        "status": "in_progress",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install Pri-Fly from the latest stable release",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Released versions moved with the bytes",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Static folder contract",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Explicit review coverage and dirty candidate identity",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Test audit selection, evidence coverage and candidate freshness",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Product review coverage and owned environment lifecycle",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Feature admission, whole-round freshness and owner blockers",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Parallel report transport rejects substituted refs and bytes",
+            "number": 10,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Verified integration freshness, semantic regression and owned publication",
+            "number": 11,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Compile all packages with the installed Pri-Fly",
+            "number": 12,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "One authority carries Classic across every plan profile",
+            "number": 13,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Standalone integration graph and one-input extension contracts",
+            "number": 14,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Parallel review qualification contracts on three hosts",
+            "number": 15,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "A real Run is handed past the verify gate",
+            "number": 16,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "A gate that could not judge ends the Run partial with its gate",
+            "number": 17,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "A Run stopped blocked resumes with the same workflow at verify",
+            "number": 18,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "A Run cancelled at the gate resumes with the same workflow",
+            "number": 19,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Bug workflow finishes direct, planned, repaired and resumed Runs",
+            "number": 20,
+            "status": "completed"
+          },
+          {
+            "conclusion": "",
+            "name": "Explicit review evidence finishes and resumes on the released runtime",
+            "number": 21,
+            "status": "in_progress"
+          },
+          {
+            "conclusion": "",
+            "name": "Standalone test audit skips, reports, stops and replays",
+            "number": 22,
+            "status": "pending"
+          },
+          {
+            "conclusion": "",
+            "name": "OpenClaw test audit catalog install without AI Factory skills",
+            "number": 23,
+            "status": "pending"
+          },
+          {
+            "conclusion": "",
+            "name": "UI and UX components finish, block and resume with owned environments",
+            "number": 24,
+            "status": "pending"
+          },
+          {
+            "conclusion": "",
+            "name": "Standalone feature catalog install and update preserve project ownership",
+            "number": 25,
+            "status": "pending"
+          },
+          {
+            "conclusion": "",
+            "name": "Small feature direct, repaired, stopped and resumed Runs",
+            "number": 26,
+            "status": "pending"
+          },
+          {
+            "conclusion": "",
+            "name": "Whole feature parallel review, sealed reports and full-round replay",
+            "number": 27,
+            "status": "pending"
+          },
+          {
+            "conclusion": "",
+            "name": "Exact merged acceptance, explicit local integration and offline publication",
+            "number": 28,
+            "status": "pending"
+          },
+          {
+            "conclusion": "",
+            "name": "Parallel readers, all-join barriers and whole-round recovery",
+            "number": 29,
+            "status": "pending"
+          },
+          {
+            "conclusion": "",
+            "name": "Run actions/setup-node@v4",
+            "number": 30,
+            "status": "pending"
+          },
+          {
+            "conclusion": "",
+            "name": "Install the exact browser fixture tool",
+            "number": 31,
+            "status": "pending"
+          },
+          {
+            "conclusion": "",
+            "name": "Real browser scenarios, defects, repair and cancellation",
+            "number": 32,
+            "status": "pending"
+          },
+          {
+            "conclusion": "",
+            "name": "Small frontend feature with real browser and full quality replay",
+            "number": 33,
+            "status": "pending"
+          },
+          {
+            "conclusion": "",
+            "name": "Post Run actions/checkout@v4",
+            "number": 66,
+            "status": "pending"
+          }
+        ],
+        "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/38896539536/job/116958248459"
+      }
+    ],
+    "status": "in_progress"
+  },
+  "published_smoke": "v1.53.0-published-results.json",
+  "observed_utc": "2026-10-16T11:55:44.653983+00:00"
 }

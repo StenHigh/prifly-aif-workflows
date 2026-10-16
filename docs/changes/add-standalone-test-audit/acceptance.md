@@ -45,3 +45,11 @@ Reader в native matrix синтетический. Реальные CLI/про�
 маршрутизация проверены; качество суждений LLM, другая модель и динамический
 pre-fix/post-fix test proof не квалифицированы. CI дополнен двумя gates, его
 нового прогона нет. В каталоге пакет ещё не опубликован.
+
+## Выпуск
+
+Пакет опубликован как `openclaw-test-audit@1.0.0` в v1.53.0, source c853060,
+центральный catalog9a384ef. Раздел выше сохраняет исходную локальную qualification.
+Предрелизные gates и реальные default-catalog install/update/native smoke
+сохранены в [release ledger](../../releases/v1.53.0-results.json) и
+[published results](../../releases/v1.53.0-published-results.json).
