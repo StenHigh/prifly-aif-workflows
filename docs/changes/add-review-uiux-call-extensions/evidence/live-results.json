@@ -1,0 +1,126 @@
+{
+  "scenario": "pass",
+  "mode": "combined",
+  "consumer": "classic",
+  "host": "codex-cli",
+  "outcome": "succeeded",
+  "status": "completed",
+  "runs": 1,
+  "claims": 1,
+  "reports": [
+    {
+      "lens": "review",
+      "candidate": "sha256:c23b6d8cb0c89e89560612d3caee5a305cc33c3da7b39ff79828c997c14f0d26"
+    },
+    {
+      "lens": "ui",
+      "candidate": "sha256:c23b6d8cb0c89e89560612d3caee5a305cc33c3da7b39ff79828c997c14f0d26"
+    },
+    {
+      "lens": "ux",
+      "candidate": "sha256:c23b6d8cb0c89e89560612d3caee5a305cc33c3da7b39ff79828c997c14f0d26"
+    }
+  ],
+  "native_commits": 1,
+  "actual_browser": true,
+  "actual_llm_sessions": 3,
+  "live_sessions": [
+    {
+      "lens": "review",
+      "session_id": "01a14a16-8f1b-7871-8dbf-9864aeadbc88",
+      "report_digest": "sha256:28c76a4c19426aca29274d952ea8c51ff8a239a679b2792723589fd9c7b17a23",
+      "model_attestation": "unavailable"
+    },
+    {
+      "lens": "w6-product-ui",
+      "iteration": 0,
+      "verdict": "pass",
+      "report": {
+        "round": 1,
+        "request_digest": "sha256:2640db8183cdc27ceb2bc31d9ac04e3a92fc83feb37c23e554ae529cc07fb4c4",
+        "candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "5ad96377bf2b93d11cc4abd74f83e61bf06c663b",
+          "digest": "sha256:c23b6d8cb0c89e89560612d3caee5a305cc33c3da7b39ff79828c997c14f0d26",
+          "files_digest": "sha256:3f5db835bdc7ac13320b43363149397fe5faabcde1d29a25bf31ff69e996cb96",
+          "head_commit": "5ad96377bf2b93d11cc4abd74f83e61bf06c663b",
+          "index_digest": "sha256:134fd95ee8587931ef353e2891aa61c86c37f3a7e3ca4104919f2d6ec64c9990"
+        },
+        "session": "separate",
+        "model_profile": "unavailable",
+        "model": null,
+        "checks": [
+          {
+            "id": "ui_acceptance",
+            "status": "executed",
+            "result": "passed",
+            "reason": "",
+            "evidence": [
+              {
+                "method": "browser",
+                "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+                "locator": "http://127.0.0.1:33619/index.html",
+                "observation": "{\"scenario\": \"desktop\", \"viewport\": {\"height\": 800, \"width\": 1280}, \"url\": \"http://127.0.0.1:33619/index.html\", \"observations\": \"Visually inspected browser/ui-desktop.png at 1280 x 800. The Notes heading sits above a centered white card, with a clear Add a note subheading, Note text label, full-width input, blue Save note button and No notes yet. message. Dark text, white card and pale page background are readable; the white button text is clear against blue. Typography and left alignment are consistent, with generous spacing and no clipping or overlap. The card spans x=300 to 980 (680 px), and all visible content fits within the viewport. Measured page scrollWidth is 1280 px, equal to viewport width, supporting the visual finding of no horizontal overflow. Colors match the existing design tokens (#172033 ink, #1745a1 accent, #f4f6fa page). No UI failure observed in this declared initial-state scenario.\"}",
+                "exit_code": null
+              },
+              {
+                "method": "browser",
+                "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+                "locator": "http://127.0.0.1:33619/index.html",
+                "observation": "{\"scenario\": \"mobile\", \"viewport\": {\"height\": 800, \"width\": 375}, \"url\": \"http://127.0.0.1:33619/index.html\", \"observations\": \"Visually inspected browser/ui-mobile.png at 375 x 800. The Notes heading and white card retain the desktop hierarchy, typography, colors and alignment. The card spans x=16 to 359 (343 px), preserving equal 16 px outer margins and visible internal padding. The Note text label, input, Save note button and No notes yet. message are fully visible, readable and separated without overlap or clipping. The input fits inside the card and the button text is clear in white on blue. All initial-state content fits vertically. Measured page scrollWidth is 375 px, equal to viewport width, supporting the visual finding of no horizontal overflow. No UI failure observed in this declared initial-state scenario.\"}",
+                "exit_code": null
+              }
+            ]
+          }
+        ]
+      },
+      "submission_digest": "sha256:7676399cc1f6ccf821d27047f6dba7ad671f3c8b8ae785783088ced8bb2b4b36",
+      "session_id": "01a14a18-c735-7003-9fa2-a4b2bffb0b06",
+      "approval_mode": "automatic review with workspace-write sandbox",
+      "session_mode": "fresh real Codex CLI, no other model attested"
+    },
+    {
+      "lens": "w6-product-ux",
+      "iteration": 0,
+      "verdict": "pass",
+      "report": {
+        "round": 1,
+        "request_digest": "sha256:f5a486170a082984d157d3f744b274a67afbd874ade7e83cedf12419513b8737",
+        "candidate": {
+          "algorithm": "git-candidate/1",
+          "base_commit": "5ad96377bf2b93d11cc4abd74f83e61bf06c663b",
+          "digest": "sha256:c23b6d8cb0c89e89560612d3caee5a305cc33c3da7b39ff79828c997c14f0d26",
+          "files_digest": "sha256:3f5db835bdc7ac13320b43363149397fe5faabcde1d29a25bf31ff69e996cb96",
+          "head_commit": "5ad96377bf2b93d11cc4abd74f83e61bf06c663b",
+          "index_digest": "sha256:134fd95ee8587931ef353e2891aa61c86c37f3a7e3ca4104919f2d6ec64c9990"
+        },
+        "session": "separate",
+        "model_profile": "unavailable",
+        "model": null,
+        "checks": [
+          {
+            "id": "ux_acceptance",
+            "status": "executed",
+            "result": "passed",
+            "reason": "",
+            "evidence": [
+              {
+                "method": "browser",
+                "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+                "locator": "http://127.0.0.1:33619/index.html",
+                "observation": "{\"scenario\": \"flow\", \"viewport\": {\"height\": 800, \"width\": 375}, \"url\": \"http://127.0.0.1:33619/index.html\", \"observations\": \"At /index.html in a fresh anonymous browser context at 375 x 800, the initial empty state read \\\"No notes yet.\\\". Tab focused #note and then #save; both had solid visible focus outlines. The input has the associated visible label \\\"Note text\\\", and the button reads \\\"Save note\\\". Keyboard Enter on the empty form displayed \\\"Please enter a note.\\\" with role=alert and returned focus to #note. Typing \\\"Keyboard test note\\\", tabbing to Save note and pressing Enter displayed \\\"Saving\u2026\\\" with role=status and disabled Save note. Completion displayed \\\"Saved: Keyboard test note\\\" with role=status, cleared the input, returned focus to #note, re-enabled Save note, and hid the empty, error and loading states. The declared adapter also observed successful confirmation \\\"Saved: A test note\\\". I visually inspected browser/ux-flow.png, browser/ux-flow-error.png and browser/ux-flow-keyboard-success.png: the label, orange input focus outline, error wording and success confirmation were visible and readable. No images were present, so image alt text was not applicable. No failure was observed in the declared UX flow. Additional keyboard observations are saved in browser/keyboard-observations.json; the adapter observations are in browser/observations.json.\"}",
+                "exit_code": null
+              }
+            ]
+          }
+        ]
+      },
+      "submission_digest": "sha256:4addc0ca5e915e4e78196676e1fd67ac3ead2604c2c19939c6ed698897e7eae0",
+      "session_id": "01a14a1a-6f23-7761-beb9-9717a4cd3214",
+      "approval_mode": "automatic review with workspace-write sandbox",
+      "session_mode": "fresh real Codex CLI, no other model attested"
+    }
+  ],
+  "upstream_bytes_unchanged": true,
+  "cleaned": true
+}

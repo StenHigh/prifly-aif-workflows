@@ -126,3 +126,44 @@ jobs:
           python3 -B tests/probes/feature_uiux_check.py --binary "$HOME/.local/bin/prifly" \
             --browser-library "$PWD/tests/fixtures/product/node_modules/playwright" \
             --jobs 3 --report /tmp/aif-feature-uiux-results.json
+
+  call-review-uiux:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install latest stable Pri-Fly
+        run: |
+          prifly_installer="$(mktemp)"
+          curl --fail --location --silent --show-error https://github.com/StenHigh/prifly/releases/latest/download/install.sh -o "$prifly_installer"
+          sh "$prifly_installer"
+          rm -f "$prifly_installer"
+          "$HOME/.local/bin/prifly" version
+      - name: Prepare project example tools
+        run: |
+          python3 -m venv --system-site-packages /tmp/w6-tools
+          /tmp/w6-tools/bin/pip install -r examples/review-uiux-extensions/requirements.txt
+      - name: Project install, original source and freshness contracts
+        run: |
+          /tmp/w6-tools/bin/python -B tools/build_review_uiux_bundle.py --check
+          /tmp/w6-tools/bin/python -B tests/test_call_review.py
+          /tmp/w6-tools/bin/python -B tests/call_review_contract.py --binary "$HOME/.local/bin/prifly" --report /tmp/w6-contract.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install sealed browser fixture
+        run: |
+          npm ci --ignore-scripts --no-audit --no-fund --prefix tests/fixtures/product
+          tests/fixtures/product/node_modules/.bin/playwright install --with-deps chromium
+      - name: Native calls, original artifacts, browser and continuation
+        run: |
+          /tmp/w6-tools/bin/python -B tests/probes/call_review_check.py --binary "$HOME/.local/bin/prifly" \
+            --matrix --jobs 3 --browser-library "$PWD/tests/fixtures/product/node_modules/playwright" \
+            --report /tmp/w6-native.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: w6-call-review-results
+          path: |
+            /tmp/w6-contract.json
+            /tmp/w6-native.json

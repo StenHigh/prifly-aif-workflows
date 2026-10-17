@@ -1,0 +1,35 @@
+{
+  "authoring": "prifly-step/1",
+  "id": "w6:step/w6-review-evaluate",
+  "version": "1.0.0",
+  "title": "Review evidence evaluate",
+  "kind": "worker",
+  "inputs": {
+    "request": {
+      "schema_ref": "{{schema_w6-review-request}}"
+    },
+    "candidate": {
+      "schema_ref": "{{schema_w6-review-candidate}}"
+    },
+    "report": {
+      "schema_ref": "{{schema_w6-review-report}}"
+    }
+  },
+  "outputs": {
+    "gate": {
+      "schema_ref": "{{schema_w6-review-gate}}",
+      "required_for": [
+        "pass"
+      ]
+    }
+  },
+  "executor": {
+    "adapter_ref": "{{w6-process}}",
+    "operation": "process"
+  },
+  "effects": {
+    "class": "none",
+    "retry_class": "never"
+  },
+  "result_schema_ref": "{{w6-result}}"
+}

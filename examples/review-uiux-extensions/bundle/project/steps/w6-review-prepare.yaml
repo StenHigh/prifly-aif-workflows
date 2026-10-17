@@ -1,0 +1,41 @@
+{
+  "authoring": "prifly-step/1",
+  "id": "w6:step/w6-review-prepare",
+  "version": "1.0.0",
+  "title": "w6-review-prepare",
+  "kind": "worker",
+  "inputs": {
+    "implementation": {
+      "schema_ref": "{{schema_implementation}}"
+    }
+  },
+  "outputs": {
+    "candidate": {
+      "schema_ref": "{{schema_w6-candidate}}",
+      "required_for": [
+        "pass"
+      ]
+    },
+    "implementation": {
+      "schema_ref": "{{schema_implementation}}",
+      "required_for": [
+        "pass"
+      ]
+    },
+    "request": {
+      "schema_ref": "{{schema_w6-review-request}}",
+      "required_for": [
+        "pass"
+      ]
+    }
+  },
+  "executor": {
+    "adapter_ref": "{{w6-process}}",
+    "operation": "process"
+  },
+  "effects": {
+    "class": "none",
+    "retry_class": "pure"
+  },
+  "result_schema_ref": "{{w6-result}}"
+}

@@ -1,0 +1,6 @@
+{
+  "id": "w6-example:context/write",
+  "version": "1.0.0",
+  "media_type": "text/plain",
+  "text": "Read the typed task and implement only that bounded change in repository_workspace. Preserve owner files. Do not push, merge, start another Run or manage browser resources. Return implementation with original task.base_commit, actual Git HEAD and exact changed_files. Leave final commit to the commit stage."
+}

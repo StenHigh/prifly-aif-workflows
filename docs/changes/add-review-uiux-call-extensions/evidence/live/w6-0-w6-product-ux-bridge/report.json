@@ -1,0 +1,32 @@
+{
+  "round": 1,
+  "request_digest": "sha256:f5a486170a082984d157d3f744b274a67afbd874ade7e83cedf12419513b8737",
+  "candidate": {
+    "algorithm": "git-candidate/1",
+    "base_commit": "5ad96377bf2b93d11cc4abd74f83e61bf06c663b",
+    "digest": "sha256:c23b6d8cb0c89e89560612d3caee5a305cc33c3da7b39ff79828c997c14f0d26",
+    "files_digest": "sha256:3f5db835bdc7ac13320b43363149397fe5faabcde1d29a25bf31ff69e996cb96",
+    "head_commit": "5ad96377bf2b93d11cc4abd74f83e61bf06c663b",
+    "index_digest": "sha256:134fd95ee8587931ef353e2891aa61c86c37f3a7e3ca4104919f2d6ec64c9990"
+  },
+  "session": "separate",
+  "model_profile": "unavailable",
+  "model": null,
+  "checks": [
+    {
+      "id": "ux_acceptance",
+      "status": "executed",
+      "result": "passed",
+      "reason": "",
+      "evidence": [
+        {
+          "method": "browser",
+          "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+          "locator": "http://127.0.0.1:33619/index.html",
+          "observation": "{\"scenario\": \"flow\", \"viewport\": {\"height\": 800, \"width\": 375}, \"url\": \"http://127.0.0.1:33619/index.html\", \"observations\": \"At /index.html in a fresh anonymous browser context at 375 x 800, the initial empty state read \\\"No notes yet.\\\". Tab focused #note and then #save; both had solid visible focus outlines. The input has the associated visible label \\\"Note text\\\", and the button reads \\\"Save note\\\". Keyboard Enter on the empty form displayed \\\"Please enter a note.\\\" with role=alert and returned focus to #note. Typing \\\"Keyboard test note\\\", tabbing to Save note and pressing Enter displayed \\\"Saving…\\\" with role=status and disabled Save note. Completion displayed \\\"Saved: Keyboard test note\\\" with role=status, cleared the input, returned focus to #note, re-enabled Save note, and hid the empty, error and loading states. The declared adapter also observed successful confirmation \\\"Saved: A test note\\\". I visually inspected browser/ux-flow.png, browser/ux-flow-error.png and browser/ux-flow-keyboard-success.png: the label, orange input focus outline, error wording and success confirmation were visible and readable. No images were present, so image alt text was not applicable. No failure was observed in the declared UX flow. Additional keyboard observations are saved in browser/keyboard-observations.json; the adapter observations are in browser/observations.json.\"}",
+          "exit_code": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "authoring": "prifly-step/1",
+  "id": "w6:step/w6-review-seal",
+  "version": "1.0.0",
+  "title": "w6-review-seal",
+  "kind": "worker",
+  "inputs": {
+    "candidate": {
+      "schema_ref": "{{schema_w6-candidate}}"
+    },
+    "implementation": {
+      "schema_ref": "{{schema_implementation}}"
+    },
+    "review_gate": {
+      "schema_ref": "{{schema_w6-review-gate}}"
+    },
+    "review_report": {
+      "schema_ref": "{{schema_w6-review-report}}"
+    }
+  },
+  "outputs": {
+    "receipt": {
+      "schema_ref": "{{schema_w6-receipt}}",
+      "required_for": [
+        "pass"
+      ]
+    },
+    "assessment": {
+      "schema_ref": "{{schema_w6-assessment}}",
+      "required_for": [
+        "pass"
+      ]
+    }
+  },
+  "executor": {
+    "adapter_ref": "{{w6-process}}",
+    "operation": "process"
+  },
+  "effects": {
+    "class": "none",
+    "retry_class": "pure"
+  },
+  "result_schema_ref": "{{w6-result}}"
+}

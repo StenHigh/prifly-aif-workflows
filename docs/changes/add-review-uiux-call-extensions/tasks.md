@@ -1,7 +1,7 @@
 # W6 — работы
 
-Статус: ready for implementation, реализация не начата. Engine prerequisite
-выполнен на released0.13.79; [gates/51 probes](../engine/release-0.13.79.md).
+Статус: project recipes реализованы; финальная qualification/CI в работе.
+База обновлена до released0.13.80; prerequisite ранее принят на0.13.79; [gates/51 probes](../engine/release-0.13.79.md).
 [E5 / Pri-Fly #9](https://github.com/StenHigh/prifly/issues/9).
 
 ## До выпуска E5
@@ -20,14 +20,14 @@
 
 ## Пакетная реализация
 
-- [ ] Выбрать explicit bundle/ref layout; проверить provenance, namespace/schema
+- [x] Выбрать explicit bundle/ref layout; проверить provenance, namespace/schema
   collisions и update contract, без неявного cross-package import (A3, A9).
-- [ ] Создать minimal authored consumer и проектные recipes review-only,
+- [x] Создать minimal authored consumer и проектные recipes review-only,
   UI/UX-only, review→UI/UX; classic consumer только через project files/extend,
   upstream canonical и profiled не редактировать (A2–A4).
-- [ ] Реализовать typed configuration/producer, exact refs и routing/gate
+- [x] Реализовать typed configuration/producer, exact refs и routing/gate
   propagation. Утвердить placement и freshness перед commit (A3–A5).
-- [ ] Явно подключить environment/cleanup/reconciliation и рассчитать limits,
+- [x] Явно подключить environment/cleanup/reconciliation и рассчитать limits,
   resources/effects/host capability; никакой скрытой migration/parallel (A6, A8).
 
 ## Qualification и выпуск

@@ -1,0 +1,17 @@
+{
+  "lens": "ux",
+  "tool": "Playwright 1.64.1 / Chromium 156.0.8078.4",
+  "observations": [
+    {
+      "scenario": "flow",
+      "viewport": {
+        "height": 800,
+        "width": 375
+      },
+      "url": "http://127.0.0.1:33619/index.html",
+      "observations": "{\"empty\":true,\"focus\":\"note\",\"outline\":\"solid\",\"label\":[\"Note text\"],\"error\":true,\"loading\":true,\"success\":true,\"copy\":\"Saved: A test note\"}",
+      "failures": [],
+      "screenshot": "/tmp/w6-run-iq7yw1aj/authority/.prifly/work/3bba5ff43d7116ea6e10ef20d7d6bc2a/browser/ux-flow.png"
+    }
+  ]
+}

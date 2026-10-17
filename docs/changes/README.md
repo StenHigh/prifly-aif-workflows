@@ -29,7 +29,7 @@ evidence сохраняют исходную версию. [Результаты
 | W3 | P1 | [Короткий workflow для фич](add-bounded-feature-workflow/proposal.md) | W1; W2 для интерфейсного профиля | committed/pushed, CI + live PASS; forced writer cancel deferred / v1.52.0 |
 | W4 | P1/P2 | [Приёмка перед интеграцией](document-verified-integration-handoff/proposal.md) | W1; проектный интегратор, #1 при GitLab | committed/pushed, pilot qualified, CI PASS; real provider limits / v1.52.0 |
 | W5 | P2 | [Квалификация параллельного ревью](qualify-parallel-implementation-review/proposal.md) | W1, W2, W3; сначала последовательная приёмка | backend opt-in/adapter d515a85; UI/UX qualification0bdc632: local17/CI job PASS для isolated stand, shared limit1 sequential; frontend1.2.3: CLI4 sessions PASS; native1–3 rounds qualified,4–8 refused before writers; final UI/UX35/unit16 и полный exact-SHA CI38848759987 PASS; пакетная часть завершена в указанном scope; App/Claude unqualified / v1.52.0 |
-| W6 | P1 после E5 | [Review/UI/UX через call extensions](add-review-uiux-call-extensions/proposal.md) | E5 stable0.13.78+ (probes51 PASS на0.13.79); W1, W2; W3 regression boundary | ready for implementation; consumer qualification не выполнена; classic/profiled неизменны |
+| W6 | P1 после E5 | [Review/UI/UX через call extensions](add-review-uiux-call-extensions/proposal.md) | E5 stable0.13.78+ (probes51 PASS на0.13.79); W1, W2; W3 regression boundary | project recipes/installer реализованы, compile18 и scoped CLI3 sessions PASS на0.13.80; завершается native matrix/CI; classic/profiled и shipping8 прежние |
 
 Каждый change выпускается отдельно с собственным bump изменённых компонентов,
 пакета и зависимых workflow по действующим правилам. Версии здесь не назначены:
@@ -103,7 +103,7 @@ W1–W4 не зависят от E1/E2. Не добавляем обязател
 - [E5: Pri-Fly #9 — nested workflow call через extend](https://github.com/StenHigh/prifly/issues/9),
   [сохранённый issue body](engine/E5-nested-workflow-extensions.md): capability
   выпущена в stable0.13.78, проверена E5 corpus51 на0.13.79. Issue пока OPEN;
-  Core handoff готов. W6 ждёт реализации project recipes/consumer qualification,
+  Core handoff готов. W6 реализует project recipes; consumer qualification см. acceptance.md,
   engine release больше не блокирует. [Результаты](engine/release-0.13.79.md).
 
 - [E6: Pri-Fly #11 — отдельный Pri-Fly Light](https://github.com/StenHigh/prifly/issues/11),

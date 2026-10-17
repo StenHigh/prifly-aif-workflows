@@ -1,0 +1,20 @@
+{
+  "mode": "review",
+  "review": {
+    "base_commit": "0000000000000000000000000000000000000000",
+    "round": 1,
+    "optional_policy": "ignore",
+    "require_separate_session": false,
+    "checks": [
+      {
+        "id": "acceptance",
+        "description": "Run python3 -B -m unittest test_greeting. Verify greeting(name) returns Hello, <name>! for the declared name, and the unittest asserts this behavior.",
+        "method": "command",
+        "required": true,
+        "enabled": true,
+        "applicable": true
+      }
+    ]
+  },
+  "product": null
+}

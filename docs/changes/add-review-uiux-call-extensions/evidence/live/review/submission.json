@@ -1,0 +1,29 @@
+{
+  "schema_version": "assisted-session/7",
+  "run_id": "run:1816eb347fd27c2592c6be5d2b8b58e07633fcc4a5b5728c8930bf691dee7dca",
+  "attempt_id": "attempt:b83ccd57c0a42f1cc3fc3df876892791",
+  "envelope_digest": "sha256:91130d5d188fa8af65b0d1b8bdacaeb15b8881e71b4c11a3ca57de75dabe645c",
+  "result": {
+    "attempt_id": "attempt:b83ccd57c0a42f1cc3fc3df876892791",
+    "effect_receipt_refs": [],
+    "envelope_digest": "sha256:91130d5d188fa8af65b0d1b8bdacaeb15b8881e71b4c11a3ca57de75dabe645c",
+    "evidence_refs": [],
+    "outputs": {
+      "report": {
+        "artifact_id": "artifact:b2778b7f275bd3a5591b98a9302a2949ee0d5059e6f10f11cfe5f00e254681ee",
+        "digest": "sha256:28c76a4c19426aca29274d952ea8c51ff8a239a679b2792723589fd9c7b17a23",
+        "revision": 1
+      }
+    },
+    "run_id": "run:1816eb347fd27c2592c6be5d2b8b58e07633fcc4a5b5728c8930bf691dee7dca",
+    "schema_version": "1",
+    "step_instance_id": "step:fb59560a8c9c9ef921de46036daa27f4",
+    "summary": "Usable W1 review report delivered: acceptance executed with warnings; one unittest passed (exit 0), but the sealed inputs omit the exact command and complete acceptance criteria. Actual candidate bytes, modes, HEAD and index match the delivered candidate. Fresh separate session; independent model attestation unavailable. Repository unchanged; no submission performed.",
+    "verdict": "pass"
+  },
+  "model_profile": {
+    "outcome": "unavailable",
+    "reason": "No independent model attestation"
+  },
+  "answered_questions": []
+}

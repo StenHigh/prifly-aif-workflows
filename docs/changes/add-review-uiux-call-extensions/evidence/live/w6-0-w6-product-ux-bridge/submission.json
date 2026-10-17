@@ -1,0 +1,29 @@
+{
+  "schema_version": "assisted-session/7",
+  "run_id": "run:1816eb347fd27c2592c6be5d2b8b58e07633fcc4a5b5728c8930bf691dee7dca",
+  "attempt_id": "attempt:3bba5ff43d7116ea6e10ef20d7d6bc2a",
+  "envelope_digest": "sha256:5969e54f2bf93039efe670fb72a01d87361c43db0a94b5b30182676ee313f4e4",
+  "result": {
+    "attempt_id": "attempt:3bba5ff43d7116ea6e10ef20d7d6bc2a",
+    "effect_receipt_refs": [],
+    "envelope_digest": "sha256:5969e54f2bf93039efe670fb72a01d87361c43db0a94b5b30182676ee313f4e4",
+    "evidence_refs": [],
+    "outputs": {
+      "report": {
+        "artifact_id": "artifact:9a09e2eb6cecb8179ac7dd848d916c1f54e539a7479d9b3ee7f92557bece29a2",
+        "digest": "sha256:6702ffa3f58a6784b6b65bd87419d2868c984df3624ab09a01ef79d351a6b30a",
+        "revision": 1
+      }
+    },
+    "run_id": "run:1816eb347fd27c2592c6be5d2b8b58e07633fcc4a5b5728c8930bf691dee7dca",
+    "schema_version": "1",
+    "step_instance_id": "step:eb90ff7a2a484b30887d28db4f11fd6e",
+    "summary": "Usable UX report: ux_acceptance passed for flow at 375 x 800 after actual browser execution, keyboard-only submission and visual screenshot inspection. Separate task session; requested independent-review model profile unavailable because no model translation was supplied. No repairs or environment lifecycle actions performed.",
+    "verdict": "pass"
+  },
+  "model_profile": {
+    "outcome": "unavailable",
+    "reason": "No translation or selectable model binding for the requested independent-review profile was supplied. This separate session does not establish independent model choice."
+  },
+  "answered_questions": []
+}

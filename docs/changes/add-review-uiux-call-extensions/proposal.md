@@ -1,18 +1,19 @@
 # W6 — Подключение review/UI/UX через вложенные workflow в extend
 
-Статус: **ready for implementation; supporting stable E5 и native probes подтверждены**.
-Пакетные recipes и consumer qualification ещё не реализованы.
-Приоритет: **P1**. Обновлено: 2026-10-17. База проверки: Pri-Fly0.13.79,
-пакеты v1.53.0 (review-evidence1.0.0, ui-ux1.0.0, feature1.2.3 unchanged).
-[Prerequisite evidence](../engine/release-0.13.79.md): official binary, gates и51 E5 probes.
-Текущая задача создаёт документы, без executable изменений, bump, tag или публикации пакетов.
+Статус: **project recipes реализованы; завершается consumer qualification**.
+Приоритет: **P1**. Обновлено: 2026-10-17. Проверенная база — Pri-Fly0.13.80;
+все8 shipping packages совпадают с v1.53.0. Bundle версии1.0.0 поставляется
+в examples, без изменения catalog/package versions и без release tag.
+[Recipe и полные команды](../../../examples/review-uiux-extensions/README.md),
+[release guide](../../releases/project-examples-w6.md),
+[фактические наблюдения](acceptance.md).
 
 ## Проблема и результат
 
 Пользователю нужна review/UI/UX-приёмка внутри своего workflow, в том же Run и
 на том же candidate. Отдельные standalone launches не связывают её автоматически
 с родительскими guards/commit. Исторически в v0.13.77 project extend вставлял только step.
-С0.13.78 поддержан native call-extension, но наших consumer recipes ещё нет.
+С0.13.78 поддержан native call-extension, доступна проектная композиция по приведённому recipe.
 
 Предоставить project-owned adapters поверх released E5 и документированные
 рецепты трёх подключений: review evidence, sequential UI/UX, review→UI/UX.
@@ -95,4 +96,4 @@ merge или MR. Не обещать consumer qualification приватного
 
 [Design](design.md) задаёт границы компоновки. [Tasks](tasks.md) разделяет
 подготовку до E5 и реализацию после stable. Базовые сценарии и доказательства —
-[qualification plan](acceptance.md). Реализация по этому change пока не начата.
+[qualification plan](acceptance.md). Реализация находится вне папок опубликованных пакетов; пределы qualification указаны отдельно.

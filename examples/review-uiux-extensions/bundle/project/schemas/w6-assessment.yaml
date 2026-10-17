@@ -1,0 +1,42 @@
+{
+  "id": "w6:schema/w6-assessment",
+  "version": "1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "protocol",
+    "gate",
+    "stage",
+    "candidate_digest",
+    "fresh",
+    "report_digests",
+    "report_refs"
+  ],
+  "properties": {
+    "protocol": {
+      "const": "w6-assessment/1"
+    },
+    "gate": {
+      "type": "object"
+    },
+    "stage": {
+      "enum": [
+        "review",
+        "product"
+      ]
+    },
+    "candidate_digest": {
+      "type": "string"
+    },
+    "fresh": {
+      "type": "boolean"
+    },
+    "report_digests": {
+      "type": "object"
+    },
+    "report_refs": {
+      "type": "object"
+    }
+  }
+}

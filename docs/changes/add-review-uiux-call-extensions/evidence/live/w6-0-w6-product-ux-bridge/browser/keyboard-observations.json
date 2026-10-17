@@ -1,0 +1,40 @@
+{
+  "scenario": "flow",
+  "viewport": {
+    "height": 800,
+    "width": 375
+  },
+  "url": "http://127.0.0.1:33619/index.html",
+  "initial": "No notes yet.",
+  "inputFocus": {
+    "id": "note",
+    "outline": "solid"
+  },
+  "buttonFocus": {
+    "id": "save",
+    "outline": "solid"
+  },
+  "error": {
+    "visible": true,
+    "text": "Please enter a note.",
+    "role": "alert",
+    "focus": "note"
+  },
+  "loading": {
+    "visible": true,
+    "text": "Saving…",
+    "role": "status",
+    "saveDisabled": true
+  },
+  "success": {
+    "text": "Saved: Keyboard test note",
+    "role": "status",
+    "value": "",
+    "focus": "note",
+    "emptyVisible": false,
+    "errorVisible": false,
+    "loadingVisible": false,
+    "saveEnabled": true
+  },
+  "images": 0
+}

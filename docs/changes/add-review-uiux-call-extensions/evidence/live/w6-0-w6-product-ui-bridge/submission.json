@@ -1,0 +1,29 @@
+{
+  "schema_version": "assisted-session/7",
+  "run_id": "run:1816eb347fd27c2592c6be5d2b8b58e07633fcc4a5b5728c8930bf691dee7dca",
+  "attempt_id": "attempt:192bd106850f957da9e8857c499fed95",
+  "envelope_digest": "sha256:cecf5c8a14b7cd0bc9ea6b3b8367030e9229339455384b12c9cd6389f1b0792f",
+  "result": {
+    "attempt_id": "attempt:192bd106850f957da9e8857c499fed95",
+    "effect_receipt_refs": [],
+    "envelope_digest": "sha256:cecf5c8a14b7cd0bc9ea6b3b8367030e9229339455384b12c9cd6389f1b0792f",
+    "evidence_refs": [],
+    "outputs": {
+      "report": {
+        "artifact_id": "artifact:208203edae66848796e6161e54dcc78a1a68b6b761a5c003f90f0c68d1875e2c",
+        "digest": "sha256:ca30dafcff3102debc3eded08d411c4f0cf3dea9be05fbcc29fe8d825f4ec9ca",
+        "revision": 1
+      }
+    },
+    "run_id": "run:1816eb347fd27c2592c6be5d2b8b58e07633fcc4a5b5728c8930bf691dee7dca",
+    "schema_version": "1",
+    "step_instance_id": "step:d280b082ff8da02ec87af9200ca99427",
+    "summary": "Usable UI review: desktop (1280x800) and mobile (375x800) inspected with Playwright/Chromium and screenshots visually reviewed. ui_acceptance passed; no overflow or readability/design inconsistency observed. Separate task session; independent-review model translation unavailable, so no independent model choice is claimed.",
+    "verdict": "pass"
+  },
+  "model_profile": {
+    "outcome": "unavailable",
+    "reason": "No independent-review model translation or selectable independent model was supplied. This separate task session does not establish independent model choice; the typed report records model null."
+  },
+  "answered_questions": []
+}

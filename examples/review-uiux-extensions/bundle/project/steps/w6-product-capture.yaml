@@ -1,0 +1,29 @@
+{
+  "authoring": "prifly-step/1",
+  "id": "w6:step/w6-product-capture",
+  "version": "1.0.0",
+  "title": "Product review capture",
+  "kind": "worker",
+  "inputs": {
+    "configuration": {
+      "schema_ref": "{{schema_w6-product-configuration}}"
+    }
+  },
+  "outputs": {
+    "candidate": {
+      "schema_ref": "{{schema_w6-product-candidate}}",
+      "required_for": [
+        "pass"
+      ]
+    }
+  },
+  "executor": {
+    "adapter_ref": "{{w6-process}}",
+    "operation": "process"
+  },
+  "effects": {
+    "class": "none",
+    "retry_class": "never"
+  },
+  "result_schema_ref": "{{w6-result}}"
+}

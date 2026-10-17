@@ -1,0 +1,25 @@
+{
+  "authoring": "prifly-step/1",
+  "id": "w6:step/w6-committed-check",
+  "version": "1.0.0",
+  "title": "w6-committed-check",
+  "kind": "worker",
+  "inputs": {
+    "implementation": {
+      "schema_ref": "{{schema_implementation}}"
+    },
+    "receipt": {
+      "schema_ref": "{{schema_w6-receipt}}"
+    }
+  },
+  "outputs": {},
+  "executor": {
+    "adapter_ref": "{{w6-process}}",
+    "operation": "process"
+  },
+  "effects": {
+    "class": "none",
+    "retry_class": "pure"
+  },
+  "result_schema_ref": "{{w6-result}}"
+}

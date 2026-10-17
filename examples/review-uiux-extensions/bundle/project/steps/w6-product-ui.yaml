@@ -1,0 +1,54 @@
+{
+  "authoring": "prifly-step/2",
+  "id": "w6:step/w6-product-ui",
+  "version": "1.0.0",
+  "title": "Product review ui",
+  "kind": "worker",
+  "inputs": {
+    "configuration": {
+      "schema_ref": "{{schema_w6-product-configuration}}"
+    },
+    "request": {
+      "schema_ref": "{{schema_w6-product-request}}"
+    },
+    "candidate": {
+      "schema_ref": "{{schema_w6-product-candidate}}"
+    },
+    "environment": {
+      "schema_ref": "{{schema_w6-product-environment}}"
+    }
+  },
+  "outputs": {
+    "report": {
+      "schema_ref": "{{schema_w6-product-report}}",
+      "required_for": [
+        "pass",
+        "needs_revision",
+        "blocked"
+      ]
+    }
+  },
+  "executor": {
+    "adapter_ref": "{{w6-session}}",
+    "operation": "session"
+  },
+  "effects": {
+    "class": "none",
+    "retry_class": "pure"
+  },
+  "result_schema_ref": "{{w6-result_v2}}",
+  "repository_workspace": "read_only",
+  "instructions_ref": "{{context_w6-product-ui-bridge}}",
+  "session_limits": {
+    "active_timeout_ms": null
+  },
+  "context_refs": [
+    "{{context_w6-product-review-bridge}}",
+    "{{context_w6-product-aif-review}}",
+    "{{context_w6-product-review-severity}}"
+  ],
+  "model_profile": {
+    "requested": "independent-review",
+    "reason": "Separate product lens session; report actual model choice and unknowns."
+  }
+}

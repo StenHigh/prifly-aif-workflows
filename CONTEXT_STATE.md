@@ -8,7 +8,30 @@
 
 ## Состояние на 2026-10-17
 
-Ворота выверены против выпущенного Pri-Fly `v0.13.79`.
+Ворота выверены против выпущенного Pri-Fly `v0.13.80`.
+
+- **W6 — native review/UIUX через project extend (2026-10-17):**
+  Реализованы examples/review-uiux-extensions: pinned W1/W2 bundle1.0.0,
+  явный producer sealed criteria+implementation, native child review/uiux/combined,
+  diagnostic assessment с исходным gate/report refs/digests, seal и post-commit
+  files/HEAD/base guard. Installer preview/apply с digest/backup/conflict refusal,
+  сохранение /3 и /4 profile; /2→/3. Minimal authored consumer и classic opt-in;
+  canonical classic/profiled и все8 shipping trees равны v1.53.0, versions/tag
+  прежние. Docs/examples/release guide обновлены. Worker scheduling не эмулируется.
+  Verify126/83/8, compatibility5/4/4, static gates/unit10, compile18 PASS;
+  native failures/continuations и final CI фиксируются в W6 acceptance/evidence.
+  Scoped actual combined classic PASS:3 fresh Codex CLI reader sessions,
+  actual unittest/Chromium+screenshots,1 Run/claim/local commit, owned cleanup.
+  Writer/classic gates synthetic; separate model не аттестована, private
+  environment/App/Claude live не qualified. Initial live criteria короткие,
+  ambiguity честно warning; shipped example criteria уточнены после live.
+  Partial child→parent rejected; после cancel нужен operator cleanup;
+  post-guard race может оставить local commit, автоматического rollback/repair нет.
+  Новый stable0.13.80 опубликован во время задачи: opt-in profile/4 worktree
+  naming (#10), call contract прежний. Binary SHA256
+  b5bc6d33206281c52afd3b17827e8cd416812d223d091f699d7883a382037a82.
+  Naming не включали; existing /4 не понижается. Server остаётся0.13.79:
+  эта задача не меняла deployment и не реализует E6 Light.
 
 - **E6 — Pri-Fly Light, исправление scope интерфейса (2026-10-17):**
   По прямому поручению владельца открыт Pri-Fly#11: настоящий отдельный Light

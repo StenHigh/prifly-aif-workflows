@@ -1,0 +1,47 @@
+{
+  "authoring": "prifly-step/1",
+  "id": "w6:step/w6-product-evaluate",
+  "version": "1.0.0",
+  "title": "Product review evaluate",
+  "kind": "worker",
+  "inputs": {
+    "configuration": {
+      "schema_ref": "{{schema_w6-product-configuration}}"
+    },
+    "ui": {
+      "schema_ref": "{{schema_w6-product-request}}"
+    },
+    "ux": {
+      "schema_ref": "{{schema_w6-product-request}}"
+    },
+    "candidate": {
+      "schema_ref": "{{schema_w6-product-candidate}}"
+    },
+    "environment": {
+      "schema_ref": "{{schema_w6-product-environment}}"
+    },
+    "ui_report": {
+      "schema_ref": "{{schema_w6-product-report}}"
+    },
+    "ux_report": {
+      "schema_ref": "{{schema_w6-product-report}}"
+    }
+  },
+  "outputs": {
+    "gate": {
+      "schema_ref": "{{schema_w6-product-gate}}",
+      "required_for": [
+        "pass"
+      ]
+    }
+  },
+  "executor": {
+    "adapter_ref": "{{w6-process}}",
+    "operation": "process"
+  },
+  "effects": {
+    "class": "none",
+    "retry_class": "never"
+  },
+  "result_schema_ref": "{{w6-result}}"
+}

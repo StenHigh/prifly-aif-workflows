@@ -1,0 +1,38 @@
+{
+  "authoring": "prifly-step/1",
+  "id": "w6:step/w6-combined-product-diagnostic",
+  "version": "1.0.0",
+  "title": "w6-combined-product-diagnostic",
+  "kind": "worker",
+  "inputs": {
+    "candidate": {
+      "schema_ref": "{{schema_w6-candidate}}"
+    },
+    "gate": {
+      "schema_ref": "{{schema_w6-product-gate}}"
+    },
+    "product_ui_report": {
+      "schema_ref": "{{schema_w6-product-report}}"
+    },
+    "product_ux_report": {
+      "schema_ref": "{{schema_w6-product-report}}"
+    }
+  },
+  "outputs": {
+    "assessment": {
+      "schema_ref": "{{schema_w6-assessment}}",
+      "required_for": [
+        "pass"
+      ]
+    }
+  },
+  "executor": {
+    "adapter_ref": "{{w6-process}}",
+    "operation": "process"
+  },
+  "effects": {
+    "class": "none",
+    "retry_class": "pure"
+  },
+  "result_schema_ref": "{{w6-result}}"
+}

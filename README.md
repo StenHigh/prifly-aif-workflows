@@ -53,6 +53,8 @@ UI/UX-проверки в браузере. По умолчанию допуск
 При слишком широком объёме, недоступной обязательной проверке или исчерпании
 лимита workflow останавливается с причиной и сохраняет сделанную работу.
 
+**Для приёмки внутри своего workflow** есть [review/UI/UX через `extend`](examples/review-uiux-extensions/README.md): три opt-in варианта проверяют candidate текущего Run перед commit, с gate и отчётами. Нужен Pri-Fly ≥0.13.78; подключение проектное, canonical classic/profiled не меняются.
+
 **Для проверки готовых изменений** `aif-review-evidence` и `aif-ui-ux`
 возвращают отчёты и итог приёмки; исправление кода и commit остаются отдельным
 действием. Их компоненты уже используются внутри `aif-feature`, где проверка
@@ -172,8 +174,9 @@ launches:
 
 ## Настройка командой
 
-`extend.yaml` каждой папки — единственный файл, который команда правит после
-установки; `prifly project workflows update` сохраняет его byte-for-byte.
+Для штатных настроек команда правит `extend.yaml` установленной папки;
+`prifly project workflows update` сохраняет его byte-for-byte. Свои компоненты
+добавляются отдельно в project files, как в W6 recipe ниже.
 
 **Но `remove` его удаляет, и молча.** Измерено: `project workflows remove`
 сносит папку целиком вместе с вашим `extend.yaml`, а следующий `add` кладёт
@@ -209,13 +212,15 @@ tracked-файлы: всё из `.gitignore` (каталог с инструме
 пример — `examples/authoring/extension-authoring-reference.yaml` в репозитории
 Pri-Fly, а с Pri-Fly новее `v0.7.0` форму отдаёт `prifly schema extension-v1`.
 
-Подробности — в [`aif-classic/README.md`](aif-classic/README.md).
+С Pri-Fly0.13.78 `authoring: prifly-extension/2` поддерживает также `call` с несколькими typed inputs и outcomes. Callee разрешается в том же local bundle; установка двух standalone пакетов не создаёт import. [W6 recipe](examples/review-uiux-extensions/README.md) показывает явные project-owned файлы, preview/apply и ограничения update.
+
+Подробности classic — в [`aif-classic/README.md`](aif-classic/README.md).
 
 ## Версии
 
-Совместимость восьми пакетов повторно проверена на **Pri-Fly0.13.79**
+Совместимость восьми пакетов повторно проверена на **Pri-Fly0.13.80**
 (2026-10-17): compile/compatibility и component contracts.
-[Изменения движка, результаты и оставшаяся W6](docs/changes/engine/release-0.13.79.md).
+[Предыдущие изменения движка](docs/changes/engine/release-0.13.79.md) и [текущая квалификация W6](docs/changes/add-review-uiux-call-extensions/acceptance.md).
 Минимальные версии ниже сохраняются; package bytes не менялись.
 
 `aif-fix` добавлен в v1.51.0; **v1.51.1 / пакет 1.0.1** исправляет

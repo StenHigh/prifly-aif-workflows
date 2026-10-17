@@ -1,0 +1,41 @@
+{
+  "authoring": "prifly-step/1",
+  "id": "w6:step/w6-product-finalize",
+  "version": "1.0.0",
+  "title": "Product review finalize",
+  "kind": "worker",
+  "inputs": {
+    "configuration": {
+      "schema_ref": "{{schema_w6-product-configuration}}"
+    },
+    "environment": {
+      "schema_ref": "{{schema_w6-product-environment}}"
+    },
+    "release": {
+      "schema_ref": "{{schema_w6-product-release}}"
+    },
+    "gate": {
+      "schema_ref": "{{schema_w6-product-gate}}"
+    },
+    "candidate": {
+      "schema_ref": "{{schema_w6-product-candidate}}"
+    }
+  },
+  "outputs": {
+    "gate": {
+      "schema_ref": "{{schema_w6-product-gate}}",
+      "required_for": [
+        "pass"
+      ]
+    }
+  },
+  "executor": {
+    "adapter_ref": "{{w6-process}}",
+    "operation": "process"
+  },
+  "effects": {
+    "class": "none",
+    "retry_class": "never"
+  },
+  "result_schema_ref": "{{w6-result}}"
+}

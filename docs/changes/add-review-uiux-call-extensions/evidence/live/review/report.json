@@ -1,0 +1,32 @@
+{
+  "round": 1,
+  "request_digest": "sha256:0d93453ccfc611a0925bcd8bc703c6696ce2ff9a4c7facb9bbf32a0b38ceafa9",
+  "candidate": {
+    "algorithm": "git-candidate/1",
+    "base_commit": "5ad96377bf2b93d11cc4abd74f83e61bf06c663b",
+    "digest": "sha256:c23b6d8cb0c89e89560612d3caee5a305cc33c3da7b39ff79828c997c14f0d26",
+    "files_digest": "sha256:3f5db835bdc7ac13320b43363149397fe5faabcde1d29a25bf31ff69e996cb96",
+    "head_commit": "5ad96377bf2b93d11cc4abd74f83e61bf06c663b",
+    "index_digest": "sha256:134fd95ee8587931ef353e2891aa61c86c37f3a7e3ca4104919f2d6ec64c9990"
+  },
+  "session": "separate",
+  "model_profile": "unavailable",
+  "model": null,
+  "checks": [
+    {
+      "id": "acceptance",
+      "status": "executed",
+      "result": "warnings",
+      "reason": "The available candidate test passes for greeting(\"Ada\") == \"Hello, Ada!\". The sealed request describes only \"Check declared behavior\" and supplies neither an exact command nor complete behavioral acceptance criteria. The command was selected from the delivered test; full acceptance remains unverified. Inspection found no blocking issue in greeting.py:1-2 or test_greeting.py:1-4. The test covers only one named input. Optional architecture, rules, roadmap, and project skill context files are absent. No requirements or policy were changed.",
+      "evidence": [
+        {
+          "method": "command",
+          "tool": "functions.exec -> tools.exec_command (automatic approval review; require_escalated after bwrap startup failure)",
+          "locator": "/tmp/w6-run-iq7yw1aj/authority/.prifly/work/claims/188cca88d19655ceb7773c1bdaa2032cb47ec16e6461a9c7167bf7a3cc8693bc; command: python3 -B -m unittest -v",
+          "observation": "test_name (test_greeting.GreetingTest.test_name) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK",
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}

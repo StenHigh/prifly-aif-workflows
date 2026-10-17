@@ -1,0 +1,44 @@
+{
+  "authoring": "prifly-step/2",
+  "id": "w6:step/w6-product-release",
+  "version": "1.0.0",
+  "title": "Product review release",
+  "kind": "worker",
+  "inputs": {
+    "configuration": {
+      "schema_ref": "{{schema_w6-product-configuration}}"
+    },
+    "environment": {
+      "schema_ref": "{{schema_w6-product-environment}}"
+    }
+  },
+  "outputs": {
+    "release": {
+      "schema_ref": "{{schema_w6-product-release}}",
+      "required_for": [
+        "pass"
+      ]
+    }
+  },
+  "executor": {
+    "adapter_ref": "{{w6-session}}",
+    "operation": "session"
+  },
+  "effects": {
+    "class": "external_write",
+    "retry_class": "reconcile_required"
+  },
+  "result_schema_ref": "{{w6-result_v2}}",
+  "repository_workspace": "read_only",
+  "instructions_ref": "{{context_w6-product-release-bridge}}",
+  "session_limits": {
+    "active_timeout_ms": null
+  },
+  "external_write": {
+    "system": "project-test-environment",
+    "operations": [
+      "release"
+    ],
+    "target": "Only the ephemeral environment named by sealed configuration.environment.owner and its exact owned receipt.session"
+  }
+}

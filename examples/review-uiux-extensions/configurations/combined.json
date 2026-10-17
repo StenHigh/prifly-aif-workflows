@@ -1,0 +1,115 @@
+{
+  "mode": "combined",
+  "review": {
+    "base_commit": "0000000000000000000000000000000000000000",
+    "round": 1,
+    "optional_policy": "ignore",
+    "require_separate_session": false,
+    "checks": [
+      {
+        "id": "acceptance",
+        "description": "Run python3 -B -m unittest test_greeting. Verify greeting(name) returns Hello, <name>! for the declared name, and the unittest asserts this behavior.",
+        "method": "command",
+        "required": true,
+        "enabled": true,
+        "applicable": true
+      }
+    ]
+  },
+  "product": {
+    "surface": "frontend",
+    "scope_reason": "Declared interface change",
+    "environment": {
+      "owner": "fixture-owned",
+      "profile": "all-checks",
+      "setup": "fixture ensure owned claimed tree",
+      "cleanup": "fixture release exact owned session",
+      "browser_adapter": "project Playwright adapter",
+      "test_identity": "isolated anonymous test only",
+      "allowed_operations": [
+        "navigate",
+        "input",
+        "submit_test"
+      ],
+      "shared_resource": null
+    },
+    "scenarios": [
+      {
+        "id": "desktop",
+        "lens": "ui",
+        "check_id": "ui_acceptance",
+        "path": "/index.html",
+        "viewport": {
+          "width": 1280,
+          "height": 800
+        },
+        "actions": [],
+        "expectations": [
+          "No overflow; readable consistent design"
+        ]
+      },
+      {
+        "id": "mobile",
+        "lens": "ui",
+        "check_id": "ui_acceptance",
+        "path": "/index.html",
+        "viewport": {
+          "width": 375,
+          "height": 800
+        },
+        "actions": [],
+        "expectations": [
+          "No overflow; readable consistent design"
+        ]
+      },
+      {
+        "id": "flow",
+        "lens": "ux",
+        "check_id": "ux_acceptance",
+        "path": "/index.html",
+        "viewport": {
+          "width": 375,
+          "height": 800
+        },
+        "actions": [
+          "Use keyboard and submit isolated test form"
+        ],
+        "expectations": [
+          "Observe empty/loading/error/success states and labelled keyboard flow"
+        ]
+      }
+    ],
+    "ui": {
+      "base_commit": "0000000000000000000000000000000000000000",
+      "round": 1,
+      "optional_policy": "ignore",
+      "require_separate_session": false,
+      "checks": [
+        {
+          "id": "ui_acceptance",
+          "description": "ui acceptance",
+          "method": "browser",
+          "required": true,
+          "enabled": true,
+          "applicable": true
+        }
+      ]
+    },
+    "ux": {
+      "base_commit": "0000000000000000000000000000000000000000",
+      "round": 1,
+      "optional_policy": "ignore",
+      "require_separate_session": false,
+      "checks": [
+        {
+          "id": "ux_acceptance",
+          "description": "ux acceptance",
+          "method": "browser",
+          "required": true,
+          "enabled": true,
+          "applicable": true
+        }
+      ]
+    }
+  }
+}

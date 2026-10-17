@@ -5,7 +5,7 @@ const fs=require('fs'),path=require('path');
  const {chromium}=require(library);const task=JSON.parse(fs.readFileSync(taskFile));
  const read=n=>JSON.parse(fs.readFileSync(path.resolve(task.workspace,task.context.inputs[n].path)));
  const config=read('configuration'),environment=read('environment');
- const lens=task.skill_refs[0].id.endsWith('/ui-bridge')?'ui':'ux';
+ const lens=(task.skill_refs[0].id.endsWith('/ui-bridge')||task.skill_refs[0].id.endsWith('/w6-product-ui-bridge'))?'ui':'ux';
  const browser=await chromium.launch({headless:true});fs.mkdirSync(outDir,{recursive:true});
  const observations=[];
  try{

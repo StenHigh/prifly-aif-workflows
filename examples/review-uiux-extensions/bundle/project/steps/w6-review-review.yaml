@@ -1,0 +1,47 @@
+{
+  "authoring": "prifly-step/2",
+  "id": "w6:step/w6-review-review",
+  "version": "1.0.0",
+  "title": "Review evidence review",
+  "kind": "worker",
+  "inputs": {
+    "request": {
+      "schema_ref": "{{schema_w6-review-request}}"
+    },
+    "candidate": {
+      "schema_ref": "{{schema_w6-review-candidate}}"
+    }
+  },
+  "outputs": {
+    "report": {
+      "schema_ref": "{{schema_w6-review-report}}",
+      "required_for": [
+        "pass",
+        "needs_revision",
+        "blocked"
+      ]
+    }
+  },
+  "executor": {
+    "adapter_ref": "{{w6-session}}",
+    "operation": "session"
+  },
+  "effects": {
+    "class": "none",
+    "retry_class": "pure"
+  },
+  "result_schema_ref": "{{w6-result_v2}}",
+  "repository_workspace": "read_only",
+  "instructions_ref": "{{context_w6-review-review-bridge}}",
+  "context_refs": [
+    "{{context_w6-review-aif-review}}",
+    "{{context_w6-review-review-severity}}"
+  ],
+  "session_limits": {
+    "active_timeout_ms": null
+  },
+  "model_profile": {
+    "requested": "independent-review",
+    "reason": "Report separate session and actual model independently; unavailable is explicit."
+  }
+}

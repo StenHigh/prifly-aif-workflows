@@ -1,0 +1,62 @@
+{
+  "id": "w6:schema/w6-product-environment",
+  "version": "1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "status",
+    "owner",
+    "profile",
+    "configuration_digest",
+    "candidate_digest",
+    "session",
+    "url",
+    "reason"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "status": {
+      "enum": [
+        "ready",
+        "unavailable",
+        "not_needed",
+        "owner_required",
+        "reconcile_required"
+      ]
+    },
+    "owner": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4000
+    },
+    "profile": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4000
+    },
+    "configuration_digest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "candidate_digest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "session": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "url": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reason": {
+      "type": "string",
+      "maxLength": 4000
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "duplicate": false,
+  "receipt": {
+    "command_id": "command:d880222843ec78e86c461db77bd30745058da1f54c9b096b568cae1a3c5333ce",
+    "actor": "local:uid:1001",
+    "run_id": "run:1816eb347fd27c2592c6be5d2b8b58e07633fcc4a5b5728c8930bf691dee7dca",
+    "request_digest": "sha256:816ec7cc2d6c9fc3053a3dc95742862e5d41f120ff23d937c588ab711d2030da",
+    "run_version": 129,
+    "event_seq": 238,
+    "cut": 134,
+    "result": {
+      "diagnostic_ids": [],
+      "run_id": "run:1816eb347fd27c2592c6be5d2b8b58e07633fcc4a5b5728c8930bf691dee7dca",
+      "status": "running"
+    }
+  },
+  "schema_version": "foundation-command/1"
+}

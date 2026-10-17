@@ -1,0 +1,6 @@
+{
+  "id": "w6-example:context/commit",
+  "version": "1.0.0",
+  "media_type": "text/plain",
+  "text": "Use the exact current repository_workspace. Commit only implementation.changed_files, preserving owner staged/untracked work. Verify actual HEAD agrees with the input before writing. If there is nothing new to commit, return usable pass with actual implementation. Return implementation using original base_commit, actual HEAD and changed_files. No push, merge, nested project start or cleanup. W6 acceptance and final guard are separate native calls."
+}

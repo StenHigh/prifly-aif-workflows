@@ -1,0 +1,235 @@
+{
+  "authoring": "prifly-workflow/1",
+  "schema_version": "6",
+  "id": "w6:workflow/w6-combined",
+  "version": "1.0.0",
+  "title": "Project combined acceptance",
+  "refs": {
+    "prepare": "{{step_w6-combined-prepare}}",
+    "seal": "{{step_w6-combined-seal}}",
+    "implementation": "{{schema_implementation}}",
+    "candidate": "{{schema_w6-candidate}}",
+    "receipt": "{{schema_w6-receipt}}",
+    "assessment": "{{schema_w6-assessment}}",
+    "policy": "{{w6-policy}}",
+    "review": "{{workflow_w6-review-quality}}",
+    "review_gate": "{{schema_w6-review-gate}}",
+    "review_report": "{{schema_w6-review-report}}",
+    "request": "{{schema_w6-review-request}}",
+    "review_diagnostic": "{{step_w6-combined-review-diagnostic}}",
+    "product": "{{workflow_w6-product-quality}}",
+    "product_gate": "{{schema_w6-product-gate}}",
+    "product_ui_report": "{{schema_w6-product-report}}",
+    "product_ux_report": "{{schema_w6-product-report}}",
+    "product_environment": "{{schema_w6-product-environment}}",
+    "product_release": "{{schema_w6-product-release}}",
+    "configuration": "{{schema_w6-product-configuration}}",
+    "ui": "{{schema_w6-product-request}}",
+    "ux": "{{schema_w6-product-request}}",
+    "product_diagnostic": "{{step_w6-combined-product-diagnostic}}"
+  },
+  "inputs": {
+    "implementation": "implementation"
+  },
+  "outputs": {
+    "receipt": {
+      "schema_ref": "receipt",
+      "required_for": [
+        "succeeded"
+      ]
+    },
+    "assessment": {
+      "schema_ref": "assessment",
+      "required_for": [
+        "succeeded",
+        "partial"
+      ]
+    },
+    "review_gate": {
+      "schema_ref": "review_gate",
+      "required_for": [
+        "succeeded"
+      ]
+    },
+    "review_report": {
+      "schema_ref": "review_report",
+      "required_for": [
+        "succeeded"
+      ]
+    },
+    "product_gate": {
+      "schema_ref": "product_gate",
+      "required_for": [
+        "succeeded"
+      ]
+    },
+    "product_ui_report": {
+      "schema_ref": "product_ui_report",
+      "required_for": [
+        "succeeded"
+      ]
+    },
+    "product_ux_report": {
+      "schema_ref": "product_ux_report",
+      "required_for": [
+        "succeeded"
+      ]
+    },
+    "product_environment": {
+      "schema_ref": "product_environment",
+      "required_for": [
+        "succeeded"
+      ]
+    },
+    "product_release": {
+      "schema_ref": "product_release",
+      "required_for": [
+        "succeeded"
+      ]
+    }
+  },
+  "entry": "prepare",
+  "policy_ref": "policy",
+  "limits": {
+    "max_step_instances": 12,
+    "max_control_transitions": 60,
+    "max_parallelism": 1,
+    "max_child_depth": 2
+  },
+  "stages": {
+    "prepare": {
+      "kind": "step",
+      "step_ref": "prepare",
+      "input_bindings": {
+        "implementation": "$inputs.implementation"
+      },
+      "on": {
+        "pass": "review",
+        "fail": "rejected",
+        "needs_revision": "rejected",
+        "no_work": "rejected"
+      },
+      "impossible_verdicts": [
+        "blocked"
+      ]
+    },
+    "review": {
+      "kind": "call",
+      "workflow_ref": "review",
+      "input_bindings": {
+        "request": "$stages.prepare.request"
+      },
+      "on": {
+        "succeeded": "product",
+        "partial": "review-diagnostic",
+        "rejected": "rejected"
+      }
+    },
+    "review-diagnostic": {
+      "kind": "step",
+      "step_ref": "review_diagnostic",
+      "input_bindings": {
+        "candidate": "$stages.prepare.candidate",
+        "gate": "$stages.review.gate",
+        "review_report": "$stages.review.report"
+      },
+      "on": {
+        "pass": "review-partial",
+        "fail": "rejected",
+        "needs_revision": "rejected",
+        "no_work": "rejected"
+      },
+      "impossible_verdicts": [
+        "blocked"
+      ]
+    },
+    "review-partial": {
+      "kind": "finish",
+      "outcome": "partial",
+      "output_bindings": {
+        "assessment": "$stages.review-diagnostic.assessment"
+      }
+    },
+    "product": {
+      "kind": "call",
+      "workflow_ref": "product",
+      "input_bindings": {
+        "configuration": "$stages.prepare.configuration",
+        "ui": "$stages.prepare.ui",
+        "ux": "$stages.prepare.ux"
+      },
+      "on": {
+        "succeeded": "seal",
+        "partial": "product-diagnostic",
+        "rejected": "rejected"
+      }
+    },
+    "product-diagnostic": {
+      "kind": "step",
+      "step_ref": "product_diagnostic",
+      "input_bindings": {
+        "candidate": "$stages.prepare.candidate",
+        "gate": "$stages.product.gate",
+        "product_ui_report": "$stages.product.ui_report",
+        "product_ux_report": "$stages.product.ux_report"
+      },
+      "on": {
+        "pass": "product-partial",
+        "fail": "rejected",
+        "needs_revision": "rejected",
+        "no_work": "rejected"
+      },
+      "impossible_verdicts": [
+        "blocked"
+      ]
+    },
+    "product-partial": {
+      "kind": "finish",
+      "outcome": "partial",
+      "output_bindings": {
+        "assessment": "$stages.product-diagnostic.assessment"
+      }
+    },
+    "seal": {
+      "kind": "step",
+      "step_ref": "seal",
+      "input_bindings": {
+        "implementation": "$stages.prepare.implementation",
+        "candidate": "$stages.prepare.candidate",
+        "review_gate": "$stages.review.gate",
+        "review_report": "$stages.review.report",
+        "product_gate": "$stages.product.gate",
+        "product_ui_report": "$stages.product.ui_report",
+        "product_ux_report": "$stages.product.ux_report"
+      },
+      "on": {
+        "pass": "done",
+        "fail": "rejected",
+        "needs_revision": "rejected",
+        "no_work": "rejected"
+      },
+      "impossible_verdicts": [
+        "blocked"
+      ]
+    },
+    "done": {
+      "kind": "finish",
+      "outcome": "succeeded",
+      "output_bindings": {
+        "receipt": "$stages.seal.receipt",
+        "assessment": "$stages.seal.assessment",
+        "review_gate": "$stages.review.gate",
+        "review_report": "$stages.review.report",
+        "product_gate": "$stages.product.gate",
+        "product_ui_report": "$stages.product.ui_report",
+        "product_ux_report": "$stages.product.ux_report",
+        "product_environment": "$stages.product.environment",
+        "product_release": "$stages.product.release"
+      }
+    },
+    "rejected": {
+      "kind": "finish",
+      "outcome": "rejected"
+    }
+  }
+}

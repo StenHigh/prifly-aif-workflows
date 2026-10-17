@@ -1,0 +1,54 @@
+{
+  "authoring": "prifly-workflow/1",
+  "schema_version": "6",
+  "id": "w6:workflow/w6-committed",
+  "version": "1.0.0",
+  "title": "Verify committed bytes against original acceptance",
+  "refs": {
+    "check": "{{step_w6-committed-check}}",
+    "implementation": "{{schema_implementation}}",
+    "receipt": "{{schema_w6-receipt}}",
+    "assessment": "{{schema_w6-assessment}}",
+    "policy": "{{w6-policy}}"
+  },
+  "inputs": {
+    "implementation": "implementation",
+    "receipt": "receipt"
+  },
+  "outputs": {},
+  "entry": "check",
+  "policy_ref": "policy",
+  "limits": {
+    "max_step_instances": 1,
+    "max_control_transitions": 4,
+    "max_parallelism": 1,
+    "max_child_depth": 1
+  },
+  "stages": {
+    "check": {
+      "kind": "step",
+      "step_ref": "check",
+      "input_bindings": {
+        "implementation": "$inputs.implementation",
+        "receipt": "$inputs.receipt"
+      },
+      "on": {
+        "pass": "done",
+        "fail": "rejected",
+        "needs_revision": "rejected",
+        "no_work": "rejected"
+      },
+      "impossible_verdicts": [
+        "blocked"
+      ]
+    },
+    "done": {
+      "kind": "finish",
+      "outcome": "succeeded"
+    },
+    "rejected": {
+      "kind": "finish",
+      "outcome": "rejected"
+    }
+  }
+}

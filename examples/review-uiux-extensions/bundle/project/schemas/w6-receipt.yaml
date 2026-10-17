@@ -1,0 +1,40 @@
+{
+  "id": "w6:schema/w6-receipt",
+  "version": "1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "protocol",
+    "run_id",
+    "candidate",
+    "implementation",
+    "configuration_digest",
+    "report_digests"
+  ],
+  "properties": {
+    "protocol": {
+      "const": "w6-acceptance/1"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "candidate": {
+      "type": "object"
+    },
+    "implementation": {
+      "type": "object"
+    },
+    "configuration_digest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "report_digests": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^sha256:[0-9a-f]{64}$"
+      }
+    }
+  }
+}
