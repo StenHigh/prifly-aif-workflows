@@ -10,6 +10,21 @@
 
 Ворота выверены против выпущенного Pri-Fly `v0.13.79`.
 
+- **E6 — Pri-Fly Light, исправление scope интерфейса (2026-10-17):**
+  По прямому поручению владельца открыт Pri-Fly#11: настоящий отдельный Light
+  dashboard с native task queue/Run associations/review results; target domain
+  prify-light.stenhigh.net. Оба существующих monitor0.13.79 дают один frontend:
+  отключение scan-root не создаёт упрощённого UI. E1/E2 primitives приняты,
+  но product UI цель изначального ожидания ещё не выполнена.
+  Реализация поручена Core issue; issue body и E6-A1–A10 сохранены в
+  docs/changes/engine/E6-prifly-light.md, registry отмечает requested/not deployed.
+  Separate entry, bounded read projection, honest candidate/round/gate status,
+  no extra queue/control plane; без mandatory4 reviewers и ложного PASS.
+  Полный monitor prifly.stenhigh.net и classic/profiled не меняются.
+  Domain rollout/browser evidence — после supporting release, пока ничего
+  на сервере не переключали. Latest stable0.13.79, новых нет; shipping8
+  package trees/versions прежние. W6 independent и не закрывает E6.
+
 - **Pri-Fly0.13.79 / сервер и remaining plan (2026-10-17):**
   Прочитаны releases0.13.78/79: claim scan#8, owner-reviewed finite storage
   recovery#7 (write storage10), native Call extensions#9/profile3/extension2,

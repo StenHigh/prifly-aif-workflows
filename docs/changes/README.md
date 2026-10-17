@@ -36,6 +36,19 @@ evidence сохраняют исходную версию. [Результаты
 их выбирают по фактическому диффу реализации. По уточнению владельца 2026-10-14 classic и производный profiled остаются
 эталонными: W1–W6 развиваются отдельно и не правят эти папки. Сначала проверяется latest stable.
 
+## Pri-Fly Light — оставшаяся часть интерфейса
+
+Пакетные W1–W5 выпущены, но отдельный упрощённый интерфейс по образцу Software
+Factory ещё не сделан. E1 board/E2 queue в Core не закрывают эту цель.
+Оба текущих monitor используют один frontend; отсутствие scan-root не меняет UI.
+
+**E6/P1 — [Pri-Fly #11](https://github.com/StenHigh/prifly/issues/11)**:
+отдельная компактная доска задач/очереди и результатов ревью, с переходом в полный
+monitor. [Scope и E6-A1–A10](engine/E6-prifly-light.md). Статус: requested,
+не реализован/не развёрнут; ожидаемый deployment — `prify-light.stenhigh.net`.
+Полный `prifly.stenhigh.net`, classic/profiled и defaults не меняются.
+Core delivery и actual browser/domain acceptance — разные обязательные этапы.
+
 ## Предпосылки P0
 
 - [#5: baseline adapter сохраняет candidate](https://github.com/StenHigh/prifly-aif-workflows/issues/5).
@@ -58,6 +71,8 @@ evidence сохраняют исходную версию. [Результаты
    воспроизводимом недостающем контракте.
 5. E1/E2 выпущены в Pri-Fly 0.13.77: применять native monitor board и явно
    выбранную native queue; отдельную очередь или доску в workflow не создавать.
+6. E6: Light UI в Core поверх этих native sources; после released delivery —
+   отдельная проверка domain rollout. E1/E2 release не является Light acceptance.
 
 W1–W4 не зависят от E1/E2. Не добавляем обязательный набор четырёх reviewers
 каждому запуску. Auto-merge, push/MR и tracker sync не становятся поведением
@@ -90,6 +105,11 @@ W1–W4 не зависят от E1/E2. Не добавляем обязател
   выпущена в stable0.13.78, проверена E5 corpus51 на0.13.79. Issue пока OPEN;
   Core handoff готов. W6 ждёт реализации project recipes/consumer qualification,
   engine release больше не блокирует. [Результаты](engine/release-0.13.79.md).
+
+- [E6: Pri-Fly #11 — отдельный Pri-Fly Light](https://github.com/StenHigh/prifly/issues/11),
+  [сохранённый issue body](engine/E6-prifly-light.md): open/P1, UI gap поверх
+  existing E1/E2. Native tasks/Runs/review provenance, настоящий отдельный
+  frontend и production browser acceptance; текущие два monitor не считаются Light.
 
 В Pri-Fly0.13.77 уже есть monitor board, native queue, title, `parallel`/join,
 resources/model-profile reports и одна typed input binding legacy step extension.
