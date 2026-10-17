@@ -1,0 +1,110 @@
+{
+  "scenario": "program-timeout",
+  "mode": "review",
+  "consumer": "classic",
+  "host": "codex-cli",
+  "outcome": "rejected",
+  "status": "completed",
+  "runs": 1,
+  "claims": 1,
+  "reports": [],
+  "evidence": {
+    "original_report_refs": [],
+    "assessments": [],
+    "receipt_candidate_digests": [],
+    "failed_invocations": [
+      {
+        "workflow_ref": {
+          "id": "w6:workflow/w6-review-quality",
+          "version": "0.0.0-b1.r5e6k7kvkfhabcjmkjc3hb7zmjeiol3h22oyo6cf6n6p5nqsymva",
+          "digest": "sha256:5b17ac9559f257b3f8d69cd977786bf8f308729a996fdc451077fdb232f61979"
+        },
+        "status": "failed",
+        "outcome": null
+      },
+      {
+        "workflow_ref": {
+          "id": "w6:workflow/w6-review",
+          "version": "0.0.0-b1.6ufmqw6axzzxwg2ut7z7z3diuezzzlli3kss3js2zfxbzon2muiq",
+          "digest": "sha256:59e5ffbeabe2f0ae5764004c8f6eb2c49a0e9a839b7f86b1e5c3dce556f298d9"
+        },
+        "status": "failed",
+        "outcome": null
+      }
+    ]
+  },
+  "native_commits": 0,
+  "actual_browser": false,
+  "actual_llm_sessions": 0,
+  "live_sessions": [],
+  "upstream_bytes_unchanged": true,
+  "cleaned": true,
+  "fixture_change": "Project binding w6-review-capture timeout_ms=1, sealed before prepare; no worker or canonical source changes",
+  "native_diagnostics": [
+    {
+      "id": "diagnostic:616e9ef3612e99f65bec3ad588c0286263f1d00aa7ba4136aefb4002b9b6fa6a",
+      "run_id": "run:645e478ecc703c0c3e8eff252e072d845fef4f55acd2f63d9c86ffcc296f5df9",
+      "attempt_id": "attempt:bbd60a79b17c346b325411694b3b3c41",
+      "stage_activation_id": "activation:6171d799ed79c6a6687d723b46277740",
+      "origin": "core",
+      "severity": "error",
+      "code": "attempt_deadline_expired",
+      "category": "executor",
+      "phase": "dispatch",
+      "message": "Process was not started; the admission and slot are settled",
+      "observed": {
+        "utc": "2026-10-17T14:07:47.116306399Z",
+        "session": "clock:dbe8c1c4fa5cb7f3dd03c0ce6ae5fb78",
+        "monotonic_ms": 3630,
+        "source": "go.time.monotonic",
+        "suspend_basis": "excludes_suspend_on_darwin",
+        "utc_trust": "local_wall_unqualified"
+      },
+      "cause_refs": []
+    },
+    {
+      "id": "diagnostic:9a1e0b5c614d6ba11ad6230cb7c86fdd9b62bc534aef579ffd683dbb253d34b0",
+      "run_id": "run:645e478ecc703c0c3e8eff252e072d845fef4f55acd2f63d9c86ffcc296f5df9",
+      "stage_activation_id": "activation:fff0f915a1d8421d1bc03e4e2be1bab1",
+      "origin": "core",
+      "severity": "error",
+      "code": "child_failed",
+      "category": "workflow",
+      "phase": "call",
+      "message": "Child workflow did not return a handled outcome",
+      "observed": {
+        "utc": "2026-10-17T14:07:47.329938072Z",
+        "session": "clock:dbe8c1c4fa5cb7f3dd03c0ce6ae5fb78",
+        "monotonic_ms": 3844,
+        "source": "go.time.monotonic",
+        "suspend_basis": "excludes_suspend_on_darwin",
+        "utc_trust": "local_wall_unqualified"
+      },
+      "cause_refs": [
+        "invocation:709a79c1303e5e2adb11a063d2be947e4b204c04ff5850a60cfe1821693b21f9"
+      ]
+    },
+    {
+      "id": "diagnostic:a1df9ab542734f0807302510ba43533289f128959cb038776f9e11118d91b92a",
+      "run_id": "run:645e478ecc703c0c3e8eff252e072d845fef4f55acd2f63d9c86ffcc296f5df9",
+      "stage_activation_id": "activation:c71638b69e8f97831e4640f72583a2cd",
+      "origin": "core",
+      "severity": "error",
+      "code": "child_failed",
+      "category": "workflow",
+      "phase": "call",
+      "message": "Child workflow did not return a handled outcome",
+      "observed": {
+        "utc": "2026-10-17T14:07:47.501836313Z",
+        "session": "clock:dbe8c1c4fa5cb7f3dd03c0ce6ae5fb78",
+        "monotonic_ms": 4016,
+        "source": "go.time.monotonic",
+        "suspend_basis": "excludes_suspend_on_darwin",
+        "utc_trust": "local_wall_unqualified"
+      },
+      "cause_refs": [
+        "invocation:7f0a40eb50b66b9c93a3bd215af082e74986e0f57c38eada5f57ff254fb6c7e9"
+      ]
+    }
+  ]
+}

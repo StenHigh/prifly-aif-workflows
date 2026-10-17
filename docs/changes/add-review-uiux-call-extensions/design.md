@@ -27,7 +27,7 @@ public exports/outcomes и optional on_error описаны в Core handoff. Sta
 закреплены в manifest, compile проверяется на3 hosts. Одна установка двух
 standalone пакетов сама по себе не создаёт cross-package imports.
 
-Если Core поддержит только components объявленного bundle, использовать явно
+Released Core разрешает call только в local folder bundle. Использован явно
 вендоренный набор с provenance, exact hashes и однозначными aliases/schema refs.
 Учитывать collisions имён configure/capture/quality, сравнить source dependencies
 с W1/W2 и описать обновление. Не сканировать «любые установленные» packages и не

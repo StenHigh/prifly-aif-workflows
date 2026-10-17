@@ -1,0 +1,150 @@
+{
+  "code": "storage_budget_exhausted",
+  "blocked_command": [
+    "--project",
+    "/tmp/w6-run-soy46dg_/authority",
+    "run",
+    "drive",
+    "run:121817fe8de021633c980c6d7c501ccd0e429dd6a93139702f103c2fc53976b9"
+  ],
+  "before": {
+    "schema_version": "storage-budget-status/1",
+    "authority_id": "authority-61b985ac47f9f8c67aceb69779164042",
+    "epoch": 1,
+    "storage_version": 10,
+    "cut": 98,
+    "measurement": "known",
+    "reason": "",
+    "usage": {
+      "page_count": 2138,
+      "page_size": 4096,
+      "free_pages": 0,
+      "allocated_bytes": 8757248,
+      "soft_limit_bytes": 8388608
+    },
+    "control": {
+      "schema_version": "authority-storage-budget/1",
+      "authority_id": "authority-61b985ac47f9f8c67aceb69779164042",
+      "epoch": 1,
+      "generation": 0,
+      "limit_bytes": 8388608,
+      "previous_limit_bytes": 8388608,
+      "source": "bootstrap",
+      "actor": "",
+      "reason": "",
+      "command_id": "",
+      "observed_allocated_bytes": 0,
+      "bootstrap_storage_version": 10
+    },
+    "safe_next_actions": [
+      "storage.budget.show",
+      "storage.budget.set"
+    ]
+  },
+  "owner_review": {
+    "schema_version": "storage-budget-review/1",
+    "status": {
+      "schema_version": "storage-budget-status/1",
+      "authority_id": "authority-61b985ac47f9f8c67aceb69779164042",
+      "epoch": 1,
+      "storage_version": 10,
+      "cut": 98,
+      "measurement": "known",
+      "reason": "",
+      "usage": {
+        "page_count": 2138,
+        "page_size": 4096,
+        "free_pages": 0,
+        "allocated_bytes": 8757248,
+        "soft_limit_bytes": 8388608
+      },
+      "control": {
+        "schema_version": "authority-storage-budget/1",
+        "authority_id": "authority-61b985ac47f9f8c67aceb69779164042",
+        "epoch": 1,
+        "generation": 0,
+        "limit_bytes": 8388608,
+        "previous_limit_bytes": 8388608,
+        "source": "bootstrap",
+        "actor": "",
+        "reason": "",
+        "command_id": "",
+        "observed_allocated_bytes": 0,
+        "bootstrap_storage_version": 10
+      },
+      "safe_next_actions": [
+        "storage.budget.show",
+        "storage.budget.set"
+      ]
+    },
+    "target_bytes": 67108864,
+    "reason": "Controlled W6 fixture owner: retain accepted evidence, settle and clean this isolated authority",
+    "storage_from_version": 10,
+    "storage_to_version": 10,
+    "review_digest": "sha256:7109309608efaae38730aef97da40df7c3d7161285350e6c3f388027056c3ddd"
+  },
+  "explicit_owner_set": {
+    "schema_version": "storage-budget-result/1",
+    "command_id": "command:w6-fixture-storage-recovery",
+    "cut": 99,
+    "control": {
+      "schema_version": "authority-storage-budget/1",
+      "authority_id": "authority-61b985ac47f9f8c67aceb69779164042",
+      "epoch": 1,
+      "generation": 1,
+      "limit_bytes": 67108864,
+      "previous_limit_bytes": 8388608,
+      "source": "owner",
+      "actor": "local:uid:1001",
+      "reason": "Controlled W6 fixture owner: retain accepted evidence, settle and clean this isolated authority",
+      "command_id": "command:w6-fixture-storage-recovery",
+      "observed_allocated_bytes": 8757248,
+      "bootstrap_storage_version": 10
+    }
+  },
+  "after": {
+    "schema_version": "storage-budget-status/1",
+    "authority_id": "authority-61b985ac47f9f8c67aceb69779164042",
+    "epoch": 1,
+    "storage_version": 10,
+    "cut": 99,
+    "measurement": "known",
+    "reason": "",
+    "usage": {
+      "page_count": 2138,
+      "page_size": 4096,
+      "free_pages": 0,
+      "allocated_bytes": 8757248,
+      "soft_limit_bytes": 67108864
+    },
+    "control": {
+      "schema_version": "authority-storage-budget/1",
+      "authority_id": "authority-61b985ac47f9f8c67aceb69779164042",
+      "epoch": 1,
+      "generation": 1,
+      "limit_bytes": 67108864,
+      "previous_limit_bytes": 8388608,
+      "source": "owner",
+      "actor": "local:uid:1001",
+      "reason": "Controlled W6 fixture owner: retain accepted evidence, settle and clean this isolated authority",
+      "command_id": "command:w6-fixture-storage-recovery",
+      "observed_allocated_bytes": 8757248,
+      "bootstrap_storage_version": 10
+    },
+    "safe_next_actions": [
+      "storage.budget.show",
+      "storage.budget.set"
+    ]
+  },
+  "preserved": [
+    {
+      "run_id": "run:121817fe8de021633c980c6d7c501ccd0e429dd6a93139702f103c2fc53976b9",
+      "accepted_attempts": 10,
+      "accepted_prefix_unchanged": true,
+      "outcome": null
+    }
+  ],
+  "recipe_raised_budget": false,
+  "fixture_initializer_source_release": "v0.13.80",
+  "cleaned": true
+}

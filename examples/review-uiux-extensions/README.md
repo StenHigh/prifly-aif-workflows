@@ -235,13 +235,13 @@ prifly project questionnaire --repository . --package aif-classic --package-prof
 ```sh
 prifly project questionnaire --repository . --launch aif-classic --host codex-cli \
   --workspace worktree --input task=/tmp/w6-task.json --allow-execution --package-profile fast \
-  --preflight-answer 'plan_profile="fast"' --preflight-answer 'plan_tests=true' \
+  --preflight-answer 'plan_tests=true' \
   --preflight-answer 'plan_constraints="Implement only the declared greeting feature; no push."' \
   --preflight-answer 'gate_checks="python3 -B -m unittest test_greeting"' \
   --preflight-answer 'gate_warnings="fix"' --expected-decision-catalog-digest CATALOG_DIGEST --prepare
 prifly project start --repository . --launch aif-classic --host codex-cli \
   --workspace worktree --input task=/tmp/w6-task.json --allow-execution --package-profile fast \
-  --preflight-answer 'plan_profile="fast"' --preflight-answer 'plan_tests=true' \
+  --preflight-answer 'plan_tests=true' \
   --preflight-answer 'plan_constraints="Implement only the declared greeting feature; no push."' \
   --preflight-answer 'gate_checks="python3 -B -m unittest test_greeting"' \
   --preflight-answer 'gate_warnings="fix"' --expected-decision-catalog-digest CATALOG_DIGEST \

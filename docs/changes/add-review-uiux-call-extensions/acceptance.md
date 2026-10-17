@@ -34,12 +34,43 @@ behavior»: reviewer честно отметил неоднозначность 
 уточнён до полной команды и ожидаемого поведения. Это не скрытый PASS более
 строгого request. Warnings допускались явной optional_policy:ignore.
 
-## Завершаемые проверки
+## Native matrix и воспроизводимость
 
-Native полная matrix, fresh replay с intervening edit, accepted-prefix
-continuation и Core51 на0.13.80 выполняются; сводка и exact-SHA CI будут
-зафиксированы после фактического завершения. Промежуточные результаты не
-закрывают W6-A7/A8/A10 целиком.
+[CI job W6](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/39038596555)
+на implementation commit `f4e40e79f39dc72bc6251ab8f97b3bd7a4134e47` —
+**SUCCESS**:27 native cases,18 компиляций и8 именованных отказов.
+[Полные native results](evidence/ci-w6-native.json),
+[compile/refusals](evidence/ci-w6-contract.json),
+[version/source ledger](evidence/qualification.json).
+Все три hosts прошли synthetic runtime; actual host evidence отдельно выше.
+
+Whole-child replay после required unavailable повторяет приёмку и видит
+intervening owner edit: digest candidate меняется, base/claim сохраняются.
+Accepted-prefix continue после отказа commit переносит ровно принятую приёмку;
+это отдельно прошло для review/minimal и UIUX/classic. Подмена settings после
+prepare отклонена как `project_start_stale_launch`, ни одного Run не создано.
+[Локальный replay](evidence/replay-0.13.80.json),
+[review prefix](evidence/commit-resume-0.13.80.json),
+[UIUX prefix](evidence/uiux-commit-resume-0.13.80.json).
+
+Публичный [Core E5 corpus51](evidence/core-0.13.80.json) также PASS на official80:
+call cancellation/unknown effect/error/timeout с on_error и без него,
+resource contention, depth/steps/transitions limits, effect policy/trust,
+accepted child drift `recover_prefix_changed` и full-child replay, типизация.
+Это отдельный общий native contract; direct W6 supplemental checks описаны ниже. Текст
+scope в stdout старого Core script остался source-built/pending; ledger
+фиксирует реально использованный released binary и hash.
+
+[Полные README CLI команды](evidence/documentation-commands.json) проверены:
+installer preview/apply, task helper и classic preflight/prepare/start до первого
+handoff, без reviewer. Profile выбирается только `--package-profile`, повторять
+его через preflight-answer нельзя. Worker/graph/CI fingerprints сохранены в
+ledger. Code в follow-up с evidence не меняется.
+
+**Полный CI SUCCESS** на указанном implementation SHA: verify, parallel-ui-ux
+и call-review-uiux. [Итог с job/step receipts](evidence/ci-completed.json).
+Документационный follow-up сохраняет implementation/graph/binding/config/test/CI
+bytes по fingerprints ledger; новый package tag не выпускался.
 
 ## Границы квалификации
 
@@ -61,3 +92,71 @@ continuation и Core51 на0.13.80 выполняются; сводка и exact
 
 [Команды и migration](../../../examples/review-uiux-extensions/README.md) ·
 [Release guide](../../releases/project-examples-w6.md) · [W6-A1–A10](proposal.md).
+
+## Статус критериев
+
+A1–A5 подтверждены для описанных recipes; A6 — isolated owned fixture и
+operator cleanup. A7 подтверждён для fresh/accepted-prefix replay и prepare
+drift; Core timeout/changed-prefix/unknown-effect controls проверены отдельно.
+Прямые W6 deadline/cancel→continue подтверждены supplementary probes ниже;
+произвольные варианты внешнего reconciliation остаются проектной приёмкой. A8: root budgets не повышались, нормальный graph помещается;
+Собственные W6 limits/trust/effects и finite-storage отказы также подтверждены
+ниже; arbitrary custom concurrency/resources требуют своей приёмки. A9/A10 — локальные ворота/live/docs и final полный CI PASS. Эти границы не объявляются универсальной приёмкой private stacks.
+
+
+## Дополнительные controlled-host проверки
+
+Без изменений implementation bytes отдельно выполнены
+[cancel→continue](evidence/cancel-continue-0.13.80.json) для review/minimal и
+UIUX/classic:2 Runs,1 claim, новые reports,1 scoped commit. После UI cancel
+controller сначала освобождал exact owned environment, затем готовил native
+continue. [Probe source](evidence/cancel-continue-probe.py) добавляет сценарий
+только в synthetic controller в памяти; recipe/engine/classic не переписывает.
+Это дополнение к27 CI cases, не часть этой цифры.
+
+Две project binding вариации до native prepare проверили timeout:
+[1ms admission deadline](evidence/admission-timeout-0.13.80.json) истёк до запуска
+процесса; [1500ms running process](evidence/timeout-0.13.80.json) остановил явно
+заданный read-only Python sleep(3). Последний реально запущен, stop_reason
+attempt_deadline_expired, group_empty:true, uncertain:false. Оба Run rejected,
+без reports/commit, source classic прежний. [Probe source](evidence/timeout-probe.py)
+меняет только fixture project execution binding перед sealing, не поставляемый
+recipe; native diagnostic отделён от usable review gate.
+
+
+## Ограничения и разрешения W6
+
+[Собственный corpus7](evidence/permissions-0.13.80.json) на released80:
+root max_child_depth/max_step_instances/max_control_transitions →limit_exceeded;
+нет consent →project_execution_approval_required; чужой executable
+→project_execution_not_allowed; parent policy1 не повышается child policy4
+→resource_limit; destructive effect →unsupported. Все отказы до dispatch,
+ни одного Run; изменялась только копия собственного minimal consumer.
+[Reproduction source](evidence/permissions-probe.py).
+
+[Storage ceiling](evidence/storage-0.13.80.json): combined classic, новая отдельная
+fixture authority с finite bootstrap8MiB. Run drive остановлен
+storage_budget_exhausted,10 accepted Attempts сохранены, исходный limit/control
+generation прежний — recipe ничего не повышал. Controlled owner отдельно
+выполнил prepare/set64MiB с exact review digest только для recovery/cleanup
+стенда; принятые результаты до/после идентичны. Ни reset, ни pruning не было.
+[Probe](evidence/storage-probe.py) · [initializer](evidence/storage-fixture-init.go).
+Initializer использовал неизменённый released0.13.80 source API только для новой
+пустой authority; **все исполняемые workflow/CLI controls — official binary80**.
+Этот setup нужен для небольшого finite ceiling без изменения реального сервера,
+его budgets или данных engine. Fingerprints — в qualification.json.
+
+
+[Finite capacity](evidence/capacity-0.13.80.json): owner задал capacity1
+только временной authority. W6 reader занимал её обычный admission slot;
+второй явно запущенный controller-ом Run получил capacity_conflict и очередь,
+без единого Attempt. Capacity не повышалась, затем оба controlled Runs были
+cancelled/settled и очищены. Это проверка отказа/учёта slot, не обещание fairness
+или завершения двух concurrent Runs. [Probe](evidence/capacity-probe.py).
+
+
+Поле actual_browser в raw synthetic CI report означает выбранный browser mode
+(--browser-library); unavailable/cancel могут остановиться до запуска браузера.
+Фактический browser proof — выполненные ready scenarios и сохранённые live
+observations/screenshots, а не одно это поле. Scope каждого исхода следует
+читать вместе с scenario, reports и gate.

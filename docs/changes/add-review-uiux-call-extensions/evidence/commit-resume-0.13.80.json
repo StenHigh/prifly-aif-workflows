@@ -1,0 +1,62 @@
+{
+  "scenario": "commit-resume",
+  "mode": "review",
+  "consumer": "minimal",
+  "host": "codex-cli",
+  "outcome": "succeeded",
+  "status": "completed",
+  "runs": 2,
+  "claims": 1,
+  "reports": [
+    {
+      "lens": "review",
+      "candidate": "sha256:413237d79a4f8d0a38deacb6e88691c58bcd90f86aab84171c39714ea1076206"
+    }
+  ],
+  "evidence": {
+    "original_report_refs": [
+      {
+        "artifact_id": "artifact:feb939aca7cec6c42ffc23b543953378d47a0acdae51bc2d28a73ad7093c08a1",
+        "revision": 1,
+        "digest": "sha256:325f6439ebadd1ca86bc1058c1d679b0a377ffde2f1a7bd647978d27d9c8bc84"
+      }
+    ],
+    "assessments": [
+      {
+        "candidate_digest": "sha256:413237d79a4f8d0a38deacb6e88691c58bcd90f86aab84171c39714ea1076206",
+        "fresh": true,
+        "gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "Model profile unavailable; independent model not established"
+          ],
+          "gate": "review",
+          "status": "warnings",
+          "suggested_next": "continue"
+        },
+        "protocol": "w6-assessment/1",
+        "report_digests": {
+          "review_report": "sha256:325f6439ebadd1ca86bc1058c1d679b0a377ffde2f1a7bd647978d27d9c8bc84"
+        },
+        "report_refs": {
+          "review_report": {
+            "artifact_id": "artifact:feb939aca7cec6c42ffc23b543953378d47a0acdae51bc2d28a73ad7093c08a1",
+            "digest": "sha256:325f6439ebadd1ca86bc1058c1d679b0a377ffde2f1a7bd647978d27d9c8bc84",
+            "revision": 1
+          }
+        },
+        "stage": "review"
+      }
+    ],
+    "receipt_candidate_digests": [
+      "sha256:413237d79a4f8d0a38deacb6e88691c58bcd90f86aab84171c39714ea1076206"
+    ]
+  },
+  "native_commits": 1,
+  "actual_browser": false,
+  "actual_llm_sessions": 0,
+  "live_sessions": [],
+  "upstream_bytes_unchanged": true,
+  "cleaned": true
+}

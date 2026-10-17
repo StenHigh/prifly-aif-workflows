@@ -1,0 +1,188 @@
+[
+  {
+    "scenario": "pass",
+    "mode": "combined",
+    "consumer": "minimal",
+    "host": "codex-app",
+    "outcome": "succeeded",
+    "status": "completed",
+    "runs": 1,
+    "claims": 1,
+    "reports": [
+      {
+        "lens": "review",
+        "candidate": "sha256:5984fa258b7632dc9d26feba317a11b23eeba72bfb6aaf9f11016d80ff78f8ce"
+      },
+      {
+        "lens": "ui",
+        "candidate": "sha256:5984fa258b7632dc9d26feba317a11b23eeba72bfb6aaf9f11016d80ff78f8ce"
+      },
+      {
+        "lens": "ux",
+        "candidate": "sha256:5984fa258b7632dc9d26feba317a11b23eeba72bfb6aaf9f11016d80ff78f8ce"
+      }
+    ],
+    "evidence": {
+      "original_report_refs": [
+        {
+          "artifact_id": "artifact:b9c415f04f99c372502dff490ac95d32697bb242a97209c830749df8de0e3754",
+          "revision": 1,
+          "digest": "sha256:ae71f12ae9628f6cf847c871bc0d240bc02f2f90b806151165b9c8e66994ca57"
+        },
+        {
+          "artifact_id": "artifact:decd54498964ab44d5249da410e91bbdd973ddc23100d1a3f92f18181b1a4d7f",
+          "revision": 1,
+          "digest": "sha256:c011967cfb43c74642ec6fc5a73df50a6d6b534a5b8f9e534bdcea285aae07b4"
+        },
+        {
+          "artifact_id": "artifact:b3e8eeeeda568b7e7f942fd2383b2000bac2de77c82a3c260d9fcd6b989982cb",
+          "revision": 1,
+          "digest": "sha256:65e367e42d05976218238b99333357f86e68879acbf91739d0e0c5b9f4e49e3a"
+        }
+      ],
+      "assessments": [
+        {
+          "candidate_digest": "sha256:5984fa258b7632dc9d26feba317a11b23eeba72bfb6aaf9f11016d80ff78f8ce",
+          "fresh": true,
+          "gate": {
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "ui: Model profile unavailable; independent model not established",
+              "ux: Model profile unavailable; independent model not established"
+            ],
+            "gate": "review",
+            "status": "warnings",
+            "suggested_next": "continue"
+          },
+          "protocol": "w6-assessment/1",
+          "report_digests": {
+            "product_ui_report": "sha256:c011967cfb43c74642ec6fc5a73df50a6d6b534a5b8f9e534bdcea285aae07b4",
+            "product_ux_report": "sha256:ae71f12ae9628f6cf847c871bc0d240bc02f2f90b806151165b9c8e66994ca57",
+            "review_report": "sha256:65e367e42d05976218238b99333357f86e68879acbf91739d0e0c5b9f4e49e3a"
+          },
+          "report_refs": {
+            "product_ui_report": {
+              "artifact_id": "artifact:decd54498964ab44d5249da410e91bbdd973ddc23100d1a3f92f18181b1a4d7f",
+              "digest": "sha256:c011967cfb43c74642ec6fc5a73df50a6d6b534a5b8f9e534bdcea285aae07b4",
+              "revision": 1
+            },
+            "product_ux_report": {
+              "artifact_id": "artifact:b9c415f04f99c372502dff490ac95d32697bb242a97209c830749df8de0e3754",
+              "digest": "sha256:ae71f12ae9628f6cf847c871bc0d240bc02f2f90b806151165b9c8e66994ca57",
+              "revision": 1
+            },
+            "review_report": {
+              "artifact_id": "artifact:b3e8eeeeda568b7e7f942fd2383b2000bac2de77c82a3c260d9fcd6b989982cb",
+              "digest": "sha256:65e367e42d05976218238b99333357f86e68879acbf91739d0e0c5b9f4e49e3a",
+              "revision": 1
+            }
+          },
+          "stage": "product"
+        }
+      ],
+      "receipt_candidate_digests": [
+        "sha256:5984fa258b7632dc9d26feba317a11b23eeba72bfb6aaf9f11016d80ff78f8ce"
+      ]
+    },
+    "native_commits": 1,
+    "actual_browser": false,
+    "actual_llm_sessions": 0,
+    "live_sessions": [],
+    "upstream_bytes_unchanged": true,
+    "cleaned": true
+  },
+  {
+    "scenario": "pass",
+    "mode": "combined",
+    "consumer": "minimal",
+    "host": "claude-code",
+    "outcome": "succeeded",
+    "status": "completed",
+    "runs": 1,
+    "claims": 1,
+    "reports": [
+      {
+        "lens": "review",
+        "candidate": "sha256:5984fa258b7632dc9d26feba317a11b23eeba72bfb6aaf9f11016d80ff78f8ce"
+      },
+      {
+        "lens": "ui",
+        "candidate": "sha256:5984fa258b7632dc9d26feba317a11b23eeba72bfb6aaf9f11016d80ff78f8ce"
+      },
+      {
+        "lens": "ux",
+        "candidate": "sha256:5984fa258b7632dc9d26feba317a11b23eeba72bfb6aaf9f11016d80ff78f8ce"
+      }
+    ],
+    "evidence": {
+      "original_report_refs": [
+        {
+          "artifact_id": "artifact:e119b136a4867ec4c7d56a89d1d2a93422b2248a36176b5aa701669902036247",
+          "revision": 1,
+          "digest": "sha256:65e367e42d05976218238b99333357f86e68879acbf91739d0e0c5b9f4e49e3a"
+        },
+        {
+          "artifact_id": "artifact:1b8876758a9769e8791ec58835e75cd191be2b8e3927aa4070a48b47cd71cb8c",
+          "revision": 1,
+          "digest": "sha256:e4b9186ae36c400040f9e5a59517f4481d501cf0feecb7ddec0de794a4c18292"
+        },
+        {
+          "artifact_id": "artifact:71c855d364d4cce63f949d541ba9ddb35f080b5209c86043b6fe0e97d6b84b3e",
+          "revision": 1,
+          "digest": "sha256:7bc8d960f69d15e5c999b5aad6543d0711ffdd7a4498ea354c5befc199521753"
+        }
+      ],
+      "assessments": [
+        {
+          "candidate_digest": "sha256:5984fa258b7632dc9d26feba317a11b23eeba72bfb6aaf9f11016d80ff78f8ce",
+          "fresh": true,
+          "gate": {
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "ui: Model profile unavailable; independent model not established",
+              "ux: Model profile unavailable; independent model not established"
+            ],
+            "gate": "review",
+            "status": "warnings",
+            "suggested_next": "continue"
+          },
+          "protocol": "w6-assessment/1",
+          "report_digests": {
+            "product_ui_report": "sha256:7bc8d960f69d15e5c999b5aad6543d0711ffdd7a4498ea354c5befc199521753",
+            "product_ux_report": "sha256:e4b9186ae36c400040f9e5a59517f4481d501cf0feecb7ddec0de794a4c18292",
+            "review_report": "sha256:65e367e42d05976218238b99333357f86e68879acbf91739d0e0c5b9f4e49e3a"
+          },
+          "report_refs": {
+            "product_ui_report": {
+              "artifact_id": "artifact:71c855d364d4cce63f949d541ba9ddb35f080b5209c86043b6fe0e97d6b84b3e",
+              "digest": "sha256:7bc8d960f69d15e5c999b5aad6543d0711ffdd7a4498ea354c5befc199521753",
+              "revision": 1
+            },
+            "product_ux_report": {
+              "artifact_id": "artifact:1b8876758a9769e8791ec58835e75cd191be2b8e3927aa4070a48b47cd71cb8c",
+              "digest": "sha256:e4b9186ae36c400040f9e5a59517f4481d501cf0feecb7ddec0de794a4c18292",
+              "revision": 1
+            },
+            "review_report": {
+              "artifact_id": "artifact:e119b136a4867ec4c7d56a89d1d2a93422b2248a36176b5aa701669902036247",
+              "digest": "sha256:65e367e42d05976218238b99333357f86e68879acbf91739d0e0c5b9f4e49e3a",
+              "revision": 1
+            }
+          },
+          "stage": "product"
+        }
+      ],
+      "receipt_candidate_digests": [
+        "sha256:5984fa258b7632dc9d26feba317a11b23eeba72bfb6aaf9f11016d80ff78f8ce"
+      ]
+    },
+    "native_commits": 1,
+    "actual_browser": false,
+    "actual_llm_sessions": 0,
+    "live_sessions": [],
+    "upstream_bytes_unchanged": true,
+    "cleaned": true
+  }
+]

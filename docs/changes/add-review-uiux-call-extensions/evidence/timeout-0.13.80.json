@@ -1,0 +1,158 @@
+{
+  "scenario": "program-timeout",
+  "mode": "review",
+  "consumer": "classic",
+  "host": "codex-cli",
+  "outcome": "rejected",
+  "status": "completed",
+  "runs": 1,
+  "claims": 1,
+  "reports": [],
+  "evidence": {
+    "original_report_refs": [],
+    "assessments": [],
+    "receipt_candidate_digests": [],
+    "failed_invocations": [
+      {
+        "workflow_ref": {
+          "id": "w6:workflow/w6-review",
+          "version": "0.0.0-b1.r76dqml4mifrgrysl2jm3a4t5sgt5gzocjnlyi54eimaczqa2gpq",
+          "digest": "sha256:8232347118182241c9a38aec7e16b5148542aae1cde59f167a23ea8a2e2c246a"
+        },
+        "status": "failed",
+        "outcome": null
+      },
+      {
+        "workflow_ref": {
+          "id": "w6:workflow/w6-review-quality",
+          "version": "0.0.0-b1.dg2dhizltr6wxz42u6uww4bqcvwgmenmk4e64l3ktxz5h2sf4cja",
+          "digest": "sha256:96b0ee560ed4fd14e562ce860496d913e2ef90da7028285235943735105bc71e"
+        },
+        "status": "failed",
+        "outcome": null
+      }
+    ],
+    "process_outcomes": [
+      {
+        "started": true,
+        "identity": {
+          "pid": 1954042,
+          "pgid": 1954042,
+          "uid": 1001,
+          "owner_pid": 1954011,
+          "owner_start": "52105954",
+          "hostname": "vmi3651877",
+          "boot_id": "4db6f711-31e5-40bc-8f8c-ab3d8c744d69",
+          "start_id": "52106333",
+          "launch_id": "0fa09451244a7a52cd76cbe34b1db303",
+          "executable": "/usr/bin/python3.12",
+          "executable_digest": "sha256:e50d468e8b0adfb05733f5b87b3cff34829c4a8c1aea50c865aa8bdfe4bb150f"
+        },
+        "started_at": "2026-10-17T16:09:34.291364726+02:00",
+        "leader_exit_observed_at": "2026-10-17T16:09:35.600341477+02:00",
+        "wait_returned_at": "2026-10-17T16:09:35.759656393+02:00",
+        "group_empty_at": "2026-10-17T16:09:35.834097524+02:00",
+        "finished_at": "2026-10-17T16:09:35.90167443+02:00",
+        "elapsed_ns": 1611034834,
+        "wait_returned": true,
+        "group_empty": true,
+        "uncertain": false,
+        "exit_code": -1,
+        "signal": "terminated",
+        "cpu": {
+          "user_ns": 16911000,
+          "system_ns": 9279000,
+          "method": "os_process_wait_rusage",
+          "scope": "waited_child_os_accounting",
+          "coverage": "may_include_reaped_children_not_complete_group"
+        },
+        "stop_reason": "attempt_deadline_expired",
+        "stdout": {
+          "bytes_read": 0,
+          "truncated": false,
+          "complete": true
+        },
+        "stderr": {
+          "bytes_read": 0,
+          "truncated": false,
+          "complete": true
+        },
+        "result_bytes": 0
+      }
+    ],
+    "diagnostics": [
+      {
+        "id": "diagnostic:f6dc7fee291646f38cd195bd984558b5dc91c83c7c571b26658a2935b0b3e855",
+        "run_id": "run:f2321897eb882b19d69da3e56417d7c5535a77338164f24ad523a7ec3a219611",
+        "attempt_id": "attempt:7a7184c88d0bc134e0c5f7c5ca65b293",
+        "stage_activation_id": "activation:11d7a4cc128d1f68ee1c22955985e5df",
+        "origin": "core",
+        "severity": "error",
+        "code": "attempt_deadline_expired",
+        "category": "executor",
+        "phase": "settlement",
+        "message": "Executor or result validation failed; inspect recorded evidence",
+        "observed": {
+          "utc": "2026-10-17T14:09:35.934165898Z",
+          "session": "clock:9b68b60f3dd2c8cb450c018f21be61ab",
+          "monotonic_ms": 5264,
+          "source": "go.time.monotonic",
+          "suspend_basis": "excludes_suspend_on_darwin",
+          "utc_trust": "local_wall_unqualified"
+        },
+        "cause_refs": []
+      },
+      {
+        "id": "diagnostic:62d4ace338e362378dea0f78ef5529eb66cc3c830911e5d3d9e9973a11ee59a1",
+        "run_id": "run:f2321897eb882b19d69da3e56417d7c5535a77338164f24ad523a7ec3a219611",
+        "stage_activation_id": "activation:6bdaa2a6e46e631449319b7f043e34f4",
+        "origin": "core",
+        "severity": "error",
+        "code": "child_failed",
+        "category": "workflow",
+        "phase": "call",
+        "message": "Child workflow did not return a handled outcome",
+        "observed": {
+          "utc": "2026-10-17T14:09:36.055393752Z",
+          "session": "clock:9b68b60f3dd2c8cb450c018f21be61ab",
+          "monotonic_ms": 5385,
+          "source": "go.time.monotonic",
+          "suspend_basis": "excludes_suspend_on_darwin",
+          "utc_trust": "local_wall_unqualified"
+        },
+        "cause_refs": [
+          "invocation:51d1a760566e897dd211fdd3fe677d31b7b05f6c9667e9452d80acf2dec11fdf"
+        ]
+      },
+      {
+        "id": "diagnostic:47b66e947621afe66a78ca7402dcb20db103c80f88dd9c900377e2cc1ce92092",
+        "run_id": "run:f2321897eb882b19d69da3e56417d7c5535a77338164f24ad523a7ec3a219611",
+        "stage_activation_id": "activation:10be357df3ac8798ea69e48767566d92",
+        "origin": "core",
+        "severity": "error",
+        "code": "child_failed",
+        "category": "workflow",
+        "phase": "call",
+        "message": "Child workflow did not return a handled outcome",
+        "observed": {
+          "utc": "2026-10-17T14:09:36.161823767Z",
+          "session": "clock:9b68b60f3dd2c8cb450c018f21be61ab",
+          "monotonic_ms": 5492,
+          "source": "go.time.monotonic",
+          "suspend_basis": "excludes_suspend_on_darwin",
+          "utc_trust": "local_wall_unqualified"
+        },
+        "cause_refs": [
+          "invocation:05e3ad26ba86f86abfd2e2abff16cd9a087519d956570288c5433a17ed4004b9"
+        ]
+      }
+    ]
+  },
+  "native_commits": 0,
+  "actual_browser": false,
+  "actual_llm_sessions": 0,
+  "live_sessions": [],
+  "upstream_bytes_unchanged": true,
+  "cleaned": true,
+  "fixture_change": "Project binding w6-review-capture: timeout_ms=1500 and explicit Python sleep(3) fixture command, sealed before prepare; canonical sources unchanged"
+}

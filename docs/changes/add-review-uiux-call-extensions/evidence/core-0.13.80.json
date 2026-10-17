@@ -1,0 +1,394 @@
+{
+  "binary": "/tmp/aif-prifly-01380/prifly",
+  "sha256": "sha256:b5bc6d33206281c52afd3b17827e8cd416812d223d091f699d7883a382037a82",
+  "scope": "source-built/synthetic native CLI; live hosts and released qualification pending",
+  "results": [
+    {
+      "case": "review",
+      "verdict": "pass",
+      "host": "codex-app",
+      "checked_exports": 2,
+      "case_outcome": "succeeded",
+      "run_id": "run:1a988c84f36ed75026a8275a67d5832a9c4ce3350862c6cd51f2bfa75d248e11",
+      "invocations": 4,
+      "claim_id": "claim:691ca3d5bd743fcec9629ca20966726f4a2dd2b4813926a4ef739b48fca7e3ec",
+      "claim_generation": 1,
+      "sessions": [
+        "prepare",
+        "assessment",
+        "reader",
+        "commit"
+      ],
+      "sources_unchanged": true
+    },
+    {
+      "case": "review",
+      "verdict": "fail",
+      "host": "codex-app",
+      "checked_exports": 0,
+      "case_outcome": "rejected",
+      "run_id": "run:fa1d484c48cbd1f7e80e6d88a9837582a41e6c5d0f367905b416b00423bf0ebb",
+      "invocations": 3,
+      "claim_id": "claim:45c53d330a5b191fecb7185d3e4a5d33331e0d37d33ed40248471da8b2523ace",
+      "claim_generation": 1,
+      "sessions": [
+        "prepare",
+        "assessment"
+      ],
+      "sources_unchanged": true
+    },
+    {
+      "case": "review",
+      "verdict": "needs_revision",
+      "host": "codex-app",
+      "checked_exports": 0,
+      "case_outcome": "partial",
+      "run_id": "run:6d11c832c854f8adacff061f7075c083d7b026b70d0c3502a23accddfbbcdc26",
+      "invocations": 3,
+      "claim_id": "claim:36306e0ef29f952f8d61a49f7be4b3e327b4db1e9f33d4d44da9be49ad017b82",
+      "claim_generation": 1,
+      "sessions": [
+        "prepare",
+        "assessment"
+      ],
+      "sources_unchanged": true
+    },
+    {
+      "case": "product",
+      "verdict": "pass",
+      "host": "codex-app",
+      "checked_exports": 5,
+      "case_outcome": "succeeded",
+      "run_id": "run:5dfbd02ceb627255604788b40a3cfa0dc9cf1f49816ef04f46ae5372d1be400e",
+      "invocations": 3,
+      "claim_id": "claim:2894e10c779845401916c7bc95baba31e1ff8bc53db7f625c4fba79404df9126",
+      "claim_generation": 1,
+      "sessions": [
+        "prepare",
+        "assessment",
+        "reader",
+        "commit"
+      ],
+      "sources_unchanged": true
+    },
+    {
+      "case": "product",
+      "verdict": "fail",
+      "host": "codex-app",
+      "checked_exports": 0,
+      "case_outcome": "rejected",
+      "run_id": "run:51404838d5c41c3bb060a7d7981a211ee54be0d68ded6bdf4655fc5591c8cfa2",
+      "invocations": 2,
+      "claim_id": "claim:b429b6553a0a2213a67068114c89778317510ca7cdfb903d957089a7dd14e410",
+      "claim_generation": 1,
+      "sessions": [
+        "prepare",
+        "assessment"
+      ],
+      "sources_unchanged": true
+    },
+    {
+      "case": "product",
+      "verdict": "needs_revision",
+      "host": "codex-app",
+      "checked_exports": 0,
+      "case_outcome": "partial",
+      "run_id": "run:7142b92eac9539991c3c9c7d2eb36cb6e62dc268b6bbfd225e0d6ae54dc5b4f7",
+      "invocations": 2,
+      "claim_id": "claim:f3899c930a6b4835a67f8330050a58930eb44b2f3eacac45fe3950afe7e301db",
+      "claim_generation": 1,
+      "sessions": [
+        "prepare",
+        "assessment"
+      ],
+      "sources_unchanged": true
+    },
+    {
+      "case": "review",
+      "host": "codex-cli",
+      "checked_exports": 2,
+      "case_outcome": "succeeded",
+      "run_id": "run:ae9af6af9e99d33b4dc7fbd2f7f680130428c13db0903e3bcc96f57b3fd29b0a",
+      "invocations": 4,
+      "claim_id": "claim:ae496f14fcbc98b534f6b6fb62d98575ff9e8d0d57c94196f1e09951bc0bdfc2",
+      "claim_generation": 1,
+      "sessions": [
+        "prepare",
+        "assessment",
+        "reader",
+        "commit"
+      ],
+      "sources_unchanged": true
+    },
+    {
+      "case": "review",
+      "host": "claude-code",
+      "checked_exports": 2,
+      "case_outcome": "succeeded",
+      "run_id": "run:e9c008fa6d0c10e38143d3ff7f2d8b21d3c2fc277b6bc789567c52d31ede8909",
+      "invocations": 4,
+      "claim_id": "claim:6427d26acdb782a9cd597cc36f6884ab839d98c4b66b5c5e1c2123a5b92b535a",
+      "claim_generation": 1,
+      "sessions": [
+        "prepare",
+        "assessment",
+        "reader",
+        "commit"
+      ],
+      "sources_unchanged": true
+    },
+    {
+      "checked_exports": 2,
+      "case_outcome": "succeeded",
+      "run_id": "run:ba74ba67eb2c0b3205f91e53a8178cc53b397bcebcc62011475fe71f6f4807e1",
+      "invocations": 4,
+      "claim_id": "claim:a510be1dd62b0e9193a67cd8ba4dd6b31cc4acbbf90d5155d1f71316481e8684",
+      "claim_generation": 1,
+      "sessions": [
+        "prepare",
+        "reader",
+        "commit"
+      ],
+      "sources_unchanged": true,
+      "program": true
+    },
+    {
+      "mutation": "callee",
+      "code": "project_start_stale_launch",
+      "dispatched": false
+    },
+    {
+      "mutation": "descendant",
+      "code": "project_start_stale_launch",
+      "dispatched": false
+    },
+    {
+      "mutation": "nested-descendant",
+      "code": "project_start_stale_launch",
+      "dispatched": false
+    },
+    {
+      "mutation": "outcome",
+      "code": "project_start_stale_launch",
+      "dispatched": false
+    },
+    {
+      "mutation": "error",
+      "code": "project_start_stale_launch",
+      "dispatched": false
+    },
+    {
+      "mutation": "resource",
+      "code": "project_start_stale_launch",
+      "dispatched": false
+    },
+    {
+      "mutation": "limits",
+      "code": "project_start_stale_launch",
+      "dispatched": false
+    },
+    {
+      "mutation": "context",
+      "code": "project_start_stale_launch",
+      "dispatched": false
+    },
+    {
+      "mutation": "binding:configuration",
+      "code": "project_start_stale_launch",
+      "dispatched": false
+    },
+    {
+      "mutation": "binding:ui",
+      "code": "project_start_stale_launch",
+      "dispatched": false
+    },
+    {
+      "mutation": "binding:ux",
+      "code": "project_start_stale_launch",
+      "dispatched": false
+    },
+    {
+      "mutation": "local-resource",
+      "code": "project_start_stale_launch",
+      "dispatched": false
+    },
+    {
+      "mutation": "supporting-file",
+      "code": "project_start_stale_launch",
+      "dispatched": false
+    },
+    {
+      "control": "resource competition",
+      "code": "resource_busy",
+      "released_after_settlement": true,
+      "runs": [
+        "run:c690f1746a97e39baf475dcb8fc736f5486d80d35ec19a4814edf035fc30c1b0",
+        "run:825fa480de165913e0df49494aa5c920a1246b8bf293ffd4b0fae81be31c6731"
+      ]
+    },
+    {
+      "control": "child cancellation",
+      "waiting": "blocked_child",
+      "settled": "cancelled",
+      "external_actor_stop_proven": false
+    },
+    {
+      "control": "unknown effect",
+      "code": "recovery_required",
+      "resume_refusal": "recover_source_unsettled",
+      "settlement": "explicit controlled-host not_applied attestation"
+    },
+    {
+      "control": "error",
+      "on_error": true,
+      "status": "completed",
+      "outcome": "rejected"
+    },
+    {
+      "control": "error",
+      "on_error": false,
+      "status": "failed",
+      "outcome": null
+    },
+    {
+      "control": "timeout",
+      "on_error": true,
+      "status": "completed",
+      "outcome": "rejected"
+    },
+    {
+      "control": "timeout",
+      "on_error": false,
+      "status": "failed",
+      "outcome": null
+    },
+    {
+      "limit": "max_child_depth",
+      "code": "limit_exceeded",
+      "dispatched": false
+    },
+    {
+      "limit": "max_step_instances",
+      "code": "limit_exceeded",
+      "dispatched": false
+    },
+    {
+      "limit": "max_control_transitions",
+      "code": "limit_exceeded",
+      "dispatched": false
+    },
+    {
+      "policy": "destructive",
+      "code": "unsupported",
+      "dispatched": false
+    },
+    {
+      "policy": "legacy-policy",
+      "code": "resource_limit",
+      "dispatched": false
+    },
+    {
+      "trust": "explicit local allowlist and consent",
+      "profile": "core-local/cooperative",
+      "dispatched": false
+    },
+    {
+      "replay": "inherited prefix through two resumes",
+      "reused_counts": [
+        9,
+        9
+      ]
+    },
+    {
+      "replay": "changed accepted child",
+      "refusal": "recover_prefix_changed",
+      "whole_child_replayed": true,
+      "source_unchanged": true,
+      "claim_id": "claim:a00ee3afc3ec4d55b23eb2e5ba6e5b3880a8a710caf2109c243d8d96c61b63e5"
+    },
+    {
+      "negative": "both",
+      "code": "project_extension_invalid",
+      "partial_package": false,
+      "dispatched": false
+    },
+    {
+      "negative": "neither",
+      "code": "project_extension_invalid",
+      "partial_package": false,
+      "dispatched": false
+    },
+    {
+      "negative": "unmarked",
+      "code": "project_extension_unsupported_authoring",
+      "partial_package": false,
+      "dispatched": false
+    },
+    {
+      "negative": "unknown",
+      "code": "project_extension_unknown_call",
+      "partial_package": false,
+      "dispatched": false
+    },
+    {
+      "negative": "wrong-kind",
+      "code": "project_extension_call_wrong_kind",
+      "partial_package": false,
+      "dispatched": false
+    },
+    {
+      "negative": "ambiguous",
+      "code": "project_extension_call_ambiguous",
+      "partial_package": false,
+      "dispatched": false
+    },
+    {
+      "negative": "missing-input",
+      "code": "missing_binding",
+      "partial_package": false,
+      "dispatched": false
+    },
+    {
+      "negative": "late-producer",
+      "code": "unavailable_output",
+      "partial_package": false,
+      "dispatched": false
+    },
+    {
+      "negative": "unknown-producer",
+      "code": "project_extension_unknown_stage",
+      "partial_package": false,
+      "dispatched": false
+    },
+    {
+      "negative": "schema-mismatch",
+      "code": "port_type_mismatch",
+      "partial_package": false,
+      "dispatched": false
+    },
+    {
+      "negative": "incomplete-outcomes",
+      "code": "project_extension_call_outcome_unmapped",
+      "partial_package": false,
+      "dispatched": false
+    },
+    {
+      "negative": "extra-outcome",
+      "code": "invalid_outcome",
+      "partial_package": false,
+      "dispatched": false
+    },
+    {
+      "negative": "partial-export",
+      "code": "unavailable_output",
+      "partial_package": false,
+      "dispatched": false
+    },
+    {
+      "negative": "invalid-on-error",
+      "code": "project_extension_unknown_stage",
+      "partial_package": false,
+      "dispatched": false
+    }
+  ]
+}

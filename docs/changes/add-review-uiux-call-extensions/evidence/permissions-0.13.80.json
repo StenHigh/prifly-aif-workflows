@@ -1,0 +1,42 @@
+{
+  "cases": [
+    {
+      "case": "max_child_depth",
+      "code": "limit_exceeded",
+      "dispatched": false
+    },
+    {
+      "case": "max_step_instances",
+      "code": "limit_exceeded",
+      "dispatched": false
+    },
+    {
+      "case": "max_control_transitions",
+      "code": "limit_exceeded",
+      "dispatched": false
+    },
+    {
+      "case": "missing-execution-consent",
+      "code": "project_execution_approval_required",
+      "dispatched": false
+    },
+    {
+      "case": "untrusted-executable",
+      "code": "project_execution_not_allowed",
+      "dispatched": false
+    },
+    {
+      "case": "parent-policy-not-escalated-by-child",
+      "code": "resource_limit",
+      "dispatched": false
+    },
+    {
+      "case": "destructive-effect-refused",
+      "code": "unsupported",
+      "dispatched": false
+    }
+  ],
+  "root_restored": true,
+  "runs": 0,
+  "prifly": "0.13.80"
+}

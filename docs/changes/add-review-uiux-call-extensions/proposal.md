@@ -1,6 +1,6 @@
 # W6 — Подключение review/UI/UX через вложенные workflow в extend
 
-Статус: **project recipes реализованы; завершается consumer qualification**.
+Статус: **project recipes реализованы, начальная consumer qualification и полный CI PASS**.
 Приоритет: **P1**. Обновлено: 2026-10-17. Проверенная база — Pri-Fly0.13.80;
 все8 shipping packages совпадают с v1.53.0. Bundle версии1.0.0 поставляется
 в examples, без изменения catalog/package versions и без release tag.

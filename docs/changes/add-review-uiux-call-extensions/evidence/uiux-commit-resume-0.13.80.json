@@ -1,0 +1,78 @@
+{
+  "scenario": "commit-resume",
+  "mode": "uiux",
+  "consumer": "classic",
+  "host": "codex-cli",
+  "outcome": "succeeded",
+  "status": "completed",
+  "runs": 2,
+  "claims": 1,
+  "reports": [
+    {
+      "lens": "ui",
+      "candidate": "sha256:8318056adc8521e313fbd25064bf3a88bf451a308e8f69e4f4c434668be01b57"
+    },
+    {
+      "lens": "ux",
+      "candidate": "sha256:8318056adc8521e313fbd25064bf3a88bf451a308e8f69e4f4c434668be01b57"
+    }
+  ],
+  "evidence": {
+    "original_report_refs": [
+      {
+        "artifact_id": "artifact:5a4f2ed7675c7e52e47f24a018a0f1f8ec173c2ddc6522be350c4b03c9601c3c",
+        "revision": 1,
+        "digest": "sha256:32982e3fccd20a709cd53e400d2cfc865cf1b0afd84330ae8a809951b06173b1"
+      },
+      {
+        "artifact_id": "artifact:1398054130a6060d2f8b53283d6c353fb9fdac7739ec9caefd952a109a0bc21c",
+        "revision": 1,
+        "digest": "sha256:8527bbec874803c8b80d0317fdb50d82cbaf30715c1f59648fa6ad5a5cfb3ce7"
+      }
+    ],
+    "assessments": [
+      {
+        "candidate_digest": "sha256:8318056adc8521e313fbd25064bf3a88bf451a308e8f69e4f4c434668be01b57",
+        "fresh": true,
+        "gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "ui: Model profile unavailable; independent model not established",
+            "ux: Model profile unavailable; independent model not established"
+          ],
+          "gate": "review",
+          "status": "warnings",
+          "suggested_next": "continue"
+        },
+        "protocol": "w6-assessment/1",
+        "report_digests": {
+          "product_ui_report": "sha256:32982e3fccd20a709cd53e400d2cfc865cf1b0afd84330ae8a809951b06173b1",
+          "product_ux_report": "sha256:8527bbec874803c8b80d0317fdb50d82cbaf30715c1f59648fa6ad5a5cfb3ce7"
+        },
+        "report_refs": {
+          "product_ui_report": {
+            "artifact_id": "artifact:5a4f2ed7675c7e52e47f24a018a0f1f8ec173c2ddc6522be350c4b03c9601c3c",
+            "digest": "sha256:32982e3fccd20a709cd53e400d2cfc865cf1b0afd84330ae8a809951b06173b1",
+            "revision": 1
+          },
+          "product_ux_report": {
+            "artifact_id": "artifact:1398054130a6060d2f8b53283d6c353fb9fdac7739ec9caefd952a109a0bc21c",
+            "digest": "sha256:8527bbec874803c8b80d0317fdb50d82cbaf30715c1f59648fa6ad5a5cfb3ce7",
+            "revision": 1
+          }
+        },
+        "stage": "product"
+      }
+    ],
+    "receipt_candidate_digests": [
+      "sha256:8318056adc8521e313fbd25064bf3a88bf451a308e8f69e4f4c434668be01b57"
+    ]
+  },
+  "native_commits": 1,
+  "actual_browser": false,
+  "actual_llm_sessions": 0,
+  "live_sessions": [],
+  "upstream_bytes_unchanged": true,
+  "cleaned": true
+}

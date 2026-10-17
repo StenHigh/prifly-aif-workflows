@@ -1,0 +1,35 @@
+{
+  "observation": {
+    "code": "capacity_conflict",
+    "held_by_w6_reader": "attempt:f03e1ec47584ad3ed125f06b6d870987",
+    "before": {
+      "available": 0,
+      "capacity": 1,
+      "held": {
+        "attempt:f03e1ec47584ad3ed125f06b6d870987": "run:8ff6505ad38b988d3200157b0cfa14106f3ac5e3680466a1559a6b15f018cd31"
+      },
+      "resources": {},
+      "schema_version": "1",
+      "waiting": {},
+      "would_refuse": "capacity_conflict"
+    },
+    "after": {
+      "available": 0,
+      "capacity": 1,
+      "held": {
+        "attempt:f03e1ec47584ad3ed125f06b6d870987": "run:8ff6505ad38b988d3200157b0cfa14106f3ac5e3680466a1559a6b15f018cd31"
+      },
+      "resources": {},
+      "schema_version": "1",
+      "waiting": {
+        "run:4cd6a06cfb913ffbfc5a25c6315956d70105f7a939b2b3445a270f67f308e8c3": 11
+      },
+      "would_refuse": "capacity_conflict"
+    },
+    "queued_run_id": "run:4cd6a06cfb913ffbfc5a25c6315956d70105f7a939b2b3445a270f67f308e8c3",
+    "queued_attempts": 0,
+    "recipe_increased_capacity": false
+  },
+  "parent_boundary": "Paused at its W6 reader; both controlled Runs cancelled/settled for cleanup. No fairness/completion claim for concurrent Runs.",
+  "cleaned": true
+}

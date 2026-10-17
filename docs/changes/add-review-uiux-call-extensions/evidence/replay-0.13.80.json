@@ -1,0 +1,240 @@
+[
+  {
+    "scenario": "prepare-drift",
+    "mode": "review",
+    "consumer": "minimal",
+    "refusal": "project_start_stale_launch",
+    "runs": 0,
+    "cleaned": true
+  },
+  {
+    "scenario": "resume",
+    "mode": "review",
+    "consumer": "minimal",
+    "host": "codex-cli",
+    "outcome": "succeeded",
+    "status": "completed",
+    "runs": 2,
+    "claims": 1,
+    "reports": [
+      {
+        "lens": "review",
+        "candidate": "sha256:2bf502f3bb5cd9c4113ba5748b4378fb35cc590325e4623da0ecb3e4138f0bc6"
+      },
+      {
+        "lens": "review",
+        "candidate": "sha256:13ee9aad6326893dad551e32cde94ab02106e212684ad2fb52f5a1684ca39130"
+      }
+    ],
+    "evidence": {
+      "original_report_refs": [
+        {
+          "artifact_id": "artifact:02dd05aad6c5c5176a88af78dcffc88d76af75bf4bf9bf9d2bb67cdcbb36d7e0",
+          "revision": 1,
+          "digest": "sha256:ed65b8ba20a8ef01d0fb5707dd363fb7c4cedf2333e14124d3fc6275a4ac6bc5"
+        },
+        {
+          "artifact_id": "artifact:f3389f0b99c1599f6c16d45fc66980ba36fc9692f65acf54e9867c90897033e1",
+          "revision": 1,
+          "digest": "sha256:730ddd02aea71ca35b04fce8486a3d10f532c18fda4612f8ed8b0b2118ba8adc"
+        }
+      ],
+      "assessments": [
+        {
+          "candidate_digest": "sha256:2bf502f3bb5cd9c4113ba5748b4378fb35cc590325e4623da0ecb3e4138f0bc6",
+          "fresh": true,
+          "gate": {
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "acceptance: Fixture dependency or defect",
+              "Model profile unavailable; independent model not established"
+            ],
+            "gate": "review",
+            "status": "blocked",
+            "suggested_next": "continue"
+          },
+          "protocol": "w6-assessment/1",
+          "report_digests": {
+            "review_report": "sha256:ed65b8ba20a8ef01d0fb5707dd363fb7c4cedf2333e14124d3fc6275a4ac6bc5"
+          },
+          "report_refs": {
+            "review_report": {
+              "artifact_id": "artifact:02dd05aad6c5c5176a88af78dcffc88d76af75bf4bf9bf9d2bb67cdcbb36d7e0",
+              "digest": "sha256:ed65b8ba20a8ef01d0fb5707dd363fb7c4cedf2333e14124d3fc6275a4ac6bc5",
+              "revision": 1
+            }
+          },
+          "stage": "review"
+        },
+        {
+          "candidate_digest": "sha256:13ee9aad6326893dad551e32cde94ab02106e212684ad2fb52f5a1684ca39130",
+          "fresh": true,
+          "gate": {
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "Model profile unavailable; independent model not established"
+            ],
+            "gate": "review",
+            "status": "warnings",
+            "suggested_next": "continue"
+          },
+          "protocol": "w6-assessment/1",
+          "report_digests": {
+            "review_report": "sha256:730ddd02aea71ca35b04fce8486a3d10f532c18fda4612f8ed8b0b2118ba8adc"
+          },
+          "report_refs": {
+            "review_report": {
+              "artifact_id": "artifact:f3389f0b99c1599f6c16d45fc66980ba36fc9692f65acf54e9867c90897033e1",
+              "digest": "sha256:730ddd02aea71ca35b04fce8486a3d10f532c18fda4612f8ed8b0b2118ba8adc",
+              "revision": 1
+            }
+          },
+          "stage": "review"
+        }
+      ],
+      "receipt_candidate_digests": [
+        "sha256:13ee9aad6326893dad551e32cde94ab02106e212684ad2fb52f5a1684ca39130"
+      ]
+    },
+    "native_commits": 1,
+    "actual_browser": false,
+    "actual_llm_sessions": 0,
+    "live_sessions": [],
+    "upstream_bytes_unchanged": true,
+    "cleaned": true
+  },
+  {
+    "scenario": "resume",
+    "mode": "uiux",
+    "consumer": "classic",
+    "host": "codex-cli",
+    "outcome": "succeeded",
+    "status": "completed",
+    "runs": 2,
+    "claims": 1,
+    "reports": [
+      {
+        "lens": "ui",
+        "candidate": "sha256:f0790ba62c16b22c4ae138c276b743d90be562ba9122364d8361cb079c13f63f"
+      },
+      {
+        "lens": "ux",
+        "candidate": "sha256:f0790ba62c16b22c4ae138c276b743d90be562ba9122364d8361cb079c13f63f"
+      },
+      {
+        "lens": "ui",
+        "candidate": "sha256:09599a5e20f98cfacda8436229be1084cd4b4e77525cf7b842cbb53435a5985d"
+      },
+      {
+        "lens": "ux",
+        "candidate": "sha256:09599a5e20f98cfacda8436229be1084cd4b4e77525cf7b842cbb53435a5985d"
+      }
+    ],
+    "evidence": {
+      "original_report_refs": [
+        {
+          "artifact_id": "artifact:4cb9e1d3c0e463b59f694724524428f28b7eb4e993cd548b27b52a8e4103c6ec",
+          "revision": 1,
+          "digest": "sha256:22be3297c08e1af34ade5c90705e8ad58dc09a4ce4154d233c4adb4fa7dc73ef"
+        },
+        {
+          "artifact_id": "artifact:ed2f0062e2bf69f42a302d61501a502ba04e91f188de616454f45290c953d0e0",
+          "revision": 1,
+          "digest": "sha256:6be9e1c9b6aeec67d0b33abba2ddb9b3b4998adf357b865458850cce026da6fd"
+        },
+        {
+          "artifact_id": "artifact:388fe36e7167cd96b57708e597820ec5a0145cc422fff264d8c9f6f6ab3eddc8",
+          "revision": 1,
+          "digest": "sha256:fada4dabf27b224740ae3e8b047ec326a5b0d7ea942266b3fcc10797cb59adfa"
+        },
+        {
+          "artifact_id": "artifact:ecd0bbe103c2285a03bfea029faf0ae50e49b9af87feddff6ec07db4b68e7454",
+          "revision": 1,
+          "digest": "sha256:5996fe0f8c0616e96aabf9dcadadbe0c2ec53695c47bc1ad0c7945bb58677365"
+        }
+      ],
+      "assessments": [
+        {
+          "candidate_digest": "sha256:f0790ba62c16b22c4ae138c276b743d90be562ba9122364d8361cb079c13f63f",
+          "fresh": true,
+          "gate": {
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "Environment unavailable: Required fixture environment unavailable",
+              "ui: ui_acceptance: Required fixture environment unavailable",
+              "ui: Model profile unavailable; independent model not established",
+              "ux: ux_acceptance: Required fixture environment unavailable",
+              "ux: Model profile unavailable; independent model not established"
+            ],
+            "gate": "review",
+            "status": "blocked",
+            "suggested_next": "continue"
+          },
+          "protocol": "w6-assessment/1",
+          "report_digests": {
+            "product_ui_report": "sha256:22be3297c08e1af34ade5c90705e8ad58dc09a4ce4154d233c4adb4fa7dc73ef",
+            "product_ux_report": "sha256:6be9e1c9b6aeec67d0b33abba2ddb9b3b4998adf357b865458850cce026da6fd"
+          },
+          "report_refs": {
+            "product_ui_report": {
+              "artifact_id": "artifact:4cb9e1d3c0e463b59f694724524428f28b7eb4e993cd548b27b52a8e4103c6ec",
+              "digest": "sha256:22be3297c08e1af34ade5c90705e8ad58dc09a4ce4154d233c4adb4fa7dc73ef",
+              "revision": 1
+            },
+            "product_ux_report": {
+              "artifact_id": "artifact:ed2f0062e2bf69f42a302d61501a502ba04e91f188de616454f45290c953d0e0",
+              "digest": "sha256:6be9e1c9b6aeec67d0b33abba2ddb9b3b4998adf357b865458850cce026da6fd",
+              "revision": 1
+            }
+          },
+          "stage": "product"
+        },
+        {
+          "candidate_digest": "sha256:09599a5e20f98cfacda8436229be1084cd4b4e77525cf7b842cbb53435a5985d",
+          "fresh": true,
+          "gate": {
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "ui: Model profile unavailable; independent model not established",
+              "ux: Model profile unavailable; independent model not established"
+            ],
+            "gate": "review",
+            "status": "warnings",
+            "suggested_next": "continue"
+          },
+          "protocol": "w6-assessment/1",
+          "report_digests": {
+            "product_ui_report": "sha256:fada4dabf27b224740ae3e8b047ec326a5b0d7ea942266b3fcc10797cb59adfa",
+            "product_ux_report": "sha256:5996fe0f8c0616e96aabf9dcadadbe0c2ec53695c47bc1ad0c7945bb58677365"
+          },
+          "report_refs": {
+            "product_ui_report": {
+              "artifact_id": "artifact:388fe36e7167cd96b57708e597820ec5a0145cc422fff264d8c9f6f6ab3eddc8",
+              "digest": "sha256:fada4dabf27b224740ae3e8b047ec326a5b0d7ea942266b3fcc10797cb59adfa",
+              "revision": 1
+            },
+            "product_ux_report": {
+              "artifact_id": "artifact:ecd0bbe103c2285a03bfea029faf0ae50e49b9af87feddff6ec07db4b68e7454",
+              "digest": "sha256:5996fe0f8c0616e96aabf9dcadadbe0c2ec53695c47bc1ad0c7945bb58677365",
+              "revision": 1
+            }
+          },
+          "stage": "product"
+        }
+      ],
+      "receipt_candidate_digests": [
+        "sha256:09599a5e20f98cfacda8436229be1084cd4b4e77525cf7b842cbb53435a5985d"
+      ]
+    },
+    "native_commits": 1,
+    "actual_browser": false,
+    "actual_llm_sessions": 0,
+    "live_sessions": [],
+    "upstream_bytes_unchanged": true,
+    "cleaned": true
+  }
+]

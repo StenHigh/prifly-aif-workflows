@@ -18,8 +18,16 @@
   сохранение /3 и /4 profile; /2→/3. Minimal authored consumer и classic opt-in;
   canonical classic/profiled и все8 shipping trees равны v1.53.0, versions/tag
   прежние. Docs/examples/release guide обновлены. Worker scheduling не эмулируется.
-  Verify126/83/8, compatibility5/4/4, static gates/unit10, compile18 PASS;
-  native failures/continuations и final CI фиксируются в W6 acceptance/evidence.
+  Verify126/83/8, compatibility5/4/4, static gates/unit10, compile18/refusals8,
+  native27 и Core51 PASS. Full exact-SHA CI39038596555 SUCCESS на
+  f4e40e79f39dc72bc6251ab8f97b3bd7a4134e47: verify/parallel-ui-ux/call-review-uiux.
+  Direct supplemental cancel→continue2, admission/running timeout2, own limits/
+  permissions7, storage8MiB refusal/prefix10 preserved и capacity1 queue PASS.
+  Budget recovery64MiB выполнял только controlled owner во временном стенде;
+  реальные budgets/server не менялись. Results в W6 acceptance/evidence.
+  Пакетная часть W6 завершена в описанном isolated sequential scope; docs/evidence
+  follow-up не меняет implementation bytes. Private stacks/model/parallel
+  admission остаются отдельной qualification по README, не автоматическим PASS.
   Scoped actual combined classic PASS:3 fresh Codex CLI reader sessions,
   actual unittest/Chromium+screenshots,1 Run/claim/local commit, owned cleanup.
   Writer/classic gates synthetic; separate model не аттестована, private
@@ -62,9 +70,9 @@
   Проектные runner files/workflow config и owner storage budgets не менялись.
   Все8 package trees равны v1.53.0, classic/profiled не трогали; package bump/tag
   не требуется. Evidence engine/release-0.13.79.md и -results.json.
-  W1–W5 выпущены в прежнем qualified scope; E1/E2 есть в stable77. W6 всё ещё
-  planned, но supporting E5 stable теперь есть и native probes пройдены:
-  next — project review/UIUX recipes и независимая consumer приёмка. Issue#9
+  W1–W5 выпущены в прежнем qualified scope; E1/E2 есть в stable77. На момент
+  этой engine-сверки W6 была planned; её последующая реализация и consumer
+  qualification теперь зафиксированы в текущем W6-блоке выше. Issue#9
   пока OPEN; release capability подтверждена независимо. E3 writer cancel,
   прочие hosts/models/private consumers deferred. W5 frontend1–3 прежние;
   4–8 не стали qualified из-за storage API, budget silently не повышается.
