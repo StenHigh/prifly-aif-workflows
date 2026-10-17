@@ -1,9 +1,13 @@
 # E5 — Вложенные workflow через project extend
 
-Статус: **open**, [Pri-Fly #9](https://github.com/StenHigh/prifly/issues/9). Приоритет P1; supporting stable
-ещё нет (проверен0.13.77). Пакетный follow-up: [W6](../add-review-uiux-call-extensions/proposal.md).
-Ниже сохранён опубликованный issue body; предложенный syntax не является
-поддерживаемой конфигурацией0.13.77.
+Статус capability: **выпущена в stable0.13.78, native probes51 PASS на0.13.79**.
+[Pri-Fly #9](https://github.com/StenHigh/prifly/issues/9) пока OPEN; Core handoff
+и release подтверждают доступность. [Сверка/результаты](release-0.13.79.md).
+Пакетный follow-up: [W6](../add-review-uiux-call-extensions/proposal.md), реализация
+и consumer qualification ещё впереди. Ниже сохранён исходный issue body на базе
+0.13.77: его предложенный syntax не является текущим справочником. Реальный
+контракт — marker `prifly-extension/2`, Project profile `/3` и local call refs;
+см. [released handoff](https://github.com/StenHigh/prifly/blob/v0.13.79/openspec/changes/archive/2026-10-17-add-project-extension-native-call/handoff-w6.md).
 
 ## Проблема
 

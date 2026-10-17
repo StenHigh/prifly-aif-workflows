@@ -1,6 +1,7 @@
 # W6 — работы
 
-Статус: документы подготовлены; реализация не начата. Engine prerequisite:
+Статус: ready for implementation, реализация не начата. Engine prerequisite
+выполнен на released0.13.79; [gates/51 probes](../engine/release-0.13.79.md).
 [E5 / Pri-Fly #9](https://github.com/StenHigh/prifly/issues/9).
 
 ## До выпуска E5
@@ -8,14 +9,14 @@
 - [x] Проверить latest stable0.13.77 и existing native call vs step-only extend.
 - [x] Открыть отдельный engine issue с generic контрактом/negative cases.
 - [x] Описать dependency graph, scope, W6-A1–A10 и план qualification.
-- [ ] Уточнить по принятому Core design syntax/resolution/outputs/host exposure;
-  уточнение документов не означает доступность capability на stable.
+- [x] Перечитать released Core handoff: extension/2 + Project/3, exact local
+  closure, typed inputs/exports/outcomes, native replay и updated host guidance.
 
 ## Gate открытия реализации
 
-- [ ] Дождаться stable с E5, перечитать каждую пропущенную версию по AGENTS.md.
-- [ ] Зафиксировать official binary/hash, пройти verify/compatibility и native
-  E5 positive/negative probes. Решить blockers, только затем начать adapters (A1).
+- [x] Supporting stable0.13.78+ выпущен; прочитаны0.13.78 и0.13.79 по AGENTS.md.
+- [x] Зафиксировать official0.13.79/hash, пройти verify/compatibility и native
+  E5 corpus51. Engine prerequisites (A1) подтверждены; consumer A2–A10 впереди.
 
 ## Пакетная реализация
 

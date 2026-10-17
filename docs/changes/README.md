@@ -1,9 +1,9 @@
 # План изменений workflow после сравнения с Software Factory
 
-Дата: 2026-10-16. W1–W3: **committed/pushed, CI PASS**, с отдельными live observations;
+Дата: 2026-10-17. W1–W3: **committed/pushed, CI PASS**, с отдельными live observations;
 W4: **committed/pushed, pilot qualified, CI PASS**; W5: **пакетная часть завершена, scoped qualification и final CI PASS; v1.52.0**.
 Пакеты включены в [выпуск v1.52.0](../releases/v1.52.0.md). Актуальная база совместимости: released Pri-Fly
-**0.13.77**, выпуск репозитория **v1.53.0**. Прежние CI/live evidence на
+**0.13.79**, выпуск репозитория **v1.53.0**. Прежние CI/live evidence на
 0.13.76 остаются историческими; повторная проверка нового stable записана отдельно.
 
 В этом репозитории нет инициализированного OpenSpec-проекта. Change хранятся
@@ -18,7 +18,9 @@ W4: **committed/pushed, pilot qualified, CI PASS**; W5: **пакетная ча�
 [OpenClaw test audit](add-standalone-test-audit/proposal.md) — самостоятельный
 `openclaw-test-audit@1.0.0` в [v1.53.0](../releases/v1.53.0.md), без AI Factory
 skills и автоматических вставок в другие workflow. Восемь пакетов репозитория
-проверены на 0.13.77; семь прежних сохраняют bytes/версии v1.52.0.
+повторно проверены на0.13.79 (compile/compatibility/contracts); runtime/live
+evidence сохраняют исходную версию. [Результаты сверки](engine/release-0.13.79.md).
+Семь прежних сохраняют bytes/версии v1.52.0.
 
 | ID | Приоритет | Change | Зависимости | Статус |
 |---|---|---|---|---|
@@ -27,7 +29,7 @@ skills и автоматических вставок в другие workflow. 
 | W3 | P1 | [Короткий workflow для фич](add-bounded-feature-workflow/proposal.md) | W1; W2 для интерфейсного профиля | committed/pushed, CI + live PASS; forced writer cancel deferred / v1.52.0 |
 | W4 | P1/P2 | [Приёмка перед интеграцией](document-verified-integration-handoff/proposal.md) | W1; проектный интегратор, #1 при GitLab | committed/pushed, pilot qualified, CI PASS; real provider limits / v1.52.0 |
 | W5 | P2 | [Квалификация параллельного ревью](qualify-parallel-implementation-review/proposal.md) | W1, W2, W3; сначала последовательная приёмка | backend opt-in/adapter d515a85; UI/UX qualification0bdc632: local17/CI job PASS для isolated stand, shared limit1 sequential; frontend1.2.3: CLI4 sessions PASS; native1–3 rounds qualified,4–8 refused before writers; final UI/UX35/unit16 и полный exact-SHA CI38848759987 PASS; пакетная часть завершена в указанном scope; App/Claude unqualified / v1.52.0 |
-| W6 | P1 после E5 | [Review/UI/UX через call extensions](add-review-uiux-call-extensions/proposal.md) | E5 / Pri-Fly #9 в released stable; W1, W2; W3 regression boundary | planned; blocked on released E5; без реализации и правок classic/profiled |
+| W6 | P1 после E5 | [Review/UI/UX через call extensions](add-review-uiux-call-extensions/proposal.md) | E5 stable0.13.78+ (probes51 PASS на0.13.79); W1, W2; W3 regression boundary | ready for implementation; consumer qualification не выполнена; classic/profiled неизменны |
 
 Каждый change выпускается отдельно с собственным bump изменённых компонентов,
 пакета и зависимых workflow по действующим правилам. Версии здесь не назначены:
@@ -84,15 +86,17 @@ W1–W4 не зависят от E1/E2. Не добавляем обязател
   или исправленным placement on_error. См. [повторную квалификацию](qualify-parallel-implementation-review/release-0.13.77.md).
 
 - [E5: Pri-Fly #9 — nested workflow call через extend](https://github.com/StenHigh/prifly/issues/9),
-  [сохранённый issue body](engine/E5-nested-workflow-extensions.md): open, P1.
-  Native call уже есть; требуется именно call-extension authoring/resolution.
-  Пакетное подключение — отдельный W6, ждёт supporting stable и qualification.
+  [сохранённый issue body](engine/E5-nested-workflow-extensions.md): capability
+  выпущена в stable0.13.78, проверена E5 corpus51 на0.13.79. Issue пока OPEN;
+  Core handoff готов. W6 ждёт реализации project recipes/consumer qualification,
+  engine release больше не блокирует. [Результаты](engine/release-0.13.79.md).
 
-В Pri-Fly 0.13.77 есть monitor с доской, native project queue, title задачи, `parallel`/join, ресурсы,
-model-profile reports и одна типизированная привязка входа extension. Не
-заказывать эти возможности повторно. Сложные repeat/parallel и более одной
-привязки пишутся явным графом. Несовпадение наших старых комментариев о полном запрете inputs с actual stable
-разъясняется отдельным guide W4; эталонные templates не правятся.
+В Pri-Fly0.13.77 уже есть monitor board, native queue, title, `parallel`/join,
+resources/model-profile reports и одна typed input binding legacy step extension.
+С0.13.78 call extension допускает несколько typed bindings и exports; сложный
+quality/repeat/parallel остаётся явно authored child graph. Эти возможности
+повторно не заказываем. Старые ограничения0.13.77 — историческая база;
+legacy step и новые call extensions различаются. Эталонные templates не правятся.
 
 ## Источники
 

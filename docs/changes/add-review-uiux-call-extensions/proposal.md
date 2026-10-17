@@ -1,18 +1,20 @@
 # W6 — Подключение review/UI/UX через вложенные workflow в extend
 
-Статус: **planned; реализация и qualification ждут released E5**.
-Приоритет: **P1 после E5**. Дата: 2026-10-16. База проверки: Pri-Fly0.13.77,
-пакеты v1.52.0 (review-evidence1.0.0, ui-ux1.0.0, feature1.2.3).
+Статус: **ready for implementation; supporting stable E5 и native probes подтверждены**.
+Пакетные recipes и consumer qualification ещё не реализованы.
+Приоритет: **P1**. Обновлено: 2026-10-17. База проверки: Pri-Fly0.13.79,
+пакеты v1.53.0 (review-evidence1.0.0, ui-ux1.0.0, feature1.2.3 unchanged).
+[Prerequisite evidence](../engine/release-0.13.79.md): official binary, gates и51 E5 probes.
 Текущая задача создаёт документы, без executable изменений, bump, tag или публикации пакетов.
 
 ## Проблема и результат
 
 Пользователю нужна review/UI/UX-приёмка внутри своего workflow, в том же Run и
 на том же candidate. Отдельные standalone launches не связывают её автоматически
-с родительскими guards/commit. В v0.13.77 authored `kind: call` уже есть, но
-project extend вставляет только step; готового call-extension recipe нет.
+с родительскими guards/commit. Исторически в v0.13.77 project extend вставлял только step.
+С0.13.78 поддержан native call-extension, но наших consumer recipes ещё нет.
 
-После выпуска E5 предоставить project-owned adapters и документированные
+Предоставить project-owned adapters поверх released E5 и документированные
 рецепты трёх подключений: review evidence, sequential UI/UX, review→UI/UX.
 Отчёты, точный gate и cleanup влияют на продолжение родителя. Подключение
 явно выбирает проект; default существующих workflow не меняется.
@@ -22,7 +24,8 @@ project extend вставляет только step; готового call-exten
 1. **E5 / [Pri-Fly #9](https://github.com/StenHigh/prifly/issues/9)**: native call через extend, typed multiple inputs,
    exact callee refs, outputs/outcomes и continuation. Gate открытия реализации:
    capability опубликована в stable и необходимые native positive/negative
-   probes пройдены. Closed issue или dev binary недостаточны.
+   probes пройдены. Gate выполнен на0.13.79: E5 corpus51 PASS. Closed issue
+   или dev binary сами по себе недостаточны.
 2. **[W1](../add-explicit-review-evidence/proposal.md)**: request/candidate/report/
    gate и explicit coverage. Published1.0.0 — исходная база переиспользования.
 3. **[W2](../add-ui-ux-review-components/proposal.md)**: sequential UI/UX,

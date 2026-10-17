@@ -4,13 +4,21 @@
 
 У root graph и project extension разные authoring contracts. Существующий
 `kind: call` достаточен для собственного authored consumer; для вставки в
-установленный classic нужен released E5. Дочерний workflow исполняется native
+установленный classic нужен released E5 (есть с0.13.78;51 native probes
+повторены на0.13.79). Дочерний workflow исполняется native
 внутри parent Run, с явными input/output refs. Worker не эмулирует scheduler.
 
 Первый scope — последовательный review и UI/UX. W5 helper и parallel grants
 не подключаются автоматически, независимые модели не подразумеваются.
 
 ## Bundle и зависимости
+
+Released contract: Project profile `/3`, `authoring: prifly-extension/2`,
+ровно один `step` или `call` в extension. Call target — short name единственного
+local WorkflowRevision в той же folder inventory. Multiple typed inputs,
+public exports/outcomes и optional on_error описаны в Core handoff. Standalone
+`project extend` остаётся step utility; call компилируется folder inventory.
+Наш bundle/producer/placement ещё требует отдельной реализации и проверки.
 
 Предпочтительный результат — examples с project-owned integration files и
 проверенным способом разрешения W1/W2 компонентов. Точный layout/refs определить

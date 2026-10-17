@@ -6,9 +6,30 @@
 движка 0.10–0.13.54, переход на AI Factory 2.19.0, WorkflowRevision v4) —
 в git: `git show d388b92:CONTEXT_STATE.md` (2330 строк, оглавление — `mdq tree`).
 
-## Состояние на 2026-10-16
+## Состояние на 2026-10-17
 
-Ворота выверены против выпущенного Pri-Fly `v0.13.77`.
+Ворота выверены против выпущенного Pri-Fly `v0.13.79`.
+
+- **Pri-Fly0.13.79 / сервер и remaining plan (2026-10-17):**
+  Прочитаны releases0.13.78/79: claim scan#8, owner-reviewed finite storage
+  recovery#7 (write storage10), native Call extensions#9/profile3/extension2,
+  exact local closure/typed inputs/exports/replay и updated runner guidance.
+  0.13.79 runtime прежний относительно78; scoped Core Codex app/CLI accepted,
+  Claude live и consumer W6/browser этим не квалифицированы. Official binary
+  SHA256d19a97274675f5762d45c550865183d28c30af545cca4c1de35a3fae5c202443.
+  Version/folder/derive, verify126/83/8, compatibility5/4/4/core-state41,
+  integration/backend/UIUX/audit contracts PASS; public E5 corpus51 PASS.
+  Серверный managed CLI signed update0.13.76→0.13.79; old binary backed up,
+  оба monitor перезапущены, HTTP200 и executable hashes совпадают с release.
+  Проектные runner files/workflow config и owner storage budgets не менялись.
+  Все8 package trees равны v1.53.0, classic/profiled не трогали; package bump/tag
+  не требуется. Evidence engine/release-0.13.79.md и -results.json.
+  W1–W5 выпущены в прежнем qualified scope; E1/E2 есть в stable77. W6 всё ещё
+  planned, но supporting E5 stable теперь есть и native probes пройдены:
+  next — project review/UIUX recipes и независимая consumer приёмка. Issue#9
+  пока OPEN; release capability подтверждена независимо. E3 writer cancel,
+  прочие hosts/models/private consumers deferred. W5 frontend1–3 прежние;
+  4–8 не стали qualified из-за storage API, budget silently не повышается.
 
 - **Документация и runnable examples OpenClaw audit (2026-10-16):**
   По напоминанию владельца AGENTS.md закрепляет docs/examples в той же задаче.

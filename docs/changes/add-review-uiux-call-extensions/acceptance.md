@@ -1,7 +1,9 @@
 # W6 — план qualification
 
-Статус: **не выполнялась**, supporting stable ещё не выпущен. Это будущая
-матрица, а не PASS. Проверенная база0.13.77 имеет step-only extend.
+Статус: **consumer qualification не выполнялась**. Prerequisite A1 подтверждён:
+released0.13.79, verify/compatibility/contracts и E5 corpus51 PASS
+([evidence](../engine/release-0.13.79.md)). Ниже будущая consumer matrix, а не PASS
+A2–A10. Историческая неподдерживающая база0.13.77 остаётся step-only extend.
 
 | Группа | Обязательные наблюдения | Критерии |
 | --- | --- | --- |
