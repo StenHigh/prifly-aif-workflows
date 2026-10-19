@@ -1,0 +1,56 @@
+{
+  "schema_version": "engine-release-consumer-ci/1",
+  "checked_at": "2026-10-19T16:26:45.931978+00:00",
+  "run": {
+    "conclusion": "",
+    "createdAt": "2026-10-19T16:19:06Z",
+    "headSha": "63788337e9c1d375f73424b4d71c47bdc7339e4c",
+    "jobs": [
+      {
+        "completedAt": "0001-01-01T00:00:00Z",
+        "conclusion": "",
+        "databaseId": 118166472791,
+        "name": "verify",
+        "startedAt": "2026-10-19T16:19:06Z",
+        "status": "queued",
+        "steps": [],
+        "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/39284492475/job/118166472791"
+      },
+      {
+        "completedAt": "0001-01-01T00:00:00Z",
+        "conclusion": "",
+        "databaseId": 118166473065,
+        "name": "parallel-ui-ux",
+        "startedAt": "2026-10-19T16:19:06Z",
+        "status": "queued",
+        "steps": [],
+        "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/39284492475/job/118166473065"
+      },
+      {
+        "completedAt": "0001-01-01T00:00:00Z",
+        "conclusion": "",
+        "databaseId": 118166473247,
+        "name": "call-review-uiux",
+        "startedAt": "2026-10-19T16:19:06Z",
+        "status": "queued",
+        "steps": [],
+        "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/39284492475/job/118166473247"
+      }
+    ],
+    "status": "queued",
+    "updatedAt": "2026-10-19T16:19:06Z",
+    "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/39284492475"
+  },
+  "qualification_status": "pending_ci",
+  "local_qualification": "PASS; see release-0.13.81-results.json",
+  "ci_tests_executed": false,
+  "external_service": {
+    "source": "https://www.githubstatus.com/api/v2/summary.json",
+    "observed_updated_at": "2026-10-19T16:21:22.658Z",
+    "actions_status": "degraded_performance",
+    "incident_url": "https://stspg.io/nrv2k8s68bwn",
+    "incident_name": "Degraded availability for GitHub Actions, GitHub Pages and Webhooks",
+    "incident_status": "investigating"
+  },
+  "boundary": "No green CI result or artifact exists yet. E3 final CI acceptance remains open. Do not treat local qualification as remote CI."
+}

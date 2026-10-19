@@ -416,7 +416,15 @@
       "registry_entries_removed": 1
     }
   },
-  "ci": "Not run for current local test adaptation. Previous consumer CI39250210672 was on0.13.80 and is historical.",
+  "ci": {
+    "status": "queued",
+    "conclusion": null,
+    "head_sha": "63788337e9c1d375f73424b4d71c47bdc7339e4c",
+    "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/39284492475",
+    "evidence": "release-0.13.81-ci-results.json",
+    "final_acceptance": "pending",
+    "note": "All three jobs await runners during an official GitHub Actions incident; no CI tests executed. Historical CI39250210672 on0.13.80 is not evidence for this adaptation."
+  },
   "adoption": {
     "immediate": "Update obsolete negative E3 assertions to positive recovery; authoring YAML and package bytes unchanged.",
     "deferred": "Light capability advertised by0.13.81 and present in help. Project projection, browser/domain acceptance and rollout remain separate E6 work; issue11 remains OPEN."

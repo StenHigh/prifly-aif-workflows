@@ -10,7 +10,7 @@
 
 Ворота выверены против выпущенного Pri-Fly `v0.13.81`.
 
-- **E3 — исправление принято на released0.13.81 (2026-10-19):**
+- **E3 — локальная квалификация PASS на released0.13.81; финальный CI ожидается (2026-10-19):**
   Pri-Fly#13 CLOSED; новый stable0.13.81/source94b7eb2c прочитан по AGENTS.md.
   Official asset скачан отдельно, archive SHA256 совпал с manifest; binary SHA256
   b2e02b36b2e062aacb4acf2b5cd3a35c0c8aee19379b77c6ff4d5714a22e6f50.
@@ -28,7 +28,13 @@
   Docs/plan/examples обновлены; все8 shipping trees равны v1.53.0, canonical
   classic/profiled и Core/server не менялись. Нового tag/catalog не нужно.
   Release/evidence: docs/changes/engine/release-0.13.81.md и -results.json.
-  Адаптация тестов/документации локальная, remote CI на ней не запускался.
+  Адаптация тестов/документации committed/pushed63788337e9c1d375f73424b4d71c47bdc7339e4c.
+  Remote CI39284492475 пока queued: все3 jobs без runner, тесты не стартовали.
+  GitHub Actions degraded_performance, incident https://stspg.io/nrv2k8s68bwn.
+  Снимок: docs/changes/engine/release-0.13.81-ci-results.json. Финальная CI-приёмка
+  E3 НЕ закрыта. После success всех3 jobs скачать feature-recovery-results,
+  проверить версию/hash и writer/control cases, сохранить evidence и обновить план.
+  Предыдущий зелёный CI39250210672 на80 не подтверждает текущую адаптацию.
   Другой выпуск81 change — Light frontend/flags опубликованы; E6 issue11 ещё
   OPEN, consumer projection/browser/domain rollout отложены отдельным follow-up.
   Никакие реальные runner files, monitor services и домены не обновлялись.

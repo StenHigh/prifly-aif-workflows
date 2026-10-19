@@ -30,7 +30,10 @@ Initial checkpoint — separate package1.0.0. Пакет1.2.3 опубликов
 Consumer positive probes обновлены: inspected resolve→reviewed execute,
 writer+quality replay; occupied partial PLAN сохраняется и явно перемещается
 fixture owner перед recovery от текущего владельца claim.
-[Текущие результаты](../engine/release-0.13.81.md). Все shipping package bytes прежние.
+[Текущие результаты](../engine/release-0.13.81.md). Адаптация pushed6378833;
+local PASS, но финальная CI-приёмка ещё открыта: CI39284492475 queued во время
+официального сбоя GitHub Actions. После зелёного полного прогона сохранить
+feature-recovery-results и обновить статус. Все shipping package bytes прежние.
 Backend actual direct/repair/graceful writer continuation наблюдены; final
 frontend scheduling/explicit-scope qualification и quality continuation PASS;
 final-live-observations.json содержит исходные unedited отчёты и 19 fresh sessions.

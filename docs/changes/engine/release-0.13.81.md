@@ -60,7 +60,14 @@ Verify126 components /83 steps /8 packages PASS; compatibility5 launches /
 
 [Машиночитаемые результаты](release-0.13.81-results.json) содержат binary/source
 hashes, точную адаптацию probe, исходные observations и gate outputs.
-Изменения тестов/документации пока локальные; remote CI на них не запускался.
+Адаптация опубликована в `63788337e9c1d375f73424b4d71c47bdc7339e4c`.
+[CI39284492475](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/39284492475)
+пока **queued**: все3 jobs ожидают runner, проверки ещё не стартовали.
+GitHub сообщает о [сбое Actions](https://stspg.io/nrv2k8s68bwn).
+[Снимок состояния CI](release-0.13.81-ci-results.json) закрепляет commit и время
+проверки. Локальная квалификация PASS; финальная CI-приёмка E3 остаётся открытой.
+После зелёного полного прогона нужно сохранить artifact `feature-recovery-results`,
+подтвердить released binary/version и обновить этот статус.
 Прежний CI39250210672 на0.13.80 сохраняется как исторический результат.
 Новый package tag/catalog release не требуется.
 

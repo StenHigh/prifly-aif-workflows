@@ -26,7 +26,7 @@ evidence сохраняют исходную версию. [Результаты
 |---|---|---|---|---|
 | W1 | P1, первым | [Явные доказательства ревью](add-explicit-review-evidence/proposal.md) | Нет; безопасный baseline обязателен там, где используется | committed/pushed, CI PASS / v1.52.0 |
 | W2 | P1 | [UI/UX-компоненты](add-ui-ux-review-components/proposal.md) | W1; standalone контракт среды из #2 | committed/pushed, CI + fresh CLI PASS; model/consumer limits / v1.52.0 |
-| W3 | P1 | [Короткий workflow для фич](add-bounded-feature-workflow/proposal.md) | W1; W2 для интерфейсного профиля | committed/pushed, CI + live PASS / v1.52.0; E3 writer recovery consumer-qualified на0.13.81, без изменения package |
+| W3 | P1 | [Короткий workflow для фич](add-bounded-feature-workflow/proposal.md) | W1; W2 для интерфейсного профиля | committed/pushed, CI + live PASS / v1.52.0; E3 writer recovery: local PASS на0.13.81; финальный CI39284492475 queued; package прежний |
 | W4 | P1/P2 | [Приёмка перед интеграцией](document-verified-integration-handoff/proposal.md) | W1; проектный интегратор, #1 при GitLab | committed/pushed, pilot qualified, CI PASS; real provider limits / v1.52.0 |
 | W5 | P2 | [Квалификация параллельного ревью](qualify-parallel-implementation-review/proposal.md) | W1, W2, W3; сначала последовательная приёмка | backend opt-in/adapter d515a85; UI/UX qualification0bdc632: local17/CI job PASS для isolated stand, shared limit1 sequential; frontend1.2.3: CLI4 sessions PASS; native1–3 rounds qualified,4–8 refused before writers; final UI/UX35/unit16 и полный exact-SHA CI38848759987 PASS; пакетная часть завершена в указанном scope; App/Claude unqualified / v1.52.0 |
 | W6 | P1 после E5 | [Review/UI/UX через call extensions](add-review-uiux-call-extensions/proposal.md) | E5 stable0.13.78+ (probes51 PASS на0.13.79); W1, W2; W3 regression boundary | project recipes/installer PASS на0.13.80: native27/compile18/refusals8, Core51, direct cancel/timeout/limits/storage/capacity; scoped CLI3 sessions; full exact-SHA CI39038596555 SUCCESS; classic/profiled и shipping8 прежние |
@@ -105,7 +105,10 @@ W1–W4 не зависят от E1/E2. Не добавляем обязател
   ещё не квалифицирован. Claim задачи сам по себе не запускает Run.
 - [E3: Pri-Fly #13 — reviewed recovery отменённого writer](https://github.com/StenHigh/prifly/issues/13),
   [recheck/evidence](add-bounded-feature-workflow/engine-followup.md): CLOSED,
-  исправлен в stable0.13.81 и независимо проверен consumer2026-10-19.
+  исправлен в stable0.13.81 и независимо проверен consumer локально2026-10-19.
+  Адаптация pushed6378833; [CI39284492475](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/39284492475)
+  queued во время официального сбоя GitHub Actions; финальная CI-приёмка открыта.
+  [Точный статус и оставшийся шаг](engine/release-0.13.81.md).
   Implement/not_applied→succeeded; plan/applied→occupied-path guard→explicit
   owner move→succeeded. Source cancellation facts/bytes/claim сохраняются,
   writer и quality повторяются; read-only control succeeded. Старый отказ
