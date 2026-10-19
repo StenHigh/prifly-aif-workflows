@@ -30,8 +30,16 @@
   examples/native-queue даёт intake JSON и opt-in prepare/start/continue/complete;
   docs/index/release guide обновлены, CI regression+artifact добавлены.
   Evidence docs/changes/qualify-native-feature-queue/results.json и acceptance.md.
-  Remote CI текущего изменения ещё не запускался; commit/push/tag/catalog не
-  делались. Реальный проектный пилот ждёт подходящей задачи; private #2/#5,
+  Source679e2a1a9da2a15fdff6e23c8f13d60a0610f9ec committed/pushed в main.
+  Full exact-SHA CI39250210672 SUCCESS: verify/parallel-ui-ux/call-review-uiux;
+  во всех jobs official0.13.80. Downloaded native-feature-queue-results:
+  3 cases /5 Runs PASS, cleanup PASS, binary hash совпадает с local release.
+  CI artifact12187584155; report SHA256
+  8edb7a6515cd87f032130db3aaa5420752f9947f451944c3595fcf02e5023127.
+  Данные в ci-results.json; пакетный CLI-маршрут E1/E2 завершён в указанном scope.
+  Docs/evidence follow-up [skip ci] сохраняет tested code/inputs/CI/package bytes;
+  tag/catalog не требуются, все8 shipping trees прежние относительно v1.53.0.
+  Реальный проектный пилот ждёт подходящей задачи; private #2/#5,
   W4 real provider, actual hosts, E3 и E6 Light остаются отдельными работами.
 
 - **W6 — native review/UIUX через project extend (2026-10-17):**

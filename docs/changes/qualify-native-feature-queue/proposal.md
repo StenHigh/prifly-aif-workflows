@@ -4,6 +4,10 @@
 движка и нового workflow package не требует. Реальный проектный пилот ждёт
 подходящей задачи и этим стендом не заменяется.
 
+Статус: **завершено в указанном CLI scope**, source679e2a1 committed/pushed,
+full exact-SHA CI39250210672 SUCCESS на official0.13.80;
+[приёмка и ограничения](acceptance.md), [CI evidence](ci-results.json).
+
 ## Объём
 
 Через публичный CLI official latest stable Pri-Fly проверить existing

@@ -35,8 +35,11 @@ evidence сохраняют исходную версию. [Результаты
 на official0.13.80:3 cases /5 native Runs, direct/partial/cancelled quality
 continue, точная Task identity/история, fresh reports, idempotent commands и
 явный complete. Full monitor HTTP read PASS, browser/live actors не заявлены.
-Examples/probe/CI добавлены вне shipping packages; локальные ворота PASS,
-remote CI этого изменения ещё не запускался. Это завершает ранее отложенную
+Examples/probe/CI добавлены вне shipping packages; source679e2a1 committed/pushed,
+локальные ворота и [full exact-SHA CI39250210672](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/39250210672)
+PASS (verify/parallel-ui-ux/call-review-uiux). CI artifact подтверждает3 cases /
+5 Runs на official0.13.80; [evidence](qualify-native-feature-queue/ci-results.json).
+Это завершает ранее отложенную
 пакетную CLI-квалификацию E1/E2, не Light и не реальный проектный пилот.
 
 Каждый change выпускается отдельно с собственным bump изменённых компонентов,

@@ -51,9 +51,18 @@ typed outputs, точные monitor evidence bytes/refs, срезы Task/Run ass
 SHA256 из results.json; воспроизводится [probe](../../../tests/probes/feature_queue_check.py).
 Полный ledger не дублируется в git: он повторяет большие Run/intent views.
 
-Regression step и upload JSON добавлены в existing CI. **Remote CI этого
-изменения ещё не запускался**; локальный PASS не является remote CI PASS.
-Новый tag/catalog release не требуется: это examples/docs/tests вне packages.
+Regression step и upload JSON добавлены в existing CI. **Full exact-SHA CI
+[39250210672](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/39250210672)
+SUCCESS** для source `679e2a1a9da2a15fdff6e23c8f13d60a0610f9ec`, committed/pushed
+в main: verify, parallel-ui-ux и call-review-uiux. Во всех jobs установлен
+official0.13.80; скачанный artifact native-feature-queue-results подтверждает
+3 cases /5 Runs PASS и cleanup PASS. Итоговые gates warnings сохраняют честные
+границы synthetic actors. [CI evidence](ci-results.json) хранит GitHub metadata,
+artifact identity/digests, source fingerprints и исходные typed reports/monitor bytes.
+
+Docs/evidence follow-up [skip ci] не меняет tested code/CI/inputs или package
+trees; проверено byte comparison с CI commit. Новый tag/catalog release не
+требуется: это examples/docs/tests вне packages, все8 shipping trees прежние.
 
 Проектный пилот, private environment/baseline adapters (#2/#5), реальные хосты,
 E3 writer cancellation и browser/Light acceptance остаются отдельными задачами.

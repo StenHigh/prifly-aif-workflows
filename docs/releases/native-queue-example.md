@@ -26,5 +26,9 @@ git diff v1.53.0 -- aif-classic aif-profiled aif-fanout aif-fix aif-feature aif-
 [Готовые входы и команды](../../examples/native-queue/README.md),
 [критерии приёмки](../changes/qualify-native-feature-queue/proposal.md),
 [наблюдённые результаты и ограничения](../changes/qualify-native-feature-queue/acceptance.md).
-Локально3 cases /5 Runs и обязательные ворота PASS; remote CI этого изменения
-ещё не запускался.
+Локально3 cases /5 Runs и обязательные ворота PASS. Source679e2a1 опубликован
+в main; [full exact-SHA CI39250210672](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/39250210672)
+SUCCESS (verify/parallel-ui-ux/call-review-uiux), downloaded queue artifact
+подтверждает3 cases /5 Runs на official0.13.80. [CI evidence](../changes/qualify-native-feature-queue/ci-results.json).
+Docs/evidence follow-up [skip ci] сохраняет tested code/inputs/CI/package bytes.
+Новый release/tag/catalog update не нужен: все8 package trees прежние.

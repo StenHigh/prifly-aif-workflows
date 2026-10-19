@@ -25,7 +25,19 @@
     "reproduce": "python3 -B tests/probes/feature_queue_check.py --binary /absolute/released/prifly --report /tmp/aif-feature-queue-results.json"
   },
   "source_git_head": "14b5c5d27265943c7374819ced08909d55f95d72",
-  "remote_ci": "not run for this uncommitted change",
+  "remote_ci": {
+    "status": "completed",
+    "conclusion": "success",
+    "run_id": 39250210672,
+    "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/39250210672",
+    "head_sha": "679e2a1a9da2a15fdff6e23c8f13d60a0610f9ec",
+    "evidence": "ci-results.json",
+    "jobs": {
+      "parallel-ui-ux": "success",
+      "call-review-uiux": "success",
+      "verify": "success"
+    }
+  },
   "source_sha256": {
     "tests/probes/feature_queue_check.py": "6a96543a5d91be22dacc550d5382bf4884c0e6fd5115bcf5837ac5ef1a93fea7",
     "tests/probes/feature_check.py": "67c67436ae170ab4c48ad8657ea255979be670b9150b178bfe05748e1972192e",

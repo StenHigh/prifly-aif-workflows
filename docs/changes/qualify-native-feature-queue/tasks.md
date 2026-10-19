@@ -11,9 +11,12 @@
   пройти обязательные статические ворота и compile/compatibility.
 - [x] Добавить regression step и сохранение JSON результата в existing CI.
 - [x] Сохранить результаты и обновить исходный план/CONTEXT_STATE.
+- [x] Commit/push source679e2a1, принять полный exact-SHA CI39250210672 и
+  скачанный native queue artifact; сохранить CI evidence и финальный статус.
 
-Результат:3 cases /5 Runs, локальный PASS; [приёмка](acceptance.md),
-[evidence](results.json). Remote CI не запускался.
+Результат:3 cases /5 Runs, local и remote CI PASS; [приёмка](acceptance.md),
+[local evidence](results.json), [CI evidence](ci-results.json).
 
-Remote CI будет принят только после наблюдённого прогона конкретного commit;
-локальный PASS не называется CI PASS. Новый tag/catalog release не требуется.
+Full exact-SHA CI39250210672 SUCCESS для679e2a1a9da2a15fdff6e23c8f13d60a0610f9ec:
+verify/parallel-ui-ux/call-review-uiux. Docs/evidence follow-up [skip ci] не меняет
+tested code, inputs, CI и shipping packages. Новый tag/catalog release не требуется.

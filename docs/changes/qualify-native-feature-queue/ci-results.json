@@ -1,0 +1,2182 @@
+{
+  "schema_version": "feature-queue-ci/1",
+  "recorded_on": "2026-10-19",
+  "run": {
+    "conclusion": "success",
+    "createdAt": "2026-10-19T12:12:08Z",
+    "databaseId": 39250210672,
+    "event": "push",
+    "headBranch": "main",
+    "headSha": "679e2a1a9da2a15fdff6e23c8f13d60a0610f9ec",
+    "jobs": [
+      {
+        "completedAt": "2026-10-19T12:26:19Z",
+        "conclusion": "success",
+        "databaseId": 118051876714,
+        "name": "parallel-ui-ux",
+        "startedAt": "2026-10-19T12:12:11Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install Pri-Fly from the latest stable release",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Parallel UI and UX qualification retains the W2 contracts on three hosts",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-node@v4",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install the exact browser fixture tool",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Parallel UI and UX browser isolation, owned cleanup and whole-round recovery",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Sealed frontend grants, provenance and cleanup boundaries",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Whole feature UI and UX sessions, admission and lifecycle",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/setup-node@v4",
+            "number": 17,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 18,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 19,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/39250210672/job/118051876714"
+      },
+      {
+        "completedAt": "2026-10-19T12:15:35Z",
+        "conclusion": "success",
+        "databaseId": 118051876862,
+        "name": "call-review-uiux",
+        "startedAt": "2026-10-19T12:12:11Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install latest stable Pri-Fly",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Prepare project example tools",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Project install, original source and freshness contracts",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-node@v4",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install sealed browser fixture",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Native calls, original artifacts, browser and continuation",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/setup-node@v4",
+            "number": 17,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 18,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 19,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/39250210672/job/118051876862"
+      },
+      {
+        "completedAt": "2026-10-19T13:02:21Z",
+        "conclusion": "success",
+        "databaseId": 118051876928,
+        "name": "verify",
+        "startedAt": "2026-10-19T12:12:11Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install Pri-Fly from the latest stable release",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Released versions moved with the bytes",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Static folder contract",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Explicit review coverage and dirty candidate identity",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Test audit selection, evidence coverage and candidate freshness",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Product review coverage and owned environment lifecycle",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Feature admission, whole-round freshness and owner blockers",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Parallel report transport rejects substituted refs and bytes",
+            "number": 10,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Verified integration freshness, semantic regression and owned publication",
+            "number": 11,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Compile all packages with the installed Pri-Fly",
+            "number": 12,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "One authority carries Classic across every plan profile",
+            "number": 13,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Standalone integration graph and one-input extension contracts",
+            "number": 14,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Parallel review qualification contracts on three hosts",
+            "number": 15,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "A real Run is handed past the verify gate",
+            "number": 16,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "A gate that could not judge ends the Run partial with its gate",
+            "number": 17,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "A Run stopped blocked resumes with the same workflow at verify",
+            "number": 18,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "A Run cancelled at the gate resumes with the same workflow",
+            "number": 19,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Bug workflow finishes direct, planned, repaired and resumed Runs",
+            "number": 20,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Explicit review evidence finishes and resumes on the released runtime",
+            "number": 21,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Standalone test audit skips, reports, stops and replays",
+            "number": 22,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "OpenClaw test audit catalog install without AI Factory skills",
+            "number": 23,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "UI and UX components finish, block and resume with owned environments",
+            "number": 24,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Standalone feature catalog install and update preserve project ownership",
+            "number": 25,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Small feature direct, repaired, stopped and resumed Runs",
+            "number": 26,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Native task queue carries feature review and continuation history",
+            "number": 27,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Whole feature parallel review, sealed reports and full-round replay",
+            "number": 28,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Exact merged acceptance, explicit local integration and offline publication",
+            "number": 29,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Parallel readers, all-join barriers and whole-round recovery",
+            "number": 30,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-node@v4",
+            "number": 31,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install the exact browser fixture tool",
+            "number": 32,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Real browser scenarios, defects, repair and cancellation",
+            "number": 33,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Small frontend feature with real browser and full quality replay",
+            "number": 34,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 35,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/setup-node@v4",
+            "number": 69,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 70,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 71,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/39250210672/job/118051876928"
+      }
+    ],
+    "status": "completed",
+    "updatedAt": "2026-10-19T13:02:23Z",
+    "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/39250210672",
+    "workflowName": "verify"
+  },
+  "artifact": {
+    "id": 12187584155,
+    "node_id": "MDg6QXJ0aWZhY3QxMjE4NzU4NDE1NQ==",
+    "name": "native-feature-queue-results",
+    "size_in_bytes": 4595013,
+    "url": "https://api.github.com/repos/StenHigh/prifly-aif-workflows/actions/artifacts/12187584155",
+    "archive_download_url": "https://api.github.com/repos/StenHigh/prifly-aif-workflows/actions/artifacts/12187584155/zip",
+    "expired": false,
+    "digest": "sha256:9be458afcb79f1daa77d4f5d1892c2001eecfdf82829a43ae4266ae8d2f24f7a",
+    "created_at": "2026-10-19T13:02:20Z",
+    "updated_at": "2026-10-19T13:02:20Z",
+    "expires_at": "2027-01-17T12:12:08Z",
+    "workflow_run": {
+      "id": 39250210672,
+      "repository_id": 1355816755,
+      "head_repository_id": 1355816755,
+      "head_branch": "main",
+      "head_sha": "679e2a1a9da2a15fdff6e23c8f13d60a0610f9ec"
+    }
+  },
+  "downloaded_report": {
+    "file": "aif-feature-queue-results.json",
+    "bytes": 36905838,
+    "sha256": "8edb7a6515cd87f032130db3aaa5420752f9947f451944c3595fcf02e5023127"
+  },
+  "prifly": {
+    "arch": "amd64",
+    "go": "go1.27.2",
+    "os": "linux",
+    "schema_version": "foundation-version/1",
+    "semantics_profile": "foundation-sequence/1",
+    "version": "0.13.80"
+  },
+  "binary_sha256": "b5bc6d33206281c52afd3b17827e8cd416812d223d091f699d7883a382037a82",
+  "mode": "synthetic assisted actors, real released CLI/programs/Git/full-monitor HTTP; no live host/model or browser attestation",
+  "source_sha256": {
+    "tests/probes/feature_queue_check.py": "6a96543a5d91be22dacc550d5382bf4884c0e6fd5115bcf5837ac5ef1a93fea7",
+    "tests/probes/feature_check.py": "67c67436ae170ab4c48ad8657ea255979be670b9150b178bfe05748e1972192e",
+    "tests/probes/fix_check.py": "c57279dd2b3e2beefb62b2e006bad9df13230cbd1f5d9ff571992658755b7a28",
+    "tests/probes/run_check.py": "b07f5323341f47eb6a89bbad1e7b64958c53f06ea05e5afabc3e7d86116dfbdc",
+    "tests/verify.py": "52112380323f9d4930dc1a8543fea4a7d2785f1286a728173c75b168bc1c7cc0",
+    "tests/test_review_evidence.py": "1ba1f93cc3e6ef3faa08f71ebae3c9a0857a8640b272e1f6581e9be5a0de5f3d",
+    "tests/test_product_review.py": "9a4e468ffdfc54472a2a8812a502f269b999f126f90b0a51a96cd96134a233e9",
+    "examples/native-queue/queue.task.json": "e110a79e1877fc1e4c5400ae9c20537dc0ffa550f82ba8f5af54ef56c6f83558",
+    "examples/small-feature/backend.task.json": "19f1070ffc69774afc9bd51ca39ee9923eb66b1c0b1a664cbf9c48f461b76e8d",
+    ".github/workflows/verify.yml": "f82e80ff75345757f38487cf8f906aa2a7349099c96f990b8dedf4e76a212480"
+  },
+  "result": "PASS",
+  "cleanup": {
+    "stopped_owned_monitors": [
+      69196
+    ],
+    "temporary_root_removed": true
+  },
+  "cases": [
+    {
+      "case": "backend",
+      "result": "PASS",
+      "task_id": "queue-task:7e8d9e9b6e60eb5e8e2aa4da8a483893e98144fdd572fd56e49cae22b849064d",
+      "runs": [
+        "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3"
+      ],
+      "initial_outcome": "succeeded",
+      "outcome": "succeeded",
+      "same_workspace_claim": true,
+      "claims_released": true,
+      "original_request_digest": "sha256:eebef9daf64273c8d6b8f779b2abcbe4f9787903351198cbc67ffa01c66c95ff",
+      "typed_input_digest": "sha256:19f1070ffc69774afc9bd51ca39ee9923eb66b1c0b1a664cbf9c48f461b76e8d",
+      "rounds": [
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:1b96f78a265e2813871597f115b061069618907d50721058df4b7e7f8f1c5135",
+          "base": "f0e2686660e6419da08092ccb42fe2fd78c5e9c6"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:1b96f78a265e2813871597f115b061069618907d50721058df4b7e7f8f1c5135",
+          "base": "f0e2686660e6419da08092ccb42fe2fd78c5e9c6"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:1b96f78a265e2813871597f115b061069618907d50721058df4b7e7f8f1c5135",
+          "base": "f0e2686660e6419da08092ccb42fe2fd78c5e9c6"
+        }
+      ],
+      "steps": [
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "warmup"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "plan"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "implement"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "checks"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "security"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "review"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "commit"
+        }
+      ],
+      "source_outputs": {
+        "evidence": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "f0e2686660e6419da08092ccb42fe2fd78c5e9c6",
+            "digest": "sha256:1b96f78a265e2813871597f115b061069618907d50721058df4b7e7f8f1c5135",
+            "files_digest": "sha256:96c4b4e879cc94b187b04fb1c655ff8a1e6748678087aab409893072220d269b",
+            "head_commit": "f0e2686660e6419da08092ccb42fe2fd78c5e9c6",
+            "index_digest": "sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729"
+          },
+          "gate": {
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "checks: Model profile unavailable; independent model not established",
+              "security: Model profile unavailable; independent model not established",
+              "review: Model profile unavailable; independent model not established"
+            ],
+            "gate": "feature",
+            "status": "warnings",
+            "suggested_next": "continue"
+          },
+          "product": null,
+          "reports": {
+            "checks": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "f0e2686660e6419da08092ccb42fe2fd78c5e9c6",
+                "digest": "sha256:1b96f78a265e2813871597f115b061069618907d50721058df4b7e7f8f1c5135",
+                "files_digest": "sha256:96c4b4e879cc94b187b04fb1c655ff8a1e6748678087aab409893072220d269b",
+                "head_commit": "f0e2686660e6419da08092ccb42fe2fd78c5e9c6",
+                "index_digest": "sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": 0,
+                      "locator": "/tmp/aif-feature-queue-78gorzey/backend/authority/.prifly/work/claims/4bee3391ad2b143012e1a8fb1b15974b0c425f6ba2b2f83583f2681f1acce564",
+                      "method": "command",
+                      "observation": "exit=0; stdout=''; stderr='.\\n----------------------------------------------------------------------\\nRan 1 test in 0.000s\\n\\nOK\\n'",
+                      "tool": "python3 -B -m unittest test_greeting"
+                    }
+                  ],
+                  "id": "checks_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:1933acf05189c6c59f66097ed4469a656cfbcb40e916da5458dca5d20a047ec0",
+              "round": 1,
+              "session": "shared"
+            },
+            "review": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "f0e2686660e6419da08092ccb42fe2fd78c5e9c6",
+                "digest": "sha256:1b96f78a265e2813871597f115b061069618907d50721058df4b7e7f8f1c5135",
+                "files_digest": "sha256:96c4b4e879cc94b187b04fb1c655ff8a1e6748678087aab409893072220d269b",
+                "head_commit": "f0e2686660e6419da08092ccb42fe2fd78c5e9c6",
+                "index_digest": "sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "fixture page/source",
+                      "method": "code",
+                      "observation": "Actual fixture command exited zero",
+                      "tool": "fixture-tool"
+                    }
+                  ],
+                  "id": "review_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:72c1e25a76898000f12e4843c2c0e5e80314679abe2a7d6668cb985169716f3a",
+              "round": 1,
+              "session": "shared"
+            },
+            "security": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "f0e2686660e6419da08092ccb42fe2fd78c5e9c6",
+                "digest": "sha256:1b96f78a265e2813871597f115b061069618907d50721058df4b7e7f8f1c5135",
+                "files_digest": "sha256:96c4b4e879cc94b187b04fb1c655ff8a1e6748678087aab409893072220d269b",
+                "head_commit": "f0e2686660e6419da08092ccb42fe2fd78c5e9c6",
+                "index_digest": "sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "fixture page/source",
+                      "method": "code",
+                      "observation": "Actual fixture command exited zero",
+                      "tool": "fixture-tool"
+                    }
+                  ],
+                  "id": "security_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:ada65c08b29b3c2415ec76441e2b15309b7fc2b504911e2c97fb5a88bd29a2e1",
+              "round": 1,
+              "session": "shared"
+            }
+          },
+          "requests": {
+            "checks": {
+              "base_commit": "f0e2686660e6419da08092ccb42fe2fd78c5e9c6",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "python3 -B -m unittest test_greeting",
+                  "enabled": true,
+                  "id": "checks_acceptance",
+                  "method": "command",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            },
+            "review": {
+              "base_commit": "f0e2686660e6419da08092ccb42fe2fd78c5e9c6",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect greeting(name) returns exact expected text, test and edge cases within scope",
+                  "enabled": true,
+                  "id": "review_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            },
+            "security": {
+              "base_commit": "f0e2686660e6419da08092ccb42fe2fd78c5e9c6",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect greeting implementation against scope; no secrets or unsafe execution",
+                  "enabled": true,
+                  "id": "security_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            }
+          },
+          "round": 1,
+          "task_digest": "sha256:19f1070ffc69774afc9bd51ca39ee9923eb66b1c0b1a664cbf9c48f461b76e8d"
+        },
+        "gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "checks: Model profile unavailable; independent model not established",
+            "security: Model profile unavailable; independent model not established",
+            "review: Model profile unavailable; independent model not established"
+          ],
+          "gate": "feature",
+          "status": "warnings",
+          "suggested_next": "continue"
+        },
+        "implementation": {
+          "base_commit": "f0e2686660e6419da08092ccb42fe2fd78c5e9c6",
+          "head_commit": "1bf86f56e0deede94633a526ff40cd39f30d5ef5",
+          "changed_files": [
+            "greeting.py",
+            "test_greeting.py"
+          ]
+        },
+        "plan": {
+          "entrypoint": "PLAN.md",
+          "files": [
+            {
+              "path": "PLAN.md",
+              "ref": {
+                "artifact_id": "artifact:fdd3d62217b5ad38ace9ed7e79bbec456da7a533ae89dedf9c2d9ed76b06b89c",
+                "digest": "sha256:03b38855c7f7fb2dd8f9c698979a2f11358ddfe9f85584738c95df0aff5813af",
+                "revision": 1
+              }
+            }
+          ],
+          "root": ".ai-factory",
+          "schema_version": "workspace-tree-manifest/1"
+        },
+        "result": {
+          "outcome": "implemented",
+          "reason": "Synthetic feature host",
+          "work": [
+            "Preserved task work and original base."
+          ]
+        }
+      },
+      "final_outputs": {
+        "evidence": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "f0e2686660e6419da08092ccb42fe2fd78c5e9c6",
+            "digest": "sha256:1b96f78a265e2813871597f115b061069618907d50721058df4b7e7f8f1c5135",
+            "files_digest": "sha256:96c4b4e879cc94b187b04fb1c655ff8a1e6748678087aab409893072220d269b",
+            "head_commit": "f0e2686660e6419da08092ccb42fe2fd78c5e9c6",
+            "index_digest": "sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729"
+          },
+          "gate": {
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "checks: Model profile unavailable; independent model not established",
+              "security: Model profile unavailable; independent model not established",
+              "review: Model profile unavailable; independent model not established"
+            ],
+            "gate": "feature",
+            "status": "warnings",
+            "suggested_next": "continue"
+          },
+          "product": null,
+          "reports": {
+            "checks": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "f0e2686660e6419da08092ccb42fe2fd78c5e9c6",
+                "digest": "sha256:1b96f78a265e2813871597f115b061069618907d50721058df4b7e7f8f1c5135",
+                "files_digest": "sha256:96c4b4e879cc94b187b04fb1c655ff8a1e6748678087aab409893072220d269b",
+                "head_commit": "f0e2686660e6419da08092ccb42fe2fd78c5e9c6",
+                "index_digest": "sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": 0,
+                      "locator": "/tmp/aif-feature-queue-78gorzey/backend/authority/.prifly/work/claims/4bee3391ad2b143012e1a8fb1b15974b0c425f6ba2b2f83583f2681f1acce564",
+                      "method": "command",
+                      "observation": "exit=0; stdout=''; stderr='.\\n----------------------------------------------------------------------\\nRan 1 test in 0.000s\\n\\nOK\\n'",
+                      "tool": "python3 -B -m unittest test_greeting"
+                    }
+                  ],
+                  "id": "checks_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:1933acf05189c6c59f66097ed4469a656cfbcb40e916da5458dca5d20a047ec0",
+              "round": 1,
+              "session": "shared"
+            },
+            "review": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "f0e2686660e6419da08092ccb42fe2fd78c5e9c6",
+                "digest": "sha256:1b96f78a265e2813871597f115b061069618907d50721058df4b7e7f8f1c5135",
+                "files_digest": "sha256:96c4b4e879cc94b187b04fb1c655ff8a1e6748678087aab409893072220d269b",
+                "head_commit": "f0e2686660e6419da08092ccb42fe2fd78c5e9c6",
+                "index_digest": "sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "fixture page/source",
+                      "method": "code",
+                      "observation": "Actual fixture command exited zero",
+                      "tool": "fixture-tool"
+                    }
+                  ],
+                  "id": "review_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:72c1e25a76898000f12e4843c2c0e5e80314679abe2a7d6668cb985169716f3a",
+              "round": 1,
+              "session": "shared"
+            },
+            "security": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "f0e2686660e6419da08092ccb42fe2fd78c5e9c6",
+                "digest": "sha256:1b96f78a265e2813871597f115b061069618907d50721058df4b7e7f8f1c5135",
+                "files_digest": "sha256:96c4b4e879cc94b187b04fb1c655ff8a1e6748678087aab409893072220d269b",
+                "head_commit": "f0e2686660e6419da08092ccb42fe2fd78c5e9c6",
+                "index_digest": "sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "fixture page/source",
+                      "method": "code",
+                      "observation": "Actual fixture command exited zero",
+                      "tool": "fixture-tool"
+                    }
+                  ],
+                  "id": "security_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:ada65c08b29b3c2415ec76441e2b15309b7fc2b504911e2c97fb5a88bd29a2e1",
+              "round": 1,
+              "session": "shared"
+            }
+          },
+          "requests": {
+            "checks": {
+              "base_commit": "f0e2686660e6419da08092ccb42fe2fd78c5e9c6",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "python3 -B -m unittest test_greeting",
+                  "enabled": true,
+                  "id": "checks_acceptance",
+                  "method": "command",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            },
+            "review": {
+              "base_commit": "f0e2686660e6419da08092ccb42fe2fd78c5e9c6",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect greeting(name) returns exact expected text, test and edge cases within scope",
+                  "enabled": true,
+                  "id": "review_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            },
+            "security": {
+              "base_commit": "f0e2686660e6419da08092ccb42fe2fd78c5e9c6",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect greeting implementation against scope; no secrets or unsafe execution",
+                  "enabled": true,
+                  "id": "security_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            }
+          },
+          "round": 1,
+          "task_digest": "sha256:19f1070ffc69774afc9bd51ca39ee9923eb66b1c0b1a664cbf9c48f461b76e8d"
+        },
+        "gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "checks: Model profile unavailable; independent model not established",
+            "security: Model profile unavailable; independent model not established",
+            "review: Model profile unavailable; independent model not established"
+          ],
+          "gate": "feature",
+          "status": "warnings",
+          "suggested_next": "continue"
+        },
+        "implementation": {
+          "base_commit": "f0e2686660e6419da08092ccb42fe2fd78c5e9c6",
+          "head_commit": "1bf86f56e0deede94633a526ff40cd39f30d5ef5",
+          "changed_files": [
+            "greeting.py",
+            "test_greeting.py"
+          ]
+        },
+        "plan": {
+          "entrypoint": "PLAN.md",
+          "files": [
+            {
+              "path": "PLAN.md",
+              "ref": {
+                "artifact_id": "artifact:fdd3d62217b5ad38ace9ed7e79bbec456da7a533ae89dedf9c2d9ed76b06b89c",
+                "digest": "sha256:03b38855c7f7fb2dd8f9c698979a2f11358ddfe9f85584738c95df0aff5813af",
+                "revision": 1
+              }
+            }
+          ],
+          "root": ".ai-factory",
+          "schema_version": "workspace-tree-manifest/1"
+        },
+        "result": {
+          "outcome": "implemented",
+          "reason": "Synthetic feature host",
+          "work": [
+            "Preserved task work and original base."
+          ]
+        }
+      },
+      "snapshots": {
+        "ready": {
+          "state": "ready",
+          "associated_runs": [],
+          "run_count": 0,
+          "workspace_claim_count": 0
+        },
+        "claimed": {
+          "state": "claimed",
+          "associated_runs": [],
+          "run_count": 0,
+          "workspace_claim_count": 0
+        },
+        "admitted": {
+          "state": "claimed",
+          "associated_runs": [
+            "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3"
+          ],
+          "run_count": 1,
+          "workspace_claim_count": 1
+        },
+        "succeeded-not-completed": {
+          "state": "claimed",
+          "associated_runs": [
+            "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3"
+          ],
+          "run_count": 1,
+          "workspace_claim_count": 1
+        },
+        "completed": {
+          "state": "done",
+          "associated_runs": [
+            "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3"
+          ],
+          "run_count": 1,
+          "workspace_claim_count": 1
+        }
+      },
+      "refusals": [
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/aif-feature-queue-78gorzey/backend/repository",
+            "--launch",
+            "aif-feature",
+            "--host",
+            "codex-cli",
+            "--workspace",
+            "worktree",
+            "--allow-execution",
+            "--decision-policy",
+            "autonomous",
+            "--preflight-answer",
+            "plan_retention=\"capture\"",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--task-id",
+            "queue-task:7e8d9e9b6e60eb5e8e2aa4da8a483893e98144fdd572fd56e49cae22b849064d",
+            "--task-owner",
+            "session:feature-queue",
+            "--task-revision",
+            "1",
+            "--task-claim-generation",
+            "1",
+            "--prepare"
+          ],
+          "code": "missing_input"
+        },
+        {
+          "args": [
+            "project",
+            "queue",
+            "complete",
+            "--repository",
+            "/tmp/aif-feature-queue-78gorzey/backend/repository",
+            "--task-id",
+            "queue-task:7e8d9e9b6e60eb5e8e2aa4da8a483893e98144fdd572fd56e49cae22b849064d",
+            "--task-owner",
+            "session:feature-queue",
+            "--task-revision",
+            "1",
+            "--task-claim-generation",
+            "1",
+            "--command-id",
+            "command:premature-complete",
+            "--reason",
+            "Negative fixture: live Run must prevent completion"
+          ],
+          "code": "queue_task_busy"
+        }
+      ],
+      "monitor": {
+        "run_ids": [
+          "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3"
+        ],
+        "evidence_ref": {
+          "artifact_id": "artifact:079c2886662abf9b702e4a4d7a8bc7ea87667a8f4879aa027fe0010a24c141f2",
+          "revision": 1,
+          "digest": "sha256:87b1903670e4f1928ecf1f524b1321194eae94e9fb0a0ca3e21db59bf90f2fcd"
+        },
+        "evidence_raw": "{\"candidate\":{\"algorithm\":\"git-candidate/1\",\"base_commit\":\"f0e2686660e6419da08092ccb42fe2fd78c5e9c6\",\"digest\":\"sha256:1b96f78a265e2813871597f115b061069618907d50721058df4b7e7f8f1c5135\",\"files_digest\":\"sha256:96c4b4e879cc94b187b04fb1c655ff8a1e6748678087aab409893072220d269b\",\"head_commit\":\"f0e2686660e6419da08092ccb42fe2fd78c5e9c6\",\"index_digest\":\"sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729\"},\"gate\":{\"blocking\":false,\"blocking_owner_only\":false,\"findings\":[\"checks: Model profile unavailable; independent model not established\",\"security: Model profile unavailable; independent model not established\",\"review: Model profile unavailable; independent model not established\"],\"gate\":\"feature\",\"status\":\"warnings\",\"suggested_next\":\"continue\"},\"product\":null,\"reports\":{\"checks\":{\"candidate\":{\"algorithm\":\"git-candidate/1\",\"base_commit\":\"f0e2686660e6419da08092ccb42fe2fd78c5e9c6\",\"digest\":\"sha256:1b96f78a265e2813871597f115b061069618907d50721058df4b7e7f8f1c5135\",\"files_digest\":\"sha256:96c4b4e879cc94b187b04fb1c655ff8a1e6748678087aab409893072220d269b\",\"head_commit\":\"f0e2686660e6419da08092ccb42fe2fd78c5e9c6\",\"index_digest\":\"sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729\"},\"checks\":[{\"evidence\":[{\"exit_code\":0,\"locator\":\"/tmp/aif-feature-queue-78gorzey/backend/authority/.prifly/work/claims/4bee3391ad2b143012e1a8fb1b15974b0c425f6ba2b2f83583f2681f1acce564\",\"method\":\"command\",\"observation\":\"exit=0; stdout=''; stderr='.\\\\n----------------------------------------------------------------------\\\\nRan 1 test in 0.000s\\\\n\\\\nOK\\\\n'\",\"tool\":\"python3 -B -m unittest test_greeting\"}],\"id\":\"checks_acceptance\",\"reason\":\"\",\"result\":\"passed\",\"status\":\"executed\"}],\"model\":null,\"model_profile\":\"unavailable\",\"request_digest\":\"sha256:1933acf05189c6c59f66097ed4469a656cfbcb40e916da5458dca5d20a047ec0\",\"round\":1,\"session\":\"shared\"},\"review\":{\"candidate\":{\"algorithm\":\"git-candidate/1\",\"base_commit\":\"f0e2686660e6419da08092ccb42fe2fd78c5e9c6\",\"digest\":\"sha256:1b96f78a265e2813871597f115b061069618907d50721058df4b7e7f8f1c5135\",\"files_digest\":\"sha256:96c4b4e879cc94b187b04fb1c655ff8a1e6748678087aab409893072220d269b\",\"head_commit\":\"f0e2686660e6419da08092ccb42fe2fd78c5e9c6\",\"index_digest\":\"sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729\"},\"checks\":[{\"evidence\":[{\"exit_code\":null,\"locator\":\"fixture page/source\",\"method\":\"code\",\"observation\":\"Actual fixture command exited zero\",\"tool\":\"fixture-tool\"}],\"id\":\"review_acceptance\",\"reason\":\"\",\"result\":\"passed\",\"status\":\"executed\"}],\"model\":null,\"model_profile\":\"unavailable\",\"request_digest\":\"sha256:72c1e25a76898000f12e4843c2c0e5e80314679abe2a7d6668cb985169716f3a\",\"round\":1,\"session\":\"shared\"},\"security\":{\"candidate\":{\"algorithm\":\"git-candidate/1\",\"base_commit\":\"f0e2686660e6419da08092ccb42fe2fd78c5e9c6\",\"digest\":\"sha256:1b96f78a265e2813871597f115b061069618907d50721058df4b7e7f8f1c5135\",\"files_digest\":\"sha256:96c4b4e879cc94b187b04fb1c655ff8a1e6748678087aab409893072220d269b\",\"head_commit\":\"f0e2686660e6419da08092ccb42fe2fd78c5e9c6\",\"index_digest\":\"sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729\"},\"checks\":[{\"evidence\":[{\"exit_code\":null,\"locator\":\"fixture page/source\",\"method\":\"code\",\"observation\":\"Actual fixture command exited zero\",\"tool\":\"fixture-tool\"}],\"id\":\"security_acceptance\",\"reason\":\"\",\"result\":\"passed\",\"status\":\"executed\"}],\"model\":null,\"model_profile\":\"unavailable\",\"request_digest\":\"sha256:ada65c08b29b3c2415ec76441e2b15309b7fc2b504911e2c97fb5a88bd29a2e1\",\"round\":1,\"session\":\"shared\"}},\"requests\":{\"checks\":{\"base_commit\":\"f0e2686660e6419da08092ccb42fe2fd78c5e9c6\",\"checks\":[{\"applicable\":true,\"description\":\"python3 -B -m unittest test_greeting\",\"enabled\":true,\"id\":\"checks_acceptance\",\"method\":\"command\",\"required\":true}],\"optional_policy\":\"ignore\",\"require_separate_session\":false,\"round\":1},\"review\":{\"base_commit\":\"f0e2686660e6419da08092ccb42fe2fd78c5e9c6\",\"checks\":[{\"applicable\":true,\"description\":\"Inspect greeting(name) returns exact expected text, test and edge cases within scope\",\"enabled\":true,\"id\":\"review_acceptance\",\"method\":\"code\",\"required\":true}],\"optional_policy\":\"ignore\",\"require_separate_session\":false,\"round\":1},\"security\":{\"base_commit\":\"f0e2686660e6419da08092ccb42fe2fd78c5e9c6\",\"checks\":[{\"applicable\":true,\"description\":\"Inspect greeting implementation against scope; no secrets or unsafe execution\",\"enabled\":true,\"id\":\"security_acceptance\",\"method\":\"code\",\"required\":true}],\"optional_policy\":\"ignore\",\"require_separate_session\":false,\"round\":1}},\"round\":1,\"task_digest\":\"sha256:19f1070ffc69774afc9bd51ca39ee9923eb66b1c0b1a664cbf9c48f461b76e8d\"}\n",
+        "truncated": false
+      }
+    },
+    {
+      "case": "blocked-resume",
+      "result": "PASS",
+      "task_id": "queue-task:1cb20b8035ad0dec57406fb3e504330b0fdde9d86946d3be1748331dce8b30e0",
+      "runs": [
+        "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+        "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848"
+      ],
+      "initial_outcome": "partial",
+      "outcome": "succeeded",
+      "same_workspace_claim": true,
+      "claims_released": true,
+      "original_request_digest": "sha256:2ab264ad3c9add4751a59c84353ee38da7e09b570a4447ef13db49ad85da572f",
+      "typed_input_digest": "sha256:19f1070ffc69774afc9bd51ca39ee9923eb66b1c0b1a664cbf9c48f461b76e8d",
+      "rounds": [
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:3bb5dbdecfdb763c325415c9244e63acd14343616384af91526825ed8a19067e",
+          "base": "2b570ae3764fc8b95200edbeb21672a2d6c9f283"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:3bb5dbdecfdb763c325415c9244e63acd14343616384af91526825ed8a19067e",
+          "base": "2b570ae3764fc8b95200edbeb21672a2d6c9f283"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:3bb5dbdecfdb763c325415c9244e63acd14343616384af91526825ed8a19067e",
+          "base": "2b570ae3764fc8b95200edbeb21672a2d6c9f283"
+        },
+        {
+          "run": "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:80422000fee925063173e2daa4a35a1ed3c5a64b7eaa4cf9e318428af9468a72",
+          "base": "2b570ae3764fc8b95200edbeb21672a2d6c9f283"
+        },
+        {
+          "run": "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:80422000fee925063173e2daa4a35a1ed3c5a64b7eaa4cf9e318428af9468a72",
+          "base": "2b570ae3764fc8b95200edbeb21672a2d6c9f283"
+        },
+        {
+          "run": "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:80422000fee925063173e2daa4a35a1ed3c5a64b7eaa4cf9e318428af9468a72",
+          "base": "2b570ae3764fc8b95200edbeb21672a2d6c9f283"
+        }
+      ],
+      "steps": [
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "warmup"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "plan"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "implement"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "checks"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "security"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "review"
+        },
+        {
+          "run": "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+          "step": "checks"
+        },
+        {
+          "run": "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+          "step": "security"
+        },
+        {
+          "run": "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+          "step": "review"
+        },
+        {
+          "run": "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+          "step": "commit"
+        }
+      ],
+      "source_outputs": {
+        "evidence": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "2b570ae3764fc8b95200edbeb21672a2d6c9f283",
+            "digest": "sha256:3bb5dbdecfdb763c325415c9244e63acd14343616384af91526825ed8a19067e",
+            "files_digest": "sha256:96c4b4e879cc94b187b04fb1c655ff8a1e6748678087aab409893072220d269b",
+            "head_commit": "2b570ae3764fc8b95200edbeb21672a2d6c9f283",
+            "index_digest": "sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729"
+          },
+          "gate": {
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "checks: checks_acceptance: Declared skip / required environment unavailable",
+              "checks: Model profile unavailable; independent model not established",
+              "security: Model profile unavailable; independent model not established",
+              "review: Model profile unavailable; independent model not established"
+            ],
+            "gate": "feature",
+            "status": "blocked",
+            "suggested_next": "owner"
+          },
+          "product": null,
+          "reports": {
+            "checks": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "2b570ae3764fc8b95200edbeb21672a2d6c9f283",
+                "digest": "sha256:3bb5dbdecfdb763c325415c9244e63acd14343616384af91526825ed8a19067e",
+                "files_digest": "sha256:96c4b4e879cc94b187b04fb1c655ff8a1e6748678087aab409893072220d269b",
+                "head_commit": "2b570ae3764fc8b95200edbeb21672a2d6c9f283",
+                "index_digest": "sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729"
+              },
+              "checks": [
+                {
+                  "evidence": [],
+                  "id": "checks_acceptance",
+                  "reason": "Declared skip / required environment unavailable",
+                  "result": "not_run",
+                  "status": "unavailable"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:2d98f4e184d94fbf7d4986b7f13cc78eeee7ad74c3a9f1e900ba7a217feef111",
+              "round": 1,
+              "session": "shared"
+            },
+            "review": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "2b570ae3764fc8b95200edbeb21672a2d6c9f283",
+                "digest": "sha256:3bb5dbdecfdb763c325415c9244e63acd14343616384af91526825ed8a19067e",
+                "files_digest": "sha256:96c4b4e879cc94b187b04fb1c655ff8a1e6748678087aab409893072220d269b",
+                "head_commit": "2b570ae3764fc8b95200edbeb21672a2d6c9f283",
+                "index_digest": "sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "fixture page/source",
+                      "method": "code",
+                      "observation": "Actual fixture command exited zero",
+                      "tool": "fixture-tool"
+                    }
+                  ],
+                  "id": "review_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:50462b45843eff1b71cdce282a165cc79810a3b59a806a61fa826e7c0628b125",
+              "round": 1,
+              "session": "shared"
+            },
+            "security": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "2b570ae3764fc8b95200edbeb21672a2d6c9f283",
+                "digest": "sha256:3bb5dbdecfdb763c325415c9244e63acd14343616384af91526825ed8a19067e",
+                "files_digest": "sha256:96c4b4e879cc94b187b04fb1c655ff8a1e6748678087aab409893072220d269b",
+                "head_commit": "2b570ae3764fc8b95200edbeb21672a2d6c9f283",
+                "index_digest": "sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "fixture page/source",
+                      "method": "code",
+                      "observation": "Actual fixture command exited zero",
+                      "tool": "fixture-tool"
+                    }
+                  ],
+                  "id": "security_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:0ad533d44d67cfa6a5e75494eeeb90e085975e5563c42c5a3fbb4e14ffd40536",
+              "round": 1,
+              "session": "shared"
+            }
+          },
+          "requests": {
+            "checks": {
+              "base_commit": "2b570ae3764fc8b95200edbeb21672a2d6c9f283",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "python3 -B -m unittest test_greeting",
+                  "enabled": true,
+                  "id": "checks_acceptance",
+                  "method": "command",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            },
+            "review": {
+              "base_commit": "2b570ae3764fc8b95200edbeb21672a2d6c9f283",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect greeting(name) returns exact expected text, test and edge cases within scope",
+                  "enabled": true,
+                  "id": "review_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            },
+            "security": {
+              "base_commit": "2b570ae3764fc8b95200edbeb21672a2d6c9f283",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect greeting implementation against scope; no secrets or unsafe execution",
+                  "enabled": true,
+                  "id": "security_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            }
+          },
+          "round": 1,
+          "task_digest": "sha256:19f1070ffc69774afc9bd51ca39ee9923eb66b1c0b1a664cbf9c48f461b76e8d"
+        },
+        "gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "checks: checks_acceptance: Declared skip / required environment unavailable",
+            "checks: Model profile unavailable; independent model not established",
+            "security: Model profile unavailable; independent model not established",
+            "review: Model profile unavailable; independent model not established"
+          ],
+          "gate": "feature",
+          "status": "blocked",
+          "suggested_next": "owner"
+        },
+        "implementation": {
+          "base_commit": "2b570ae3764fc8b95200edbeb21672a2d6c9f283",
+          "head_commit": "2b570ae3764fc8b95200edbeb21672a2d6c9f283",
+          "changed_files": [
+            ".ai-factory/PLAN.md",
+            "greeting.py",
+            "test_greeting.py"
+          ]
+        },
+        "plan": {
+          "entrypoint": "PLAN.md",
+          "files": [
+            {
+              "path": "PLAN.md",
+              "ref": {
+                "artifact_id": "artifact:ac76005db87d05eba55d0c2c261b8774e82d6dc9b917df0fc6cff955581860d1",
+                "digest": "sha256:051d34f628d32f34547d49ae5c425f9ccc78faa7ba4772b1ecb0255d6d5c0d94",
+                "revision": 1
+              }
+            }
+          ],
+          "root": ".ai-factory",
+          "schema_version": "workspace-tree-manifest/1"
+        },
+        "result": {
+          "outcome": "implemented",
+          "reason": "Synthetic feature host",
+          "work": [
+            "Preserved task work and original base."
+          ]
+        }
+      },
+      "final_outputs": {
+        "evidence": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "2b570ae3764fc8b95200edbeb21672a2d6c9f283",
+            "digest": "sha256:80422000fee925063173e2daa4a35a1ed3c5a64b7eaa4cf9e318428af9468a72",
+            "files_digest": "sha256:7d9b188967f6d3af2a5fc7dbc2f26033ee809972fc6179cff8751dda2c2c2b23",
+            "head_commit": "2b570ae3764fc8b95200edbeb21672a2d6c9f283",
+            "index_digest": "sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729"
+          },
+          "gate": {
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "checks: Model profile unavailable; independent model not established",
+              "security: Model profile unavailable; independent model not established",
+              "review: Model profile unavailable; independent model not established"
+            ],
+            "gate": "feature",
+            "status": "warnings",
+            "suggested_next": "continue"
+          },
+          "product": null,
+          "reports": {
+            "checks": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "2b570ae3764fc8b95200edbeb21672a2d6c9f283",
+                "digest": "sha256:80422000fee925063173e2daa4a35a1ed3c5a64b7eaa4cf9e318428af9468a72",
+                "files_digest": "sha256:7d9b188967f6d3af2a5fc7dbc2f26033ee809972fc6179cff8751dda2c2c2b23",
+                "head_commit": "2b570ae3764fc8b95200edbeb21672a2d6c9f283",
+                "index_digest": "sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": 0,
+                      "locator": "/tmp/aif-feature-queue-78gorzey/blocked-resume/authority/.prifly/work/claims/397588d75c1522bd52be6930333e6587e88f84fb263d53732083b6af9fef2e35",
+                      "method": "command",
+                      "observation": "exit=0; stdout=''; stderr='.\\n----------------------------------------------------------------------\\nRan 1 test in 0.000s\\n\\nOK\\n'",
+                      "tool": "python3 -B -m unittest test_greeting"
+                    }
+                  ],
+                  "id": "checks_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:2d98f4e184d94fbf7d4986b7f13cc78eeee7ad74c3a9f1e900ba7a217feef111",
+              "round": 1,
+              "session": "shared"
+            },
+            "review": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "2b570ae3764fc8b95200edbeb21672a2d6c9f283",
+                "digest": "sha256:80422000fee925063173e2daa4a35a1ed3c5a64b7eaa4cf9e318428af9468a72",
+                "files_digest": "sha256:7d9b188967f6d3af2a5fc7dbc2f26033ee809972fc6179cff8751dda2c2c2b23",
+                "head_commit": "2b570ae3764fc8b95200edbeb21672a2d6c9f283",
+                "index_digest": "sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "fixture page/source",
+                      "method": "code",
+                      "observation": "Actual fixture command exited zero",
+                      "tool": "fixture-tool"
+                    }
+                  ],
+                  "id": "review_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:50462b45843eff1b71cdce282a165cc79810a3b59a806a61fa826e7c0628b125",
+              "round": 1,
+              "session": "shared"
+            },
+            "security": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "2b570ae3764fc8b95200edbeb21672a2d6c9f283",
+                "digest": "sha256:80422000fee925063173e2daa4a35a1ed3c5a64b7eaa4cf9e318428af9468a72",
+                "files_digest": "sha256:7d9b188967f6d3af2a5fc7dbc2f26033ee809972fc6179cff8751dda2c2c2b23",
+                "head_commit": "2b570ae3764fc8b95200edbeb21672a2d6c9f283",
+                "index_digest": "sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "fixture page/source",
+                      "method": "code",
+                      "observation": "Actual fixture command exited zero",
+                      "tool": "fixture-tool"
+                    }
+                  ],
+                  "id": "security_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:0ad533d44d67cfa6a5e75494eeeb90e085975e5563c42c5a3fbb4e14ffd40536",
+              "round": 1,
+              "session": "shared"
+            }
+          },
+          "requests": {
+            "checks": {
+              "base_commit": "2b570ae3764fc8b95200edbeb21672a2d6c9f283",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "python3 -B -m unittest test_greeting",
+                  "enabled": true,
+                  "id": "checks_acceptance",
+                  "method": "command",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            },
+            "review": {
+              "base_commit": "2b570ae3764fc8b95200edbeb21672a2d6c9f283",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect greeting(name) returns exact expected text, test and edge cases within scope",
+                  "enabled": true,
+                  "id": "review_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            },
+            "security": {
+              "base_commit": "2b570ae3764fc8b95200edbeb21672a2d6c9f283",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect greeting implementation against scope; no secrets or unsafe execution",
+                  "enabled": true,
+                  "id": "security_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            }
+          },
+          "round": 1,
+          "task_digest": "sha256:19f1070ffc69774afc9bd51ca39ee9923eb66b1c0b1a664cbf9c48f461b76e8d"
+        },
+        "gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "checks: Model profile unavailable; independent model not established",
+            "security: Model profile unavailable; independent model not established",
+            "review: Model profile unavailable; independent model not established"
+          ],
+          "gate": "feature",
+          "status": "warnings",
+          "suggested_next": "continue"
+        },
+        "implementation": {
+          "base_commit": "2b570ae3764fc8b95200edbeb21672a2d6c9f283",
+          "head_commit": "c0f241b45d5ed5d9bc5c84dace538aaa045cf8be",
+          "changed_files": [
+            "greeting.py",
+            "test_greeting.py"
+          ]
+        },
+        "plan": {
+          "entrypoint": "PLAN.md",
+          "files": [
+            {
+              "path": "PLAN.md",
+              "ref": {
+                "artifact_id": "artifact:ac76005db87d05eba55d0c2c261b8774e82d6dc9b917df0fc6cff955581860d1",
+                "digest": "sha256:051d34f628d32f34547d49ae5c425f9ccc78faa7ba4772b1ecb0255d6d5c0d94",
+                "revision": 1
+              }
+            }
+          ],
+          "root": ".ai-factory",
+          "schema_version": "workspace-tree-manifest/1"
+        },
+        "result": {
+          "outcome": "implemented",
+          "reason": "Synthetic feature host",
+          "work": [
+            "Preserved task work and original base."
+          ]
+        }
+      },
+      "snapshots": {
+        "ready": {
+          "state": "ready",
+          "associated_runs": [],
+          "run_count": 0,
+          "workspace_claim_count": 0
+        },
+        "claimed": {
+          "state": "claimed",
+          "associated_runs": [],
+          "run_count": 0,
+          "workspace_claim_count": 0
+        },
+        "admitted": {
+          "state": "claimed",
+          "associated_runs": [
+            "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3"
+          ],
+          "run_count": 1,
+          "workspace_claim_count": 1
+        },
+        "stopped": {
+          "state": "claimed",
+          "associated_runs": [
+            "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3"
+          ],
+          "run_count": 1,
+          "workspace_claim_count": 1
+        },
+        "succeeded-not-completed": {
+          "state": "claimed",
+          "associated_runs": [
+            "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+            "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848"
+          ],
+          "run_count": 2,
+          "workspace_claim_count": 1
+        },
+        "completed": {
+          "state": "done",
+          "associated_runs": [
+            "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+            "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848"
+          ],
+          "run_count": 2,
+          "workspace_claim_count": 1
+        }
+      },
+      "refusals": [
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/aif-feature-queue-78gorzey/blocked-resume/repository",
+            "--launch",
+            "aif-feature",
+            "--host",
+            "codex-cli",
+            "--workspace",
+            "worktree",
+            "--allow-execution",
+            "--decision-policy",
+            "autonomous",
+            "--preflight-answer",
+            "plan_retention=\"capture\"",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--task-id",
+            "queue-task:1cb20b8035ad0dec57406fb3e504330b0fdde9d86946d3be1748331dce8b30e0",
+            "--task-owner",
+            "session:feature-queue",
+            "--task-revision",
+            "1",
+            "--task-claim-generation",
+            "1",
+            "--prepare"
+          ],
+          "code": "missing_input"
+        },
+        {
+          "args": [
+            "project",
+            "queue",
+            "complete",
+            "--repository",
+            "/tmp/aif-feature-queue-78gorzey/blocked-resume/repository",
+            "--task-id",
+            "queue-task:1cb20b8035ad0dec57406fb3e504330b0fdde9d86946d3be1748331dce8b30e0",
+            "--task-owner",
+            "session:feature-queue",
+            "--task-revision",
+            "1",
+            "--task-claim-generation",
+            "1",
+            "--command-id",
+            "command:premature-complete",
+            "--reason",
+            "Negative fixture: live Run must prevent completion"
+          ],
+          "code": "queue_task_busy"
+        },
+        {
+          "args": [
+            "project",
+            "continue",
+            "--repository",
+            "/tmp/aif-feature-queue-78gorzey/blocked-resume/repository",
+            "--launch",
+            "aif-feature",
+            "--host",
+            "codex-cli",
+            "--source-run",
+            "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+            "--allow-execution",
+            "--prepare"
+          ],
+          "code": "queue_source_identity_conflict"
+        }
+      ],
+      "monitor": {
+        "run_ids": [
+          "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+          "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3"
+        ],
+        "evidence_ref": {
+          "artifact_id": "artifact:9eebb8fba19ad767aea93add6c4856f73801093dc829c9d1726804dbc8912727",
+          "revision": 1,
+          "digest": "sha256:bc001d9c40f17f70440636a243ef1936adff74c61c95c7ffa3c9c2f4b2771fbe"
+        },
+        "evidence_raw": "{\"candidate\":{\"algorithm\":\"git-candidate/1\",\"base_commit\":\"2b570ae3764fc8b95200edbeb21672a2d6c9f283\",\"digest\":\"sha256:80422000fee925063173e2daa4a35a1ed3c5a64b7eaa4cf9e318428af9468a72\",\"files_digest\":\"sha256:7d9b188967f6d3af2a5fc7dbc2f26033ee809972fc6179cff8751dda2c2c2b23\",\"head_commit\":\"2b570ae3764fc8b95200edbeb21672a2d6c9f283\",\"index_digest\":\"sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729\"},\"gate\":{\"blocking\":false,\"blocking_owner_only\":false,\"findings\":[\"checks: Model profile unavailable; independent model not established\",\"security: Model profile unavailable; independent model not established\",\"review: Model profile unavailable; independent model not established\"],\"gate\":\"feature\",\"status\":\"warnings\",\"suggested_next\":\"continue\"},\"product\":null,\"reports\":{\"checks\":{\"candidate\":{\"algorithm\":\"git-candidate/1\",\"base_commit\":\"2b570ae3764fc8b95200edbeb21672a2d6c9f283\",\"digest\":\"sha256:80422000fee925063173e2daa4a35a1ed3c5a64b7eaa4cf9e318428af9468a72\",\"files_digest\":\"sha256:7d9b188967f6d3af2a5fc7dbc2f26033ee809972fc6179cff8751dda2c2c2b23\",\"head_commit\":\"2b570ae3764fc8b95200edbeb21672a2d6c9f283\",\"index_digest\":\"sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729\"},\"checks\":[{\"evidence\":[{\"exit_code\":0,\"locator\":\"/tmp/aif-feature-queue-78gorzey/blocked-resume/authority/.prifly/work/claims/397588d75c1522bd52be6930333e6587e88f84fb263d53732083b6af9fef2e35\",\"method\":\"command\",\"observation\":\"exit=0; stdout=''; stderr='.\\\\n----------------------------------------------------------------------\\\\nRan 1 test in 0.000s\\\\n\\\\nOK\\\\n'\",\"tool\":\"python3 -B -m unittest test_greeting\"}],\"id\":\"checks_acceptance\",\"reason\":\"\",\"result\":\"passed\",\"status\":\"executed\"}],\"model\":null,\"model_profile\":\"unavailable\",\"request_digest\":\"sha256:2d98f4e184d94fbf7d4986b7f13cc78eeee7ad74c3a9f1e900ba7a217feef111\",\"round\":1,\"session\":\"shared\"},\"review\":{\"candidate\":{\"algorithm\":\"git-candidate/1\",\"base_commit\":\"2b570ae3764fc8b95200edbeb21672a2d6c9f283\",\"digest\":\"sha256:80422000fee925063173e2daa4a35a1ed3c5a64b7eaa4cf9e318428af9468a72\",\"files_digest\":\"sha256:7d9b188967f6d3af2a5fc7dbc2f26033ee809972fc6179cff8751dda2c2c2b23\",\"head_commit\":\"2b570ae3764fc8b95200edbeb21672a2d6c9f283\",\"index_digest\":\"sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729\"},\"checks\":[{\"evidence\":[{\"exit_code\":null,\"locator\":\"fixture page/source\",\"method\":\"code\",\"observation\":\"Actual fixture command exited zero\",\"tool\":\"fixture-tool\"}],\"id\":\"review_acceptance\",\"reason\":\"\",\"result\":\"passed\",\"status\":\"executed\"}],\"model\":null,\"model_profile\":\"unavailable\",\"request_digest\":\"sha256:50462b45843eff1b71cdce282a165cc79810a3b59a806a61fa826e7c0628b125\",\"round\":1,\"session\":\"shared\"},\"security\":{\"candidate\":{\"algorithm\":\"git-candidate/1\",\"base_commit\":\"2b570ae3764fc8b95200edbeb21672a2d6c9f283\",\"digest\":\"sha256:80422000fee925063173e2daa4a35a1ed3c5a64b7eaa4cf9e318428af9468a72\",\"files_digest\":\"sha256:7d9b188967f6d3af2a5fc7dbc2f26033ee809972fc6179cff8751dda2c2c2b23\",\"head_commit\":\"2b570ae3764fc8b95200edbeb21672a2d6c9f283\",\"index_digest\":\"sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729\"},\"checks\":[{\"evidence\":[{\"exit_code\":null,\"locator\":\"fixture page/source\",\"method\":\"code\",\"observation\":\"Actual fixture command exited zero\",\"tool\":\"fixture-tool\"}],\"id\":\"security_acceptance\",\"reason\":\"\",\"result\":\"passed\",\"status\":\"executed\"}],\"model\":null,\"model_profile\":\"unavailable\",\"request_digest\":\"sha256:0ad533d44d67cfa6a5e75494eeeb90e085975e5563c42c5a3fbb4e14ffd40536\",\"round\":1,\"session\":\"shared\"}},\"requests\":{\"checks\":{\"base_commit\":\"2b570ae3764fc8b95200edbeb21672a2d6c9f283\",\"checks\":[{\"applicable\":true,\"description\":\"python3 -B -m unittest test_greeting\",\"enabled\":true,\"id\":\"checks_acceptance\",\"method\":\"command\",\"required\":true}],\"optional_policy\":\"ignore\",\"require_separate_session\":false,\"round\":1},\"review\":{\"base_commit\":\"2b570ae3764fc8b95200edbeb21672a2d6c9f283\",\"checks\":[{\"applicable\":true,\"description\":\"Inspect greeting(name) returns exact expected text, test and edge cases within scope\",\"enabled\":true,\"id\":\"review_acceptance\",\"method\":\"code\",\"required\":true}],\"optional_policy\":\"ignore\",\"require_separate_session\":false,\"round\":1},\"security\":{\"base_commit\":\"2b570ae3764fc8b95200edbeb21672a2d6c9f283\",\"checks\":[{\"applicable\":true,\"description\":\"Inspect greeting implementation against scope; no secrets or unsafe execution\",\"enabled\":true,\"id\":\"security_acceptance\",\"method\":\"code\",\"required\":true}],\"optional_policy\":\"ignore\",\"require_separate_session\":false,\"round\":1}},\"round\":1,\"task_digest\":\"sha256:19f1070ffc69774afc9bd51ca39ee9923eb66b1c0b1a664cbf9c48f461b76e8d\"}\n",
+        "truncated": false
+      }
+    },
+    {
+      "case": "cancel-resume",
+      "result": "PASS",
+      "task_id": "queue-task:3d3624e66452305c80934647f6c2b8e67db2e4a9dc717fe79ff3d53ef13abfb7",
+      "runs": [
+        "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+        "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848"
+      ],
+      "initial_outcome": "cancelled",
+      "outcome": "succeeded",
+      "same_workspace_claim": true,
+      "claims_released": true,
+      "original_request_digest": "sha256:6878d4427c33ee8e16d8aec4f358ef3a332929e5685017122b8ed08968a91815",
+      "typed_input_digest": "sha256:19f1070ffc69774afc9bd51ca39ee9923eb66b1c0b1a664cbf9c48f461b76e8d",
+      "rounds": [
+        {
+          "run": "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:2e2faf70b1ce618466af5f889080e320abd11dd330d22d915f8418e3c5eea3ca",
+          "base": "bb866016acdbce07cc3be239b0907c7958ee6ff8"
+        },
+        {
+          "run": "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:2e2faf70b1ce618466af5f889080e320abd11dd330d22d915f8418e3c5eea3ca",
+          "base": "bb866016acdbce07cc3be239b0907c7958ee6ff8"
+        },
+        {
+          "run": "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:2e2faf70b1ce618466af5f889080e320abd11dd330d22d915f8418e3c5eea3ca",
+          "base": "bb866016acdbce07cc3be239b0907c7958ee6ff8"
+        }
+      ],
+      "steps": [
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "warmup"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "plan"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "implement"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "checks"
+        },
+        {
+          "run": "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+          "step": "checks"
+        },
+        {
+          "run": "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+          "step": "security"
+        },
+        {
+          "run": "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+          "step": "review"
+        },
+        {
+          "run": "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+          "step": "commit"
+        }
+      ],
+      "source_outputs": {},
+      "final_outputs": {
+        "evidence": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "bb866016acdbce07cc3be239b0907c7958ee6ff8",
+            "digest": "sha256:2e2faf70b1ce618466af5f889080e320abd11dd330d22d915f8418e3c5eea3ca",
+            "files_digest": "sha256:7d9b188967f6d3af2a5fc7dbc2f26033ee809972fc6179cff8751dda2c2c2b23",
+            "head_commit": "bb866016acdbce07cc3be239b0907c7958ee6ff8",
+            "index_digest": "sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729"
+          },
+          "gate": {
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "checks: Model profile unavailable; independent model not established",
+              "security: Model profile unavailable; independent model not established",
+              "review: Model profile unavailable; independent model not established"
+            ],
+            "gate": "feature",
+            "status": "warnings",
+            "suggested_next": "continue"
+          },
+          "product": null,
+          "reports": {
+            "checks": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "bb866016acdbce07cc3be239b0907c7958ee6ff8",
+                "digest": "sha256:2e2faf70b1ce618466af5f889080e320abd11dd330d22d915f8418e3c5eea3ca",
+                "files_digest": "sha256:7d9b188967f6d3af2a5fc7dbc2f26033ee809972fc6179cff8751dda2c2c2b23",
+                "head_commit": "bb866016acdbce07cc3be239b0907c7958ee6ff8",
+                "index_digest": "sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": 0,
+                      "locator": "/tmp/aif-feature-queue-78gorzey/cancel-resume/authority/.prifly/work/claims/606355dbf5ea927f11565fc371418ff312a034bf2bc391496b64ecf4a6874a7e",
+                      "method": "command",
+                      "observation": "exit=0; stdout=''; stderr='.\\n----------------------------------------------------------------------\\nRan 1 test in 0.000s\\n\\nOK\\n'",
+                      "tool": "python3 -B -m unittest test_greeting"
+                    }
+                  ],
+                  "id": "checks_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:3fb0012ace3c0a3ad408783f3d50d9e04b48cca6e15797b5e1f3e0849ef7f008",
+              "round": 1,
+              "session": "shared"
+            },
+            "review": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "bb866016acdbce07cc3be239b0907c7958ee6ff8",
+                "digest": "sha256:2e2faf70b1ce618466af5f889080e320abd11dd330d22d915f8418e3c5eea3ca",
+                "files_digest": "sha256:7d9b188967f6d3af2a5fc7dbc2f26033ee809972fc6179cff8751dda2c2c2b23",
+                "head_commit": "bb866016acdbce07cc3be239b0907c7958ee6ff8",
+                "index_digest": "sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "fixture page/source",
+                      "method": "code",
+                      "observation": "Actual fixture command exited zero",
+                      "tool": "fixture-tool"
+                    }
+                  ],
+                  "id": "review_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:48dfebc4ca04c537661277e705db2e81b904d7d2d4ef8cedc0d1b7fdfcdb9460",
+              "round": 1,
+              "session": "shared"
+            },
+            "security": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "bb866016acdbce07cc3be239b0907c7958ee6ff8",
+                "digest": "sha256:2e2faf70b1ce618466af5f889080e320abd11dd330d22d915f8418e3c5eea3ca",
+                "files_digest": "sha256:7d9b188967f6d3af2a5fc7dbc2f26033ee809972fc6179cff8751dda2c2c2b23",
+                "head_commit": "bb866016acdbce07cc3be239b0907c7958ee6ff8",
+                "index_digest": "sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "fixture page/source",
+                      "method": "code",
+                      "observation": "Actual fixture command exited zero",
+                      "tool": "fixture-tool"
+                    }
+                  ],
+                  "id": "security_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:3f94cd1375dfb34d58afe7cc4ae7e1571f6da85deb6bede611866a8550c45aff",
+              "round": 1,
+              "session": "shared"
+            }
+          },
+          "requests": {
+            "checks": {
+              "base_commit": "bb866016acdbce07cc3be239b0907c7958ee6ff8",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "python3 -B -m unittest test_greeting",
+                  "enabled": true,
+                  "id": "checks_acceptance",
+                  "method": "command",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            },
+            "review": {
+              "base_commit": "bb866016acdbce07cc3be239b0907c7958ee6ff8",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect greeting(name) returns exact expected text, test and edge cases within scope",
+                  "enabled": true,
+                  "id": "review_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            },
+            "security": {
+              "base_commit": "bb866016acdbce07cc3be239b0907c7958ee6ff8",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect greeting implementation against scope; no secrets or unsafe execution",
+                  "enabled": true,
+                  "id": "security_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            }
+          },
+          "round": 1,
+          "task_digest": "sha256:19f1070ffc69774afc9bd51ca39ee9923eb66b1c0b1a664cbf9c48f461b76e8d"
+        },
+        "gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "checks: Model profile unavailable; independent model not established",
+            "security: Model profile unavailable; independent model not established",
+            "review: Model profile unavailable; independent model not established"
+          ],
+          "gate": "feature",
+          "status": "warnings",
+          "suggested_next": "continue"
+        },
+        "implementation": {
+          "base_commit": "bb866016acdbce07cc3be239b0907c7958ee6ff8",
+          "head_commit": "d6a15a32bfa2fa32524f19326fbbd2e3b84bf758",
+          "changed_files": [
+            "greeting.py",
+            "test_greeting.py"
+          ]
+        },
+        "plan": {
+          "entrypoint": "PLAN.md",
+          "files": [
+            {
+              "path": "PLAN.md",
+              "ref": {
+                "artifact_id": "artifact:cf145ac00e666256e97cec0822fe4cb0e64abb74cb167b8d5cc9659402776773",
+                "digest": "sha256:ba58f244e9d4863db68132d48891d0137002e0c1b0ecb7d3d0e2813aa4991092",
+                "revision": 1
+              }
+            }
+          ],
+          "root": ".ai-factory",
+          "schema_version": "workspace-tree-manifest/1"
+        },
+        "result": {
+          "outcome": "implemented",
+          "reason": "Synthetic feature host",
+          "work": [
+            "Preserved task work and original base."
+          ]
+        }
+      },
+      "snapshots": {
+        "ready": {
+          "state": "ready",
+          "associated_runs": [],
+          "run_count": 0,
+          "workspace_claim_count": 0
+        },
+        "claimed": {
+          "state": "claimed",
+          "associated_runs": [],
+          "run_count": 0,
+          "workspace_claim_count": 0
+        },
+        "admitted": {
+          "state": "claimed",
+          "associated_runs": [
+            "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3"
+          ],
+          "run_count": 1,
+          "workspace_claim_count": 1
+        },
+        "stopped": {
+          "state": "claimed",
+          "associated_runs": [
+            "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3"
+          ],
+          "run_count": 1,
+          "workspace_claim_count": 1
+        },
+        "succeeded-not-completed": {
+          "state": "claimed",
+          "associated_runs": [
+            "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+            "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848"
+          ],
+          "run_count": 2,
+          "workspace_claim_count": 1
+        },
+        "completed": {
+          "state": "done",
+          "associated_runs": [
+            "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+            "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848"
+          ],
+          "run_count": 2,
+          "workspace_claim_count": 1
+        }
+      },
+      "refusals": [
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/aif-feature-queue-78gorzey/cancel-resume/repository",
+            "--launch",
+            "aif-feature",
+            "--host",
+            "codex-cli",
+            "--workspace",
+            "worktree",
+            "--allow-execution",
+            "--decision-policy",
+            "autonomous",
+            "--preflight-answer",
+            "plan_retention=\"capture\"",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--task-id",
+            "queue-task:3d3624e66452305c80934647f6c2b8e67db2e4a9dc717fe79ff3d53ef13abfb7",
+            "--task-owner",
+            "session:feature-queue",
+            "--task-revision",
+            "1",
+            "--task-claim-generation",
+            "1",
+            "--prepare"
+          ],
+          "code": "missing_input"
+        },
+        {
+          "args": [
+            "project",
+            "queue",
+            "complete",
+            "--repository",
+            "/tmp/aif-feature-queue-78gorzey/cancel-resume/repository",
+            "--task-id",
+            "queue-task:3d3624e66452305c80934647f6c2b8e67db2e4a9dc717fe79ff3d53ef13abfb7",
+            "--task-owner",
+            "session:feature-queue",
+            "--task-revision",
+            "1",
+            "--task-claim-generation",
+            "1",
+            "--command-id",
+            "command:premature-complete",
+            "--reason",
+            "Negative fixture: live Run must prevent completion"
+          ],
+          "code": "queue_task_busy"
+        },
+        {
+          "args": [
+            "project",
+            "continue",
+            "--repository",
+            "/tmp/aif-feature-queue-78gorzey/cancel-resume/repository",
+            "--launch",
+            "aif-feature",
+            "--host",
+            "codex-cli",
+            "--source-run",
+            "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+            "--allow-execution",
+            "--prepare"
+          ],
+          "code": "queue_source_identity_conflict"
+        }
+      ],
+      "monitor": {
+        "run_ids": [
+          "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+          "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3"
+        ],
+        "evidence_ref": {
+          "artifact_id": "artifact:a9640f23588d1cc09d15d2c07061b7df57bcccf24d0d87de96344046c83e1498",
+          "revision": 1,
+          "digest": "sha256:1c6ea3817d3d44b399fdd1e44febb543d381482e83df643992b5ce6014699cb9"
+        },
+        "evidence_raw": "{\"candidate\":{\"algorithm\":\"git-candidate/1\",\"base_commit\":\"bb866016acdbce07cc3be239b0907c7958ee6ff8\",\"digest\":\"sha256:2e2faf70b1ce618466af5f889080e320abd11dd330d22d915f8418e3c5eea3ca\",\"files_digest\":\"sha256:7d9b188967f6d3af2a5fc7dbc2f26033ee809972fc6179cff8751dda2c2c2b23\",\"head_commit\":\"bb866016acdbce07cc3be239b0907c7958ee6ff8\",\"index_digest\":\"sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729\"},\"gate\":{\"blocking\":false,\"blocking_owner_only\":false,\"findings\":[\"checks: Model profile unavailable; independent model not established\",\"security: Model profile unavailable; independent model not established\",\"review: Model profile unavailable; independent model not established\"],\"gate\":\"feature\",\"status\":\"warnings\",\"suggested_next\":\"continue\"},\"product\":null,\"reports\":{\"checks\":{\"candidate\":{\"algorithm\":\"git-candidate/1\",\"base_commit\":\"bb866016acdbce07cc3be239b0907c7958ee6ff8\",\"digest\":\"sha256:2e2faf70b1ce618466af5f889080e320abd11dd330d22d915f8418e3c5eea3ca\",\"files_digest\":\"sha256:7d9b188967f6d3af2a5fc7dbc2f26033ee809972fc6179cff8751dda2c2c2b23\",\"head_commit\":\"bb866016acdbce07cc3be239b0907c7958ee6ff8\",\"index_digest\":\"sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729\"},\"checks\":[{\"evidence\":[{\"exit_code\":0,\"locator\":\"/tmp/aif-feature-queue-78gorzey/cancel-resume/authority/.prifly/work/claims/606355dbf5ea927f11565fc371418ff312a034bf2bc391496b64ecf4a6874a7e\",\"method\":\"command\",\"observation\":\"exit=0; stdout=''; stderr='.\\\\n----------------------------------------------------------------------\\\\nRan 1 test in 0.000s\\\\n\\\\nOK\\\\n'\",\"tool\":\"python3 -B -m unittest test_greeting\"}],\"id\":\"checks_acceptance\",\"reason\":\"\",\"result\":\"passed\",\"status\":\"executed\"}],\"model\":null,\"model_profile\":\"unavailable\",\"request_digest\":\"sha256:3fb0012ace3c0a3ad408783f3d50d9e04b48cca6e15797b5e1f3e0849ef7f008\",\"round\":1,\"session\":\"shared\"},\"review\":{\"candidate\":{\"algorithm\":\"git-candidate/1\",\"base_commit\":\"bb866016acdbce07cc3be239b0907c7958ee6ff8\",\"digest\":\"sha256:2e2faf70b1ce618466af5f889080e320abd11dd330d22d915f8418e3c5eea3ca\",\"files_digest\":\"sha256:7d9b188967f6d3af2a5fc7dbc2f26033ee809972fc6179cff8751dda2c2c2b23\",\"head_commit\":\"bb866016acdbce07cc3be239b0907c7958ee6ff8\",\"index_digest\":\"sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729\"},\"checks\":[{\"evidence\":[{\"exit_code\":null,\"locator\":\"fixture page/source\",\"method\":\"code\",\"observation\":\"Actual fixture command exited zero\",\"tool\":\"fixture-tool\"}],\"id\":\"review_acceptance\",\"reason\":\"\",\"result\":\"passed\",\"status\":\"executed\"}],\"model\":null,\"model_profile\":\"unavailable\",\"request_digest\":\"sha256:48dfebc4ca04c537661277e705db2e81b904d7d2d4ef8cedc0d1b7fdfcdb9460\",\"round\":1,\"session\":\"shared\"},\"security\":{\"candidate\":{\"algorithm\":\"git-candidate/1\",\"base_commit\":\"bb866016acdbce07cc3be239b0907c7958ee6ff8\",\"digest\":\"sha256:2e2faf70b1ce618466af5f889080e320abd11dd330d22d915f8418e3c5eea3ca\",\"files_digest\":\"sha256:7d9b188967f6d3af2a5fc7dbc2f26033ee809972fc6179cff8751dda2c2c2b23\",\"head_commit\":\"bb866016acdbce07cc3be239b0907c7958ee6ff8\",\"index_digest\":\"sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729\"},\"checks\":[{\"evidence\":[{\"exit_code\":null,\"locator\":\"fixture page/source\",\"method\":\"code\",\"observation\":\"Actual fixture command exited zero\",\"tool\":\"fixture-tool\"}],\"id\":\"security_acceptance\",\"reason\":\"\",\"result\":\"passed\",\"status\":\"executed\"}],\"model\":null,\"model_profile\":\"unavailable\",\"request_digest\":\"sha256:3f94cd1375dfb34d58afe7cc4ae7e1571f6da85deb6bede611866a8550c45aff\",\"round\":1,\"session\":\"shared\"}},\"requests\":{\"checks\":{\"base_commit\":\"bb866016acdbce07cc3be239b0907c7958ee6ff8\",\"checks\":[{\"applicable\":true,\"description\":\"python3 -B -m unittest test_greeting\",\"enabled\":true,\"id\":\"checks_acceptance\",\"method\":\"command\",\"required\":true}],\"optional_policy\":\"ignore\",\"require_separate_session\":false,\"round\":1},\"review\":{\"base_commit\":\"bb866016acdbce07cc3be239b0907c7958ee6ff8\",\"checks\":[{\"applicable\":true,\"description\":\"Inspect greeting(name) returns exact expected text, test and edge cases within scope\",\"enabled\":true,\"id\":\"review_acceptance\",\"method\":\"code\",\"required\":true}],\"optional_policy\":\"ignore\",\"require_separate_session\":false,\"round\":1},\"security\":{\"base_commit\":\"bb866016acdbce07cc3be239b0907c7958ee6ff8\",\"checks\":[{\"applicable\":true,\"description\":\"Inspect greeting implementation against scope; no secrets or unsafe execution\",\"enabled\":true,\"id\":\"security_acceptance\",\"method\":\"code\",\"required\":true}],\"optional_policy\":\"ignore\",\"require_separate_session\":false,\"round\":1}},\"round\":1,\"task_digest\":\"sha256:19f1070ffc69774afc9bd51ca39ee9923eb66b1c0b1a664cbf9c48f461b76e8d\"}\n",
+        "truncated": false
+      }
+    }
+  ],
+  "shipping_packages_unchanged_from": "v1.53.0",
+  "documentation_followup": {
+    "ci_skipped": true,
+    "reason": "Only documentation/evidence changes; tested code, workflow configuration, inputs and all eight package trees remain byte-identical to the successful CI commit."
+  }
+}
