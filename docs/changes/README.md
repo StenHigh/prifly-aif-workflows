@@ -1,9 +1,9 @@
 # План изменений workflow после сравнения с Software Factory
 
-Дата: 2026-10-17. W1–W3: **committed/pushed, CI PASS**, с отдельными live observations;
+Дата: 2026-10-19. W1–W3: **committed/pushed, CI PASS**, с отдельными live observations;
 W4: **committed/pushed, pilot qualified, CI PASS**; W5: **пакетная часть завершена, scoped qualification и final CI PASS; v1.52.0**.
 Пакеты включены в [выпуск v1.52.0](../releases/v1.52.0.md). Актуальная база совместимости: released Pri-Fly
-**0.13.79**, выпуск репозитория **v1.53.0**. Прежние CI/live evidence на
+**0.13.80**, выпуск репозитория **v1.53.0**. Прежние CI/live evidence на
 0.13.76 остаются историческими; повторная проверка нового stable записана отдельно.
 
 В этом репозитории нет инициализированного OpenSpec-проекта. Change хранятся
@@ -30,6 +30,14 @@ evidence сохраняют исходную версию. [Результаты
 | W4 | P1/P2 | [Приёмка перед интеграцией](document-verified-integration-handoff/proposal.md) | W1; проектный интегратор, #1 при GitLab | committed/pushed, pilot qualified, CI PASS; real provider limits / v1.52.0 |
 | W5 | P2 | [Квалификация параллельного ревью](qualify-parallel-implementation-review/proposal.md) | W1, W2, W3; сначала последовательная приёмка | backend opt-in/adapter d515a85; UI/UX qualification0bdc632: local17/CI job PASS для isolated stand, shared limit1 sequential; frontend1.2.3: CLI4 sessions PASS; native1–3 rounds qualified,4–8 refused before writers; final UI/UX35/unit16 и полный exact-SHA CI38848759987 PASS; пакетная часть завершена в указанном scope; App/Claude unqualified / v1.52.0 |
 | W6 | P1 после E5 | [Review/UI/UX через call extensions](add-review-uiux-call-extensions/proposal.md) | E5 stable0.13.78+ (probes51 PASS на0.13.79); W1, W2; W3 regression boundary | project recipes/installer PASS на0.13.80: native27/compile18/refusals8, Core51, direct cancel/timeout/limits/storage/capacity; scoped CLI3 sessions; full exact-SHA CI39038596555 SUCCESS; classic/profiled и shipping8 прежние |
+
+После W6 выполнена отдельная [пакетная CLI-приёмка native queue → aif-feature](qualify-native-feature-queue/acceptance.md)
+на official0.13.80:3 cases /5 native Runs, direct/partial/cancelled quality
+continue, точная Task identity/история, fresh reports, idempotent commands и
+явный complete. Full monitor HTTP read PASS, browser/live actors не заявлены.
+Examples/probe/CI добавлены вне shipping packages; локальные ворота PASS,
+remote CI этого изменения ещё не запускался. Это завершает ранее отложенную
+пакетную CLI-квалификацию E1/E2, не Light и не реальный проектный пилот.
 
 Каждый change выпускается отдельно с собственным bump изменённых компонентов,
 пакета и зависимых workflow по действующим правилам. Версии здесь не назначены:
@@ -82,10 +90,12 @@ W1–W4 не зависят от E1/E2. Не добавляем обязател
 
 - [E1: Pri-Fly #4 — обзор Runs](https://github.com/StenHigh/prifly/issues/4),
   [сохранённый issue body](engine/E1-run-board.md). Статус: closed,
-  реализован в stable 0.13.77; свежая браузерная приёмка со стороны пакетов не заявлена.
+  реализован в stable 0.13.77; full-monitor HTTP с aif-feature принят на0.13.80
+  в queue qualification выше. Свежая браузерная приёмка со стороны пакетов не заявлена.
 - [E2: Pri-Fly #5 — локальная очередь](https://github.com/StenHigh/prifly/issues/5),
   [сохранённый issue body](engine/E2-task-queue.md). Статус: closed,
-  реализована native queue в stable 0.13.77; живой запуск наших пакетов из очереди
+  реализована native queue в stable 0.13.77; пакетный CLI-маршрут aif-feature
+  принят на0.13.80 (3 cases /5 Runs, synthetic actors). Real host/project pilot
   ещё не квалифицирован. Claim задачи сам по себе не запускает Run.
 - [E3: prepared writer-cancellation follow-up](add-bounded-feature-workflow/engine-followup.md)
   воспроизведён в W3: resolved cancelled writer ещё не допускает reviewed continue

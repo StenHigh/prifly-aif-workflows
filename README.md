@@ -53,6 +53,12 @@ UI/UX-проверки в браузере. По умолчанию допуск
 При слишком широком объёме, недоступной обязательной проверке или исчерпании
 лимита workflow останавливается с причиной и сохраняет сделанную работу.
 
+**Для работы из очереди задач** есть [native queue → aif-feature](examples/native-queue/README.md):
+исходная задача связывается с Run и его продолжением, а завершение задачи
+владелец подтверждает после просмотра результатов. Пример включает отдельные
+входные JSON, команды и изолированную проверку на released Pri-Fly; новый
+workflow или отдельная очередь не добавляются.
+
 **Для приёмки внутри своего workflow** есть [review/UI/UX через `extend`](examples/review-uiux-extensions/README.md): три opt-in варианта проверяют candidate текущего Run перед commit, с gate и отчётами. Нужен Pri-Fly ≥0.13.78; подключение проектное, canonical classic/profiled не меняются.
 
 **Для проверки готовых изменений** `aif-review-evidence` и `aif-ui-ux`
@@ -428,6 +434,7 @@ python3 -B tests/test_folders.py
 python3 -B tools/derive_profiled.py --check
 python3 -B tests/verify.py --binary "$RELEASED_PRIFLY"
 python3 -B tests/compatibility.py --binary "$RELEASED_PRIFLY"
+python3 -B tests/probes/feature_queue_check.py --binary "$RELEASED_PRIFLY" --report /tmp/aif-feature-queue-results.json
 ```
 
 `tests/verify.py` ставит все восемь пакетов во временный Git-репозиторий,

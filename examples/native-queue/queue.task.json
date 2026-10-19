@@ -1,0 +1,14 @@
+{
+  "schema_version": "task-input/1",
+  "id": "task:small-greeting",
+  "title": "Small greeting feature",
+  "raw_text": "Add a greeting(name) function returning Hello, <name>! with a test.",
+  "desired_outcome": "Implement the greeting and record checks, security and code review results",
+  "in_scope": ["greeting.py", "test_greeting.py"],
+  "out_of_scope": ["Push, merge, MR, network and unrelated files"],
+  "completion_criteria": ["greeting(\"Ada\") returns \"Hello, Ada!\"", "Unit test and current review evidence are available"],
+  "source": {"type": "local", "external_id": "example:small-greeting", "fetched_at": "2026-10-19T00:00:00Z"},
+  "source_refs": [],
+  "assumptions": ["Name is a nonempty string; no new dependency."],
+  "confirmation": "explicit"
+}

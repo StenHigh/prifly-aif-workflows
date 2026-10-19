@@ -1,0 +1,1858 @@
+{
+  "schema_version": "feature-queue-qualification/1",
+  "binary_sha256": "b5bc6d33206281c52afd3b17827e8cd416812d223d091f699d7883a382037a82",
+  "prifly": {
+    "arch": "amd64",
+    "go": "go1.27.2",
+    "os": "linux",
+    "schema_version": "foundation-version/1",
+    "semantics_profile": "foundation-sequence/1",
+    "version": "0.13.80"
+  },
+  "mode": "synthetic assisted actors, real released CLI/programs/Git/full-monitor HTTP; no live host/model or browser attestation",
+  "result": "PASS",
+  "cleanup": {
+    "stopped_owned_monitors": [],
+    "temporary_root_removed": true
+  },
+  "checked_on": "2026-10-19",
+  "release_url": "https://github.com/StenHigh/prifly/releases/tag/v0.13.80",
+  "asset_url": "https://github.com/StenHigh/prifly/releases/download/v0.13.80/prifly-linux-amd64.tar.gz",
+  "raw_ledger": {
+    "path": "/tmp/aif-feature-queue-final.json",
+    "bytes": 36917725,
+    "sha256": "b2c473be4345c4a78bf1007f10524b9d24dd22d6293b56c98a121a7dd64ecc6e",
+    "reproduce": "python3 -B tests/probes/feature_queue_check.py --binary /absolute/released/prifly --report /tmp/aif-feature-queue-results.json"
+  },
+  "source_git_head": "14b5c5d27265943c7374819ced08909d55f95d72",
+  "remote_ci": "not run for this uncommitted change",
+  "source_sha256": {
+    "tests/probes/feature_queue_check.py": "6a96543a5d91be22dacc550d5382bf4884c0e6fd5115bcf5837ac5ef1a93fea7",
+    "tests/probes/feature_check.py": "67c67436ae170ab4c48ad8657ea255979be670b9150b178bfe05748e1972192e",
+    "tests/probes/fix_check.py": "c57279dd2b3e2beefb62b2e006bad9df13230cbd1f5d9ff571992658755b7a28",
+    "tests/probes/run_check.py": "b07f5323341f47eb6a89bbad1e7b64958c53f06ea05e5afabc3e7d86116dfbdc",
+    "tests/verify.py": "52112380323f9d4930dc1a8543fea4a7d2785f1286a728173c75b168bc1c7cc0",
+    "tests/test_review_evidence.py": "1ba1f93cc3e6ef3faa08f71ebae3c9a0857a8640b272e1f6581e9be5a0de5f3d",
+    "tests/test_product_review.py": "9a4e468ffdfc54472a2a8812a502f269b999f126f90b0a51a96cd96134a233e9",
+    "examples/native-queue/queue.task.json": "e110a79e1877fc1e4c5400ae9c20537dc0ffa550f82ba8f5af54ef56c6f83558",
+    "examples/small-feature/backend.task.json": "19f1070ffc69774afc9bd51ca39ee9923eb66b1c0b1a664cbf9c48f461b76e8d",
+    ".github/workflows/verify.yml": "f82e80ff75345757f38487cf8f906aa2a7349099c96f990b8dedf4e76a212480"
+  },
+  "shipping_packages": {
+    "aif-classic": {
+      "files": 65,
+      "manifest_sha256": "554291685e800026bcc1d1959f27c7e50a6057070c52f4da783450719d40b777",
+      "unchanged_from": "v1.53.0"
+    },
+    "aif-profiled": {
+      "files": 65,
+      "manifest_sha256": "1576e0d7664f887f10ea06e5e1fc86392be6d1f8eebf6a047547d4f566bb9613",
+      "unchanged_from": "v1.53.0"
+    },
+    "aif-fanout": {
+      "files": 14,
+      "manifest_sha256": "0f8bd40a9570beb7abd4c888a32731d1cdfeb12eb7c7927b5474b78b01011a98",
+      "unchanged_from": "v1.53.0"
+    },
+    "aif-fix": {
+      "files": 43,
+      "manifest_sha256": "7fbfd7686048020e4ef5fe6bcc8bf7f92c8c4281b22ccc7a7c7c597e6917485b",
+      "unchanged_from": "v1.53.0"
+    },
+    "aif-feature": {
+      "files": 125,
+      "manifest_sha256": "d15e973f91c729a21c7bf966898d6dd507c280e202b154660b5059aa7216e6f8",
+      "unchanged_from": "v1.53.0"
+    },
+    "aif-review-evidence": {
+      "files": 17,
+      "manifest_sha256": "cb2a49ded9f64c40b5c135e8c317e02183ea4332d11ad6d48a396db9eda1198e",
+      "unchanged_from": "v1.53.0"
+    },
+    "aif-ui-ux": {
+      "files": 32,
+      "manifest_sha256": "ae822c31ebcc18f8a7ba94db8b30a43801e1cda53e9dd1b961ad0eedc55ac9dd",
+      "unchanged_from": "v1.53.0"
+    },
+    "openclaw-test-audit": {
+      "files": 19,
+      "manifest_sha256": "94762c4d95d970f741a08a06dc686eb1a0c74458c8a485c667197ed0717b9451",
+      "unchanged_from": "v1.53.0"
+    }
+  },
+  "gates": {
+    "versions": "PASS (3 tests)",
+    "folders": "PASS (7 tests)",
+    "derive_profiled": "PASS",
+    "feature_unit": "PASS (8 tests)",
+    "verify": {
+      "outcome": "passed",
+      "prifly": "0.13.80",
+      "binary_sha256": "sha256:b5bc6d33206281c52afd3b17827e8cd416812d223d091f699d7883a382037a82",
+      "platform": "linux/x86_64",
+      "packages": [
+        "aif-classic",
+        "aif-fanout",
+        "aif-feature",
+        "aif-fix",
+        "aif-profiled",
+        "aif-review-evidence",
+        "aif-ui-ux",
+        "openclaw-test-audit"
+      ],
+      "components_read": 126,
+      "steps_read": 83,
+      "registry_entries_removed": 1
+    },
+    "compatibility": {
+      "outcome": "passed",
+      "prifly": "0.13.80",
+      "binary_sha256": "sha256:b5bc6d33206281c52afd3b17827e8cd416812d223d091f699d7883a382037a82",
+      "platform": "linux/x86_64",
+      "launches": 5,
+      "distinct_builds": 4,
+      "trusted_packages": 4,
+      "profiled_sealed_as": "core-state/41",
+      "boundary": "assisted handoff dispatched; no AI host answers it here",
+      "registry_entries_removed": 1
+    }
+  },
+  "cases": [
+    {
+      "case": "backend",
+      "result": "PASS",
+      "task_id": "queue-task:dff6c34a3a391df832ab76154914fa9a67d330e61490602847ee258a8b37556f",
+      "runs": [
+        "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3"
+      ],
+      "initial_outcome": "succeeded",
+      "outcome": "succeeded",
+      "same_workspace_claim": true,
+      "claims_released": true,
+      "original_request_digest": "sha256:eebef9daf64273c8d6b8f779b2abcbe4f9787903351198cbc67ffa01c66c95ff",
+      "typed_input_digest": "sha256:19f1070ffc69774afc9bd51ca39ee9923eb66b1c0b1a664cbf9c48f461b76e8d",
+      "rounds": [
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:0d306ba5121af8c73e0d7e5cd6162fd1b27ff09acff4c9ad0cb0fee8f7c04680",
+          "base": "ed969d85cdbd367ac7a4729f6e4cfc3e043e954c"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:0d306ba5121af8c73e0d7e5cd6162fd1b27ff09acff4c9ad0cb0fee8f7c04680",
+          "base": "ed969d85cdbd367ac7a4729f6e4cfc3e043e954c"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:0d306ba5121af8c73e0d7e5cd6162fd1b27ff09acff4c9ad0cb0fee8f7c04680",
+          "base": "ed969d85cdbd367ac7a4729f6e4cfc3e043e954c"
+        }
+      ],
+      "steps": [
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "warmup"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "plan"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "implement"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "checks"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "security"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "review"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "commit"
+        }
+      ],
+      "source_outputs": {
+        "evidence": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "ed969d85cdbd367ac7a4729f6e4cfc3e043e954c",
+            "digest": "sha256:0d306ba5121af8c73e0d7e5cd6162fd1b27ff09acff4c9ad0cb0fee8f7c04680",
+            "files_digest": "sha256:603b74b67afecc7a71b0a6fe03ef2196a4e3896a779627c7b2bf2aed4ff409a4",
+            "head_commit": "ed969d85cdbd367ac7a4729f6e4cfc3e043e954c",
+            "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615"
+          },
+          "gate": {
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "checks: Model profile unavailable; independent model not established",
+              "security: Model profile unavailable; independent model not established",
+              "review: Model profile unavailable; independent model not established"
+            ],
+            "gate": "feature",
+            "status": "warnings",
+            "suggested_next": "continue"
+          },
+          "product": null,
+          "reports": {
+            "checks": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "ed969d85cdbd367ac7a4729f6e4cfc3e043e954c",
+                "digest": "sha256:0d306ba5121af8c73e0d7e5cd6162fd1b27ff09acff4c9ad0cb0fee8f7c04680",
+                "files_digest": "sha256:603b74b67afecc7a71b0a6fe03ef2196a4e3896a779627c7b2bf2aed4ff409a4",
+                "head_commit": "ed969d85cdbd367ac7a4729f6e4cfc3e043e954c",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": 0,
+                      "locator": "/tmp/aif-feature-queue-3pizhp1o/backend/authority/.prifly/work/claims/e00ad757e8f58d38312a4c9d9f6cfb7ba5aeaff4c12c45a042ccf5c751ae71c8",
+                      "method": "command",
+                      "observation": "exit=0; stdout=''; stderr='.\\n----------------------------------------------------------------------\\nRan 1 test in 0.000s\\n\\nOK\\n'",
+                      "tool": "python3 -B -m unittest test_greeting"
+                    }
+                  ],
+                  "id": "checks_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:11df4b670f0450141ccf2ae8d8b614a069784401bbd6572c45f910e284a61d46",
+              "round": 1,
+              "session": "shared"
+            },
+            "review": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "ed969d85cdbd367ac7a4729f6e4cfc3e043e954c",
+                "digest": "sha256:0d306ba5121af8c73e0d7e5cd6162fd1b27ff09acff4c9ad0cb0fee8f7c04680",
+                "files_digest": "sha256:603b74b67afecc7a71b0a6fe03ef2196a4e3896a779627c7b2bf2aed4ff409a4",
+                "head_commit": "ed969d85cdbd367ac7a4729f6e4cfc3e043e954c",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "fixture page/source",
+                      "method": "code",
+                      "observation": "Actual fixture command exited zero",
+                      "tool": "fixture-tool"
+                    }
+                  ],
+                  "id": "review_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:595d47cf6c7bf93696d5baabe1b8a2ba850232ed6d002d61199014517b9ae0b9",
+              "round": 1,
+              "session": "shared"
+            },
+            "security": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "ed969d85cdbd367ac7a4729f6e4cfc3e043e954c",
+                "digest": "sha256:0d306ba5121af8c73e0d7e5cd6162fd1b27ff09acff4c9ad0cb0fee8f7c04680",
+                "files_digest": "sha256:603b74b67afecc7a71b0a6fe03ef2196a4e3896a779627c7b2bf2aed4ff409a4",
+                "head_commit": "ed969d85cdbd367ac7a4729f6e4cfc3e043e954c",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "fixture page/source",
+                      "method": "code",
+                      "observation": "Actual fixture command exited zero",
+                      "tool": "fixture-tool"
+                    }
+                  ],
+                  "id": "security_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:d59df2fcf6345306ef128e6653d5d9aefb3972c8e9ef23053812b8706077aef5",
+              "round": 1,
+              "session": "shared"
+            }
+          },
+          "requests": {
+            "checks": {
+              "base_commit": "ed969d85cdbd367ac7a4729f6e4cfc3e043e954c",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "python3 -B -m unittest test_greeting",
+                  "enabled": true,
+                  "id": "checks_acceptance",
+                  "method": "command",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            },
+            "review": {
+              "base_commit": "ed969d85cdbd367ac7a4729f6e4cfc3e043e954c",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect greeting(name) returns exact expected text, test and edge cases within scope",
+                  "enabled": true,
+                  "id": "review_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            },
+            "security": {
+              "base_commit": "ed969d85cdbd367ac7a4729f6e4cfc3e043e954c",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect greeting implementation against scope; no secrets or unsafe execution",
+                  "enabled": true,
+                  "id": "security_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            }
+          },
+          "round": 1,
+          "task_digest": "sha256:19f1070ffc69774afc9bd51ca39ee9923eb66b1c0b1a664cbf9c48f461b76e8d"
+        },
+        "gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "checks: Model profile unavailable; independent model not established",
+            "security: Model profile unavailable; independent model not established",
+            "review: Model profile unavailable; independent model not established"
+          ],
+          "gate": "feature",
+          "status": "warnings",
+          "suggested_next": "continue"
+        },
+        "implementation": {
+          "base_commit": "ed969d85cdbd367ac7a4729f6e4cfc3e043e954c",
+          "head_commit": "7e1c2d5a8bccb1ee8aaaf7c4f5ac8a17e52ee70a",
+          "changed_files": [
+            "greeting.py",
+            "test_greeting.py"
+          ]
+        },
+        "plan": {
+          "entrypoint": "PLAN.md",
+          "files": [
+            {
+              "path": "PLAN.md",
+              "ref": {
+                "artifact_id": "artifact:2d6a89c2320044b9d28f2e9891307caf142edc808cfd4591d1193dd87d264efe",
+                "digest": "sha256:f0b613a78b8e951a0a9c9ad4a54e67e35c5b82a8d2bba174fdc86df7dc0660d7",
+                "revision": 1
+              }
+            }
+          ],
+          "root": ".ai-factory",
+          "schema_version": "workspace-tree-manifest/1"
+        },
+        "result": {
+          "outcome": "implemented",
+          "reason": "Synthetic feature host",
+          "work": [
+            "Preserved task work and original base."
+          ]
+        }
+      },
+      "final_outputs": {
+        "evidence": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "ed969d85cdbd367ac7a4729f6e4cfc3e043e954c",
+            "digest": "sha256:0d306ba5121af8c73e0d7e5cd6162fd1b27ff09acff4c9ad0cb0fee8f7c04680",
+            "files_digest": "sha256:603b74b67afecc7a71b0a6fe03ef2196a4e3896a779627c7b2bf2aed4ff409a4",
+            "head_commit": "ed969d85cdbd367ac7a4729f6e4cfc3e043e954c",
+            "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615"
+          },
+          "gate": {
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "checks: Model profile unavailable; independent model not established",
+              "security: Model profile unavailable; independent model not established",
+              "review: Model profile unavailable; independent model not established"
+            ],
+            "gate": "feature",
+            "status": "warnings",
+            "suggested_next": "continue"
+          },
+          "product": null,
+          "reports": {
+            "checks": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "ed969d85cdbd367ac7a4729f6e4cfc3e043e954c",
+                "digest": "sha256:0d306ba5121af8c73e0d7e5cd6162fd1b27ff09acff4c9ad0cb0fee8f7c04680",
+                "files_digest": "sha256:603b74b67afecc7a71b0a6fe03ef2196a4e3896a779627c7b2bf2aed4ff409a4",
+                "head_commit": "ed969d85cdbd367ac7a4729f6e4cfc3e043e954c",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": 0,
+                      "locator": "/tmp/aif-feature-queue-3pizhp1o/backend/authority/.prifly/work/claims/e00ad757e8f58d38312a4c9d9f6cfb7ba5aeaff4c12c45a042ccf5c751ae71c8",
+                      "method": "command",
+                      "observation": "exit=0; stdout=''; stderr='.\\n----------------------------------------------------------------------\\nRan 1 test in 0.000s\\n\\nOK\\n'",
+                      "tool": "python3 -B -m unittest test_greeting"
+                    }
+                  ],
+                  "id": "checks_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:11df4b670f0450141ccf2ae8d8b614a069784401bbd6572c45f910e284a61d46",
+              "round": 1,
+              "session": "shared"
+            },
+            "review": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "ed969d85cdbd367ac7a4729f6e4cfc3e043e954c",
+                "digest": "sha256:0d306ba5121af8c73e0d7e5cd6162fd1b27ff09acff4c9ad0cb0fee8f7c04680",
+                "files_digest": "sha256:603b74b67afecc7a71b0a6fe03ef2196a4e3896a779627c7b2bf2aed4ff409a4",
+                "head_commit": "ed969d85cdbd367ac7a4729f6e4cfc3e043e954c",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "fixture page/source",
+                      "method": "code",
+                      "observation": "Actual fixture command exited zero",
+                      "tool": "fixture-tool"
+                    }
+                  ],
+                  "id": "review_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:595d47cf6c7bf93696d5baabe1b8a2ba850232ed6d002d61199014517b9ae0b9",
+              "round": 1,
+              "session": "shared"
+            },
+            "security": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "ed969d85cdbd367ac7a4729f6e4cfc3e043e954c",
+                "digest": "sha256:0d306ba5121af8c73e0d7e5cd6162fd1b27ff09acff4c9ad0cb0fee8f7c04680",
+                "files_digest": "sha256:603b74b67afecc7a71b0a6fe03ef2196a4e3896a779627c7b2bf2aed4ff409a4",
+                "head_commit": "ed969d85cdbd367ac7a4729f6e4cfc3e043e954c",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "fixture page/source",
+                      "method": "code",
+                      "observation": "Actual fixture command exited zero",
+                      "tool": "fixture-tool"
+                    }
+                  ],
+                  "id": "security_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:d59df2fcf6345306ef128e6653d5d9aefb3972c8e9ef23053812b8706077aef5",
+              "round": 1,
+              "session": "shared"
+            }
+          },
+          "requests": {
+            "checks": {
+              "base_commit": "ed969d85cdbd367ac7a4729f6e4cfc3e043e954c",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "python3 -B -m unittest test_greeting",
+                  "enabled": true,
+                  "id": "checks_acceptance",
+                  "method": "command",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            },
+            "review": {
+              "base_commit": "ed969d85cdbd367ac7a4729f6e4cfc3e043e954c",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect greeting(name) returns exact expected text, test and edge cases within scope",
+                  "enabled": true,
+                  "id": "review_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            },
+            "security": {
+              "base_commit": "ed969d85cdbd367ac7a4729f6e4cfc3e043e954c",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect greeting implementation against scope; no secrets or unsafe execution",
+                  "enabled": true,
+                  "id": "security_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            }
+          },
+          "round": 1,
+          "task_digest": "sha256:19f1070ffc69774afc9bd51ca39ee9923eb66b1c0b1a664cbf9c48f461b76e8d"
+        },
+        "gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "checks: Model profile unavailable; independent model not established",
+            "security: Model profile unavailable; independent model not established",
+            "review: Model profile unavailable; independent model not established"
+          ],
+          "gate": "feature",
+          "status": "warnings",
+          "suggested_next": "continue"
+        },
+        "implementation": {
+          "base_commit": "ed969d85cdbd367ac7a4729f6e4cfc3e043e954c",
+          "head_commit": "7e1c2d5a8bccb1ee8aaaf7c4f5ac8a17e52ee70a",
+          "changed_files": [
+            "greeting.py",
+            "test_greeting.py"
+          ]
+        },
+        "plan": {
+          "entrypoint": "PLAN.md",
+          "files": [
+            {
+              "path": "PLAN.md",
+              "ref": {
+                "artifact_id": "artifact:2d6a89c2320044b9d28f2e9891307caf142edc808cfd4591d1193dd87d264efe",
+                "digest": "sha256:f0b613a78b8e951a0a9c9ad4a54e67e35c5b82a8d2bba174fdc86df7dc0660d7",
+                "revision": 1
+              }
+            }
+          ],
+          "root": ".ai-factory",
+          "schema_version": "workspace-tree-manifest/1"
+        },
+        "result": {
+          "outcome": "implemented",
+          "reason": "Synthetic feature host",
+          "work": [
+            "Preserved task work and original base."
+          ]
+        }
+      },
+      "snapshots": {
+        "ready": {
+          "state": "ready",
+          "associated_runs": [],
+          "run_count": 0,
+          "workspace_claim_count": 0
+        },
+        "claimed": {
+          "state": "claimed",
+          "associated_runs": [],
+          "run_count": 0,
+          "workspace_claim_count": 0
+        },
+        "admitted": {
+          "state": "claimed",
+          "associated_runs": [
+            "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3"
+          ],
+          "run_count": 1,
+          "workspace_claim_count": 1
+        },
+        "succeeded-not-completed": {
+          "state": "claimed",
+          "associated_runs": [
+            "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3"
+          ],
+          "run_count": 1,
+          "workspace_claim_count": 1
+        },
+        "completed": {
+          "state": "done",
+          "associated_runs": [
+            "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3"
+          ],
+          "run_count": 1,
+          "workspace_claim_count": 1
+        }
+      },
+      "refusals": [
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/aif-feature-queue-3pizhp1o/backend/repository",
+            "--launch",
+            "aif-feature",
+            "--host",
+            "codex-cli",
+            "--workspace",
+            "worktree",
+            "--allow-execution",
+            "--decision-policy",
+            "autonomous",
+            "--preflight-answer",
+            "plan_retention=\"capture\"",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--task-id",
+            "queue-task:dff6c34a3a391df832ab76154914fa9a67d330e61490602847ee258a8b37556f",
+            "--task-owner",
+            "session:feature-queue",
+            "--task-revision",
+            "1",
+            "--task-claim-generation",
+            "1",
+            "--prepare"
+          ],
+          "code": "missing_input"
+        },
+        {
+          "args": [
+            "project",
+            "queue",
+            "complete",
+            "--repository",
+            "/tmp/aif-feature-queue-3pizhp1o/backend/repository",
+            "--task-id",
+            "queue-task:dff6c34a3a391df832ab76154914fa9a67d330e61490602847ee258a8b37556f",
+            "--task-owner",
+            "session:feature-queue",
+            "--task-revision",
+            "1",
+            "--task-claim-generation",
+            "1",
+            "--command-id",
+            "command:premature-complete",
+            "--reason",
+            "Negative fixture: live Run must prevent completion"
+          ],
+          "code": "queue_task_busy"
+        }
+      ],
+      "duplicate_receipts": 3,
+      "monitor": {
+        "runs": [
+          {
+            "run_id": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+            "source": "1b9eea0684d18b12bb259bf4c10de4d8eddaafddabcd0417b14b776f8c0df786",
+            "subject": "Small greeting feature",
+            "status": "completed",
+            "outcome": "succeeded",
+            "fork_source_run_id": null
+          }
+        ],
+        "evidence_ref": {
+          "artifact_id": "artifact:9cccdd95a095cc5465af31992dd6744a0b50db26f23f0709f134bf7249a0df0c",
+          "revision": 1,
+          "digest": "sha256:ae0a5aac825015e8d04ac264eb072f2448e62b09dc5c9398121f6a7922d36cff"
+        },
+        "evidence_raw": "{\"candidate\":{\"algorithm\":\"git-candidate/1\",\"base_commit\":\"ed969d85cdbd367ac7a4729f6e4cfc3e043e954c\",\"digest\":\"sha256:0d306ba5121af8c73e0d7e5cd6162fd1b27ff09acff4c9ad0cb0fee8f7c04680\",\"files_digest\":\"sha256:603b74b67afecc7a71b0a6fe03ef2196a4e3896a779627c7b2bf2aed4ff409a4\",\"head_commit\":\"ed969d85cdbd367ac7a4729f6e4cfc3e043e954c\",\"index_digest\":\"sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615\"},\"gate\":{\"blocking\":false,\"blocking_owner_only\":false,\"findings\":[\"checks: Model profile unavailable; independent model not established\",\"security: Model profile unavailable; independent model not established\",\"review: Model profile unavailable; independent model not established\"],\"gate\":\"feature\",\"status\":\"warnings\",\"suggested_next\":\"continue\"},\"product\":null,\"reports\":{\"checks\":{\"candidate\":{\"algorithm\":\"git-candidate/1\",\"base_commit\":\"ed969d85cdbd367ac7a4729f6e4cfc3e043e954c\",\"digest\":\"sha256:0d306ba5121af8c73e0d7e5cd6162fd1b27ff09acff4c9ad0cb0fee8f7c04680\",\"files_digest\":\"sha256:603b74b67afecc7a71b0a6fe03ef2196a4e3896a779627c7b2bf2aed4ff409a4\",\"head_commit\":\"ed969d85cdbd367ac7a4729f6e4cfc3e043e954c\",\"index_digest\":\"sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615\"},\"checks\":[{\"evidence\":[{\"exit_code\":0,\"locator\":\"/tmp/aif-feature-queue-3pizhp1o/backend/authority/.prifly/work/claims/e00ad757e8f58d38312a4c9d9f6cfb7ba5aeaff4c12c45a042ccf5c751ae71c8\",\"method\":\"command\",\"observation\":\"exit=0; stdout=''; stderr='.\\\\n----------------------------------------------------------------------\\\\nRan 1 test in 0.000s\\\\n\\\\nOK\\\\n'\",\"tool\":\"python3 -B -m unittest test_greeting\"}],\"id\":\"checks_acceptance\",\"reason\":\"\",\"result\":\"passed\",\"status\":\"executed\"}],\"model\":null,\"model_profile\":\"unavailable\",\"request_digest\":\"sha256:11df4b670f0450141ccf2ae8d8b614a069784401bbd6572c45f910e284a61d46\",\"round\":1,\"session\":\"shared\"},\"review\":{\"candidate\":{\"algorithm\":\"git-candidate/1\",\"base_commit\":\"ed969d85cdbd367ac7a4729f6e4cfc3e043e954c\",\"digest\":\"sha256:0d306ba5121af8c73e0d7e5cd6162fd1b27ff09acff4c9ad0cb0fee8f7c04680\",\"files_digest\":\"sha256:603b74b67afecc7a71b0a6fe03ef2196a4e3896a779627c7b2bf2aed4ff409a4\",\"head_commit\":\"ed969d85cdbd367ac7a4729f6e4cfc3e043e954c\",\"index_digest\":\"sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615\"},\"checks\":[{\"evidence\":[{\"exit_code\":null,\"locator\":\"fixture page/source\",\"method\":\"code\",\"observation\":\"Actual fixture command exited zero\",\"tool\":\"fixture-tool\"}],\"id\":\"review_acceptance\",\"reason\":\"\",\"result\":\"passed\",\"status\":\"executed\"}],\"model\":null,\"model_profile\":\"unavailable\",\"request_digest\":\"sha256:595d47cf6c7bf93696d5baabe1b8a2ba850232ed6d002d61199014517b9ae0b9\",\"round\":1,\"session\":\"shared\"},\"security\":{\"candidate\":{\"algorithm\":\"git-candidate/1\",\"base_commit\":\"ed969d85cdbd367ac7a4729f6e4cfc3e043e954c\",\"digest\":\"sha256:0d306ba5121af8c73e0d7e5cd6162fd1b27ff09acff4c9ad0cb0fee8f7c04680\",\"files_digest\":\"sha256:603b74b67afecc7a71b0a6fe03ef2196a4e3896a779627c7b2bf2aed4ff409a4\",\"head_commit\":\"ed969d85cdbd367ac7a4729f6e4cfc3e043e954c\",\"index_digest\":\"sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615\"},\"checks\":[{\"evidence\":[{\"exit_code\":null,\"locator\":\"fixture page/source\",\"method\":\"code\",\"observation\":\"Actual fixture command exited zero\",\"tool\":\"fixture-tool\"}],\"id\":\"security_acceptance\",\"reason\":\"\",\"result\":\"passed\",\"status\":\"executed\"}],\"model\":null,\"model_profile\":\"unavailable\",\"request_digest\":\"sha256:d59df2fcf6345306ef128e6653d5d9aefb3972c8e9ef23053812b8706077aef5\",\"round\":1,\"session\":\"shared\"}},\"requests\":{\"checks\":{\"base_commit\":\"ed969d85cdbd367ac7a4729f6e4cfc3e043e954c\",\"checks\":[{\"applicable\":true,\"description\":\"python3 -B -m unittest test_greeting\",\"enabled\":true,\"id\":\"checks_acceptance\",\"method\":\"command\",\"required\":true}],\"optional_policy\":\"ignore\",\"require_separate_session\":false,\"round\":1},\"review\":{\"base_commit\":\"ed969d85cdbd367ac7a4729f6e4cfc3e043e954c\",\"checks\":[{\"applicable\":true,\"description\":\"Inspect greeting(name) returns exact expected text, test and edge cases within scope\",\"enabled\":true,\"id\":\"review_acceptance\",\"method\":\"code\",\"required\":true}],\"optional_policy\":\"ignore\",\"require_separate_session\":false,\"round\":1},\"security\":{\"base_commit\":\"ed969d85cdbd367ac7a4729f6e4cfc3e043e954c\",\"checks\":[{\"applicable\":true,\"description\":\"Inspect greeting implementation against scope; no secrets or unsafe execution\",\"enabled\":true,\"id\":\"security_acceptance\",\"method\":\"code\",\"required\":true}],\"optional_policy\":\"ignore\",\"require_separate_session\":false,\"round\":1}},\"round\":1,\"task_digest\":\"sha256:19f1070ffc69774afc9bd51ca39ee9923eb66b1c0b1a664cbf9c48f461b76e8d\"}\n",
+        "truncated": false
+      }
+    },
+    {
+      "case": "blocked-resume",
+      "result": "PASS",
+      "task_id": "queue-task:a225199dafaeb44f13bc5878edd821cd88bb7a0000d7be5502dccb6d34ae4620",
+      "runs": [
+        "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+        "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848"
+      ],
+      "initial_outcome": "partial",
+      "outcome": "succeeded",
+      "same_workspace_claim": true,
+      "claims_released": true,
+      "original_request_digest": "sha256:2ab264ad3c9add4751a59c84353ee38da7e09b570a4447ef13db49ad85da572f",
+      "typed_input_digest": "sha256:19f1070ffc69774afc9bd51ca39ee9923eb66b1c0b1a664cbf9c48f461b76e8d",
+      "rounds": [
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:af291be23de8371cc269019f5627d9f637cb199f63e4260645bf4ce594ef25e0",
+          "base": "b8a8030a22e69cedc0d519949735376516faead2"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:af291be23de8371cc269019f5627d9f637cb199f63e4260645bf4ce594ef25e0",
+          "base": "b8a8030a22e69cedc0d519949735376516faead2"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:af291be23de8371cc269019f5627d9f637cb199f63e4260645bf4ce594ef25e0",
+          "base": "b8a8030a22e69cedc0d519949735376516faead2"
+        },
+        {
+          "run": "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:2c8ec93af3bd46e4a029dc321e7176c261a1ee36cb62fd163acc3b5eb074d634",
+          "base": "b8a8030a22e69cedc0d519949735376516faead2"
+        },
+        {
+          "run": "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:2c8ec93af3bd46e4a029dc321e7176c261a1ee36cb62fd163acc3b5eb074d634",
+          "base": "b8a8030a22e69cedc0d519949735376516faead2"
+        },
+        {
+          "run": "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:2c8ec93af3bd46e4a029dc321e7176c261a1ee36cb62fd163acc3b5eb074d634",
+          "base": "b8a8030a22e69cedc0d519949735376516faead2"
+        }
+      ],
+      "steps": [
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "warmup"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "plan"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "implement"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "checks"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "security"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "review"
+        },
+        {
+          "run": "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+          "step": "checks"
+        },
+        {
+          "run": "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+          "step": "security"
+        },
+        {
+          "run": "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+          "step": "review"
+        },
+        {
+          "run": "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+          "step": "commit"
+        }
+      ],
+      "source_outputs": {
+        "evidence": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "b8a8030a22e69cedc0d519949735376516faead2",
+            "digest": "sha256:af291be23de8371cc269019f5627d9f637cb199f63e4260645bf4ce594ef25e0",
+            "files_digest": "sha256:603b74b67afecc7a71b0a6fe03ef2196a4e3896a779627c7b2bf2aed4ff409a4",
+            "head_commit": "b8a8030a22e69cedc0d519949735376516faead2",
+            "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615"
+          },
+          "gate": {
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "checks: checks_acceptance: Declared skip / required environment unavailable",
+              "checks: Model profile unavailable; independent model not established",
+              "security: Model profile unavailable; independent model not established",
+              "review: Model profile unavailable; independent model not established"
+            ],
+            "gate": "feature",
+            "status": "blocked",
+            "suggested_next": "owner"
+          },
+          "product": null,
+          "reports": {
+            "checks": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "b8a8030a22e69cedc0d519949735376516faead2",
+                "digest": "sha256:af291be23de8371cc269019f5627d9f637cb199f63e4260645bf4ce594ef25e0",
+                "files_digest": "sha256:603b74b67afecc7a71b0a6fe03ef2196a4e3896a779627c7b2bf2aed4ff409a4",
+                "head_commit": "b8a8030a22e69cedc0d519949735376516faead2",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615"
+              },
+              "checks": [
+                {
+                  "evidence": [],
+                  "id": "checks_acceptance",
+                  "reason": "Declared skip / required environment unavailable",
+                  "result": "not_run",
+                  "status": "unavailable"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:deb4c0327ed16aa16e562a063ad21750593e562f9d8324434cc1e3fdca73a55e",
+              "round": 1,
+              "session": "shared"
+            },
+            "review": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "b8a8030a22e69cedc0d519949735376516faead2",
+                "digest": "sha256:af291be23de8371cc269019f5627d9f637cb199f63e4260645bf4ce594ef25e0",
+                "files_digest": "sha256:603b74b67afecc7a71b0a6fe03ef2196a4e3896a779627c7b2bf2aed4ff409a4",
+                "head_commit": "b8a8030a22e69cedc0d519949735376516faead2",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "fixture page/source",
+                      "method": "code",
+                      "observation": "Actual fixture command exited zero",
+                      "tool": "fixture-tool"
+                    }
+                  ],
+                  "id": "review_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:74d38c74d7f35a4060b3544553186272a4d68fcf7b967ae327b4ac0d5285d6db",
+              "round": 1,
+              "session": "shared"
+            },
+            "security": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "b8a8030a22e69cedc0d519949735376516faead2",
+                "digest": "sha256:af291be23de8371cc269019f5627d9f637cb199f63e4260645bf4ce594ef25e0",
+                "files_digest": "sha256:603b74b67afecc7a71b0a6fe03ef2196a4e3896a779627c7b2bf2aed4ff409a4",
+                "head_commit": "b8a8030a22e69cedc0d519949735376516faead2",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "fixture page/source",
+                      "method": "code",
+                      "observation": "Actual fixture command exited zero",
+                      "tool": "fixture-tool"
+                    }
+                  ],
+                  "id": "security_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:7857027f4aab423eff0b29a52c1e9e56a678f6d1fc02c892a542e1da38ec93cc",
+              "round": 1,
+              "session": "shared"
+            }
+          },
+          "requests": {
+            "checks": {
+              "base_commit": "b8a8030a22e69cedc0d519949735376516faead2",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "python3 -B -m unittest test_greeting",
+                  "enabled": true,
+                  "id": "checks_acceptance",
+                  "method": "command",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            },
+            "review": {
+              "base_commit": "b8a8030a22e69cedc0d519949735376516faead2",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect greeting(name) returns exact expected text, test and edge cases within scope",
+                  "enabled": true,
+                  "id": "review_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            },
+            "security": {
+              "base_commit": "b8a8030a22e69cedc0d519949735376516faead2",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect greeting implementation against scope; no secrets or unsafe execution",
+                  "enabled": true,
+                  "id": "security_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            }
+          },
+          "round": 1,
+          "task_digest": "sha256:19f1070ffc69774afc9bd51ca39ee9923eb66b1c0b1a664cbf9c48f461b76e8d"
+        },
+        "gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "checks: checks_acceptance: Declared skip / required environment unavailable",
+            "checks: Model profile unavailable; independent model not established",
+            "security: Model profile unavailable; independent model not established",
+            "review: Model profile unavailable; independent model not established"
+          ],
+          "gate": "feature",
+          "status": "blocked",
+          "suggested_next": "owner"
+        },
+        "implementation": {
+          "base_commit": "b8a8030a22e69cedc0d519949735376516faead2",
+          "head_commit": "b8a8030a22e69cedc0d519949735376516faead2",
+          "changed_files": [
+            ".ai-factory/PLAN.md",
+            "greeting.py",
+            "test_greeting.py"
+          ]
+        },
+        "plan": {
+          "entrypoint": "PLAN.md",
+          "files": [
+            {
+              "path": "PLAN.md",
+              "ref": {
+                "artifact_id": "artifact:05547225e6e31b1466d56a6a5713d803755716b734165c427d7c184f7ccd3c47",
+                "digest": "sha256:b20aa80625dffb9fa14f4b019be8c37481ee6f0b7200e8aa07b6c555da0837d2",
+                "revision": 1
+              }
+            }
+          ],
+          "root": ".ai-factory",
+          "schema_version": "workspace-tree-manifest/1"
+        },
+        "result": {
+          "outcome": "implemented",
+          "reason": "Synthetic feature host",
+          "work": [
+            "Preserved task work and original base."
+          ]
+        }
+      },
+      "final_outputs": {
+        "evidence": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "b8a8030a22e69cedc0d519949735376516faead2",
+            "digest": "sha256:2c8ec93af3bd46e4a029dc321e7176c261a1ee36cb62fd163acc3b5eb074d634",
+            "files_digest": "sha256:1fc87a6f639030ad101b332ef722fdb3c171fe1748c421589593eb59f8d4693a",
+            "head_commit": "b8a8030a22e69cedc0d519949735376516faead2",
+            "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615"
+          },
+          "gate": {
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "checks: Model profile unavailable; independent model not established",
+              "security: Model profile unavailable; independent model not established",
+              "review: Model profile unavailable; independent model not established"
+            ],
+            "gate": "feature",
+            "status": "warnings",
+            "suggested_next": "continue"
+          },
+          "product": null,
+          "reports": {
+            "checks": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "b8a8030a22e69cedc0d519949735376516faead2",
+                "digest": "sha256:2c8ec93af3bd46e4a029dc321e7176c261a1ee36cb62fd163acc3b5eb074d634",
+                "files_digest": "sha256:1fc87a6f639030ad101b332ef722fdb3c171fe1748c421589593eb59f8d4693a",
+                "head_commit": "b8a8030a22e69cedc0d519949735376516faead2",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": 0,
+                      "locator": "/tmp/aif-feature-queue-3pizhp1o/blocked-resume/authority/.prifly/work/claims/1c35d75709666ff74e17ed15e13eb7700eec44034f0fe7a3dcc211e88e3a2aae",
+                      "method": "command",
+                      "observation": "exit=0; stdout=''; stderr='.\\n----------------------------------------------------------------------\\nRan 1 test in 0.000s\\n\\nOK\\n'",
+                      "tool": "python3 -B -m unittest test_greeting"
+                    }
+                  ],
+                  "id": "checks_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:deb4c0327ed16aa16e562a063ad21750593e562f9d8324434cc1e3fdca73a55e",
+              "round": 1,
+              "session": "shared"
+            },
+            "review": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "b8a8030a22e69cedc0d519949735376516faead2",
+                "digest": "sha256:2c8ec93af3bd46e4a029dc321e7176c261a1ee36cb62fd163acc3b5eb074d634",
+                "files_digest": "sha256:1fc87a6f639030ad101b332ef722fdb3c171fe1748c421589593eb59f8d4693a",
+                "head_commit": "b8a8030a22e69cedc0d519949735376516faead2",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "fixture page/source",
+                      "method": "code",
+                      "observation": "Actual fixture command exited zero",
+                      "tool": "fixture-tool"
+                    }
+                  ],
+                  "id": "review_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:74d38c74d7f35a4060b3544553186272a4d68fcf7b967ae327b4ac0d5285d6db",
+              "round": 1,
+              "session": "shared"
+            },
+            "security": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "b8a8030a22e69cedc0d519949735376516faead2",
+                "digest": "sha256:2c8ec93af3bd46e4a029dc321e7176c261a1ee36cb62fd163acc3b5eb074d634",
+                "files_digest": "sha256:1fc87a6f639030ad101b332ef722fdb3c171fe1748c421589593eb59f8d4693a",
+                "head_commit": "b8a8030a22e69cedc0d519949735376516faead2",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "fixture page/source",
+                      "method": "code",
+                      "observation": "Actual fixture command exited zero",
+                      "tool": "fixture-tool"
+                    }
+                  ],
+                  "id": "security_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:7857027f4aab423eff0b29a52c1e9e56a678f6d1fc02c892a542e1da38ec93cc",
+              "round": 1,
+              "session": "shared"
+            }
+          },
+          "requests": {
+            "checks": {
+              "base_commit": "b8a8030a22e69cedc0d519949735376516faead2",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "python3 -B -m unittest test_greeting",
+                  "enabled": true,
+                  "id": "checks_acceptance",
+                  "method": "command",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            },
+            "review": {
+              "base_commit": "b8a8030a22e69cedc0d519949735376516faead2",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect greeting(name) returns exact expected text, test and edge cases within scope",
+                  "enabled": true,
+                  "id": "review_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            },
+            "security": {
+              "base_commit": "b8a8030a22e69cedc0d519949735376516faead2",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect greeting implementation against scope; no secrets or unsafe execution",
+                  "enabled": true,
+                  "id": "security_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            }
+          },
+          "round": 1,
+          "task_digest": "sha256:19f1070ffc69774afc9bd51ca39ee9923eb66b1c0b1a664cbf9c48f461b76e8d"
+        },
+        "gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "checks: Model profile unavailable; independent model not established",
+            "security: Model profile unavailable; independent model not established",
+            "review: Model profile unavailable; independent model not established"
+          ],
+          "gate": "feature",
+          "status": "warnings",
+          "suggested_next": "continue"
+        },
+        "implementation": {
+          "base_commit": "b8a8030a22e69cedc0d519949735376516faead2",
+          "head_commit": "03d118f156597cb1503ed77afc878d0c826a46a2",
+          "changed_files": [
+            "greeting.py",
+            "test_greeting.py"
+          ]
+        },
+        "plan": {
+          "entrypoint": "PLAN.md",
+          "files": [
+            {
+              "path": "PLAN.md",
+              "ref": {
+                "artifact_id": "artifact:05547225e6e31b1466d56a6a5713d803755716b734165c427d7c184f7ccd3c47",
+                "digest": "sha256:b20aa80625dffb9fa14f4b019be8c37481ee6f0b7200e8aa07b6c555da0837d2",
+                "revision": 1
+              }
+            }
+          ],
+          "root": ".ai-factory",
+          "schema_version": "workspace-tree-manifest/1"
+        },
+        "result": {
+          "outcome": "implemented",
+          "reason": "Synthetic feature host",
+          "work": [
+            "Preserved task work and original base."
+          ]
+        }
+      },
+      "snapshots": {
+        "ready": {
+          "state": "ready",
+          "associated_runs": [],
+          "run_count": 0,
+          "workspace_claim_count": 0
+        },
+        "claimed": {
+          "state": "claimed",
+          "associated_runs": [],
+          "run_count": 0,
+          "workspace_claim_count": 0
+        },
+        "admitted": {
+          "state": "claimed",
+          "associated_runs": [
+            "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3"
+          ],
+          "run_count": 1,
+          "workspace_claim_count": 1
+        },
+        "stopped": {
+          "state": "claimed",
+          "associated_runs": [
+            "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3"
+          ],
+          "run_count": 1,
+          "workspace_claim_count": 1
+        },
+        "succeeded-not-completed": {
+          "state": "claimed",
+          "associated_runs": [
+            "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+            "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848"
+          ],
+          "run_count": 2,
+          "workspace_claim_count": 1
+        },
+        "completed": {
+          "state": "done",
+          "associated_runs": [
+            "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+            "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848"
+          ],
+          "run_count": 2,
+          "workspace_claim_count": 1
+        }
+      },
+      "refusals": [
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/aif-feature-queue-3pizhp1o/blocked-resume/repository",
+            "--launch",
+            "aif-feature",
+            "--host",
+            "codex-cli",
+            "--workspace",
+            "worktree",
+            "--allow-execution",
+            "--decision-policy",
+            "autonomous",
+            "--preflight-answer",
+            "plan_retention=\"capture\"",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--task-id",
+            "queue-task:a225199dafaeb44f13bc5878edd821cd88bb7a0000d7be5502dccb6d34ae4620",
+            "--task-owner",
+            "session:feature-queue",
+            "--task-revision",
+            "1",
+            "--task-claim-generation",
+            "1",
+            "--prepare"
+          ],
+          "code": "missing_input"
+        },
+        {
+          "args": [
+            "project",
+            "queue",
+            "complete",
+            "--repository",
+            "/tmp/aif-feature-queue-3pizhp1o/blocked-resume/repository",
+            "--task-id",
+            "queue-task:a225199dafaeb44f13bc5878edd821cd88bb7a0000d7be5502dccb6d34ae4620",
+            "--task-owner",
+            "session:feature-queue",
+            "--task-revision",
+            "1",
+            "--task-claim-generation",
+            "1",
+            "--command-id",
+            "command:premature-complete",
+            "--reason",
+            "Negative fixture: live Run must prevent completion"
+          ],
+          "code": "queue_task_busy"
+        },
+        {
+          "args": [
+            "project",
+            "continue",
+            "--repository",
+            "/tmp/aif-feature-queue-3pizhp1o/blocked-resume/repository",
+            "--launch",
+            "aif-feature",
+            "--host",
+            "codex-cli",
+            "--source-run",
+            "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+            "--allow-execution",
+            "--prepare"
+          ],
+          "code": "queue_source_identity_conflict"
+        }
+      ],
+      "duplicate_receipts": 3,
+      "monitor": {
+        "runs": [
+          {
+            "run_id": "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+            "source": "eaf3bbc6df300436f8efc69e5e7033d3720cb1aa71915560ad4914be20878cd0",
+            "subject": "Small greeting feature",
+            "status": "completed",
+            "outcome": "succeeded",
+            "fork_source_run_id": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3"
+          },
+          {
+            "run_id": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+            "source": "eaf3bbc6df300436f8efc69e5e7033d3720cb1aa71915560ad4914be20878cd0",
+            "subject": "Small greeting feature",
+            "status": "completed",
+            "outcome": "partial",
+            "fork_source_run_id": null
+          }
+        ],
+        "evidence_ref": {
+          "artifact_id": "artifact:c44cf46a5dd9b56423d31f8a65229aa5cfdd947f3e262c2427697529bcd558e1",
+          "revision": 1,
+          "digest": "sha256:a0cede6f58621dd0d1fa193b7f1f42623962ce6ff63480fcc3a96773e71326ad"
+        },
+        "evidence_raw": "{\"candidate\":{\"algorithm\":\"git-candidate/1\",\"base_commit\":\"b8a8030a22e69cedc0d519949735376516faead2\",\"digest\":\"sha256:2c8ec93af3bd46e4a029dc321e7176c261a1ee36cb62fd163acc3b5eb074d634\",\"files_digest\":\"sha256:1fc87a6f639030ad101b332ef722fdb3c171fe1748c421589593eb59f8d4693a\",\"head_commit\":\"b8a8030a22e69cedc0d519949735376516faead2\",\"index_digest\":\"sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615\"},\"gate\":{\"blocking\":false,\"blocking_owner_only\":false,\"findings\":[\"checks: Model profile unavailable; independent model not established\",\"security: Model profile unavailable; independent model not established\",\"review: Model profile unavailable; independent model not established\"],\"gate\":\"feature\",\"status\":\"warnings\",\"suggested_next\":\"continue\"},\"product\":null,\"reports\":{\"checks\":{\"candidate\":{\"algorithm\":\"git-candidate/1\",\"base_commit\":\"b8a8030a22e69cedc0d519949735376516faead2\",\"digest\":\"sha256:2c8ec93af3bd46e4a029dc321e7176c261a1ee36cb62fd163acc3b5eb074d634\",\"files_digest\":\"sha256:1fc87a6f639030ad101b332ef722fdb3c171fe1748c421589593eb59f8d4693a\",\"head_commit\":\"b8a8030a22e69cedc0d519949735376516faead2\",\"index_digest\":\"sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615\"},\"checks\":[{\"evidence\":[{\"exit_code\":0,\"locator\":\"/tmp/aif-feature-queue-3pizhp1o/blocked-resume/authority/.prifly/work/claims/1c35d75709666ff74e17ed15e13eb7700eec44034f0fe7a3dcc211e88e3a2aae\",\"method\":\"command\",\"observation\":\"exit=0; stdout=''; stderr='.\\\\n----------------------------------------------------------------------\\\\nRan 1 test in 0.000s\\\\n\\\\nOK\\\\n'\",\"tool\":\"python3 -B -m unittest test_greeting\"}],\"id\":\"checks_acceptance\",\"reason\":\"\",\"result\":\"passed\",\"status\":\"executed\"}],\"model\":null,\"model_profile\":\"unavailable\",\"request_digest\":\"sha256:deb4c0327ed16aa16e562a063ad21750593e562f9d8324434cc1e3fdca73a55e\",\"round\":1,\"session\":\"shared\"},\"review\":{\"candidate\":{\"algorithm\":\"git-candidate/1\",\"base_commit\":\"b8a8030a22e69cedc0d519949735376516faead2\",\"digest\":\"sha256:2c8ec93af3bd46e4a029dc321e7176c261a1ee36cb62fd163acc3b5eb074d634\",\"files_digest\":\"sha256:1fc87a6f639030ad101b332ef722fdb3c171fe1748c421589593eb59f8d4693a\",\"head_commit\":\"b8a8030a22e69cedc0d519949735376516faead2\",\"index_digest\":\"sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615\"},\"checks\":[{\"evidence\":[{\"exit_code\":null,\"locator\":\"fixture page/source\",\"method\":\"code\",\"observation\":\"Actual fixture command exited zero\",\"tool\":\"fixture-tool\"}],\"id\":\"review_acceptance\",\"reason\":\"\",\"result\":\"passed\",\"status\":\"executed\"}],\"model\":null,\"model_profile\":\"unavailable\",\"request_digest\":\"sha256:74d38c74d7f35a4060b3544553186272a4d68fcf7b967ae327b4ac0d5285d6db\",\"round\":1,\"session\":\"shared\"},\"security\":{\"candidate\":{\"algorithm\":\"git-candidate/1\",\"base_commit\":\"b8a8030a22e69cedc0d519949735376516faead2\",\"digest\":\"sha256:2c8ec93af3bd46e4a029dc321e7176c261a1ee36cb62fd163acc3b5eb074d634\",\"files_digest\":\"sha256:1fc87a6f639030ad101b332ef722fdb3c171fe1748c421589593eb59f8d4693a\",\"head_commit\":\"b8a8030a22e69cedc0d519949735376516faead2\",\"index_digest\":\"sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615\"},\"checks\":[{\"evidence\":[{\"exit_code\":null,\"locator\":\"fixture page/source\",\"method\":\"code\",\"observation\":\"Actual fixture command exited zero\",\"tool\":\"fixture-tool\"}],\"id\":\"security_acceptance\",\"reason\":\"\",\"result\":\"passed\",\"status\":\"executed\"}],\"model\":null,\"model_profile\":\"unavailable\",\"request_digest\":\"sha256:7857027f4aab423eff0b29a52c1e9e56a678f6d1fc02c892a542e1da38ec93cc\",\"round\":1,\"session\":\"shared\"}},\"requests\":{\"checks\":{\"base_commit\":\"b8a8030a22e69cedc0d519949735376516faead2\",\"checks\":[{\"applicable\":true,\"description\":\"python3 -B -m unittest test_greeting\",\"enabled\":true,\"id\":\"checks_acceptance\",\"method\":\"command\",\"required\":true}],\"optional_policy\":\"ignore\",\"require_separate_session\":false,\"round\":1},\"review\":{\"base_commit\":\"b8a8030a22e69cedc0d519949735376516faead2\",\"checks\":[{\"applicable\":true,\"description\":\"Inspect greeting(name) returns exact expected text, test and edge cases within scope\",\"enabled\":true,\"id\":\"review_acceptance\",\"method\":\"code\",\"required\":true}],\"optional_policy\":\"ignore\",\"require_separate_session\":false,\"round\":1},\"security\":{\"base_commit\":\"b8a8030a22e69cedc0d519949735376516faead2\",\"checks\":[{\"applicable\":true,\"description\":\"Inspect greeting implementation against scope; no secrets or unsafe execution\",\"enabled\":true,\"id\":\"security_acceptance\",\"method\":\"code\",\"required\":true}],\"optional_policy\":\"ignore\",\"require_separate_session\":false,\"round\":1}},\"round\":1,\"task_digest\":\"sha256:19f1070ffc69774afc9bd51ca39ee9923eb66b1c0b1a664cbf9c48f461b76e8d\"}\n",
+        "truncated": false
+      }
+    },
+    {
+      "case": "cancel-resume",
+      "result": "PASS",
+      "task_id": "queue-task:b6dee204e9446f4fadeb41714edd64b22766e55440d1bef6657b8ee15a069077",
+      "runs": [
+        "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+        "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848"
+      ],
+      "initial_outcome": "cancelled",
+      "outcome": "succeeded",
+      "same_workspace_claim": true,
+      "claims_released": true,
+      "original_request_digest": "sha256:6878d4427c33ee8e16d8aec4f358ef3a332929e5685017122b8ed08968a91815",
+      "typed_input_digest": "sha256:19f1070ffc69774afc9bd51ca39ee9923eb66b1c0b1a664cbf9c48f461b76e8d",
+      "rounds": [
+        {
+          "run": "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:453118760748ff02ecac0972c23e38125d1412d933884f545072834fb8a04491",
+          "base": "64e2c991c86b3efa55bb86a3e7382efdfc59e3ce"
+        },
+        {
+          "run": "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:453118760748ff02ecac0972c23e38125d1412d933884f545072834fb8a04491",
+          "base": "64e2c991c86b3efa55bb86a3e7382efdfc59e3ce"
+        },
+        {
+          "run": "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:453118760748ff02ecac0972c23e38125d1412d933884f545072834fb8a04491",
+          "base": "64e2c991c86b3efa55bb86a3e7382efdfc59e3ce"
+        }
+      ],
+      "steps": [
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "warmup"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "plan"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "implement"
+        },
+        {
+          "run": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+          "step": "checks"
+        },
+        {
+          "run": "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+          "step": "checks"
+        },
+        {
+          "run": "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+          "step": "security"
+        },
+        {
+          "run": "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+          "step": "review"
+        },
+        {
+          "run": "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+          "step": "commit"
+        }
+      ],
+      "source_outputs": {},
+      "final_outputs": {
+        "evidence": {
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "64e2c991c86b3efa55bb86a3e7382efdfc59e3ce",
+            "digest": "sha256:453118760748ff02ecac0972c23e38125d1412d933884f545072834fb8a04491",
+            "files_digest": "sha256:1fc87a6f639030ad101b332ef722fdb3c171fe1748c421589593eb59f8d4693a",
+            "head_commit": "64e2c991c86b3efa55bb86a3e7382efdfc59e3ce",
+            "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615"
+          },
+          "gate": {
+            "blocking": false,
+            "blocking_owner_only": false,
+            "findings": [
+              "checks: Model profile unavailable; independent model not established",
+              "security: Model profile unavailable; independent model not established",
+              "review: Model profile unavailable; independent model not established"
+            ],
+            "gate": "feature",
+            "status": "warnings",
+            "suggested_next": "continue"
+          },
+          "product": null,
+          "reports": {
+            "checks": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "64e2c991c86b3efa55bb86a3e7382efdfc59e3ce",
+                "digest": "sha256:453118760748ff02ecac0972c23e38125d1412d933884f545072834fb8a04491",
+                "files_digest": "sha256:1fc87a6f639030ad101b332ef722fdb3c171fe1748c421589593eb59f8d4693a",
+                "head_commit": "64e2c991c86b3efa55bb86a3e7382efdfc59e3ce",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": 0,
+                      "locator": "/tmp/aif-feature-queue-3pizhp1o/cancel-resume/authority/.prifly/work/claims/c3ae017b1ceec27fe259e1480991df9fac3c393fcd1866fe1cdcd1d8b700365a",
+                      "method": "command",
+                      "observation": "exit=0; stdout=''; stderr='.\\n----------------------------------------------------------------------\\nRan 1 test in 0.000s\\n\\nOK\\n'",
+                      "tool": "python3 -B -m unittest test_greeting"
+                    }
+                  ],
+                  "id": "checks_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:f0d1755869e5c584e9220a2ab11a07f23ba73ff6920aff9d127017c0225f9d7e",
+              "round": 1,
+              "session": "shared"
+            },
+            "review": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "64e2c991c86b3efa55bb86a3e7382efdfc59e3ce",
+                "digest": "sha256:453118760748ff02ecac0972c23e38125d1412d933884f545072834fb8a04491",
+                "files_digest": "sha256:1fc87a6f639030ad101b332ef722fdb3c171fe1748c421589593eb59f8d4693a",
+                "head_commit": "64e2c991c86b3efa55bb86a3e7382efdfc59e3ce",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "fixture page/source",
+                      "method": "code",
+                      "observation": "Actual fixture command exited zero",
+                      "tool": "fixture-tool"
+                    }
+                  ],
+                  "id": "review_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:b417c266b5aa724bf846b06b08f72034a137eefc713b45602858e44010a7e890",
+              "round": 1,
+              "session": "shared"
+            },
+            "security": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "64e2c991c86b3efa55bb86a3e7382efdfc59e3ce",
+                "digest": "sha256:453118760748ff02ecac0972c23e38125d1412d933884f545072834fb8a04491",
+                "files_digest": "sha256:1fc87a6f639030ad101b332ef722fdb3c171fe1748c421589593eb59f8d4693a",
+                "head_commit": "64e2c991c86b3efa55bb86a3e7382efdfc59e3ce",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615"
+              },
+              "checks": [
+                {
+                  "evidence": [
+                    {
+                      "exit_code": null,
+                      "locator": "fixture page/source",
+                      "method": "code",
+                      "observation": "Actual fixture command exited zero",
+                      "tool": "fixture-tool"
+                    }
+                  ],
+                  "id": "security_acceptance",
+                  "reason": "",
+                  "result": "passed",
+                  "status": "executed"
+                }
+              ],
+              "model": null,
+              "model_profile": "unavailable",
+              "request_digest": "sha256:fa5d9b10a8b83c985f27d60785a73efebf114633b2b1f44f1aad3728eb1bfd43",
+              "round": 1,
+              "session": "shared"
+            }
+          },
+          "requests": {
+            "checks": {
+              "base_commit": "64e2c991c86b3efa55bb86a3e7382efdfc59e3ce",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "python3 -B -m unittest test_greeting",
+                  "enabled": true,
+                  "id": "checks_acceptance",
+                  "method": "command",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            },
+            "review": {
+              "base_commit": "64e2c991c86b3efa55bb86a3e7382efdfc59e3ce",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect greeting(name) returns exact expected text, test and edge cases within scope",
+                  "enabled": true,
+                  "id": "review_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            },
+            "security": {
+              "base_commit": "64e2c991c86b3efa55bb86a3e7382efdfc59e3ce",
+              "checks": [
+                {
+                  "applicable": true,
+                  "description": "Inspect greeting implementation against scope; no secrets or unsafe execution",
+                  "enabled": true,
+                  "id": "security_acceptance",
+                  "method": "code",
+                  "required": true
+                }
+              ],
+              "optional_policy": "ignore",
+              "require_separate_session": false,
+              "round": 1
+            }
+          },
+          "round": 1,
+          "task_digest": "sha256:19f1070ffc69774afc9bd51ca39ee9923eb66b1c0b1a664cbf9c48f461b76e8d"
+        },
+        "gate": {
+          "blocking": false,
+          "blocking_owner_only": false,
+          "findings": [
+            "checks: Model profile unavailable; independent model not established",
+            "security: Model profile unavailable; independent model not established",
+            "review: Model profile unavailable; independent model not established"
+          ],
+          "gate": "feature",
+          "status": "warnings",
+          "suggested_next": "continue"
+        },
+        "implementation": {
+          "base_commit": "64e2c991c86b3efa55bb86a3e7382efdfc59e3ce",
+          "head_commit": "4c71e595a2be8cad8fe614d4130628338b0e2c84",
+          "changed_files": [
+            "greeting.py",
+            "test_greeting.py"
+          ]
+        },
+        "plan": {
+          "entrypoint": "PLAN.md",
+          "files": [
+            {
+              "path": "PLAN.md",
+              "ref": {
+                "artifact_id": "artifact:2ea942fe32d22322170ad22cae7f17eb40c4a8382611e5c8f5de6f8b3bab275f",
+                "digest": "sha256:b4c619bbe3cec205bfaa2f9a353a3e59baa1b665be0fac50069bb3f048256ddf",
+                "revision": 1
+              }
+            }
+          ],
+          "root": ".ai-factory",
+          "schema_version": "workspace-tree-manifest/1"
+        },
+        "result": {
+          "outcome": "implemented",
+          "reason": "Synthetic feature host",
+          "work": [
+            "Preserved task work and original base."
+          ]
+        }
+      },
+      "snapshots": {
+        "ready": {
+          "state": "ready",
+          "associated_runs": [],
+          "run_count": 0,
+          "workspace_claim_count": 0
+        },
+        "claimed": {
+          "state": "claimed",
+          "associated_runs": [],
+          "run_count": 0,
+          "workspace_claim_count": 0
+        },
+        "admitted": {
+          "state": "claimed",
+          "associated_runs": [
+            "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3"
+          ],
+          "run_count": 1,
+          "workspace_claim_count": 1
+        },
+        "stopped": {
+          "state": "claimed",
+          "associated_runs": [
+            "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3"
+          ],
+          "run_count": 1,
+          "workspace_claim_count": 1
+        },
+        "succeeded-not-completed": {
+          "state": "claimed",
+          "associated_runs": [
+            "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+            "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848"
+          ],
+          "run_count": 2,
+          "workspace_claim_count": 1
+        },
+        "completed": {
+          "state": "done",
+          "associated_runs": [
+            "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+            "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848"
+          ],
+          "run_count": 2,
+          "workspace_claim_count": 1
+        }
+      },
+      "refusals": [
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/aif-feature-queue-3pizhp1o/cancel-resume/repository",
+            "--launch",
+            "aif-feature",
+            "--host",
+            "codex-cli",
+            "--workspace",
+            "worktree",
+            "--allow-execution",
+            "--decision-policy",
+            "autonomous",
+            "--preflight-answer",
+            "plan_retention=\"capture\"",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--task-id",
+            "queue-task:b6dee204e9446f4fadeb41714edd64b22766e55440d1bef6657b8ee15a069077",
+            "--task-owner",
+            "session:feature-queue",
+            "--task-revision",
+            "1",
+            "--task-claim-generation",
+            "1",
+            "--prepare"
+          ],
+          "code": "missing_input"
+        },
+        {
+          "args": [
+            "project",
+            "queue",
+            "complete",
+            "--repository",
+            "/tmp/aif-feature-queue-3pizhp1o/cancel-resume/repository",
+            "--task-id",
+            "queue-task:b6dee204e9446f4fadeb41714edd64b22766e55440d1bef6657b8ee15a069077",
+            "--task-owner",
+            "session:feature-queue",
+            "--task-revision",
+            "1",
+            "--task-claim-generation",
+            "1",
+            "--command-id",
+            "command:premature-complete",
+            "--reason",
+            "Negative fixture: live Run must prevent completion"
+          ],
+          "code": "queue_task_busy"
+        },
+        {
+          "args": [
+            "project",
+            "continue",
+            "--repository",
+            "/tmp/aif-feature-queue-3pizhp1o/cancel-resume/repository",
+            "--launch",
+            "aif-feature",
+            "--host",
+            "codex-cli",
+            "--source-run",
+            "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+            "--allow-execution",
+            "--prepare"
+          ],
+          "code": "queue_source_identity_conflict"
+        }
+      ],
+      "duplicate_receipts": 3,
+      "monitor": {
+        "runs": [
+          {
+            "run_id": "run:144ec8e492d5f394f838979130699aff9b4c5789e0296145d83a5f4e9a096848",
+            "source": "5a5c7d25b1997037f0f31a4b1c630a7bd18aa01fc0eb0ed73bfe98f755af24b8",
+            "subject": "Small greeting feature",
+            "status": "completed",
+            "outcome": "succeeded",
+            "fork_source_run_id": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3"
+          },
+          {
+            "run_id": "run:719ba2863a15afabbe02cbfc105e8a765b3ca5d12ebf4929420088d64736c0e3",
+            "source": "5a5c7d25b1997037f0f31a4b1c630a7bd18aa01fc0eb0ed73bfe98f755af24b8",
+            "subject": "Small greeting feature",
+            "status": "cancelled",
+            "outcome": null,
+            "fork_source_run_id": null
+          }
+        ],
+        "evidence_ref": {
+          "artifact_id": "artifact:5f9d02773ddf3a331824691712e73b3cd12c56d202438abd3cf22d5456a469e1",
+          "revision": 1,
+          "digest": "sha256:437a2794d27cf4af616c07c78fad89c8e3df70cd2b96e58858e6ff622ef49f52"
+        },
+        "evidence_raw": "{\"candidate\":{\"algorithm\":\"git-candidate/1\",\"base_commit\":\"64e2c991c86b3efa55bb86a3e7382efdfc59e3ce\",\"digest\":\"sha256:453118760748ff02ecac0972c23e38125d1412d933884f545072834fb8a04491\",\"files_digest\":\"sha256:1fc87a6f639030ad101b332ef722fdb3c171fe1748c421589593eb59f8d4693a\",\"head_commit\":\"64e2c991c86b3efa55bb86a3e7382efdfc59e3ce\",\"index_digest\":\"sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615\"},\"gate\":{\"blocking\":false,\"blocking_owner_only\":false,\"findings\":[\"checks: Model profile unavailable; independent model not established\",\"security: Model profile unavailable; independent model not established\",\"review: Model profile unavailable; independent model not established\"],\"gate\":\"feature\",\"status\":\"warnings\",\"suggested_next\":\"continue\"},\"product\":null,\"reports\":{\"checks\":{\"candidate\":{\"algorithm\":\"git-candidate/1\",\"base_commit\":\"64e2c991c86b3efa55bb86a3e7382efdfc59e3ce\",\"digest\":\"sha256:453118760748ff02ecac0972c23e38125d1412d933884f545072834fb8a04491\",\"files_digest\":\"sha256:1fc87a6f639030ad101b332ef722fdb3c171fe1748c421589593eb59f8d4693a\",\"head_commit\":\"64e2c991c86b3efa55bb86a3e7382efdfc59e3ce\",\"index_digest\":\"sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615\"},\"checks\":[{\"evidence\":[{\"exit_code\":0,\"locator\":\"/tmp/aif-feature-queue-3pizhp1o/cancel-resume/authority/.prifly/work/claims/c3ae017b1ceec27fe259e1480991df9fac3c393fcd1866fe1cdcd1d8b700365a\",\"method\":\"command\",\"observation\":\"exit=0; stdout=''; stderr='.\\\\n----------------------------------------------------------------------\\\\nRan 1 test in 0.000s\\\\n\\\\nOK\\\\n'\",\"tool\":\"python3 -B -m unittest test_greeting\"}],\"id\":\"checks_acceptance\",\"reason\":\"\",\"result\":\"passed\",\"status\":\"executed\"}],\"model\":null,\"model_profile\":\"unavailable\",\"request_digest\":\"sha256:f0d1755869e5c584e9220a2ab11a07f23ba73ff6920aff9d127017c0225f9d7e\",\"round\":1,\"session\":\"shared\"},\"review\":{\"candidate\":{\"algorithm\":\"git-candidate/1\",\"base_commit\":\"64e2c991c86b3efa55bb86a3e7382efdfc59e3ce\",\"digest\":\"sha256:453118760748ff02ecac0972c23e38125d1412d933884f545072834fb8a04491\",\"files_digest\":\"sha256:1fc87a6f639030ad101b332ef722fdb3c171fe1748c421589593eb59f8d4693a\",\"head_commit\":\"64e2c991c86b3efa55bb86a3e7382efdfc59e3ce\",\"index_digest\":\"sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615\"},\"checks\":[{\"evidence\":[{\"exit_code\":null,\"locator\":\"fixture page/source\",\"method\":\"code\",\"observation\":\"Actual fixture command exited zero\",\"tool\":\"fixture-tool\"}],\"id\":\"review_acceptance\",\"reason\":\"\",\"result\":\"passed\",\"status\":\"executed\"}],\"model\":null,\"model_profile\":\"unavailable\",\"request_digest\":\"sha256:b417c266b5aa724bf846b06b08f72034a137eefc713b45602858e44010a7e890\",\"round\":1,\"session\":\"shared\"},\"security\":{\"candidate\":{\"algorithm\":\"git-candidate/1\",\"base_commit\":\"64e2c991c86b3efa55bb86a3e7382efdfc59e3ce\",\"digest\":\"sha256:453118760748ff02ecac0972c23e38125d1412d933884f545072834fb8a04491\",\"files_digest\":\"sha256:1fc87a6f639030ad101b332ef722fdb3c171fe1748c421589593eb59f8d4693a\",\"head_commit\":\"64e2c991c86b3efa55bb86a3e7382efdfc59e3ce\",\"index_digest\":\"sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615\"},\"checks\":[{\"evidence\":[{\"exit_code\":null,\"locator\":\"fixture page/source\",\"method\":\"code\",\"observation\":\"Actual fixture command exited zero\",\"tool\":\"fixture-tool\"}],\"id\":\"security_acceptance\",\"reason\":\"\",\"result\":\"passed\",\"status\":\"executed\"}],\"model\":null,\"model_profile\":\"unavailable\",\"request_digest\":\"sha256:fa5d9b10a8b83c985f27d60785a73efebf114633b2b1f44f1aad3728eb1bfd43\",\"round\":1,\"session\":\"shared\"}},\"requests\":{\"checks\":{\"base_commit\":\"64e2c991c86b3efa55bb86a3e7382efdfc59e3ce\",\"checks\":[{\"applicable\":true,\"description\":\"python3 -B -m unittest test_greeting\",\"enabled\":true,\"id\":\"checks_acceptance\",\"method\":\"command\",\"required\":true}],\"optional_policy\":\"ignore\",\"require_separate_session\":false,\"round\":1},\"review\":{\"base_commit\":\"64e2c991c86b3efa55bb86a3e7382efdfc59e3ce\",\"checks\":[{\"applicable\":true,\"description\":\"Inspect greeting(name) returns exact expected text, test and edge cases within scope\",\"enabled\":true,\"id\":\"review_acceptance\",\"method\":\"code\",\"required\":true}],\"optional_policy\":\"ignore\",\"require_separate_session\":false,\"round\":1},\"security\":{\"base_commit\":\"64e2c991c86b3efa55bb86a3e7382efdfc59e3ce\",\"checks\":[{\"applicable\":true,\"description\":\"Inspect greeting implementation against scope; no secrets or unsafe execution\",\"enabled\":true,\"id\":\"security_acceptance\",\"method\":\"code\",\"required\":true}],\"optional_policy\":\"ignore\",\"require_separate_session\":false,\"round\":1}},\"round\":1,\"task_digest\":\"sha256:19f1070ffc69774afc9bd51ca39ee9923eb66b1c0b1a664cbf9c48f461b76e8d\"}\n",
+        "truncated": false
+      }
+    }
+  ]
+}

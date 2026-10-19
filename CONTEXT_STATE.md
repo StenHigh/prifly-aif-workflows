@@ -6,9 +6,33 @@
 движка 0.10–0.13.54, переход на AI Factory 2.19.0, WorkflowRevision v4) —
 в git: `git show d388b92:CONTEXT_STATE.md` (2330 строк, оглавление — `mdq tree`).
 
-## Состояние на 2026-10-17
+## Состояние на 2026-10-19
 
 Ворота выверены против выпущенного Pri-Fly `v0.13.80`.
+
+- **Native queue → aif-feature, пакетная CLI-приёмка (2026-10-19):**
+  Latest stable по gh по-прежнему0.13.80; official asset скачан отдельно,
+  binary SHA256 b5bc6d33206281c52afd3b17827e8cd416812d223d091f699d7883a382037a82.
+  tests/probes/feature_queue_check.py:3 cases /5 native Runs PASS — direct,
+  required-unavailable partial→continue и read-only quality cancel→continue.
+  Private HOME/repository/authority; synthetic assisted actors, real CLI,
+  programs/unit-test/Git/full-monitor HTTP. Claim и missing_input prepare не
+  создают Run/workspace claim; exact retries без дубликатов; active complete
+  отказывает queue_task_busy, continue без selection queue_source_identity_conflict.
+  Continuation сохраняет одну workspace claim, tracked/untracked owner edits,
+  исходные TaskInput bytes и source Run; quality повторяется для fresh candidate,
+  plan/implement не повторяются. После success Task claimed до owner complete;
+  native associations сохраняют оба Runs. Full monitor индексирует Runs и
+  возвращает exact evidence bytes. Gate warnings честно сохраняет shared session /
+  unavailable model; живые actors/browser этим не принимаются. Cleanup PASS.
+  Все8 shipping trees равны v1.53.0, classic/profiled/Core/server не менялись.
+  Versions3/folders7/derive/feature-unit8, verify126/83/8 и compatibility5/4/4 PASS.
+  examples/native-queue даёт intake JSON и opt-in prepare/start/continue/complete;
+  docs/index/release guide обновлены, CI regression+artifact добавлены.
+  Evidence docs/changes/qualify-native-feature-queue/results.json и acceptance.md.
+  Remote CI текущего изменения ещё не запускался; commit/push/tag/catalog не
+  делались. Реальный проектный пилот ждёт подходящей задачи; private #2/#5,
+  W4 real provider, actual hosts, E3 и E6 Light остаются отдельными работами.
 
 - **W6 — native review/UIUX через project extend (2026-10-17):**
   Реализованы examples/review-uiux-extensions: pinned W1/W2 bundle1.0.0,

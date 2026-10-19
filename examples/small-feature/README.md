@@ -4,6 +4,11 @@
 Нужны Pri-Fly ≥0.13.77, Python 3 и skills AI Factory (квалификация на2.19.0).
 Workflow пишет локальный commit; push, merge и MR в него не входят.
 
+Для запуска из существующей native queue есть
+[отдельный пример Task → Run → ревью → continue](../native-queue/README.md).
+Очередь подключается явно и не меняет этот workflow; её TaskInput не заменяет
+typed input с критериями фичи.
+
 | Задача | Task | Настройка extend | Дополнительная подготовка |
 | --- | --- | --- | --- |
 | Функция greeting с тестом | [backend](backend.task.json) | [backend](backend.extend.yaml) | Команда unit-теста и критерии code/security соответствуют проекту. |
