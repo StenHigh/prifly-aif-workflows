@@ -8,7 +8,47 @@
 
 ## Состояние на 2026-10-19
 
-Ворота выверены против выпущенного Pri-Fly `v0.13.80`.
+Ворота выверены против выпущенного Pri-Fly `v0.13.81`.
+
+- **E3 — исправление принято на released0.13.81 (2026-10-19):**
+  Pri-Fly#13 CLOSED; новый stable0.13.81/source94b7eb2c прочитан по AGENTS.md.
+  Official asset скачан отдельно, archive SHA256 совпал с manifest; binary SHA256
+  b2e02b36b2e062aacb4acf2b5cd3a35c0c8aee19379b77c6ff4d5714a22e6f50.
+  Tests/probes/feature_check.py обновлён с obsolete negative assertions на
+  positive recovery81: before resolve recover_source_unsettled; после resolution
+  prepare execute/read-only с сохранением source/claim/candidate/index/HEAD/
+  owner/plan bytes. Implement/not_applied succeeded2 Runs; plan/applied сохраняет
+  workspace_tree_output_exists/partial bytes, explicit fixture owner move и
+  recovery от текущего владельца claim succeeded3 Runs. Read-only control
+  succeeded2 Runs; blocked-resume и prefix-mismatch/reviewed configure replay
+  также PASS. Всего5 cases, synthetic actors/real CLI/programs/Git,1 workspace
+  claim в каждом; fixtures/private HOME/claims очищены. Source cancellation facts
+  после replay неизменны. Live model/private provider qualification не заявляем.
+  Verify126/83/8, compatibility5/4/4/core-state41, versions3/folders7/derive PASS.
+  Docs/plan/examples обновлены; все8 shipping trees равны v1.53.0, canonical
+  classic/profiled и Core/server не менялись. Нового tag/catalog не нужно.
+  Release/evidence: docs/changes/engine/release-0.13.81.md и -results.json.
+  Адаптация тестов/документации локальная, remote CI на ней не запускался.
+  Другой выпуск81 change — Light frontend/flags опубликованы; E6 issue11 ещё
+  OPEN, consumer projection/browser/domain rollout отложены отдельным follow-up.
+  Никакие реальные runner files, monitor services и домены не обновлялись.
+
+- **E3 — историческая перепроверка на0.13.80 (2026-10-19, до выпуска81):**
+  Latest stable по gh остаётся0.13.80, новых нет; official binary SHA256
+  b5bc6d33206281c52afd3b17827e8cd416812d223d091f699d7883a382037a82.
+  Повторены plan-cancel/applied и implement-cancel/not_applied на source081931f:
+  после inspected resolve uncertain Attempts нет, Run failed/outcome:null /
+  cancel_requested:true, prepare отказывает recover_source_unsettled. Native
+  record подтверждает сохранение source Run/version, candidate/index/HEAD,
+  owner/partial PLAN bytes и Run inventory; новый Run не создаётся.
+  Контроль cancel-resume на read-only checks succeeded (2 Runs,1 claim), весь
+  quality повторён. Synthetic actors/real CLI/Git, private HOME/temp root и
+  claims очищены. Создан Pri-Fly#13; issue body/evidence в docs/changes/engine/
+  E3-reviewed-writer-cancellation.md и E3-writer-cancellation-0.13.80-results.json.
+  E3 остаётся engine dependency; writer resume не заявляем. Эталонные classic/
+  profiled, все8 shipping packages и Core/server не менялись. База ворот80
+  подтверждена прежним full CI39250210672; эта задача добавляет только docs/
+  evidence и issue, нового package release не требует.
 
 - **Native queue → aif-feature, пакетная CLI-приёмка (2026-10-19):**
   Latest stable по gh по-прежнему0.13.80; official asset скачан отдельно,

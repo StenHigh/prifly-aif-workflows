@@ -1,0 +1,459 @@
+{
+  "schema_version": "engine-release-consumer-qualification/1",
+  "checked_on": "2026-10-19",
+  "release": {
+    "tag": "v0.13.81",
+    "url": "https://github.com/StenHigh/prifly/releases/tag/v0.13.81",
+    "source_sha": "94b7eb2ccad4828b9e9db363ce2236f6427b4e5f",
+    "asset_url": "https://github.com/StenHigh/prifly/releases/download/v0.13.81/prifly-linux-amd64.tar.gz",
+    "archive_sha256": "095da449e9f01cc7f756a8af5045465a49dfd9ac6e3a602833699368e7feb26b",
+    "archive_matches_release_manifest": true,
+    "binary_sha256": "b2e02b36b2e062aacb4acf2b5cd3a35c0c8aee19379b77c6ff4d5714a22e6f50"
+  },
+  "consumer_base_commit": "081931fb395d09311a49cb5037f0531db18c9c09",
+  "probe_diff_from_base": "diff --git a/tests/probes/feature_check.py b/tests/probes/feature_check.py\nindex 8b98783..ea10dcd 100644\n--- a/tests/probes/feature_check.py\n+++ b/tests/probes/feature_check.py\n@@ -1,5 +1,5 @@\n #!/usr/bin/env python3\n-\"\"\"W3 complete released-runtime Runs: synthetic writers/readers, real Git/programs.\"\"\"\n+\"\"\"W3 native Runs; writer recovery cases require released Pri-Fly 0.13.81+.\"\"\"\n import argparse\n import copy\n import hashlib\n@@ -14,7 +14,7 @@ import time\n \n sys.path.insert(0, str(Path(__file__).resolve().parents[1]))\n import verify\n-from test_review_evidence import config, report\n+from test_review_evidence import config, report, evidence as review_evidence\n from test_product_review import configuration as product_configuration\n from evidence_check import read\n from run_check import clean, git_out\n@@ -61,6 +61,7 @@ class FeatureHost(Host):\n         self.root, self.frontend, self.library, self.live, self.artifacts = root, frontend, library, live, artifacts\n         self.envs, self.env, self.rounds, self.observations, self.run_ids = [], None, [], [], []\n         self.plan_captures=[]\n+        self.writer_recovery=[]\n         self.iteration, self.cancelled, self.started_at = 0, False, time.monotonic()\n         self.review_mode, self.parallel_fault, self.parallel_live = 'sequential', None, False\n         self.parallel_batches, self.parallel_observations = [], []\n@@ -145,6 +146,15 @@ class FeatureHost(Host):\n                     if name in ('plan','implement'):\n                         refusal=verify.run(self.binary,'--project',self.authority,'run','drive',rid,expect_ok=False)\n                         assert 'recovery_required' in refusal,refusal\n+                        pending=self.call('run','status',rid)['run']\n+                        assert any(a['status']=='uncertain' for a in pending['attempts'].values())\n+                        refused=verify.run(self.binary,'--project',self.authority,'project','continue',\n+                            '--repository',self.root/'repository','--launch','aif-feature','--source-run',rid,\n+                            '--host','codex-cli','--allow-execution','--prepare',expect_ok=False)\n+                        problem=json.loads(refused.strip().splitlines()[-1])\n+                        assert problem['code']=='recover_source_unsettled',problem\n+                        self.writer_recovery.append({'check':'unresolved_writer_refused','code':problem['code'],\n+                                                     'attempt_id':task['attempt_id']})\n                         self.call('run','resolve',rid,'--attempt',task['attempt_id'],'--outcome','applied' if name=='plan' else 'not_applied',\n                                   '--reason','Synchronous fixture actor returned: planner wrote inspected partial bytes; implement cancellation occurred before any actor write. Materialized inputs and work preserved; no external effects.')\n                     self.call('run', 'drive', rid)\n@@ -396,6 +406,17 @@ def read_output(task, name):\n     return json.loads((Path(task['workspace'])/task['context']['outputs'][name]['path']).read_text())\n \n \n+def recovery_snapshot(h, rid):\n+    \"\"\"Observe the source, workspace and claim without changing the authority.\"\"\"\n+    view=h.call('run','status',rid)\n+    return {'run_version':view['run_version'],'run':view['run'],\n+            'runs':sorted(r['run_id'] for r in h.call('run','list')['runs']),\n+            'claims':h.call('claim','list')['claims'],\n+            'candidate':review_evidence.snapshot(h.tree,h.base),\n+            'owner':(h.tree/'owner.txt').read_bytes(),\n+            'plan':(h.tree/'.ai-factory/PLAN.md').read_bytes() if (h.tree/'.ai-factory/PLAN.md').exists() else None}\n+\n+\n def run_case(binary, case, host='codex-cli', library=None, live=False, artifacts=None, skills=None,\n              review_mode='sequential', parallel_fault=None, parallel_live=False,\n              host_factory=None, adapter_factory=None, task_mutator=None, expected_outcome=None, quality_limit=None):\n@@ -486,15 +507,21 @@ def run_case(binary, case, host='codex-cli', library=None, live=False, artifacts\n                     h.iteration=iteration\n                     cont=('--project',authority,'project','continue','--repository',repository,'--launch','aif-feature','--source-run',runs[-1],'--host',host,'--allow-execution')\n                     if case in ('plan-cancel','implement-cancel'):\n-                        before_version=verify.run(binary,'--project',authority,'run','status',rid)['run_version']\n-                        refused=verify.run(binary,*cont,'--prepare',expect_ok=False)\n-                        assert 'recover_source_unsettled' in refused,refused\n-                        assert verify.run(binary,'--project',authority,'run','status',rid)['run_version']==before_version\n+                        snapshot=recovery_snapshot(h,rid)\n+                        source=snapshot['run']\n+                        assert source['status']=='failed' and source.get('outcome') is None and source['cancel_requested']\n+                        assert not any(a['status']=='uncertain' for a in source['attempts'].values())\n+                        resolution='applied' if case=='plan-cancel' else 'not_applied'\n+                        assert any(d['code']=='resolved_'+resolution for d in source['diagnostics'])\n+                        checked=verify.run(binary,*cont,'--prepare')\n+                        assert checked['recovery']['frontier_action']=='execute',checked['recovery']\n+                        assert recovery_snapshot(h,rid)==snapshot,'Prepare changed source/work/claim/inventory'\n                         if case=='plan-cancel':assert (h.tree/'.ai-factory/PLAN.md').read_bytes()==before\n                         assert (h.tree/'owner.txt').read_text()=='Preserved owner edit across continuation\\n'\n-                        return {'case':case,'host':host,'source_outcome':'failed after cancellation + inspected resolve',\n-                                'outcome':'recover_source_unsettled','writer_reconciliation':('applied' if case=='plan-cancel' else 'not_applied')+'; no retry',\n-                                'work_preserved':True,'same_claim':len(h.claims)==1,'cleaned':True}\n+                        h.writer_recovery.append({'check':'resolved_writer_prepare','resolution':resolution,\n+                            'source_run_id':rid,'source_status':source['status'],'cancel_requested':source['cancel_requested'],\n+                            'source_unchanged':True,'work_unchanged':True,'claim_unchanged':True,'inventory_unchanged':True,\n+                            'candidate':snapshot['candidate'],'frontier_action':checked['recovery']['frontier_action']})\n                     if case=='upgrade-refusal':\n                         version=verify.run(binary,'--project',authority,'run','status',rid)['run_version']\n                         refused=verify.run(binary,*cont,'--prepare',expect_ok=False);assert 'recover_prefix_changed' in refused,refused\n@@ -510,6 +537,7 @@ def run_case(binary, case, host='codex-cli', library=None, live=False, artifacts\n                                 'reviewed_replay':'configure (warmup prefix retained)','outcome':'succeeded','same_claim':True,'work_preserved':True,'cleaned':True}\n                     prep=verify.run(binary,*cont,'--prepare')\n                     rid=verify.run(binary,*cont,'--expected-launch-digest',prep['review_digest'])['run']['run']['id'];runs.append(rid)\n+                    replay_start=len(h.seen)\n                     if case=='plan-cancel':\n                         # No automatic deletion of an interrupted native producer.\n                         try:state=h.drive_feature(rid)\n@@ -517,16 +545,46 @@ def run_case(binary, case, host='codex-cli', library=None, live=False, artifacts\n                             state=h.state(rid)\n                         assert (h.tree/'.ai-factory/PLAN.md').read_bytes()==before\n                         assert state['status']=='failed' and any(x['code']=='workspace_tree_output_exists' for x in state['diagnostics']),{k:state.get(k) for k in ('status','outcome','diagnostics')}\n+                        # Explicit fixture-owner action after inspecting its own partial output.\n+                        # Keep bytes outside the claimed candidate; never delete them or retry from an old owner.\n+                        saved=root/'partial-plan.saved'\n+                        assert not saved.exists()\n+                        (h.tree/'.ai-factory/PLAN.md').rename(saved)\n+                        assert saved.read_bytes()==before\n+                        current=recovery_snapshot(h,rid)\n+                        retry=('--project',authority,'project','continue','--repository',repository,'--launch','aif-feature',\n+                               '--source-run',rid,'--host',host,'--allow-execution')\n+                        checked=verify.run(binary,*retry,'--prepare')\n+                        assert checked['recovery']['frontier_action']=='execute'\n+                        assert recovery_snapshot(h,rid)==current\n+                        blocked_run=rid\n+                        rid=verify.run(binary,*retry,'--expected-launch-digest',checked['review_digest'])['run']['run']['id'];runs.append(rid)\n+                        replay_start=len(h.seen)\n+                        state=h.drive_feature(rid)\n+                        assert saved.read_bytes()==before\n+                        assert {'plan','implement','checks','security','review','commit'} <= {s['step'] for s in h.seen[replay_start:]}\n+                        h.writer_recovery.append({'check':'occupied_producer_then_owner_move',\n+                            'blocked_run':blocked_run,'refusal':'workspace_tree_output_exists','partial_preserved':True,\n+                            'saved_sha256':hashlib.sha256(saved.read_bytes()).hexdigest(),\n+                            'explicit_fixture_owner_move':True,'recovery_source_is_current_owner':True,\n+                            'prepare_read_only':True,'outcome':state.get('outcome')})\n+                        historical=verify.run(binary,'--project',authority,'run','status',runs[0])\n+                        assert historical['run_version']==snapshot['run_version'] and historical['run']==snapshot['run']\n                         break\n                     state=h.drive_feature(rid)\n+                    if case=='implement-cancel':\n+                        assert {'implement','checks','security','review','commit'} <= {s['step'] for s in h.seen[replay_start:]}\n+                        assert not {'warmup','plan'} & {s['step'] for s in h.seen[replay_start:]}\n+                        historical=verify.run(binary,'--project',authority,'run','status',runs[0])\n+                        assert historical['run_version']==snapshot['run_version'] and historical['run']==snapshot['run']\n                 assert (h.tree/'owner.txt').read_text()=='Preserved owner edit across continuation\\n'\n-            expected='succeeded' if case in ('backend','frontend','repair-checks','repair-security','repair-review','repair-ui','repair-ux','retained-plan','blocked-resume','cancel-resume','chained-resume','implement-cancel','upgrade','excluded-security','verdict-independent') else 'partial'\n+            expected='succeeded' if case in ('backend','frontend','repair-checks','repair-security','repair-review','repair-ui','repair-ux','retained-plan','blocked-resume','cancel-resume','chained-resume','plan-cancel','implement-cancel','upgrade','excluded-security','verdict-independent') else 'partial'\n             if parallel_fault and parallel_fault not in ('timeout','one-timeout','during-reader-edit'):\n                 expected = 'rejected' if parallel_fault == 'unsupported-host' else 'partial'\n             if review_mode == 'parallel-backend' and frontend: expected = 'rejected'\n             if case.startswith('live-') or case in ('frontend-cancel','commit-resume'):expected='succeeded'\n             if expected_outcome is not None: expected=expected_outcome\n-            if case not in ('foreign-plan','plan-cancel'):assert state.get('outcome')==expected,{k:state.get(k) for k in ('status','outcome','diagnostics')}\n+            if case != 'foreign-plan':assert state.get('outcome')==expected,{k:state.get(k) for k in ('status','outcome','diagnostics')}\n             if expected=='succeeded':\n                 assert {'implementation','result','plan','gate','evidence'} <= state['output_artifacts'].keys()\n                 assert git_out(h.tree,'rev-parse','HEAD') != h.base\n@@ -553,7 +611,7 @@ def run_case(binary, case, host='codex-cli', library=None, live=False, artifacts\n             assert len(h.claims)==1\n             assert all(item['base']==h.base for item in h.rounds)\n             if case=='retained-plan':assert git_out(h.tree,'ls-files','--','.ai-factory/PLAN.md') and '[x]' in (h.tree/'.ai-factory/PLAN.md').read_text()\n-            elif case not in ('foreign-plan','plan-cancel'):assert not (h.tree/'.ai-factory/PLAN.md').exists(), 'Owned untracked plan must be captured, not lost or left blocking next Run'\n+            elif case != 'foreign-plan':assert not (h.tree/'.ai-factory/PLAN.md').exists(), 'Owned untracked plan must be captured, not lost or left blocking next Run'\n             if case=='foreign-fix-plan':assert (h.tree/'.ai-factory/FIX_PLAN.md').read_text()=='Foreign fix plan bytes\\n'\n             actual_outputs={}\n             if live or review_mode in ('parallel-backend','parallel-ui-ux') and 'evidence' in state['output_artifacts']:\n@@ -573,6 +631,7 @@ def run_case(binary, case, host='codex-cli', library=None, live=False, artifacts\n                     'source_outcome':source_outcome,'outcome':state.get('outcome') or state['status'],'runs':len(runs),\n                     'steps':names,'rounds':h.rounds,'plan_captures':h.plan_captures,'elapsed_seconds':round(time.monotonic()-h.started_at,3),'cleaned':True,\n                     'review_mode':review_mode,'parallel_fault':parallel_fault,'parallel_batches':h.parallel_batches,\n+                    'writer_recovery':h.writer_recovery,'same_claim':len(h.claims)==1,\n                     'parallel_observations':h.parallel_observations,\n                     **({'parallel_outputs':actual_outputs} if review_mode in ('parallel-backend','parallel-ui-ux') else {}),\n                     **({'observations':h.observations,'outputs':actual_outputs} if live else\n",
+  "source_sha256": {
+    "tests/probes/feature_check.py": "7a0317de55d682dd66243da19f0e15fa7011dcb8723e7d78b8f429d796655d18",
+    "tests/probes/fix_check.py": "c57279dd2b3e2beefb62b2e006bad9df13230cbd1f5d9ff571992658755b7a28",
+    "tests/probes/run_check.py": "b07f5323341f47eb6a89bbad1e7b64958c53f06ea05e5afabc3e7d86116dfbdc",
+    "tests/verify.py": "52112380323f9d4930dc1a8543fea4a7d2785f1286a728173c75b168bc1c7cc0",
+    "tests/compatibility.py": "6d2f381386abaecf255ca60210560fb63c5590f0411d4d630f17e5705c4ee7ce",
+    "tests/probes/feature_queue_check.py": "6a96543a5d91be22dacc550d5382bf4884c0e6fd5115bcf5837ac5ef1a93fea7",
+    ".github/workflows/verify.yml": "c616e0ed7079dc85484a546be547717dd36d3ef083d0ebadb44d96b5a30fb6c8"
+  },
+  "issue": {
+    "number": 13,
+    "state": "CLOSED",
+    "url": "https://github.com/StenHigh/prifly/issues/13",
+    "closedAt": "2026-10-19T15:26:45Z"
+  },
+  "core_resolution_comment": "https://github.com/StenHigh/prifly/issues/13#issuecomment-6270875976",
+  "e3_qualification": {
+    "schema_version": "e3-released-consumer-qualification/1",
+    "binary_sha256": "b2e02b36b2e062aacb4acf2b5cd3a35c0c8aee19379b77c6ff4d5714a22e6f50",
+    "mode": "synthetic synchronous actors, real CLI/programs/Git; no live model/provider qualification",
+    "cases": [
+      {
+        "case": "implement-cancel",
+        "host": "codex-cli",
+        "mode": "synthetic host, real programs/Git",
+        "source_outcome": "failed",
+        "outcome": "succeeded",
+        "runs": 2,
+        "steps": [
+          "warmup",
+          "plan",
+          "implement",
+          "implement",
+          "checks",
+          "security",
+          "review",
+          "commit"
+        ],
+        "rounds": [
+          {
+            "run": "run:a03e827836c7706271e3bfacfe58b26f8da61677844160084702bc0e9bc6a76f",
+            "lens": "checks",
+            "round": 1,
+            "digest": "sha256:001b29f7fc18ea66014f482ed338b4beddd6722eabef77bb3b1a2d5c503aeb1c",
+            "base": "562fb3351bf6114a208d5b2bc1670a893e368c5e"
+          },
+          {
+            "run": "run:a03e827836c7706271e3bfacfe58b26f8da61677844160084702bc0e9bc6a76f",
+            "lens": "security",
+            "round": 1,
+            "digest": "sha256:001b29f7fc18ea66014f482ed338b4beddd6722eabef77bb3b1a2d5c503aeb1c",
+            "base": "562fb3351bf6114a208d5b2bc1670a893e368c5e"
+          },
+          {
+            "run": "run:a03e827836c7706271e3bfacfe58b26f8da61677844160084702bc0e9bc6a76f",
+            "lens": "review",
+            "round": 1,
+            "digest": "sha256:001b29f7fc18ea66014f482ed338b4beddd6722eabef77bb3b1a2d5c503aeb1c",
+            "base": "562fb3351bf6114a208d5b2bc1670a893e368c5e"
+          }
+        ],
+        "plan_captures": [
+          {
+            "stage": "plan",
+            "sha256": "6f66fea16c8dbeaca860a11ecf646fafb9ed8071b6f0c57f304c03d9c667349f"
+          },
+          {
+            "stage": "implement",
+            "sha256": "527d65f6c3b317b5deeffde21ce22ea958a52ff149842cf367c56d578e38594f"
+          }
+        ],
+        "elapsed_seconds": 53.998,
+        "cleaned": true,
+        "review_mode": "sequential",
+        "parallel_fault": null,
+        "parallel_batches": [],
+        "writer_recovery": [
+          {
+            "check": "unresolved_writer_refused",
+            "code": "recover_source_unsettled",
+            "attempt_id": "attempt:4b66ef35bd4afdc9a7579875c57dc112"
+          },
+          {
+            "check": "resolved_writer_prepare",
+            "resolution": "not_applied",
+            "source_run_id": "run:6d01d9f68bbba057ac9b960acef106bde8fb266426405f18c0c4597b022cec20",
+            "source_status": "failed",
+            "cancel_requested": true,
+            "source_unchanged": true,
+            "work_unchanged": true,
+            "claim_unchanged": true,
+            "inventory_unchanged": true,
+            "candidate": {
+              "algorithm": "git-candidate/1",
+              "base_commit": "562fb3351bf6114a208d5b2bc1670a893e368c5e",
+              "head_commit": "562fb3351bf6114a208d5b2bc1670a893e368c5e",
+              "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615",
+              "files_digest": "sha256:1543404dca2f00721b3ba95271a3868d57f8d86d6ae1ab3042dee7f126c0c6ea",
+              "digest": "sha256:3957111e8e3fe297109cbc22180b6c5c2c676f3a5d25a1e66a7051e7d1f561af"
+            },
+            "frontier_action": "execute"
+          }
+        ],
+        "same_claim": true,
+        "parallel_observations": []
+      },
+      {
+        "case": "plan-cancel",
+        "host": "codex-cli",
+        "mode": "synthetic host, real programs/Git",
+        "source_outcome": "failed",
+        "outcome": "succeeded",
+        "runs": 3,
+        "steps": [
+          "warmup",
+          "plan",
+          "plan",
+          "implement",
+          "checks",
+          "security",
+          "review",
+          "commit"
+        ],
+        "rounds": [
+          {
+            "run": "run:96284c058630e2fbc07cd12adaf071e96d31a1cfbeadbcc848b837d070ffe018",
+            "lens": "checks",
+            "round": 1,
+            "digest": "sha256:657843065071eccc84a62e1ebb83c4046c2c5805513b6b2a027ecb7ef2e0a729",
+            "base": "7b3bcf9ec1f49636496c3a059a384573c131e19f"
+          },
+          {
+            "run": "run:96284c058630e2fbc07cd12adaf071e96d31a1cfbeadbcc848b837d070ffe018",
+            "lens": "security",
+            "round": 1,
+            "digest": "sha256:657843065071eccc84a62e1ebb83c4046c2c5805513b6b2a027ecb7ef2e0a729",
+            "base": "7b3bcf9ec1f49636496c3a059a384573c131e19f"
+          },
+          {
+            "run": "run:96284c058630e2fbc07cd12adaf071e96d31a1cfbeadbcc848b837d070ffe018",
+            "lens": "review",
+            "round": 1,
+            "digest": "sha256:657843065071eccc84a62e1ebb83c4046c2c5805513b6b2a027ecb7ef2e0a729",
+            "base": "7b3bcf9ec1f49636496c3a059a384573c131e19f"
+          }
+        ],
+        "plan_captures": [
+          {
+            "stage": "plan",
+            "sha256": "5cad5995b3757bca284bf9be5bd736b0a37e6a17f5844feecab066deb44758ac"
+          },
+          {
+            "stage": "implement",
+            "sha256": "098e3933a0f9b9c845912c1c7aa45bd8902615ca02c19d48d8b2c5f00a0dcdf8"
+          }
+        ],
+        "elapsed_seconds": 69.891,
+        "cleaned": true,
+        "review_mode": "sequential",
+        "parallel_fault": null,
+        "parallel_batches": [],
+        "writer_recovery": [
+          {
+            "check": "unresolved_writer_refused",
+            "code": "recover_source_unsettled",
+            "attempt_id": "attempt:ca6fa1cb718b8d2423019209ab979ea4"
+          },
+          {
+            "check": "resolved_writer_prepare",
+            "resolution": "applied",
+            "source_run_id": "run:2af76620ddc6fe75d91be46e7ba0b32d1891f4089e99032d9f810b4fd6949de4",
+            "source_status": "failed",
+            "cancel_requested": true,
+            "source_unchanged": true,
+            "work_unchanged": true,
+            "claim_unchanged": true,
+            "inventory_unchanged": true,
+            "candidate": {
+              "algorithm": "git-candidate/1",
+              "base_commit": "7b3bcf9ec1f49636496c3a059a384573c131e19f",
+              "head_commit": "7b3bcf9ec1f49636496c3a059a384573c131e19f",
+              "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615",
+              "files_digest": "sha256:5ba8875b156bfa4537b9fbaac6dd5e2546e160a475e9840bbb22dba6b2420d8e",
+              "digest": "sha256:704be2d8ce6b45b81a0d7ba0c003ae43a07f5e762b78c2dd6c9d662789bd9024"
+            },
+            "frontier_action": "execute"
+          },
+          {
+            "check": "occupied_producer_then_owner_move",
+            "blocked_run": "run:f380b4cacaa7475ec45b3d9f9dfa7bde0bd64f1462ad4c129456835f32cf213e",
+            "refusal": "workspace_tree_output_exists",
+            "partial_preserved": true,
+            "saved_sha256": "4db71bca3f65b350eda81f729532abfb6ecca6c16d1df077ea78d1c1bb356da6",
+            "explicit_fixture_owner_move": true,
+            "recovery_source_is_current_owner": true,
+            "prepare_read_only": true,
+            "outcome": "succeeded"
+          }
+        ],
+        "same_claim": true,
+        "parallel_observations": []
+      },
+      {
+        "case": "cancel-resume",
+        "host": "codex-cli",
+        "mode": "synthetic host, real programs/Git",
+        "source_outcome": "cancelled",
+        "outcome": "succeeded",
+        "runs": 2,
+        "steps": [
+          "warmup",
+          "plan",
+          "implement",
+          "checks",
+          "checks",
+          "security",
+          "review",
+          "commit"
+        ],
+        "rounds": [
+          {
+            "run": "run:2d1529b60058b82a42721cbcb3770267f7b1eb54e561e28bd0118b035adf7710",
+            "lens": "checks",
+            "round": 1,
+            "digest": "sha256:493c3e8224aefe36e432585a38e926c457528dd649c497cf4b84301d18e27d3e",
+            "base": "9daba5d79caa69f977a7461d9f345b8c79e96a43"
+          },
+          {
+            "run": "run:2d1529b60058b82a42721cbcb3770267f7b1eb54e561e28bd0118b035adf7710",
+            "lens": "security",
+            "round": 1,
+            "digest": "sha256:493c3e8224aefe36e432585a38e926c457528dd649c497cf4b84301d18e27d3e",
+            "base": "9daba5d79caa69f977a7461d9f345b8c79e96a43"
+          },
+          {
+            "run": "run:2d1529b60058b82a42721cbcb3770267f7b1eb54e561e28bd0118b035adf7710",
+            "lens": "review",
+            "round": 1,
+            "digest": "sha256:493c3e8224aefe36e432585a38e926c457528dd649c497cf4b84301d18e27d3e",
+            "base": "9daba5d79caa69f977a7461d9f345b8c79e96a43"
+          }
+        ],
+        "plan_captures": [
+          {
+            "stage": "plan",
+            "sha256": "f09ae47b95cd9177ce1a21e7c049fd2129b1908afa225bcb3eac46704172c86b"
+          },
+          {
+            "stage": "implement",
+            "sha256": "f24cfb2223e1a3b6b2fb3694fffbf66657ba8fdf2667674eeb675017d5009b8c"
+          }
+        ],
+        "elapsed_seconds": 51.358,
+        "cleaned": true,
+        "review_mode": "sequential",
+        "parallel_fault": null,
+        "parallel_batches": [],
+        "writer_recovery": [],
+        "same_claim": true,
+        "parallel_observations": []
+      },
+      {
+        "case": "blocked-resume",
+        "host": "codex-cli",
+        "mode": "synthetic host, real programs/Git",
+        "source_outcome": "partial",
+        "outcome": "succeeded",
+        "runs": 2,
+        "steps": [
+          "warmup",
+          "plan",
+          "implement",
+          "checks",
+          "security",
+          "review",
+          "checks",
+          "security",
+          "review",
+          "commit"
+        ],
+        "rounds": [
+          {
+            "run": "run:d1cebd3517c35689b30ff652ca7bc54b7885d68cda3d4876d32834d9121b5084",
+            "lens": "checks",
+            "round": 1,
+            "digest": "sha256:59fe3d36b42325ad3452f443554d09d65d0889367f48d14a7818c645d7f6472c",
+            "base": "19b915f8b253ba5933f3138f1d122fa8b2661a8e"
+          },
+          {
+            "run": "run:d1cebd3517c35689b30ff652ca7bc54b7885d68cda3d4876d32834d9121b5084",
+            "lens": "security",
+            "round": 1,
+            "digest": "sha256:59fe3d36b42325ad3452f443554d09d65d0889367f48d14a7818c645d7f6472c",
+            "base": "19b915f8b253ba5933f3138f1d122fa8b2661a8e"
+          },
+          {
+            "run": "run:d1cebd3517c35689b30ff652ca7bc54b7885d68cda3d4876d32834d9121b5084",
+            "lens": "review",
+            "round": 1,
+            "digest": "sha256:59fe3d36b42325ad3452f443554d09d65d0889367f48d14a7818c645d7f6472c",
+            "base": "19b915f8b253ba5933f3138f1d122fa8b2661a8e"
+          },
+          {
+            "run": "run:bcf9767e67d980bbc3f7293fafd0e7e70e44c7b317f4967c51ee2816b1a18b2b",
+            "lens": "checks",
+            "round": 1,
+            "digest": "sha256:d95e366f4ef6f2ef001c75f970c413119e9db4bdcf66718e9c5d7dc39aec1026",
+            "base": "19b915f8b253ba5933f3138f1d122fa8b2661a8e"
+          },
+          {
+            "run": "run:bcf9767e67d980bbc3f7293fafd0e7e70e44c7b317f4967c51ee2816b1a18b2b",
+            "lens": "security",
+            "round": 1,
+            "digest": "sha256:d95e366f4ef6f2ef001c75f970c413119e9db4bdcf66718e9c5d7dc39aec1026",
+            "base": "19b915f8b253ba5933f3138f1d122fa8b2661a8e"
+          },
+          {
+            "run": "run:bcf9767e67d980bbc3f7293fafd0e7e70e44c7b317f4967c51ee2816b1a18b2b",
+            "lens": "review",
+            "round": 1,
+            "digest": "sha256:d95e366f4ef6f2ef001c75f970c413119e9db4bdcf66718e9c5d7dc39aec1026",
+            "base": "19b915f8b253ba5933f3138f1d122fa8b2661a8e"
+          }
+        ],
+        "plan_captures": [
+          {
+            "stage": "plan",
+            "sha256": "9f6974ba9e2e703a813c46ef2f1611685143eba8c068816b34006034f11f8ffb"
+          },
+          {
+            "stage": "implement",
+            "sha256": "651125d8531a833c421122ac9b1dd4f797358b0e902dd6f32166711a7a7edf56"
+          }
+        ],
+        "elapsed_seconds": 79.878,
+        "cleaned": true,
+        "review_mode": "sequential",
+        "parallel_fault": null,
+        "parallel_batches": [],
+        "writer_recovery": [],
+        "same_claim": true,
+        "parallel_observations": []
+      },
+      {
+        "case": "upgrade-refusal",
+        "host": "codex-cli",
+        "source_outcome": "partial",
+        "default_prepare_refusal": "recover_prefix_changed",
+        "reviewed_replay": "configure (warmup prefix retained)",
+        "outcome": "succeeded",
+        "same_claim": true,
+        "work_preserved": true,
+        "cleaned": true
+      }
+    ],
+    "prifly": {
+      "arch": "amd64",
+      "go": "go1.27.2",
+      "os": "linux",
+      "schema_version": "foundation-version/1",
+      "semantics_profile": "foundation-sequence/1",
+      "version": "0.13.81"
+    },
+    "stopped_owned_monitors": [],
+    "temporary_root_removed": true,
+    "result": "PASS"
+  },
+  "raw_qualification_sha256": "e852e0c40e31737bb43907d8c69d97d97e608cd0a7c889c0492da324ba048112",
+  "gates": {
+    "versions": "PASS (3 tests)",
+    "folders": "PASS (7 tests)",
+    "derive_profiled": "PASS",
+    "verify": {
+      "outcome": "passed",
+      "prifly": "0.13.81",
+      "binary_sha256": "sha256:b2e02b36b2e062aacb4acf2b5cd3a35c0c8aee19379b77c6ff4d5714a22e6f50",
+      "platform": "linux/x86_64",
+      "packages": [
+        "aif-classic",
+        "aif-fanout",
+        "aif-feature",
+        "aif-fix",
+        "aif-profiled",
+        "aif-review-evidence",
+        "aif-ui-ux",
+        "openclaw-test-audit"
+      ],
+      "components_read": 126,
+      "steps_read": 83,
+      "registry_entries_removed": 1
+    },
+    "compatibility": {
+      "outcome": "passed",
+      "prifly": "0.13.81",
+      "binary_sha256": "sha256:b2e02b36b2e062aacb4acf2b5cd3a35c0c8aee19379b77c6ff4d5714a22e6f50",
+      "platform": "linux/x86_64",
+      "launches": 5,
+      "distinct_builds": 4,
+      "trusted_packages": 4,
+      "profiled_sealed_as": "core-state/41",
+      "boundary": "assisted handoff dispatched; no AI host answers it here",
+      "registry_entries_removed": 1
+    }
+  },
+  "ci": "Not run for current local test adaptation. Previous consumer CI39250210672 was on0.13.80 and is historical.",
+  "adoption": {
+    "immediate": "Update obsolete negative E3 assertions to positive recovery; authoring YAML and package bytes unchanged.",
+    "deferred": "Light capability advertised by0.13.81 and present in help. Project projection, browser/domain acceptance and rollout remain separate E6 work; issue11 remains OPEN."
+  },
+  "shipping_packages": {
+    "aif-classic": {
+      "unchanged_from": "v1.53.0",
+      "git_tree": "f39ab425408867f0950d65fe019a81af11587725"
+    },
+    "aif-profiled": {
+      "unchanged_from": "v1.53.0",
+      "git_tree": "bd157cfaf2f5cc5d38407ff4294f9a3a33fc3891"
+    },
+    "aif-fanout": {
+      "unchanged_from": "v1.53.0",
+      "git_tree": "dbc4eb238210a84aacfcae93df888784b243caeb"
+    },
+    "aif-fix": {
+      "unchanged_from": "v1.53.0",
+      "git_tree": "5bd18eaff3361e49b19c365fd184d34d9fbd2d2e"
+    },
+    "aif-feature": {
+      "unchanged_from": "v1.53.0",
+      "git_tree": "ba7073d1f02131686584e13d3853926cc1c7c1d5"
+    },
+    "aif-review-evidence": {
+      "unchanged_from": "v1.53.0",
+      "git_tree": "682e75f57bac5d39258af374d68620a4609b3d94"
+    },
+    "aif-ui-ux": {
+      "unchanged_from": "v1.53.0",
+      "git_tree": "02d0801bc455128e6b854fc40b1cab0e4c4af4c6"
+    },
+    "openclaw-test-audit": {
+      "unchanged_from": "v1.53.0",
+      "git_tree": "b5bbb5ebde8e0dc09ad0cafc9db74b80a153f6ec"
+    }
+  },
+  "ci_report_artifact": "feature-recovery-results: /tmp/aif-feature-results.json (full small-feature matrix, including E3)"
+}

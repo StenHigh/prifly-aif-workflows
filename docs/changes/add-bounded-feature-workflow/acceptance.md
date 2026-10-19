@@ -4,6 +4,11 @@
 [release evidence](../../releases/v1.52.0-results.json). Ниже сохранена
 историческая приёмка initial checkpoint с её исходной версией и ограничениями.
 
+**Обновление2026-10-19:** E3 исправлен в Pri-Fly0.13.81; независимая consumer
+проверка подтверждает positive writer recovery и сохранность partial PLAN.
+[Текущий маршрут и evidence](engine-followup.md). Ниже E3 deferred описывает
+историческую базу0.13.76–0.13.80, а не ограничение нового stable.
+
 Status: **implemented and qualified for pilot**, unreleased; A8 forced-writer
 cancellation remains the explicit deferred E3 portion. No tag/catalog
 publication. Released test binary **Pri-Fly 0.13.76** Linux AMD64 SHA256
@@ -28,7 +33,7 @@ actual-browser scenarios. [Recorded CI result](ci-results.json) pins this commit
 | A5 — bounded work/partial exhaustion | Default3 full rounds, max8, no repair on final failed round. Max-budget fixture executes8 full backend rounds/7 repairs, partial with evidence/work. Frontend bound14 per repair round, max113 acceptance (111 rounds+guard/commit)/117 root; declared114/128 steps, sequential1, depth4. |
 | A6 — unavailable/owner blocker | Backend required-unavailable, optional policy stop and frontend unavailable preserve work and skip repair/commit. Aggregate owner decision outranks a defect in another lens. Genuine live missing-prerequisite observation is recorded separately. |
 | A7 — no silent large-task escalation | Too-large/conflict/repair-too-large return diagnostic partial and actual work, without a classic Run or bug skill. One short upstream inline repair stays within original feature scope. |
-| A8 — partial/read-only cancel/chained resume | Same-version blocked/cancelled quality/chained and frontend UI cancellation+operator cleanup continue with original base, one claim, decisions and preserved owner edits; full quality repeats, including commit-stopped continuation with an intervening edit (one acceptance call). Effective accepted configure change refuses recover_prefix_changed without source edit. **Forced non-retryable writer cancellation is a current Core boundary:** even after inspected resolve it remains failed/cancel_requested and prepare refuses recover_source_unsettled. This is a tested negative case, not a successful writer resume; [E3 prepared issue](engine-followup.md). |
+| A8 — partial/read-only cancel/chained resume | Same-version blocked/cancelled quality/chained and frontend UI cancellation+operator cleanup continue with original base, one claim, decisions and preserved owner edits; full quality repeats, including commit-stopped continuation with an intervening edit (one acceptance call). Effective accepted configure change refuses recover_prefix_changed without source edit. Forced writer recovery was deferred on0.13.76–0.13.80; [E3 is fixed and independently consumer-qualified on0.13.81](engine-followup.md), with explicit owner preservation of an occupied partial PLAN. |
 | A9 — native bytes/retention/local commit | Default captured native plan bytes/progress remain in artifacts; retained tracked plan/progress passes quality/commit and is preserved. Root partial emits the actual diagnostic/progress manifest. No push/MR/merge, no deletion of other documents; exact candidate guard before commit. |
 | A10 — independent gates/provenance | All7 packages compile100 sealed step/workflow definitions /67 source steps, profiles on3 hosts and named negatives; static/version/derive and existing compatibility pass. Local install/update and meaningful W3 unit negatives pass. Synthetic/actual-browser/real-model observations are explicitly distinguished; complete matrix/live evidence and regressions are finalized below. Published install remains a future release check. |
 
@@ -46,10 +51,10 @@ no different model is asserted. Optional unavailable model mapping is visible
 under ignore/stop policy. Gate prose/browser observations remain host claims;
 Git snapshots are cooperative freshness, not atomic isolation.
 
-Forced writer cancellation requires future Core support for a reviewed resume;
-W3 does not implement it or bypass the refusal. A8 is qualified for partial and
-read-only cancellation, with this explicit deferred portion. Graceful writer
-blocked/partial is distinct from killing an outstanding non-retryable writer.
+On the historical0.13.76 baseline, forced writer cancellation required future
+Core support. On0.13.81, positive native recovery is consumer-qualified as
+described in E3 above. W3 does not bypass native safeguards. Graceful writer
+blocked/partial remains distinct from killing an outstanding non-retryable writer.
 Private consumer/PHP stack and actual Claude live actors are not qualified by
 these fixtures; three-host compilation/synthetic runtime is a different claim.
 

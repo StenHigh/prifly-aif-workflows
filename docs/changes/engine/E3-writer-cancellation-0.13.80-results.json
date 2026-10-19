@@ -1,0 +1,2865 @@
+{
+  "schema_version": "e3-writer-cancellation-recheck/1",
+  "checked_on": "2026-10-19",
+  "binary_sha256": "b5bc6d33206281c52afd3b17827e8cd416812d223d091f699d7883a382037a82",
+  "cases": [
+    {
+      "case": "plan-cancel",
+      "events": [
+        {
+          "args": [
+            "--project",
+            "/tmp/w3-run-sea7u3cu/authority",
+            "run",
+            "cancel",
+            "run:1f51a312a191e0413540c206264af31c169703e5cc775b6a876a3b226b311ef8",
+            "--reason",
+            "Owned fixture cancellation"
+          ],
+          "expect_ok": true,
+          "response": {
+            "schema_version": "foundation-command/1",
+            "receipt": {
+              "command_id": "command:9a67c5df128a4ff41d44dba71e96f929",
+              "actor": "local:uid:1001",
+              "run_id": "run:1f51a312a191e0413540c206264af31c169703e5cc775b6a876a3b226b311ef8",
+              "request_digest": "sha256:ffe0e0277c526a2e4ca6c91b6420f6d15b43228eca4b595054543982ed4220eb",
+              "run_version": 18,
+              "event_seq": 33,
+              "cut": 23,
+              "result": {
+                "diagnostic_ids": [],
+                "run_id": "run:1f51a312a191e0413540c206264af31c169703e5cc775b6a876a3b226b311ef8",
+                "status": "stopping"
+              }
+            }
+          },
+          "before": {
+            "state": {
+              "run_version": 17,
+              "id": "run:1f51a312a191e0413540c206264af31c169703e5cc775b6a876a3b226b311ef8",
+              "status": "running",
+              "outcome": null,
+              "cancel_requested": false,
+              "diagnostics": [],
+              "attempts": {
+                "attempt:0c266793807492cf2b371ffbcdf5f9c8": {
+                  "status": "pending",
+                  "settled": null,
+                  "resolution": null,
+                  "step_instance_id": "step:01feee0ecfb28e1bfb1a25edcd5f03f7"
+                },
+                "attempt:b394b1324a9003f77f4e8dcacc2ca6fa": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:14:41.899198135Z",
+                    "session": "clock:b39be57538663754335643ddfb786e35",
+                    "monotonic_ms": 1223,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:ba60765eca1bb80ec3c8615dc01785ca"
+                },
+                "attempt:b41d1ec518fd6486600c3b2da7e35592": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:14:40.420506584Z",
+                    "session": "clock:e75540c7d04019993c826b49c2039408",
+                    "monotonic_ms": 479,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:171ec2627997858ece3b52f4e096d597"
+                }
+              },
+              "unresolved_attempts": []
+            },
+            "work": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "2821205a52365a6a477ffc99cba2861ba0232185",
+                "head_commit": "2821205a52365a6a477ffc99cba2861ba0232185",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615",
+                "files_digest": "sha256:d9643eae584b52f9d9b2a1b2203c9fd2daeaa7ff8b37f1e066472568935553b2",
+                "digest": "sha256:24c06350b6a99cc28f38d9a3613ff974481cc2aca39449aab02488b122febedc"
+              },
+              "files": {
+                "owner.txt": {
+                  "sha256": "ea6726f222679cdbe5defa44f3940c8f39ec1e1f94471f548c26fd5f62793efb",
+                  "bytes": 20
+                },
+                ".ai-factory/PLAN.md": {
+                  "sha256": "4db71bca3f65b350eda81f729532abfb6ecca6c16d1df077ea78d1c1bb356da6",
+                  "bytes": 29
+                }
+              }
+            },
+            "run_ids": [
+              "run:1f51a312a191e0413540c206264af31c169703e5cc775b6a876a3b226b311ef8"
+            ]
+          },
+          "after": {
+            "state": {
+              "run_version": 18,
+              "id": "run:1f51a312a191e0413540c206264af31c169703e5cc775b6a876a3b226b311ef8",
+              "status": "stopping",
+              "outcome": null,
+              "cancel_requested": true,
+              "diagnostics": [],
+              "attempts": {
+                "attempt:0c266793807492cf2b371ffbcdf5f9c8": {
+                  "status": "pending",
+                  "settled": null,
+                  "resolution": null,
+                  "step_instance_id": "step:01feee0ecfb28e1bfb1a25edcd5f03f7"
+                },
+                "attempt:b394b1324a9003f77f4e8dcacc2ca6fa": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:14:41.899198135Z",
+                    "session": "clock:b39be57538663754335643ddfb786e35",
+                    "monotonic_ms": 1223,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:ba60765eca1bb80ec3c8615dc01785ca"
+                },
+                "attempt:b41d1ec518fd6486600c3b2da7e35592": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:14:40.420506584Z",
+                    "session": "clock:e75540c7d04019993c826b49c2039408",
+                    "monotonic_ms": 479,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:171ec2627997858ece3b52f4e096d597"
+                }
+              },
+              "unresolved_attempts": []
+            },
+            "work": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "2821205a52365a6a477ffc99cba2861ba0232185",
+                "head_commit": "2821205a52365a6a477ffc99cba2861ba0232185",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615",
+                "files_digest": "sha256:d9643eae584b52f9d9b2a1b2203c9fd2daeaa7ff8b37f1e066472568935553b2",
+                "digest": "sha256:24c06350b6a99cc28f38d9a3613ff974481cc2aca39449aab02488b122febedc"
+              },
+              "files": {
+                "owner.txt": {
+                  "sha256": "ea6726f222679cdbe5defa44f3940c8f39ec1e1f94471f548c26fd5f62793efb",
+                  "bytes": 20
+                },
+                ".ai-factory/PLAN.md": {
+                  "sha256": "4db71bca3f65b350eda81f729532abfb6ecca6c16d1df077ea78d1c1bb356da6",
+                  "bytes": 29
+                }
+              }
+            },
+            "run_ids": [
+              "run:1f51a312a191e0413540c206264af31c169703e5cc775b6a876a3b226b311ef8"
+            ]
+          }
+        },
+        {
+          "args": [
+            "--project",
+            "/tmp/w3-run-sea7u3cu/authority",
+            "run",
+            "drive",
+            "run:1f51a312a191e0413540c206264af31c169703e5cc775b6a876a3b226b311ef8"
+          ],
+          "expect_ok": false,
+          "response": {
+            "schema_version": "1",
+            "code": "recovery_required",
+            "message": "an unresolved execution retains the slot; no blind retry",
+            "retryable": false,
+            "correlation_id": "diagnostic:f676cbabe8e553d36069e018e716d322a56d54e9432ce4ebbf728772208663d9",
+            "violations": [],
+            "safe_next_actions": [
+              "run.resolve",
+              "run.status"
+            ]
+          }
+        },
+        {
+          "args": [
+            "--project",
+            "/tmp/w3-run-sea7u3cu/authority",
+            "run",
+            "resolve",
+            "run:1f51a312a191e0413540c206264af31c169703e5cc775b6a876a3b226b311ef8",
+            "--attempt",
+            "attempt:0c266793807492cf2b371ffbcdf5f9c8",
+            "--outcome",
+            "applied",
+            "--reason",
+            "Synchronous fixture actor returned: planner wrote inspected partial bytes; implement cancellation occurred before any actor write. Materialized inputs and work preserved; no external effects."
+          ],
+          "expect_ok": true,
+          "response": {
+            "schema_version": "foundation-command/1",
+            "receipt": {
+              "command_id": "command:bd3ce48996e6bd673f9de6e50b383b49",
+              "actor": "local:uid:1001",
+              "run_id": "run:1f51a312a191e0413540c206264af31c169703e5cc775b6a876a3b226b311ef8",
+              "request_digest": "sha256:afb6457e1897227e4bfc63f4ab08615cb77a581f52bcb391109524d85041baa3",
+              "run_version": 20,
+              "event_seq": 40,
+              "cut": 25,
+              "result": {
+                "diagnostic_ids": [
+                  "diagnostic:07e5f8daabc7c2a894dc3bdc917534916787418180775345c249f0c7acbaac6e"
+                ],
+                "run_id": "run:1f51a312a191e0413540c206264af31c169703e5cc775b6a876a3b226b311ef8",
+                "status": "failed"
+              }
+            }
+          },
+          "before": {
+            "state": {
+              "run_version": 19,
+              "id": "run:1f51a312a191e0413540c206264af31c169703e5cc775b6a876a3b226b311ef8",
+              "status": "uncertain",
+              "outcome": null,
+              "cancel_requested": true,
+              "diagnostics": [
+                {
+                  "id": "diagnostic:f676cbabe8e553d36069e018e716d322a56d54e9432ce4ebbf728772208663d9",
+                  "run_id": "run:1f51a312a191e0413540c206264af31c169703e5cc775b6a876a3b226b311ef8",
+                  "attempt_id": "attempt:0c266793807492cf2b371ffbcdf5f9c8",
+                  "stage_activation_id": "activation:df914f09a0199fbb4a9ecaa3ddcac50a",
+                  "origin": "core",
+                  "severity": "error",
+                  "code": "run_cancelled",
+                  "category": "executor",
+                  "phase": "dispatch",
+                  "message": "the host delivery was closed without an OS-process outcome",
+                  "observed": {
+                    "utc": "2026-10-19T13:14:45.266509938Z",
+                    "session": "clock:a567536fa3495c8e41d007052f9bf190",
+                    "monotonic_ms": 34,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "cause_refs": []
+                }
+              ],
+              "attempts": {
+                "attempt:0c266793807492cf2b371ffbcdf5f9c8": {
+                  "status": "uncertain",
+                  "settled": null,
+                  "resolution": null,
+                  "step_instance_id": "step:01feee0ecfb28e1bfb1a25edcd5f03f7"
+                },
+                "attempt:b394b1324a9003f77f4e8dcacc2ca6fa": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:14:41.899198135Z",
+                    "session": "clock:b39be57538663754335643ddfb786e35",
+                    "monotonic_ms": 1223,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:ba60765eca1bb80ec3c8615dc01785ca"
+                },
+                "attempt:b41d1ec518fd6486600c3b2da7e35592": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:14:40.420506584Z",
+                    "session": "clock:e75540c7d04019993c826b49c2039408",
+                    "monotonic_ms": 479,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:171ec2627997858ece3b52f4e096d597"
+                }
+              },
+              "unresolved_attempts": [
+                "attempt:0c266793807492cf2b371ffbcdf5f9c8"
+              ]
+            },
+            "work": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "2821205a52365a6a477ffc99cba2861ba0232185",
+                "head_commit": "2821205a52365a6a477ffc99cba2861ba0232185",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615",
+                "files_digest": "sha256:d9643eae584b52f9d9b2a1b2203c9fd2daeaa7ff8b37f1e066472568935553b2",
+                "digest": "sha256:24c06350b6a99cc28f38d9a3613ff974481cc2aca39449aab02488b122febedc"
+              },
+              "files": {
+                "owner.txt": {
+                  "sha256": "ea6726f222679cdbe5defa44f3940c8f39ec1e1f94471f548c26fd5f62793efb",
+                  "bytes": 20
+                },
+                ".ai-factory/PLAN.md": {
+                  "sha256": "4db71bca3f65b350eda81f729532abfb6ecca6c16d1df077ea78d1c1bb356da6",
+                  "bytes": 29
+                }
+              }
+            },
+            "run_ids": [
+              "run:1f51a312a191e0413540c206264af31c169703e5cc775b6a876a3b226b311ef8"
+            ]
+          },
+          "after": {
+            "state": {
+              "run_version": 20,
+              "id": "run:1f51a312a191e0413540c206264af31c169703e5cc775b6a876a3b226b311ef8",
+              "status": "failed",
+              "outcome": null,
+              "cancel_requested": true,
+              "diagnostics": [
+                {
+                  "id": "diagnostic:f676cbabe8e553d36069e018e716d322a56d54e9432ce4ebbf728772208663d9",
+                  "run_id": "run:1f51a312a191e0413540c206264af31c169703e5cc775b6a876a3b226b311ef8",
+                  "attempt_id": "attempt:0c266793807492cf2b371ffbcdf5f9c8",
+                  "stage_activation_id": "activation:df914f09a0199fbb4a9ecaa3ddcac50a",
+                  "origin": "core",
+                  "severity": "error",
+                  "code": "run_cancelled",
+                  "category": "executor",
+                  "phase": "dispatch",
+                  "message": "the host delivery was closed without an OS-process outcome",
+                  "observed": {
+                    "utc": "2026-10-19T13:14:45.266509938Z",
+                    "session": "clock:a567536fa3495c8e41d007052f9bf190",
+                    "monotonic_ms": 34,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "cause_refs": []
+                },
+                {
+                  "id": "diagnostic:07e5f8daabc7c2a894dc3bdc917534916787418180775345c249f0c7acbaac6e",
+                  "run_id": "run:1f51a312a191e0413540c206264af31c169703e5cc775b6a876a3b226b311ef8",
+                  "attempt_id": "attempt:0c266793807492cf2b371ffbcdf5f9c8",
+                  "stage_activation_id": "activation:df914f09a0199fbb4a9ecaa3ddcac50a",
+                  "origin": "core",
+                  "severity": "error",
+                  "code": "resolved_applied",
+                  "category": "executor",
+                  "phase": "resolution",
+                  "message": "The owner attested this obligation's outcome; no execution was repeated",
+                  "observed": {
+                    "utc": "2026-10-19T13:14:46.827859642Z",
+                    "session": "clock:77e0b3642c191da6fffbd757a0de3b8d",
+                    "monotonic_ms": 289,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "cause_refs": []
+                }
+              ],
+              "attempts": {
+                "attempt:0c266793807492cf2b371ffbcdf5f9c8": {
+                  "status": "failed",
+                  "settled": {
+                    "utc": "2026-10-19T13:14:46.827859642Z",
+                    "session": "clock:77e0b3642c191da6fffbd757a0de3b8d",
+                    "monotonic_ms": 289,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:01feee0ecfb28e1bfb1a25edcd5f03f7"
+                },
+                "attempt:b394b1324a9003f77f4e8dcacc2ca6fa": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:14:41.899198135Z",
+                    "session": "clock:b39be57538663754335643ddfb786e35",
+                    "monotonic_ms": 1223,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:ba60765eca1bb80ec3c8615dc01785ca"
+                },
+                "attempt:b41d1ec518fd6486600c3b2da7e35592": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:14:40.420506584Z",
+                    "session": "clock:e75540c7d04019993c826b49c2039408",
+                    "monotonic_ms": 479,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:171ec2627997858ece3b52f4e096d597"
+                }
+              },
+              "unresolved_attempts": []
+            },
+            "work": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "2821205a52365a6a477ffc99cba2861ba0232185",
+                "head_commit": "2821205a52365a6a477ffc99cba2861ba0232185",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615",
+                "files_digest": "sha256:d9643eae584b52f9d9b2a1b2203c9fd2daeaa7ff8b37f1e066472568935553b2",
+                "digest": "sha256:24c06350b6a99cc28f38d9a3613ff974481cc2aca39449aab02488b122febedc"
+              },
+              "files": {
+                "owner.txt": {
+                  "sha256": "ea6726f222679cdbe5defa44f3940c8f39ec1e1f94471f548c26fd5f62793efb",
+                  "bytes": 20
+                },
+                ".ai-factory/PLAN.md": {
+                  "sha256": "4db71bca3f65b350eda81f729532abfb6ecca6c16d1df077ea78d1c1bb356da6",
+                  "bytes": 29
+                }
+              }
+            },
+            "run_ids": [
+              "run:1f51a312a191e0413540c206264af31c169703e5cc775b6a876a3b226b311ef8"
+            ]
+          }
+        },
+        {
+          "args": [
+            "--project",
+            "/tmp/w3-run-sea7u3cu/authority",
+            "project",
+            "continue",
+            "--repository",
+            "/tmp/w3-run-sea7u3cu/repository",
+            "--launch",
+            "aif-feature",
+            "--source-run",
+            "run:1f51a312a191e0413540c206264af31c169703e5cc775b6a876a3b226b311ef8",
+            "--host",
+            "codex-cli",
+            "--allow-execution",
+            "--prepare"
+          ],
+          "expect_ok": false,
+          "response": {
+            "schema_version": "1",
+            "code": "recover_source_unsettled",
+            "message": "source Run holds a stop, active work or unresolved obligation",
+            "retryable": false,
+            "correlation_id": "correlation:8462570dc5a864073980016cf6449364",
+            "violations": [],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          },
+          "before": {
+            "state": {
+              "run_version": 20,
+              "id": "run:1f51a312a191e0413540c206264af31c169703e5cc775b6a876a3b226b311ef8",
+              "status": "failed",
+              "outcome": null,
+              "cancel_requested": true,
+              "diagnostics": [
+                {
+                  "id": "diagnostic:f676cbabe8e553d36069e018e716d322a56d54e9432ce4ebbf728772208663d9",
+                  "run_id": "run:1f51a312a191e0413540c206264af31c169703e5cc775b6a876a3b226b311ef8",
+                  "attempt_id": "attempt:0c266793807492cf2b371ffbcdf5f9c8",
+                  "stage_activation_id": "activation:df914f09a0199fbb4a9ecaa3ddcac50a",
+                  "origin": "core",
+                  "severity": "error",
+                  "code": "run_cancelled",
+                  "category": "executor",
+                  "phase": "dispatch",
+                  "message": "the host delivery was closed without an OS-process outcome",
+                  "observed": {
+                    "utc": "2026-10-19T13:14:45.266509938Z",
+                    "session": "clock:a567536fa3495c8e41d007052f9bf190",
+                    "monotonic_ms": 34,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "cause_refs": []
+                },
+                {
+                  "id": "diagnostic:07e5f8daabc7c2a894dc3bdc917534916787418180775345c249f0c7acbaac6e",
+                  "run_id": "run:1f51a312a191e0413540c206264af31c169703e5cc775b6a876a3b226b311ef8",
+                  "attempt_id": "attempt:0c266793807492cf2b371ffbcdf5f9c8",
+                  "stage_activation_id": "activation:df914f09a0199fbb4a9ecaa3ddcac50a",
+                  "origin": "core",
+                  "severity": "error",
+                  "code": "resolved_applied",
+                  "category": "executor",
+                  "phase": "resolution",
+                  "message": "The owner attested this obligation's outcome; no execution was repeated",
+                  "observed": {
+                    "utc": "2026-10-19T13:14:46.827859642Z",
+                    "session": "clock:77e0b3642c191da6fffbd757a0de3b8d",
+                    "monotonic_ms": 289,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "cause_refs": []
+                }
+              ],
+              "attempts": {
+                "attempt:0c266793807492cf2b371ffbcdf5f9c8": {
+                  "status": "failed",
+                  "settled": {
+                    "utc": "2026-10-19T13:14:46.827859642Z",
+                    "session": "clock:77e0b3642c191da6fffbd757a0de3b8d",
+                    "monotonic_ms": 289,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:01feee0ecfb28e1bfb1a25edcd5f03f7"
+                },
+                "attempt:b394b1324a9003f77f4e8dcacc2ca6fa": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:14:41.899198135Z",
+                    "session": "clock:b39be57538663754335643ddfb786e35",
+                    "monotonic_ms": 1223,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:ba60765eca1bb80ec3c8615dc01785ca"
+                },
+                "attempt:b41d1ec518fd6486600c3b2da7e35592": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:14:40.420506584Z",
+                    "session": "clock:e75540c7d04019993c826b49c2039408",
+                    "monotonic_ms": 479,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:171ec2627997858ece3b52f4e096d597"
+                }
+              },
+              "unresolved_attempts": []
+            },
+            "work": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "2821205a52365a6a477ffc99cba2861ba0232185",
+                "head_commit": "2821205a52365a6a477ffc99cba2861ba0232185",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615",
+                "files_digest": "sha256:5ba8875b156bfa4537b9fbaac6dd5e2546e160a475e9840bbb22dba6b2420d8e",
+                "digest": "sha256:24d99394dd8b85a4a9ffd44ca3561d3ad797da0aad32d016a5656fc5015812a2"
+              },
+              "files": {
+                "owner.txt": {
+                  "sha256": "a3c7418fb87d0089b60181c7c5c7f0cc3b73bfddbc27b8b09b28a3d4707451ca",
+                  "bytes": 41
+                },
+                ".ai-factory/PLAN.md": {
+                  "sha256": "4db71bca3f65b350eda81f729532abfb6ecca6c16d1df077ea78d1c1bb356da6",
+                  "bytes": 29
+                }
+              }
+            },
+            "run_ids": [
+              "run:1f51a312a191e0413540c206264af31c169703e5cc775b6a876a3b226b311ef8"
+            ]
+          },
+          "after": {
+            "state": {
+              "run_version": 20,
+              "id": "run:1f51a312a191e0413540c206264af31c169703e5cc775b6a876a3b226b311ef8",
+              "status": "failed",
+              "outcome": null,
+              "cancel_requested": true,
+              "diagnostics": [
+                {
+                  "id": "diagnostic:f676cbabe8e553d36069e018e716d322a56d54e9432ce4ebbf728772208663d9",
+                  "run_id": "run:1f51a312a191e0413540c206264af31c169703e5cc775b6a876a3b226b311ef8",
+                  "attempt_id": "attempt:0c266793807492cf2b371ffbcdf5f9c8",
+                  "stage_activation_id": "activation:df914f09a0199fbb4a9ecaa3ddcac50a",
+                  "origin": "core",
+                  "severity": "error",
+                  "code": "run_cancelled",
+                  "category": "executor",
+                  "phase": "dispatch",
+                  "message": "the host delivery was closed without an OS-process outcome",
+                  "observed": {
+                    "utc": "2026-10-19T13:14:45.266509938Z",
+                    "session": "clock:a567536fa3495c8e41d007052f9bf190",
+                    "monotonic_ms": 34,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "cause_refs": []
+                },
+                {
+                  "id": "diagnostic:07e5f8daabc7c2a894dc3bdc917534916787418180775345c249f0c7acbaac6e",
+                  "run_id": "run:1f51a312a191e0413540c206264af31c169703e5cc775b6a876a3b226b311ef8",
+                  "attempt_id": "attempt:0c266793807492cf2b371ffbcdf5f9c8",
+                  "stage_activation_id": "activation:df914f09a0199fbb4a9ecaa3ddcac50a",
+                  "origin": "core",
+                  "severity": "error",
+                  "code": "resolved_applied",
+                  "category": "executor",
+                  "phase": "resolution",
+                  "message": "The owner attested this obligation's outcome; no execution was repeated",
+                  "observed": {
+                    "utc": "2026-10-19T13:14:46.827859642Z",
+                    "session": "clock:77e0b3642c191da6fffbd757a0de3b8d",
+                    "monotonic_ms": 289,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "cause_refs": []
+                }
+              ],
+              "attempts": {
+                "attempt:0c266793807492cf2b371ffbcdf5f9c8": {
+                  "status": "failed",
+                  "settled": {
+                    "utc": "2026-10-19T13:14:46.827859642Z",
+                    "session": "clock:77e0b3642c191da6fffbd757a0de3b8d",
+                    "monotonic_ms": 289,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:01feee0ecfb28e1bfb1a25edcd5f03f7"
+                },
+                "attempt:b394b1324a9003f77f4e8dcacc2ca6fa": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:14:41.899198135Z",
+                    "session": "clock:b39be57538663754335643ddfb786e35",
+                    "monotonic_ms": 1223,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:ba60765eca1bb80ec3c8615dc01785ca"
+                },
+                "attempt:b41d1ec518fd6486600c3b2da7e35592": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:14:40.420506584Z",
+                    "session": "clock:e75540c7d04019993c826b49c2039408",
+                    "monotonic_ms": 479,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:171ec2627997858ece3b52f4e096d597"
+                }
+              },
+              "unresolved_attempts": []
+            },
+            "work": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "2821205a52365a6a477ffc99cba2861ba0232185",
+                "head_commit": "2821205a52365a6a477ffc99cba2861ba0232185",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615",
+                "files_digest": "sha256:5ba8875b156bfa4537b9fbaac6dd5e2546e160a475e9840bbb22dba6b2420d8e",
+                "digest": "sha256:24d99394dd8b85a4a9ffd44ca3561d3ad797da0aad32d016a5656fc5015812a2"
+              },
+              "files": {
+                "owner.txt": {
+                  "sha256": "a3c7418fb87d0089b60181c7c5c7f0cc3b73bfddbc27b8b09b28a3d4707451ca",
+                  "bytes": 41
+                },
+                ".ai-factory/PLAN.md": {
+                  "sha256": "4db71bca3f65b350eda81f729532abfb6ecca6c16d1df077ea78d1c1bb356da6",
+                  "bytes": 29
+                }
+              }
+            },
+            "run_ids": [
+              "run:1f51a312a191e0413540c206264af31c169703e5cc775b6a876a3b226b311ef8"
+            ]
+          }
+        }
+      ],
+      "summary": {
+        "case": "plan-cancel",
+        "host": "codex-cli",
+        "source_outcome": "failed after cancellation + inspected resolve",
+        "outcome": "recover_source_unsettled",
+        "writer_reconciliation": "applied; no retry",
+        "work_preserved": true,
+        "same_claim": true,
+        "cleaned": true
+      }
+    },
+    {
+      "case": "implement-cancel",
+      "events": [
+        {
+          "args": [
+            "--project",
+            "/tmp/w3-run-4m4hlk97/authority",
+            "run",
+            "cancel",
+            "run:c3afe3c6946579e37b3b7bcb3e428a35eed4547813dd869e736433d789c3ce56",
+            "--reason",
+            "Owned fixture cancellation"
+          ],
+          "expect_ok": true,
+          "response": {
+            "schema_version": "foundation-command/1",
+            "receipt": {
+              "command_id": "command:7028eb25c70638ec31597605a23bb719",
+              "actor": "local:uid:1001",
+              "run_id": "run:c3afe3c6946579e37b3b7bcb3e428a35eed4547813dd869e736433d789c3ce56",
+              "request_digest": "sha256:fa152c2ab18a04702210aee9d2feb0a25b3f10b94274e0e080285fc0e6f87b28",
+              "run_version": 24,
+              "event_seq": 44,
+              "cut": 29,
+              "result": {
+                "diagnostic_ids": [],
+                "run_id": "run:c3afe3c6946579e37b3b7bcb3e428a35eed4547813dd869e736433d789c3ce56",
+                "status": "stopping"
+              }
+            }
+          },
+          "before": {
+            "state": {
+              "run_version": 23,
+              "id": "run:c3afe3c6946579e37b3b7bcb3e428a35eed4547813dd869e736433d789c3ce56",
+              "status": "running",
+              "outcome": null,
+              "cancel_requested": false,
+              "diagnostics": [],
+              "attempts": {
+                "attempt:0e281a768eb4db2f903c4202175b81fa": {
+                  "status": "pending",
+                  "settled": null,
+                  "resolution": null,
+                  "step_instance_id": "step:367397d30efee322af53467c2cf7eb6b"
+                },
+                "attempt:c58774d29732645643501c9643e062cc": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:08.088921661Z",
+                    "session": "clock:e2d7f8b21679013365e87487de563e4e",
+                    "monotonic_ms": 553,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:2958601cf52c0abb6975d9b859b1d621"
+                },
+                "attempt:c67f17c5c4ee44134196fc5a8e7e7c4d": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:03.501408354Z",
+                    "session": "clock:8146efdcbde30f9af17ef1da2573873b",
+                    "monotonic_ms": 654,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:854b7ffa2c9d17add1b17485ca79706e"
+                },
+                "attempt:cef5a79eeb06b05da8213fbbb629e491": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:05.535696225Z",
+                    "session": "clock:1e070c4ddac3dce023545ae57371b29c",
+                    "monotonic_ms": 1702,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:663cf182c0bcf733ae7aef8a68b6ca37"
+                }
+              },
+              "unresolved_attempts": []
+            },
+            "work": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "73bcf059013f21ae88f255e662e2c317b25ae621",
+                "head_commit": "73bcf059013f21ae88f255e662e2c317b25ae621",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615",
+                "files_digest": "sha256:293ea8f6d6e785ee3a0a9d10780ef497906f34933d09e76a653382d94a6247a9",
+                "digest": "sha256:c0d148a426b364070c0679a1edd95e8487790e2f0538988521cbe9452b1d4476"
+              },
+              "files": {
+                "owner.txt": {
+                  "sha256": "ea6726f222679cdbe5defa44f3940c8f39ec1e1f94471f548c26fd5f62793efb",
+                  "bytes": 20
+                },
+                ".ai-factory/PLAN.md": {
+                  "sha256": "68d55c62d52053cbe31dbe3fd9d3d7da5ab46a37e543c06e8a616e9d1a92deac",
+                  "bytes": 419
+                }
+              }
+            },
+            "run_ids": [
+              "run:c3afe3c6946579e37b3b7bcb3e428a35eed4547813dd869e736433d789c3ce56"
+            ]
+          },
+          "after": {
+            "state": {
+              "run_version": 24,
+              "id": "run:c3afe3c6946579e37b3b7bcb3e428a35eed4547813dd869e736433d789c3ce56",
+              "status": "stopping",
+              "outcome": null,
+              "cancel_requested": true,
+              "diagnostics": [],
+              "attempts": {
+                "attempt:0e281a768eb4db2f903c4202175b81fa": {
+                  "status": "pending",
+                  "settled": null,
+                  "resolution": null,
+                  "step_instance_id": "step:367397d30efee322af53467c2cf7eb6b"
+                },
+                "attempt:c58774d29732645643501c9643e062cc": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:08.088921661Z",
+                    "session": "clock:e2d7f8b21679013365e87487de563e4e",
+                    "monotonic_ms": 553,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:2958601cf52c0abb6975d9b859b1d621"
+                },
+                "attempt:c67f17c5c4ee44134196fc5a8e7e7c4d": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:03.501408354Z",
+                    "session": "clock:8146efdcbde30f9af17ef1da2573873b",
+                    "monotonic_ms": 654,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:854b7ffa2c9d17add1b17485ca79706e"
+                },
+                "attempt:cef5a79eeb06b05da8213fbbb629e491": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:05.535696225Z",
+                    "session": "clock:1e070c4ddac3dce023545ae57371b29c",
+                    "monotonic_ms": 1702,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:663cf182c0bcf733ae7aef8a68b6ca37"
+                }
+              },
+              "unresolved_attempts": []
+            },
+            "work": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "73bcf059013f21ae88f255e662e2c317b25ae621",
+                "head_commit": "73bcf059013f21ae88f255e662e2c317b25ae621",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615",
+                "files_digest": "sha256:293ea8f6d6e785ee3a0a9d10780ef497906f34933d09e76a653382d94a6247a9",
+                "digest": "sha256:c0d148a426b364070c0679a1edd95e8487790e2f0538988521cbe9452b1d4476"
+              },
+              "files": {
+                "owner.txt": {
+                  "sha256": "ea6726f222679cdbe5defa44f3940c8f39ec1e1f94471f548c26fd5f62793efb",
+                  "bytes": 20
+                },
+                ".ai-factory/PLAN.md": {
+                  "sha256": "68d55c62d52053cbe31dbe3fd9d3d7da5ab46a37e543c06e8a616e9d1a92deac",
+                  "bytes": 419
+                }
+              }
+            },
+            "run_ids": [
+              "run:c3afe3c6946579e37b3b7bcb3e428a35eed4547813dd869e736433d789c3ce56"
+            ]
+          }
+        },
+        {
+          "args": [
+            "--project",
+            "/tmp/w3-run-4m4hlk97/authority",
+            "run",
+            "drive",
+            "run:c3afe3c6946579e37b3b7bcb3e428a35eed4547813dd869e736433d789c3ce56"
+          ],
+          "expect_ok": false,
+          "response": {
+            "schema_version": "1",
+            "code": "recovery_required",
+            "message": "an unresolved execution retains the slot; no blind retry",
+            "retryable": false,
+            "correlation_id": "diagnostic:2178bad3daceddd0871b8f4e129ec098f4f83ba68b19ecb2fa9ecca15820a59f",
+            "violations": [],
+            "safe_next_actions": [
+              "run.resolve",
+              "run.status"
+            ]
+          }
+        },
+        {
+          "args": [
+            "--project",
+            "/tmp/w3-run-4m4hlk97/authority",
+            "run",
+            "resolve",
+            "run:c3afe3c6946579e37b3b7bcb3e428a35eed4547813dd869e736433d789c3ce56",
+            "--attempt",
+            "attempt:0e281a768eb4db2f903c4202175b81fa",
+            "--outcome",
+            "not_applied",
+            "--reason",
+            "Synchronous fixture actor returned: planner wrote inspected partial bytes; implement cancellation occurred before any actor write. Materialized inputs and work preserved; no external effects."
+          ],
+          "expect_ok": true,
+          "response": {
+            "schema_version": "foundation-command/1",
+            "receipt": {
+              "command_id": "command:a19b3cc6309c7ee0ef3732b01b1457b2",
+              "actor": "local:uid:1001",
+              "run_id": "run:c3afe3c6946579e37b3b7bcb3e428a35eed4547813dd869e736433d789c3ce56",
+              "request_digest": "sha256:31219396ca2d5deec934bf15b71900f2fafec1e09afa34da1098fdbaefbd8d14",
+              "run_version": 26,
+              "event_seq": 51,
+              "cut": 31,
+              "result": {
+                "diagnostic_ids": [
+                  "diagnostic:588ad5b1512730dea6205fffd580e609f7aff5a4a79d61bad87e93b349eedfc4"
+                ],
+                "run_id": "run:c3afe3c6946579e37b3b7bcb3e428a35eed4547813dd869e736433d789c3ce56",
+                "status": "failed"
+              }
+            }
+          },
+          "before": {
+            "state": {
+              "run_version": 25,
+              "id": "run:c3afe3c6946579e37b3b7bcb3e428a35eed4547813dd869e736433d789c3ce56",
+              "status": "uncertain",
+              "outcome": null,
+              "cancel_requested": true,
+              "diagnostics": [
+                {
+                  "id": "diagnostic:2178bad3daceddd0871b8f4e129ec098f4f83ba68b19ecb2fa9ecca15820a59f",
+                  "run_id": "run:c3afe3c6946579e37b3b7bcb3e428a35eed4547813dd869e736433d789c3ce56",
+                  "attempt_id": "attempt:0e281a768eb4db2f903c4202175b81fa",
+                  "stage_activation_id": "activation:cb9d61ad6fce9ce9b87c82a685653480",
+                  "origin": "core",
+                  "severity": "error",
+                  "code": "run_cancelled",
+                  "category": "executor",
+                  "phase": "dispatch",
+                  "message": "the host delivery was closed without an OS-process outcome",
+                  "observed": {
+                    "utc": "2026-10-19T13:15:12.66945295Z",
+                    "session": "clock:1890dbaab2fae8919e7e1d7a86048272",
+                    "monotonic_ms": 45,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "cause_refs": []
+                }
+              ],
+              "attempts": {
+                "attempt:0e281a768eb4db2f903c4202175b81fa": {
+                  "status": "uncertain",
+                  "settled": null,
+                  "resolution": null,
+                  "step_instance_id": "step:367397d30efee322af53467c2cf7eb6b"
+                },
+                "attempt:c58774d29732645643501c9643e062cc": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:08.088921661Z",
+                    "session": "clock:e2d7f8b21679013365e87487de563e4e",
+                    "monotonic_ms": 553,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:2958601cf52c0abb6975d9b859b1d621"
+                },
+                "attempt:c67f17c5c4ee44134196fc5a8e7e7c4d": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:03.501408354Z",
+                    "session": "clock:8146efdcbde30f9af17ef1da2573873b",
+                    "monotonic_ms": 654,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:854b7ffa2c9d17add1b17485ca79706e"
+                },
+                "attempt:cef5a79eeb06b05da8213fbbb629e491": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:05.535696225Z",
+                    "session": "clock:1e070c4ddac3dce023545ae57371b29c",
+                    "monotonic_ms": 1702,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:663cf182c0bcf733ae7aef8a68b6ca37"
+                }
+              },
+              "unresolved_attempts": [
+                "attempt:0e281a768eb4db2f903c4202175b81fa"
+              ]
+            },
+            "work": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "73bcf059013f21ae88f255e662e2c317b25ae621",
+                "head_commit": "73bcf059013f21ae88f255e662e2c317b25ae621",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615",
+                "files_digest": "sha256:293ea8f6d6e785ee3a0a9d10780ef497906f34933d09e76a653382d94a6247a9",
+                "digest": "sha256:c0d148a426b364070c0679a1edd95e8487790e2f0538988521cbe9452b1d4476"
+              },
+              "files": {
+                "owner.txt": {
+                  "sha256": "ea6726f222679cdbe5defa44f3940c8f39ec1e1f94471f548c26fd5f62793efb",
+                  "bytes": 20
+                },
+                ".ai-factory/PLAN.md": {
+                  "sha256": "68d55c62d52053cbe31dbe3fd9d3d7da5ab46a37e543c06e8a616e9d1a92deac",
+                  "bytes": 419
+                }
+              }
+            },
+            "run_ids": [
+              "run:c3afe3c6946579e37b3b7bcb3e428a35eed4547813dd869e736433d789c3ce56"
+            ]
+          },
+          "after": {
+            "state": {
+              "run_version": 26,
+              "id": "run:c3afe3c6946579e37b3b7bcb3e428a35eed4547813dd869e736433d789c3ce56",
+              "status": "failed",
+              "outcome": null,
+              "cancel_requested": true,
+              "diagnostics": [
+                {
+                  "id": "diagnostic:2178bad3daceddd0871b8f4e129ec098f4f83ba68b19ecb2fa9ecca15820a59f",
+                  "run_id": "run:c3afe3c6946579e37b3b7bcb3e428a35eed4547813dd869e736433d789c3ce56",
+                  "attempt_id": "attempt:0e281a768eb4db2f903c4202175b81fa",
+                  "stage_activation_id": "activation:cb9d61ad6fce9ce9b87c82a685653480",
+                  "origin": "core",
+                  "severity": "error",
+                  "code": "run_cancelled",
+                  "category": "executor",
+                  "phase": "dispatch",
+                  "message": "the host delivery was closed without an OS-process outcome",
+                  "observed": {
+                    "utc": "2026-10-19T13:15:12.66945295Z",
+                    "session": "clock:1890dbaab2fae8919e7e1d7a86048272",
+                    "monotonic_ms": 45,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "cause_refs": []
+                },
+                {
+                  "id": "diagnostic:588ad5b1512730dea6205fffd580e609f7aff5a4a79d61bad87e93b349eedfc4",
+                  "run_id": "run:c3afe3c6946579e37b3b7bcb3e428a35eed4547813dd869e736433d789c3ce56",
+                  "attempt_id": "attempt:0e281a768eb4db2f903c4202175b81fa",
+                  "stage_activation_id": "activation:cb9d61ad6fce9ce9b87c82a685653480",
+                  "origin": "core",
+                  "severity": "error",
+                  "code": "resolved_not_applied",
+                  "category": "executor",
+                  "phase": "resolution",
+                  "message": "The owner attested this obligation's outcome; no execution was repeated. A cancellation is active, but an attested unknown outcome is not a cancellation: this Run settles failed rather than cancelled because nobody could say the work did not happen",
+                  "observed": {
+                    "utc": "2026-10-19T13:15:14.396082707Z",
+                    "session": "clock:af9d4483232afac82140355d622ebe17",
+                    "monotonic_ms": 313,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "cause_refs": []
+                }
+              ],
+              "attempts": {
+                "attempt:0e281a768eb4db2f903c4202175b81fa": {
+                  "status": "failed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:14.396082707Z",
+                    "session": "clock:af9d4483232afac82140355d622ebe17",
+                    "monotonic_ms": 313,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:367397d30efee322af53467c2cf7eb6b"
+                },
+                "attempt:c58774d29732645643501c9643e062cc": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:08.088921661Z",
+                    "session": "clock:e2d7f8b21679013365e87487de563e4e",
+                    "monotonic_ms": 553,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:2958601cf52c0abb6975d9b859b1d621"
+                },
+                "attempt:c67f17c5c4ee44134196fc5a8e7e7c4d": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:03.501408354Z",
+                    "session": "clock:8146efdcbde30f9af17ef1da2573873b",
+                    "monotonic_ms": 654,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:854b7ffa2c9d17add1b17485ca79706e"
+                },
+                "attempt:cef5a79eeb06b05da8213fbbb629e491": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:05.535696225Z",
+                    "session": "clock:1e070c4ddac3dce023545ae57371b29c",
+                    "monotonic_ms": 1702,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:663cf182c0bcf733ae7aef8a68b6ca37"
+                }
+              },
+              "unresolved_attempts": []
+            },
+            "work": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "73bcf059013f21ae88f255e662e2c317b25ae621",
+                "head_commit": "73bcf059013f21ae88f255e662e2c317b25ae621",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615",
+                "files_digest": "sha256:293ea8f6d6e785ee3a0a9d10780ef497906f34933d09e76a653382d94a6247a9",
+                "digest": "sha256:c0d148a426b364070c0679a1edd95e8487790e2f0538988521cbe9452b1d4476"
+              },
+              "files": {
+                "owner.txt": {
+                  "sha256": "ea6726f222679cdbe5defa44f3940c8f39ec1e1f94471f548c26fd5f62793efb",
+                  "bytes": 20
+                },
+                ".ai-factory/PLAN.md": {
+                  "sha256": "68d55c62d52053cbe31dbe3fd9d3d7da5ab46a37e543c06e8a616e9d1a92deac",
+                  "bytes": 419
+                }
+              }
+            },
+            "run_ids": [
+              "run:c3afe3c6946579e37b3b7bcb3e428a35eed4547813dd869e736433d789c3ce56"
+            ]
+          }
+        },
+        {
+          "args": [
+            "--project",
+            "/tmp/w3-run-4m4hlk97/authority",
+            "project",
+            "continue",
+            "--repository",
+            "/tmp/w3-run-4m4hlk97/repository",
+            "--launch",
+            "aif-feature",
+            "--source-run",
+            "run:c3afe3c6946579e37b3b7bcb3e428a35eed4547813dd869e736433d789c3ce56",
+            "--host",
+            "codex-cli",
+            "--allow-execution",
+            "--prepare"
+          ],
+          "expect_ok": false,
+          "response": {
+            "schema_version": "1",
+            "code": "recover_source_unsettled",
+            "message": "source Run holds a stop, active work or unresolved obligation",
+            "retryable": false,
+            "correlation_id": "correlation:2faf4ce31f088ad939fa9d0dafddf797",
+            "violations": [],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          },
+          "before": {
+            "state": {
+              "run_version": 26,
+              "id": "run:c3afe3c6946579e37b3b7bcb3e428a35eed4547813dd869e736433d789c3ce56",
+              "status": "failed",
+              "outcome": null,
+              "cancel_requested": true,
+              "diagnostics": [
+                {
+                  "id": "diagnostic:2178bad3daceddd0871b8f4e129ec098f4f83ba68b19ecb2fa9ecca15820a59f",
+                  "run_id": "run:c3afe3c6946579e37b3b7bcb3e428a35eed4547813dd869e736433d789c3ce56",
+                  "attempt_id": "attempt:0e281a768eb4db2f903c4202175b81fa",
+                  "stage_activation_id": "activation:cb9d61ad6fce9ce9b87c82a685653480",
+                  "origin": "core",
+                  "severity": "error",
+                  "code": "run_cancelled",
+                  "category": "executor",
+                  "phase": "dispatch",
+                  "message": "the host delivery was closed without an OS-process outcome",
+                  "observed": {
+                    "utc": "2026-10-19T13:15:12.66945295Z",
+                    "session": "clock:1890dbaab2fae8919e7e1d7a86048272",
+                    "monotonic_ms": 45,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "cause_refs": []
+                },
+                {
+                  "id": "diagnostic:588ad5b1512730dea6205fffd580e609f7aff5a4a79d61bad87e93b349eedfc4",
+                  "run_id": "run:c3afe3c6946579e37b3b7bcb3e428a35eed4547813dd869e736433d789c3ce56",
+                  "attempt_id": "attempt:0e281a768eb4db2f903c4202175b81fa",
+                  "stage_activation_id": "activation:cb9d61ad6fce9ce9b87c82a685653480",
+                  "origin": "core",
+                  "severity": "error",
+                  "code": "resolved_not_applied",
+                  "category": "executor",
+                  "phase": "resolution",
+                  "message": "The owner attested this obligation's outcome; no execution was repeated. A cancellation is active, but an attested unknown outcome is not a cancellation: this Run settles failed rather than cancelled because nobody could say the work did not happen",
+                  "observed": {
+                    "utc": "2026-10-19T13:15:14.396082707Z",
+                    "session": "clock:af9d4483232afac82140355d622ebe17",
+                    "monotonic_ms": 313,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "cause_refs": []
+                }
+              ],
+              "attempts": {
+                "attempt:0e281a768eb4db2f903c4202175b81fa": {
+                  "status": "failed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:14.396082707Z",
+                    "session": "clock:af9d4483232afac82140355d622ebe17",
+                    "monotonic_ms": 313,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:367397d30efee322af53467c2cf7eb6b"
+                },
+                "attempt:c58774d29732645643501c9643e062cc": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:08.088921661Z",
+                    "session": "clock:e2d7f8b21679013365e87487de563e4e",
+                    "monotonic_ms": 553,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:2958601cf52c0abb6975d9b859b1d621"
+                },
+                "attempt:c67f17c5c4ee44134196fc5a8e7e7c4d": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:03.501408354Z",
+                    "session": "clock:8146efdcbde30f9af17ef1da2573873b",
+                    "monotonic_ms": 654,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:854b7ffa2c9d17add1b17485ca79706e"
+                },
+                "attempt:cef5a79eeb06b05da8213fbbb629e491": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:05.535696225Z",
+                    "session": "clock:1e070c4ddac3dce023545ae57371b29c",
+                    "monotonic_ms": 1702,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:663cf182c0bcf733ae7aef8a68b6ca37"
+                }
+              },
+              "unresolved_attempts": []
+            },
+            "work": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "73bcf059013f21ae88f255e662e2c317b25ae621",
+                "head_commit": "73bcf059013f21ae88f255e662e2c317b25ae621",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615",
+                "files_digest": "sha256:0980af1721d5d7965baefe2b6314c924a7cb838027f1599079c65928b7955860",
+                "digest": "sha256:276a8d922217fe644f9d83e5ce7fb03c21273217ad441fb383c2c67f8cf919c0"
+              },
+              "files": {
+                "owner.txt": {
+                  "sha256": "a3c7418fb87d0089b60181c7c5c7f0cc3b73bfddbc27b8b09b28a3d4707451ca",
+                  "bytes": 41
+                },
+                ".ai-factory/PLAN.md": {
+                  "sha256": "68d55c62d52053cbe31dbe3fd9d3d7da5ab46a37e543c06e8a616e9d1a92deac",
+                  "bytes": 419
+                }
+              }
+            },
+            "run_ids": [
+              "run:c3afe3c6946579e37b3b7bcb3e428a35eed4547813dd869e736433d789c3ce56"
+            ]
+          },
+          "after": {
+            "state": {
+              "run_version": 26,
+              "id": "run:c3afe3c6946579e37b3b7bcb3e428a35eed4547813dd869e736433d789c3ce56",
+              "status": "failed",
+              "outcome": null,
+              "cancel_requested": true,
+              "diagnostics": [
+                {
+                  "id": "diagnostic:2178bad3daceddd0871b8f4e129ec098f4f83ba68b19ecb2fa9ecca15820a59f",
+                  "run_id": "run:c3afe3c6946579e37b3b7bcb3e428a35eed4547813dd869e736433d789c3ce56",
+                  "attempt_id": "attempt:0e281a768eb4db2f903c4202175b81fa",
+                  "stage_activation_id": "activation:cb9d61ad6fce9ce9b87c82a685653480",
+                  "origin": "core",
+                  "severity": "error",
+                  "code": "run_cancelled",
+                  "category": "executor",
+                  "phase": "dispatch",
+                  "message": "the host delivery was closed without an OS-process outcome",
+                  "observed": {
+                    "utc": "2026-10-19T13:15:12.66945295Z",
+                    "session": "clock:1890dbaab2fae8919e7e1d7a86048272",
+                    "monotonic_ms": 45,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "cause_refs": []
+                },
+                {
+                  "id": "diagnostic:588ad5b1512730dea6205fffd580e609f7aff5a4a79d61bad87e93b349eedfc4",
+                  "run_id": "run:c3afe3c6946579e37b3b7bcb3e428a35eed4547813dd869e736433d789c3ce56",
+                  "attempt_id": "attempt:0e281a768eb4db2f903c4202175b81fa",
+                  "stage_activation_id": "activation:cb9d61ad6fce9ce9b87c82a685653480",
+                  "origin": "core",
+                  "severity": "error",
+                  "code": "resolved_not_applied",
+                  "category": "executor",
+                  "phase": "resolution",
+                  "message": "The owner attested this obligation's outcome; no execution was repeated. A cancellation is active, but an attested unknown outcome is not a cancellation: this Run settles failed rather than cancelled because nobody could say the work did not happen",
+                  "observed": {
+                    "utc": "2026-10-19T13:15:14.396082707Z",
+                    "session": "clock:af9d4483232afac82140355d622ebe17",
+                    "monotonic_ms": 313,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "cause_refs": []
+                }
+              ],
+              "attempts": {
+                "attempt:0e281a768eb4db2f903c4202175b81fa": {
+                  "status": "failed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:14.396082707Z",
+                    "session": "clock:af9d4483232afac82140355d622ebe17",
+                    "monotonic_ms": 313,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:367397d30efee322af53467c2cf7eb6b"
+                },
+                "attempt:c58774d29732645643501c9643e062cc": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:08.088921661Z",
+                    "session": "clock:e2d7f8b21679013365e87487de563e4e",
+                    "monotonic_ms": 553,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:2958601cf52c0abb6975d9b859b1d621"
+                },
+                "attempt:c67f17c5c4ee44134196fc5a8e7e7c4d": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:03.501408354Z",
+                    "session": "clock:8146efdcbde30f9af17ef1da2573873b",
+                    "monotonic_ms": 654,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:854b7ffa2c9d17add1b17485ca79706e"
+                },
+                "attempt:cef5a79eeb06b05da8213fbbb629e491": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:05.535696225Z",
+                    "session": "clock:1e070c4ddac3dce023545ae57371b29c",
+                    "monotonic_ms": 1702,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:663cf182c0bcf733ae7aef8a68b6ca37"
+                }
+              },
+              "unresolved_attempts": []
+            },
+            "work": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "73bcf059013f21ae88f255e662e2c317b25ae621",
+                "head_commit": "73bcf059013f21ae88f255e662e2c317b25ae621",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615",
+                "files_digest": "sha256:0980af1721d5d7965baefe2b6314c924a7cb838027f1599079c65928b7955860",
+                "digest": "sha256:276a8d922217fe644f9d83e5ce7fb03c21273217ad441fb383c2c67f8cf919c0"
+              },
+              "files": {
+                "owner.txt": {
+                  "sha256": "a3c7418fb87d0089b60181c7c5c7f0cc3b73bfddbc27b8b09b28a3d4707451ca",
+                  "bytes": 41
+                },
+                ".ai-factory/PLAN.md": {
+                  "sha256": "68d55c62d52053cbe31dbe3fd9d3d7da5ab46a37e543c06e8a616e9d1a92deac",
+                  "bytes": 419
+                }
+              }
+            },
+            "run_ids": [
+              "run:c3afe3c6946579e37b3b7bcb3e428a35eed4547813dd869e736433d789c3ce56"
+            ]
+          }
+        }
+      ],
+      "summary": {
+        "case": "implement-cancel",
+        "host": "codex-cli",
+        "source_outcome": "failed after cancellation + inspected resolve",
+        "outcome": "recover_source_unsettled",
+        "writer_reconciliation": "not_applied; no retry",
+        "work_preserved": true,
+        "same_claim": true,
+        "cleaned": true
+      }
+    },
+    {
+      "case": "cancel-resume",
+      "events": [
+        {
+          "args": [
+            "--project",
+            "/tmp/w3-run-xb_calp9/authority",
+            "run",
+            "cancel",
+            "run:6d07bec7ec08ddc530b4f53b98008b033f9fb05da0963890b56803ed8b2bee51",
+            "--reason",
+            "Owned fixture cancellation"
+          ],
+          "expect_ok": true,
+          "response": {
+            "schema_version": "foundation-command/1",
+            "receipt": {
+              "command_id": "command:9e83842eb95be213915848178256314e",
+              "actor": "local:uid:1001",
+              "run_id": "run:6d07bec7ec08ddc530b4f53b98008b033f9fb05da0963890b56803ed8b2bee51",
+              "request_digest": "sha256:4796bfdecf5887991aa374578d6fe0035f1cd7ebfb608ea48d68359a49fd916b",
+              "run_version": 52,
+              "event_seq": 94,
+              "cut": 57,
+              "result": {
+                "diagnostic_ids": [],
+                "run_id": "run:6d07bec7ec08ddc530b4f53b98008b033f9fb05da0963890b56803ed8b2bee51",
+                "status": "stopping"
+              }
+            }
+          },
+          "before": {
+            "state": {
+              "run_version": 51,
+              "id": "run:6d07bec7ec08ddc530b4f53b98008b033f9fb05da0963890b56803ed8b2bee51",
+              "status": "running",
+              "outcome": null,
+              "cancel_requested": false,
+              "diagnostics": [],
+              "attempts": {
+                "attempt:1e8147b261bd935d28779d7d26a0b26e": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:34.452673218Z",
+                    "session": "clock:893b3a91e3762fe51c87072198583bea",
+                    "monotonic_ms": 481,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:f8b4cd2c93ed32cdb31563313beb0bba"
+                },
+                "attempt:6777ee7f905848e8ceab5b0ddc301fff": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:41.254878998Z",
+                    "session": "clock:5c5eec646b00d828cc9744f181fb31f4",
+                    "monotonic_ms": 3681,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:38cf1b329882f2c16b2722af2c1f3dda"
+                },
+                "attempt:7406a744ced69ec98e63d42164b29c72": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:32.223946879Z",
+                    "session": "clock:592bb48bebc8258ad14d3e370913acb4",
+                    "monotonic_ms": 1301,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:4f1aa71ba2f1e06aa27e39aab4789830"
+                },
+                "attempt:749cbde8863893a19621d667d9b8e601": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:30.665131236Z",
+                    "session": "clock:cf9f291a3f95debbe446e71651c679d9",
+                    "monotonic_ms": 476,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:af743c88d18dd7797eabaa3c4518a19b"
+                },
+                "attempt:8817601e2f1031aa8e84ad80b35fccb5": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:39.754472782Z",
+                    "session": "clock:5c5eec646b00d828cc9744f181fb31f4",
+                    "monotonic_ms": 2180,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:854b7bf21b6aff4fecc3042cffa57515"
+                },
+                "attempt:88a6ca52574c1676d7e24f52ac4ba2cc": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:37.296365435Z",
+                    "session": "clock:f6ee04a657273cb2ab4f243243dd7ca7",
+                    "monotonic_ms": 470,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:7c54ae4df72f66c5b7a35bf7ea830871"
+                },
+                "attempt:d9c38bd896f9e21a7f4fc6f31cf3e540": {
+                  "status": "pending",
+                  "settled": null,
+                  "resolution": null,
+                  "step_instance_id": "step:019a414f4c88dd31ae713f39ac0427d7"
+                }
+              },
+              "unresolved_attempts": []
+            },
+            "work": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "27c8ccb92d5596ff79311b2b1d984217f3577f2a",
+                "head_commit": "27c8ccb92d5596ff79311b2b1d984217f3577f2a",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615",
+                "files_digest": "sha256:603b74b67afecc7a71b0a6fe03ef2196a4e3896a779627c7b2bf2aed4ff409a4",
+                "digest": "sha256:3913467b3442ff6729b9da75c80f4451a7e179c5f037836bca372cf35a4f93ea"
+              },
+              "files": {
+                "owner.txt": {
+                  "sha256": "ea6726f222679cdbe5defa44f3940c8f39ec1e1f94471f548c26fd5f62793efb",
+                  "bytes": 20
+                }
+              }
+            },
+            "run_ids": [
+              "run:6d07bec7ec08ddc530b4f53b98008b033f9fb05da0963890b56803ed8b2bee51"
+            ]
+          },
+          "after": {
+            "state": {
+              "run_version": 52,
+              "id": "run:6d07bec7ec08ddc530b4f53b98008b033f9fb05da0963890b56803ed8b2bee51",
+              "status": "stopping",
+              "outcome": null,
+              "cancel_requested": true,
+              "diagnostics": [],
+              "attempts": {
+                "attempt:1e8147b261bd935d28779d7d26a0b26e": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:34.452673218Z",
+                    "session": "clock:893b3a91e3762fe51c87072198583bea",
+                    "monotonic_ms": 481,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:f8b4cd2c93ed32cdb31563313beb0bba"
+                },
+                "attempt:6777ee7f905848e8ceab5b0ddc301fff": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:41.254878998Z",
+                    "session": "clock:5c5eec646b00d828cc9744f181fb31f4",
+                    "monotonic_ms": 3681,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:38cf1b329882f2c16b2722af2c1f3dda"
+                },
+                "attempt:7406a744ced69ec98e63d42164b29c72": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:32.223946879Z",
+                    "session": "clock:592bb48bebc8258ad14d3e370913acb4",
+                    "monotonic_ms": 1301,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:4f1aa71ba2f1e06aa27e39aab4789830"
+                },
+                "attempt:749cbde8863893a19621d667d9b8e601": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:30.665131236Z",
+                    "session": "clock:cf9f291a3f95debbe446e71651c679d9",
+                    "monotonic_ms": 476,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:af743c88d18dd7797eabaa3c4518a19b"
+                },
+                "attempt:8817601e2f1031aa8e84ad80b35fccb5": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:39.754472782Z",
+                    "session": "clock:5c5eec646b00d828cc9744f181fb31f4",
+                    "monotonic_ms": 2180,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:854b7bf21b6aff4fecc3042cffa57515"
+                },
+                "attempt:88a6ca52574c1676d7e24f52ac4ba2cc": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:37.296365435Z",
+                    "session": "clock:f6ee04a657273cb2ab4f243243dd7ca7",
+                    "monotonic_ms": 470,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:7c54ae4df72f66c5b7a35bf7ea830871"
+                },
+                "attempt:d9c38bd896f9e21a7f4fc6f31cf3e540": {
+                  "status": "pending",
+                  "settled": null,
+                  "resolution": null,
+                  "step_instance_id": "step:019a414f4c88dd31ae713f39ac0427d7"
+                }
+              },
+              "unresolved_attempts": []
+            },
+            "work": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "27c8ccb92d5596ff79311b2b1d984217f3577f2a",
+                "head_commit": "27c8ccb92d5596ff79311b2b1d984217f3577f2a",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615",
+                "files_digest": "sha256:603b74b67afecc7a71b0a6fe03ef2196a4e3896a779627c7b2bf2aed4ff409a4",
+                "digest": "sha256:3913467b3442ff6729b9da75c80f4451a7e179c5f037836bca372cf35a4f93ea"
+              },
+              "files": {
+                "owner.txt": {
+                  "sha256": "ea6726f222679cdbe5defa44f3940c8f39ec1e1f94471f548c26fd5f62793efb",
+                  "bytes": 20
+                }
+              }
+            },
+            "run_ids": [
+              "run:6d07bec7ec08ddc530b4f53b98008b033f9fb05da0963890b56803ed8b2bee51"
+            ]
+          }
+        },
+        {
+          "args": [
+            "--project",
+            "/tmp/w3-run-xb_calp9/authority",
+            "project",
+            "continue",
+            "--repository",
+            "/tmp/w3-run-xb_calp9/repository",
+            "--launch",
+            "aif-feature",
+            "--source-run",
+            "run:6d07bec7ec08ddc530b4f53b98008b033f9fb05da0963890b56803ed8b2bee51",
+            "--host",
+            "codex-cli",
+            "--allow-execution",
+            "--prepare"
+          ],
+          "expect_ok": true,
+          "response": {
+            "schema_version": "project-launch-summary/3",
+            "review_digest": "sha256:c7cbd6967155e1feac528f1690211da041da2f082aa4b37f0e65d037e39796a7",
+            "continuation": null,
+            "recovery": {
+              "schema_version": "recovery-plan/1",
+              "source_run_id": "run:6d07bec7ec08ddc530b4f53b98008b033f9fb05da0963890b56803ed8b2bee51",
+              "source_run_version": 54,
+              "target_workflow_ref": {
+                "id": "aif-feature:workflow/feature",
+                "version": "0.0.0-b1.q3yq3cg6vorewxdoxjdbew2kp6t6o446lj3btprwq76epf4nymlq",
+                "digest": "sha256:ff099d369e3455ca0a3e65ee46ed8837304b6aba8d99ed2a5b22cc22796eddff"
+              },
+              "claim": {
+                "id": "claim:85567cad5bd5a98e7e6975337b9d4239cc8bf3e9374e60c3f6d10f9de2b2ba9e",
+                "generation": 1,
+                "mode": "worktree",
+                "path": ".prifly/work/claims/85567cad5bd5a98e7e6975337b9d4239cc8bf3e9374e60c3f6d10f9de2b2ba9e"
+              },
+              "frontier_stage_id": "quality",
+              "frontier_action": "execute",
+              "frontier_reason": "the Run was cancelled at this stage",
+              "reused": [
+                {
+                  "source_workflow_invocation_id": "invocation:8a33f1fdb3e2abf65354c5ea5059c6c6",
+                  "source_stage_activation_id": "activation:50fc01cdd61cf1cbe0c52bbf30ad14e0",
+                  "stage_id": "warmup",
+                  "kind": "step",
+                  "source_step_instance_id": "step:af743c88d18dd7797eabaa3c4518a19b",
+                  "source_attempt_id": "attempt:749cbde8863893a19621d667d9b8e601",
+                  "output_refs": {
+                    "handoff": {
+                      "artifact_id": "artifact:0f6848805b090736c6aa24d75f635d60b11a0824b41551d9940b79b803113012",
+                      "revision": 1,
+                      "digest": "sha256:c413036873fa929b09aea13eddf273f37e6fdec63b94c99636bbfd8264d7a97a"
+                    },
+                    "implementation": {
+                      "artifact_id": "artifact:b4533fca62af0ed1a94cba6ad491a201c1a0ae5ad751a11eb0de1d0b1f71f193",
+                      "revision": 1,
+                      "digest": "sha256:eb4d4344ff0d20001bfbe0799eb54baf9049f195b9c6f5375ff9bfa3a3cc0fa8"
+                    }
+                  },
+                  "source_event_sequence": 3
+                },
+                {
+                  "source_workflow_invocation_id": "invocation:8a33f1fdb3e2abf65354c5ea5059c6c6",
+                  "source_stage_activation_id": "activation:6b0faf7eed7fd3996dfc9943021b103c",
+                  "stage_id": "configure",
+                  "kind": "step",
+                  "source_step_instance_id": "step:4f1aa71ba2f1e06aa27e39aab4789830",
+                  "source_attempt_id": "attempt:7406a744ced69ec98e63d42164b29c72",
+                  "output_refs": {
+                    "round": {
+                      "artifact_id": "artifact:020247316cab5b19d8ab1ffa1f08c99db3f255ec53a313fa0440b351f0b83705",
+                      "revision": 1,
+                      "digest": "sha256:9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+                    }
+                  },
+                  "source_event_sequence": 9
+                },
+                {
+                  "source_workflow_invocation_id": "invocation:8a33f1fdb3e2abf65354c5ea5059c6c6",
+                  "source_stage_activation_id": "activation:d3c1045d92d810d80a07174eae95d6b8",
+                  "stage_id": "review-mode",
+                  "kind": "choice",
+                  "source_event_sequence": 24
+                },
+                {
+                  "source_workflow_invocation_id": "invocation:8a33f1fdb3e2abf65354c5ea5059c6c6",
+                  "source_stage_activation_id": "activation:7ec7f1d0a9f27e24769a599157c213aa",
+                  "stage_id": "plan",
+                  "kind": "step",
+                  "source_step_instance_id": "step:f8b4cd2c93ed32cdb31563313beb0bba",
+                  "source_attempt_id": "attempt:1e8147b261bd935d28779d7d26a0b26e",
+                  "output_refs": {
+                    "plan": {
+                      "artifact_id": "artifact:643dd16e1585ba42694dd191fe2d227a326dadae2f14af2458f176073eee4e3d",
+                      "revision": 1,
+                      "digest": "sha256:58c1c8a050393a12e505d6a59373a8670819a2c1afd03ac11e2ea7366da3eb51"
+                    },
+                    "result": {
+                      "artifact_id": "artifact:404407be008d1f1153acdbcfff74e2e9a2a07c6f3651bf16fc79211444956001",
+                      "revision": 1,
+                      "digest": "sha256:75909a56b1caf9833add298eb809f8a0c3b8d4846dd8ccbc128e9e5982766702"
+                    }
+                  },
+                  "source_event_sequence": 28
+                },
+                {
+                  "source_workflow_invocation_id": "invocation:8a33f1fdb3e2abf65354c5ea5059c6c6",
+                  "source_stage_activation_id": "activation:3fe25f88d6276b7a96fe8cac9926c66f",
+                  "stage_id": "plan-ready",
+                  "kind": "choice",
+                  "source_event_sequence": 35
+                },
+                {
+                  "source_workflow_invocation_id": "invocation:8a33f1fdb3e2abf65354c5ea5059c6c6",
+                  "source_stage_activation_id": "activation:be0d5bebef21cac2d88b2bd4feb52b98",
+                  "stage_id": "implement",
+                  "kind": "step",
+                  "source_step_instance_id": "step:7c54ae4df72f66c5b7a35bf7ea830871",
+                  "source_attempt_id": "attempt:88a6ca52574c1676d7e24f52ac4ba2cc",
+                  "output_refs": {
+                    "implementation": {
+                      "artifact_id": "artifact:39310fdc46183b87805f081d3675ca61b2666c8f8c4095723309491e1543258a",
+                      "revision": 1,
+                      "digest": "sha256:86d6a70432fe9ebd8fda1bf811caf341849491aeb05da8f69b7440ed885dc9ee"
+                    },
+                    "plan": {
+                      "artifact_id": "artifact:d76d8e65d021b046cc4cba2ccba1eb90b9c08085dc2eadb3d735a9b710051076",
+                      "revision": 1,
+                      "digest": "sha256:e434ba70da6a420db164f93667e8ef36b1f659591fb0e4b53c64364f73228c2b"
+                    },
+                    "result": {
+                      "artifact_id": "artifact:f52e08243af70bb3009f068fcfbe42175691df1f046b832dbbbd81837e84c753",
+                      "revision": 1,
+                      "digest": "sha256:87781306107d73b7f97ebdd7a6e87f216b502946122eb16d98f6a047c4649044"
+                    }
+                  },
+                  "source_event_sequence": 39
+                },
+                {
+                  "source_workflow_invocation_id": "invocation:8a33f1fdb3e2abf65354c5ea5059c6c6",
+                  "source_stage_activation_id": "activation:be9ee34fb18ef1bd6a044fbe326cab67",
+                  "stage_id": "implementation-ready",
+                  "kind": "choice",
+                  "source_event_sequence": 46
+                }
+              ],
+              "root_output_refs": {
+                "configure": {
+                  "round": {
+                    "artifact_id": "artifact:020247316cab5b19d8ab1ffa1f08c99db3f255ec53a313fa0440b351f0b83705",
+                    "revision": 1,
+                    "digest": "sha256:9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+                  }
+                },
+                "implement": {
+                  "implementation": {
+                    "artifact_id": "artifact:39310fdc46183b87805f081d3675ca61b2666c8f8c4095723309491e1543258a",
+                    "revision": 1,
+                    "digest": "sha256:86d6a70432fe9ebd8fda1bf811caf341849491aeb05da8f69b7440ed885dc9ee"
+                  },
+                  "plan": {
+                    "artifact_id": "artifact:d76d8e65d021b046cc4cba2ccba1eb90b9c08085dc2eadb3d735a9b710051076",
+                    "revision": 1,
+                    "digest": "sha256:e434ba70da6a420db164f93667e8ef36b1f659591fb0e4b53c64364f73228c2b"
+                  },
+                  "result": {
+                    "artifact_id": "artifact:f52e08243af70bb3009f068fcfbe42175691df1f046b832dbbbd81837e84c753",
+                    "revision": 1,
+                    "digest": "sha256:87781306107d73b7f97ebdd7a6e87f216b502946122eb16d98f6a047c4649044"
+                  }
+                },
+                "plan": {
+                  "plan": {
+                    "artifact_id": "artifact:643dd16e1585ba42694dd191fe2d227a326dadae2f14af2458f176073eee4e3d",
+                    "revision": 1,
+                    "digest": "sha256:58c1c8a050393a12e505d6a59373a8670819a2c1afd03ac11e2ea7366da3eb51"
+                  },
+                  "result": {
+                    "artifact_id": "artifact:404407be008d1f1153acdbcfff74e2e9a2a07c6f3651bf16fc79211444956001",
+                    "revision": 1,
+                    "digest": "sha256:75909a56b1caf9833add298eb809f8a0c3b8d4846dd8ccbc128e9e5982766702"
+                  }
+                },
+                "warmup": {
+                  "handoff": {
+                    "artifact_id": "artifact:0f6848805b090736c6aa24d75f635d60b11a0824b41551d9940b79b803113012",
+                    "revision": 1,
+                    "digest": "sha256:c413036873fa929b09aea13eddf273f37e6fdec63b94c99636bbfd8264d7a97a"
+                  },
+                  "implementation": {
+                    "artifact_id": "artifact:b4533fca62af0ed1a94cba6ad491a201c1a0ae5ad751a11eb0de1d0b1f71f193",
+                    "revision": 1,
+                    "digest": "sha256:eb4d4344ff0d20001bfbe0799eb54baf9049f195b9c6f5375ff9bfa3a3cc0fa8"
+                  }
+                }
+              },
+              "review_digest": "sha256:80e46fc5e685b0b7af785c3e3f3191d0c91782d646d735542d7654138cb8154c"
+            },
+            "run_id": null
+          },
+          "before": {
+            "state": {
+              "run_version": 54,
+              "id": "run:6d07bec7ec08ddc530b4f53b98008b033f9fb05da0963890b56803ed8b2bee51",
+              "status": "cancelled",
+              "outcome": null,
+              "cancel_requested": true,
+              "diagnostics": [
+                {
+                  "id": "diagnostic:17bfdb4977884ccb72f116e0cdac4f8f792e2717b2151b6774e2a1d3bea85628",
+                  "run_id": "run:6d07bec7ec08ddc530b4f53b98008b033f9fb05da0963890b56803ed8b2bee51",
+                  "attempt_id": "attempt:d9c38bd896f9e21a7f4fc6f31cf3e540",
+                  "stage_activation_id": "activation:e0e471a825afe84684c260c989d47f81",
+                  "origin": "core",
+                  "severity": "error",
+                  "code": "run_cancelled",
+                  "category": "executor",
+                  "phase": "dispatch",
+                  "message": "the host delivery was closed without an OS-process outcome",
+                  "observed": {
+                    "utc": "2026-10-19T13:15:45.221595034Z",
+                    "session": "clock:0edf1320b63a64424a863f10bdc181de",
+                    "monotonic_ms": 47,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "cause_refs": []
+                }
+              ],
+              "attempts": {
+                "attempt:1e8147b261bd935d28779d7d26a0b26e": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:34.452673218Z",
+                    "session": "clock:893b3a91e3762fe51c87072198583bea",
+                    "monotonic_ms": 481,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:f8b4cd2c93ed32cdb31563313beb0bba"
+                },
+                "attempt:6777ee7f905848e8ceab5b0ddc301fff": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:41.254878998Z",
+                    "session": "clock:5c5eec646b00d828cc9744f181fb31f4",
+                    "monotonic_ms": 3681,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:38cf1b329882f2c16b2722af2c1f3dda"
+                },
+                "attempt:7406a744ced69ec98e63d42164b29c72": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:32.223946879Z",
+                    "session": "clock:592bb48bebc8258ad14d3e370913acb4",
+                    "monotonic_ms": 1301,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:4f1aa71ba2f1e06aa27e39aab4789830"
+                },
+                "attempt:749cbde8863893a19621d667d9b8e601": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:30.665131236Z",
+                    "session": "clock:cf9f291a3f95debbe446e71651c679d9",
+                    "monotonic_ms": 476,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:af743c88d18dd7797eabaa3c4518a19b"
+                },
+                "attempt:8817601e2f1031aa8e84ad80b35fccb5": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:39.754472782Z",
+                    "session": "clock:5c5eec646b00d828cc9744f181fb31f4",
+                    "monotonic_ms": 2180,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:854b7bf21b6aff4fecc3042cffa57515"
+                },
+                "attempt:88a6ca52574c1676d7e24f52ac4ba2cc": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:37.296365435Z",
+                    "session": "clock:f6ee04a657273cb2ab4f243243dd7ca7",
+                    "monotonic_ms": 470,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:7c54ae4df72f66c5b7a35bf7ea830871"
+                },
+                "attempt:d9c38bd896f9e21a7f4fc6f31cf3e540": {
+                  "status": "cancelled",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:45.221595034Z",
+                    "session": "clock:0edf1320b63a64424a863f10bdc181de",
+                    "monotonic_ms": 47,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:019a414f4c88dd31ae713f39ac0427d7"
+                }
+              },
+              "unresolved_attempts": []
+            },
+            "work": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "27c8ccb92d5596ff79311b2b1d984217f3577f2a",
+                "head_commit": "27c8ccb92d5596ff79311b2b1d984217f3577f2a",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615",
+                "files_digest": "sha256:638bd418d0a3f2b6956c271fe4f19e1388d8cb685ca38a88698e6da2bfa24015",
+                "digest": "sha256:515abafff2e2f7c21334994b01ffbcf2590c0753384a0c983122d9069f4ded6e"
+              },
+              "files": {
+                "owner.txt": {
+                  "sha256": "a3c7418fb87d0089b60181c7c5c7f0cc3b73bfddbc27b8b09b28a3d4707451ca",
+                  "bytes": 41
+                }
+              }
+            },
+            "run_ids": [
+              "run:6d07bec7ec08ddc530b4f53b98008b033f9fb05da0963890b56803ed8b2bee51"
+            ]
+          },
+          "after": {
+            "state": {
+              "run_version": 54,
+              "id": "run:6d07bec7ec08ddc530b4f53b98008b033f9fb05da0963890b56803ed8b2bee51",
+              "status": "cancelled",
+              "outcome": null,
+              "cancel_requested": true,
+              "diagnostics": [
+                {
+                  "id": "diagnostic:17bfdb4977884ccb72f116e0cdac4f8f792e2717b2151b6774e2a1d3bea85628",
+                  "run_id": "run:6d07bec7ec08ddc530b4f53b98008b033f9fb05da0963890b56803ed8b2bee51",
+                  "attempt_id": "attempt:d9c38bd896f9e21a7f4fc6f31cf3e540",
+                  "stage_activation_id": "activation:e0e471a825afe84684c260c989d47f81",
+                  "origin": "core",
+                  "severity": "error",
+                  "code": "run_cancelled",
+                  "category": "executor",
+                  "phase": "dispatch",
+                  "message": "the host delivery was closed without an OS-process outcome",
+                  "observed": {
+                    "utc": "2026-10-19T13:15:45.221595034Z",
+                    "session": "clock:0edf1320b63a64424a863f10bdc181de",
+                    "monotonic_ms": 47,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "cause_refs": []
+                }
+              ],
+              "attempts": {
+                "attempt:1e8147b261bd935d28779d7d26a0b26e": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:34.452673218Z",
+                    "session": "clock:893b3a91e3762fe51c87072198583bea",
+                    "monotonic_ms": 481,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:f8b4cd2c93ed32cdb31563313beb0bba"
+                },
+                "attempt:6777ee7f905848e8ceab5b0ddc301fff": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:41.254878998Z",
+                    "session": "clock:5c5eec646b00d828cc9744f181fb31f4",
+                    "monotonic_ms": 3681,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:38cf1b329882f2c16b2722af2c1f3dda"
+                },
+                "attempt:7406a744ced69ec98e63d42164b29c72": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:32.223946879Z",
+                    "session": "clock:592bb48bebc8258ad14d3e370913acb4",
+                    "monotonic_ms": 1301,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:4f1aa71ba2f1e06aa27e39aab4789830"
+                },
+                "attempt:749cbde8863893a19621d667d9b8e601": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:30.665131236Z",
+                    "session": "clock:cf9f291a3f95debbe446e71651c679d9",
+                    "monotonic_ms": 476,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:af743c88d18dd7797eabaa3c4518a19b"
+                },
+                "attempt:8817601e2f1031aa8e84ad80b35fccb5": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:39.754472782Z",
+                    "session": "clock:5c5eec646b00d828cc9744f181fb31f4",
+                    "monotonic_ms": 2180,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:854b7bf21b6aff4fecc3042cffa57515"
+                },
+                "attempt:88a6ca52574c1676d7e24f52ac4ba2cc": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:37.296365435Z",
+                    "session": "clock:f6ee04a657273cb2ab4f243243dd7ca7",
+                    "monotonic_ms": 470,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:7c54ae4df72f66c5b7a35bf7ea830871"
+                },
+                "attempt:d9c38bd896f9e21a7f4fc6f31cf3e540": {
+                  "status": "cancelled",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:45.221595034Z",
+                    "session": "clock:0edf1320b63a64424a863f10bdc181de",
+                    "monotonic_ms": 47,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:019a414f4c88dd31ae713f39ac0427d7"
+                }
+              },
+              "unresolved_attempts": []
+            },
+            "work": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "27c8ccb92d5596ff79311b2b1d984217f3577f2a",
+                "head_commit": "27c8ccb92d5596ff79311b2b1d984217f3577f2a",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615",
+                "files_digest": "sha256:638bd418d0a3f2b6956c271fe4f19e1388d8cb685ca38a88698e6da2bfa24015",
+                "digest": "sha256:515abafff2e2f7c21334994b01ffbcf2590c0753384a0c983122d9069f4ded6e"
+              },
+              "files": {
+                "owner.txt": {
+                  "sha256": "a3c7418fb87d0089b60181c7c5c7f0cc3b73bfddbc27b8b09b28a3d4707451ca",
+                  "bytes": 41
+                }
+              }
+            },
+            "run_ids": [
+              "run:6d07bec7ec08ddc530b4f53b98008b033f9fb05da0963890b56803ed8b2bee51"
+            ]
+          }
+        },
+        {
+          "args": [
+            "--project",
+            "/tmp/w3-run-xb_calp9/authority",
+            "project",
+            "continue",
+            "--repository",
+            "/tmp/w3-run-xb_calp9/repository",
+            "--launch",
+            "aif-feature",
+            "--source-run",
+            "run:6d07bec7ec08ddc530b4f53b98008b033f9fb05da0963890b56803ed8b2bee51",
+            "--host",
+            "codex-cli",
+            "--allow-execution",
+            "--expected-launch-digest",
+            "sha256:c7cbd6967155e1feac528f1690211da041da2f082aa4b37f0e65d037e39796a7"
+          ],
+          "expect_ok": true,
+          "response": {
+            "schema_version": "project-start/3",
+            "review_digest": null,
+            "continuation": null,
+            "recovery": {
+              "schema_version": "recovery-plan/1",
+              "source_run_id": "run:6d07bec7ec08ddc530b4f53b98008b033f9fb05da0963890b56803ed8b2bee51",
+              "source_run_version": 54,
+              "target_workflow_ref": {
+                "id": "aif-feature:workflow/feature",
+                "version": "0.0.0-b1.q3yq3cg6vorewxdoxjdbew2kp6t6o446lj3btprwq76epf4nymlq",
+                "digest": "sha256:ff099d369e3455ca0a3e65ee46ed8837304b6aba8d99ed2a5b22cc22796eddff"
+              },
+              "claim": {
+                "id": "claim:85567cad5bd5a98e7e6975337b9d4239cc8bf3e9374e60c3f6d10f9de2b2ba9e",
+                "generation": 1,
+                "mode": "worktree",
+                "path": ".prifly/work/claims/85567cad5bd5a98e7e6975337b9d4239cc8bf3e9374e60c3f6d10f9de2b2ba9e"
+              },
+              "frontier_stage_id": "quality",
+              "frontier_action": "execute",
+              "frontier_reason": "the Run was cancelled at this stage",
+              "reused": [
+                {
+                  "source_workflow_invocation_id": "invocation:8a33f1fdb3e2abf65354c5ea5059c6c6",
+                  "source_stage_activation_id": "activation:50fc01cdd61cf1cbe0c52bbf30ad14e0",
+                  "stage_id": "warmup",
+                  "kind": "step",
+                  "source_step_instance_id": "step:af743c88d18dd7797eabaa3c4518a19b",
+                  "source_attempt_id": "attempt:749cbde8863893a19621d667d9b8e601",
+                  "output_refs": {
+                    "handoff": {
+                      "artifact_id": "artifact:0f6848805b090736c6aa24d75f635d60b11a0824b41551d9940b79b803113012",
+                      "revision": 1,
+                      "digest": "sha256:c413036873fa929b09aea13eddf273f37e6fdec63b94c99636bbfd8264d7a97a"
+                    },
+                    "implementation": {
+                      "artifact_id": "artifact:b4533fca62af0ed1a94cba6ad491a201c1a0ae5ad751a11eb0de1d0b1f71f193",
+                      "revision": 1,
+                      "digest": "sha256:eb4d4344ff0d20001bfbe0799eb54baf9049f195b9c6f5375ff9bfa3a3cc0fa8"
+                    }
+                  },
+                  "source_event_sequence": 3
+                },
+                {
+                  "source_workflow_invocation_id": "invocation:8a33f1fdb3e2abf65354c5ea5059c6c6",
+                  "source_stage_activation_id": "activation:6b0faf7eed7fd3996dfc9943021b103c",
+                  "stage_id": "configure",
+                  "kind": "step",
+                  "source_step_instance_id": "step:4f1aa71ba2f1e06aa27e39aab4789830",
+                  "source_attempt_id": "attempt:7406a744ced69ec98e63d42164b29c72",
+                  "output_refs": {
+                    "round": {
+                      "artifact_id": "artifact:020247316cab5b19d8ab1ffa1f08c99db3f255ec53a313fa0440b351f0b83705",
+                      "revision": 1,
+                      "digest": "sha256:9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+                    }
+                  },
+                  "source_event_sequence": 9
+                },
+                {
+                  "source_workflow_invocation_id": "invocation:8a33f1fdb3e2abf65354c5ea5059c6c6",
+                  "source_stage_activation_id": "activation:d3c1045d92d810d80a07174eae95d6b8",
+                  "stage_id": "review-mode",
+                  "kind": "choice",
+                  "source_event_sequence": 24
+                },
+                {
+                  "source_workflow_invocation_id": "invocation:8a33f1fdb3e2abf65354c5ea5059c6c6",
+                  "source_stage_activation_id": "activation:7ec7f1d0a9f27e24769a599157c213aa",
+                  "stage_id": "plan",
+                  "kind": "step",
+                  "source_step_instance_id": "step:f8b4cd2c93ed32cdb31563313beb0bba",
+                  "source_attempt_id": "attempt:1e8147b261bd935d28779d7d26a0b26e",
+                  "output_refs": {
+                    "plan": {
+                      "artifact_id": "artifact:643dd16e1585ba42694dd191fe2d227a326dadae2f14af2458f176073eee4e3d",
+                      "revision": 1,
+                      "digest": "sha256:58c1c8a050393a12e505d6a59373a8670819a2c1afd03ac11e2ea7366da3eb51"
+                    },
+                    "result": {
+                      "artifact_id": "artifact:404407be008d1f1153acdbcfff74e2e9a2a07c6f3651bf16fc79211444956001",
+                      "revision": 1,
+                      "digest": "sha256:75909a56b1caf9833add298eb809f8a0c3b8d4846dd8ccbc128e9e5982766702"
+                    }
+                  },
+                  "source_event_sequence": 28
+                },
+                {
+                  "source_workflow_invocation_id": "invocation:8a33f1fdb3e2abf65354c5ea5059c6c6",
+                  "source_stage_activation_id": "activation:3fe25f88d6276b7a96fe8cac9926c66f",
+                  "stage_id": "plan-ready",
+                  "kind": "choice",
+                  "source_event_sequence": 35
+                },
+                {
+                  "source_workflow_invocation_id": "invocation:8a33f1fdb3e2abf65354c5ea5059c6c6",
+                  "source_stage_activation_id": "activation:be0d5bebef21cac2d88b2bd4feb52b98",
+                  "stage_id": "implement",
+                  "kind": "step",
+                  "source_step_instance_id": "step:7c54ae4df72f66c5b7a35bf7ea830871",
+                  "source_attempt_id": "attempt:88a6ca52574c1676d7e24f52ac4ba2cc",
+                  "output_refs": {
+                    "implementation": {
+                      "artifact_id": "artifact:39310fdc46183b87805f081d3675ca61b2666c8f8c4095723309491e1543258a",
+                      "revision": 1,
+                      "digest": "sha256:86d6a70432fe9ebd8fda1bf811caf341849491aeb05da8f69b7440ed885dc9ee"
+                    },
+                    "plan": {
+                      "artifact_id": "artifact:d76d8e65d021b046cc4cba2ccba1eb90b9c08085dc2eadb3d735a9b710051076",
+                      "revision": 1,
+                      "digest": "sha256:e434ba70da6a420db164f93667e8ef36b1f659591fb0e4b53c64364f73228c2b"
+                    },
+                    "result": {
+                      "artifact_id": "artifact:f52e08243af70bb3009f068fcfbe42175691df1f046b832dbbbd81837e84c753",
+                      "revision": 1,
+                      "digest": "sha256:87781306107d73b7f97ebdd7a6e87f216b502946122eb16d98f6a047c4649044"
+                    }
+                  },
+                  "source_event_sequence": 39
+                },
+                {
+                  "source_workflow_invocation_id": "invocation:8a33f1fdb3e2abf65354c5ea5059c6c6",
+                  "source_stage_activation_id": "activation:be9ee34fb18ef1bd6a044fbe326cab67",
+                  "stage_id": "implementation-ready",
+                  "kind": "choice",
+                  "source_event_sequence": 46
+                }
+              ],
+              "root_output_refs": {
+                "configure": {
+                  "round": {
+                    "artifact_id": "artifact:020247316cab5b19d8ab1ffa1f08c99db3f255ec53a313fa0440b351f0b83705",
+                    "revision": 1,
+                    "digest": "sha256:9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+                  }
+                },
+                "implement": {
+                  "implementation": {
+                    "artifact_id": "artifact:39310fdc46183b87805f081d3675ca61b2666c8f8c4095723309491e1543258a",
+                    "revision": 1,
+                    "digest": "sha256:86d6a70432fe9ebd8fda1bf811caf341849491aeb05da8f69b7440ed885dc9ee"
+                  },
+                  "plan": {
+                    "artifact_id": "artifact:d76d8e65d021b046cc4cba2ccba1eb90b9c08085dc2eadb3d735a9b710051076",
+                    "revision": 1,
+                    "digest": "sha256:e434ba70da6a420db164f93667e8ef36b1f659591fb0e4b53c64364f73228c2b"
+                  },
+                  "result": {
+                    "artifact_id": "artifact:f52e08243af70bb3009f068fcfbe42175691df1f046b832dbbbd81837e84c753",
+                    "revision": 1,
+                    "digest": "sha256:87781306107d73b7f97ebdd7a6e87f216b502946122eb16d98f6a047c4649044"
+                  }
+                },
+                "plan": {
+                  "plan": {
+                    "artifact_id": "artifact:643dd16e1585ba42694dd191fe2d227a326dadae2f14af2458f176073eee4e3d",
+                    "revision": 1,
+                    "digest": "sha256:58c1c8a050393a12e505d6a59373a8670819a2c1afd03ac11e2ea7366da3eb51"
+                  },
+                  "result": {
+                    "artifact_id": "artifact:404407be008d1f1153acdbcfff74e2e9a2a07c6f3651bf16fc79211444956001",
+                    "revision": 1,
+                    "digest": "sha256:75909a56b1caf9833add298eb809f8a0c3b8d4846dd8ccbc128e9e5982766702"
+                  }
+                },
+                "warmup": {
+                  "handoff": {
+                    "artifact_id": "artifact:0f6848805b090736c6aa24d75f635d60b11a0824b41551d9940b79b803113012",
+                    "revision": 1,
+                    "digest": "sha256:c413036873fa929b09aea13eddf273f37e6fdec63b94c99636bbfd8264d7a97a"
+                  },
+                  "implementation": {
+                    "artifact_id": "artifact:b4533fca62af0ed1a94cba6ad491a201c1a0ae5ad751a11eb0de1d0b1f71f193",
+                    "revision": 1,
+                    "digest": "sha256:eb4d4344ff0d20001bfbe0799eb54baf9049f195b9c6f5375ff9bfa3a3cc0fa8"
+                  }
+                }
+              },
+              "review_digest": "sha256:80e46fc5e685b0b7af785c3e3f3191d0c91782d646d735542d7654138cb8154c"
+            },
+            "run_id": "run:e18da38fa351170e39822ac741ea072e9a9bbbfb96f63016c93abf60ebba7324"
+          },
+          "before": {
+            "state": {
+              "run_version": 54,
+              "id": "run:6d07bec7ec08ddc530b4f53b98008b033f9fb05da0963890b56803ed8b2bee51",
+              "status": "cancelled",
+              "outcome": null,
+              "cancel_requested": true,
+              "diagnostics": [
+                {
+                  "id": "diagnostic:17bfdb4977884ccb72f116e0cdac4f8f792e2717b2151b6774e2a1d3bea85628",
+                  "run_id": "run:6d07bec7ec08ddc530b4f53b98008b033f9fb05da0963890b56803ed8b2bee51",
+                  "attempt_id": "attempt:d9c38bd896f9e21a7f4fc6f31cf3e540",
+                  "stage_activation_id": "activation:e0e471a825afe84684c260c989d47f81",
+                  "origin": "core",
+                  "severity": "error",
+                  "code": "run_cancelled",
+                  "category": "executor",
+                  "phase": "dispatch",
+                  "message": "the host delivery was closed without an OS-process outcome",
+                  "observed": {
+                    "utc": "2026-10-19T13:15:45.221595034Z",
+                    "session": "clock:0edf1320b63a64424a863f10bdc181de",
+                    "monotonic_ms": 47,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "cause_refs": []
+                }
+              ],
+              "attempts": {
+                "attempt:1e8147b261bd935d28779d7d26a0b26e": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:34.452673218Z",
+                    "session": "clock:893b3a91e3762fe51c87072198583bea",
+                    "monotonic_ms": 481,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:f8b4cd2c93ed32cdb31563313beb0bba"
+                },
+                "attempt:6777ee7f905848e8ceab5b0ddc301fff": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:41.254878998Z",
+                    "session": "clock:5c5eec646b00d828cc9744f181fb31f4",
+                    "monotonic_ms": 3681,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:38cf1b329882f2c16b2722af2c1f3dda"
+                },
+                "attempt:7406a744ced69ec98e63d42164b29c72": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:32.223946879Z",
+                    "session": "clock:592bb48bebc8258ad14d3e370913acb4",
+                    "monotonic_ms": 1301,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:4f1aa71ba2f1e06aa27e39aab4789830"
+                },
+                "attempt:749cbde8863893a19621d667d9b8e601": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:30.665131236Z",
+                    "session": "clock:cf9f291a3f95debbe446e71651c679d9",
+                    "monotonic_ms": 476,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:af743c88d18dd7797eabaa3c4518a19b"
+                },
+                "attempt:8817601e2f1031aa8e84ad80b35fccb5": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:39.754472782Z",
+                    "session": "clock:5c5eec646b00d828cc9744f181fb31f4",
+                    "monotonic_ms": 2180,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:854b7bf21b6aff4fecc3042cffa57515"
+                },
+                "attempt:88a6ca52574c1676d7e24f52ac4ba2cc": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:37.296365435Z",
+                    "session": "clock:f6ee04a657273cb2ab4f243243dd7ca7",
+                    "monotonic_ms": 470,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:7c54ae4df72f66c5b7a35bf7ea830871"
+                },
+                "attempt:d9c38bd896f9e21a7f4fc6f31cf3e540": {
+                  "status": "cancelled",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:45.221595034Z",
+                    "session": "clock:0edf1320b63a64424a863f10bdc181de",
+                    "monotonic_ms": 47,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:019a414f4c88dd31ae713f39ac0427d7"
+                }
+              },
+              "unresolved_attempts": []
+            },
+            "work": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "27c8ccb92d5596ff79311b2b1d984217f3577f2a",
+                "head_commit": "27c8ccb92d5596ff79311b2b1d984217f3577f2a",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615",
+                "files_digest": "sha256:638bd418d0a3f2b6956c271fe4f19e1388d8cb685ca38a88698e6da2bfa24015",
+                "digest": "sha256:515abafff2e2f7c21334994b01ffbcf2590c0753384a0c983122d9069f4ded6e"
+              },
+              "files": {
+                "owner.txt": {
+                  "sha256": "a3c7418fb87d0089b60181c7c5c7f0cc3b73bfddbc27b8b09b28a3d4707451ca",
+                  "bytes": 41
+                }
+              }
+            },
+            "run_ids": [
+              "run:6d07bec7ec08ddc530b4f53b98008b033f9fb05da0963890b56803ed8b2bee51"
+            ]
+          },
+          "after": {
+            "state": {
+              "run_version": 54,
+              "id": "run:6d07bec7ec08ddc530b4f53b98008b033f9fb05da0963890b56803ed8b2bee51",
+              "status": "cancelled",
+              "outcome": null,
+              "cancel_requested": true,
+              "diagnostics": [
+                {
+                  "id": "diagnostic:17bfdb4977884ccb72f116e0cdac4f8f792e2717b2151b6774e2a1d3bea85628",
+                  "run_id": "run:6d07bec7ec08ddc530b4f53b98008b033f9fb05da0963890b56803ed8b2bee51",
+                  "attempt_id": "attempt:d9c38bd896f9e21a7f4fc6f31cf3e540",
+                  "stage_activation_id": "activation:e0e471a825afe84684c260c989d47f81",
+                  "origin": "core",
+                  "severity": "error",
+                  "code": "run_cancelled",
+                  "category": "executor",
+                  "phase": "dispatch",
+                  "message": "the host delivery was closed without an OS-process outcome",
+                  "observed": {
+                    "utc": "2026-10-19T13:15:45.221595034Z",
+                    "session": "clock:0edf1320b63a64424a863f10bdc181de",
+                    "monotonic_ms": 47,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "cause_refs": []
+                }
+              ],
+              "attempts": {
+                "attempt:1e8147b261bd935d28779d7d26a0b26e": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:34.452673218Z",
+                    "session": "clock:893b3a91e3762fe51c87072198583bea",
+                    "monotonic_ms": 481,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:f8b4cd2c93ed32cdb31563313beb0bba"
+                },
+                "attempt:6777ee7f905848e8ceab5b0ddc301fff": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:41.254878998Z",
+                    "session": "clock:5c5eec646b00d828cc9744f181fb31f4",
+                    "monotonic_ms": 3681,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:38cf1b329882f2c16b2722af2c1f3dda"
+                },
+                "attempt:7406a744ced69ec98e63d42164b29c72": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:32.223946879Z",
+                    "session": "clock:592bb48bebc8258ad14d3e370913acb4",
+                    "monotonic_ms": 1301,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:4f1aa71ba2f1e06aa27e39aab4789830"
+                },
+                "attempt:749cbde8863893a19621d667d9b8e601": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:30.665131236Z",
+                    "session": "clock:cf9f291a3f95debbe446e71651c679d9",
+                    "monotonic_ms": 476,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:af743c88d18dd7797eabaa3c4518a19b"
+                },
+                "attempt:8817601e2f1031aa8e84ad80b35fccb5": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:39.754472782Z",
+                    "session": "clock:5c5eec646b00d828cc9744f181fb31f4",
+                    "monotonic_ms": 2180,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:854b7bf21b6aff4fecc3042cffa57515"
+                },
+                "attempt:88a6ca52574c1676d7e24f52ac4ba2cc": {
+                  "status": "completed",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:37.296365435Z",
+                    "session": "clock:f6ee04a657273cb2ab4f243243dd7ca7",
+                    "monotonic_ms": 470,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:7c54ae4df72f66c5b7a35bf7ea830871"
+                },
+                "attempt:d9c38bd896f9e21a7f4fc6f31cf3e540": {
+                  "status": "cancelled",
+                  "settled": {
+                    "utc": "2026-10-19T13:15:45.221595034Z",
+                    "session": "clock:0edf1320b63a64424a863f10bdc181de",
+                    "monotonic_ms": 47,
+                    "source": "go.time.monotonic",
+                    "suspend_basis": "excludes_suspend_on_darwin",
+                    "utc_trust": "local_wall_unqualified"
+                  },
+                  "resolution": null,
+                  "step_instance_id": "step:019a414f4c88dd31ae713f39ac0427d7"
+                }
+              },
+              "unresolved_attempts": []
+            },
+            "work": {
+              "candidate": {
+                "algorithm": "git-candidate/1",
+                "base_commit": "27c8ccb92d5596ff79311b2b1d984217f3577f2a",
+                "head_commit": "27c8ccb92d5596ff79311b2b1d984217f3577f2a",
+                "index_digest": "sha256:e68694153396e749acdf261dbbdfac7769651b03f96b49310815ff9ac34ce615",
+                "files_digest": "sha256:638bd418d0a3f2b6956c271fe4f19e1388d8cb685ca38a88698e6da2bfa24015",
+                "digest": "sha256:515abafff2e2f7c21334994b01ffbcf2590c0753384a0c983122d9069f4ded6e"
+              },
+              "files": {
+                "owner.txt": {
+                  "sha256": "a3c7418fb87d0089b60181c7c5c7f0cc3b73bfddbc27b8b09b28a3d4707451ca",
+                  "bytes": 41
+                }
+              }
+            },
+            "run_ids": [
+              "run:e18da38fa351170e39822ac741ea072e9a9bbbfb96f63016c93abf60ebba7324",
+              "run:6d07bec7ec08ddc530b4f53b98008b033f9fb05da0963890b56803ed8b2bee51"
+            ]
+          }
+        }
+      ],
+      "summary": {
+        "case": "cancel-resume",
+        "host": "codex-cli",
+        "mode": "synthetic host, real programs/Git",
+        "source_outcome": "cancelled",
+        "outcome": "succeeded",
+        "runs": 2,
+        "steps": [
+          "warmup",
+          "plan",
+          "implement",
+          "checks",
+          "checks",
+          "security",
+          "review",
+          "commit"
+        ],
+        "rounds": [
+          {
+            "run": "run:e18da38fa351170e39822ac741ea072e9a9bbbfb96f63016c93abf60ebba7324",
+            "lens": "checks",
+            "round": 1,
+            "digest": "sha256:515abafff2e2f7c21334994b01ffbcf2590c0753384a0c983122d9069f4ded6e",
+            "base": "27c8ccb92d5596ff79311b2b1d984217f3577f2a"
+          },
+          {
+            "run": "run:e18da38fa351170e39822ac741ea072e9a9bbbfb96f63016c93abf60ebba7324",
+            "lens": "security",
+            "round": 1,
+            "digest": "sha256:515abafff2e2f7c21334994b01ffbcf2590c0753384a0c983122d9069f4ded6e",
+            "base": "27c8ccb92d5596ff79311b2b1d984217f3577f2a"
+          },
+          {
+            "run": "run:e18da38fa351170e39822ac741ea072e9a9bbbfb96f63016c93abf60ebba7324",
+            "lens": "review",
+            "round": 1,
+            "digest": "sha256:515abafff2e2f7c21334994b01ffbcf2590c0753384a0c983122d9069f4ded6e",
+            "base": "27c8ccb92d5596ff79311b2b1d984217f3577f2a"
+          }
+        ],
+        "plan_captures": [
+          {
+            "stage": "plan",
+            "sha256": "afe6f6eafcf2228f035bbb59dcf1f810a313d0a7a4a94cfbeebb8dd94e93a12f"
+          },
+          {
+            "stage": "implement",
+            "sha256": "812efcd2cc9af2852b8c439ce8b9d88d55dccbaa1b3272d518eb86965dbd6c79"
+          }
+        ],
+        "elapsed_seconds": 50.505,
+        "cleaned": true,
+        "review_mode": "sequential",
+        "parallel_fault": null,
+        "parallel_batches": [],
+        "parallel_observations": []
+      }
+    }
+  ],
+  "mode": "synthetic synchronous actors, real released CLI/Git; no engine or shipping package edits",
+  "prifly": {
+    "arch": "amd64",
+    "go": "go1.27.2",
+    "os": "linux",
+    "schema_version": "foundation-version/1",
+    "semantics_profile": "foundation-sequence/1",
+    "version": "0.13.80"
+  },
+  "result": "LIMITATION_REPRODUCED_WITH_PASSING_READ_ONLY_CONTROL",
+  "stopped_owned_monitors": [],
+  "temporary_root_removed": true,
+  "release_url": "https://github.com/StenHigh/prifly/releases/tag/v0.13.80",
+  "release_asset_url": "https://github.com/StenHigh/prifly/releases/download/v0.13.80/prifly-linux-amd64.tar.gz",
+  "consumer_commit": "081931fb395d09311a49cb5037f0531db18c9c09",
+  "source_sha256": {
+    "tests/probes/feature_check.py": "67c67436ae170ab4c48ad8657ea255979be670b9150b178bfe05748e1972192e",
+    "tests/probes/fix_check.py": "c57279dd2b3e2beefb62b2e006bad9df13230cbd1f5d9ff571992658755b7a28",
+    "tests/probes/run_check.py": "b07f5323341f47eb6a89bbad1e7b64958c53f06ea05e5afabc3e7d86116dfbdc",
+    "tests/verify.py": "52112380323f9d4930dc1a8543fea4a7d2785f1286a728173c75b168bc1c7cc0",
+    "tests/probes/feature_queue_check.py": "6a96543a5d91be22dacc550d5382bf4884c0e6fd5115bcf5837ac5ef1a93fea7",
+    "aif-feature/workflow.yaml": "8026539020bafb2d8a0d4fa5ea48417c87a6f438d6642fa54445049bc3512e12",
+    "aif-feature/steps/plan.yaml": "013cea3f24df2b1a63b495fab1936f5c42ca3ac48f797387aec948f553746781",
+    "aif-feature/steps/implement.yaml": "95db7e5d30ccc5015b8c41555407c699300e79c651d82e31a01e215db18c1fca"
+  },
+  "instrumentation": {
+    "collector_path": "/tmp/e3-latest-stable-recheck.py",
+    "collector_sha256": "afe1719b61bf930d50bceafbc9c21b06e173fed247275cc608dd07286132cae9",
+    "method": "Read-only verify.run observer; records cancel/resolve/continue, status, Run inventory and candidate/plan/owner bytes before and after. Invokes existing run_case without changing package code."
+  },
+  "baseline_ci": {
+    "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/39250210672",
+    "source_sha": "679e2a1a9da2a15fdff6e23c8f13d60a0610f9ec",
+    "conclusion": "success",
+    "prifly": "0.13.80"
+  },
+  "issue": {
+    "number": 13,
+    "title": "Recovery: reviewed continue после отмены writer и inspected resolve (E3)",
+    "state": "OPEN",
+    "url": "https://github.com/StenHigh/prifly/issues/13",
+    "createdAt": "2026-10-19T13:18:43Z"
+  }
+}

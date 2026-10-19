@@ -47,7 +47,7 @@ prifly project start --repository . --launch aif-feature --host codex-cli \
   --workspace worktree --input task=/absolute/backend.task.json --package-profile backend \
   --decision-policy autonomous --preflight-answer plan_tests=true \
   --preflight-answer 'plan_constraints=""' --preflight-answer 'plan_retention="capture"' \
-  --allow-execution --expected-launch-digest sha256:<review_digest>
+  --allow-execution --expected-launch-digest 'sha256:<review_digest>'
 ```
 
 Digest preview и native launch digest различаются; для start нужен второй.
@@ -63,3 +63,73 @@ adapter и не запускает отдельные CLI actors. Квалифи
 Критерии и сценарии определяет проект. Required unavailable даёт диагностическую
 остановку; дефект запускает scoped repair с полным повтором приёмки. При
 неизвестном внешнем эффекте нужна reconciliation, а не повтор setup/cleanup.
+
+## Продолжение после отмены пишущего шага
+
+Для этого маршрута нужен **Pri-Fly ≥0.13.81**. Проверка consumer описана в
+[E3](../../docs/changes/add-bounded-feature-workflow/engine-followup.md).
+Root, inputs и `extend.yaml` сохраняются; новый workflow не устанавливается.
+Сам `run resolve` подтверждает осмотр эффектов, а новый reviewed Run повторяет
+writer и последующие checks/security/review.
+
+Сначала дождитесь остановки actor, проверьте его файлы и внешние эффекты.
+Замените абсолютные пути и IDs ниже на записанные у своего Run/Attempt.
+`not_applied` в этом примере относится к consumer, остановленному **до actor
+write**. Выберите `applied` только если осмотр подтверждает применившиеся
+эффекты; завершённость реализации из этого не следует. Пока эффект неизвестен,
+продолжение остаётся недоступным.
+
+```sh
+e3_binary=/absolute/path/to/released/prifly
+e3_authority=/absolute/path/to/project-authority
+e3_repository=/absolute/path/to/project
+e3_source_run=run:REPLACE_WITH_RECORDED_RUN_ID
+e3_attempt=attempt:REPLACE_WITH_RECORDED_ATTEMPT_ID
+e3_resolution=not_applied
+
+"$e3_binary" --project "$e3_authority" run resolve "$e3_source_run" \
+  --attempt "$e3_attempt" --outcome "$e3_resolution" \
+  --reason 'Осмотрены эффекты остановленного actor; выбран исход по фактическому состоянию'
+"$e3_binary" --project "$e3_authority" run drive "$e3_source_run"
+"$e3_binary" --json --project "$e3_authority" project continue \
+  --repository "$e3_repository" --launch aif-feature --source-run "$e3_source_run" \
+  --host codex-cli --allow-execution --prepare
+```
+
+Просмотрите `recovery.frontier_action: execute`, frontier, переносимый prefix,
+claim и **верхний** `review_digest`. Prepare не должен менять source, дерево
+или список Runs. После принятия этого review запишите его digest:
+
+```sh
+e3_review_digest=sha256:REPLACE_WITH_REVIEWED_DIGEST
+"$e3_binary" --json --project "$e3_authority" project continue \
+  --repository "$e3_repository" --launch aif-feature --source-run "$e3_source_run" \
+  --host codex-cli --allow-execution --expected-launch-digest "$e3_review_digest"
+```
+
+Далее runner обслуживает новый Run. Исходный Run сохраняет cancellation facts;
+для последующего продолжения source — текущий владелец claim.
+
+Если producer оставил partial `.ai-factory/PLAN.md`, новый start может получить
+`workspace_tree_output_exists` до выдачи writer. Этот файл сохраняется. Владелец
+проверяет принадлежность файла и явно переносит его в выбранное место **вне
+candidate**, сохраняя bytes; автоматического удаления здесь нет. После такого
+решения повторите prepare/start от последнего failed Run, которому start уже
+передал claim, с новым review digest. Можно освободить путь до первого start,
+если это уже явно решил владелец.
+
+Для backend-стенда воспроизводимые проверки без живой модели:
+
+```sh
+python3 -B tests/probes/feature_check.py --binary /absolute/released/prifly \
+  --case implement-cancel --report /tmp/e3-implement-81.json
+python3 -B tests/probes/feature_check.py --binary /absolute/released/prifly \
+  --case plan-cancel --report /tmp/e3-plan-81.json
+python3 -B tests/probes/feature_check.py --binary /absolute/released/prifly \
+  --case cancel-resume --report /tmp/e3-read-only-81.json
+```
+
+Эти команды запускаются из checkout этого репозитория; current writer probes
+требуют0.13.81+. На0.13.80 остались исторические negative probes в source081931f.
+Fixture сам выполняет осмотр и перенос только своего временного partial PLAN;
+это не автоматическая операция над планами реального проекта.

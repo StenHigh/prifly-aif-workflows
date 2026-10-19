@@ -24,8 +24,13 @@ Initial checkpoint — separate package1.0.0. Пакет1.2.3 опубликов
 [v1.52.0](../../releases/v1.52.0.md) с W5 opt-in режимами; tag и центральный каталог обновлены.
 Исторический implementation commit
 `b7e071e25fd52b9347f52b12adfa2990885a4786` отправлен в main. A8 partial/read-only cancellation
-и reviewed configure replay выверены; forced writer cancellation после resolve
-остаётся честным negative/deferred E3 (engine-followup.md), не successful resume.
+и reviewed configure replay выверены. E3 оставался negative/deferred на0.13.76–80;
+[исторический recheck](../engine/E3-writer-cancellation-0.13.80-results.json).
+[Pri-Fly #13](https://github.com/StenHigh/prifly/issues/13) закрыт выпуском0.13.81.
+Consumer positive probes обновлены: inspected resolve→reviewed execute,
+writer+quality replay; occupied partial PLAN сохраняется и явно перемещается
+fixture owner перед recovery от текущего владельца claim.
+[Текущие результаты](../engine/release-0.13.81.md). Все shipping package bytes прежние.
 Backend actual direct/repair/graceful writer continuation наблюдены; final
 frontend scheduling/explicit-scope qualification и quality continuation PASS;
 final-live-observations.json содержит исходные unedited отчёты и 19 fresh sessions.

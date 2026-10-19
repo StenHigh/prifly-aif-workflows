@@ -96,6 +96,11 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
+          name: feature-recovery-results
+          path: /tmp/aif-feature-results.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
           name: native-feature-queue-results
           path: /tmp/aif-feature-queue-results.json
   parallel-ui-ux:

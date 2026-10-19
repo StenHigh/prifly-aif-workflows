@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""W3 complete released-runtime Runs: synthetic writers/readers, real Git/programs."""
+"""W3 native Runs; writer recovery cases require released Pri-Fly 0.13.81+."""
 import argparse
 import copy
 import hashlib
@@ -14,7 +14,7 @@ import time
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import verify
-from test_review_evidence import config, report
+from test_review_evidence import config, report, evidence as review_evidence
 from test_product_review import configuration as product_configuration
 from evidence_check import read
 from run_check import clean, git_out
@@ -61,6 +61,7 @@ class FeatureHost(Host):
         self.root, self.frontend, self.library, self.live, self.artifacts = root, frontend, library, live, artifacts
         self.envs, self.env, self.rounds, self.observations, self.run_ids = [], None, [], [], []
         self.plan_captures=[]
+        self.writer_recovery=[]
         self.iteration, self.cancelled, self.started_at = 0, False, time.monotonic()
         self.review_mode, self.parallel_fault, self.parallel_live = 'sequential', None, False
         self.parallel_batches, self.parallel_observations = [], []
@@ -145,6 +146,15 @@ class FeatureHost(Host):
                     if name in ('plan','implement'):
                         refusal=verify.run(self.binary,'--project',self.authority,'run','drive',rid,expect_ok=False)
                         assert 'recovery_required' in refusal,refusal
+                        pending=self.call('run','status',rid)['run']
+                        assert any(a['status']=='uncertain' for a in pending['attempts'].values())
+                        refused=verify.run(self.binary,'--project',self.authority,'project','continue',
+                            '--repository',self.root/'repository','--launch','aif-feature','--source-run',rid,
+                            '--host','codex-cli','--allow-execution','--prepare',expect_ok=False)
+                        problem=json.loads(refused.strip().splitlines()[-1])
+                        assert problem['code']=='recover_source_unsettled',problem
+                        self.writer_recovery.append({'check':'unresolved_writer_refused','code':problem['code'],
+                                                     'attempt_id':task['attempt_id']})
                         self.call('run','resolve',rid,'--attempt',task['attempt_id'],'--outcome','applied' if name=='plan' else 'not_applied',
                                   '--reason','Synchronous fixture actor returned: planner wrote inspected partial bytes; implement cancellation occurred before any actor write. Materialized inputs and work preserved; no external effects.')
                     self.call('run', 'drive', rid)
@@ -396,6 +406,17 @@ def read_output(task, name):
     return json.loads((Path(task['workspace'])/task['context']['outputs'][name]['path']).read_text())
 
 
+def recovery_snapshot(h, rid):
+    """Observe the source, workspace and claim without changing the authority."""
+    view=h.call('run','status',rid)
+    return {'run_version':view['run_version'],'run':view['run'],
+            'runs':sorted(r['run_id'] for r in h.call('run','list')['runs']),
+            'claims':h.call('claim','list')['claims'],
+            'candidate':review_evidence.snapshot(h.tree,h.base),
+            'owner':(h.tree/'owner.txt').read_bytes(),
+            'plan':(h.tree/'.ai-factory/PLAN.md').read_bytes() if (h.tree/'.ai-factory/PLAN.md').exists() else None}
+
+
 def run_case(binary, case, host='codex-cli', library=None, live=False, artifacts=None, skills=None,
              review_mode='sequential', parallel_fault=None, parallel_live=False,
              host_factory=None, adapter_factory=None, task_mutator=None, expected_outcome=None, quality_limit=None):
@@ -486,15 +507,21 @@ def run_case(binary, case, host='codex-cli', library=None, live=False, artifacts
                     h.iteration=iteration
                     cont=('--project',authority,'project','continue','--repository',repository,'--launch','aif-feature','--source-run',runs[-1],'--host',host,'--allow-execution')
                     if case in ('plan-cancel','implement-cancel'):
-                        before_version=verify.run(binary,'--project',authority,'run','status',rid)['run_version']
-                        refused=verify.run(binary,*cont,'--prepare',expect_ok=False)
-                        assert 'recover_source_unsettled' in refused,refused
-                        assert verify.run(binary,'--project',authority,'run','status',rid)['run_version']==before_version
+                        snapshot=recovery_snapshot(h,rid)
+                        source=snapshot['run']
+                        assert source['status']=='failed' and source.get('outcome') is None and source['cancel_requested']
+                        assert not any(a['status']=='uncertain' for a in source['attempts'].values())
+                        resolution='applied' if case=='plan-cancel' else 'not_applied'
+                        assert any(d['code']=='resolved_'+resolution for d in source['diagnostics'])
+                        checked=verify.run(binary,*cont,'--prepare')
+                        assert checked['recovery']['frontier_action']=='execute',checked['recovery']
+                        assert recovery_snapshot(h,rid)==snapshot,'Prepare changed source/work/claim/inventory'
                         if case=='plan-cancel':assert (h.tree/'.ai-factory/PLAN.md').read_bytes()==before
                         assert (h.tree/'owner.txt').read_text()=='Preserved owner edit across continuation\n'
-                        return {'case':case,'host':host,'source_outcome':'failed after cancellation + inspected resolve',
-                                'outcome':'recover_source_unsettled','writer_reconciliation':('applied' if case=='plan-cancel' else 'not_applied')+'; no retry',
-                                'work_preserved':True,'same_claim':len(h.claims)==1,'cleaned':True}
+                        h.writer_recovery.append({'check':'resolved_writer_prepare','resolution':resolution,
+                            'source_run_id':rid,'source_status':source['status'],'cancel_requested':source['cancel_requested'],
+                            'source_unchanged':True,'work_unchanged':True,'claim_unchanged':True,'inventory_unchanged':True,
+                            'candidate':snapshot['candidate'],'frontier_action':checked['recovery']['frontier_action']})
                     if case=='upgrade-refusal':
                         version=verify.run(binary,'--project',authority,'run','status',rid)['run_version']
                         refused=verify.run(binary,*cont,'--prepare',expect_ok=False);assert 'recover_prefix_changed' in refused,refused
@@ -510,6 +537,7 @@ def run_case(binary, case, host='codex-cli', library=None, live=False, artifacts
                                 'reviewed_replay':'configure (warmup prefix retained)','outcome':'succeeded','same_claim':True,'work_preserved':True,'cleaned':True}
                     prep=verify.run(binary,*cont,'--prepare')
                     rid=verify.run(binary,*cont,'--expected-launch-digest',prep['review_digest'])['run']['run']['id'];runs.append(rid)
+                    replay_start=len(h.seen)
                     if case=='plan-cancel':
                         # No automatic deletion of an interrupted native producer.
                         try:state=h.drive_feature(rid)
@@ -517,16 +545,46 @@ def run_case(binary, case, host='codex-cli', library=None, live=False, artifacts
                             state=h.state(rid)
                         assert (h.tree/'.ai-factory/PLAN.md').read_bytes()==before
                         assert state['status']=='failed' and any(x['code']=='workspace_tree_output_exists' for x in state['diagnostics']),{k:state.get(k) for k in ('status','outcome','diagnostics')}
+                        # Explicit fixture-owner action after inspecting its own partial output.
+                        # Keep bytes outside the claimed candidate; never delete them or retry from an old owner.
+                        saved=root/'partial-plan.saved'
+                        assert not saved.exists()
+                        (h.tree/'.ai-factory/PLAN.md').rename(saved)
+                        assert saved.read_bytes()==before
+                        current=recovery_snapshot(h,rid)
+                        retry=('--project',authority,'project','continue','--repository',repository,'--launch','aif-feature',
+                               '--source-run',rid,'--host',host,'--allow-execution')
+                        checked=verify.run(binary,*retry,'--prepare')
+                        assert checked['recovery']['frontier_action']=='execute'
+                        assert recovery_snapshot(h,rid)==current
+                        blocked_run=rid
+                        rid=verify.run(binary,*retry,'--expected-launch-digest',checked['review_digest'])['run']['run']['id'];runs.append(rid)
+                        replay_start=len(h.seen)
+                        state=h.drive_feature(rid)
+                        assert saved.read_bytes()==before
+                        assert {'plan','implement','checks','security','review','commit'} <= {s['step'] for s in h.seen[replay_start:]}
+                        h.writer_recovery.append({'check':'occupied_producer_then_owner_move',
+                            'blocked_run':blocked_run,'refusal':'workspace_tree_output_exists','partial_preserved':True,
+                            'saved_sha256':hashlib.sha256(saved.read_bytes()).hexdigest(),
+                            'explicit_fixture_owner_move':True,'recovery_source_is_current_owner':True,
+                            'prepare_read_only':True,'outcome':state.get('outcome')})
+                        historical=verify.run(binary,'--project',authority,'run','status',runs[0])
+                        assert historical['run_version']==snapshot['run_version'] and historical['run']==snapshot['run']
                         break
                     state=h.drive_feature(rid)
+                    if case=='implement-cancel':
+                        assert {'implement','checks','security','review','commit'} <= {s['step'] for s in h.seen[replay_start:]}
+                        assert not {'warmup','plan'} & {s['step'] for s in h.seen[replay_start:]}
+                        historical=verify.run(binary,'--project',authority,'run','status',runs[0])
+                        assert historical['run_version']==snapshot['run_version'] and historical['run']==snapshot['run']
                 assert (h.tree/'owner.txt').read_text()=='Preserved owner edit across continuation\n'
-            expected='succeeded' if case in ('backend','frontend','repair-checks','repair-security','repair-review','repair-ui','repair-ux','retained-plan','blocked-resume','cancel-resume','chained-resume','implement-cancel','upgrade','excluded-security','verdict-independent') else 'partial'
+            expected='succeeded' if case in ('backend','frontend','repair-checks','repair-security','repair-review','repair-ui','repair-ux','retained-plan','blocked-resume','cancel-resume','chained-resume','plan-cancel','implement-cancel','upgrade','excluded-security','verdict-independent') else 'partial'
             if parallel_fault and parallel_fault not in ('timeout','one-timeout','during-reader-edit'):
                 expected = 'rejected' if parallel_fault == 'unsupported-host' else 'partial'
             if review_mode == 'parallel-backend' and frontend: expected = 'rejected'
             if case.startswith('live-') or case in ('frontend-cancel','commit-resume'):expected='succeeded'
             if expected_outcome is not None: expected=expected_outcome
-            if case not in ('foreign-plan','plan-cancel'):assert state.get('outcome')==expected,{k:state.get(k) for k in ('status','outcome','diagnostics')}
+            if case != 'foreign-plan':assert state.get('outcome')==expected,{k:state.get(k) for k in ('status','outcome','diagnostics')}
             if expected=='succeeded':
                 assert {'implementation','result','plan','gate','evidence'} <= state['output_artifacts'].keys()
                 assert git_out(h.tree,'rev-parse','HEAD') != h.base
@@ -553,7 +611,7 @@ def run_case(binary, case, host='codex-cli', library=None, live=False, artifacts
             assert len(h.claims)==1
             assert all(item['base']==h.base for item in h.rounds)
             if case=='retained-plan':assert git_out(h.tree,'ls-files','--','.ai-factory/PLAN.md') and '[x]' in (h.tree/'.ai-factory/PLAN.md').read_text()
-            elif case not in ('foreign-plan','plan-cancel'):assert not (h.tree/'.ai-factory/PLAN.md').exists(), 'Owned untracked plan must be captured, not lost or left blocking next Run'
+            elif case != 'foreign-plan':assert not (h.tree/'.ai-factory/PLAN.md').exists(), 'Owned untracked plan must be captured, not lost or left blocking next Run'
             if case=='foreign-fix-plan':assert (h.tree/'.ai-factory/FIX_PLAN.md').read_text()=='Foreign fix plan bytes\n'
             actual_outputs={}
             if live or review_mode in ('parallel-backend','parallel-ui-ux') and 'evidence' in state['output_artifacts']:
@@ -573,6 +631,7 @@ def run_case(binary, case, host='codex-cli', library=None, live=False, artifacts
                     'source_outcome':source_outcome,'outcome':state.get('outcome') or state['status'],'runs':len(runs),
                     'steps':names,'rounds':h.rounds,'plan_captures':h.plan_captures,'elapsed_seconds':round(time.monotonic()-h.started_at,3),'cleaned':True,
                     'review_mode':review_mode,'parallel_fault':parallel_fault,'parallel_batches':h.parallel_batches,
+                    'writer_recovery':h.writer_recovery,'same_claim':len(h.claims)==1,
                     'parallel_observations':h.parallel_observations,
                     **({'parallel_outputs':actual_outputs} if review_mode in ('parallel-backend','parallel-ui-ux') else {}),
                     **({'observations':h.observations,'outputs':actual_outputs} if live else

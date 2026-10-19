@@ -1,8 +1,10 @@
 # W3 — Короткий workflow для небольшой новой фичи
 
-Статус: **implemented / pilot qualified, unreleased; A8 forced-writer cancellation deferred E3**. Приоритет: **P1**. Дата: 2026-10-14.
+Статус: **implemented / published, pilot qualified**; E3 consumer recovery
+проверен на released Pri-Fly0.13.81. Приоритет: **P1**. Дата предложения:2026-10-14;
+обновление:2026-10-19. [Текущая приёмка E3](engine-followup.md).
 Рабочее имя нового package/launch: **aif-feature**.
-База: released Pri-Fly 0.13.76 / пакеты v1.51.2.
+Исходная база предложения: released Pri-Fly0.13.76 / пакеты v1.51.2.
 
 ## Проблема и результат
 

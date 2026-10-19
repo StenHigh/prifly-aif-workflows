@@ -27,9 +27,12 @@ quality rounds, not repair writes; final failed round leaves unchanged evidence.
 
 Continue a diagnostic partial or cancelled read-only quality via native prepare
 and reviewed digest. Reconcile owned external environment before continuing a
-cancelled product call. Forced writer cancellation is intentionally refused by
-the released engine even after resolution: inspect/preserve its work and the E3
-follow-up, rather than resetting the authority or silently recreating the Run.
+cancelled product call. For a forcibly cancelled writer use Pri-Fly0.13.81+:
+inspect effects, resolve the actual obligation, review same-launch prepare and
+start a new Run. Preserve/move any occupied partial PLAN by explicit owner
+decision, then continue from the current claim owner. The0.13.80 refusal remains
+historical; see [E3](engine-followup.md) and the
+[full recipe](../../../examples/small-feature/README.md#продолжение-после-отмены-пишущего-шага).
 
 Release checklist, when separately authorized: recheck latest stable Pri-Fly,
 run required gates on that binary, assign repository release version, pin the

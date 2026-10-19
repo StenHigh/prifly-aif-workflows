@@ -3,7 +3,7 @@
 Дата: 2026-10-19. W1–W3: **committed/pushed, CI PASS**, с отдельными live observations;
 W4: **committed/pushed, pilot qualified, CI PASS**; W5: **пакетная часть завершена, scoped qualification и final CI PASS; v1.52.0**.
 Пакеты включены в [выпуск v1.52.0](../releases/v1.52.0.md). Актуальная база совместимости: released Pri-Fly
-**0.13.80**, выпуск репозитория **v1.53.0**. Прежние CI/live evidence на
+**0.13.81**, выпуск репозитория **v1.53.0**. Прежние CI/live evidence на
 0.13.76 остаются историческими; повторная проверка нового stable записана отдельно.
 
 В этом репозитории нет инициализированного OpenSpec-проекта. Change хранятся
@@ -26,7 +26,7 @@ evidence сохраняют исходную версию. [Результаты
 |---|---|---|---|---|
 | W1 | P1, первым | [Явные доказательства ревью](add-explicit-review-evidence/proposal.md) | Нет; безопасный baseline обязателен там, где используется | committed/pushed, CI PASS / v1.52.0 |
 | W2 | P1 | [UI/UX-компоненты](add-ui-ux-review-components/proposal.md) | W1; standalone контракт среды из #2 | committed/pushed, CI + fresh CLI PASS; model/consumer limits / v1.52.0 |
-| W3 | P1 | [Короткий workflow для фич](add-bounded-feature-workflow/proposal.md) | W1; W2 для интерфейсного профиля | committed/pushed, CI + live PASS; forced writer cancel deferred / v1.52.0 |
+| W3 | P1 | [Короткий workflow для фич](add-bounded-feature-workflow/proposal.md) | W1; W2 для интерфейсного профиля | committed/pushed, CI + live PASS / v1.52.0; E3 writer recovery consumer-qualified на0.13.81, без изменения package |
 | W4 | P1/P2 | [Приёмка перед интеграцией](document-verified-integration-handoff/proposal.md) | W1; проектный интегратор, #1 при GitLab | committed/pushed, pilot qualified, CI PASS; real provider limits / v1.52.0 |
 | W5 | P2 | [Квалификация параллельного ревью](qualify-parallel-implementation-review/proposal.md) | W1, W2, W3; сначала последовательная приёмка | backend opt-in/adapter d515a85; UI/UX qualification0bdc632: local17/CI job PASS для isolated stand, shared limit1 sequential; frontend1.2.3: CLI4 sessions PASS; native1–3 rounds qualified,4–8 refused before writers; final UI/UX35/unit16 и полный exact-SHA CI38848759987 PASS; пакетная часть завершена в указанном scope; App/Claude unqualified / v1.52.0 |
 | W6 | P1 после E5 | [Review/UI/UX через call extensions](add-review-uiux-call-extensions/proposal.md) | E5 stable0.13.78+ (probes51 PASS на0.13.79); W1, W2; W3 regression boundary | project recipes/installer PASS на0.13.80: native27/compile18/refusals8, Core51, direct cancel/timeout/limits/storage/capacity; scoped CLI3 sessions; full exact-SHA CI39038596555 SUCCESS; classic/profiled и shipping8 прежние |
@@ -49,14 +49,17 @@ PASS (verify/parallel-ui-ux/call-review-uiux). CI artifact подтвержда�
 
 ## Pri-Fly Light — оставшаяся часть интерфейса
 
-Пакетные W1–W5 выпущены, но отдельный упрощённый интерфейс по образцу Software
-Factory ещё не сделан. E1 board/E2 queue в Core не закрывают эту цель.
-Оба текущих monitor используют один frontend; отсутствие scan-root не меняет UI.
+Пакетные W1–W5 выпущены. В Pri-Fly0.13.81 объявлена поставка отдельного Light UI;
+released CLI действительно содержит `monitor --ui light`. E1 board/E2 queue
+сами по себе эту цель не закрывали: два ранее проверенных monitor0.13.79
+использовали один frontend, а отсутствие scan-root не меняло UI.
 
 **E6/P1 — [Pri-Fly #11](https://github.com/StenHigh/prifly/issues/11)**:
 отдельная компактная доска задач/очереди и результатов ревью, с переходом в полный
-monitor. [Scope и E6-A1–A10](engine/E6-prifly-light.md). Статус: requested,
-не реализован/не развёрнут; ожидаемый deployment — `prify-light.stenhigh.net`.
+monitor. [Scope и E6-A1–A10](engine/E6-prifly-light.md). Issue пока OPEN;
+capability поставлена в Core0.13.81, consumer/browser/domain acceptance остаётся
+отдельным следующим изменением. Rollout в этой E3-задаче не выполнялся;
+ожидаемый deployment — `prify-light.stenhigh.net`.
 Полный `prifly.stenhigh.net`, classic/profiled и defaults не меняются.
 Core delivery и actual browser/domain acceptance — разные обязательные этапы.
 
@@ -100,9 +103,13 @@ W1–W4 не зависят от E1/E2. Не добавляем обязател
   реализована native queue в stable 0.13.77; пакетный CLI-маршрут aif-feature
   принят на0.13.80 (3 cases /5 Runs, synthetic actors). Real host/project pilot
   ещё не квалифицирован. Claim задачи сам по себе не запускает Run.
-- [E3: prepared writer-cancellation follow-up](add-bounded-feature-workflow/engine-followup.md)
-  воспроизведён в W3: resolved cancelled writer ещё не допускает reviewed continue
-  (`recover_source_unsettled`). Issue body подготовлен локально, issue не опубликован;
+- [E3: Pri-Fly #13 — reviewed recovery отменённого writer](https://github.com/StenHigh/prifly/issues/13),
+  [recheck/evidence](add-bounded-feature-workflow/engine-followup.md): CLOSED,
+  исправлен в stable0.13.81 и независимо проверен consumer2026-10-19.
+  Implement/not_applied→succeeded; plan/applied→occupied-path guard→explicit
+  owner move→succeeded. Source cancellation facts/bytes/claim сохраняются,
+  writer и quality повторяются; read-only control succeeded. Старый отказ
+  на0.13.80 остаётся историческим evidence. Package YAML/versions прежние;
   ordinary partial/read-only cancellation W3/W4 эту возможность не требуют.
   Дополнительные engine issues по W5 нужны только при воспроизводимом отсутствии
   контракта independent Attempts, join, cancel или recovery.
@@ -120,9 +127,10 @@ W1–W4 не зависят от E1/E2. Не добавляем обязател
   engine release больше не блокирует. [Результаты](engine/release-0.13.79.md).
 
 - [E6: Pri-Fly #11 — отдельный Pri-Fly Light](https://github.com/StenHigh/prifly/issues/11),
-  [сохранённый issue body](engine/E6-prifly-light.md): open/P1, UI gap поверх
-  existing E1/E2. Native tasks/Runs/review provenance, настоящий отдельный
-  frontend и production browser acceptance; текущие два monitor не считаются Light.
+  [сохранённый issue body](engine/E6-prifly-light.md): open/P1. Light capability
+  включена в stable0.13.81; consumer report projection и production browser
+  acceptance остаются отдельными этапами. Два прежних full monitors не считаются
+  Light; в этой E3-задаче services/domains не менялись.
 
 В Pri-Fly0.13.77 уже есть monitor board, native queue, title, `parallel`/join,
 resources/model-profile reports и одна typed input binding legacy step extension.

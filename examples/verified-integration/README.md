@@ -171,10 +171,11 @@ python3 -B .prifly/workflows/verified-integration/files/integration.py \
 другой ref без сохранённого подтверждения означает unknown. Известный CAS отказ
 и подтверждённый applied сохраняются как исторические факты. Не повторяйте
 update-ref или создание MR до выяснения исхода. Если Core оставил обязательство,
-владелец отдельно аттестует осмотр через `run resolve`. Отмена пишущего Attempt
-может оставлять границу `recover_source_unsettled`, описанную в
-[E3](../../docs/changes/add-bounded-feature-workflow/engine-followup.md): её обход
-и успешное возобновление отменённого writer не входят в этот пример.
+владелец отдельно аттестует осмотр через `run resolve`. В Pri-Fly0.13.81
+поставлен reviewed writer recovery ([E3](../../docs/changes/add-bounded-feature-workflow/engine-followup.md));
+consumer-проверка E3 относится к `aif-feature`. Recovery конкретного integration/
+publication worker требует своей приёмки и не входит в квалификацию этого
+примера. При неизвестных эффектах `recover_source_unsettled` сохраняется.
 
 Не удаляйте журнал неизвестной записи. При `reconcile_required` автоматическая
 очистка оставляет owned среду и evidence оператору. После адресной reconciliation

@@ -59,7 +59,9 @@ BLOCKED native snapshot с диагнозом, без executable Tasks. Typed re
 verdict не допускают его в implement. Retain сохраняет tracked owned progress;
 default capture сохраняет blob bytes и освобождает only untracked owned path.
 
-Forced writer cancellation — воспроизведённый deferred E3 boundary: after
-inspected applied/not_applied resolve core still refuses recover_source_unsettled.
-No flag reset or fake continuation. Graceful writer partial и read-only quality
-cancel/chained/commit-stop continuation поддерживаются без core changes.
+Forced writer cancellation была deferred E3 boundary на0.13.76–0.13.80.
+В0.13.81 native reviewed recovery после inspected applied/not_applied resolution
+поддержан и проверен consumer. Writer и quality повторяются, source cancellation
+facts сохраняются. Occupied partial PLAN остаётся named refusal до явного owner
+move/preservation; recovery затем идёт от текущего владельца claim. No flag reset
+or fake continuation. Workflow YAML и package bytes для этого не меняются.
