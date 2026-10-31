@@ -1,0 +1,17 @@
+{
+  "source_sha": "42e60de8617e1ae6f38b77b0a3e008b538ad664b",
+  "ci_run": 41207313038,
+  "job": "call-review-uiux",
+  "conclusion": "success",
+  "prifly": "0.13.82",
+  "binary_sha256": "3b073126921bca3e9d78b7649b51bd20527fd70cf4de44e0d440b5428b7712e5",
+  "compiles": 18,
+  "refusals": 8,
+  "native_cases": 27,
+  "all_cleaned": true,
+  "all_reported_upstream_preserved": true,
+  "artifact_sha256": {
+    "w6-contract.json": "c88088431b6235a1e4c14e5d1489b304061404522f8e35f23681c4e349f3482d",
+    "w6-native.json": "189b3750c8d4e5f912cf38b11e5185fd72a06e6e27c84f0b4e84543cdf75389e"
+  }
+}

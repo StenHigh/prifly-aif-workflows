@@ -1,0 +1,72 @@
+{
+  "source_sha": "42e60de8617e1ae6f38b77b0a3e008b538ad664b",
+  "run_url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/41207313038",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "name": "parallel-ui-ux",
+      "conclusion": "success",
+      "startedAt": "2026-10-31T13:49:40Z",
+      "completedAt": "2026-10-31T14:06:46Z"
+    },
+    {
+      "name": "verify",
+      "conclusion": "success",
+      "startedAt": "2026-10-31T13:49:40Z",
+      "completedAt": "2026-10-31T14:46:20Z"
+    },
+    {
+      "name": "call-review-uiux",
+      "conclusion": "success",
+      "startedAt": "2026-10-31T13:49:39Z",
+      "completedAt": "2026-10-31T13:54:01Z"
+    }
+  ],
+  "prifly": "0.13.82",
+  "binary_sha256": "3b073126921bca3e9d78b7649b51bd20527fd70cf4de44e0d440b5428b7712e5",
+  "feature": {
+    "cases": 35,
+    "all_cleaned": true,
+    "artifact_sha256": "8eb36eb665678dced33d62096a6f30c0f0ba5b0e91446f1a2d0d3cdb99fa6d29"
+  },
+  "queue": {
+    "cases": 3,
+    "result": "PASS",
+    "all_claims_released": true,
+    "temporary_root_removed": true,
+    "artifact_sha256": "a459bce997e655d5ee1715fa097246de1c19c3384e8a8fc6797ad768ba1d7e5d"
+  },
+  "classic": {
+    "pairs": 8,
+    "all_equal_and_cleaned": true,
+    "artifact_sha256": "8ebc2b10b818dc531779d1b2ce5bb91df8d4bcec3bfd0c20cee672b6d9fe0a1c"
+  },
+  "w6": {
+    "source_sha": "42e60de8617e1ae6f38b77b0a3e008b538ad664b",
+    "ci_run": 41207313038,
+    "job": "call-review-uiux",
+    "conclusion": "success",
+    "prifly": "0.13.82",
+    "binary_sha256": "3b073126921bca3e9d78b7649b51bd20527fd70cf4de44e0d440b5428b7712e5",
+    "compiles": 18,
+    "refusals": 8,
+    "native_cases": 27,
+    "all_cleaned": true,
+    "all_reported_upstream_preserved": true,
+    "artifact_sha256": {
+      "w6-contract.json": "c88088431b6235a1e4c14e5d1489b304061404522f8e35f23681c4e349f3482d",
+      "w6-native.json": "189b3750c8d4e5f912cf38b11e5185fd72a06e6e27c84f0b4e84543cdf75389e"
+    }
+  },
+  "parallel_uiux": {
+    "ci_run": 41207313038,
+    "source_sha": "42e60de8617e1ae6f38b77b0a3e008b538ad664b",
+    "job": "parallel-ui-ux",
+    "conclusion": "success",
+    "prifly": "0.13.82",
+    "binary_sha256": "3b073126921bca3e9d78b7649b51bd20527fd70cf4de44e0d440b5428b7712e5",
+    "log_sha256": "f8aecdfa023c0498405e92075790791e705da2017d789b7310d268dbb8d69e18",
+    "reported_cases": 17,
+    "all_reported_cleaned": true
+  }
+}

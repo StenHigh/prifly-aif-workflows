@@ -1,0 +1,11 @@
+{
+  "ci_run": 41207313038,
+  "source_sha": "42e60de8617e1ae6f38b77b0a3e008b538ad664b",
+  "job": "parallel-ui-ux",
+  "conclusion": "success",
+  "prifly": "0.13.82",
+  "binary_sha256": "3b073126921bca3e9d78b7649b51bd20527fd70cf4de44e0d440b5428b7712e5",
+  "log_sha256": "f8aecdfa023c0498405e92075790791e705da2017d789b7310d268dbb8d69e18",
+  "reported_cases": 17,
+  "all_reported_cleaned": true
+}

@@ -1,0 +1,101 @@
+{
+  "prifly": "0.13.82",
+  "binary_sha256": "3b073126921bca3e9d78b7649b51bd20527fd70cf4de44e0d440b5428b7712e5",
+  "scope": "local Git tag baseline v1.54.0 bytes to candidate; not public release",
+  "packages": [
+    {
+      "package": "aif-fanout",
+      "version": "1.5.0",
+      "origin_ref": "candidate",
+      "only_installed_package": true,
+      "hosts": [
+        "codex-cli",
+        "codex-app",
+        "claude-code"
+      ],
+      "installed_bytes_equal": true,
+      "owner_extend_preserved": true,
+      "owner_project_preserved": true,
+      "local_edit_refused": "workflow.yaml"
+    },
+    {
+      "package": "aif-fix",
+      "version": "1.1.0",
+      "origin_ref": "candidate",
+      "only_installed_package": true,
+      "hosts": [
+        "codex-cli",
+        "codex-app",
+        "claude-code"
+      ],
+      "installed_bytes_equal": true,
+      "owner_extend_preserved": true,
+      "owner_project_preserved": true,
+      "local_edit_refused": "instructions/session-report.md"
+    },
+    {
+      "package": "aif-review-evidence",
+      "version": "1.1.0",
+      "origin_ref": "candidate",
+      "only_installed_package": true,
+      "hosts": [
+        "codex-cli",
+        "codex-app",
+        "claude-code"
+      ],
+      "installed_bytes_equal": true,
+      "owner_extend_preserved": true,
+      "owner_project_preserved": true,
+      "local_edit_refused": "instructions/review-bridge.md"
+    },
+    {
+      "package": "aif-ui-ux",
+      "version": "1.1.0",
+      "origin_ref": "candidate",
+      "only_installed_package": true,
+      "hosts": [
+        "codex-cli",
+        "codex-app",
+        "claude-code"
+      ],
+      "installed_bytes_equal": true,
+      "owner_extend_preserved": true,
+      "owner_project_preserved": true,
+      "local_edit_refused": "instructions/environment-bridge.md"
+    },
+    {
+      "package": "aif-feature",
+      "version": "1.3.0",
+      "origin_ref": "candidate",
+      "only_installed_package": true,
+      "hosts": [
+        "codex-cli",
+        "codex-app",
+        "claude-code"
+      ],
+      "installed_bytes_equal": true,
+      "owner_extend_preserved": true,
+      "owner_project_preserved": true,
+      "local_edit_refused": "instructions/feature-commit.md"
+    },
+    {
+      "package": "openclaw-test-audit",
+      "version": "1.1.0",
+      "origin_ref": "candidate",
+      "only_installed_package": true,
+      "hosts": [
+        "codex-cli",
+        "codex-app",
+        "claude-code"
+      ],
+      "installed_bytes_equal": true,
+      "owner_extend_preserved": true,
+      "owner_project_preserved": true,
+      "local_edit_refused": "instructions/test-audit.md"
+    }
+  ],
+  "cleanup": {
+    "registry_entries_removed": 1,
+    "temporary_root_removed": true
+  }
+}

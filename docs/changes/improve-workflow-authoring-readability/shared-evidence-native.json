@@ -1,0 +1,209 @@
+{
+  "prifly": "0.13.82",
+  "binary_sha256": "3b073126921bca3e9d78b7649b51bd20527fd70cf4de44e0d440b5428b7712e5",
+  "host": "synthetic; real evaluator and Git; no LLM/browser attestation",
+  "cases": [
+    {
+      "case": "pass",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "runs": 1,
+      "reader_deliveries": 1,
+      "candidate_changed": false
+    },
+    {
+      "case": "required-unavailable",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "runs": 1,
+      "reader_deliveries": 1,
+      "candidate_changed": false
+    },
+    {
+      "case": "missing",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "runs": 1,
+      "reader_deliveries": 1,
+      "candidate_changed": false
+    },
+    {
+      "case": "duplicate",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "runs": 1,
+      "reader_deliveries": 1,
+      "candidate_changed": false
+    },
+    {
+      "case": "unknown",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "runs": 1,
+      "reader_deliveries": 1,
+      "candidate_changed": false
+    },
+    {
+      "case": "browser-substitution",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "runs": 1,
+      "reader_deliveries": 1,
+      "candidate_changed": false
+    },
+    {
+      "case": "optional-ignore",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "runs": 1,
+      "reader_deliveries": 1,
+      "candidate_changed": false
+    },
+    {
+      "case": "optional-stop",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "runs": 1,
+      "reader_deliveries": 1,
+      "candidate_changed": false
+    },
+    {
+      "case": "excluded",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "runs": 1,
+      "reader_deliveries": 1,
+      "candidate_changed": false
+    },
+    {
+      "case": "not-applicable",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "runs": 1,
+      "reader_deliveries": 1,
+      "candidate_changed": false
+    },
+    {
+      "case": "failed",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "runs": 1,
+      "reader_deliveries": 1,
+      "candidate_changed": false
+    },
+    {
+      "case": "stale-dirty",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "runs": 1,
+      "reader_deliveries": 1,
+      "candidate_changed": false
+    },
+    {
+      "case": "stale-index",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "runs": 1,
+      "reader_deliveries": 1,
+      "candidate_changed": false
+    },
+    {
+      "case": "stale-untracked",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "runs": 1,
+      "reader_deliveries": 1,
+      "candidate_changed": false
+    },
+    {
+      "case": "stale-delete",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "runs": 1,
+      "reader_deliveries": 1,
+      "candidate_changed": false
+    },
+    {
+      "case": "stale-mode",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "runs": 1,
+      "reader_deliveries": 1,
+      "candidate_changed": false
+    },
+    {
+      "case": "stale-request",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "runs": 1,
+      "reader_deliveries": 1,
+      "candidate_changed": false
+    },
+    {
+      "case": "session-unavailable",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "runs": 1,
+      "reader_deliveries": 1,
+      "candidate_changed": false
+    },
+    {
+      "case": "blocked-resume",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "runs": 2,
+      "reader_deliveries": 2,
+      "candidate_changed": true
+    },
+    {
+      "case": "cancel-resume",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "runs": 2,
+      "reader_deliveries": 2,
+      "candidate_changed": true
+    },
+    {
+      "case": "chained-resume",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "runs": 3,
+      "reader_deliveries": 3,
+      "candidate_changed": true
+    },
+    {
+      "case": "upgrade",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "runs": 2,
+      "reader_deliveries": 2,
+      "candidate_changed": true
+    },
+    {
+      "case": "upgrade-refusal",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "runs": 1,
+      "reader_deliveries": 1,
+      "candidate_changed": false,
+      "prepare_refusal": "recover_prefix_changed",
+      "explicit_replay_refusal": "resume_prefix_empty"
+    },
+    {
+      "case": "pass",
+      "host": "codex-app",
+      "outcome": "succeeded",
+      "runs": 1,
+      "reader_deliveries": 1,
+      "candidate_changed": false
+    },
+    {
+      "case": "pass",
+      "host": "claude-code",
+      "outcome": "succeeded",
+      "runs": 1,
+      "reader_deliveries": 1,
+      "candidate_changed": false
+    }
+  ]
+}

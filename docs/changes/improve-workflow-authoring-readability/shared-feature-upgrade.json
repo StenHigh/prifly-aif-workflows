@@ -1,0 +1,88 @@
+{
+  "prifly": "0.13.82",
+  "binary_sha256": "3b073126921bca3e9d78b7649b51bd20527fd70cf4de44e0d440b5428b7712e5",
+  "cases": [
+    {
+      "case": "upgrade",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "partial",
+      "outcome": "succeeded",
+      "runs": 2,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "checks",
+        "security",
+        "review",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:9acc7a49e393b1e6194536ec8752b6829f72021260d1afed1af220668736c576",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:2651495cc1126e3295353f560145acf1cf1627768ded2951a2fcf5abcbd515bf",
+          "base": "31f470959ed85b5df4ab56b901bcb4b7aca6762f"
+        },
+        {
+          "run": "run:9acc7a49e393b1e6194536ec8752b6829f72021260d1afed1af220668736c576",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:2651495cc1126e3295353f560145acf1cf1627768ded2951a2fcf5abcbd515bf",
+          "base": "31f470959ed85b5df4ab56b901bcb4b7aca6762f"
+        },
+        {
+          "run": "run:9acc7a49e393b1e6194536ec8752b6829f72021260d1afed1af220668736c576",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:2651495cc1126e3295353f560145acf1cf1627768ded2951a2fcf5abcbd515bf",
+          "base": "31f470959ed85b5df4ab56b901bcb4b7aca6762f"
+        },
+        {
+          "run": "run:7681a11a88d2ed5469a9d42f2645ba2e069297397cdce4bdd98608b74003dfca",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:3f05a6a63d6a08293a1c04d2dd7340f0cecc526bb6fe638df801d42767cfce36",
+          "base": "31f470959ed85b5df4ab56b901bcb4b7aca6762f"
+        },
+        {
+          "run": "run:7681a11a88d2ed5469a9d42f2645ba2e069297397cdce4bdd98608b74003dfca",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:3f05a6a63d6a08293a1c04d2dd7340f0cecc526bb6fe638df801d42767cfce36",
+          "base": "31f470959ed85b5df4ab56b901bcb4b7aca6762f"
+        },
+        {
+          "run": "run:7681a11a88d2ed5469a9d42f2645ba2e069297397cdce4bdd98608b74003dfca",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:3f05a6a63d6a08293a1c04d2dd7340f0cecc526bb6fe638df801d42767cfce36",
+          "base": "31f470959ed85b5df4ab56b901bcb4b7aca6762f"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "1f62ee695312bcefe867d341bd6d2db4233d17708b51b6429ff011f2774498f6"
+        },
+        {
+          "stage": "implement",
+          "sha256": "bae6416f193575f829574d1de21b3bfff0d05e133a971c078e22cb8068e8b009"
+        }
+      ],
+      "elapsed_seconds": 150.318,
+      "cleaned": true,
+      "review_mode": "sequential",
+      "parallel_fault": null,
+      "parallel_batches": [],
+      "writer_recovery": [],
+      "same_claim": true,
+      "parallel_observations": []
+    }
+  ]
+}

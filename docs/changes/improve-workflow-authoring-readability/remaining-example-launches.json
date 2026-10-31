@@ -1,0 +1,39 @@
+{
+  "prifly": "0.13.82",
+  "binary_sha256": "3b073126921bca3e9d78b7649b51bd20527fd70cf4de44e0d440b5428b7712e5",
+  "examples": [
+    {
+      "package": "aif-fanout",
+      "input": "examples/fanout-fix/plan.json",
+      "base": "fixture initial commit for declared base_commit fields",
+      "reviewed_prepare_start": "passed",
+      "boundary": "cancelled before driving; no host/model/environment execution"
+    },
+    {
+      "package": "aif-fix",
+      "input": "examples/fanout-fix/task.json",
+      "base": "fixture initial commit for declared base_commit fields",
+      "reviewed_prepare_start": "passed",
+      "boundary": "cancelled before driving; no host/model/environment execution"
+    },
+    {
+      "package": "aif-review-evidence",
+      "input": "examples/review-ui-ux/request.json",
+      "base": "fixture initial commit for declared base_commit fields",
+      "reviewed_prepare_start": "passed",
+      "boundary": "cancelled before driving; no host/model/environment execution"
+    },
+    {
+      "package": "aif-ui-ux",
+      "input": "aif-ui-ux/examples/configuration.json",
+      "base": "fixture initial commit for declared base_commit fields",
+      "reviewed_prepare_start": "passed",
+      "boundary": "cancelled before driving; no host/model/environment execution"
+    }
+  ],
+  "cleanup": {
+    "active_claims": 0,
+    "registry_entries_removed": 1,
+    "temporary_root_removed": true
+  }
+}

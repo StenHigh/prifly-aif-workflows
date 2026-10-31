@@ -1,0 +1,6 @@
+{
+  "same_raw_bytes_own_package_sources": "accepted",
+  "markdown_lf_to_crlf": "refused",
+  "source_to_other_package": "refused",
+  "temporary_root_removed": true
+}

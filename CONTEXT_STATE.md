@@ -10,7 +10,7 @@
 
 Ворота выверены против выпущенного Pri-Fly `v0.13.82`.
 
-- **Issue #6 — остальные6 packages: source-кандидат v1.55.0 (2026-10-31):**
+- **Issue #6 — остальные6 packages выпущены v1.55.0 (2026-10-31):**
   Отдельные части: fanout/fix, test-audit, shared review/UI/UX/feature.
   До bump24 exact build pairs на3hosts (fix2profiles, feature2profiles) PASS;
   YAML objects равны,34 Markdown decoded byte strings сохранены.
@@ -21,7 +21,18 @@
   instructions. W6 builder разрешает source в text; generated component bytes
   прежние, manifest1.0.1 закрепляет новые source hashes.
   Versions4/folders7/unit suites10/W6 --check и verify126/83/8 PASS.
-  Native/overlay/install/CI ещё выполняются; release/tag/catalog не опубликованы.
+  Native local: fix28/audit18/evidence25/fanout3/feature-upgrade1 PASS.
+  Standalone install/update6 ×3hosts без других packages PASS; owner bytes
+  preserved, local edit refusal. Examples4 reviewed starts/compatibility5/4/4/
+  core-state41/parallel contracts3+3/W6 contract18+8/source negative guards PASS.
+  CI41207313038 на42e60de: все3 jobs SUCCESS, artifacts feature35/queue3/
+  classic8 pairs/W6 native27/parallelUIUX reported17 cleanup PASS.
+  PR#10 MERGED fast-forward; annotated tag/GitHub Release v1.55.0 на том же
+  exact source42e60de. Центральный каталогe2ba0ed закрепляет все8 entries.
+  Public default add/GitHub v1.54→v1.55 update всех6 packages PASS:
+  exact origin/tag bytes, standalone3hosts, owner extend/project preserved,
+  local edit refusal, registry1/temp root cleanup. Остались только отдельные
+  функциональные outcomes issue#7; readability-порции всех8 packages выпущены.
   Прежний fanout choose:no_work → unhandled_child_outcome сохранён и записан;
   issue#7/terminal semantics не изменялись. Evidence: remaining-acceptance.md.
 

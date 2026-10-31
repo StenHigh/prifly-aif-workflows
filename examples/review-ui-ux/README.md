@@ -3,7 +3,7 @@
 Нужны Pri-Fly0.13.82, Python3.10+, Git и AI Factory2.19.0 review skill выбранного host.
 Примеры используют codex-cli и существующий Git-проект с начальным commit.
 `SOURCE` — абсолютный путь к checkout этого репозитория.
-Кандидаты1.1.0 готовятся для v1.55.0; до выпуска устанавливайте указанную ветку.
+Пакеты1.1.0 опубликованы в v1.55.0.
 
 ```text
 request → capture → review → evaluate → report + gate
@@ -15,8 +15,8 @@ configuration → capture → environment → UI → UX → evaluate → release
 ```sh
 SOURCE=/absolute/path/to/aif-workflows
 prifly project init --repository . --host codex-cli
-prifly project workflows add StenHigh/prifly-aif-workflows --path aif-review-evidence --ref codex/issue-6-remaining-readability --repository .
-prifly project workflows add StenHigh/prifly-aif-workflows --path aif-ui-ux --ref codex/issue-6-remaining-readability --repository .
+prifly project workflows add StenHigh/prifly-aif-workflows --path aif-review-evidence --ref v1.55.0 --repository .
+prifly project workflows add StenHigh/prifly-aif-workflows --path aif-ui-ux --ref v1.55.0 --repository .
 prifly project local set --repository . --allow-executable python=/absolute/path/to/python3
 cp "$SOURCE/examples/review-ui-ux/request.json" /tmp/review-request.json
 cp "$SOURCE/aif-ui-ux/examples/configuration.json" /tmp/uiux-configuration.json

@@ -3,8 +3,8 @@
 Требуется Pri-Fly0.13.82 и AI Factory2.19.0 skills выбранного host.
 Команды используют codex-cli и Git-проект с начальным commit.
 `SOURCE` — абсолютный путь к checkout этого репозитория.
-`WORKFLOW_REF` — проверяемая ветка `codex/issue-6-remaining-readability`; после выпуска используйте `v1.55.0`.
-Выпуск v1.55.0 пока не опубликован. Входы сохраняются вне рабочего дерева.
+`WORKFLOW_REF` — опубликованный tag `v1.55.0`.
+Входы сохраняются вне рабочего дерева.
 
 ```text
 fanout: plan → coverage + risk → join → выбор → применение → новый plan
@@ -18,7 +18,7 @@ fix: task → warmup → fix-task → [fix-plan → решение → fix-from-
 
 ```sh
 SOURCE=/absolute/path/to/aif-workflows
-WORKFLOW_REF=codex/issue-6-remaining-readability
+WORKFLOW_REF=v1.55.0
 cp "$SOURCE/examples/fanout-fix/plan.json" /tmp/fanout-plan.json
 cp "$SOURCE/examples/fanout-fix/task.json" /tmp/fix-task.json
 prifly project init --repository . --host codex-cli

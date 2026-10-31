@@ -1,0 +1,169 @@
+{
+  "prifly": "0.13.82",
+  "binary_sha256": "3b073126921bca3e9d78b7649b51bd20527fd70cf4de44e0d440b5428b7712e5",
+  "host": "synthetic, no LLM judgement qualification",
+  "cases": [
+    {
+      "case": "pass",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "gate": "passed",
+      "reader_deliveries": 1,
+      "runs": 1,
+      "original_repository_unchanged": true
+    },
+    {
+      "case": "skip",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "gate": "skipped",
+      "reader_deliveries": 0,
+      "runs": 1,
+      "original_repository_unchanged": true
+    },
+    {
+      "case": "untracked",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "gate": "passed",
+      "reader_deliveries": 2,
+      "runs": 2,
+      "original_repository_unchanged": true
+    },
+    {
+      "case": "failed",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "gate": "failed",
+      "reader_deliveries": 1,
+      "runs": 1,
+      "original_repository_unchanged": true
+    },
+    {
+      "case": "unavailable",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "gate": "blocked",
+      "reader_deliveries": 1,
+      "runs": 1,
+      "original_repository_unchanged": true
+    },
+    {
+      "case": "missing",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "gate": "blocked",
+      "reader_deliveries": 1,
+      "runs": 1,
+      "original_repository_unchanged": true
+    },
+    {
+      "case": "stale-request",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "gate": "blocked",
+      "reader_deliveries": 1,
+      "runs": 1,
+      "original_repository_unchanged": true
+    },
+    {
+      "case": "stale-production",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "gate": "blocked",
+      "reader_deliveries": 1,
+      "runs": 1,
+      "original_repository_unchanged": true
+    },
+    {
+      "case": "needs-revision",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "gate": "failed",
+      "reader_deliveries": 1,
+      "runs": 1,
+      "original_repository_unchanged": true
+    },
+    {
+      "case": "reader-blocked",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "gate": "blocked",
+      "reader_deliveries": 1,
+      "runs": 1,
+      "original_repository_unchanged": true
+    },
+    {
+      "case": "session-unavailable",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "gate": "blocked",
+      "reader_deliveries": 1,
+      "runs": 1,
+      "original_repository_unchanged": true
+    },
+    {
+      "case": "partial-resume",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "gate": "passed",
+      "reader_deliveries": 2,
+      "runs": 2,
+      "original_repository_unchanged": true
+    },
+    {
+      "case": "cancel-resume",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "gate": "passed",
+      "reader_deliveries": 2,
+      "runs": 2,
+      "original_repository_unchanged": true
+    },
+    {
+      "case": "extension-pass",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "gate": "passed",
+      "reader_deliveries": 1,
+      "runs": 1,
+      "original_repository_unchanged": true
+    },
+    {
+      "case": "extension-failed",
+      "host": "codex-cli",
+      "outcome": "partial",
+      "gate": "failed",
+      "reader_deliveries": 1,
+      "runs": 1,
+      "original_repository_unchanged": true
+    },
+    {
+      "case": "extension-skip",
+      "host": "codex-cli",
+      "outcome": "succeeded",
+      "gate": "skipped",
+      "reader_deliveries": 0,
+      "runs": 1,
+      "original_repository_unchanged": true
+    },
+    {
+      "case": "pass",
+      "host": "codex-app",
+      "outcome": "succeeded",
+      "gate": "passed",
+      "reader_deliveries": 1,
+      "runs": 1,
+      "original_repository_unchanged": true
+    },
+    {
+      "case": "pass",
+      "host": "claude-code",
+      "outcome": "succeeded",
+      "gate": "passed",
+      "reader_deliveries": 1,
+      "runs": 1,
+      "original_repository_unchanged": true
+    }
+  ]
+}

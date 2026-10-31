@@ -1,9 +1,9 @@
 # План изменений workflow после сравнения с Software Factory
 
-Дата: 2026-10-19. W1–W3: **committed/pushed, CI PASS**, с отдельными live observations;
+Дата: 2026-10-31. W1–W3: **committed/pushed, CI PASS**, с отдельными live observations;
 W4: **committed/pushed, pilot qualified, CI PASS**; W5: **пакетная часть завершена, scoped qualification и final CI PASS; v1.52.0**.
 Пакеты включены в [выпуск v1.52.0](../releases/v1.52.0.md). Актуальная база совместимости: released Pri-Fly
-**0.13.81**, выпуск репозитория **v1.53.0**. Прежние CI/live evidence на
+**0.13.82**, выпуск репозитория **v1.55.0**. Прежние CI/live evidence на
 0.13.76 остаются историческими; повторная проверка нового stable записана отдельно.
 
 В этом репозитории нет инициализированного OpenSpec-проекта. Change хранятся
@@ -14,10 +14,12 @@ W4: **committed/pushed, pilot qualified, CI PASS**; W5: **пакетная ча�
 
 ## Читаемость workflow: issue #6
 
-Начат отдельный [change](improve-workflow-authoring-readability/proposal.md) на Pri-Fly0.13.82.
-Первая порция: принятый patch classic и штатный derived profiled.
-Затем inventory и отдельные проверяемые изменения остальных shipping packages.
-Baseline verify/compatibility на official0.13.82 PASS; новые результаты записываются отдельно.
+[Change](improve-workflow-authoring-readability/proposal.md) выполнен на official Pri-Fly0.13.82.
+Classic и штатный derived profiled опубликованы в v1.54.0; остальные6 packages — в v1.55.0.
+Обе порции прошли local gates и все3 jobs exact-source CI; каталог обновлён.
+[Первая приёмка](improve-workflow-authoring-readability/acceptance.md),
+[оставшиеся пакеты](improve-workflow-authoring-readability/remaining-acceptance.md),
+[версии и update](../releases/v1.55.0.md). Прежний verify fail/no_work остаётся отдельным issue#7.
 
 ## Реестр
 

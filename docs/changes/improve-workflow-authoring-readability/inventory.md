@@ -31,3 +31,6 @@ Test audit переносит2 instructions; bindings/graph уже раскры�
 Short scalar ports и simple lists не расширяются механически. JSON Schema maps читаются локально и сохраняют прежнюю форму.
 Executable Python contexts и короткие external host-skill pointers остаются прежними во всех пакетах.
 [Раздельная приёмка частей](remaining-acceptance.md) фиксирует24 exact pre-bump пары и byte hashes34 instructions.
+
+Публикация: classic/profiled — v1.54.0/source5d4169b; остальные6 — v1.55.0/source42e60de.
+Все8 записей центрального каталогаe2ba0ed закрепляют v1.55.0; classic/profiled сохраняют bytes v1.54.0.

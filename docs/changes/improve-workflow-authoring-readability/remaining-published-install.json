@@ -1,0 +1,143 @@
+{
+  "prifly": "0.13.82",
+  "binary_sha256": "3b073126921bca3e9d78b7649b51bd20527fd70cf4de44e0d440b5428b7712e5",
+  "scope": "public default catalog add; actual GitHub v1.54.0 to v1.55.0 update",
+  "packages": [
+    {
+      "package": "aif-fanout",
+      "version": "1.5.0",
+      "origin": {
+        "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+        "path": "aif-fanout",
+        "ref": "v1.55.0",
+        "commit": "42e60de8617e1ae6f38b77b0a3e008b538ad664b",
+        "digest": "sha256:5028c2e28a72a4f0bff83c433168c97e0bc17b52852d2e0d43a7d49f34d33bc4",
+        "extend_digest": "sha256:3302cd7a425847d032de84166b363f6e051cb237e5f6606252ef3c1ad2cee675"
+      },
+      "only_installed_package": true,
+      "hosts": [
+        "codex-cli",
+        "codex-app",
+        "claude-code"
+      ],
+      "installed_bytes_equal": true,
+      "owner_extend_preserved": true,
+      "owner_project_preserved": true,
+      "local_edit_refused": "workflow.yaml"
+    },
+    {
+      "package": "aif-fix",
+      "version": "1.1.0",
+      "origin": {
+        "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+        "path": "aif-fix",
+        "ref": "v1.55.0",
+        "commit": "42e60de8617e1ae6f38b77b0a3e008b538ad664b",
+        "digest": "sha256:8fe81ad22edb4116c8f83ade827baf258e465273216ab8c5ac9be1c0304bb169",
+        "extend_digest": "sha256:e0eac5faca12afb288167035fb55e11100968c3c01ddfd320948f4acf198d649"
+      },
+      "only_installed_package": true,
+      "hosts": [
+        "codex-cli",
+        "codex-app",
+        "claude-code"
+      ],
+      "installed_bytes_equal": true,
+      "owner_extend_preserved": true,
+      "owner_project_preserved": true,
+      "local_edit_refused": "instructions/session-report.md"
+    },
+    {
+      "package": "aif-review-evidence",
+      "version": "1.1.0",
+      "origin": {
+        "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+        "path": "aif-review-evidence",
+        "ref": "v1.55.0",
+        "commit": "42e60de8617e1ae6f38b77b0a3e008b538ad664b",
+        "digest": "sha256:01465cae7ac7c8fab75db91ca004bf9549937c2793b190d15ea96b9e230653a6",
+        "extend_digest": "sha256:10939f1f38c85ce5296ab5b444ef3dc13cc108cc4076c598e3595682e5f97da2"
+      },
+      "only_installed_package": true,
+      "hosts": [
+        "codex-cli",
+        "codex-app",
+        "claude-code"
+      ],
+      "installed_bytes_equal": true,
+      "owner_extend_preserved": true,
+      "owner_project_preserved": true,
+      "local_edit_refused": "instructions/review-bridge.md"
+    },
+    {
+      "package": "aif-ui-ux",
+      "version": "1.1.0",
+      "origin": {
+        "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+        "path": "aif-ui-ux",
+        "ref": "v1.55.0",
+        "commit": "42e60de8617e1ae6f38b77b0a3e008b538ad664b",
+        "digest": "sha256:d8f4a3c83d4a3cff8d9688c12833a34bba7fd32a8708cc68111666d6c510f2f3",
+        "extend_digest": "sha256:10939f1f38c85ce5296ab5b444ef3dc13cc108cc4076c598e3595682e5f97da2"
+      },
+      "only_installed_package": true,
+      "hosts": [
+        "codex-cli",
+        "codex-app",
+        "claude-code"
+      ],
+      "installed_bytes_equal": true,
+      "owner_extend_preserved": true,
+      "owner_project_preserved": true,
+      "local_edit_refused": "instructions/environment-bridge.md"
+    },
+    {
+      "package": "aif-feature",
+      "version": "1.3.0",
+      "origin": {
+        "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+        "path": "aif-feature",
+        "ref": "v1.55.0",
+        "commit": "42e60de8617e1ae6f38b77b0a3e008b538ad664b",
+        "digest": "sha256:0ea55710fd74817a919a4e17a70a8cba0e1eee76d0e96cee889d7de80fed2820",
+        "extend_digest": "sha256:4e6fb8f6f3279c655be3f66af0cef19d5d7602ff4f04428ae499c12c1332001a"
+      },
+      "only_installed_package": true,
+      "hosts": [
+        "codex-cli",
+        "codex-app",
+        "claude-code"
+      ],
+      "installed_bytes_equal": true,
+      "owner_extend_preserved": true,
+      "owner_project_preserved": true,
+      "local_edit_refused": "instructions/feature-commit.md"
+    },
+    {
+      "package": "openclaw-test-audit",
+      "version": "1.1.0",
+      "origin": {
+        "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+        "path": "openclaw-test-audit",
+        "ref": "v1.55.0",
+        "commit": "42e60de8617e1ae6f38b77b0a3e008b538ad664b",
+        "digest": "sha256:251ed1ff6ed6d7d8ba8df82bcb0a8318607f35d23f5d4d8062f1275162aafc67",
+        "extend_digest": "sha256:450c1d157d11f7c7141bbd10ada9f22a947a5d33dd7521f2d8cb7f09d0592839"
+      },
+      "only_installed_package": true,
+      "hosts": [
+        "codex-cli",
+        "codex-app",
+        "claude-code"
+      ],
+      "installed_bytes_equal": true,
+      "owner_extend_preserved": true,
+      "owner_project_preserved": true,
+      "local_edit_refused": "instructions/test-audit.md"
+    }
+  ],
+  "cleanup": {
+    "registry_entries_removed": 1,
+    "temporary_root_removed": true
+  }
+}

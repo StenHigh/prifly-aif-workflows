@@ -1,0 +1,137 @@
+{
+  "status": "published; exact-source CI and public catalog add/update passed",
+  "release": "v1.55.0",
+  "source_sha": "42e60de8617e1ae6f38b77b0a3e008b538ad664b",
+  "prifly": "0.13.82",
+  "binary_sha256": "3b073126921bca3e9d78b7649b51bd20527fd70cf4de44e0d440b5428b7712e5",
+  "ci_url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/41207313038",
+  "ci": "all three jobs success",
+  "catalog_commit": "e2ba0ede03094511cca930ddcdc1fb4688df4884",
+  "packages": {
+    "aif-fanout": "1.5.0",
+    "aif-fix": "1.1.0",
+    "aif-review-evidence": "1.1.0",
+    "aif-ui-ux": "1.1.0",
+    "aif-feature": "1.3.0",
+    "openclaw-test-audit": "1.1.0"
+  },
+  "unchanged_packages": {
+    "aif-classic": "1.48.0 (exact v1.54.0 bytes)",
+    "aif-profiled": "1.49.0 (exact v1.54.0 bytes)"
+  },
+  "pre_bump_exact_build_pairs": 24,
+  "preserved_instruction_strings": 34,
+  "semantic_yaml_documents": 210,
+  "ci_proof": {
+    "source_sha": "42e60de8617e1ae6f38b77b0a3e008b538ad664b",
+    "run_url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/41207313038",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "name": "parallel-ui-ux",
+        "conclusion": "success",
+        "startedAt": "2026-10-31T13:49:40Z",
+        "completedAt": "2026-10-31T14:06:46Z"
+      },
+      {
+        "name": "verify",
+        "conclusion": "success",
+        "startedAt": "2026-10-31T13:49:40Z",
+        "completedAt": "2026-10-31T14:46:20Z"
+      },
+      {
+        "name": "call-review-uiux",
+        "conclusion": "success",
+        "startedAt": "2026-10-31T13:49:39Z",
+        "completedAt": "2026-10-31T13:54:01Z"
+      }
+    ],
+    "prifly": "0.13.82",
+    "binary_sha256": "3b073126921bca3e9d78b7649b51bd20527fd70cf4de44e0d440b5428b7712e5",
+    "feature": {
+      "cases": 35,
+      "all_cleaned": true,
+      "artifact_sha256": "8eb36eb665678dced33d62096a6f30c0f0ba5b0e91446f1a2d0d3cdb99fa6d29"
+    },
+    "queue": {
+      "cases": 3,
+      "result": "PASS",
+      "all_claims_released": true,
+      "temporary_root_removed": true,
+      "artifact_sha256": "a459bce997e655d5ee1715fa097246de1c19c3384e8a8fc6797ad768ba1d7e5d"
+    },
+    "classic": {
+      "pairs": 8,
+      "all_equal_and_cleaned": true,
+      "artifact_sha256": "8ebc2b10b818dc531779d1b2ce5bb91df8d4bcec3bfd0c20cee672b6d9fe0a1c"
+    },
+    "w6": {
+      "source_sha": "42e60de8617e1ae6f38b77b0a3e008b538ad664b",
+      "ci_run": 41207313038,
+      "job": "call-review-uiux",
+      "conclusion": "success",
+      "prifly": "0.13.82",
+      "binary_sha256": "3b073126921bca3e9d78b7649b51bd20527fd70cf4de44e0d440b5428b7712e5",
+      "compiles": 18,
+      "refusals": 8,
+      "native_cases": 27,
+      "all_cleaned": true,
+      "all_reported_upstream_preserved": true,
+      "artifact_sha256": {
+        "w6-contract.json": "c88088431b6235a1e4c14e5d1489b304061404522f8e35f23681c4e349f3482d",
+        "w6-native.json": "189b3750c8d4e5f912cf38b11e5185fd72a06e6e27c84f0b4e84543cdf75389e"
+      }
+    },
+    "parallel_uiux": {
+      "ci_run": 41207313038,
+      "source_sha": "42e60de8617e1ae6f38b77b0a3e008b538ad664b",
+      "job": "parallel-ui-ux",
+      "conclusion": "success",
+      "prifly": "0.13.82",
+      "binary_sha256": "3b073126921bca3e9d78b7649b51bd20527fd70cf4de44e0d440b5428b7712e5",
+      "log_sha256": "f8aecdfa023c0498405e92075790791e705da2017d789b7310d268dbb8d69e18",
+      "reported_cases": 17,
+      "all_reported_cleaned": true
+    }
+  },
+  "boundary": "real CLI/Git/browser, synthetic replies; no live-model or reading-speed qualification",
+  "known_defects": [
+    "verify fail/no_work: issue #7",
+    "fanout child no_work: preserved unhandled_child_outcome"
+  ],
+  "evidence_sha256": {
+    "audit-install.json": "d45b6018c2bbd7e3e6230db6da94900b390ee84687b01d26510f4f3af0f5b5e6",
+    "audit-native.json": "5a892a57d148471350cf5154f332c937b34ab47b60ebbc9c98aaef99573852a8",
+    "audit-pre-bump.json": "e5a41584cf65c991765cb6db75edc81fa58748098c7bc8eef17937b649a31787",
+    "fanout-fix-native.json": "174a12e84c64b020293831959fe485aafdf3d009f3cff6829d13dc955d30f62c",
+    "fanout-fix-pre-bump.json": "f6a94e5a2d93cb4a71669af7f9e7282c253b998e8379d3e357f60eb82655f01a",
+    "fanout-native.json": "92233771e34e8f4d88d2251474bd17dee605ef37931e124ea0ebb0ebe8f2d337",
+    "remaining-ci-parallel-uiux.json": "55840f5f16b3593b6479a8579ed452ea2d4283ca6a9490bc12405d7bf42d3881",
+    "remaining-ci-results.json": "efcd769b0442f112b3196baf0f7b7ef5457780b21a7a4716f106860b2475c3a9",
+    "remaining-ci-w6.json": "42986f313ce658a86ec3c63dcfa8c583db7607c0cb3a77ed4441f21bbb4f4550",
+    "remaining-compatibility.json": "ed1209467d536ec5c7a23a41a79974ed0462a1be5b8dc792790c3a6ed800f3f1",
+    "remaining-example-launches.json": "9951f19d1168afd5697e39599d1a1dad219a9aa617add20c73039c0204f4422e",
+    "remaining-install.json": "0566836dc182f682c8ebad7985a9de0f5d5102d9ef253846fc96ca94970487b5",
+    "remaining-parallel-contract.json": "a3b5a650a042cb08deb4740f80bb05f29378497091b3275420ca48f54da28ed1",
+    "remaining-parallel-product-contract.json": "18e70b518d2c6e42b6a1f37c4b391dc9e8c8ded8b76d3b98dd646bb272deb248",
+    "remaining-published-install.json": "6e82b076e6ac9ce14ab65696e13b6a2e0543b949d55320b8f0d30fca8fa3bcaa",
+    "remaining-source-manifest.json": "a3e0be7e06b2d8c1b62a33086a2cfe53b054ba8b1203ea81161ed69eb398d764",
+    "remaining-verify.json": "2a9aec2c9bc2bda9a27624160fb93859b4976b69455db3e3d130ddb42259ff34",
+    "remaining-w6-contract.json": "c88088431b6235a1e4c14e5d1489b304061404522f8e35f23681c4e349f3482d",
+    "shared-evidence-native.json": "a1a1df44cf6d5daa3dc9462f2bbd7f7a062cdb63e61f30798e832011761e92e2",
+    "shared-feature-upgrade.json": "14b55768e0383aeb8fb96ba331cc9f416b71d05bfc9436ae119c2195460c4803",
+    "shared-pre-bump.json": "75af7813f976fc117a67f2ab3267f5563259238b94b8a5974ccdf6831a5124a6",
+    "shared-source-negative.json": "a9a36042f070efa68b98f4822954fc4991e592d89217ceb4cbb457899a24e845"
+  },
+  "public_install_update": {
+    "packages": 6,
+    "standalone_hosts_each": 3,
+    "origin_and_git_tag_bytes": "matched",
+    "extend_project": "preserved",
+    "local_edit": "refused",
+    "cleanup": {
+      "registry_entries_removed": 1,
+      "temporary_root_removed": true
+    }
+  }
+}

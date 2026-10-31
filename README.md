@@ -72,10 +72,10 @@ workflow или отдельная очередь не добавляются.
 связана с реализацией и повторяется после исправлений. Для браузерных проверок
 понадобится [контракт тестовой среды проекта](docs/product-review-environment.md).
 
-**Кандидат v1.55.0.** Читаемые fanout/fix, review/UI/UX/feature и test-audit.
+**Выпуск v1.55.0.** Читаемые fanout/fix, review/UI/UX/feature и test-audit.
 24 точные пары сборок до bump и34 неизменённых Markdown instruction strings.
 [Guide и версии](docs/releases/v1.55.0.md), [приёмка](docs/changes/improve-workflow-authoring-readability/remaining-acceptance.md).
-Tag и центральный каталог ещё не опубликованы.
+Tag/source42e60de и центральный каталогe2ba0ed опубликованы; все три CI jobs PASS.
 
 **Выпуск v1.54.0.** Читаемые исходники `aif-classic@1.48.0` и штатный
 `aif-profiled@1.49.0`: блочный YAML, Markdown verify bridge и README-карты.
