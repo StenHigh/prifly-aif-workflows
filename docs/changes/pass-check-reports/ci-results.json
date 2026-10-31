@@ -115,5 +115,11 @@
     }
   ],
   "boundary": "Generic wiring with synthetic assisted replies; no AIF or LLM acceptance.",
-  "shipping_package_bytes_equal_v1_56_0": true
+  "shipping_package_bytes_equal_v1_56_0": true,
+  "full_verify": {
+    "run_id": 41229071851,
+    "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/41229071851",
+    "source_commit": "95ea2cb77b69570c24891694e8e23bcf2d9102cb",
+    "conclusion": "success"
+  }
 }

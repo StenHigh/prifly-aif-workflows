@@ -83,4 +83,9 @@ project_extension_unknown_workflow: round (known: transport)
 Перед запросом изменения Core нужно проверить допустимую композицию существующих native calls.
 Если она требует копирования базовых gates или нового режима только ради transport, она не подходит.
 Если остаётся capability gap, приложить этот generic reproducer и сформулировать порядок/bindings отдельно от transport.
-В этой порции Core не меняется. Новый Core issue автоматически не создаётся.
+Владелец согласовал полный автоматический цикл и создание отдельного Core issue 2026-11-01.
+[Pri-Fly #14](https://github.com/StenHigh/prifly/issues/14) содержит reproducer и критерии C1–C8.
+Он требует проверить существующую композицию перед расширением Core.
+Одна вставка без передачи нового carrier следующему reader не закрывает этот issue.
+Core реализация выполняется в отдельной сессии. В этой порции shipping packages не меняются.
+Готовый текст передачи: [handoff.md](handoff.md).

@@ -8,6 +8,9 @@
 - [x] Воспроизвести отказ project extension на существующем child repair edge.
 - [x] Закончить native проверку continue и отрицательных artifact exports; сохранить финальный отчёт.
 - [x] Создать draft PR#12 и получить focused CI41229072017 SUCCESS на source95ea2cb.
+- [x] Проверить полный CI41229071851: SUCCESS на том же functional source.
+- [x] Получить согласие владельца на полный цикл и создать Pri-Fly#14 с generic reproducer и критериями C1–C8.
+- [x] Подготовить handoff.md для отдельной Core-сессии; send/handoff tool в этой среде отсутствует.
 - [ ] Выбрать поддержанный порядок project measurement и binding его результата перед reader после repair.
 - [ ] Реализовать optional carrier и все переходы shipping classic/fix.
 - [ ] Обновить инструкции reuse/applicability и сохранить failed/unavailable/unknown evidence.

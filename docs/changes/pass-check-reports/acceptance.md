@@ -39,8 +39,13 @@ Static versions4/folders7 и штатный profiled derive --check PASS.
 двенадцать ожидаемых export refusals и cleanup каждого case.
 Core version и binary SHA-256 совпадают с local.
 [CI record](ci-results.json) закрепляет source, artifact hash и результаты.
-Полный прежний workflow verify41229071851 запущен отдельно; его завершение здесь не заявлено.
+Полный [workflow verify41229071851](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/41229071851)
+также завершился SUCCESS на том же functional source.
 Shipping8 bytes точно равны v1.56.0. PR#12 остаётся draft для исследования issue #9.
+
+Владелец согласовал полную автоматизацию и Core-задачу 2026-11-01.
+[Pri-Fly #14](https://github.com/StenHigh/prifly/issues/14) закрепляет reproducer и ожидаемый порядок/bindings.
+Создание Core issue не означает поставку capability или завершение consumer issue #9.
 
 Не заявлена приёмка disabled shipping gates, actual fix regression reuse, stale environment,
 unknown report schema, внешнего provision/release, старых sealed Runs или решения живой модели.

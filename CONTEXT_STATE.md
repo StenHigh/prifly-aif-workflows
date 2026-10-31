@@ -6,11 +6,19 @@
 движка 0.10–0.13.54, переход на AI Factory 2.19.0, WorkflowRevision v4) —
 в git: `git show d388b92:CONTEXT_STATE.md` (2330 строк, оглавление — `mdq tree`).
 
-## Состояние на 2026-10-31
+## Состояние на 2026-11-01
 
 Ворота выверены против выпущенного Pri-Fly `v0.13.82`.
 
 - **Issue #9 — начато исследование transport (2026-10-31):**
+  2026-11-01 владелец согласовал полный автоматический цикл и отдельный Core issue.
+  Создан StenHigh/prifly#14: project measurement внутри child repair/repeat и
+  явная передача нового carrier следующему reader. В issue есть pinned generic
+  reproducer, root-positive/nested-negative, C1–C8 и границы effects/совместимости.
+  Core сначала проверяет существующую композицию; новый transport/runner не нужен.
+  Полный CI41229071851/source95ea2cb теперь SUCCESS, focused CI прежний SUCCESS.
+  Найдена Core-сессия «Load project context»; текущие tools не дают send/handoff
+  в существующую сессию. Сообщение не отправлено; готовый текст в change/handoff.md.
   После опубликованного v1.56.0 создана codex/issue-9-check-report-transport
   от mainb4cf19e. Fetch: новых изменений нет; latest stable прежний0.13.82.
   Кандидат контракта: optional reports:[ArtifactRef] внутри existing implementation.
@@ -32,8 +40,8 @@
   report-transport-results; actual shipping bytes/версии не меняются.
   Draft PR#12 создан, focused CI41229072017/source95ea2cb SUCCESS.
   Artifact скачан: те же4 cases/5 Runs, expected export refusals/cleanup,
-  official binary SHA-256 прежний. Полный verify41229071851 пока запущен,
-  его завершение не заявлено. Последующий docs commit только записывает evidence.
+  official binary SHA-256 прежний. Полный verify41229071851 завершился SUCCESS.
+  Последующий docs commit только записывает evidence.
   До shipping реализации выбрать поддержанный project-owned measurement и
   binding его результата перед reader после repair. Нельзя provision внутри
   read-only verify, подменять step refs или копировать base verify/check-change.
