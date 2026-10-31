@@ -69,4 +69,9 @@ Opt-in W6 остаётся отдельным recipe; этот change не до�
 
 Новый контракт continue проверяется для Runs исправленного пакета.
 Миграция старых failed Runs не заявляется. Live model acceptance не заявляется.
-Tag v1.56.0 и центральный каталог ещё не опубликованы.
+PR#11 MERGED. Annotated tag/GitHub Release v1.56.0 опубликованы на source1985ae1.
+Каталог79f01ce закрепляет classic/profiled на этот tag/commit; остальные шесть pins v1.55.0 прежние.
+[Published install/update](published-results.json): default catalog add и GitHub v1.55→v1.56
+обоих пакетов, exact bytes tag, три hosts, owner files и local edit refusal PASS.
+На публичных bytes выполнены6 Runs: rejected/repeated rejected/continue до security;
+same claim, plan/tree/index/untracked work сохранены, cleanup PASS.

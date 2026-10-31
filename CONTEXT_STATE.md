@@ -10,7 +10,7 @@
 
 Ворота выверены против выпущенного Pri-Fly `v0.13.82`.
 
-- **Issue #7 — PR#11 готов, local/full CI PASS (2026-10-31):**
+- **Issue #7 — PR#11 MERGED, v1.56.0 опубликован (2026-10-31):**
   Владелец согласовал completed/rejected без обязательного gate для verify fail/no_work.
   Fetch/pull mainf4424dd: новых изменений GitHub нет; latest stable прежний0.13.82.
   Classic root/package1.49.0 обрабатывает дочерний no_work через abandoned;
@@ -31,7 +31,15 @@
   исправленных fail/no_work с прежним дефектом. Negative baseline v1.54.0
   подтверждает failed/unhandled_child_outcome; новая проверка его отвергает.
   README/release guide/catalog entries/examples подготовлены для v1.56.0.
-  Tag и центральный каталог не опубликованы. PR#11 OPEN на sourcea9f94fe;
+  По разрешению владельца PR#11 MERGED на main1985ae1; annotated tag/GitHub
+  Release v1.56.0 опубликованы на том же source. Latest stable перед тегом82,
+  новых выпусков нет. Каталог79f01ce закрепляет classic/profiled на v1.56.0/
+  source1985ae1; остальные6 pins v1.55.0 прежние. Public default add/GitHub
+  v1.55→v1.56 update обоих packages PASS: exact tag bytes,3hosts, owner extend/
+  project preserved, local edit refusal. На public bytes6 Runs проверяют
+  rejected/repeated rejected/continue до security, prefix/plan/tree/index/
+  untracked work/same claim сохранены; temp roots/claims/registry очищены.
+  Shipping/test/workflow bytes source1985ae1 равны qualified sourcea9f94fe;
   CI41219942108: все3 jobs SUCCESS. Новая native матрица12/28 и6 unchanged
   readability pairs PASS; скачанные artifacts точно равны local reports,
   official0.13.82/binary SHA-256 прежние. Финальный docs/evidence commit не меняет

@@ -72,11 +72,11 @@ workflow или отдельная очередь не добавляются.
 связана с реализацией и повторяется после исправлений. Для браузерных проверок
 понадобится [контракт тестовой среды проекта](docs/product-review-environment.md).
 
-**Подготовлен v1.56.0, issue #7.** Verify `fail/no_work` завершает classic/profiled
+**Выпуск v1.56.0, issue #7.** Verify `fail/no_work` завершает classic/profiled
 как `completed/rejected` без обязательного gate. Continue повторяет verify на сохранённом дереве.
 [Контракт и приёмка](docs/changes/handle-verify-no-work/acceptance.md),
 [release guide](docs/releases/v1.56.0.md), [команды](examples/classic/README.md).
-Tag и центральный каталог требуют отдельной публикации.
+Tag/source1985ae1 опубликован; каталог79f01ce обновляет classic/profiled. Все три CI jobs PASS.
 
 **Выпуск v1.55.0.** Читаемые fanout/fix, review/UI/UX/feature и test-audit.
 24 точные пары сборок до bump и34 неизменённых Markdown instruction strings.

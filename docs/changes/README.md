@@ -26,7 +26,7 @@ Classic и штатный derived profiled опубликованы в v1.54.0; 
 Issue #7: владелец согласовал completed/rejected без обязательного gate для verify fail/no_work.
 Отдельный [change](handle-verify-no-work/proposal.md) добавляет handler и штатный derive profiled.
 [Приёмка](handle-verify-no-work/acceptance.md) проверяет terminal outcome и continue от verify.
-Выпуск v1.56.0 подготовлен; публикация тега и каталога выполняется после приёмки PR.
+PR#11 MERGED, выпуск v1.56.0/source1985ae1 опубликован; каталог79f01ce обновлён.
 
 Отдельно от W1–W6 выпускается
 [OpenClaw test audit](add-standalone-test-audit/proposal.md) — самостоятельный

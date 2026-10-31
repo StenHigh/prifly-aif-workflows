@@ -1,0 +1,123 @@
+{
+  "release": "v1.56.0",
+  "source_commit": "1985ae1f3801bc87bb74ee74985cad58540e5a14",
+  "catalog_commit": "79f01cea8e0ae26fa7188eb4a893082676d8c60b",
+  "prifly": "0.13.82",
+  "binary_sha256": "3b073126921bca3e9d78b7649b51bd20527fd70cf4de44e0d440b5428b7712e5",
+  "packages": [
+    {
+      "package": "aif-classic",
+      "version": "1.49.0",
+      "origin": {
+        "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+        "path": "aif-classic",
+        "ref": "v1.56.0",
+        "commit": "1985ae1f3801bc87bb74ee74985cad58540e5a14",
+        "digest": "sha256:64942b36682f3ee5c034d994db65304248875d2995915fdc22d8e704165b1555",
+        "extend_digest": "sha256:faa3116b8df41d9a0739018ec297e774650ad8f01781176ef832ba787b0b1581"
+      },
+      "installed_bytes": "exact Git tag bytes",
+      "hosts": [
+        "codex-cli",
+        "codex-app",
+        "claude-code"
+      ],
+      "extend_preserved": true,
+      "project_preserved": true,
+      "local_edit": "refused",
+      "native": {
+        "package": "aif-classic",
+        "case": "fail",
+        "status": "completed",
+        "outcome": "rejected",
+        "root_outputs": {},
+        "runs": 3,
+        "first_bridges": [
+          "aif-warmup-bridge",
+          "aif-plan-bridge",
+          "aif-implement-bridge",
+          "aif-verify-bridge"
+        ],
+        "continue_bridges": [
+          "aif-verify-bridge",
+          "aif-security-bridge"
+        ],
+        "same_claim": true,
+        "candidate_preserved": true,
+        "plan_preserved": true,
+        "prepare_read_only": true,
+        "prefix_reused": [
+          "implement",
+          "improve",
+          "plan",
+          "warmup"
+        ],
+        "repeated_rejection_checked": true,
+        "cleanup": {
+          "active_claims": 0,
+          "registry_entries_removed": 1
+        }
+      }
+    },
+    {
+      "package": "aif-profiled",
+      "version": "1.50.0",
+      "origin": {
+        "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+        "path": "aif-profiled",
+        "ref": "v1.56.0",
+        "commit": "1985ae1f3801bc87bb74ee74985cad58540e5a14",
+        "digest": "sha256:9a5d429de4391bc4d85de2dabb79f53db93032b6f0e17f2fc4178f014205115a",
+        "extend_digest": "sha256:9977d99ffbe00649b2f5d63fc7c701a0fec344f40118bdda2988a9d7f207e5d5"
+      },
+      "installed_bytes": "exact Git tag bytes",
+      "hosts": [
+        "codex-cli",
+        "codex-app",
+        "claude-code"
+      ],
+      "extend_preserved": true,
+      "project_preserved": true,
+      "local_edit": "refused",
+      "native": {
+        "package": "aif-profiled",
+        "case": "no_work",
+        "status": "completed",
+        "outcome": "rejected",
+        "root_outputs": {},
+        "runs": 3,
+        "first_bridges": [
+          "aif-warmup-bridge",
+          "aif-plan-bridge",
+          "aif-implement-bridge",
+          "aif-verify-bridge"
+        ],
+        "continue_bridges": [
+          "aif-verify-bridge",
+          "aif-security-bridge"
+        ],
+        "same_claim": true,
+        "candidate_preserved": true,
+        "plan_preserved": true,
+        "prepare_read_only": true,
+        "prefix_reused": [
+          "implement",
+          "improve",
+          "plan",
+          "warmup"
+        ],
+        "repeated_rejection_checked": true,
+        "cleanup": {
+          "active_claims": 0,
+          "registry_entries_removed": 1
+        }
+      }
+    }
+  ],
+  "cleanup": {
+    "active_claims": 0,
+    "registry_entries_removed": 1,
+    "temporary_directory_removed": true
+  },
+  "boundary": "public default catalog add and GitHub v1.55-to-v1.56 update; real CLI/Git/Runs, synthetic replies"
+}
