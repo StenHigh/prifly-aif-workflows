@@ -1,0 +1,144 @@
+{
+  "prifly": "0.13.82",
+  "binary_sha256": "3b073126921bca3e9d78b7649b51bd20527fd70cf4de44e0d440b5428b7712e5",
+  "boundary": "real CLI/Runs, synthetic replies; no model acceptance",
+  "pairs_equal": true,
+  "complete": true,
+  "expected_pairs": 6,
+  "cases": [
+    {
+      "case": "owner-only",
+      "bridges": [
+        "aif-warmup-bridge",
+        "aif-plan-bridge",
+        "aif-implement-bridge",
+        "aif-verify-bridge"
+      ],
+      "status": "completed",
+      "outcome": "partial",
+      "refusal": null,
+      "implementation_bindings_checked": 1,
+      "all_implementation_bindings_current": true,
+      "verify_count": 1,
+      "fix_count": 0,
+      "diagnostic_codes": [],
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1
+      }
+    },
+    {
+      "case": "exhausted",
+      "bridges": [
+        "aif-warmup-bridge",
+        "aif-plan-bridge",
+        "aif-implement-bridge",
+        "aif-verify-bridge",
+        "aif-fix-bridge"
+      ],
+      "status": "completed",
+      "outcome": "partial",
+      "refusal": null,
+      "implementation_bindings_checked": 1,
+      "all_implementation_bindings_current": true,
+      "verify_count": 1,
+      "fix_count": 1,
+      "diagnostic_codes": [],
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1
+      }
+    },
+    {
+      "case": "disabled",
+      "bridges": [
+        "aif-warmup-bridge",
+        "aif-plan-bridge",
+        "aif-implement-bridge",
+        "aif-security-bridge",
+        "aif-review-challenge-bridge"
+      ],
+      "status": "running",
+      "outcome": null,
+      "refusal": null,
+      "implementation_bindings_checked": 2,
+      "all_implementation_bindings_current": true,
+      "verify_count": 0,
+      "fix_count": 0,
+      "diagnostic_codes": [],
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1
+      }
+    },
+    {
+      "case": "clean",
+      "bridges": [
+        "aif-warmup-bridge",
+        "aif-plan-bridge",
+        "aif-implement-bridge",
+        "aif-verify-bridge",
+        "aif-security-bridge",
+        "aif-review-challenge-bridge"
+      ],
+      "status": "running",
+      "outcome": null,
+      "refusal": null,
+      "implementation_bindings_checked": 3,
+      "all_implementation_bindings_current": true,
+      "verify_count": 1,
+      "fix_count": 0,
+      "diagnostic_codes": [],
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1
+      }
+    },
+    {
+      "case": "repaired",
+      "bridges": [
+        "aif-warmup-bridge",
+        "aif-plan-bridge",
+        "aif-implement-bridge",
+        "aif-verify-bridge",
+        "aif-fix-bridge",
+        "aif-verify-bridge",
+        "aif-security-bridge",
+        "aif-review-challenge-bridge"
+      ],
+      "status": "running",
+      "outcome": null,
+      "refusal": null,
+      "implementation_bindings_checked": 4,
+      "all_implementation_bindings_current": true,
+      "verify_count": 2,
+      "fix_count": 1,
+      "diagnostic_codes": [],
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1
+      }
+    },
+    {
+      "case": "blocked",
+      "bridges": [
+        "aif-warmup-bridge",
+        "aif-plan-bridge",
+        "aif-implement-bridge",
+        "aif-verify-bridge"
+      ],
+      "status": "completed",
+      "outcome": "partial",
+      "refusal": null,
+      "implementation_bindings_checked": 1,
+      "all_implementation_bindings_current": true,
+      "verify_count": 1,
+      "fix_count": 0,
+      "diagnostic_codes": [],
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1
+      }
+    }
+  ]
+}

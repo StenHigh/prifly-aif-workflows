@@ -1,0 +1,52 @@
+{
+  "source_commit": "a9f94fe37df371e13a6a7a3872b56e02399e5e3f",
+  "run_id": 41219942108,
+  "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/41219942108",
+  "prifly": "0.13.82",
+  "binary_sha256": "3b073126921bca3e9d78b7649b51bd20527fd70cf4de44e0d440b5428b7712e5",
+  "artifacts": [
+    {
+      "name": "classic-verify-outcomes",
+      "sha256": "eaed839d78b57465d2ef27ab2a6d565b0dba9a6a016167e028b528957febf9f5",
+      "matches_local_report": true,
+      "complete": true
+    },
+    {
+      "name": "classic-readability-results",
+      "sha256": "7864f0c40679fc7c7b49c4ad15f066cb09456a39cbff8f35d5eb1df4166e2228",
+      "matches_local_report": true,
+      "complete": true
+    }
+  ],
+  "outcome": "success",
+  "jobs": [
+    {
+      "name": "verify",
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-31T16:29:48Z",
+      "completedAt": "2026-10-31T17:29:52Z",
+      "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/41219942108/job/124592237835"
+    },
+    {
+      "name": "parallel-ui-ux",
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-31T16:29:47Z",
+      "completedAt": "2026-10-31T16:42:39Z",
+      "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/41219942108/job/124592237903"
+    },
+    {
+      "name": "call-review-uiux",
+      "status": "completed",
+      "conclusion": "success",
+      "startedAt": "2026-10-31T16:29:47Z",
+      "completedAt": "2026-10-31T16:35:23Z",
+      "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/41219942108/job/124592237945"
+    }
+  ],
+  "native_cases": 12,
+  "native_runs": 28,
+  "unchanged_route_pairs": 6,
+  "boundary": "real CLI/Git/Runs with synthetic replies; full CI includes browser fixtures, no live model qualification"
+}

@@ -7,9 +7,9 @@ categories:
 workflows:
   aif-classic:
     title: AI Factory classic development workflow
-    description: Canonical AI Factory development workflow with bounded plan improvement; stopped Runs support reviewed continuation. Requires Pri-Fly 0.13.64.
+    description: Canonical AI Factory workflow; verify fail/no_work rejects without a gate and supports reviewed continuation at verify. Requires Pri-Fly 0.13.64.
     category: software-delivery
     repository: https://github.com/StenHigh/prifly-aif-workflows.git
     path: aif-classic
-    ref: v1.54.0
+    ref: v1.56.0
     tags: [ai-factory, codex-cli, codex-app, claude-code]

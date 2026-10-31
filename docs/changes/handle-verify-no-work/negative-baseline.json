@@ -1,0 +1,12 @@
+{
+  "source_tag": "v1.54.0",
+  "classic_workflow_sha256": "7bc543ac550d07895f6434750741917dea389e3b712e5bb2be5cdbba06e4ddb0",
+  "prifly": "0.13.82",
+  "binary_sha256": "3b073126921bca3e9d78b7649b51bd20527fd70cf4de44e0d440b5428b7712e5",
+  "command": "verify_outcomes.py --source <v1.54.0 archive> --package aif-classic --case fail",
+  "expected_failure_observed": true,
+  "status": "failed",
+  "outcome": null,
+  "diagnostic": "unhandled_child_outcome",
+  "fixture_cleanup": "strict finally checks completed; temporary directory removed"
+}

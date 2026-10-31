@@ -1,0 +1,418 @@
+{
+  "prifly": "0.13.82",
+  "binary_sha256": "3b073126921bca3e9d78b7649b51bd20527fd70cf4de44e0d440b5428b7712e5",
+  "boundary": "real CLI/Runs/Git, synthetic replies, no model acceptance",
+  "expected_cases": 12,
+  "complete": true,
+  "cases": [
+    {
+      "package": "aif-classic",
+      "case": "fail",
+      "status": "completed",
+      "outcome": "rejected",
+      "root_outputs": {},
+      "runs": 3,
+      "first_bridges": [
+        "aif-warmup-bridge",
+        "aif-plan-bridge",
+        "aif-implement-bridge",
+        "aif-verify-bridge"
+      ],
+      "continue_bridges": [
+        "aif-verify-bridge",
+        "aif-security-bridge"
+      ],
+      "same_claim": true,
+      "candidate_preserved": true,
+      "plan_preserved": true,
+      "prepare_read_only": true,
+      "prefix_reused": [
+        "implement",
+        "improve",
+        "plan",
+        "warmup"
+      ],
+      "repeated_rejection_checked": true,
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1
+      }
+    },
+    {
+      "package": "aif-classic",
+      "case": "fail-after-fix",
+      "status": "completed",
+      "outcome": "rejected",
+      "root_outputs": {},
+      "runs": 2,
+      "first_bridges": [
+        "aif-warmup-bridge",
+        "aif-plan-bridge",
+        "aif-implement-bridge",
+        "aif-verify-bridge",
+        "aif-fix-bridge",
+        "aif-verify-bridge"
+      ],
+      "continue_bridges": [
+        "aif-verify-bridge",
+        "aif-security-bridge"
+      ],
+      "same_claim": true,
+      "candidate_preserved": true,
+      "plan_preserved": true,
+      "prepare_read_only": true,
+      "prefix_reused": [
+        "implement",
+        "improve",
+        "plan",
+        "warmup"
+      ],
+      "repeated_rejection_checked": false,
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1
+      }
+    },
+    {
+      "package": "aif-classic",
+      "case": "fix-fail",
+      "status": "completed",
+      "outcome": "rejected",
+      "root_outputs": {},
+      "runs": 2,
+      "first_bridges": [
+        "aif-warmup-bridge",
+        "aif-plan-bridge",
+        "aif-implement-bridge",
+        "aif-verify-bridge",
+        "aif-fix-bridge"
+      ],
+      "continue_bridges": [
+        "aif-verify-bridge",
+        "aif-security-bridge"
+      ],
+      "same_claim": true,
+      "candidate_preserved": true,
+      "plan_preserved": true,
+      "prepare_read_only": true,
+      "prefix_reused": [
+        "implement",
+        "improve",
+        "plan",
+        "warmup"
+      ],
+      "repeated_rejection_checked": false,
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1
+      }
+    },
+    {
+      "package": "aif-classic",
+      "case": "fix-no_work",
+      "status": "completed",
+      "outcome": "rejected",
+      "root_outputs": {},
+      "runs": 2,
+      "first_bridges": [
+        "aif-warmup-bridge",
+        "aif-plan-bridge",
+        "aif-implement-bridge",
+        "aif-verify-bridge",
+        "aif-fix-bridge"
+      ],
+      "continue_bridges": [
+        "aif-verify-bridge",
+        "aif-security-bridge"
+      ],
+      "same_claim": true,
+      "candidate_preserved": true,
+      "plan_preserved": true,
+      "prepare_read_only": true,
+      "prefix_reused": [
+        "implement",
+        "improve",
+        "plan",
+        "warmup"
+      ],
+      "repeated_rejection_checked": false,
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1
+      }
+    },
+    {
+      "package": "aif-classic",
+      "case": "no_work",
+      "status": "completed",
+      "outcome": "rejected",
+      "root_outputs": {},
+      "runs": 3,
+      "first_bridges": [
+        "aif-warmup-bridge",
+        "aif-plan-bridge",
+        "aif-implement-bridge",
+        "aif-verify-bridge"
+      ],
+      "continue_bridges": [
+        "aif-verify-bridge",
+        "aif-security-bridge"
+      ],
+      "same_claim": true,
+      "candidate_preserved": true,
+      "plan_preserved": true,
+      "prepare_read_only": true,
+      "prefix_reused": [
+        "implement",
+        "improve",
+        "plan",
+        "warmup"
+      ],
+      "repeated_rejection_checked": true,
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1
+      }
+    },
+    {
+      "package": "aif-classic",
+      "case": "no_work-after-fix",
+      "status": "completed",
+      "outcome": "rejected",
+      "root_outputs": {},
+      "runs": 2,
+      "first_bridges": [
+        "aif-warmup-bridge",
+        "aif-plan-bridge",
+        "aif-implement-bridge",
+        "aif-verify-bridge",
+        "aif-fix-bridge",
+        "aif-verify-bridge"
+      ],
+      "continue_bridges": [
+        "aif-verify-bridge",
+        "aif-security-bridge"
+      ],
+      "same_claim": true,
+      "candidate_preserved": true,
+      "plan_preserved": true,
+      "prepare_read_only": true,
+      "prefix_reused": [
+        "implement",
+        "improve",
+        "plan",
+        "warmup"
+      ],
+      "repeated_rejection_checked": false,
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1
+      }
+    },
+    {
+      "package": "aif-profiled",
+      "case": "fail",
+      "status": "completed",
+      "outcome": "rejected",
+      "root_outputs": {},
+      "runs": 3,
+      "first_bridges": [
+        "aif-warmup-bridge",
+        "aif-plan-bridge",
+        "aif-implement-bridge",
+        "aif-verify-bridge"
+      ],
+      "continue_bridges": [
+        "aif-verify-bridge",
+        "aif-security-bridge"
+      ],
+      "same_claim": true,
+      "candidate_preserved": true,
+      "plan_preserved": true,
+      "prepare_read_only": true,
+      "prefix_reused": [
+        "implement",
+        "improve",
+        "plan",
+        "warmup"
+      ],
+      "repeated_rejection_checked": true,
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1
+      }
+    },
+    {
+      "package": "aif-profiled",
+      "case": "fail-after-fix",
+      "status": "completed",
+      "outcome": "rejected",
+      "root_outputs": {},
+      "runs": 2,
+      "first_bridges": [
+        "aif-warmup-bridge",
+        "aif-plan-bridge",
+        "aif-implement-bridge",
+        "aif-verify-bridge",
+        "aif-fix-bridge",
+        "aif-verify-bridge"
+      ],
+      "continue_bridges": [
+        "aif-verify-bridge",
+        "aif-security-bridge"
+      ],
+      "same_claim": true,
+      "candidate_preserved": true,
+      "plan_preserved": true,
+      "prepare_read_only": true,
+      "prefix_reused": [
+        "implement",
+        "improve",
+        "plan",
+        "warmup"
+      ],
+      "repeated_rejection_checked": false,
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1
+      }
+    },
+    {
+      "package": "aif-profiled",
+      "case": "fix-fail",
+      "status": "completed",
+      "outcome": "rejected",
+      "root_outputs": {},
+      "runs": 2,
+      "first_bridges": [
+        "aif-warmup-bridge",
+        "aif-plan-bridge",
+        "aif-implement-bridge",
+        "aif-verify-bridge",
+        "aif-fix-bridge"
+      ],
+      "continue_bridges": [
+        "aif-verify-bridge",
+        "aif-security-bridge"
+      ],
+      "same_claim": true,
+      "candidate_preserved": true,
+      "plan_preserved": true,
+      "prepare_read_only": true,
+      "prefix_reused": [
+        "implement",
+        "improve",
+        "plan",
+        "warmup"
+      ],
+      "repeated_rejection_checked": false,
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1
+      }
+    },
+    {
+      "package": "aif-profiled",
+      "case": "fix-no_work",
+      "status": "completed",
+      "outcome": "rejected",
+      "root_outputs": {},
+      "runs": 2,
+      "first_bridges": [
+        "aif-warmup-bridge",
+        "aif-plan-bridge",
+        "aif-implement-bridge",
+        "aif-verify-bridge",
+        "aif-fix-bridge"
+      ],
+      "continue_bridges": [
+        "aif-verify-bridge",
+        "aif-security-bridge"
+      ],
+      "same_claim": true,
+      "candidate_preserved": true,
+      "plan_preserved": true,
+      "prepare_read_only": true,
+      "prefix_reused": [
+        "implement",
+        "improve",
+        "plan",
+        "warmup"
+      ],
+      "repeated_rejection_checked": false,
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1
+      }
+    },
+    {
+      "package": "aif-profiled",
+      "case": "no_work",
+      "status": "completed",
+      "outcome": "rejected",
+      "root_outputs": {},
+      "runs": 3,
+      "first_bridges": [
+        "aif-warmup-bridge",
+        "aif-plan-bridge",
+        "aif-implement-bridge",
+        "aif-verify-bridge"
+      ],
+      "continue_bridges": [
+        "aif-verify-bridge",
+        "aif-security-bridge"
+      ],
+      "same_claim": true,
+      "candidate_preserved": true,
+      "plan_preserved": true,
+      "prepare_read_only": true,
+      "prefix_reused": [
+        "implement",
+        "improve",
+        "plan",
+        "warmup"
+      ],
+      "repeated_rejection_checked": true,
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1
+      }
+    },
+    {
+      "package": "aif-profiled",
+      "case": "no_work-after-fix",
+      "status": "completed",
+      "outcome": "rejected",
+      "root_outputs": {},
+      "runs": 2,
+      "first_bridges": [
+        "aif-warmup-bridge",
+        "aif-plan-bridge",
+        "aif-implement-bridge",
+        "aif-verify-bridge",
+        "aif-fix-bridge",
+        "aif-verify-bridge"
+      ],
+      "continue_bridges": [
+        "aif-verify-bridge",
+        "aif-security-bridge"
+      ],
+      "same_claim": true,
+      "candidate_preserved": true,
+      "plan_preserved": true,
+      "prepare_read_only": true,
+      "prefix_reused": [
+        "implement",
+        "improve",
+        "plan",
+        "warmup"
+      ],
+      "repeated_rejection_checked": false,
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1
+      }
+    }
+  ],
+  "errors": []
+}

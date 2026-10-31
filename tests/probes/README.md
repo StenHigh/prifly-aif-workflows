@@ -254,9 +254,10 @@ reason.
 
 `readability_builds.py` compares 12 exact build pairs before author version bump.
 It uses two host roots, canonical/local extend and three package profiles.
-`readability_compare.py` compares eight pairs of real Classic routes and current implementation bindings.
+`readability_compare.py` originally compared eight pairs of real Classic routes and current implementation bindings.
 It reuses `run_check.py` synthetic replies and cleans its Runs, claims and monitor registration.
-`fail` and `no_work` intentionally preserve the known `unhandled_child_outcome` baseline defect (issue #7).
+Historical `fail` and `no_work` checks preserve the old `unhandled_child_outcome` result.
+Since issue #7, CI compares the six unchanged cases; `verify_outcomes.py` checks the new stop contract separately.
 These probes do not qualify live models or measure reading speed.
 
 ```sh
@@ -266,9 +267,32 @@ python3 -B tests/probes/readability_builds.py --binary /absolute/path/to/release
   --output /tmp/readability-builds.json
 python3 -B tests/probes/readability_compare.py --binary /absolute/path/to/released/prifly \
   --baseline /absolute/path/to/baseline --candidate /absolute/path/to/candidate \
+  --cases owner-only exhausted disabled clean repaired blocked \
   --output /tmp/readability-routes.json
 ```
 
 Baseline packages are pinned to v1.53.0. Build identity equality applies only before version bump.
 Final route comparison remains valid after bump because it checks outcomes and bindings rather than identity.
 [Accepted inputs and current results](../../docs/changes/improve-workflow-authoring-readability/acceptance.md).
+
+## Verify fail/no_work: issue #7
+
+`verify_outcomes.py` checks 12 cases: classic/profiled × fail/no_work before repair,
+after repair and inside fix. Each launch has only its own package installed.
+It uses the ready task and reviewed prepare/start commands from `examples/classic`.
+
+Every stop must be completed/rejected with no root outputs or later gate/commit.
+Continue must start at verify, reuse warmup/plan/improve/implement, and preserve the
+plan, same claim, repaired HEAD, staged index and untracked owner bytes.
+Prepare must leave source/work/claims/Run inventory unchanged. Initial failures also
+exercise repeated rejected continuation before a successful verify reaches security.
+The resumed Run is then cancelled and every fixture claim/registry entry is removed.
+
+```sh
+python3 -B tests/probes/verify_outcomes.py --binary /absolute/path/to/released/prifly \
+  --jobs 3 --report /tmp/verify-outcomes.json
+```
+
+Use `--package aif-classic --case fail` for one case. `--source` selects an archived
+source for a negative regression check; old packages must fail the new contract.
+Real CLI/Git/Runs use synthetic replies. Live model acceptance is not claimed.

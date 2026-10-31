@@ -7,9 +7,9 @@ categories:
 workflows:
   aif-profiled:
     title: AI Factory profiled development workflow
-    description: The classic AI Factory route with declared model profiles and reviewed continuation. Requires Pri-Fly 0.13.64.
+    description: The classic route with model profiles; verify fail/no_work rejects without a gate and supports reviewed continuation at verify. Requires Pri-Fly 0.13.64.
     category: software-delivery
     repository: https://github.com/StenHigh/prifly-aif-workflows.git
     path: aif-profiled
-    ref: v1.54.0
+    ref: v1.56.0
     tags: [ai-factory, codex-cli, codex-app, claude-code]

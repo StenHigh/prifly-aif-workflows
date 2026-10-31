@@ -390,7 +390,7 @@ def check_classic(binary, authority, repository, root):
     assert root_stages["review"]["workflow_ref"]["id"] == "aif:workflow/review-batch"
     assert root_stages["review"]["on"] == {"succeeded": "commit", "partial": "fix-after-review"}
     assert root_stages["verify"]["workflow_ref"]["id"] == "aif:workflow/verify-batch"
-    assert root_stages["verify"]["on"] == {"succeeded": "choose-security", "partial": "fix-after-verify"}
+    assert root_stages["verify"]["on"] == {"succeeded": "choose-security", "partial": "fix-after-verify", "no_work": "abandoned"}
     for terminal in ("fix-after-review", "fix-after-verify"):
         assert root_stages[terminal]["outcome"] == "partial", terminal
     for decision, terminal in (("security-decision", "fix-after-security"),):

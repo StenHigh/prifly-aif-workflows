@@ -72,6 +72,12 @@ workflow или отдельная очередь не добавляются.
 связана с реализацией и повторяется после исправлений. Для браузерных проверок
 понадобится [контракт тестовой среды проекта](docs/product-review-environment.md).
 
+**Подготовлен v1.56.0, issue #7.** Verify `fail/no_work` завершает classic/profiled
+как `completed/rejected` без обязательного gate. Continue повторяет verify на сохранённом дереве.
+[Контракт и приёмка](docs/changes/handle-verify-no-work/acceptance.md),
+[release guide](docs/releases/v1.56.0.md), [команды](examples/classic/README.md).
+Tag и центральный каталог требуют отдельной публикации.
+
 **Выпуск v1.55.0.** Читаемые fanout/fix, review/UI/UX/feature и test-audit.
 24 точные пары сборок до bump и34 неизменённых Markdown instruction strings.
 [Guide и версии](docs/releases/v1.55.0.md), [приёмка](docs/changes/improve-workflow-authoring-readability/remaining-acceptance.md).
@@ -412,15 +418,15 @@ finish, несущий `gate` со `status: blocked`: не в починку, к
 Вставка из `extend.yaml` в корень v6 отвечает за `blocked` так же: маршрутом или
 `impossible_verdicts: [blocked]`; иначе `missing_handler … on/blocked`.
 
-Как закрыты четыре вердикта в цикле гейта, если коротко: `pass` ведёт в выбор,
-`needs_revision` — в исход, докладывающий находки без круга починки, а `fail` и
-`no_work` — в исход с результатом `no_work`. Последнее и есть суть развязки.
-Исход `rejected` у нас декларирован как несущий результат гейта, поэтому провести
-туда круг, чей шаг вообще не отработал, нельзя — привязка выхода окажется
-негарантированной, и компилятор откажет (`unavailable_output`). Разделение
-получилось честным: `rejected` значит «гейт отработал и блокирует», `no_work` —
-«работы не было и докладывать нечего». Без этого пришлось бы выдумывать пустой
-результат гейта, то есть врать в артефакте ради прохождения графа.
+Внутри verify-once `pass` и `needs_revision` с gate ведут в выбор по blocking.
+Его `rejected` требует gate: находки остались, нужен владелец или недоступна зависимость.
+`fail/no_work` шага verify либо fix ведут в отдельный дочерний `no_work` без обязательного gate.
+
+С classic `1.49.0` / profiled `1.50.0` корень обрабатывает этот `no_work` как `completed/rejected`.
+Контракт корня не требует gate для rejected; он не публикует выходы на этом пути.
+Continue повторяет verify целиком с сохранённым деревом. `partial` по-прежнему требует gate.
+Имена дочерних outcomes не задают контракт корня: это разные уровни workflow.
+Аналогичный остановленный путь review остаётся отдельной задачей.
 
 ## Версии ссылающихся компонентов
 
