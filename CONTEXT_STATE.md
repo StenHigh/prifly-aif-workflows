@@ -10,6 +10,32 @@
 
 Ворота выверены против выпущенного Pri-Fly `v0.13.82`.
 
+- **Issue #9 — начато исследование transport (2026-10-31):**
+  После опубликованного v1.56.0 создана codex/issue-9-check-report-transport
+  от mainb4cf19e. Fetch: новых изменений нет; latest stable прежний0.13.82.
+  Кандидат контракта: optional reports:[ArtifactRef] внутри existing implementation.
+  Generic native fixture использует reserved output slots, report/log refs,
+  public export, child repeat и project extensions; shipping8 bytes прежние.
+  Success/repair/failed подтверждают исходные refs/bytes после удаления producer
+  Attempt directory, immutable basis/results и honest blocked→partial для failed.
+  Root measurement исполняется один раз, reader после child repair — дважды.
+  Вставка на существующий round.repair→fixed получает
+  project_extension_unknown_workflow: round (known: transport).
+  Это root-only boundary, не отсутствие artifact transport в Core.
+  Continue переиспользует stages с новыми output refs; исходные report/log refs
+  внутри carrier нужно сохранять явно. Финальная native матрица4 cases/5 Runs PASS:
+  success, repair, failed и reviewed continue от cycle; source Run неизменён,
+  produce/measure переиспользованы. Все12 negative exports отказали ожидаемо:
+  unknown→not_found, missing revision/substituted digest→integrity_failure.
+  Каждый case: active claims0, registry entry1 удалена, temp dirs удалены.
+  Static versions4/folders7/derive --check PASS. Отдельный CI workflow сохраняет
+  report-transport-results; actual shipping bytes/версии не меняются.
+  До shipping реализации выбрать поддержанный project-owned measurement и
+  binding его результата перед reader после repair. Нельзя provision внутри
+  read-only verify, подменять step refs или копировать base verify/check-change.
+  Полная приёмка actual classic/profiled/fix, disabled/stale/unknown/live LLM
+  пока не заявлена. Change: docs/changes/pass-check-reports/.
+
 - **Issue #7 — PR#11 MERGED, v1.56.0 опубликован (2026-10-31):**
   Владелец согласовал completed/rejected без обязательного gate для verify fail/no_work.
   Fetch/pull mainf4424dd: новых изменений GitHub нет; latest stable прежний0.13.82.

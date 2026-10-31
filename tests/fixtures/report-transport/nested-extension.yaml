@@ -1,0 +1,7 @@
+extensions:
+  - id: after-repair
+    workflow: round
+    step: measure
+    between: {from: repair, to: fixed}
+    input_bindings: {carrier: $stages.repair.carrier}
+    on: {pass: fixed, needs_revision: blocked, fail: stopped, no_work: stopped, blocked: blocked}
