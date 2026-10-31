@@ -93,13 +93,16 @@ def check(binary,source,case):
                 assert verify.forget_authority(authority) == 1
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--binary',required=True,type=Path);p.add_argument('--baseline',required=True,type=Path);p.add_argument('--candidate',required=True,type=Path);p.add_argument('--output',required=True,type=Path);a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--binary',required=True,type=Path);p.add_argument('--baseline',required=True,type=Path);p.add_argument('--candidate',required=True,type=Path);p.add_argument('--output',required=True,type=Path)
+    p.add_argument('--cases', nargs='+', choices=CASES, default=CASES,
+                   help='Routes whose semantics must still match the historical baseline.')
+    a=p.parse_args()
     metadata = {'prifly': verify.run(a.binary.resolve(), 'version')['version'],
                 'binary_sha256': hashlib.sha256(a.binary.read_bytes()).hexdigest(),
                 'boundary': 'real CLI/Runs, synthetic replies; no model acceptance'}
     results=[]
-    for case in CASES:
+    for case in a.cases:
         pair=[check(a.binary.resolve(),source.resolve(),case) for source in (a.baseline,a.candidate)]
         assert pair[0]==pair[1],pair
         results.append(pair[0]);print(case,json.dumps(pair[0]),flush=True)
-        a.output.write_text(json.dumps({**metadata, 'pairs_equal':True, 'complete':len(results)==len(CASES), 'expected_pairs':len(CASES), 'cases':results},indent=2)+'\n')
+        a.output.write_text(json.dumps({**metadata, 'pairs_equal':True, 'complete':len(results)==len(a.cases), 'expected_pairs':len(a.cases), 'cases':results},indent=2)+'\n')

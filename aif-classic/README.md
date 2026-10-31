@@ -35,7 +35,20 @@ verify включён → round → verify
 `max_iterations: 8` — верхняя граница графа; default `verify_round_limit: 3`
 может быть изменён настройкой проекта. Успех fix требует повторной проверки.
 Сбой самого шага (`fail`/`no_work`) следует отдельному `stopped` route;
-конкретные outcomes callers нужно читать в YAML, а не выводить из этой схемы.
+verify-batch возвращает `no_work`, и корень завершает Run как `completed/rejected`.
+Этот путь не требует `gate` и не публикует выходы корня.
+Он также действует при `fail/no_work` шага fix внутри verify.
+
+```text
+verify или вложенный fix: fail/no_work → stopped → unstarted → rejected
+                                                               └─ continue → verify целиком
+```
+
+Continue сохраняет принятые warmup/plan/improve/implement и рабочее дерево, включая изменения fix.
+Новая проверка читает дерево как есть; новый Run начинает счёт раундов заново.
+Предыдущий gate остаётся в истории и не становится результатом последней проверки.
+`partial` по-прежнему требует пригодный gate; `blocked` с отчётом сохраняет этот маршрут.
+Готовые команды и ограничения прежних Runs: [пример](../examples/classic/README.md).
 
 
 `aif-classic` следует обычному порядку AI Factory: `warmup → plan → improve →

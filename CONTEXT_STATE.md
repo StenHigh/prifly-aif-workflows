@@ -10,6 +10,32 @@
 
 Ворота выверены против выпущенного Pri-Fly `v0.13.82`.
 
+- **Issue #7 — согласованный verify stop подготовлен (2026-10-31):**
+  Владелец согласовал completed/rejected без обязательного gate для verify fail/no_work.
+  Fetch/pull mainf4424dd: новых изменений GitHub нет; latest stable прежний0.13.82.
+  Classic root/package1.49.0 обрабатывает дочерний no_work через abandoned;
+  штатный derive даёт profiled1.50.0. В shipping деревьях меняются только root
+  workflow и README этих двух пакетов; остальные6 packages прежние.
+  Verify-once/batch, step contracts и bridge bytes прежние; вложенный fix
+  fail/no_work получает тот же rejected без root outputs.
+  Новая native матрица проверяет12 cases/28 Runs: before/after fix и fix fail/
+  no_work, terminal status/outcome, repeated rejection, continue от verify,
+  plan/tree/HEAD/index/untracked owner work/same claim и read-only prepare.
+  Versions4/folders7/derive, verify126/83/8, compatibility5/4/4/core-state41,
+  unit113 и W6 bundle --check PASS. Native12/28 PASS, каждый stop rejected без
+  root outputs; продолжения сохраняют prefix/plan/candidate/same claim, prepare
+  read-only. Local catalog install/update обоих packages/3hosts, ready example
+  preview/start, cancel/continue и owner edit refusal PASS. Все claims/registry
+  entries временных fixtures очищены. Все6 unchanged readability pairs PASS.
+  CI сохраняет отдельный classic-verify-outcomes artifact вместо сравнения
+  исправленных fail/no_work с прежним дефектом. Negative baseline v1.54.0
+  подтверждает failed/unhandled_child_outcome; новая проверка его отвергает.
+  README/release guide/catalog entries/examples подготовлены для v1.56.0.
+  Tag и центральный каталог не опубликованы; PR/CI ещё не завершены.
+  Старые failed Runs остаются recover_frontier_unsupported; изменение on у
+  verify может дать recover_frontier_changed при upgrade. Миграция не заявлена.
+  Change/evidence: docs/changes/handle-verify-no-work/.
+
 - **Issue #6 — остальные6 packages выпущены v1.55.0 (2026-10-31):**
   Отдельные части: fanout/fix, test-audit, shared review/UI/UX/feature.
   До bump24 exact build pairs на3hosts (fix2profiles, feature2profiles) PASS;

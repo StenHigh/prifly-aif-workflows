@@ -1,6 +1,7 @@
 # Самостоятельный classic и profiled
 
-Пример использует `aif-classic` или `aif-profiled` из первой порции issue #6.
+Пример использует `aif-classic@1.49.0` или `aif-profiled@1.50.0` с исправлением issue #7.
+Tag `v1.56.0` подготовлен к публикации; команды с этим ref доступны после выпуска.
 Требуется Pri-Fly0.13.82 для воспроизведения опубликованных проверок.
 Минимальная поддерживаемая версия пакетов остаётся0.13.64.
 AI Factory2.19.0 skills должны быть установлены для выбранного host.
@@ -9,7 +10,7 @@ AI Factory2.19.0 skills должны быть установлены для вы
 ```text
 task.json → prepare → reviewed start → warmup → plan → improve → implement
                                                            → verify → security → review → commit
-                                                                 └─ partial → reviewed continue
+                                                                 └─ partial/rejected → reviewed continue
 ```
 
 ## Подготовка
@@ -21,7 +22,7 @@ task.json → prepare → reviewed start → warmup → plan → improve → imp
 ```sh
 cp /absolute/path/to/aif-workflows/examples/classic/task.json /tmp/classic-task.json
 prifly project init --repository . --host codex-cli
-prifly project workflows add StenHigh/prifly-aif-workflows   --path aif-classic --ref v1.54.0 --repository .
+prifly project workflows add StenHigh/prifly-aif-workflows   --path aif-classic --ref v1.56.0 --repository .
 ```
 
 В уже инициализированном проекте пропустите `project init`.
@@ -63,6 +64,12 @@ prifly project continue --repository . --launch aif-classic   --source-run SOURC
 После отмены writer сначала нужны осмотр эффектов и owner resolution.
 Существующий capture path плана нельзя удалять автоматически ради продолжения.
 
+Verify `fail/no_work` завершает новый Run как `completed/rejected` без gate.
+То же правило действует при остановке fix внутри verify.
+Continue повторяет verify целиком, сохраняя warmup/plan/improve/implement и рабочее дерево.
+Счёт раундов начинается заново. Предыдущий gate остаётся в истории.
+Security, review и commit ждут успешного verify либо его явного выключения в настройках проекта.
+
 ## Opt-in review/UI/UX
 
 Самостоятельный запуск выше не добавляет сторонние readers в classic.
@@ -73,11 +80,15 @@ prifly project continue --repository . --launch aif-classic   --source-run SOURC
 ## Обновление
 
 ```sh
-prifly project workflows update aif-classic --ref v1.54.0 --repository .
-prifly project workflows update aif-profiled --ref v1.54.0 --repository .
+prifly project workflows update aif-classic --ref v1.56.0 --repository .
+prifly project workflows update aif-profiled --ref v1.56.0 --repository .
 ```
 
 Выполняйте команду только для установленного пакета. Update сохраняет `extend.yaml` и `project/`.
 Незавершённые Runs лучше завершить до обновления: новые author versions меняют recovery prefix.
 Сначала просмотрите `continue --prepare`; отказ `recover_prefix_changed` требует явного reviewed replay.
-Прежний дефект `verify fail/no_work` отслеживается в [issue #7](https://github.com/StenHigh/prifly-aif-workflows/issues/7).
+Новый переход у verify меняет форму стадии. Continue от старого Run может вернуть `recover_frontier_changed`.
+Старые failed Runs с `unhandled_child_outcome` уже возвращают `recover_frontier_unsupported` на Pri-Fly0.13.82.
+Обновление пакета не переписывает их историю и не обещает миграцию.
+Не удаляйте их рабочие деревья и не запускайте implement повторно автоматически.
+Сохранение работы старого Run требует отдельного осмотра владельца.

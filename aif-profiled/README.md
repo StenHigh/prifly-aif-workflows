@@ -36,6 +36,12 @@ Markdown source находится внутри profiled; установленн
 Готовые task, prepare/start/continue и обновление: [пример](../examples/classic/README.md).
 Остальные инструкции и маршруты совпадают с classic с учётом объявленных выше model profiles.
 
+С версии пакета `1.50.0` verify `fail/no_work` завершает Run как `completed/rejected` без обязательного gate.
+То же правило действует для fix внутри verify. Корень не публикует выходы на этом пути.
+Continue повторяет корневой verify целиком, сохраняя принятые стадии и рабочее дерево.
+Готовый gate при `blocked` по-прежнему даёт `partial`; прежние отчёты остаются в истории.
+Изменение получено штатным derive из classic `1.49.0`.
+
 ## Что объявляют шаги
 
 | Шаг | `model_profile.requested` | Где исполняется |

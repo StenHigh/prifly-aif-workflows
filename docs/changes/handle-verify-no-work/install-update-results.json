@@ -1,0 +1,45 @@
+{
+  "prifly": "0.13.82",
+  "binary_sha256": "3b073126921bca3e9d78b7649b51bd20527fd70cf4de44e0d440b5428b7712e5",
+  "packages": [
+    {
+      "package": "aif-classic",
+      "version": "1.49.0",
+      "catalog": "local exact baseline-to-candidate fixture",
+      "updated_bytes": "matched",
+      "extend_preserved": true,
+      "project_overlay_preserved": true,
+      "hosts_compiled": [
+        "codex-cli",
+        "codex-app",
+        "claude-code"
+      ],
+      "example_preview_start": "passed",
+      "verify_cancel_continue": "passed",
+      "markdown_owner_edit": "project_workflow_modified"
+    },
+    {
+      "package": "aif-profiled",
+      "version": "1.50.0",
+      "catalog": "local exact baseline-to-candidate fixture",
+      "updated_bytes": "matched",
+      "extend_preserved": true,
+      "project_overlay_preserved": true,
+      "hosts_compiled": [
+        "codex-cli",
+        "codex-app",
+        "claude-code"
+      ],
+      "example_preview_start": "passed",
+      "verify_cancel_continue": "passed",
+      "markdown_owner_edit": "project_workflow_modified"
+    }
+  ],
+  "runs": 6,
+  "cleanup": {
+    "active_claims": 0,
+    "registry_entries_removed": 1,
+    "temporary_directory_removed": true
+  },
+  "scope": "real CLI/Git; synthetic warmup/plan/implement; resumed verify handoff; no models"
+}
