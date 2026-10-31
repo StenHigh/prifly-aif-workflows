@@ -1,8 +1,8 @@
 # Аудит изменённых тестов
 
-Самостоятельный пакет `openclaw:package/test-audit@1.0.0`, launch
+Самостоятельный пакет `openclaw:package/test-audit@1.1.0`, launch
 **openclaw-test-audit**, для released Pri-Fly **0.13.77** и Python 3 stdlib.
-Опубликован в составе [v1.53.0](../docs/releases/v1.53.0.md).
+Первая версия опубликована в v1.53.0. Readability-порция готовится для [v1.55.0](../docs/releases/v1.55.0.md).
 
 Префикс `openclaw-` отражает источник checklist. Это наша адаптация для Pri-Fly;
 AI Factory skills в пакете не используются.
@@ -32,7 +32,7 @@ configure → quality { select changed test paths
 prifly project workflows add openclaw-test-audit --repository .
 # Или напрямую из release tag:
 prifly project workflows add StenHigh/prifly-aif-workflows \
-  --path openclaw-test-audit --ref v1.53.0 --repository .
+  --path openclaw-test-audit --ref v1.55.0 --repository .
 ```
 
 Каталог закрепляет tag и точный source commit. Установка объявляет package и
@@ -165,3 +165,15 @@ python3 -B tests/probes/test_audit_check.py --binary /path/to/released/prifly \
 Unit tests используют настоящий Git. Native probe исполняет реальные
 программы/CLI с синтетическим reviewer: это проверка маршрутизации, артефактов,
 skip и freshness, без заявления о качестве LLM-аудита или другой модели.
+
+## Карта файлов
+
+`workflow.yaml` получает config и вызывает `workflows/quality.yaml`.
+`steps/prepare.yaml` выбирает тесты; пустая выборка заканчивается явным skip.
+`steps/audit.yaml` получает request; `steps/evaluate.yaml` проверяет coverage и freshness.
+`contexts/audit-bridge.yaml` и `contexts/test-audit.yaml` указывают на собственные `instructions/*.md`.
+Markdown сохраняет точные decoded bytes прежнего YAML, включая завершающий LF.
+Исполняемые Python contexts остаются кодом. Короткие bindings уже раскрыты, поэтому граф сохраняет прежнюю форму.
+
+[Готовые Python/Node/monorepo configs и команды](../examples/test-audit/README.md).
+[Отдельное opt-in подключение](../examples/test-audit-extension/README.md) не меняет standalone graph.

@@ -8,7 +8,7 @@ import tempfile
 import verify
 
 NAME = 'openclaw-test-audit'
-RELEASE = 'v1.53.0'
+RELEASE = 'v1.55.0'
 
 
 def check_install(binary, catalog=None, expected_commit=None):
@@ -42,7 +42,7 @@ def check_install(binary, catalog=None, expected_commit=None):
             installed_result = call('add', NAME, *catalog_args, '--repository', repository)
             origin = installed_result['origin']
             assert installed_result['package']['id'] == 'openclaw:package/test-audit'
-            assert installed_result['package']['version'] == '1.0.0'
+            assert installed_result['package']['version'] == '1.1.0'
             assert origin['path'] == NAME
             if source is None:
                 assert origin['ref'] == RELEASE, origin
@@ -65,7 +65,7 @@ def check_install(binary, catalog=None, expected_commit=None):
                 readme = source / NAME / 'README.md'
                 readme.write_text(readme.read_text() + '\nLocal install fixture update.\n')
                 workflow = source / NAME / 'workflow.yaml'
-                workflow.write_text(workflow.read_text().replace('version: 1.0.0', 'version: 1.0.1'))
+                workflow.write_text(workflow.read_text().replace('version: 1.1.0', 'version: 1.1.1'))
                 verify.git('-C', source, 'add', '.')
                 verify.git('-C', source, 'commit', '-qm', 'Updated test audit fixture')
             updated = call('update', NAME, '--repository', repository)
@@ -73,15 +73,15 @@ def check_install(binary, catalog=None, expected_commit=None):
             assert overlay.read_text() == 'Preserve project-owned configuration\n'
             if source:
                 assert (folder / 'README.md').read_bytes() == readme.read_bytes()
-                assert updated['package']['version'] == '1.0.1'
+                assert updated['package']['version'] == '1.1.1'
             else:
                 assert updated['origin']['commit'] == origin['commit']
             verify.compile_package(binary, authority, repository, NAME, root / 'updated')
-            bridge = folder / 'contexts/audit-bridge.yaml'
+            bridge = folder / 'instructions/audit-bridge.md'
             bridge.write_text(bridge.read_text() + '\n# Unreviewed local modification\n')
             refusal = verify.run(binary, '--project', authority, 'project', 'workflows', 'update', NAME,
                                  '--repository', repository, expect_ok=False)
-            assert 'project_workflow_modified' in refusal and 'audit-bridge.yaml' in refusal, refusal
+            assert 'project_workflow_modified' in refusal and 'audit-bridge.md' in refusal, refusal
             return {'outcome': 'passed', 'origin': origin, 'installed_files': len(paths),
                     'hosts_without_ai_factory_skills': list(verify.HOSTS), 'installed_bytes': 'matched',
                     'update': 'preserved extend and project overlay', 'local_edit': 'refused'}

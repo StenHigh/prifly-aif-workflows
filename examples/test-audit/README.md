@@ -1,7 +1,7 @@
 # Самостоятельный OpenClaw test audit
 
-Примеры для выпущенного `openclaw-test-audit@1.0.0` из
-[v1.53.0](../../docs/releases/v1.53.0.md). Нужны Pri-Fly ≥0.13.77, Python 3
+Примеры подходят для выпущенного `openclaw-test-audit@1.0.0` и readability-кандидата1.1.0.
+Кандидат готовится для [v1.55.0](../../docs/releases/v1.55.0.md); до выпуска устанавливайте ветку `codex/issue-6-remaining-readability`. Нужны Pri-Fly ≥0.13.77, Python 3
 и coding host. AI Factory и установленный OpenClaw skill не требуются.
 
 | Проект | Шаблон | Какие пути выбрать |

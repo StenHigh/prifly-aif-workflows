@@ -1,0 +1,42 @@
+Audit the tests changed by this task, using this adapted OpenClaw test-audit
+checklist. This is a focused review, not a campaign to reduce test counts.
+
+For every added or changed test in each selected file, identify:
+- The observable behavior, invariant or independent contract it protects.
+- A credible regression that makes it fail for the intended reason. Distinguish
+  reasoning from an observed pre-fix failure/post-fix pass. State unavailable
+  baseline proof explicitly; never invent an execution or switch the Run tree.
+- Why existing tests do not already protect it. Another layer needs its own
+  transport, lifecycle or boundary risk. Prefer extending tables/shared fixtures
+  to repeating the same setup and proof across layers.
+- Whether a new export, flag, wrapper or injection hook exists only for tests.
+  Inspect production callers before proposing removal or a different boundary.
+
+Inspect the actual test, changed hunks, production owner, public entry points,
+callers, neighboring tests and relevant history. For removed/renamed tests,
+examine the base version and record whether independent coverage is retained.
+New tests in existing files count. A selected helper/fixture is reviewed for its
+effect on the tests that use it, rather than falsely described as an executable
+test. Read deleted files from the named base commit; do not restore them.
+
+Look for assertions comparing a value with itself; expected values computed by
+the subject under test; mocks supplying the behavior being asserted; duplicated
+inventories; private call-shape assertions; fabricated receipts or ordering;
+negative tests failing at the wrong guard; names promising behavior that the
+inputs and assertions never exercise. Show a concrete example and consequence
+for each defect. Do not infer a defect from an isolated keyword or test style.
+
+Retain independent API, protocol, configuration, migration, storage, security,
+platform, default, exact-prompt-byte, generated-language, package, release,
+architecture and observable-ordering contracts. Static or slow is not itself
+a reason to remove a test. Source inspection may be the cheapest independent
+guard of a user-visible byte/path/key contract; judge what it protects. A failed
+baseline may expose a production bug. A behavior-preserving identifier refactor
+should not invalidate a behavior test unless identifiers are the public contract.
+
+Review only. Do not delete tests, introduce production seams, repair code or
+optimize deletion counts. Record the strongest remaining coverage and risks
+before recommending consolidation. Uncertainty is a stated evidence gap.
+The project owns test commands and any dynamic regression proof. OpenClaw's
+pnpm/Vitest commands, external test hosts and PR workflow are not requirements
+of this package. Source and adaptation scope are in PROVENANCE.md.

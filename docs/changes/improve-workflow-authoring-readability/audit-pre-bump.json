@@ -1,0 +1,90 @@
+{
+  "prifly": "0.13.82",
+  "binary_sha256": "3b073126921bca3e9d78b7649b51bd20527fd70cf4de44e0d440b5428b7712e5",
+  "normalisation": "none; exact identity and sealed bytes before version bump",
+  "yaml_objects_equal": true,
+  "instruction_bytes": [
+    {
+      "path": "openclaw-test-audit/contexts/audit-bridge.yaml",
+      "bytes": 3601,
+      "sha256": "94dfd7b35a67108f02791cd2d0cf552dc8dc4d2a47eab1b7be1e1557d5c42b56"
+    },
+    {
+      "path": "openclaw-test-audit/contexts/test-audit.yaml",
+      "bytes": 2841,
+      "sha256": "32c511957ebffdb2fbc0b4defe8cfd7812e81157000a0e7906b7966359e912e9"
+    }
+  ],
+  "pairs": [
+    {
+      "package": "openclaw-test-audit",
+      "host": "codex-cli",
+      "profile": null,
+      "build_key": "sha256:6dbf2998ff51bccbe15d3b523f63f18ad2c1c2a0ef012123e8bc2f5bc2109014",
+      "components": 12,
+      "exact_identity_and_bytes_equal": true,
+      "component_sha256": {
+        "contexts/000.txt": "94dfd7b35a67108f02791cd2d0cf552dc8dc4d2a47eab1b7be1e1557d5c42b56",
+        "contexts/001.txt": "32c511957ebffdb2fbc0b4defe8cfd7812e81157000a0e7906b7966359e912e9",
+        "schemas/002.json": "2cd0c3db633891bd64db9154f1390b0ce320b522f5fe414d43b07eb864909cca",
+        "schemas/003.json": "5b60ad53c796ef91c95b46d24da2c83e771a2904952ace691b2b21effb90fcfe",
+        "schemas/004.json": "0faf3fe56a2599d9364822d8800eff8e58ace3fa01a923791ed14a48297b1cf7",
+        "schemas/005.json": "fc6b9cc5096bf91ffa21952970418d143ee11dee38aebfee3de0d4f58d80c352",
+        "steps/006.json": "8b84b7b43fd59674058992d9f8fc1c9d8c3b6882f262e52008f8ffc3a64e04be",
+        "steps/007.json": "753c6939c4a7d07997b9b0121966ed8ab304c41b8ded1bcb0ac65a362659e582",
+        "steps/008.json": "dc90c1d757ad9c632c138137433f4b900a864dd087335ff836b0ae328eb534dc",
+        "steps/009.json": "bc0fa4484e83516ed44d1e10081015011b94b1a40950d2a99cd86cd2a91c40b4",
+        "workflows/010.json": "ca0fe29b97fdb08f5699729968dcc0aefa627080bec93d5266f86ae87d36f9fa",
+        "workflows/011.json": "a33b7bc9f58192023fc5f2d1c9f3e4aa16b449ae5885ae130fedbae88da5123a"
+      }
+    },
+    {
+      "package": "openclaw-test-audit",
+      "host": "codex-app",
+      "profile": null,
+      "build_key": "sha256:6dbf2998ff51bccbe15d3b523f63f18ad2c1c2a0ef012123e8bc2f5bc2109014",
+      "components": 12,
+      "exact_identity_and_bytes_equal": true,
+      "component_sha256": {
+        "contexts/000.txt": "94dfd7b35a67108f02791cd2d0cf552dc8dc4d2a47eab1b7be1e1557d5c42b56",
+        "contexts/001.txt": "32c511957ebffdb2fbc0b4defe8cfd7812e81157000a0e7906b7966359e912e9",
+        "schemas/002.json": "2cd0c3db633891bd64db9154f1390b0ce320b522f5fe414d43b07eb864909cca",
+        "schemas/003.json": "5b60ad53c796ef91c95b46d24da2c83e771a2904952ace691b2b21effb90fcfe",
+        "schemas/004.json": "0faf3fe56a2599d9364822d8800eff8e58ace3fa01a923791ed14a48297b1cf7",
+        "schemas/005.json": "fc6b9cc5096bf91ffa21952970418d143ee11dee38aebfee3de0d4f58d80c352",
+        "steps/006.json": "8b84b7b43fd59674058992d9f8fc1c9d8c3b6882f262e52008f8ffc3a64e04be",
+        "steps/007.json": "753c6939c4a7d07997b9b0121966ed8ab304c41b8ded1bcb0ac65a362659e582",
+        "steps/008.json": "dc90c1d757ad9c632c138137433f4b900a864dd087335ff836b0ae328eb534dc",
+        "steps/009.json": "bc0fa4484e83516ed44d1e10081015011b94b1a40950d2a99cd86cd2a91c40b4",
+        "workflows/010.json": "ca0fe29b97fdb08f5699729968dcc0aefa627080bec93d5266f86ae87d36f9fa",
+        "workflows/011.json": "a33b7bc9f58192023fc5f2d1c9f3e4aa16b449ae5885ae130fedbae88da5123a"
+      }
+    },
+    {
+      "package": "openclaw-test-audit",
+      "host": "claude-code",
+      "profile": null,
+      "build_key": "sha256:6dbf2998ff51bccbe15d3b523f63f18ad2c1c2a0ef012123e8bc2f5bc2109014",
+      "components": 12,
+      "exact_identity_and_bytes_equal": true,
+      "component_sha256": {
+        "contexts/000.txt": "94dfd7b35a67108f02791cd2d0cf552dc8dc4d2a47eab1b7be1e1557d5c42b56",
+        "contexts/001.txt": "32c511957ebffdb2fbc0b4defe8cfd7812e81157000a0e7906b7966359e912e9",
+        "schemas/002.json": "2cd0c3db633891bd64db9154f1390b0ce320b522f5fe414d43b07eb864909cca",
+        "schemas/003.json": "5b60ad53c796ef91c95b46d24da2c83e771a2904952ace691b2b21effb90fcfe",
+        "schemas/004.json": "0faf3fe56a2599d9364822d8800eff8e58ace3fa01a923791ed14a48297b1cf7",
+        "schemas/005.json": "fc6b9cc5096bf91ffa21952970418d143ee11dee38aebfee3de0d4f58d80c352",
+        "steps/006.json": "8b84b7b43fd59674058992d9f8fc1c9d8c3b6882f262e52008f8ffc3a64e04be",
+        "steps/007.json": "753c6939c4a7d07997b9b0121966ed8ab304c41b8ded1bcb0ac65a362659e582",
+        "steps/008.json": "dc90c1d757ad9c632c138137433f4b900a864dd087335ff836b0ae328eb534dc",
+        "steps/009.json": "bc0fa4484e83516ed44d1e10081015011b94b1a40950d2a99cd86cd2a91c40b4",
+        "workflows/010.json": "ca0fe29b97fdb08f5699729968dcc0aefa627080bec93d5266f86ae87d36f9fa",
+        "workflows/011.json": "a33b7bc9f58192023fc5f2d1c9f3e4aa16b449ae5885ae130fedbae88da5123a"
+      }
+    }
+  ],
+  "cleanup": {
+    "registry_entries_removed": 1,
+    "temporary_root_removed": true
+  }
+}

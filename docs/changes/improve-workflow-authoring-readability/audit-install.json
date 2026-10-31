@@ -1,0 +1,21 @@
+{
+  "outcome": "passed",
+  "origin": {
+    "repository": "file:///tmp/test-audit-install-1j5j6b4h/source",
+    "path": "openclaw-test-audit",
+    "ref": "main",
+    "commit": "f9c1cee0a8ce5f5c2f702eb07eb614ef88ace74b",
+    "digest": "sha256:04fcedc1fe271eed44ec000e2c1e2db68947a5b180d86727aa2261c7d78782dd",
+    "extend_digest": "sha256:450c1d157d11f7c7141bbd10ada9f22a947a5d33dd7521f2d8cb7f09d0592839",
+    "catalog": "file:///tmp/test-audit-install-1j5j6b4h/source"
+  },
+  "installed_files": 21,
+  "hosts_without_ai_factory_skills": [
+    "codex-cli",
+    "codex-app",
+    "claude-code"
+  ],
+  "installed_bytes": "matched",
+  "update": "preserved extend and project overlay",
+  "local_edit": "refused"
+}

@@ -1,6 +1,6 @@
 authoring: prifly-step/2
 id: openclaw:step/audit
-version: 1.0.0
+version: 1.1.0
 title: Test audit audit
 kind: worker
 inputs:
