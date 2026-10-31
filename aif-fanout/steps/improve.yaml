@@ -1,15 +1,21 @@
 authoring: prifly-step/2
 id: aif:step/fanout-improve
-version: 1.3.0
+version: 1.4.0
 title: Ask one independent plan-review perspective
 kind: worker
 inputs:
   plan: {schema_ref: "{{schema_plan}}"}
   profile: {schema_ref: "{{schema_profile}}"}
 outputs:
-  proposal: {schema_ref: "{{schema_proposal}}", required_for: [pass, needs_revision]}
-executor: {adapter_ref: "{{assisted_adapter}}", operation: session}
+  proposal:
+    schema_ref: "{{schema_proposal}}"
+    required_for: [pass, needs_revision]
+executor:
+  adapter_ref: "{{assisted_adapter}}"
+  operation: session
 instructions_ref: "{{context_aif-improve}}"
-effects: {class: none, retry_class: pure}
+effects:
+  class: none
+  retry_class: pure
 session_limits: {active_timeout_ms: null}
 result_schema_ref: "{{step_result_schema}}"

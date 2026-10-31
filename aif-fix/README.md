@@ -117,7 +117,7 @@ host observations; the probe reports independence unavailable rather than pass.
 The first release was v1.51.0 (package 1.0.0). The pilot correction is
 v1.51.1 (package 1.0.1). Install
 with `prifly project workflows add aif-fix`, or directly from
-`StenHigh/prifly-aif-workflows --path aif-fix --ref v1.51.1`.
+`StenHigh/prifly-aif-workflows --path aif-fix --ref v1.54.0`.
 The central catalog pins the release tag and commit. Local catalog search/add
 and completion are probe-covered. See `../docs/pilot-aif-fix-v1.51.0.md`
 for pilot acceptance scenarios.
@@ -155,3 +155,16 @@ work untouched. Finish old Runs on their installed v1.51.0 before updating,
 or review an explicit --from-stage warmup replay; do not assume an accepted
 old prefix carries across this contract change. That full cross-version replay
 was not executed by the probe. Same-version chained resume remains covered.
+
+## Readability map
+
+Start with `workflow.yaml`: warmup → build → quality → commit.
+`workflows/build.yaml` owns direct fix and fix-plan execution.
+`workflows/quality.yaml` repeats `quality-round.yaml` after repair, within the configured limit.
+`steps/` declares ports, captures and effects; `contexts/` declares pinned instruction metadata.
+Long instruction text lives in package-local `instructions/*.md`, including the shared session report.
+The Markdown bytes match the former decoded YAML text, including its final newline.
+Short host-skill pointers and schema ports stay local; their complete meaning fits beside the key.
+
+[Ready inputs and complete prepare/start/continue commands](../examples/fanout-fix/README.md).
+Readability changes do not add an import route or change repair/continue semantics.

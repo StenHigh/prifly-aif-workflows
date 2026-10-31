@@ -1,19 +1,4 @@
 id: aif-fix:context/session-report
-version: 1.0.0
+version: 1.1.0
 media_type: text/markdown; charset=utf-8
-text: |
-  # Report questions without changing declared answers
-  Use session submit --template for this Attempt. answered_questions is a
-  top-level list of questions this Attempt actually met, including native skill
-  questions; [] means none. Each entry has question, answer and basis (decision,
-  input, instructions, person or judgement); decision names decision_id, input
-  names port. Do not invent a person answer or repeat other Attempts' questions.
-  answer is nonempty human-readable text, not a typed decision value. A legal
-  empty short_checks string must be described, for example "Empty string: no
-  additional checks configured", with basis decision and decision_id short_checks.
-  Keep decision_context.short_checks and the decision ledger equal to the
-  original empty string. Do not submit answer "", change it to a check command,
-  or omit a question that was asked merely to pass report validation.
-  A question report records what happened; basis instructions does not itself
-  record the declared fix_plan_execution permission. Use its delivered boolean
-  or the runner's declared runtime decision, preserving existing authorization.
+source: .prifly/workflows/aif-fix/instructions/session-report.md

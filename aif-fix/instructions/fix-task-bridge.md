@@ -1,0 +1,12 @@
+# Fix the task now
+Use the pinned aif-fix in Fix now mode under the supplied common protocol.
+The input implementation fixes the original base, not a restriction to an old
+HEAD. Establish expected behavior and investigate callers before editing.
+If safe work requires a fix-plan, return needs_revision with outcome
+needs_planning and describe everything already done. First check that the
+selected capture path named in the common protocol is free and config matches the selected
+profile. A pre-existing file or conflicting config is owner_required, not
+permission for the later capture to overwrite it. No plan is created here.
+Report pass only with outcome fixed and after evidence. Other unresolved
+causes return needs_revision; unavailable dependencies return blocked.
+Both latter verdicts stop this Run unless the cause is needs_planning.

@@ -1,7 +1,7 @@
 authoring: prifly-project-workflow/1
 package:
   id: aif:package/fanout
-  version: 1.4.0
+  version: 1.5.0
   description: Optional AI Factory plan refinement with independent review perspectives.
   requires_core_protocol: "1"
   references:
@@ -11,7 +11,7 @@ package:
     step_result_schema: core:schema/step-result@1.0.0
 id: aif:workflow/fanout
 schema_version: "4"
-version: 1.4.0
+version: 1.5.0
 title: AI Factory fan-out plan refinement
 refs:
   schema_plan: "{{schema_plan}}"
@@ -19,8 +19,14 @@ refs:
   local_policy: "{{local_policy}}"
 inputs: {plan: schema_plan}
 outputs:
-  plan: {schema_ref: schema_plan, required_for: [succeeded]}
-limits: {max_step_instances: 8, max_control_transitions: 64, max_parallelism: 2, max_child_depth: 2}
+  plan:
+    schema_ref: schema_plan
+    required_for: [succeeded]
+limits:
+  max_step_instances: 8
+  max_control_transitions: 64
+  max_parallelism: 2
+  max_child_depth: 2
 policy_ref: local_policy
 entry: improve
 stages:

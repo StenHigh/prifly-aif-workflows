@@ -3,7 +3,11 @@ id: short_checks
 title: Additional checks for this bug workflow
 description: One command per line, executed against the current Run tree in addition to the regression check. Empty means no additional checks configured.
 phase: preflight
-value_schema: {type: string, maxLength: 16000}
+value_schema:
+  type: string
+  maxLength: 16000
 recommendation: ""
 automatic: true
-destination: {kind: session_context, name: short_checks}
+destination:
+  kind: session_context
+  name: short_checks

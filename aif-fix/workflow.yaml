@@ -1,17 +1,21 @@
 authoring: prifly-project-workflow/1
 package:
   id: aif-fix:package/fix
-  version: 1.0.2
+  version: 1.1.0
   description: Fix a specific bug with regression evidence and one review; complex bugs use their own fix-plan executed by aif-fix, not feature implementation.
   requires_core_protocol: "1"
   profiles:
     default: default
     values:
       default:
-        fix_capture: {kind: exact_file, path: .ai-factory/FIX_PLAN.md}
+        fix_capture:
+          kind: exact_file
+          path: .ai-factory/FIX_PLAN.md
         fix_path: .ai-factory/FIX_PLAN.md
       custom:
-        fix_capture: {kind: exact_file, path: .ai-factory/fix-plans/FIX_PLAN.md}
+        fix_capture:
+          kind: exact_file
+          path: .ai-factory/fix-plans/FIX_PLAN.md
         fix_path: .ai-factory/fix-plans/FIX_PLAN.md
   references:
     assisted_adapter: core:adapter/assisted-session@1.0.0
@@ -20,7 +24,7 @@ package:
     workspace_tree_manifest: core:schema/workspace-tree-manifest@1.0.0
 id: aif-fix:workflow/fix
 schema_version: "8"
-version: 1.0.2
+version: 1.1.0
 title: AI Factory bug fix workflow
 refs:
   schema_task: "{{schema_task}}"
@@ -41,48 +45,106 @@ decision_catalog:
   - .prifly/workflows/aif-fix/decisions/warnings.yaml
   - .prifly/workflows/aif-fix/decisions/plan-execution.yaml
 outputs:
-  implementation: {schema_ref: schema_implementation, required_for: [succeeded, partial]}
-  result: {schema_ref: schema_fix-result, required_for: [succeeded, partial]}
-  gate: {schema_ref: schema_gate-result, required_for: []}
-  fix_plan: {schema_ref: schema_plan, required_for: []}
-limits: {max_step_instances: 40, max_control_transitions: 300, max_parallelism: 1, max_child_depth: 3}
+  implementation:
+    schema_ref: schema_implementation
+    required_for: [succeeded, partial]
+  result:
+    schema_ref: schema_fix-result
+    required_for: [succeeded, partial]
+  gate:
+    schema_ref: schema_gate-result
+    required_for: []
+  fix_plan:
+    schema_ref: schema_plan
+    required_for: []
+limits:
+  max_step_instances: 40
+  max_control_transitions: 300
+  max_parallelism: 1
+  max_child_depth: 3
 policy_ref: local_policy
-resumable: {from_outcomes: [partial, rejected], from_cancelled: true}
+resumable:
+  from_outcomes: [partial, rejected]
+  from_cancelled: true
 entry: warmup
 stages:
   warmup:
     kind: step
     step_ref: step_warmup
-    on: {pass: build, needs_revision: abandoned, blocked: abandoned, fail: abandoned, no_work: abandoned}
+    on:
+      pass: build
+      needs_revision: abandoned
+      blocked: abandoned
+      fail: abandoned
+      no_work: abandoned
   build:
     kind: call
     workflow_ref: workflow_build
-    input_bindings: {task: $inputs.task, handoff: $stages.warmup.handoff, implementation: $stages.warmup.implementation}
-    on: {succeeded: quality, partial: build-stopped}
+    input_bindings:
+      task: $inputs.task
+      handoff: $stages.warmup.handoff
+      implementation: $stages.warmup.implementation
+    on:
+      succeeded: quality
+      partial: build-stopped
   quality:
     kind: call
     workflow_ref: workflow_quality
-    input_bindings: {task: $inputs.task, handoff: $stages.warmup.handoff, implementation: $stages.build.implementation, result: $stages.build.result}
-    on: {succeeded: commit, partial: quality-stopped, rejected: abandoned}
+    input_bindings:
+      task: $inputs.task
+      handoff: $stages.warmup.handoff
+      implementation: $stages.build.implementation
+      result: $stages.build.result
+    on:
+      succeeded: commit
+      partial: quality-stopped
+      rejected: abandoned
   commit:
     kind: step
     step_ref: step_commit
-    input_bindings: {task: $inputs.task, handoff: $stages.warmup.handoff, implementation: $stages.quality.implementation, result: $stages.quality.result, fix_plan: $stages.build.fix_plan}
-    on: {pass: done, needs_revision: commit-stopped, blocked: commit-stopped, fail: commit-stopped, no_work: commit-stopped}
+    input_bindings:
+      task: $inputs.task
+      handoff: $stages.warmup.handoff
+      implementation: $stages.quality.implementation
+      result: $stages.quality.result
+      fix_plan: $stages.build.fix_plan
+    on:
+      pass: done
+      needs_revision: commit-stopped
+      blocked: commit-stopped
+      fail: commit-stopped
+      no_work: commit-stopped
   done:
     kind: finish
     outcome: succeeded
-    output_bindings: {implementation: $stages.commit.implementation, result: $stages.commit.result, gate: $stages.quality.gate, fix_plan: $stages.build.fix_plan}
+    output_bindings:
+      implementation: $stages.commit.implementation
+      result: $stages.commit.result
+      gate: $stages.quality.gate
+      fix_plan: $stages.build.fix_plan
   build-stopped:
     kind: finish
     outcome: partial
-    output_bindings: {implementation: $stages.build.implementation, result: $stages.build.result, fix_plan: $stages.build.fix_plan}
+    output_bindings:
+      implementation: $stages.build.implementation
+      result: $stages.build.result
+      fix_plan: $stages.build.fix_plan
   quality-stopped:
     kind: finish
     outcome: partial
-    output_bindings: {implementation: $stages.quality.implementation, result: $stages.quality.result, gate: $stages.quality.gate, fix_plan: $stages.build.fix_plan}
+    output_bindings:
+      implementation: $stages.quality.implementation
+      result: $stages.quality.result
+      gate: $stages.quality.gate
+      fix_plan: $stages.build.fix_plan
   commit-stopped:
     kind: finish
     outcome: partial
-    output_bindings: {implementation: $stages.commit.implementation, result: $stages.commit.result, gate: $stages.quality.gate, fix_plan: $stages.build.fix_plan}
-  abandoned: {kind: finish, outcome: rejected}
+    output_bindings:
+      implementation: $stages.commit.implementation
+      result: $stages.commit.result
+      gate: $stages.quality.gate
+      fix_plan: $stages.build.fix_plan
+  abandoned:
+    kind: finish
+    outcome: rejected

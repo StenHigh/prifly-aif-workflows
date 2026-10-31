@@ -1,0 +1,4 @@
+{
+  "summary": "Add a small arithmetic check",
+  "tasks": [{"id": "check-total", "description": "Check total(2)=2 and total(None)=0."}]
+}

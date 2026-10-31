@@ -1,7 +1,7 @@
 authoring: prifly-workflow/1
 schema_version: "6"
 id: aif-fix:workflow/quality
-version: 1.0.2
+version: 1.1.0
 title: quality for aif-fix
 refs:
   schema_task: "{{schema_task}}"
@@ -22,32 +22,63 @@ inputs:
   repair_round_limit:
     schema_ref: schema_round-limit
     required: false
-    configuration: {scope: project, default: 3}
+    configuration:
+      scope: project
+      default: 3
 outputs:
-  implementation: {schema_ref: schema_implementation, required_for: [succeeded, partial]}
-  result: {schema_ref: schema_fix-result, required_for: [succeeded, partial]}
-  gate: {schema_ref: schema_gate-result, required_for: [succeeded, partial]}
-limits: {max_step_instances: 32, max_control_transitions: 224, max_parallelism: 1, max_child_depth: 2}
+  implementation:
+    schema_ref: schema_implementation
+    required_for: [succeeded, partial]
+  result:
+    schema_ref: schema_fix-result
+    required_for: [succeeded, partial]
+  gate:
+    schema_ref: schema_gate-result
+    required_for: [succeeded, partial]
+limits:
+  max_step_instances: 32
+  max_control_transitions: 224
+  max_parallelism: 1
+  max_child_depth: 2
 policy_ref: local_policy
 entry: round
 stages:
   round:
     kind: repeat
     body_workflow_ref: workflow_quality-round
-    initial_bindings: {task: $inputs.task, handoff: $inputs.handoff, implementation: $inputs.implementation, result: $inputs.result}
-    next_bindings: {task: $inputs.task, handoff: $inputs.handoff, implementation: $iteration.implementation, result: $iteration.result}
+    initial_bindings:
+      task: $inputs.task
+      handoff: $inputs.handoff
+      implementation: $inputs.implementation
+      result: $inputs.result
+    next_bindings:
+      task: $inputs.task
+      handoff: $inputs.handoff
+      implementation: $iteration.implementation
+      result: $iteration.result
     continue_on: [partial]
     until: false
     max_iterations: 8
     limit_configuration: repair_round_limit
-    on_complete: {succeeded: passed, rejected: standing, no_work: stopped}
+    on_complete:
+      succeeded: passed
+      rejected: standing
+      no_work: stopped
     on_limit: standing
   passed:
     kind: finish
     outcome: succeeded
-    output_bindings: {implementation: $stages.round.implementation, result: $stages.round.result, gate: $stages.round.gate}
+    output_bindings:
+      implementation: $stages.round.implementation
+      result: $stages.round.result
+      gate: $stages.round.gate
   standing:
     kind: finish
     outcome: partial
-    output_bindings: {implementation: $stages.round.implementation, result: $stages.round.result, gate: $stages.round.gate}
-  stopped: {kind: finish, outcome: rejected}
+    output_bindings:
+      implementation: $stages.round.implementation
+      result: $stages.round.result
+      gate: $stages.round.gate
+  stopped:
+    kind: finish
+    outcome: rejected

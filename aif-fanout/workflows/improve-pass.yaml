@@ -1,7 +1,7 @@
 authoring: prifly-workflow/1
 schema_version: "4"
 id: aif:workflow/improve-pass
-version: 1.2.0
+version: 1.3.0
 title: Fan out independent plan-review perspectives once
 refs:
   schema_plan: "{{schema_plan}}"
@@ -12,8 +12,14 @@ refs:
   local_policy: "{{local_policy}}"
 inputs: {plan: schema_plan}
 outputs:
-  plan: {schema_ref: schema_plan, required_for: [succeeded]}
-limits: {max_step_instances: 4, max_control_transitions: 32, max_parallelism: 2, max_child_depth: 1}
+  plan:
+    schema_ref: schema_plan
+    required_for: [succeeded]
+limits:
+  max_step_instances: 4
+  max_control_transitions: 32
+  max_parallelism: 2
+  max_child_depth: 1
 policy_ref: local_policy
 entry: refine
 stages:
@@ -28,7 +34,9 @@ stages:
           profile:
             from: literal
             schema_ref: schema_profile
-            value: {name: coverage, instruction: Check whether the plan covers all requested outcomes.}
+            value:
+              name: coverage
+              instruction: Check whether the plan covers all requested outcomes.
       - id: risk
         workflow_ref: workflow_improve-branch
         input_bindings:
@@ -36,19 +44,37 @@ stages:
           profile:
             from: literal
             schema_ref: schema_profile
-            value: {name: risk, instruction: Find implementation and delivery risks in the plan.}
-    join: {mode: all, accept_outcomes: [succeeded], selection: all, remainder: wait}
-    on: {satisfied: done, unsatisfied: choose}
+            value:
+              name: risk
+              instruction: Find implementation and delivery risks in the plan.
+    join:
+      mode: all
+      accept_outcomes: [succeeded]
+      selection: all
+      remainder: wait
+    on:
+      satisfied: done
+      unsatisfied: choose
   choose:
     kind: step
     step_ref: step_choose
     input_bindings: {proposals: $stages.refine.results}
-    on: {pass: apply, needs_revision: stopped, fail: stopped, no_work: stopped}
+    on:
+      pass: apply
+      needs_revision: stopped
+      fail: stopped
+      no_work: stopped
   apply:
     kind: step
     step_ref: step_apply
-    input_bindings: {plan: $inputs.plan, selection: $stages.choose.selection}
-    on: {pass: changed, needs_revision: stopped, fail: stopped, no_work: stopped}
+    input_bindings:
+      plan: $inputs.plan
+      selection: $stages.choose.selection
+    on:
+      pass: changed
+      needs_revision: stopped
+      fail: stopped
+      no_work: stopped
   done:
     kind: finish
     outcome: succeeded
@@ -57,4 +83,6 @@ stages:
     kind: finish
     outcome: succeeded
     output_bindings: {plan: $stages.apply.plan}
-  stopped: {kind: finish, outcome: no_work}
+  stopped:
+    kind: finish
+    outcome: no_work

@@ -1,0 +1,15 @@
+# Standalone entry; the central catalog adds the exact source commit pin.
+schema_version: prifly-workflow-catalog/1
+title: AI Factory fanout workflow
+categories:
+  software-delivery:
+    title: Software delivery
+workflows:
+  aif-fanout:
+    title: AI Factory fan-out plan refinement
+    description: Optional AI Factory plan refinement with independent review perspectives.
+    category: software-delivery
+    repository: https://github.com/StenHigh/prifly-aif-workflows.git
+    path: aif-fanout
+    ref: v1.55.0
+    tags: [ai-factory, codex-cli, codex-app, claude-code]

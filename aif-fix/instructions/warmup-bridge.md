@@ -1,0 +1,11 @@
+# Read project context and seal the Run's original base
+Follow the pinned aif-warmup: read context, configuration and relevant skill
+paths; distil handoff without changing any repository file. The handoff is
+{summary, entry_points, conventions, sources, open_questions}; summary <=4000
+characters, entries <=400 characters; at most 24 entry_points, 24 conventions,
+64 sources and 16 open_questions. The last field is optional.
+Also return implementation with base_commit=head_commit=git rev-parse HEAD,
+and changed_files from git diff --name-only HEAD plus untracked files. This
+initial snapshot fixes the base for direct fix, planning, repair and resume.
+Read the actual claimed repository_workspace, not the host's original checkout.
+Do not classify/select a workflow: the user already chose aif-fix.

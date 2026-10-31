@@ -1,21 +1,4 @@
 id: aif-fix:context/commit-bridge
-version: 1.0.0
+version: 1.1.0
 media_type: text/markdown; charset=utf-8
-text: |
-  # Record the final bug fix without deleting another task's files
-  Use pinned aif-commit for local commits only; never push. Read the actual
-  claimed tree and the previous implementation/result. This workflow never
-  owns ordinary PLAN.md or any discovered unrelated FIX_PLAN: leave them intact.
-  Default fix-plan was already captured and removed by Pri-Fly; do not delete
-  anything if optional fix_plan is absent. If present, the manifest and pinned
-  fix-path identify this Run's plan; verify its sealed bytes against the actual
-  file before staging the retained custom plan's final progress. An intervening
-  edit not covered by quality evidence is owner_required, not implicit approval.
-  Preserve the custom tracked plan, learning patches and
-  project overlays. Commit only this task's remaining changes; do not sweep
-  unrelated staged work into its commit. If nothing remains, skip the skill.
-  Preserve base_commit from input, recompute head_commit and changed_files from
-  the real tree. Return implementation and result for every verdict. A commit
-  problem is owner_required or environment_unavailable with its reason; success
-  keeps the last fixed regression evidence. No native push/grouping dialog or
-  claim that a declared answer grants an external effect.
+source: .prifly/workflows/aif-fix/instructions/commit-bridge.md

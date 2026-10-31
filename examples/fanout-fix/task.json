@@ -1,0 +1,4 @@
+{
+  "title": "Fix arithmetic offset",
+  "description": "total(2) returns 1; expected 2. None must return zero. Reproduce with the project arithmetic tests."
+}

@@ -47,9 +47,9 @@ def check_fix(binary, authority, repository, root):
     package = repository / ".prifly/workflows/aif-fix"
     for case, relative, before, after, expected in (
         ("missing-implementation", "workflows/build.yaml",
-         "output_bindings: {implementation: $stages.fix-task.implementation, result: $stages.fix-task.result}",
-         "output_bindings: {result: $stages.fix-task.result}", "missing_binding"),
-        ("missing-handler", "workflow.yaml", "blocked: abandoned, ", "", "missing_handler"),
+         "      implementation: $stages.fix-task.implementation\n",
+         "", "missing_binding"),
+        ("missing-handler", "workflow.yaml", "      blocked: abandoned\n", "", "missing_handler"),
         ("external-effect", "steps/fix-task.yaml", "class: workspace_write", "class: external_write", "external_write"),
     ):
         path = package / relative

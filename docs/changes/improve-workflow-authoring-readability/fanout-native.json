@@ -1,0 +1,60 @@
+{
+  "prifly": "0.13.82",
+  "binary_sha256": "3b073126921bca3e9d78b7649b51bd20527fd70cf4de44e0d440b5428b7712e5",
+  "boundary": "synthetic replies; real CLI/Runs; no models",
+  "cases": [
+    {
+      "case": "clean",
+      "route": [
+        "risk",
+        "coverage"
+      ],
+      "outcome": "succeeded",
+      "status": "completed",
+      "diagnostics": [],
+      "preview_start": true,
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1,
+        "temporary_root_removed": true
+      }
+    },
+    {
+      "case": "selected",
+      "route": [
+        "coverage",
+        "risk",
+        "choose",
+        "apply"
+      ],
+      "outcome": "succeeded",
+      "status": "completed",
+      "diagnostics": [],
+      "preview_start": true,
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1,
+        "temporary_root_removed": true
+      }
+    },
+    {
+      "case": "stopped",
+      "route": [
+        "coverage",
+        "risk",
+        "choose"
+      ],
+      "outcome": null,
+      "status": "failed",
+      "diagnostics": [
+        "unhandled_child_outcome"
+      ],
+      "preview_start": true,
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1,
+        "temporary_root_removed": true
+      }
+    }
+  ]
+}

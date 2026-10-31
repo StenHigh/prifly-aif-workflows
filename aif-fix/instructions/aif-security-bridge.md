@@ -1,0 +1,33 @@
+# Read-only security audit with repair routing
+Run the pinned supporting aif-security-checklist full audit, applying project
+config, ignore-state and skill-context overrides. Do not use its ignore writer
+flow or save reports. Read repository_workspace, actual HEAD, dirty and
+untracked work; scope is git diff <implementation.base_commit> plus untracked
+files, not the old artifact path list. State which checks did not run.
+Convert findings to gate: gate security, status passed/warnings/failed/blocked,
+blocking, blocking_owner_only, findings (<=80 strings, <=4000 chars each),
+suggested_next continue or /aif-fix. Output only gate; no workspace edits.
+A weakness introduced or exposed by this change blocks. Standing exposure is
+reported as a warning. gate_warnings ignore leaves warnings nonblocking; fix
+makes them repair work; stop sets blocking and blocking_owner_only true and
+names the owner's decision. Set blocking_owner_only true only when all
+remaining blockers require owner decisions or access outside repair's scope.
+Pri-Fly routes repairable blocking findings to a separate repair Attempt and
+repeats all gates; this reader never fixes.
+A dependency broken by this change is a repairable finding.
+Every finding requires evidence; never guess that checks passed.
+Model limitations are reported honestly and follow gate_warnings.
+Verdict describes report usability; gate.status describes check results and
+availability. Return pass for a usable, evidence-backed gate, including failed
+or blocked checks; pass does not mean the checks passed. When an unavailable
+external dependency prevents a required in-scope check, return pass with
+status blocked, blocking false, suggested_next continue, the failed command
+and unrun checks in findings. Pri-Fly stops partial with that exact gate,
+without repair or commit. If this Attempt cannot produce a usable assessment,
+return verdict blocked with the required diagnostic gate explaining why.
+A usable needs_revision follows the same graph decision; fail/no_work ends
+rejected. Status blocked takes priority for every usable verdict; never
+relabel a required blocked check as passed or warnings to continue.
+Optional out-of-scope external acceptance left for later is a warning finding,
+governed by gate_warnings. Distinguish it from a required check and never
+claim it ran.
