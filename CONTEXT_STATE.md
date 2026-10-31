@@ -8,7 +8,32 @@
 
 ## Состояние на 2026-10-19
 
-Ворота выверены против выпущенного Pri-Fly `v0.13.81`.
+Ворота выверены против выпущенного Pri-Fly `v0.13.82`.
+
+- **Issue #6 — первая readability-порция локально PASS (2026-10-31):**
+  Fetch/pull main7260962: новых изменений GitHub нет. Latest stable0.13.82 /
+  source d010dd3 прочитан: concurrent package install и Git worktree registry
+  lock; authoring/API/сохранённые Runs прежние, runtime adaptation не нужна.
+  Official archive manifest сверён; binary SHA256
+  3b073126921bca3e9d78b7649b51bd20527fd70cf4de44e0d440b5428b7712e5.
+  Принятый pinned patch SHA256 d91952033fd67f59098d9eb0ae6b9bcba05f1afa148cc9ccadc91a229df48cf2
+  применён без потери последующих изменений. До bump четыре YAML-объекта равны,
+  bridge9938 bytes/SHA2568772b0ef8121540cceb00cd912ba005ef434ed7fe467fde6e88913262a1fd24c
+  прежние;12 exact build pairs и8 native route pairs PASS. После bump ещё8
+  route pairs PASS, включая repaired fresh implementation и известные fail/
+  no_work отказы. Versions4/folders7/derive, verify126/83/8, compatibility5/4/4/
+  core-state41, blocked/cancel continue с verify PASS. Install/update smoke6 Runs,
+  classic/profiled ×3 hosts, preserved extend/project и Markdown edit refusal
+  PASS; cleanup0 active claims/1 registry removed/temp removed. Profiled compile
+  без установленного classic PASS; negative wrong source и Markdown LF→CRLF
+  без context bump отказывают. Новые guards закрывают эти реальные пробелы.
+  Classic1.48.0, штатный derived profiled1.49.0. Остальные6 shipping trees прежние.
+  Документы/examples/release guide/catalog entries подготовлены дляv1.54.0;
+  exact-commit CI и release/catalog publication ещё не выполнены.
+  Evidence/план: docs/changes/improve-workflow-authoring-readability/.
+  Inventory8 packages записан; остальные readability-порции ещё открыты.
+  Прежний verify fail/no_work gap вынесен в issue#7; terminal outcome не выбран.
+  Ускорение чтения не измерялось, live models не квалифицированы.
 
 - **E3 — локальная квалификация PASS на released0.13.81; финальный CI ожидается (2026-10-19):**
   Pri-Fly#13 CLOSED; новый stable0.13.81/source94b7eb2c прочитан по AGENTS.md.

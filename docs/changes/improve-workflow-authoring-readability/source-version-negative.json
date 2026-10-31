@@ -1,0 +1,7 @@
+{
+  "case": "Markdown LF to CRLF, context YAML unchanged",
+  "missing_bump_rejected": true,
+  "context_bump_accepted": true,
+  "raw_bytes_compared": true,
+  "temporary_directory_removed_after_check": true
+}

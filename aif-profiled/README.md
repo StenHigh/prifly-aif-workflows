@@ -15,6 +15,27 @@
 — отказ `model_profile_unanswered`. Pri-Fly модель не выбирает и ответ не
 проверяет; он его записывает (`attempts[].model_profile_report`) и считает.
 
+## Карта исходников
+
+```text
+workflow.yaml → warmup → plan → improve → implement → verify → security → review → commit
+                                                   └─ verify-once/fix → повтор verify
+```
+
+| Что найти | Файл |
+|---|---|
+| Корневой маршрут, входы и переходы | [workflow.yaml](workflow.yaml) |
+| Выключатель и лимит verify | [workflows/verify-batch.yaml](workflows/verify-batch.yaml) |
+| Решение owner-only и fix | [workflows/verify-once.yaml](workflows/verify-once.yaml) |
+| Порты verify и профиль модели | [steps/verify.yaml](steps/verify.yaml) |
+| Полная инструкция verify | [instructions/aif-verify-bridge.md](instructions/aif-verify-bridge.md) |
+| Подключение инструкции | [contexts/aif-verify-bridge.yaml](contexts/aif-verify-bridge.yaml) |
+| Настройки проекта и переводы моделей | [extend.yaml](extend.yaml) |
+
+Markdown source находится внутри profiled; установленный classic не требуется.
+Готовые task, prepare/start/continue и обновление: [пример](../examples/classic/README.md).
+Остальные инструкции и маршруты совпадают с classic с учётом объявленных выше model profiles.
+
 ## Что объявляют шаги
 
 | Шаг | `model_profile.requested` | Где исполняется |

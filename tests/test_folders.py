@@ -129,7 +129,11 @@ class WorkflowFolderTest(unittest.TestCase):
             self.assertNotIn("needs_revision: inconclusive", workflow, name)
         for name in ("aif-verify-bridge.yaml", "aif-review-bridge.yaml"):
             bridge = (CLASSIC / "contexts" / name).read_text()
-            self.assertIn("with a usable gate takes that\n  same decision", bridge, name)
+            source = re.search(r"^source: \.prifly/workflows/aif-classic/(.+)$", bridge, re.MULTILINE)
+            if source:
+                bridge = (CLASSIC / source.group(1)).read_text()
+            # Both inline YAML and a Markdown source carry the same instruction.
+            self.assertIn("with a usable gate takes that same decision", " ".join(bridge.split()), name)
 
 
 if __name__ == "__main__":

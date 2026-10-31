@@ -1,0 +1,15 @@
+# Release entry; the central catalog adds the exact source commit pin.
+schema_version: prifly-workflow-catalog/1
+title: AI Factory classic development workflow
+categories:
+  software-delivery:
+    title: Software delivery
+workflows:
+  aif-classic:
+    title: AI Factory classic development workflow
+    description: Canonical AI Factory development workflow with bounded plan improvement; stopped Runs support reviewed continuation. Requires Pri-Fly 0.13.64.
+    category: software-delivery
+    repository: https://github.com/StenHigh/prifly-aif-workflows.git
+    path: aif-classic
+    ref: v1.54.0
+    tags: [ai-factory, codex-cli, codex-app, claude-code]

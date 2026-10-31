@@ -155,6 +155,11 @@ def transform(relative, text):
         requested, reason = PROFILES[name]
         text = re.sub(r"^id: aif:step/([a-z-]+)$", r"id: aif-profiled:step/\1", text, count=1, flags=re.MULTILINE)
         return text.rstrip("\n") + f"\nmodel_profile:\n  requested: {requested}\n  reason: >-\n    {reason}\n"
+    if parts[0] == "contexts" and "source: .prifly/workflows/aif-classic/" in text:
+        # A source belongs to the installed package. Profiled must also compile
+        # when classic is absent; the decoded shared context bytes stay equal.
+        return text.replace("source: .prifly/workflows/aif-classic/",
+                            "source: .prifly/workflows/aif-profiled/")
     if parts[0] == "contexts" and relative.stem in FRESH_SESSION:
         text = re.sub(r"^id: aif:context/([a-z-]+)$", r"id: aif-profiled:context/\1", text, count=1, flags=re.MULTILINE)
         head, _, rest = text.partition("\n\n")  # the title and the first paragraph, up to the first blank line

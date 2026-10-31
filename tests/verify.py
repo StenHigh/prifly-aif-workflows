@@ -9,6 +9,7 @@ import argparse
 import hashlib
 import json
 import platform
+import re
 from pathlib import Path
 import shutil
 import subprocess
@@ -471,7 +472,21 @@ def check_profiled(binary, authority, repository, root):
     made of it."""
     sys.path.insert(0, str(ROOT / "tools"))
     from derive_profiled import PROFILES, FRESH_SESSION  # noqa: E402
-    result, documents = compile_package(binary, authority, repository, "aif-profiled", root / "profiled")
+    # Profiled is standalone: package-local context.source must resolve without
+    # an installed classic folder beside it.
+    classic = repository / ".prifly" / "workflows" / "aif-classic"
+    detached = root / "classic-not-installed"
+    profile_path = repository / ".prifly" / "project.yaml"
+    original_profile = profile_path.read_text()
+    standalone_profile, removed = re.subn(r"(?m)^  aif-classic:\n(?:    .*\n)+", "", original_profile)
+    assert removed == 2, "remove both classic package and launch for standalone fixture"
+    classic.rename(detached)
+    try:
+        profile_path.write_text(standalone_profile)
+        result, documents = compile_package(binary, authority, repository, "aif-profiled", root / "profiled")
+    finally:
+        profile_path.write_text(original_profile)
+        detached.rename(classic)
     assert result["package"]["id"] == "aif-profiled:package/classic", result["package"]
     classic_result, classic = compile_package(binary, authority, repository, "aif-classic", root / "classic-for-profiled")
     assert len(result["components"]) == len(classic_result["components"]), (len(result["components"]), len(classic_result["components"]))

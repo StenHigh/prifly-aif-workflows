@@ -72,6 +72,12 @@ workflow или отдельная очередь не добавляются.
 связана с реализацией и повторяется после исправлений. Для браузерных проверок
 понадобится [контракт тестовой среды проекта](docs/product-review-environment.md).
 
+**Подготовка v1.54.0.** Читаемые исходники `aif-classic@1.48.0` и штатный
+`aif-profiled@1.49.0`: блочный YAML, Markdown verify bridge и README-карты.
+Маршруты и instructions сохранены; ускорение чтения не измерялось.
+[Change и приёмка](docs/changes/improve-workflow-authoring-readability/acceptance.md),
+[release guide](docs/releases/v1.54.0.md), [готовый пример](examples/classic/README.md).
+
 **Выпуск v1.53.0.** Добавлен `openclaw-test-audit@1.0.0` — самостоятельный
 аудит изменённых тестов по адаптированному checklist OpenClaw. Требует Pri-Fly
 **0.13.77** и Python 3; AI Factory skills не нужны. Семь прежних пакетов сохраняют
@@ -229,10 +235,10 @@ Pri-Fly, а с Pri-Fly новее `v0.7.0` форму отдаёт `prifly schem
 
 ## Версии
 
-Совместимость восьми пакетов повторно проверена на **Pri-Fly0.13.80**
-(2026-10-17): compile/compatibility и component contracts.
+Baseline восьми пакетов повторно проверен на **Pri-Fly0.13.82**
+(2026-10-31): compile/compatibility и component contracts.
 [Предыдущие изменения движка](docs/changes/engine/release-0.13.79.md) и [текущая квалификация W6](docs/changes/add-review-uiux-call-extensions/acceptance.md).
-Минимальные версии ниже сохраняются; package bytes не менялись.
+Минимальные версии ниже сохраняются. Новая порция classic/profiled описана в change issue #6.
 
 `aif-fix` добавлен в v1.51.0; **v1.51.1 / пакет 1.0.1** исправляет
 маршрутизацию usable blocked gate и объясняет формат пустых declared answers.
@@ -424,6 +430,9 @@ finish, несущий `gate` со `status: blocked`: не в починку, к
 `/2` — а это состояние живых установок — инвентарь авторитета закреплён ровно на
 авторской версии, и обновление пакета отказывает `definition_drift`, называя шаг,
 которого никто не трогал.
+
+Отдельный Markdown в `context.source` тоже меняет bytes контекста. При его изменении
+повышайте версию context, ссылающегося step и зависимых workflow.
 
 `tests/test_versions.py` проверяет это правило и называет и ссылающийся файл, и
 ссылку, чья версия ушла вперёд.

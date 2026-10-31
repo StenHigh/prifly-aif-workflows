@@ -1,0 +1,12 @@
+{
+  "outcome": "passed",
+  "prifly": "0.13.82",
+  "binary_sha256": "sha256:3b073126921bca3e9d78b7649b51bd20527fd70cf4de44e0d440b5428b7712e5",
+  "platform": "linux/x86_64",
+  "launches": 5,
+  "distinct_builds": 4,
+  "trusted_packages": 4,
+  "profiled_sealed_as": "core-state/41",
+  "boundary": "assisted handoff dispatched; no AI host answers it here",
+  "registry_entries_removed": 1
+}

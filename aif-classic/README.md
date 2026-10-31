@@ -1,5 +1,43 @@
 # AI Factory classic workflow
 
+## Быстрый поиск исходников
+
+Основной путь читается в [workflow.yaml](workflow.yaml). Эта схема показывает
+обзор; условия выбора security и все terminal routes остаются в YAML.
+
+```text
+warmup → plan → improve → implement → verify → security? → review → commit → done
+                                      └─ gate требует участия → partial
+```
+
+| Что изменить или понять | Какой файл открыть |
+|---|---|
+| Entry, переходы и данные между стадиями | [workflow.yaml](workflow.yaml): entry, stages, input_bindings |
+| Инструкции verify bridge | [Markdown](instructions/aif-verify-bridge.md), подключённый [context.source](contexts/aif-verify-bridge.yaml) |
+| Подключённый upstream aif-verify skill | [contexts/aif-verify.yaml](contexts/aif-verify.yaml) |
+| Executor, ports и read-only plan capture verify | [steps/verify.yaml](steps/verify.yaml) |
+| Решение владельца и автоматический fix | [workflows/verify-once.yaml](workflows/verify-once.yaml): decide, owner-decides, fix |
+| Выключатель и число повторов verify | [workflows/verify-batch.yaml](workflows/verify-batch.yaml): choose, round |
+| Настройки конкретного проекта | Его extend.yaml: settings и exclude |
+
+Участок verify:
+
+```text
+verify выключен → unchanged → прежняя implementation
+verify включён → round → verify
+                          ├─ clean → succeeded
+                          ├─ owner-only / blocked → standing → partial
+                          └─ fix → новая implementation → следующий round
+                                                     └─ лимит → exhausted → partial
+```
+
+`decide.selection: first_match` проверяет owner-only перед blocking.
+`max_iterations: 8` — верхняя граница графа; default `verify_round_limit: 3`
+может быть изменён настройкой проекта. Успех fix требует повторной проверки.
+Сбой самого шага (`fail`/`no_work`) следует отдельному `stopped` route;
+конкретные outcomes callers нужно читать в YAML, а не выводить из этой схемы.
+
+
 `aif-classic` следует обычному порядку AI Factory: `warmup → plan → improve →
 implement → verify → security → review → commit`. Security и review —
 необязательные project features после реализации; `aif-qa` и `aif-evolve` не
@@ -70,3 +108,11 @@ bounded round: пригодный blocking gate запускает отдель�
 launcher передаёт `--host codex-cli`, `codex-app` или `claude-code`; compiler
 закрепляет bytes соответствующего local skill и никогда не угадывает host по
 папкам repository.
+
+## Читаемые исходники: v1.54.0
+
+Корень и verify-loop используют блочный YAML. Verify bridge подключает Markdown через `context.source`.
+Значения графа и decoded bytes инструкции сохранены; author versions повышены.
+Готовые task и полные команды: [самостоятельный classic/profiled](../examples/classic/README.md).
+[Release guide](../docs/releases/v1.54.0.md) описывает обновление с сохранением `extend.yaml`.
+Прежний отказ `verify fail/no_work` отслеживается отдельно в [issue #7](https://github.com/StenHigh/prifly-aif-workflows/issues/7).

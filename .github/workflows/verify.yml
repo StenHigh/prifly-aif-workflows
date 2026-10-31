@@ -46,6 +46,18 @@ jobs:
         run: python3 -B tests/integration_contract.py --binary "$HOME/.local/bin/prifly"
       - name: Parallel review qualification contracts on three hosts
         run: python3 -B tests/parallel_contract.py --binary "$HOME/.local/bin/prifly"
+      - name: Readability preserves all eight Classic routes
+        run: |
+          mkdir -p /tmp/readability-baseline
+          git archive v1.53.0 | tar -x -C /tmp/readability-baseline
+          python3 -B tests/probes/readability_compare.py --binary "$HOME/.local/bin/prifly" \
+            --baseline /tmp/readability-baseline --candidate "$PWD" \
+            --output /tmp/aif-readability-results.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: classic-readability-results
+          path: /tmp/aif-readability-results.json
       - name: A real Run is handed past the verify gate
         run: python3 -B tests/probes/run_check.py --binary "$HOME/.local/bin/prifly" --check --verdict pass
       - name: A gate that could not judge ends the Run partial with its gate

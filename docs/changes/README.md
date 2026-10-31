@@ -12,6 +12,13 @@ W4: **committed/pushed, pilot qualified, CI PASS**; W5: **пакетная ча�
 Документы change описывают scope; executable реализации W1–W3 находятся в отдельных
 новых папках, W4 — в standalone project example `examples/verified-integration`.
 
+## Читаемость workflow: issue #6
+
+Начат отдельный [change](improve-workflow-authoring-readability/proposal.md) на Pri-Fly0.13.82.
+Первая порция: принятый patch classic и штатный derived profiled.
+Затем inventory и отдельные проверяемые изменения остальных shipping packages.
+Baseline verify/compatibility на official0.13.82 PASS; новые результаты записываются отдельно.
+
 ## Реестр
 
 Отдельно от W1–W6 выпускается

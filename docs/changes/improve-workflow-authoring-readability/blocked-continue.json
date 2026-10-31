@@ -1,0 +1,51 @@
+{
+  "prifly": "0.13.82",
+  "package": "working tree",
+  "verify_verdict": "blocked",
+  "answered": [
+    "aif-warmup-bridge",
+    "aif-plan-bridge",
+    "aif-implement-bridge",
+    "aif-verify-bridge"
+  ],
+  "handed_a_tree": [
+    "aif-implement-bridge",
+    "aif-plan-bridge",
+    "aif-verify-bridge"
+  ],
+  "verify_task": {
+    "routed_verdicts": [
+      "pass",
+      "fail",
+      "needs_revision",
+      "no_work",
+      "blocked"
+    ],
+    "result_schema": "2.0.0"
+  },
+  "run_status": "completed",
+  "run_outcome": "partial",
+  "refusal": null,
+  "stand": null,
+  "resumed": {
+    "answered": [
+      "aif-verify-bridge",
+      "aif-security-bridge",
+      "aif-review-challenge-bridge"
+    ],
+    "fork": {
+      "source_run_id": "run:81a7a2b4adc9a517b24e67287ff85e0586517c11054cfd41087294ab9358c69a",
+      "reason": "resume_stopped_run"
+    },
+    "reused": [
+      "choose-improve",
+      "implement",
+      "improve",
+      "plan",
+      "unchanged",
+      "warmup"
+    ],
+    "run_status": "running",
+    "refusal": null
+  }
+}

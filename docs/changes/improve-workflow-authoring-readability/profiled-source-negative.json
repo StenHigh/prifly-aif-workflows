@@ -1,0 +1,17 @@
+{
+  "case": "profiled context.source incorrectly names absent classic",
+  "refused": true,
+  "output_created": false,
+  "diagnostic": {
+    "schema_version": "1",
+    "code": "invalid_usage",
+    "message": "project_compile_invalid_source: .prifly/workflows/aif-profiled/contexts/aif-verify-bridge.yaml/0: project_package_invalid: context source does not exist: .prifly/workflows/aif-classic/instructions/aif-verify-bridge.md",
+    "retryable": false,
+    "correlation_id": "correlation:82feb37ff96810138df1b4b022d4adae",
+    "violations": [],
+    "safe_next_actions": [
+      "help"
+    ]
+  },
+  "registry_entries_removed": 1
+}

@@ -1,0 +1,21 @@
+{
+  "inputs_sha256": {
+    "aif-implement/SKILL.md": "18aec1a5db15dc63ef5df957f39b55e18dd3c4fcd3661077ffec75a2c6f6e4d2",
+    "aif-improve/references/CHECK-MODE.md": "1f90583bab0e1b451c581ecc094d1f5d81bbe25a5edabdde30a0be8bae123166",
+    "aif-security-checklist/SKILL.md": "ad90fecfb7d9ff417a38035059ebab91a850ce90e689a2dee6a3082eacfb4a58",
+    "aif-warmup/SKILL.md": "ad7fd1bdb62d97881b190ed596a175fdf02e9e92b38c2ad7b941a68a84ffb8b2",
+    "aif-review/SKILL.md": "a8d3eb06f6982f28363564db18aa72aa61f0337bad4cb658d4267876ee5f0d34",
+    "aif-improve/references/LIST-MODE.md": "397200d9c6566dc39f96a0e840a62e3bd355065fafaab74934773e65e00d5c77",
+    "aif-plan/SKILL.md": "0cc8c8f56bc50d2b244d9ba3355ee71667973d546c4900792225da365f8e6942",
+    "aif-improve/SKILL.md": "a1d773d35790088fe45368382f3fa0b2df7a049b60f902ead61f6bed6f844b11",
+    "aif-improve/references/VALIDATOR.md": "8d09549945dad74e0c20fb7405b367c505f59e89d5cdd50cf51025dd619f2503",
+    "aif-verify/SKILL.md": "1dcf3e6508ce3a517e4581a0d32b5bbdf1897f3bd123067a5881f6bd6ca44d4e",
+    "aif-improve/references/EXAMPLES.md": "3571d837942691115d5f12fb76a4ebaab92c6c5df092376d989937ce513dd653",
+    "aif-commit/SKILL.md": "c46bbb52ad5cd7cdf52c7a97c32071f39b9f1c4ac58278bca15f64852eaa8190",
+    "aif-fix/SKILL.md": "2103321c6a5f368b29215218345317500fdf54ddf8dfa7981b70a638fc6f7954",
+    "local-extend.yaml": "44deb007e0faa23ec5d6a88b01bf01322c3805905d1a63cda9677e32378f45fe"
+  },
+  "execution": "read only; no models, no gate_checks executed",
+  "baseline_source": "7260962d02285607d50a01389e5b6fd85dbfb1e2",
+  "shipping_package_baseline": "v1.53.0/c85306050df060dc4b381ba7512173806250b3a6"
+}

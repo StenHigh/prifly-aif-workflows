@@ -55,6 +55,30 @@ class ReleasedVersionTest(unittest.TestCase):
                 continue  # Decision definitions are identified by their digest.
             self.assertNotEqual(before, after, f"{path} changed since {self.tag} while it still declares {before}")
 
+    def test_a_source_context_moves_when_its_file_bytes_change(self):
+        # Inline text used to move with the context YAML. A Markdown source can
+        # now change on its own, while the same context version names new bytes.
+        for package in PACKAGES:
+            for path in sorted((ROOT / package / "contexts").glob("*.yaml")):
+                text = path.read_text()
+                source = next((line[len("source: "):].strip() for line in text.splitlines()
+                               if line.startswith("source: .prifly/workflows/")), None)
+                if source is None:
+                    continue
+                source_path = source.removeprefix(".prifly/workflows/")
+                source_file = ROOT / source_path
+                self.assertTrue(source_file.is_file(), f"{path} names missing {source_path}")
+                before = subprocess.run(["git", "-C", str(ROOT), "show", f"{self.tag}:{source_path}"],
+                                        capture_output=True)
+                if before.returncode == 0 and before.stdout == source_file.read_bytes():
+                    continue
+                relative = str(path.relative_to(ROOT))
+                released = released_source(self.tag, relative)
+                if released is not None:
+                    self.assertNotEqual(declared_version(released), declared_version(text),
+                                        f"{relative} still declares {declared_version(text)} "
+                                        f"but its source {source_path} changed since {self.tag}")
+
     def test_a_referencing_component_follows_the_one_it_names(self):
         # A step is sealed with the bytes of what it references, so bumping a
         # bridge and leaving the step alone makes the step's version name two

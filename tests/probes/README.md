@@ -249,3 +249,26 @@ reporting zero.
 They live here rather than in a scratch directory because a scratch directory is
 cleared between sessions, and these were once rewritten from nothing for that
 reason.
+
+## Readability: issue #6
+
+`readability_builds.py` compares 12 exact build pairs before author version bump.
+It uses two host roots, canonical/local extend and three package profiles.
+`readability_compare.py` compares eight pairs of real Classic routes and current implementation bindings.
+It reuses `run_check.py` synthetic replies and cleans its Runs, claims and monitor registration.
+`fail` and `no_work` intentionally preserve the known `unhandled_child_outcome` baseline defect (issue #7).
+These probes do not qualify live models or measure reading speed.
+
+```sh
+python3 -B tests/probes/readability_builds.py --binary /absolute/path/to/released/prifly \
+  --baseline /absolute/path/to/baseline --candidate /absolute/path/to/pre-bump-candidate \
+  --skills /absolute/path/to/ai-factory-skills --local-extend /absolute/path/to/extend.yaml \
+  --output /tmp/readability-builds.json
+python3 -B tests/probes/readability_compare.py --binary /absolute/path/to/released/prifly \
+  --baseline /absolute/path/to/baseline --candidate /absolute/path/to/candidate \
+  --output /tmp/readability-routes.json
+```
+
+Baseline packages are pinned to v1.53.0. Build identity equality applies only before version bump.
+Final route comparison remains valid after bump because it checks outcomes and bindings rather than identity.
+[Accepted inputs and current results](../../docs/changes/improve-workflow-authoring-readability/acceptance.md).

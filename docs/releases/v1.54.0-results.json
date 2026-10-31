@@ -1,0 +1,36 @@
+{
+  "status": "local gates passed; awaiting exact-commit CI and publication",
+  "prifly": "0.13.82",
+  "binary_sha256": "3b073126921bca3e9d78b7649b51bd20527fd70cf4de44e0d440b5428b7712e5",
+  "packages": {
+    "aif-classic": "1.48.0",
+    "aif-profiled": "1.49.0"
+  },
+  "unchanged_packages": [
+    "aif-fanout",
+    "aif-fix",
+    "aif-feature",
+    "aif-review-evidence",
+    "aif-ui-ux",
+    "openclaw-test-audit"
+  ],
+  "evidence_sha256": {
+    "baseline-compatibility.json": "fa1b42bc8adf33f8227863510f21715b1f0ec4cd612cfa569c57742ec0e1ee53",
+    "baseline-verify.json": "5e1a4ab5d49ed90a8d0084616ee8961010952471a24e002967161e91988b9cd5",
+    "blocked-continue.json": "7eec69a2c8e2d85328c8b79efb54be66974d3200eb07fc5c749ec6c569aa1591",
+    "build-inputs.json": "bb0d2cde5ac0caeaf583f951de35a036b8561af87e64dfa0678609285a57dd2d",
+    "cancelled-continue.json": "0e38fe1236cc359bfae48f2b26abfa4da195eed376c54e0becc80568784f80a9",
+    "final-compatibility.json": "ed1209467d536ec5c7a23a41a79974ed0462a1be5b8dc792790c3a6ed800f3f1",
+    "final-routes.json": "8ebc2b10b818dc531779d1b2ce5bb91df8d4bcec3bfd0c20cee672b6d9fe0a1c",
+    "final-source-manifest.json": "378b648d911b07b98aba0e477b2cc9d1639583546ebb71fbb8aca9da96ec7040",
+    "final-verify.json": "2a9aec2c9bc2bda9a27624160fb93859b4976b69455db3e3d130ddb42259ff34",
+    "install-update-results.json": "74c3dc4a07dfb5d1dc47294130f8a4df69f66c48bdfba7fb65500f1faa9b23e0",
+    "pre-bump-builds.json": "6779fbce618c2c91a7b5d93958101fa2af8bb7eb619c141901b5e291bb6bd55e",
+    "pre-bump-equivalence.json": "6eafb5b09c5505bc90e26156f994c670ad5aea38dfe3502397f9c32957ae6750",
+    "pre-bump-routes.json": "58444e3ae355538a9af2d845eafbfe78e2b9c189c0d273bc0240be970ee855e8",
+    "profiled-source-negative.json": "b5c16d5a8c08291d5b9466ddf6ce85dc6ffcaaa687a99d27264617e450bf25db",
+    "source-version-negative.json": "c66648cada3ff7eb26219085356b161865feb0d2abc9dd613288babc1cefb068"
+  },
+  "boundary": "real CLI/Git, synthetic replies; no live model acceptance or measured reading speed",
+  "known_defect": "https://github.com/StenHigh/prifly-aif-workflows/issues/7"
+}
