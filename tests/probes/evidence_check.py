@@ -126,14 +126,19 @@ def run_case(binary, case, host='codex-cli'):
                 (tree / 'tracked.txt').write_text('preserved owner edit\n')
                 if case == 'upgrade':
                     bridge = package / 'contexts/review-bridge.yaml'
-                    bridge.write_text(bridge.read_text().replace('version: 1.0.0', 'version: 1.0.1', 1).replace('Read the pinned upstream', 'For this revised quality contract, report current evidence only. Read the pinned upstream', 1))
+                    before=bridge.read_text();assert 'version: 1.1.0' in before
+                    bridge.write_text(before.replace('version: 1.1.0', 'version: 1.1.1', 1))
+                    instruction=package/'instructions/review-bridge.md'
+                    before=instruction.read_bytes()
+                    instruction.write_bytes(b'For this revised quality contract, report current evidence only. '+before)
+                    assert instruction.read_bytes()!=before
                     for relative in ('steps/review.yaml', 'workflows/quality.yaml', 'workflow.yaml'):
                         p = package / relative
-                        p.write_text(p.read_text().replace('version: 1.0.0', 'version: 1.0.1'))
+                        p.write_text(p.read_text().replace('version: 1.1.0', 'version: 1.1.1').replace('version: 1.0.0', 'version: 1.0.1'))
                 if case == 'upgrade-refusal':
                     for relative in ('steps/configure.yaml', 'workflow.yaml'):
                         p = package / relative
-                        p.write_text(p.read_text().replace('version: 1.0.0', 'version: 1.0.1'))
+                        p.write_text(p.read_text().replace('version: 1.1.0', 'version: 1.1.1').replace('version: 1.0.0', 'version: 1.0.1'))
                     p = package / 'steps/configure.yaml'
                     p.write_text(p.read_text().replace('retry_class: never', 'retry_class: pure', 1))
                 for iteration in range(1, 3 if case == 'chained-resume' else 2):

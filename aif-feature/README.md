@@ -1,8 +1,8 @@
 # Небольшая новая фича
 
-Самостоятельный `aif-feature:package/feature@1.2.1`, launch **aif-feature**.
+Самостоятельный `aif-feature:package/feature@1.3.0`, launch **aif-feature**.
 Требует released Pri-Fly **0.13.77**, Python 3 stdlib для declared programs
-и AI Factory skills (контракт сверён с **2.19.0**). Пакет пока не выпущен.
+и AI Factory skills (контракт сверён с **2.19.0**). Кандидат готовится для v1.55.0; опубликованный пакет1.2.3 доступен в v1.54.0.
 
 ```text
 warmup → configure → native fast plan → implement
@@ -279,3 +279,18 @@ local catalog add/update проверяет сохранение extend/project 
 при local upstream edits. Tag, catalog publication и published install требуют
 отдельного release поручения. Экономия времени/токенов против classic пока
 не доказана: fixture timings не являются сопоставимым benchmark.
+
+## Readability map
+
+Read `workflow.yaml` for configure → plan → implement → quality.
+`workflows/quality.yaml` owns bounded rounds, freshness guards and local commit.
+`workflows/quality-round.yaml` selects sequential/parallel readers and sends actionable findings to repair.
+`parallel-reviews.yaml` and `parallel-uiux.yaml` declare branches and all-join barriers.
+`product-review.yaml` and `product-parallel.yaml` retain environment ownership and cleanup routes.
+`steps/` declares ports, effects and native captures. Long instructions live in package-local `instructions/*.md`.
+`contexts/` retains metadata and external host pointers; Markdown bytes match the former decoded text.
+Shared review/UI/UX instructions retain identical metadata and bytes across their standalone packages.
+Short scalar ports and Python contexts keep their existing form because their full meaning stays visible.
+
+[Ready tasks and complete commands](../examples/small-feature/README.md).
+[Opt-in project calls](../examples/review-uiux-extensions/README.md) remain separate from this standalone graph.

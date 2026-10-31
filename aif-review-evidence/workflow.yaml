@@ -1,7 +1,7 @@
 authoring: prifly-project-workflow/1
 package:
   id: aif-evidence:package/review-evidence
-  version: 1.0.0
+  version: 1.1.0
   description: Explicit declared review coverage, candidate freshness and diagnostic
     acceptance for new feature workflows.
   requires_core_protocol: '1'
@@ -13,7 +13,7 @@ package:
     result_v2: core:schema/step-result@2.0.0
 id: aif-evidence:workflow/review-evidence
 schema_version: '8'
-version: 1.0.0
+version: 1.1.0
 title: AI Factory review evidence
 refs:
   schema_request: '{{schema_request}}'

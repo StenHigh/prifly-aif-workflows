@@ -7,6 +7,7 @@ import json
 import shutil
 
 import verify
+from context_sources import relocate_instructions
 
 
 def write(package, name, value):
@@ -16,6 +17,7 @@ def write(package, name, value):
 def install(repository, timeout=None):
     package = repository / '.prifly/workflows/parallel-product'
     shutil.copytree(verify.ROOT / 'aif-ui-ux', package)
+    relocate_instructions(package, 'aif-ui-ux')
     root = package / 'workflow.yaml'
     text = root.read_text().replace('max_step_instances: 8', 'max_step_instances: 9')
     text = text.replace('max_parallelism: 1', 'max_parallelism: 2').replace('max_child_depth: 2', 'max_child_depth: 4')

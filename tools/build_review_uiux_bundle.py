@@ -48,6 +48,15 @@ def build(target):
             sources[str(source.relative_to(ROOT))] = (
                 "sha256:" + hashlib.sha256(source.read_bytes()).hexdigest()
             )
+            if kind == "contexts" and isinstance(data.get("source"), str):
+                prefix = f".prifly/workflows/{package}/"
+                assert data["source"].startswith(prefix), source
+                instruction = ROOT / package / data.pop("source").removeprefix(prefix)
+                assert instruction.resolve().is_relative_to((ROOT / package).resolve())
+                data["text"] = instruction.read_bytes().decode("utf-8")
+                sources[str(instruction.relative_to(ROOT))] = (
+                    "sha256:" + hashlib.sha256(instruction.read_bytes()).hexdigest()
+                )
             data["id"] = "w6:" + kind.rstrip("s") + "/" + name
             data["version"] = "1.0.0"
             text = json.dumps(data)
@@ -232,7 +241,7 @@ def build(target):
     common.append(put("project/workflows/w6-committed.yaml", post))
     manifest = {
         "protocol": "w6-project-bundle/1",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "sources": sources,
         "references": {"w6-" + k: v for k, v in CORE.items()},
         "modes": {},

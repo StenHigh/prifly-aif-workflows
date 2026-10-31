@@ -1,13 +1,4 @@
 id: aif-product:context/release-bridge
-version: 1.0.0
+version: 1.1.0
 media_type: text/markdown; charset=utf-8
-text: 'Release only the environment created or safely recovered by this invocation: verify configuration.environment.owner,
-  receipt.owner and exact receipt.session first; use only the project''s sealed configuration.environment.cleanup
-  contract. Keep needed browser evidence before release. Never delete repository_workspace, claims,
-  branches or unrelated resources. No owned session or not_needed means not_needed without a cleanup
-  write. Unknown ownership, profile conflict or an interrupted operation requires blocked/reconcile_required,
-  never unconditional release. Release is distinct from a profile transition. Copy exact owner/session
-  to the typed release receipt; explain all unavailable or uncertain outcomes. A usable diagnostic
-  receipt uses pass. Cancellation bypasses this tail: the Run operator must reconcile this exact
-  owner/session using the same scoped contract before continuation. Do not claim cancelled Run cleanup
-  happened automatically.'
+source: .prifly/workflows/aif-feature/instructions/release-bridge.md

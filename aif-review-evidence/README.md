@@ -1,7 +1,6 @@
 # Explicit review evidence (W1)
 
-Standalone package `aif-evidence:package/review-evidence@1.0.0`, prepared locally
-for Pri-Fly **0.13.76**. It supplies a quality component for W2/W3; it does not
+Standalone package `aif-evidence:package/review-evidence@1.1.0`, prepared for the readability release. Requires Pri-Fly **0.13.76**. It supplies a quality component for W2/W3; it does not
 change the canonical classic/profiled route or the installed bug workflow.
 
 ```text
@@ -15,9 +14,10 @@ assess coverage/freshness. The reader runs pinned `aif-review` plus its pinned
 is performed by this package. Evaluation is executable code in this new package;
 existing canonical packages remain instruction-only.
 
-## Local setup (unpublished package)
+## Standalone setup
 
-Copy this folder to `.prifly/workflows/aif-review-evidence/` and declare:
+Install with `prifly project workflows add aif-review-evidence --repository .`.
+For a manual project profile, declare:
 
 ```yaml
 packages:
@@ -49,9 +49,9 @@ prifly project start --repository . --launch aif-review-evidence \
 
 `checkout` assesses current staged/dirty work in that repository; a new worktree
 contains tracked state from its base, not dirty files from another checkout.
-Never copy or guess a live Run's claimed tree to get around ownership. A future
+Never copy or guess a live Run's claimed tree to get around ownership. The
 W3 consumer calls the quality graph inside its own Run, with explicit bindings.
-No central catalog entry/tag has been published for this package yet.
+The catalog publishes the previous package1.0.0 in v1.54.0. Candidate1.1.0 targets v1.55.0.
 
 ## Declared composition
 
@@ -146,3 +146,15 @@ blocked/cancelled/chained resume and contract-change reuse/refusal. Compile
 checks cover three hosts. Separate real host observations and their limits are
 recorded in the W1 change acceptance report; synthetic evidence is not an LLM
 or browser pass. See [W1 proposal](../docs/changes/add-explicit-review-evidence/proposal.md).
+
+## File map
+
+Read `workflow.yaml`, then `workflows/quality.yaml`: configure → capture → review → evaluate.
+`steps/` declares each port and effect; `files/evidence.py` implements candidate and coverage checks.
+`contexts/review-bridge.yaml` pins package-local `instructions/review-bridge.md` through context.source.
+The Markdown preserves the former decoded YAML bytes, including its final newline.
+Short ports, host-skill pointers and executable contexts retain their existing form.
+Their complete binding stays visible beside the key; code remains code.
+
+[Ready input and full prepare/start/continue commands](../examples/review-ui-ux/README.md).
+[Project opt-in calls](../examples/review-uiux-extensions/README.md) remain separate from standalone installation.

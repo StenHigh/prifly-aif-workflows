@@ -13,3 +13,7 @@
 Примеры привязаны к указанным в них выпущенным версиям пакетов. Сначала
 адаптируйте данные под проект и просмотрите native prepare summary; затем
 запускайте с его digest. Данные шаблонов не заменяют наблюдения исполнителя.
+
+- [Самостоятельные fanout/fix](fanout-fix/README.md): JSON-входы, preview/start и поддерживаемый fix continue.
+
+- [Самостоятельные review/UI/UX](review-ui-ux/README.md): request/configuration, preview/start/continue и отдельный opt-in.

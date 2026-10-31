@@ -1,7 +1,7 @@
 authoring: prifly-workflow/1
 schema_version: '6'
 id: aif-product:workflow/quality
-version: 1.0.0
+version: 1.1.0
 title: Owned environment, sequential UI/UX review and cleanup
 refs:
   step_capture: '{{step_capture}}'

@@ -1,29 +1,4 @@
 id: aif-feature:context/feature-repair
-version: 1.0.0
+version: 1.1.0
 media_type: text/markdown; charset=utf-8
-text: 'Read only the named claimed repository_workspace and the bound task/handoff. Sealed decisions win over native
-  defaults. Pri-Fly owns this graph: no push, merge, branch/worktree creation, other launch, next-stage skill invocation,
-  environment provisioning, or requirement rewrite. Preserve unrelated staged/dirty/untracked files and project
-  documents. Any business or scope-changing ambiguity is owner_required, never an autonomous guess. For autonomous
-  policy use HANDOFF_MODE=1, HANDOFF_TASK_ID=, HANDOFF_SKIP_REVIEW=0. For attended policy undeclared questions stay
-  normal host interaction; do not fabricate a DecisionRequest or owner answer. Return outputs only in allocated
-  slots. Use the session submission template unchanged for identities, answered_questions top-level [] when none,
-  actual output SHA-256 digests. Native model_profile is answered only if this task declares one; otherwise retain
-  template model_profile:null. Declared unavailable/declined uses literal reason, honoured uses named; no invented
-  mapping. Result is exactly {outcome, reason, work}; reason nonempty, work lists actual completed work. All declared
-  outputs required for the selected verdict must be supplied. Native plan output is captured by Pri-Fly, not a hand-built
-  manifest. A usable report is distinct from a passing gate.
-
-  This is the distinct writer AFTER all applicable readers and owned cleanup. Repair only confirmed gate defects
-  in the original feature''s scope. Invoke pinned aif-implement --without-plan with one focused description distilled
-  from gate.findings and task scope/criteria. Inline mode''s own scope guard applies: if findings cannot fit one
-  coherent short task (roughly 300 characters), return too_large instead of another plan/bug skill. Do not read,
-  create, execute, delete or edit PLAN/FIX_PLAN through inline mode; no patches, remote Handoff or rule changes.
-  Project rules and logging still apply. Do not change check applicability, request policy, business requirements
-  or unrelated files to make evidence pass. Owner-only/unavailable gates must never reach this step; if delivered,
-  return owner_required/environment_unavailable. Explicit tests are allowed where findings or original criteria
-  require them. Return implementation from actual tree preserving original base, result implemented/pass only for
-  a completed scoped repair. No quality PASS carries through the edit: the graph starts all readers again on a newly
-  captured candidate.
-
-  '
+source: .prifly/workflows/aif-feature/instructions/feature-repair.md

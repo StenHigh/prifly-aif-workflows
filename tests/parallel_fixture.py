@@ -1,6 +1,7 @@
 """W5 qualification fixture; unchanged W1 workers/schemas, explicit own graph."""
 import shutil
 import verify
+from context_sources import relocate_instructions
 
 OVERLAY = verify.ROOT / 'tests/probes/parallel-review'
 
@@ -8,6 +9,7 @@ OVERLAY = verify.ROOT / 'tests/probes/parallel-review'
 def install(repository, *, parallelism=2, handle_errors=True, timeout=None, asymmetric=False, wrap_errors=True):
     package = repository / '.prifly/workflows/parallel-review'
     shutil.copytree(verify.ROOT / 'aif-review-evidence', package)
+    relocate_instructions(package, 'aif-review-evidence')
     shutil.copytree(OVERLAY, package, dirs_exist_ok=True)
     if not wrap_errors:
         path = package / 'workflow.yaml'

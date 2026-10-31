@@ -8,6 +8,7 @@ import tempfile
 
 from parallel_fixture import install
 import verify
+from context_sources import assert_same_context
 
 
 def check(binary):
@@ -33,10 +34,12 @@ def check(binary):
                 assert docs['w5:workflow/round']['definition']['stages']['quality']['on_error'] == 'abandoned'
                 results.append({'host': host, 'definitions': len(docs), 'build_key': result['build_key'],
                                 'scope': 'compile only; not actual host execution or overlap'})
-            for directory in ('files', 'schemas', 'contexts', 'steps'):
+            for directory in ('files', 'schemas', 'contexts', 'steps', 'instructions'):
                 for original in (verify.ROOT / 'aif-review-evidence' / directory).rglob('*'):
                     if original.is_file():
-                        assert original.read_bytes() == (package / directory / original.relative_to(verify.ROOT / 'aif-review-evidence' / directory)).read_bytes()
+                        copied=package / directory / original.relative_to(verify.ROOT / 'aif-review-evidence' / directory)
+                        if directory=='contexts':assert_same_context(original,copied)
+                        else:assert original.read_bytes()==copied.read_bytes(),original
         finally: verify.forget_authority(authority)
     return {'prifly': verify.run(binary, 'version')['version'],
             'binary_sha256': hashlib.sha256(binary.read_bytes()).hexdigest(), 'cases': results}

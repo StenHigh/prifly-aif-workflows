@@ -500,7 +500,13 @@ def run_case(binary, case, host='codex-cli', library=None, live=False, artifacts
                 (h.tree/'owner.txt').write_text('Preserved owner edit across continuation\n')
                 if case=='live-resume':(h.tree/'.acceptance-ready').write_text('Owner provided isolated fixture prerequisite\n')
                 if case=='upgrade':
-                    p=package/'contexts/feature-review.yaml';p.write_text(p.read_text().replace('version: 1.0.0','version: 1.0.1',1).replace('Apply pinned aif-review','Repeat current review, preserving coverage. Apply pinned aif-review',1))
+                    p=package/'contexts/feature-review.yaml'
+                    before=p.read_text();assert 'version: 1.1.0' in before
+                    p.write_text(before.replace('version: 1.1.0','version: 1.1.1',1))
+                    instruction=package/'instructions/feature-review.md'
+                    before=instruction.read_bytes()
+                    instruction.write_bytes(b'Repeat current review, preserving coverage. '+before)
+                    assert instruction.read_bytes()!=before
                 if case=='upgrade-refusal':
                     p=package/'steps/configure.yaml';p.write_text(p.read_text().replace('retry_class: never','retry_class: pure'))
                 for iteration in range(1,3 if case=='chained-resume' else 2):

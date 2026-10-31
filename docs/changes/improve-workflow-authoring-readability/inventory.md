@@ -20,3 +20,14 @@
 Executable Python contexts не переносим в Markdown. Это программные входы, а не инструкции читателя.
 Host skill source pointers сохраняем. Их содержание принадлежит внешнему AI Factory.
 Самостоятельные examples и project overlays сохраняют собственные pinned версии; обновление source packages не означает их автоматическую замену.
+
+## Решения следующей порции (кандидат v1.55.0)
+
+Все шесть оставшихся packages изменены; classic/profiled сохраняют опубликованную первую порцию.
+Fanout раскрывает сложные graph bindings/joins; обе короткие instructions остаются inline/host pointers.
+Fix переносит11 instructions, раскрывает root/build/quality/repair/captures и decisions.
+Review-evidence переносит1 bridge; UI/UX переносит5; feature переносит15 и раскрывает parallel/quality mappings.
+Test audit переносит2 instructions; bindings/graph уже раскрыты и остаются прежними.
+Short scalar ports и simple lists не расширяются механически. JSON Schema maps читаются локально и сохраняют прежнюю форму.
+Executable Python contexts и короткие external host-skill pointers остаются прежними во всех пакетах.
+[Раздельная приёмка частей](remaining-acceptance.md) фиксирует24 exact pre-bump пары и byte hashes34 instructions.

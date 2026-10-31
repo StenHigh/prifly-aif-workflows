@@ -10,6 +10,21 @@
 
 Ворота выверены против выпущенного Pri-Fly `v0.13.82`.
 
+- **Issue #6 — остальные6 packages: source-кандидат v1.55.0 (2026-10-31):**
+  Отдельные части: fanout/fix, test-audit, shared review/UI/UX/feature.
+  До bump24 exact build pairs на3hosts (fix2profiles, feature2profiles) PASS;
+  YAML objects равны,34 Markdown decoded byte strings сохранены.
+  Fanout1.5.0, fix/review-evidence/ui-ux/audit1.1.0, feature1.3.0.
+  Classic/profiled bytes v1.54.0 прежние. Короткие ports/schema maps/host pointers
+  и executable Python contexts оставлены с причиной в inventory/README maps.
+  Shared guards сравнивают metadata+raw Markdown; renamed fixtures хранят свои
+  instructions. W6 builder разрешает source в text; generated component bytes
+  прежние, manifest1.0.1 закрепляет новые source hashes.
+  Versions4/folders7/unit suites10/W6 --check и verify126/83/8 PASS.
+  Native/overlay/install/CI ещё выполняются; release/tag/catalog не опубликованы.
+  Прежний fanout choose:no_work → unhandled_child_outcome сохранён и записан;
+  issue#7/terminal semantics не изменялись. Evidence: remaining-acceptance.md.
+
 - **Issue #6 — classic/profiled выпущены v1.54.0 (2026-10-31):**
   Fetch/pull main7260962: новых изменений GitHub нет. Latest stable0.13.82 /
   source d010dd3 прочитан: concurrent package install и Git worktree registry

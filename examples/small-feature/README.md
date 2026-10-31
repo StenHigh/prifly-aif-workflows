@@ -1,6 +1,8 @@
 # Одна небольшая фича
 
-Примеры для `aif-feature@1.2.3` из [v1.52.0](../../docs/releases/v1.52.0.md).
+Примеры подходят для выпущенного `aif-feature@1.2.3` и readability-кандидата1.3.0.
+Кандидат готовится для [v1.55.0](../../docs/releases/v1.55.0.md).
+До выпуска установите `StenHigh/prifly-aif-workflows --path aif-feature --ref codex/issue-6-remaining-readability`.
 Нужны Pri-Fly ≥0.13.77, Python 3 и skills AI Factory (квалификация на2.19.0).
 Workflow пишет локальный commit; push, merge и MR в него не входят.
 

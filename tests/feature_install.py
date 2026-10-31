@@ -31,9 +31,9 @@ def check_install(binary):
             assert 'limit: 2' in extend.read_text() and overlay.read_text()=='Preserve project-owned adapter\n'
             assert (installed/'README.md').read_bytes()==p.read_bytes()
             verify.compile_package(binary,authority,repository,'aif-feature',root/'compiled')
-            changed=installed/'contexts/feature-review.yaml';changed.write_text(changed.read_text()+'\n# Unreviewed local upstream edit\n')
+            changed=installed/'instructions/feature-review.md';changed.write_text(changed.read_text()+'\n# Unreviewed local upstream edit\n')
             refusal=verify.run(binary,'--project',authority,'project','workflows','update','aif-feature','--repository',repository,expect_ok=False)
-            assert 'project_workflow_modified' in refusal and 'contexts/feature-review.yaml' in refusal,refusal
+            assert 'project_workflow_modified' in refusal and 'instructions/feature-review.md' in refusal,refusal
             return {'outcome':'passed','catalog':'local unpublished fixture','installed_bytes':'matched','project_overlay':'preserved','extend':'preserved','local_edit':'refused'}
         finally:verify.forget_authority(authority)
 

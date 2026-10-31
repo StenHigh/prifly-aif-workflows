@@ -1,9 +1,9 @@
 # UI/UX review on an owned test environment
 
-Отдельный пакет `aif-product:package/ui-ux@1.0.0`, подготовленный для W3.
+Отдельный пакет `aif-product:package/ui-ux@1.1.0`, подготовленный для W3.
 Требует выпущенный Pri-Fly **0.13.76**, Python 3 stdlib для programs и host
 skills `aif-review/SKILL.md`, `aif-review/references/SEVERITY.md`.
-Пакет пока не выпущен в каталоге. Classic/profiled/fix/fanout не меняются.
+Каталог публикует прежний пакет1.0.0 в v1.54.0. Кандидат1.1.0 готовится для v1.55.0.
 
 ```text
 configure → quality {
@@ -23,8 +23,8 @@ backend/API/database, требует отдельного declared effect исп
 
 ## Установка и просмотр запуска
 
-Для локального пилота скопировать эту папку целиком в
-`.prifly/workflows/aif-ui-ux/` и добавить к existing project profile:
+Установите пакет через `prifly project workflows add aif-ui-ux --repository .`.
+При ручном подключении добавьте к project profile:
 
 ```yaml
 packages:
@@ -152,3 +152,15 @@ Codex CLI0.162.1 прошёл четыре required separate fresh sessions, с 
 browser/screenshot inspection, неизменёнными reports и retained workspace-write
 sandbox/auto-review отдельных command escalations. Другая модель и live Claude
 не квалифицированы; при required separate session отсутствие даёт blocked.
+
+## Карта файлов
+
+`workflow.yaml` передаёт configuration в `workflows/quality.yaml`.
+Граф закрепляет candidate, готовит environment, вызывает UI/UX readers, оценивает reports и освобождает environment.
+`steps/environment.yaml` и `steps/release.yaml` задают разрешённые внешние эффекты.
+`contexts/*-bridge.yaml` указывают на собственные `instructions/*.md`; bytes прежних инструкций сохранены.
+`files/product.py` и `files/evidence.py` проверяют сценарии, coverage и freshness.
+Короткие ports и host-skill pointers остаются рядом с ключами; Python contexts остаются кодом.
+
+[Полные standalone prepare/start/continue команды](../examples/review-ui-ux/README.md).
+[Отдельное opt-in подключение](../examples/review-uiux-extensions/README.md) использует проектные копии компонентов.

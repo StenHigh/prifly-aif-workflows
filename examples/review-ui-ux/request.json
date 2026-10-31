@@ -1,0 +1,16 @@
+{
+  "base_commit": "0000000000000000000000000000000000000000",
+  "round": 1,
+  "optional_policy": "ignore",
+  "require_separate_session": false,
+  "checks": [
+    {
+      "id": "acceptance",
+      "description": "Inspect the declared change and its project acceptance criteria.",
+      "method": "code",
+      "required": true,
+      "enabled": true,
+      "applicable": true
+    }
+  ]
+}

@@ -8,6 +8,7 @@ import tempfile
 
 from parallel_product_fixture import install
 import verify
+from context_sources import assert_same_context
 
 
 def check(binary):
@@ -33,10 +34,12 @@ def check(binary):
                 assert quality['evaluate']['on']['pass'] == 'release'
                 assert quality['release']['on']['pass'] == 'finalize'
                 results.append({'host': host, 'definitions': len(docs), 'build_key': result['build_key'], 'scope': 'compile; no live host/session claim'})
-            for directory in ('files', 'schemas', 'contexts', 'steps'):
+            for directory in ('files', 'schemas', 'contexts', 'steps', 'instructions'):
                 for source in (verify.ROOT / 'aif-ui-ux' / directory).rglob('*'):
                     if source.is_file():
-                        assert source.read_bytes() == (package / source.relative_to(verify.ROOT / 'aif-ui-ux')).read_bytes()
+                        copied=package / source.relative_to(verify.ROOT / 'aif-ui-ux')
+                        if directory=='contexts':assert_same_context(source,copied)
+                        else:assert source.read_bytes()==copied.read_bytes(),source
         finally:
             verify.forget_authority(authority)
     return {'prifly': verify.run(binary, 'version')['version'], 'binary_sha256': hashlib.sha256(binary.read_bytes()).hexdigest(), 'cases': results}

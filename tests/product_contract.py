@@ -1,5 +1,6 @@
 """Compile independent W2 components and verify their permission/source boundary."""
 from pathlib import Path
+from context_sources import assert_same_context
 from verify import HOSTS, ROOT, STEP_VERDICTS, compile_package, run
 
 SHARED = ('schemas/request.yaml','schemas/report.yaml','schemas/candidate.yaml','schemas/gate.yaml',
@@ -7,7 +8,9 @@ SHARED = ('schemas/request.yaml','schemas/report.yaml','schemas/candidate.yaml',
 
 def check_product(binary, authority, repository, root):
     for relative in SHARED:
-        assert (ROOT/'aif-ui-ux'/relative).read_bytes()==(ROOT/'aif-review-evidence'/relative).read_bytes(),relative
+        left,right=ROOT/'aif-ui-ux'/relative,ROOT/'aif-review-evidence'/relative
+        if relative.startswith('contexts/'):assert_same_context(left,right)
+        else:assert left.read_bytes()==right.read_bytes(),relative
     result,documents=compile_package(binary,authority,repository,'aif-ui-ux',root/'product')
     assert result['package']['id']=='aif-product:package/ui-ux'
     assert len(documents)==10

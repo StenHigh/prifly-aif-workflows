@@ -1,20 +1,4 @@
 id: aif-product:context/environment-bridge
-version: 1.0.0
+version: 1.1.0
 media_type: text/markdown; charset=utf-8
-text: 'Prepare only the sealed request''s owned ephemeral environment, by the exact project setup
-  contract request.environment.setup. Use the named read-only repository_workspace and captured candidate.
-  Do not edit code, install dependencies into it, commit or publish. All install/build caches, server
-  state and test data belong outside the candidate. Execute only the named setup operation under
-  this step''s declared external effect. Bind any served tree to candidate.digest and verify its
-  source; a convenient existing URL is insufficient. Use one compatible profile for all checks. Do
-  not release/recreate an incompatible existing profile: return owner_required with release_required.
-  Interrupted operation returns reconcile_required; discover state and ownership before another write.
-  Missing runner/browser/server is unavailable with explanation. Backend/fully excluded checks require
-  not_needed and no provisioning. Shared_resource must match a declared project resource for quality;
-  the project runner must also hold an owned lease across all readers, because engine resources scope
-  Attempts, not the whole environment lifetime. Produce the typed environment receipt, copying owner/profile,
-  configuration input ref.digest and candidate.digest. Ready requires actual unique session and test
-  URL; other statuses use null session/url except a known owned session requiring reconciliation.
-  Report actual state without secrets. Return pass for a usable diagnostic receipt. Keep receipts
-  even if provisioning fails; if no receipt can be produced, the operator reconciles by sealed owner
-  identity before continuation. Never release anyone else''s resources.'
+source: .prifly/workflows/aif-feature/instructions/environment-bridge.md

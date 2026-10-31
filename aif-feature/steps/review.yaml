@@ -1,6 +1,6 @@
 authoring: prifly-step/2
 id: aif-feature:step/review
-version: 1.2.3
+version: 1.3.0
 title: Bounded feature review
 kind: worker
 inputs:

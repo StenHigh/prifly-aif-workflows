@@ -1,7 +1,7 @@
 authoring: prifly-project-workflow/1
 package:
   id: aif-product:package/ui-ux
-  version: 1.0.0
+  version: 1.1.0
   description: Sequential UI and UX evidence on an explicitly owned test environment.
   requires_core_protocol: '1'
   references:
@@ -12,7 +12,7 @@ package:
     result_v2: core:schema/step-result@2.0.0
 id: aif-product:workflow/ui-ux
 schema_version: '8'
-version: 1.0.0
+version: 1.1.0
 title: AI Factory product UI/UX review
 refs:
   schema_configuration: '{{schema_configuration}}'

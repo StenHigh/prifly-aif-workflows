@@ -251,3 +251,7 @@ prifly project start --repository . --launch aif-classic --host codex-cli \
 Required fields зависят от profile и ваших decisions. `gate_warnings` здесь
 относится к штатным classic gates; W6 policy остаётся в settings.json.
 Не переносите greeting-ответы на другой проект без review.
+
+Readability-кандидат обновляет source hashes bundle до1.0.1. Generated components сохраняют прежние bytes и версии1.0.0.
+Штатный builder разрешает package-local Markdown в inline text проектной копии и закрепляет hash исходного Markdown.
+Установленный W6 bundle не требует standalone folders; обновление пакета не обновляет проектные копии автоматически.

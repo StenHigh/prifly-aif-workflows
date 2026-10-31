@@ -1,6 +1,7 @@
 """Three-host compilation of independent W3 and unchanged W1/W2 worker bytes."""
 import hashlib
 import json
+from context_sources import assert_same_context
 from verify import HOSTS, ROOT, STEP_VERDICTS, compile_package, run
 
 
@@ -76,7 +77,7 @@ def check_feature(binary, authority, repository, root):
     for path in (ROOT/'aif-ui-ux/files').glob('*.py'):
         if path.name!='preview.py':assert (ROOT/'aif-feature/files'/path.name).read_bytes()==path.read_bytes(),path
     for path in (ROOT/'aif-ui-ux/contexts').glob('*.yaml'):
-        assert (ROOT/'aif-feature/contexts'/path.name).read_bytes()==path.read_bytes(),path
+        assert_same_context(path,ROOT/'aif-feature/contexts'/path.name)
     for host in HOSTS:
         for profile in ('backend','frontend'):
             _,compiled=compile_package(binary,authority,repository,'aif-feature',root/('feature-'+host+'-'+profile),host=host,profile=profile)
