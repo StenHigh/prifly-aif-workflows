@@ -6,11 +6,11 @@
 движка 0.10–0.13.54, переход на AI Factory 2.19.0, WorkflowRevision v4) —
 в git: `git show d388b92:CONTEXT_STATE.md` (2330 строк, оглавление — `mdq tree`).
 
-## Состояние на 2026-10-19
+## Состояние на 2026-10-31
 
 Ворота выверены против выпущенного Pri-Fly `v0.13.82`.
 
-- **Issue #6 — первая readability-порция локально PASS (2026-10-31):**
+- **Issue #6 — classic/profiled выпущены v1.54.0 (2026-10-31):**
   Fetch/pull main7260962: новых изменений GitHub нет. Latest stable0.13.82 /
   source d010dd3 прочитан: concurrent package install и Git worktree registry
   lock; authoring/API/сохранённые Runs прежние, runtime adaptation не нужна.
@@ -29,7 +29,12 @@
   без context bump отказывают. Новые guards закрывают эти реальные пробелы.
   Classic1.48.0, штатный derived profiled1.49.0. Остальные6 shipping trees прежние.
   Документы/examples/release guide/catalog entries подготовлены дляv1.54.0;
-  exact-commit CI и release/catalog publication ещё не выполнены.
+  CI41201130618 все3 jobs SUCCESS на source5d4169b; PR#8 MERGED.
+  Annotated tag/GitHub Release v1.54.0 опубликованы на том же source.
+  Центральный каталог08ea91f закрепляет все8 записей на tag/commit5d4169b.
+  Published default add/public v1.53→v1.54 update classic/profiled PASS:
+  exact origin/bytes,3hosts,6Runs, owner extend/project preserved, Markdown
+  edit refusal, verify cancel→continue и cleanup PASS. См. published-install-update-results.json.
   Evidence/план: docs/changes/improve-workflow-authoring-readability/.
   Inventory8 packages записан; остальные readability-порции ещё открыты.
   Прежний verify fail/no_work gap вынесен в issue#7; terminal outcome не выбран.

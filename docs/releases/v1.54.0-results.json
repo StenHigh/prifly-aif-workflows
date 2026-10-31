@@ -1,5 +1,5 @@
 {
-  "status": "local gates passed; awaiting exact-commit CI and publication",
+  "status": "published; exact-source CI all three jobs success",
   "prifly": "0.13.82",
   "binary_sha256": "3b073126921bca3e9d78b7649b51bd20527fd70cf4de44e0d440b5428b7712e5",
   "packages": {
@@ -29,8 +29,14 @@
     "pre-bump-equivalence.json": "6eafb5b09c5505bc90e26156f994c670ad5aea38dfe3502397f9c32957ae6750",
     "pre-bump-routes.json": "58444e3ae355538a9af2d845eafbfe78e2b9c189c0d273bc0240be970ee855e8",
     "profiled-source-negative.json": "b5c16d5a8c08291d5b9466ddf6ce85dc6ffcaaa687a99d27264617e450bf25db",
-    "source-version-negative.json": "c66648cada3ff7eb26219085356b161865feb0d2abc9dd613288babc1cefb068"
+    "source-version-negative.json": "c66648cada3ff7eb26219085356b161865feb0d2abc9dd613288babc1cefb068",
+    "published-install-update-results.json": "fdfcfe3b25093d30ea545ce3508516d85c2d925937f1ccf169ab14a0e0d37e75",
+    "ci-results.json": "69f61b71fd5611cecada9fca6fedb6153fd52e714b178fb8cd7d4b89f9d8e269"
   },
   "boundary": "real CLI/Git, synthetic replies; no live model acceptance or measured reading speed",
-  "known_defect": "https://github.com/StenHigh/prifly-aif-workflows/issues/7"
+  "known_defect": "https://github.com/StenHigh/prifly-aif-workflows/issues/7",
+  "source_sha": "5d4169b2ae457878c6d5f5dac4c9052dd85d688c",
+  "ci_url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/41201130618",
+  "catalog_commit": "08ea91f804e70b89fedde1e48dbef04df22c8e9b",
+  "published_install_update": "passed; default catalog add, public tag update, preserved owner settings, three hosts, six Runs"
 }

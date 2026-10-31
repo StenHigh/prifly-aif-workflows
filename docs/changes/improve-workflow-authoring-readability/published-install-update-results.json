@@ -1,0 +1,61 @@
+{
+  "prifly": "0.13.82",
+  "binary_sha256": "3b073126921bca3e9d78b7649b51bd20527fd70cf4de44e0d440b5428b7712e5",
+  "packages": [
+    {
+      "package": "aif-classic",
+      "version": "1.48.0",
+      "catalog": "public GitHub v1.53.0 to v1.54.0",
+      "origin": {
+        "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+        "path": "aif-classic",
+        "ref": "v1.54.0",
+        "commit": "5d4169b2ae457878c6d5f5dac4c9052dd85d688c",
+        "digest": "sha256:809fb4db22286c4a263dce3acae7fc1e424e4e9660c3bf21324692ba1d3c9d71",
+        "extend_digest": "sha256:faa3116b8df41d9a0739018ec297e774650ad8f01781176ef832ba787b0b1581"
+      },
+      "updated_bytes": "matched",
+      "extend_preserved": true,
+      "project_overlay_preserved": true,
+      "hosts_compiled": [
+        "codex-cli",
+        "codex-app",
+        "claude-code"
+      ],
+      "example_preview_start": "passed",
+      "verify_cancel_continue": "passed",
+      "markdown_owner_edit": "project_workflow_modified"
+    },
+    {
+      "package": "aif-profiled",
+      "version": "1.49.0",
+      "catalog": "public GitHub v1.53.0 to v1.54.0",
+      "origin": {
+        "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+        "path": "aif-profiled",
+        "ref": "v1.54.0",
+        "commit": "5d4169b2ae457878c6d5f5dac4c9052dd85d688c",
+        "digest": "sha256:272288f2c53ae021caff1fd4adeac2ca4a0cd0b6d17262e5718dc4f3e48a65ef",
+        "extend_digest": "sha256:9977d99ffbe00649b2f5d63fc7c701a0fec344f40118bdda2988a9d7f207e5d5"
+      },
+      "updated_bytes": "matched",
+      "extend_preserved": true,
+      "project_overlay_preserved": true,
+      "hosts_compiled": [
+        "codex-cli",
+        "codex-app",
+        "claude-code"
+      ],
+      "example_preview_start": "passed",
+      "verify_cancel_continue": "passed",
+      "markdown_owner_edit": "project_workflow_modified"
+    }
+  ],
+  "runs": 6,
+  "cleanup": {
+    "active_claims": 0,
+    "registry_entries_removed": 1,
+    "temporary_directory_removed": true
+  },
+  "scope": "real CLI/Git; synthetic warmup/plan/implement; resumed verify handoff; no models"
+}

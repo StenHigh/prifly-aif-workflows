@@ -1,7 +1,7 @@
 # Приёмка читаемости workflow: issue #6
 
 Дата: 2026-10-31. Первая порция: classic и штатный derived profiled.
-Статус: локальная первая порция PASS; exact-commit CI и release/catalog ещё впереди.
+Статус: первая порция выпущена v1.54.0; CI и release/catalog PASS.
 
 ## Входы и эквивалентность до bump
 
@@ -60,3 +60,16 @@ CI переиспользует adopted native route probe; новый DSL, form
 Новая версия автора намеренно меняет compiled identity; прежние build keys нужны только до bump.
 Синтетические replies проверяют wiring и effects, а не живые host/model integrations.
 Владелец принял форму по review; скорость чтения не измерялась.
+
+## Публикация первой порции
+
+PR #8 объединён fast-forward на проверенном source `5d4169b2ae457878c6d5f5dac4c9052dd85d688c`.
+Все три jobs [CI41201130618](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/41201130618) завершились SUCCESS.
+[CI evidence](ci-results.json) подтверждает official0.13.82, восемь route pairs, feature35, queue3 и W6 cases27 с cleanup.
+Annotated tag и [GitHub Release v1.54.0](https://github.com/StenHigh/prifly-aif-workflows/releases/tag/v1.54.0) указывают на тот же source.
+[Центральный каталог08ea91f](https://github.com/StenHigh/prifly-workflows/commit/08ea91f804e70b89fedde1e48dbef04df22c8e9b) закрепляет все восемь записей.
+
+[Published add/update](published-install-update-results.json): default catalog08ea91f и все8 source pins сверены.
+Classic/profiled установлены через default catalog; update v1.53.0→v1.54.0 получил exact source5d4169b.
+Шесть Runs и сборки на трёх hosts PASS. Extend/project bytes сохранены; локальная правка Markdown отказала.
+Continue с verify после отмены PASS; claims0, registry1 и temporary root очищены.

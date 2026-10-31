@@ -20,10 +20,10 @@
 - [x] Актуализировать guards, если они зависят от inline-формы.
 - [x] Обновить README/release guide/catalog/examples и evidence.
 - [x] Выполнить локальные ворота, финальные восемь пар и install/update smoke.
-- [ ] Получить exact-commit CI.
-- [ ] Повторно проверить latest stable перед тегом.
-- [ ] Выпустить порцию и обновить каталог.
-- [ ] Проверить published add/update с сохранением extend.yaml.
+- [x] Получить exact-commit CI.
+- [x] Повторно проверить latest stable перед тегом.
+- [x] Выпустить порцию и обновить каталог.
+- [x] Проверить published add/update с сохранением extend.yaml.
 
 ## Остальные пакеты
 

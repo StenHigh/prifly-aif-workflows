@@ -72,7 +72,7 @@ workflow или отдельная очередь не добавляются.
 связана с реализацией и повторяется после исправлений. Для браузерных проверок
 понадобится [контракт тестовой среды проекта](docs/product-review-environment.md).
 
-**Подготовка v1.54.0.** Читаемые исходники `aif-classic@1.48.0` и штатный
+**Выпуск v1.54.0.** Читаемые исходники `aif-classic@1.48.0` и штатный
 `aif-profiled@1.49.0`: блочный YAML, Markdown verify bridge и README-карты.
 Маршруты и instructions сохранены; ускорение чтения не измерялось.
 [Change и приёмка](docs/changes/improve-workflow-authoring-readability/acceptance.md),
