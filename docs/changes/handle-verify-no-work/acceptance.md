@@ -1,6 +1,6 @@
 # Приёмка issue #7
 
-Статус: локальная приёмка PASS; полный CI ещё ожидается.
+Статус: локальная приёмка и все три jobs полного CI PASS.
 Владелец согласовал completed/rejected без обязательного gate 2026-10-31.
 
 ## Проверяемый контракт
@@ -28,7 +28,19 @@ Cleanup должен освободить claims и удалить регист�
 - [Неизменённые маршруты](unchanged-routes.json): 6 pairs PASS против v1.53.0, включая blocked и успешный fix.
 
 Binary SHA-256: `3b073126921bca3e9d78b7649b51bd20527fd70cf4de44e0d440b5428b7712e5`.
-Полный CI ещё ожидается. Все проверки используют official released Pri-Fly0.13.82.
+Все проверки используют official released Pri-Fly0.13.82.
+
+## CI
+
+[PR #11](https://github.com/StenHigh/prifly-aif-workflows/pull/11),
+source `a9f94fe37df371e13a6a7a3872b56e02399e5e3f`.
+[CI41219942108](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/41219942108):
+verify, parallel-ui-ux и call-review-uiux завершились SUCCESS.
+Artifacts classic-readability-results и classic-verify-outcomes подтверждают6 равных pairs
+и12 cases/28 Runs на official0.13.82 с тем же binary SHA-256.
+Оба downloaded JSON точно совпали с локальными reports; cleanup PASS.
+[Итоговая приёмка](ci-results.json) закрепляет source, jobs и SHA-256 artifacts.
+После qualified source добавлены только документы приёмки; shipping, tests и CI workflow bytes прежние.
 
 ## Команды
 

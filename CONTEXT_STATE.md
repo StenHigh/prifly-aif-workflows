@@ -10,7 +10,7 @@
 
 Ворота выверены против выпущенного Pri-Fly `v0.13.82`.
 
-- **Issue #7 — согласованный verify stop подготовлен (2026-10-31):**
+- **Issue #7 — PR#11 готов, local/full CI PASS (2026-10-31):**
   Владелец согласовал completed/rejected без обязательного gate для verify fail/no_work.
   Fetch/pull mainf4424dd: новых изменений GitHub нет; latest stable прежний0.13.82.
   Classic root/package1.49.0 обрабатывает дочерний no_work через abandoned;
@@ -31,7 +31,11 @@
   исправленных fail/no_work с прежним дефектом. Negative baseline v1.54.0
   подтверждает failed/unhandled_child_outcome; новая проверка его отвергает.
   README/release guide/catalog entries/examples подготовлены для v1.56.0.
-  Tag и центральный каталог не опубликованы; PR/CI ещё не завершены.
+  Tag и центральный каталог не опубликованы. PR#11 OPEN на sourcea9f94fe;
+  CI41219942108: все3 jobs SUCCESS. Новая native матрица12/28 и6 unchanged
+  readability pairs PASS; скачанные artifacts точно равны local reports,
+  official0.13.82/binary SHA-256 прежние. Финальный docs/evidence commit не меняет
+  shipping, tests и CI workflow bytes qualified sourcea9f94fe.
   Старые failed Runs остаются recover_frontier_unsupported; изменение on у
   verify может дать recover_frontier_changed при upgrade. Миграция не заявлена.
   Change/evidence: docs/changes/handle-verify-no-work/.

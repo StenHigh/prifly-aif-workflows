@@ -9,7 +9,7 @@
 - [x] Обновить README, release guide, catalog entries и examples.
 - [x] Получить negative baseline и 12 native cases / 28 Runs на official stable.
 - [x] Завершить versions/folders/derive, verify/compatibility и шесть readability pairs.
-- [ ] Получить полный CI на точном source commit и проверить артефакт native checks.
-- [ ] Подготовить PR с изменением и записать результаты в CONTEXT_STATE.md.
+- [x] Получить полный CI на точном source commit и проверить артефакт native checks.
+- [x] Подготовить PR с изменением и записать результаты в CONTEXT_STATE.md.
 
 Публикация тега и центрального каталога — отдельное действие после приёмки PR.
