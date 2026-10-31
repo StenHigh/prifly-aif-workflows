@@ -6,9 +6,47 @@
 движка 0.10–0.13.54, переход на AI Factory 2.19.0, WorkflowRevision v4) —
 в git: `git show d388b92:CONTEXT_STATE.md` (2330 строк, оглавление — `mdq tree`).
 
-## Состояние на 2026-10-31
+## Состояние на 2026-11-01
 
 Ворота выверены против выпущенного Pri-Fly `v0.13.82`.
+
+- **Issue #9 — начато исследование transport (2026-10-31):**
+  2026-11-01 владелец согласовал полный автоматический цикл и отдельный Core issue.
+  Создан StenHigh/prifly#14: project measurement внутри child repair/repeat и
+  явная передача нового carrier следующему reader. В issue есть pinned generic
+  reproducer, root-positive/nested-negative, C1–C8 и границы effects/совместимости.
+  Core сначала проверяет существующую композицию; новый transport/runner не нужен.
+  Полный CI41229071851/source95ea2cb теперь SUCCESS, focused CI прежний SUCCESS.
+  Найдена Core-сессия «Load project context»; текущие tools не дают send/handoff
+  в существующую сессию. Сообщение не отправлено; готовый текст в change/handoff.md.
+  После опубликованного v1.56.0 создана codex/issue-9-check-report-transport
+  от mainb4cf19e. Fetch: новых изменений нет; latest stable прежний0.13.82.
+  Кандидат контракта: optional reports:[ArtifactRef] внутри existing implementation.
+  Generic native fixture использует reserved output slots, report/log refs,
+  public export, child repeat и project extensions; shipping8 bytes прежние.
+  Success/repair/failed подтверждают исходные refs/bytes после удаления producer
+  Attempt directory, immutable basis/results и honest blocked→partial для failed.
+  Root measurement исполняется один раз, reader после child repair — дважды.
+  Вставка на существующий round.repair→fixed получает
+  project_extension_unknown_workflow: round (known: transport).
+  Это root-only boundary, не отсутствие artifact transport в Core.
+  Continue переиспользует stages с новыми output refs; исходные report/log refs
+  внутри carrier нужно сохранять явно. Финальная native матрица4 cases/5 Runs PASS:
+  success, repair, failed и reviewed continue от cycle; source Run неизменён,
+  produce/measure переиспользованы. Все12 negative exports отказали ожидаемо:
+  unknown→not_found, missing revision/substituted digest→integrity_failure.
+  Каждый case: active claims0, registry entry1 удалена, temp dirs удалены.
+  Static versions4/folders7/derive --check PASS. Отдельный CI workflow сохраняет
+  report-transport-results; actual shipping bytes/версии не меняются.
+  Draft PR#12 создан, focused CI41229072017/source95ea2cb SUCCESS.
+  Artifact скачан: те же4 cases/5 Runs, expected export refusals/cleanup,
+  official binary SHA-256 прежний. Полный verify41229071851 завершился SUCCESS.
+  Последующий docs commit только записывает evidence.
+  До shipping реализации выбрать поддержанный project-owned measurement и
+  binding его результата перед reader после repair. Нельзя provision внутри
+  read-only verify, подменять step refs или копировать base verify/check-change.
+  Полная приёмка actual classic/profiled/fix, disabled/stale/unknown/live LLM
+  пока не заявлена. Change: docs/changes/pass-check-reports/.
 
 - **Issue #7 — PR#11 MERGED, v1.56.0 опубликован (2026-10-31):**
   Владелец согласовал completed/rejected без обязательного gate для verify fail/no_work.

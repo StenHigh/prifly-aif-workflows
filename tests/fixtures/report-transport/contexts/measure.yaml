@@ -1,0 +1,4 @@
+id: report-probe:context/measure
+version: 1.0.0
+media_type: text/plain
+text: Synthetic project measurement handoff. The fixture provisions no external service.

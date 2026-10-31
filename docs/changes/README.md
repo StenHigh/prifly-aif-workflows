@@ -3,7 +3,7 @@
 Дата: 2026-10-31. W1–W3: **committed/pushed, CI PASS**, с отдельными live observations;
 W4: **committed/pushed, pilot qualified, CI PASS**; W5: **пакетная часть завершена, scoped qualification и final CI PASS; v1.52.0**.
 Пакеты включены в [выпуск v1.52.0](../releases/v1.52.0.md). Актуальная база совместимости: released Pri-Fly
-**0.13.82**, выпуск репозитория **v1.55.0**. Прежние CI/live evidence на
+**0.13.82**, выпуск репозитория **v1.56.0**. Прежние CI/live evidence на
 0.13.76 остаются историческими; повторная проверка нового stable записана отдельно.
 
 В этом репозитории нет инициализированного OpenSpec-проекта. Change хранятся
@@ -27,6 +27,11 @@ Issue #7: владелец согласовал completed/rejected без обя
 Отдельный [change](handle-verify-no-work/proposal.md) добавляет handler и штатный derive profiled.
 [Приёмка](handle-verify-no-work/acceptance.md) проверяет terminal outcome и continue от verify.
 PR#11 MERGED, выпуск v1.56.0/source1985ae1 опубликован; каталог79f01ce обновлён.
+
+Issue #9: [исследование передачи исходных отчётов](pass-check-reports/proposal.md).
+Generic native fixture подтверждает transport через ordinary ArtifactRef и воспроизводит root-only extension boundary.
+Пакетная реализация и порядок project measurement после repair ещё не приняты.
+Этот change не закрывает issue #9.
 
 Отдельно от W1–W6 выпускается
 [OpenClaw test audit](add-standalone-test-audit/proposal.md) — самостоятельный
