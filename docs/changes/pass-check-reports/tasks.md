@@ -7,6 +7,7 @@
 - [x] Проверить исходные refs после удаления producer Attempt directory и вложенного repeat.
 - [x] Воспроизвести отказ project extension на существующем child repair edge.
 - [x] Закончить native проверку continue и отрицательных artifact exports; сохранить финальный отчёт.
+- [x] Создать draft PR#12 и получить focused CI41229072017 SUCCESS на source95ea2cb.
 - [ ] Выбрать поддержанный порядок project measurement и binding его результата перед reader после repair.
 - [ ] Реализовать optional carrier и все переходы shipping classic/fix.
 - [ ] Обновить инструкции reuse/applicability и сохранить failed/unavailable/unknown evidence.

@@ -1,0 +1,119 @@
+{
+  "source_commit": "95ea2cb77b69570c24891694e8e23bcf2d9102cb",
+  "workflow": "report-transport",
+  "run_id": 41229072017,
+  "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/41229072017",
+  "conclusion": "success",
+  "artifact": "report-transport-results",
+  "artifact_file_sha256": "1b59301e4aba3473d58bb0d837dfc0ad33753b5a0257f0047586015a027ca055",
+  "prifly": "0.13.82",
+  "binary_sha256": "3b073126921bca3e9d78b7649b51bd20527fd70cf4de44e0d440b5428b7712e5",
+  "complete": true,
+  "runs": 5,
+  "cases": [
+    {
+      "case": "success",
+      "status": "completed",
+      "outcome": "succeeded",
+      "handoffs": [
+        "produce",
+        "measure",
+        "read",
+        "consume"
+      ],
+      "producer_count": 1,
+      "project_measurement_handoffs": 1,
+      "producer_directory_removed": true,
+      "nested_log_exported": true,
+      "runs": 1,
+      "invalid_refs": {
+        "unknown": "not_found",
+        "missing_revision": "integrity_failure",
+        "substituted_digest": "integrity_failure"
+      },
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1
+      }
+    },
+    {
+      "case": "repair",
+      "status": "completed",
+      "outcome": "succeeded",
+      "handoffs": [
+        "produce",
+        "measure",
+        "read",
+        "repair",
+        "read",
+        "consume"
+      ],
+      "producer_count": 1,
+      "project_measurement_handoffs": 1,
+      "producer_directory_removed": true,
+      "nested_log_exported": true,
+      "runs": 1,
+      "invalid_refs": {
+        "unknown": "not_found",
+        "missing_revision": "integrity_failure",
+        "substituted_digest": "integrity_failure"
+      },
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1
+      }
+    },
+    {
+      "case": "failed",
+      "status": "completed",
+      "outcome": "partial",
+      "handoffs": [
+        "produce",
+        "measure",
+        "read"
+      ],
+      "producer_count": 1,
+      "project_measurement_handoffs": 1,
+      "producer_directory_removed": true,
+      "nested_log_exported": true,
+      "runs": 1,
+      "invalid_refs": {
+        "unknown": "not_found",
+        "missing_revision": "integrity_failure",
+        "substituted_digest": "integrity_failure"
+      },
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1
+      }
+    },
+    {
+      "case": "continue",
+      "status": "completed",
+      "outcome": "succeeded",
+      "handoffs": [
+        "produce",
+        "measure",
+        "read",
+        "read",
+        "consume"
+      ],
+      "producer_count": 1,
+      "project_measurement_handoffs": 1,
+      "producer_directory_removed": true,
+      "nested_log_exported": true,
+      "runs": 2,
+      "invalid_refs": {
+        "unknown": "not_found",
+        "missing_revision": "integrity_failure",
+        "substituted_digest": "integrity_failure"
+      },
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1
+      }
+    }
+  ],
+  "boundary": "Generic wiring with synthetic assisted replies; no AIF or LLM acceptance.",
+  "shipping_package_bytes_equal_v1_56_0": true
+}

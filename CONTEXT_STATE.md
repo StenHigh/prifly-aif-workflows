@@ -30,6 +30,10 @@
   Каждый case: active claims0, registry entry1 удалена, temp dirs удалены.
   Static versions4/folders7/derive --check PASS. Отдельный CI workflow сохраняет
   report-transport-results; actual shipping bytes/версии не меняются.
+  Draft PR#12 создан, focused CI41229072017/source95ea2cb SUCCESS.
+  Artifact скачан: те же4 cases/5 Runs, expected export refusals/cleanup,
+  official binary SHA-256 прежний. Полный verify41229071851 пока запущен,
+  его завершение не заявлено. Последующий docs commit только записывает evidence.
   До shipping реализации выбрать поддержанный project-owned measurement и
   binding его результата перед reader после repair. Нельзя provision внутри
   read-only verify, подменять step refs или копировать base verify/check-change.
