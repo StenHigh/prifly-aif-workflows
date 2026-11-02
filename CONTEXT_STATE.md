@@ -10,7 +10,7 @@
 
 Ворота verify/compatibility выверены против выпущенного Pri-Fly `v0.13.86`.
 
-Кандидат unified `/5`: classic/profiled/fix/UIUX2.0.0, feature1.4.0,
+Опубликован v1.57.0 / sourceee76702, PR#13 MERGED. Unified `/5`: classic/profiled/fix/UIUX2.0.0, feature1.4.0,
 shared schema closure1.2.0 → frozen1.0.0. Историческая приёмка85 сохранена
 в docs/changes/adopt-unified-composition-v5/acceptance.md. Она включает реальные
 Chromium/UI/UX sessions и отдельный private backend pilot; их границы прежние.
@@ -26,9 +26,13 @@ repair, disabled, continue, permissions; fix clean, repair, disabled.
 Первый PR CI обнаружил private/shared schema mismatch только в disposable
 parallel fixture. RED воспроизведён; fixture aliases исправлены без смены
 shipping workers. Контракт3hosts и все17 Chromium parallel cases PASS.
-Каталог ещё сохраняет опубликованные pins до выпуска пакетов.
+Catalog8676887 закрепляет пять новых pins; остальные три прежние.
+Full CI41483421499: все6 jobsSUCCESS; focused41483421325SUCCESS.
+Public tag/default add+old-tag update: 5packages×3hosts×2modes=30nativebuildsPASS,
+exactbytes/explicitdeps/ownerfiles/local-editrefusal/cleanupPASS.
+CI ZIPdigests и13reports проверены. Публичная часть consumer#9 принята.
 
-- **Issue #9 — начато исследование transport (2026-10-31):**
+- **Issue #9 — историческое исследование transport (2026-10-31):**
   2026-11-01 владелец согласовал полный автоматический цикл и отдельный Core issue.
   Создан StenHigh/prifly#14: project measurement внутри child repair/repeat и
   явная передача нового carrier следующему reader. В issue есть pinned generic

@@ -72,13 +72,14 @@ workflow или отдельная очередь не добавляются.
 связана с реализацией и повторяется после исправлений. Для браузерных проверок
 понадобится [контракт тестовой среды проекта](docs/product-review-environment.md).
 
-**Кандидат unified composition `/5`.** Classic/profiled/fix/UIUX2.0.0
+**Выпуск v1.57.0: unified composition `/5`.** Classic/profiled/fix/UIUX2.0.0
 используют public imports, scoped points и общую exact schema dependency.
 Нужны Pri-Fly **0.13.86** и явная установка пакета общих схем.
 [Примеры](examples/unified-composition/README.md),
 [границы приёмки](docs/changes/adopt-unified-composition-v5/design.md),
-[draft release guide](docs/changes/adopt-unified-composition-v5/release-guide.md).
-Кандидат готовится к выпуску v1.57.0. Каталог сохраняет прежние pins до публикации.
+[release guide](docs/changes/adopt-unified-composition-v5/release-guide.md).
+[v1.57.0 опубликован](https://github.com/StenHigh/prifly-aif-workflows/releases/tag/v1.57.0).
+Каталог закрепляет пять изменённых пакетов; остальные три pins прежние.
 [Core #15](https://github.com/StenHigh/prifly/issues/15) исправлен в v0.13.86;
 опубликованный бинарник прошёл именованный native запуск.
 

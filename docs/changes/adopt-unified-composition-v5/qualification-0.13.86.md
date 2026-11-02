@@ -46,3 +46,20 @@ then passed their expected outcomes, including refusal/cancel/partial cases and
 owned cleanup. [Reports](qualification-0.13.86/) keep RED and GREEN separately.
 The earlier 13-case input fingerprint is historical; it is not rewritten to cover
 this later fixture correction. Final committed CI remains the release gate.
+
+## Published source and default catalog
+
+[PR #13](https://github.com/StenHigh/prifly-aif-workflows/pull/13) merged.
+Source `ee76702dec0d8e0958ef068ef58074ecf2db37e9` is tagged v1.57.0.
+Main merge `3bcfe6541f353834146675bf1a8260c56997088b` has an identical Git tree.
+[Final CI](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/41483421499)
+and [generic transport CI](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/41483421325)
+passed. [Downloaded measurement artifacts](qualification-0.13.86/ci-verified-measurements.json)
+match provider ZIP digests and contain exactly the 13 expected cases on the recorded binary.
+
+The actual public tag and default catalog then passed five installs and five
+old-tag updates, 30 native builds on three host adapters, byte comparison,
+missing-dependency refusal, explicit schema install, owner-file preservation and
+unreviewed provider-edit refusal. All fixture claims were absent; three registry
+entries and temporary roots were cleaned. [Public results](qualification-0.13.86/published-install-update.json).
+These post-publication records do not change tagged package bytes or historical85 evidence.

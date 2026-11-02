@@ -1,0 +1,424 @@
+{
+  "release_ref": "v1.57.0",
+  "source_commit": "ee76702dec0d8e0958ef068ef58074ecf2db37e9",
+  "binary_version": "0.13.86",
+  "binary_sha256": "f46270b8046a95a03b39ce2c67bcee7212e944d68db74db8cc0e2852f90e0d13",
+  "results": [
+    {
+      "mode": "default-catalog-add",
+      "catalog": {
+        "repository": "https://github.com/StenHigh/prifly-workflows.git",
+        "commit": "8676887572e99a27812ab8b9220423b3c081aaaf",
+        "title": "Pri-Fly workflow catalog"
+      },
+      "origins": [
+        {
+          "name": "aif-classic",
+          "origin": {
+            "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+            "path": "aif-classic",
+            "ref": "v1.57.0",
+            "commit": "ee76702dec0d8e0958ef068ef58074ecf2db37e9",
+            "digest": "sha256:e4da845ad76594b5b0e633280783725db6dd24b04b07d927182374d5f6cedd3e",
+            "extend_digest": "sha256:1617df193b233b080e54403b5a90945e50f51b49cbb56bc80875a9eb0cd70455",
+            "catalog": "https://github.com/StenHigh/prifly-workflows.git"
+          },
+          "version": "2.0.0"
+        },
+        {
+          "name": "aif-profiled",
+          "origin": {
+            "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+            "path": "aif-profiled",
+            "ref": "v1.57.0",
+            "commit": "ee76702dec0d8e0958ef068ef58074ecf2db37e9",
+            "digest": "sha256:003628526467d283ce50f3a101b32567d04ce231944bfdf4d1091ed11ae65ebf",
+            "extend_digest": "sha256:3379703aa68de5043437938692c5fa910968cf106789757be622e5451bf58ded",
+            "catalog": "https://github.com/StenHigh/prifly-workflows.git"
+          },
+          "version": "2.0.0"
+        },
+        {
+          "name": "aif-fix",
+          "origin": {
+            "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+            "path": "aif-fix",
+            "ref": "v1.57.0",
+            "commit": "ee76702dec0d8e0958ef068ef58074ecf2db37e9",
+            "digest": "sha256:678fef573309864a1c275d96d9620b3688f24dd2ce491948563ff37f797aca22",
+            "extend_digest": "sha256:b295cc557cca1864a7d253df6fd9731ae7a8cdd17c16b60c879fd2308f481b9d",
+            "catalog": "https://github.com/StenHigh/prifly-workflows.git"
+          },
+          "version": "2.0.0"
+        },
+        {
+          "name": "aif-ui-ux",
+          "origin": {
+            "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+            "path": "aif-ui-ux",
+            "ref": "v1.57.0",
+            "commit": "ee76702dec0d8e0958ef068ef58074ecf2db37e9",
+            "digest": "sha256:132f6f47ea35ccbece9da780251d78f1f5fa930dcc7da0805edef8329bea31ee",
+            "extend_digest": "sha256:a56ae91f889c2abaa41f87f41056f0017bf44e0834eedfc88dacf2ee2dd06a53",
+            "catalog": "https://github.com/StenHigh/prifly-workflows.git"
+          },
+          "version": "2.0.0"
+        },
+        {
+          "name": "aif-feature",
+          "origin": {
+            "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+            "path": "aif-feature",
+            "ref": "v1.57.0",
+            "commit": "ee76702dec0d8e0958ef068ef58074ecf2db37e9",
+            "digest": "sha256:1bb27ecd575f3b2c07d991971cc4e43d7694e2f879eefb5dc124c9adbb452681",
+            "extend_digest": "sha256:4e6fb8f6f3279c655be3f66af0cef19d5d7602ff4f04428ae499c12c1332001a",
+            "catalog": "https://github.com/StenHigh/prifly-workflows.git"
+          },
+          "version": "1.4.0"
+        }
+      ],
+      "exact_source_bytes": {
+        "aif-classic": {
+          "files": 67,
+          "sha256": "ddabd394cb790110db66c3f00ae4ef59d9b11857bf92f99b35ee213beb9bf718"
+        },
+        "aif-profiled": {
+          "files": 67,
+          "sha256": "5754928e3a5dc1c5191ed186c2d9a645945dc1e0fa1d14b3867de83b39926639"
+        },
+        "aif-fix": {
+          "files": 55,
+          "sha256": "ee9692ddba70add5deb95c070146efe8750154fc9e3cdde65eddaa5e9d3d1c87"
+        },
+        "aif-ui-ux": {
+          "files": 46,
+          "sha256": "dcbcf6bf8e169e152b3bcd1126c8e1f0b12d04e93d9330c7dc8d1c06edcb9379"
+        },
+        "aif-feature": {
+          "files": 132,
+          "sha256": "7c2be8aa343de3172d213c0819f6842a493469286f5f6892bdb0c019afa7ef55"
+        }
+      },
+      "missing_dependency_refusal": "{\"schema_version\":\"1\",\"code\":\"invalid_usage\",\"message\":\"project_compile_reference n3770184369bc8ddc_ref_contract_schema_implementation: logical reference is not installed\",\"retryable\":false,\"correlation_id\":\"correlation:5455d8d750d61f6c6d19fa416e9b77ef\",\"violations\":[],\"safe_next_actions\":[\"help\"]}\n",
+      "explicit_schema_package": {
+        "digest": "sha256:36c5f25d2bebb8c5cd9d77967ec5a2c8f2d6cec71f04b0b864c339bd8ef8eb6d",
+        "id": "aif:package/composition-contracts",
+        "version": "1.2.0"
+      },
+      "compiled": [
+        {
+          "package": "aif-classic",
+          "host": "codex-cli",
+          "build_key": "sha256:4ad465cfff963f03a08f8f5f1048e5b52322793e0bd7db35eab4d3752d0a4032"
+        },
+        {
+          "package": "aif-classic",
+          "host": "codex-app",
+          "build_key": "sha256:4ad465cfff963f03a08f8f5f1048e5b52322793e0bd7db35eab4d3752d0a4032"
+        },
+        {
+          "package": "aif-classic",
+          "host": "claude-code",
+          "build_key": "sha256:4ad465cfff963f03a08f8f5f1048e5b52322793e0bd7db35eab4d3752d0a4032"
+        },
+        {
+          "package": "aif-profiled",
+          "host": "codex-cli",
+          "build_key": "sha256:1850f9ffb43d8470dc9971ca7910c68ce8df068ecbb52e14ce89255b2feb3174"
+        },
+        {
+          "package": "aif-profiled",
+          "host": "codex-app",
+          "build_key": "sha256:1850f9ffb43d8470dc9971ca7910c68ce8df068ecbb52e14ce89255b2feb3174"
+        },
+        {
+          "package": "aif-profiled",
+          "host": "claude-code",
+          "build_key": "sha256:1850f9ffb43d8470dc9971ca7910c68ce8df068ecbb52e14ce89255b2feb3174"
+        },
+        {
+          "package": "aif-fix",
+          "host": "codex-cli",
+          "build_key": "sha256:1b16a4e10ffc8e9aa90f81c42c6297626f45301557edb81b9d2cfabd54922126"
+        },
+        {
+          "package": "aif-fix",
+          "host": "codex-app",
+          "build_key": "sha256:1b16a4e10ffc8e9aa90f81c42c6297626f45301557edb81b9d2cfabd54922126"
+        },
+        {
+          "package": "aif-fix",
+          "host": "claude-code",
+          "build_key": "sha256:1b16a4e10ffc8e9aa90f81c42c6297626f45301557edb81b9d2cfabd54922126"
+        },
+        {
+          "package": "aif-ui-ux",
+          "host": "codex-cli",
+          "build_key": "sha256:e726b44aecb6c184f709966964186fb6709dfe2f7333597960b47d9bf6527371"
+        },
+        {
+          "package": "aif-ui-ux",
+          "host": "codex-app",
+          "build_key": "sha256:e726b44aecb6c184f709966964186fb6709dfe2f7333597960b47d9bf6527371"
+        },
+        {
+          "package": "aif-ui-ux",
+          "host": "claude-code",
+          "build_key": "sha256:e726b44aecb6c184f709966964186fb6709dfe2f7333597960b47d9bf6527371"
+        },
+        {
+          "package": "aif-feature",
+          "host": "codex-cli",
+          "build_key": "sha256:dfff1c114f76aac532be628c47199890bb206a8674454e686bb5d7875cc98a24"
+        },
+        {
+          "package": "aif-feature",
+          "host": "codex-app",
+          "build_key": "sha256:dfff1c114f76aac532be628c47199890bb206a8674454e686bb5d7875cc98a24"
+        },
+        {
+          "package": "aif-feature",
+          "host": "claude-code",
+          "build_key": "sha256:dfff1c114f76aac532be628c47199890bb206a8674454e686bb5d7875cc98a24"
+        }
+      ]
+    },
+    {
+      "mode": "public-old-tag-to-new-tag-update",
+      "origins": [
+        {
+          "name": "aif-classic",
+          "previous": {
+            "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+            "path": "aif-classic",
+            "ref": "v1.56.0",
+            "commit": "1985ae1f3801bc87bb74ee74985cad58540e5a14",
+            "digest": "sha256:64942b36682f3ee5c034d994db65304248875d2995915fdc22d8e704165b1555",
+            "extend_digest": "sha256:faa3116b8df41d9a0739018ec297e774650ad8f01781176ef832ba787b0b1581"
+          },
+          "current": {
+            "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+            "path": "aif-classic",
+            "ref": "v1.57.0",
+            "commit": "ee76702dec0d8e0958ef068ef58074ecf2db37e9",
+            "digest": "sha256:e4da845ad76594b5b0e633280783725db6dd24b04b07d927182374d5f6cedd3e",
+            "extend_digest": "sha256:1617df193b233b080e54403b5a90945e50f51b49cbb56bc80875a9eb0cd70455"
+          },
+          "owner_extend_preserved": true,
+          "owner_project_preserved": true
+        },
+        {
+          "name": "aif-profiled",
+          "previous": {
+            "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+            "path": "aif-profiled",
+            "ref": "v1.56.0",
+            "commit": "1985ae1f3801bc87bb74ee74985cad58540e5a14",
+            "digest": "sha256:9a5d429de4391bc4d85de2dabb79f53db93032b6f0e17f2fc4178f014205115a",
+            "extend_digest": "sha256:9977d99ffbe00649b2f5d63fc7c701a0fec344f40118bdda2988a9d7f207e5d5"
+          },
+          "current": {
+            "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+            "path": "aif-profiled",
+            "ref": "v1.57.0",
+            "commit": "ee76702dec0d8e0958ef068ef58074ecf2db37e9",
+            "digest": "sha256:003628526467d283ce50f3a101b32567d04ce231944bfdf4d1091ed11ae65ebf",
+            "extend_digest": "sha256:3379703aa68de5043437938692c5fa910968cf106789757be622e5451bf58ded"
+          },
+          "owner_extend_preserved": true,
+          "owner_project_preserved": true
+        },
+        {
+          "name": "aif-fix",
+          "previous": {
+            "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+            "path": "aif-fix",
+            "ref": "v1.55.0",
+            "commit": "42e60de8617e1ae6f38b77b0a3e008b538ad664b",
+            "digest": "sha256:8fe81ad22edb4116c8f83ade827baf258e465273216ab8c5ac9be1c0304bb169",
+            "extend_digest": "sha256:e0eac5faca12afb288167035fb55e11100968c3c01ddfd320948f4acf198d649"
+          },
+          "current": {
+            "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+            "path": "aif-fix",
+            "ref": "v1.57.0",
+            "commit": "ee76702dec0d8e0958ef068ef58074ecf2db37e9",
+            "digest": "sha256:678fef573309864a1c275d96d9620b3688f24dd2ce491948563ff37f797aca22",
+            "extend_digest": "sha256:b295cc557cca1864a7d253df6fd9731ae7a8cdd17c16b60c879fd2308f481b9d"
+          },
+          "owner_extend_preserved": true,
+          "owner_project_preserved": true
+        },
+        {
+          "name": "aif-ui-ux",
+          "previous": {
+            "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+            "path": "aif-ui-ux",
+            "ref": "v1.55.0",
+            "commit": "42e60de8617e1ae6f38b77b0a3e008b538ad664b",
+            "digest": "sha256:d8f4a3c83d4a3cff8d9688c12833a34bba7fd32a8708cc68111666d6c510f2f3",
+            "extend_digest": "sha256:10939f1f38c85ce5296ab5b444ef3dc13cc108cc4076c598e3595682e5f97da2"
+          },
+          "current": {
+            "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+            "path": "aif-ui-ux",
+            "ref": "v1.57.0",
+            "commit": "ee76702dec0d8e0958ef068ef58074ecf2db37e9",
+            "digest": "sha256:132f6f47ea35ccbece9da780251d78f1f5fa930dcc7da0805edef8329bea31ee",
+            "extend_digest": "sha256:a56ae91f889c2abaa41f87f41056f0017bf44e0834eedfc88dacf2ee2dd06a53"
+          },
+          "owner_extend_preserved": true,
+          "owner_project_preserved": true
+        },
+        {
+          "name": "aif-feature",
+          "previous": {
+            "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+            "path": "aif-feature",
+            "ref": "v1.55.0",
+            "commit": "42e60de8617e1ae6f38b77b0a3e008b538ad664b",
+            "digest": "sha256:0ea55710fd74817a919a4e17a70a8cba0e1eee76d0e96cee889d7de80fed2820",
+            "extend_digest": "sha256:4e6fb8f6f3279c655be3f66af0cef19d5d7602ff4f04428ae499c12c1332001a"
+          },
+          "current": {
+            "repository": "https://github.com/StenHigh/prifly-aif-workflows.git",
+            "path": "aif-feature",
+            "ref": "v1.57.0",
+            "commit": "ee76702dec0d8e0958ef068ef58074ecf2db37e9",
+            "digest": "sha256:1bb27ecd575f3b2c07d991971cc4e43d7694e2f879eefb5dc124c9adbb452681",
+            "extend_digest": "sha256:4e6fb8f6f3279c655be3f66af0cef19d5d7602ff4f04428ae499c12c1332001a"
+          },
+          "owner_extend_preserved": true,
+          "owner_project_preserved": true
+        }
+      ],
+      "exact_source_bytes_except_owner_paths": {
+        "aif-classic": {
+          "files": 66,
+          "sha256": "c6cac30814b63f228ba7a18f5bf1ad20591c6bbaaddbabf0301c1fb672badf6b"
+        },
+        "aif-profiled": {
+          "files": 66,
+          "sha256": "6f64e2310e0f041fc5481a67487df448bcc51e03a19a0e0f58a63ca526655715"
+        },
+        "aif-fix": {
+          "files": 54,
+          "sha256": "6b6936c5ccdaa19365e3fa0bb8fda15863f3e6d22a9f5a5fdda0187a3fd3fe01"
+        },
+        "aif-ui-ux": {
+          "files": 45,
+          "sha256": "96b51a93b2d011c9eb645c04f8925e4d683d8a7b05b43a0e31c498a4043bbb2a"
+        },
+        "aif-feature": {
+          "files": 131,
+          "sha256": "c5e61f3a147a79bd374c4001ba6b135fde6f2e1b6c0d6c17803720e2cc18bbea"
+        }
+      },
+      "explicit_owner_migrations": [
+        {
+          "package": "aif-classic",
+          "action": "Explicit fixture-owner migration of extension authoring to /5 after preservation check; not an automatic updater effect."
+        },
+        {
+          "package": "aif-profiled",
+          "action": "Explicit fixture-owner migration of extension authoring to /5 after preservation check; not an automatic updater effect."
+        },
+        {
+          "package": "aif-fix",
+          "action": "Explicit fixture-owner migration of extension authoring to /5 after preservation check; not an automatic updater effect."
+        },
+        {
+          "package": "aif-ui-ux",
+          "action": "Explicit fixture-owner migration of extension authoring to /5 after preservation check; not an automatic updater effect."
+        }
+      ],
+      "explicit_schema_package": {
+        "digest": "sha256:36c5f25d2bebb8c5cd9d77967ec5a2c8f2d6cec71f04b0b864c339bd8ef8eb6d",
+        "id": "aif:package/composition-contracts",
+        "version": "1.2.0"
+      },
+      "compiled": [
+        {
+          "package": "aif-classic",
+          "host": "codex-cli",
+          "build_key": "sha256:598dee4c9fe1c6878666a0d3711f16f26c0ebc9f9678bfbdf875d70dcdd1b253"
+        },
+        {
+          "package": "aif-classic",
+          "host": "codex-app",
+          "build_key": "sha256:598dee4c9fe1c6878666a0d3711f16f26c0ebc9f9678bfbdf875d70dcdd1b253"
+        },
+        {
+          "package": "aif-classic",
+          "host": "claude-code",
+          "build_key": "sha256:598dee4c9fe1c6878666a0d3711f16f26c0ebc9f9678bfbdf875d70dcdd1b253"
+        },
+        {
+          "package": "aif-profiled",
+          "host": "codex-cli",
+          "build_key": "sha256:67a216d167609e73c2062353a69dda1787cd72c80eef695b31e9a5d9ac68573f"
+        },
+        {
+          "package": "aif-profiled",
+          "host": "codex-app",
+          "build_key": "sha256:67a216d167609e73c2062353a69dda1787cd72c80eef695b31e9a5d9ac68573f"
+        },
+        {
+          "package": "aif-profiled",
+          "host": "claude-code",
+          "build_key": "sha256:67a216d167609e73c2062353a69dda1787cd72c80eef695b31e9a5d9ac68573f"
+        },
+        {
+          "package": "aif-fix",
+          "host": "codex-cli",
+          "build_key": "sha256:e8b00bbc284b05523d31fe1ff4b1dc0a49cc6c6aeaadd1a0d3ef53bfbc3488e0"
+        },
+        {
+          "package": "aif-fix",
+          "host": "codex-app",
+          "build_key": "sha256:e8b00bbc284b05523d31fe1ff4b1dc0a49cc6c6aeaadd1a0d3ef53bfbc3488e0"
+        },
+        {
+          "package": "aif-fix",
+          "host": "claude-code",
+          "build_key": "sha256:e8b00bbc284b05523d31fe1ff4b1dc0a49cc6c6aeaadd1a0d3ef53bfbc3488e0"
+        },
+        {
+          "package": "aif-ui-ux",
+          "host": "codex-cli",
+          "build_key": "sha256:d0b71681fefd90d789eeb15bd475d91ad58d26703772c22a02a49e7ea5bb5f0d"
+        },
+        {
+          "package": "aif-ui-ux",
+          "host": "codex-app",
+          "build_key": "sha256:d0b71681fefd90d789eeb15bd475d91ad58d26703772c22a02a49e7ea5bb5f0d"
+        },
+        {
+          "package": "aif-ui-ux",
+          "host": "claude-code",
+          "build_key": "sha256:d0b71681fefd90d789eeb15bd475d91ad58d26703772c22a02a49e7ea5bb5f0d"
+        },
+        {
+          "package": "aif-feature",
+          "host": "codex-cli",
+          "build_key": "sha256:dfff1c114f76aac532be628c47199890bb206a8674454e686bb5d7875cc98a24"
+        },
+        {
+          "package": "aif-feature",
+          "host": "codex-app",
+          "build_key": "sha256:dfff1c114f76aac532be628c47199890bb206a8674454e686bb5d7875cc98a24"
+        },
+        {
+          "package": "aif-feature",
+          "host": "claude-code",
+          "build_key": "sha256:dfff1c114f76aac532be628c47199890bb206a8674454e686bb5d7875cc98a24"
+        }
+      ],
+      "local_upstream_edit_refusal": "{\"schema_version\":\"1\",\"code\":\"project_workflow_modified\",\"message\":\"local changes in README.md; remove and add the folder again, or keep maintaining it by hand\",\"retryable\":false,\"correlation_id\":\"correlation:294fe89ec53364f86bdf5204f516c198\",\"violations\":[],\"safe_next_actions\":[\"help\"]}\n"
+    }
+  ],
+  "boundary": "Actual public Git/default catalog add and update. Exact bytes, explicit schema installation and native compile on 3 hosts. No live host, application or browser acceptance inferred.",
+  "registry_entries_removed": 3,
+  "cleaned": true
+}

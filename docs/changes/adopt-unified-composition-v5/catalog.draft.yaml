@@ -1,6 +1,6 @@
-status: unpublished-candidate
-release_ref: null
-source_commit: null
+status: published
+release_ref: v1.57.0
+source_commit: ee76702dec0d8e0958ef068ef58074ecf2db37e9
 workflows:
   aif-classic:
     package_version: 2.0.0

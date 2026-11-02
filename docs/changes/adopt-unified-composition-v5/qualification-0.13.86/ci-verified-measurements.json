@@ -1,0 +1,81 @@
+{
+  "run_id": 41483421499,
+  "source_head": "ee76702dec0d8e0958ef068ef58074ecf2db37e9",
+  "artifacts": [
+    {
+      "artifact_id": 13160697036,
+      "name": "unified-measurements-aif-fix",
+      "digest": "sha256:c7429eba12b1df4a89b9aa4ba1558a088ca9e859fd697fbd56d5ebdb5650dfd6",
+      "cases": [
+        {
+          "package": "aif-fix",
+          "case": "clean"
+        },
+        {
+          "package": "aif-fix",
+          "case": "disabled"
+        },
+        {
+          "package": "aif-fix",
+          "case": "repair"
+        }
+      ]
+    },
+    {
+      "artifact_id": 13160557156,
+      "name": "unified-measurements-aif-profiled",
+      "digest": "sha256:cbbc6ee98708778858d14fb7ac723abaf6be09633a4abd2a3c4659d41ebb3113",
+      "cases": [
+        {
+          "package": "aif-profiled",
+          "case": "continue"
+        },
+        {
+          "package": "aif-profiled",
+          "case": "disabled"
+        },
+        {
+          "package": "aif-profiled",
+          "case": "clean"
+        },
+        {
+          "package": "aif-profiled",
+          "case": "permissions"
+        },
+        {
+          "package": "aif-profiled",
+          "case": "repair"
+        }
+      ]
+    },
+    {
+      "artifact_id": 13159184788,
+      "name": "unified-measurements-aif-classic",
+      "digest": "sha256:5375d2998e76248d55aeb38817fffee4155b6d72a2339596d24213b7e5bfdacf",
+      "cases": [
+        {
+          "package": "aif-classic",
+          "case": "continue"
+        },
+        {
+          "package": "aif-classic",
+          "case": "disabled"
+        },
+        {
+          "package": "aif-classic",
+          "case": "clean"
+        },
+        {
+          "package": "aif-classic",
+          "case": "permissions"
+        },
+        {
+          "package": "aif-classic",
+          "case": "repair"
+        }
+      ]
+    }
+  ],
+  "verified_cases": 13,
+  "binary_version": "0.13.86"
+}

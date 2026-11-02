@@ -1,7 +1,8 @@
 # Unified composition: v1.57.0 release guide
 
-The candidate is being qualified for v1.57.0 on published Core v0.13.86.
-Active catalog pins retain their old releases until publication and public installation checks.
+v1.57.0 is published on source `ee76702dec0d8e0958ef068ef58074ecf2db37e9`.
+Catalog `8676887572e99a27812ab8b9220423b3c081aaaf` pins the five changed packages.
+Public default-catalog add/update and all 30 native builds passed on Core v0.13.86.
 
 Classic/profiled/fix/UIUX become package 2.0.0. Their public imports require an
 explicit exact schema dependency. Feature becomes 1.4.0 for optional report refs;
@@ -69,5 +70,6 @@ checks use scripted assessments; the historical85 live Chromium/readers and
 private backend pilot remain separately scoped in [acceptance.md](acceptance.md).
 None of these results is a full private application/browser acceptance claim.
 
-[Catalog draft](catalog.draft.yaml) describes the candidate. Assign an actual
-release ref and exact source commit only after publication.
+[Catalog record](catalog.draft.yaml) records the actual release ref and source commit.
+[Published acceptance](qualification-0.13.86/published-install-update.json) includes
+missing-dependency refusal, explicit installation, preserved owner files and cleanup.
