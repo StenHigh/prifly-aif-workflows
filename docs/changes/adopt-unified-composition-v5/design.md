@@ -55,5 +55,8 @@ Raw private tasks and business details do not enter this public change.
 [Core #15](https://github.com/StenHigh/prifly/issues/15): released v0.13.85 refuses start when composition and project worktree naming are
 combined: its second review changes the summary version. The private pilot uses
 ordinary native claim allocation in a separate source profile. Exact digest
-validation and the primary project profile remain intact. Named allocation is
-an open compatibility limitation, not a passed acceptance case.
+validation and the primary project profile remain intact. That named path was not accepted on v0.13.85.
+
+Current rollout requires v0.13.86. It fixes Core #15 without changing schemas or
+published /4 semantics. Signed assets, managed update and an actual named /5
+public-import/typed-carrier/parallel Run passed. See [Core release evidence](core-0.13.86.md).

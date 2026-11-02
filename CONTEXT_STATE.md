@@ -8,20 +8,22 @@
 
 ## Состояние на 2026-11-02
 
-Ворота verify/compatibility выверены против выпущенного Pri-Fly `v0.13.85`.
+Ворота verify/compatibility выверены против выпущенного Pri-Fly `v0.13.86`.
 
-Unified `/5` candidate: отдельный worktree, shared schema closure1.2.0 → frozen1.0.0,
-classic/profiled/fix/UIUX2.0.0. Public-import Chromium и две свежие UI/UX-сессии PASS. 122 unit checks,
-native verify8 packages/132 components/88 Steps/3 hosts и compatibility PASS.
-Classic/profiled/fix repair сохраняют исходные report refs. Private consumer
-подтвердил BusyBox BEFORE2 failed/10 assertions и AFTER2 passed/18 assertions;
-обычный procps также PASS. Private native Run завершился succeeded: server-confirmed Draft delivery
-в согласованную staging, свежий scoped receipt123 paths,33 validator self-checks
-и обе адресные PHP-проверки PASS. Private env/claim освобождены.
-Core #15 ограничивает rollout: composition + worktree_naming не стартует
-на0.13.85; обычное выделение worktree прошло. Именованный путь не принят.
-Evidence и границы: docs/changes/adopt-unified-composition-v5/acceptance.md.
-Изменения Core83/85 и границы совместимости: docs/changes/adopt-unified-composition-v5/.
+Кандидат unified `/5`: classic/profiled/fix/UIUX2.0.0, feature1.4.0,
+shared schema closure1.2.0 → frozen1.0.0. Историческая приёмка85 сохранена
+в docs/changes/adopt-unified-composition-v5/acceptance.md. Она включает реальные
+Chromium/UI/UX sessions и отдельный private backend pilot; их границы прежние.
+Core #15 закрыт в86. Подписи, managed update и именованный public-import Run
+на опубликованном86 прошли. Новые runtime/schema изменения пакетам не нужны;
+минимум86 выбран для рабочего сочетания composition + naming.
+Текущий release guide: docs/changes/adopt-unified-composition-v5/release-guide.md.
+Native shipping measurement матрица добавлена в CI: classic/profiled clean,
+repair, disabled, continue, permissions; fix clean, repair, disabled.
+Локальные ворота86 PASS: 122 unit, verify8/132/88/3hosts, compatibility5/4,
+13 native cases, public-import Chromium с2 scripted readers и W6 contract18+8.
+Снимки: docs/changes/adopt-unified-composition-v5/qualification-0.13.86.md.
+Каталог ещё сохраняет опубликованные pins до выпуска пакетов.
 
 - **Issue #9 — начато исследование transport (2026-10-31):**
   2026-11-01 владелец согласовал полный автоматический цикл и отдельный Core issue.

@@ -217,3 +217,47 @@ jobs:
           path: |
             /tmp/w6-contract.json
             /tmp/w6-native.json
+
+  unified-measurements:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - package: aif-classic
+            cases: clean repair disabled continue permissions
+          - package: aif-profiled
+            cases: clean repair disabled continue permissions
+          - package: aif-fix
+            cases: clean repair disabled
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install latest stable Pri-Fly
+        run: |
+          prifly_installer="$(mktemp)"
+          curl --fail --location --silent --show-error https://github.com/StenHigh/prifly/releases/latest/download/install.sh -o "$prifly_installer"
+          sh "$prifly_installer"
+          rm -f "$prifly_installer"
+          "$HOME/.local/bin/prifly" version
+      - name: Shipping measurement and report carrier routes
+        env:
+          MEASUREMENT_PACKAGE: ${{ matrix.package }}
+          MEASUREMENT_CASES: ${{ matrix.cases }}
+        run: |
+          mkdir -p /tmp/unified-measurement-results
+          for measurement_case in $MEASUREMENT_CASES; do
+            if [ "$MEASUREMENT_PACKAGE" = aif-fix ]; then
+              python3 -B tests/probes/unified_fix_measurement.py --binary "$HOME/.local/bin/prifly" \
+                --case "$measurement_case" --report "/tmp/unified-measurement-results/$MEASUREMENT_PACKAGE-$measurement_case.json"
+            else
+              python3 -B tests/probes/unified_measurement.py --binary "$HOME/.local/bin/prifly" \
+                --package "$MEASUREMENT_PACKAGE" --case "$measurement_case" \
+                --report "/tmp/unified-measurement-results/$MEASUREMENT_PACKAGE-$measurement_case.json"
+            fi
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: unified-measurements-${{ matrix.package }}
+          path: /tmp/unified-measurement-results/*.json

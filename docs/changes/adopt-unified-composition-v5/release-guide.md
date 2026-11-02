@@ -1,46 +1,73 @@
-# Unified composition: draft release guide
+# Unified composition: v1.57.0 release guide
 
-This is an unpublished candidate. Active catalog refs retain their published
-packages. Do not move a catalog pin or claim a release from this document.
+The candidate is being qualified for v1.57.0 on published Core v0.13.86.
+Active catalog pins retain their old releases until publication and public installation checks.
 
-Classic/profiled/fix/UIUX become package 2.0.0 because the setup now requires an
-explicit exact schema dependency. Feature becomes 1.4.0 for the shared optional
-reports shape; its embedded review contract and launch stay unchanged. Other
-package versions retain their current values.
+Classic/profiled/fix/UIUX become package 2.0.0. Their public imports require an
+explicit exact schema dependency. Feature becomes 1.4.0 for optional report refs;
+its embedded review contract and launch stay unchanged. Other packages retain their versions.
 
 ```text
-candidate source → explicit schemas → native prepare → reviewed start
+exact release checkout → explicit schemas → native prepare → reviewed start
 ```
 
-Install the source candidate into a project, then install its inert schema
-closure with `tools/install_composition_contracts.py --binary ABS --project ABS`.
-The stdlib installer checks locks/payloads before importing frozen1.0.0 and
-additive1.2.0. Compile/prepare never import dependencies implicitly. A package
-installer that merges old bundle files instead of replacing the owned bundle
-must fail strict validation; it must not weaken the lock check.
+## Installation
 
-Migrate project extensions deliberately to /5 and add task inputs where the
-owner point declares task + implementation. Public import uses the same exact
-external schemas in both owners. Keep project code under its own source owner;
-never copy private provider control stages into a consumer.
+Set `PRIFLY_BIN`, `REPOSITORY`, `AUTHORITY` and `WORKFLOW_SOURCE` to actual absolute
+paths. The repository and authority must already exist. Obtain the exact source
+checkout separately; catalog installation copies only a package folder.
 
-Use the complete commands in examples/unified-composition/README.md. Prepare is
-read-only; start uses the reviewed digest and explicit execution authorization.
-The low-level configure/quality root can continue from its accepted prefix.
-The minimal task-aware wrapper has only one root Call and does not declare resume.
-Real development consumers must supply meaningful accepted stages before that Call.
-Saved Runs and installed project files are not automatically migrated.
+```sh
+git clone --branch v1.57.0 --depth 1 \
+  https://github.com/StenHigh/prifly-aif-workflows.git "$WORKFLOW_SOURCE"
+"$PRIFLY_BIN" project workflows add StenHigh/prifly-aif-workflows \
+  --path aif-classic --ref v1.57.0 --repository "$REPOSITORY"
+python3 "$WORKFLOW_SOURCE/tools/install_composition_contracts.py" \
+  --binary "$PRIFLY_BIN" --project "$AUTHORITY"
+```
 
-Release qualification uses the exact signed published v0.13.85 Linux asset,
-SHA256 d512311554b31f469c912b3e1a2d65128edf99362d8ab29314c91448134fe954.
-Compilation/compatibility, scripted native transport/routing, actual Chromium
-with two fresh UI/UX sessions and the separate private backend pilot have
-separate evidence. None is a claim of full application/browser acceptance.
+Choose the desired package path explicitly. The same dependency applies to
+profiled, fix and UI/UX. The stdlib installer verifies locks and payloads before
+importing frozen1.0.0 and additive1.2.0. It checks exact bytes with `--check`.
+Compile, prepare and start never import this dependency implicitly.
 
-[Core #15](https://github.com/StenHigh/prifly/issues/15) remains a rollout limit:
-composition + project worktree_naming refuses during start on v0.13.85. The
-private pilot selected ordinary native allocation in a separate source profile;
-its primary naming policy stayed intact. Do not label the named path qualified.
-Before publication, check latest Core and complete the release decision around
-that limitation. Catalog draft descriptions are in catalog.draft.yaml; assign
-an actual repository release ref and exact commit only after publication.
+For an existing installation, inspect and preserve project extensions before the major update:
+
+```sh
+"$PRIFLY_BIN" project workflows update aif-classic \
+  --ref v1.57.0 --repository "$REPOSITORY"
+```
+
+The native updater preserves owner `extend.yaml` and `project/` files; it does not
+translate them to `/5`. Migrate them deliberately and provide task inputs where
+the declared point requires task + implementation. Review the resulting source
+and native prepare summary before a new Run. Existing sealed Runs keep their old contracts.
+
+A bundle installer must replace its owned schema bundle. Merging old schema files
+into the additive package fails strict validation; weakening the lock is not a repair.
+
+## Public imports and continuation
+
+Public callers and providers use the same exact external schemas. Keep project
+code under its own source owner. Do not copy private provider control stages.
+[Complete example commands](../../../examples/unified-composition/README.md)
+cover setup, compile, prepare, reviewed start and supported continuation.
+The low-level configure/quality root supports its declared continuation.
+The minimal task-aware wrapper has one root Call and does not declare resume.
+
+## Qualification
+
+Current rollout requires Core86 for composition with project worktree naming.
+[Core acceptance](core-0.13.86.md) records signed assets, managed update and an
+actual named Run. Linux binary SHA256:
+`f46270b8046a95a03b39ce2c67bcee7212e944d68db74db8cc0e2852f90e0d13`.
+
+Downstream compile/compatibility and all 13 shipping measurement scenarios passed
+on these exact binary bytes. [Local qualification](qualification-0.13.86.md) records the results.
+CI preserves each report. Transport
+checks use scripted assessments; the historical85 live Chromium/readers and
+private backend pilot remain separately scoped in [acceptance.md](acceptance.md).
+None of these results is a full private application/browser acceptance claim.
+
+[Catalog draft](catalog.draft.yaml) describes the candidate. Assign an actual
+release ref and exact source commit only after publication.

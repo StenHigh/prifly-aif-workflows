@@ -1,0 +1,74 @@
+{
+  "package": "aif-fix",
+  "case": "repair",
+  "runs": [
+    "run:05c07ca62a1440dd31551a84e9e143dcadb568bf13235f7b89d6c6535788dc1f"
+  ],
+  "status": "completed",
+  "outcome": "succeeded",
+  "reports": [
+    {
+      "artifact_id": "artifact:0e2637ddfb7604b6ccac15ec8e2b02bc48db8bb4d8647c14fbbc8d8a2bc80ec5",
+      "digest": "sha256:92e52ccfb34e90495e3cbc8b19091b4f44b7da362a43025b1ba92bcbacf16228",
+      "revision": 1
+    },
+    {
+      "artifact_id": "artifact:5bd325f7705b8bf93e0b6e811edbe5d822702587e5838b896b765df1b99036ab",
+      "digest": "sha256:20a97dcb7045da074d37ea03d3689b46d8cae621eb7d956565328301b72be446",
+      "revision": 1
+    }
+  ],
+  "checks": [
+    {
+      "subject": {
+        "head": "835b0304b8afd244acf69bf853b5ddc906bd1a11",
+        "calc_sha256": "sha256:0a7c18ff12922c603b2a05bc8b1030da982218f1b4ca5f4e777b200c91f8b27e"
+      },
+      "basis": "acceptance:total(2)==2",
+      "method": "python assertion",
+      "exit": 1,
+      "status": "failed",
+      "logs": [
+        {
+          "artifact_id": "artifact:bc7342575ecc4eb116e16a353ba1ed3f45718f07a31e170088a511cf31201c5d",
+          "digest": "sha256:f4871bc30065a3dd8d099b88774908c300cdf0cb79c927d8fc5341f52a6792bf",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "subject": {
+        "head": "835b0304b8afd244acf69bf853b5ddc906bd1a11",
+        "calc_sha256": "sha256:e53d9f68b67216407a98f3e505d3434b812f770dbc4e8443a40174deb4dad27f"
+      },
+      "basis": "acceptance:total(2)==2",
+      "method": "python assertion",
+      "exit": 0,
+      "status": "passed",
+      "logs": [
+        {
+          "artifact_id": "artifact:3d2d19396a6ca0ef1ef24e3c07b8984030fd8124c1dd9fc5658708f28e36b211",
+          "digest": "sha256:5cba4152e4da3e13c770b2423f6f03f8c5fc746dfadf4bec9fea1d3ccbdc6860",
+          "revision": 1
+        }
+      ]
+    }
+  ],
+  "seen": [
+    "warmup",
+    "fix-task",
+    "measurement",
+    "check-change",
+    "repair",
+    "measurement",
+    "check-change",
+    "aif-security",
+    "review-task",
+    "commit"
+  ],
+  "original_reports_preserved": true,
+  "boundary": "Scripted host, actual regression commands and native repaired shipping graph; no live LLM judgement claimed.",
+  "binary_sha256": "sha256:f46270b8046a95a03b39ce2c67bcee7212e944d68db74db8cc0e2852f90e0d13",
+  "prifly": "0.13.86",
+  "cleaned": true
+}

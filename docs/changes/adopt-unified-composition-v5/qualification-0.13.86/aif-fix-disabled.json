@@ -1,0 +1,24 @@
+{
+  "package": "aif-fix",
+  "case": "disabled",
+  "runs": [
+    "run:19957af4b4766d979091e681ffa11cce6ef36f14085a3efdb869dd1f7c1d1ca6"
+  ],
+  "status": "completed",
+  "outcome": "succeeded",
+  "reports": [],
+  "checks": [],
+  "seen": [
+    "warmup",
+    "fix-task",
+    "check-change",
+    "aif-security",
+    "review-task",
+    "commit"
+  ],
+  "original_reports_preserved": true,
+  "boundary": "Scripted host, actual regression commands and native repaired shipping graph; no live LLM judgement claimed.",
+  "binary_sha256": "sha256:f46270b8046a95a03b39ce2c67bcee7212e944d68db74db8cc0e2852f90e0d13",
+  "prifly": "0.13.86",
+  "cleaned": true
+}

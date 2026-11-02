@@ -1,0 +1,29 @@
+{
+  "package": "aif-profiled",
+  "case": "disabled",
+  "runs": [
+    "run:373734a4e6306c5b296c12e9b2bc28e6a9e5baf1c0ad06b4c8d36f0dde2ebc9d"
+  ],
+  "measurement_count": 0,
+  "reader_count": 1,
+  "repair_count": 0,
+  "refusals": [],
+  "measurements": [],
+  "readers": [
+    {
+      "attempt": "attempt:a727087a19b1fea1c75472b2c0b0a4ae",
+      "run": "run:373734a4e6306c5b296c12e9b2bc28e6a9e5baf1c0ad06b4c8d36f0dde2ebc9d",
+      "implementation": {
+        "base_commit": "f23481f7e58bc46e5e7ce91e569674c202963b61",
+        "head_commit": "12dd4644921aefd74f58f01b5ff7b176e721443e",
+        "changed_files": [
+          "hello.txt"
+        ]
+      }
+    }
+  ],
+  "boundary": "Reached real downstream security reader with exact latest carrier; synthetic assessments, no commit or live LLM claimed.",
+  "binary_sha256": "sha256:f46270b8046a95a03b39ce2c67bcee7212e944d68db74db8cc0e2852f90e0d13",
+  "prifly": "0.13.86",
+  "cleaned": true
+}

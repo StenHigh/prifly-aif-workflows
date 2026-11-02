@@ -1,12 +1,12 @@
 # AI Factory bug fix workflow
 
-## Unified composition candidate 2.0.0
+## Unified composition 2.0.0
 
-Requires Pri-Fly >=0.13.85 and explicit installation of the
-[pinned shared schema dependency](../contracts/README.md). New templates use
+Requires Pri-Fly >=0.13.86 and explicit installation of the
+[pinned shared schema dependency](https://github.com/StenHigh/prifly-aif-workflows/blob/v1.57.0/contracts/README.md). New templates use
 `prifly-extension/5`; folders use `/3`. Existing installed project files and
 sealed Runs are never rewritten automatically. Review the migration before a
-new Run. [Complete examples and native checks](../examples/unified-composition/README.md).
+new Run. [Complete examples and native checks](https://github.com/StenHigh/prifly-aif-workflows/blob/v1.57.0/examples/unified-composition/README.md).
 
 
 `aif-fix` is a separate package/launch. The user chooses it in `prifly-run` for
@@ -86,6 +86,11 @@ and diagnostics, not a fabricated gate. Manual/runtime reproduction and safe-cau
 fallback follow upstream; missing executable automation alone is not unreproduced.
 Success exports the final implementation and quality gate, plus a native fix_plan
 only when the plan route ran. No ordinary `plan` output is required or fabricated.
+
+Catalog installation copies this package folder only. Obtain the exact v1.57.0
+source checkout separately. Run its `tools/install_composition_contracts.py`
+against the selected authority before compilation. The package installer does
+not install this dependency or copy the repository tools automatically.
 
 ## Continue and project extensions
 

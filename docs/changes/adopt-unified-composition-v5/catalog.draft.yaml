@@ -4,7 +4,7 @@ source_commit: null
 workflows:
   aif-classic:
     package_version: 2.0.0
-    minimum_prifly: 0.13.85
+    minimum_prifly: 0.13.86
     description: Canonical delivery with scoped verify/review points, public exports
       and exact shared report schemas.
     source_path: aif-classic
@@ -12,7 +12,7 @@ workflows:
     published_ref_unchanged: v1.56.0
   aif-profiled:
     package_version: 2.0.0
-    minimum_prifly: 0.13.85
+    minimum_prifly: 0.13.86
     description: Profiled canonical delivery with scoped verify/review points and
       exact shared report schemas.
     source_path: aif-profiled
@@ -20,7 +20,7 @@ workflows:
     published_ref_unchanged: v1.56.0
   aif-fix:
     package_version: 2.0.0
-    minimum_prifly: 0.13.85
+    minimum_prifly: 0.13.86
     description: Regression-first bug workflow with before-build/before-quality/after-commit
       points and exact shared schemas.
     source_path: aif-fix
@@ -28,7 +28,7 @@ workflows:
     published_ref_unchanged: v1.55.0
   aif-ui-ux:
     package_version: 2.0.0
-    minimum_prifly: 0.13.85
+    minimum_prifly: 0.13.86
     description: Owned UI/UX acceptance plus public task/candidate applicability Call
       and imported measurement point.
     source_path: aif-ui-ux

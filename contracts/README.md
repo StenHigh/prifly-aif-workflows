@@ -17,7 +17,7 @@ Run the following command once for each authority before compiling these package
 
 ```sh
 python3 tools/install_composition_contracts.py \
-  --binary /absolute/path/to/prifly-v0.13.85 \
+  --binary /absolute/path/to/prifly-v0.13.86 \
   --project /absolute/path/to/authority
 ```
 

@@ -10,7 +10,7 @@
 <p align="center">
   <a href="https://github.com/StenHigh/prifly-aif-workflows/actions/workflows/verify.yml"><img src="https://github.com/StenHigh/prifly-aif-workflows/actions/workflows/verify.yml/badge.svg" alt="verify"></a>
   <a href="https://github.com/StenHigh/prifly-aif-workflows/tags"><img src="https://img.shields.io/github/v/tag/StenHigh/prifly-aif-workflows?label=release&amp;color=1f6feb" alt="latest tag"></a>
-  <img src="https://img.shields.io/badge/pri--fly-%E2%89%A5%200.13.77-00ADD8" alt="Pri-Fly ≥ 0.13.77">
+  <img src="https://img.shields.io/badge/pri--fly-%E2%89%A5%200.13.86-00ADD8" alt="Pri-Fly ≥ 0.13.86">
   <img src="https://img.shields.io/badge/hosts-codex--cli%20%C2%B7%20codex--app%20%C2%B7%20claude--code-4b5563" alt="hosts">
 </p>
 
@@ -74,12 +74,13 @@ workflow или отдельная очередь не добавляются.
 
 **Кандидат unified composition `/5`.** Classic/profiled/fix/UIUX2.0.0
 используют public imports, scoped points и общую exact schema dependency.
-Нужны Pri-Fly **0.13.85** и её явная установка.
+Нужны Pri-Fly **0.13.86** и явная установка пакета общих схем.
 [Примеры](examples/unified-composition/README.md),
 [границы приёмки](docs/changes/adopt-unified-composition-v5/design.md),
 [draft release guide](docs/changes/adopt-unified-composition-v5/release-guide.md).
-Кандидат пока не опубликован в каталоге. Сочетание с worktree_naming имеет
-известный отказ [Core #15](https://github.com/StenHigh/prifly/issues/15).
+Кандидат готовится к выпуску v1.57.0. Каталог сохраняет прежние pins до публикации.
+[Core #15](https://github.com/StenHigh/prifly/issues/15) исправлен в v0.13.86;
+опубликованный бинарник прошёл именованный native запуск.
 
 **Выпуск v1.56.0, issue #7.** Verify `fail/no_work` завершает classic/profiled
 как `completed/rejected` без обязательного gate. Continue повторяет verify на сохранённом дереве.

@@ -1,39 +1,94 @@
-# Unified composition on Pri-Fly v0.13.85
+# Unified composition on Pri-Fly v0.13.86
 
-This candidate requires the explicit shared schema dependency described in
-[contracts](../../contracts/README.md). Install the current package sources first;
-shipping v1.56.0 packages do not publish these exports.
+The 2.0.0 packages require the explicit [shared schema dependency](../../contracts/README.md).
+Catalog installation copies only the selected package folder. Obtain the exact
+v1.57.0 repository checkout separately for `contracts/`, `tools/` and examples.
+Old installed extensions and sealed Runs are not migrated automatically.
 
 ## Public UI/UX components
 
 `aif-ui-ux` folder `/3` publishes the `configure` Step and the `quality` workflow.
-The standalone launch remains available. The example imports those components
+The standalone launch remains available. This example imports those components
 through `/5`; it does not copy the provider's private stages or programs.
 
+Set the absolute paths below. `REPOSITORY` is an initialized Git project with
+its project profile and real host skills. `AUTHORITY` is its existing authority.
+`WORKFLOW_SOURCE` is a separate checkout of the exact release. Choose a fresh
+`SCRATCH` directory. Supply the project's real configuration and executable bindings.
+
 ```sh
-python3 tools/install_composition_contracts.py \
-  --binary /absolute/prifly-v0.13.85 --project /absolute/authority
-python3 examples/unified-composition/setup.py --repository /absolute/project
-/absolute/prifly-v0.13.85 --project /absolute/authority project compile \
-  --repository /absolute/project --package ui-ux-composed --host codex-app \
-  --output /absolute/scratch/compiled
-/absolute/prifly-v0.13.85 --project /absolute/authority project questionnaire \
-  --repository /absolute/project --launch ui-ux-composed --host codex-app \
-  --workspace worktree --input configuration=/absolute/configuration.json \
-  --allow-execution --prepare --json
+PRIFLY_BIN=/absolute/path/to/prifly-v0.13.86
+REPOSITORY=/absolute/project
+AUTHORITY=/absolute/authority
+WORKFLOW_SOURCE=/absolute/prifly-aif-workflows-v1.57.0
+SCRATCH=/absolute/fresh-scratch
+CONFIGURATION=/absolute/configuration.json
+mkdir -p "$SCRATCH"
+
+"$PRIFLY_BIN" project workflows add StenHigh/prifly-aif-workflows \
+  --path aif-ui-ux --ref v1.57.0 --repository "$REPOSITORY"
+python3 "$WORKFLOW_SOURCE/tools/install_composition_contracts.py" \
+  --binary "$PRIFLY_BIN" --project "$AUTHORITY"
+python3 "$WORKFLOW_SOURCE/examples/unified-composition/setup.py" \
+  --repository "$REPOSITORY"
+```
+
+Review and commit the generated package and profile changes. Ensure the project
+is clean before preparing a worktree Run. Configure the package's Python
+executable and environment sources before prepare, as described in the UI/UX README.
+
+```sh
+"$PRIFLY_BIN" --project "$AUTHORITY" project compile \
+  --repository "$REPOSITORY" --package ui-ux-composed --host codex-app \
+  --output "$SCRATCH/compiled"
+"$PRIFLY_BIN" --project "$AUTHORITY" project questionnaire \
+  --repository "$REPOSITORY" --launch ui-ux-composed --host codex-app \
+  --workspace worktree --input configuration="$CONFIGURATION" \
+  --allow-execution --prepare --json > "$SCRATCH/prepare.json"
+cat "$SCRATCH/prepare.json"
 ```
 
 `configuration.json` follows `aif-ui-ux/schemas/configuration.yaml`: task/candidate
 basis, explicit applicability, requiredness, viewports, scenarios and an owned
 environment contract. It is project input, not a universal default.
 
-Review the complete summary. Start with the same arguments through `project start`
-and `--expected-launch-digest` equal to its exact `review_digest`. Program execution
-requires the explicitly configured Python executable and execution consent.
-For a stopped Run, use this same launch and `project continue --prepare --source-run
-RUN`, without new configuration. Continue replays the root quality Call where
-required; a nested resume stage is not supported. Show the new reviewed summary
-and use its top-level digest before continuing.
+Review the complete summary and its execution effects. Set `REVIEW_DIGEST` to
+its exact `review_digest`. Then start with the same inputs and options:
+
+```sh
+REVIEW_DIGEST='sha256:REPLACE_WITH_REVIEWED_PREPARE_DIGEST'
+"$PRIFLY_BIN" --project "$AUTHORITY" project start \
+  --repository "$REPOSITORY" --launch ui-ux-composed --host codex-app \
+  --workspace worktree --input configuration="$CONFIGURATION" \
+  --allow-execution --expected-launch-digest "$REVIEW_DIGEST" --json \
+  > "$SCRATCH/start.json"
+cat "$SCRATCH/start.json"
+```
+
+For a supported stopped Run, take its actual ID from `start.json`. Prepare a
+continuation with the same launch and no new configuration input:
+
+```sh
+RUN_ID='run:REPLACE_WITH_ACTUAL_SOURCE_RUN_ID'
+"$PRIFLY_BIN" --project "$AUTHORITY" project continue \
+  --repository "$REPOSITORY" --launch ui-ux-composed --source-run "$RUN_ID" \
+  --host codex-app --allow-execution --prepare --json > "$SCRATCH/continue.json"
+cat "$SCRATCH/continue.json"
+```
+
+Review the recovery frontier, inherited prefix and effects. Set the new top-level
+digest and continue:
+
+```sh
+CONTINUE_DIGEST='sha256:REPLACE_WITH_REVIEWED_CONTINUE_DIGEST'
+"$PRIFLY_BIN" --project "$AUTHORITY" project continue \
+  --repository "$REPOSITORY" --launch ui-ux-composed --source-run "$RUN_ID" \
+  --host codex-app --allow-execution --expected-launch-digest "$CONTINUE_DIGEST" --json
+```
+
+This root can replay its quality Call from a supported accepted prefix.
+A nested resume stage is not supported. A genuine empty-prefix or freshness
+refusal remains a refusal; do not substitute a different launch to bypass it.
 
 ```text
 shared schemas → configure (public Step) → quality (public Call)
@@ -72,11 +127,11 @@ readers. Omit the implementation or set `enabled: false` for passthrough.
 Runnable bounded native checks against the actual shipping workflows:
 
 ```sh
-python3 -B tests/probes/unified_measurement.py --binary /absolute/prifly-v0.13.85 \
+python3 -B tests/probes/unified_measurement.py --binary /absolute/prifly-v0.13.86 \
   --package aif-classic --case repair --report /absolute/scratch/classic.json
-python3 -B tests/probes/unified_measurement.py --binary /absolute/prifly-v0.13.85 \
+python3 -B tests/probes/unified_measurement.py --binary /absolute/prifly-v0.13.86 \
   --package aif-profiled --case repair --report /absolute/scratch/profiled.json
-python3 -B tests/probes/unified_fix_measurement.py --binary /absolute/prifly-v0.13.85 \
+python3 -B tests/probes/unified_fix_measurement.py --binary /absolute/prifly-v0.13.86 \
   --case repair --report /absolute/scratch/fix.json
 ```
 
@@ -144,9 +199,8 @@ one root Call and does not declare resume: it has no accepted prefix before that
 Call. Embed it after meaningful stages in a development consumer to use native
 root continue. The low-level configure/quality example retains its existing resume.
 
-[Core #15](https://github.com/StenHigh/prifly/issues/15): Pri-Fly v0.13.85 has a start refusal when composition and project worktree naming
-are enabled together. Preparation succeeds, but start rechecks a different summary
-version and returns `project_start_stale_launch` before creating a Run. The pilot
-uses ordinary native worktree allocation in a separate source profile. It keeps
-the reviewed digest check, exact staging base and primary project profile intact.
-Do not claim the named-worktree path passed acceptance on v0.13.85.
+[Core #15](https://github.com/StenHigh/prifly/issues/15) affected the combined
+composition/naming path on v0.13.85. It is fixed in v0.13.86. The published86
+binary passed a real named public-import/typed-carrier/parallel Run; see
+[Core acceptance](../../docs/changes/adopt-unified-composition-v5/core-0.13.86.md).
+The earlier pilot's ordinary-allocation result remains historical85 evidence.
