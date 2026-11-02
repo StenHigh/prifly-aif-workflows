@@ -1,7 +1,7 @@
-"""Unpublished W5 browser qualification, built on byte-identical W2 workers.
+"""Unpublished W5 browser qualification, built on byte-identical shipping UI/UX workers.
 
 Only this disposable copy has parallel readers. No installed package is changed.
-The transport Attempt copies exact public exports; W2 programs make the gate.
+The transport Attempt copies exact public exports; shipping programs make the gate.
 """
 import json
 import shutil
@@ -45,7 +45,8 @@ def install(repository, timeout=None):
     quality.write_text(text)
 
     inputs = {'configuration': 'schema_configuration', 'candidate': 'schema_candidate', 'environment': 'schema_environment'}
-    refs = {name: '{{' + name + '}}' for name in ('policy', 'schema_configuration', 'schema_candidate', 'schema_environment', 'schema_request', 'schema_report')}
+    refs = {name: '{{' + ('contract_' + name if name.startswith('schema_') else name) + '}}'
+            for name in ('policy', 'schema_configuration', 'schema_candidate', 'schema_environment', 'schema_request', 'schema_report')}
     for lens in ('ui', 'ux'):
         write(package, 'workflows/reader-' + lens + '.yaml', {
             'authoring': 'prifly-workflow/1', 'schema_version': '6', 'id': 'w5-product:workflow/reader-' + lens,
@@ -76,7 +77,7 @@ def install(repository, timeout=None):
     write(package, 'steps/collect.yaml', {
         'authoring': 'prifly-step/2', 'id': 'w5-product:step/collect', 'version': '1.0.0', 'title': 'Qualification exact report transport',
         'kind': 'worker', 'inputs': {'manifest': {'schema_ref': '{{aggregate_manifest}}'}},
-        'outputs': {l + '_report': {'schema_ref': '{{schema_report}}', 'required_for': ['pass']} for l in ('ui', 'ux')},
+        'outputs': {l + '_report': {'schema_ref': '{{contract_schema_report}}', 'required_for': ['pass']} for l in ('ui', 'ux')},
         'executor': {'adapter_ref': '{{session}}', 'operation': 'session'},
         'instructions_ref': '{{context_collect}}', 'effects': {'class': 'none', 'retry_class': 'pure'},
         'result_schema_ref': '{{result_v2}}', 'session_limits': {'active_timeout_ms': None}})

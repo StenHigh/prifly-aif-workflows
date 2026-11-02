@@ -23,6 +23,9 @@ repair, disabled, continue, permissions; fix clean, repair, disabled.
 Локальные ворота86 PASS: 122 unit, verify8/132/88/3hosts, compatibility5/4,
 13 native cases, public-import Chromium с2 scripted readers и W6 contract18+8.
 Снимки: docs/changes/adopt-unified-composition-v5/qualification-0.13.86.md.
+Первый PR CI обнаружил private/shared schema mismatch только в disposable
+parallel fixture. RED воспроизведён; fixture aliases исправлены без смены
+shipping workers. Контракт3hosts и все17 Chromium parallel cases PASS.
 Каталог ещё сохраняет опубликованные pins до выпуска пакетов.
 
 - **Issue #9 — начато исследование transport (2026-10-31):**

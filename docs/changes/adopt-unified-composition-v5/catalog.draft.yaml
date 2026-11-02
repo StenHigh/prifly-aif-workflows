@@ -34,3 +34,10 @@ workflows:
     source_path: aif-ui-ux
     dependency: aif:package/composition-contracts@1.2.0
     published_ref_unchanged: v1.55.0
+  aif-feature:
+    package_version: 1.4.0
+    minimum_prifly: 0.13.77
+    description: Bounded feature delivery with optional original report references;
+      existing embedded review protocols remain unchanged.
+    source_path: aif-feature
+    published_ref_unchanged: v1.55.0

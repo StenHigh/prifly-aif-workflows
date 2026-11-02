@@ -30,3 +30,19 @@ CI will qualify the final committed source and preserve the same native matrix.
 The fixture hosts were scripted. No live LLM judgement or private application
 acceptance is inferred. Historical85 live sessions and the separate backend pilot
 remain in [acceptance.md](acceptance.md). Old failed evidence was not rewritten.
+
+## Parallel fixture migration
+
+Initial PR CI on `e4dd8b45a2ed2b19055d81ecf3d6da5c5b045f23` found
+`port_type_mismatch` in the disposable parallel UI/UX fixture. Its generated
+reader and collector still referenced private schemas. Shipping workers had
+already moved to exact shared schemas. The same refusal was reproduced locally
+on published86; the compiler's exact-type check was correct.
+
+The fixture now references the same `contract_schema_*` aliases as the workers.
+Shipping worker bytes and the strict type check remain unchanged. The existing
+native contract passed on three hosts. All 17 actual Chromium parallel scenarios
+then passed their expected outcomes, including refusal/cancel/partial cases and
+owned cleanup. [Reports](qualification-0.13.86/) keep RED and GREEN separately.
+The earlier 13-case input fingerprint is historical; it is not rewritten to cover
+this later fixture correction. Final committed CI remains the release gate.
