@@ -1,0 +1,84 @@
+{
+  "release": {
+    "release": "https://github.com/StenHigh/prifly/releases/tag/v0.13.86",
+    "version": "v0.13.86",
+    "source_sha": "14145964b3c2fde3a450a11f8c4e8923922fd4d7",
+    "trusted_previous_key_sha256": "89080f40a49dcdb1e2bb44f9b7d47da32e017500443536724dd57006b1097988",
+    "signatures": {
+      "release-manifest.sig": "PASS",
+      "release-manifest.jcs.sig": "PASS"
+    },
+    "asset_sha256": {
+      "prifly-darwin-arm64.tar.gz": "fc9db4e94ff2b6e187ca04ee0ddca001c0c41f55bc19bddebfe3c292d149ee5b",
+      "prifly-linux-amd64.tar.gz": "7eff13d85d9bdd1718893f4150dba5aae64542dfa1f27f8eb8f92f3787f9e4a1"
+    },
+    "binary_sha256": "f46270b8046a95a03b39ce2c67bcee7212e944d68db74db8cc0e2852f90e0d13",
+    "boundary": "Signed release bytes and Linux execution. Darwin build qualification belongs to the release workflow; no Darwin execution claimed here."
+  },
+  "published_native": {
+    "binary_sha256": "f46270b8046a95a03b39ce2c67bcee7212e944d68db74db8cc0e2852f90e0d13",
+    "binary_version": "0.13.86",
+    "source_head": "14145964b3c2fde3a450a11f8c4e8923922fd4d7",
+    "source_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_clean": true,
+    "scenario": "Published public import + typed carrier + parallel group + project worktree naming",
+    "boundary": "Synthetic replies; real native CLI, claims and ArtifactRefs. No application/browser acceptance inferred.",
+    "named_launch": [
+      {
+        "command": "prepare",
+        "schema_version": "project-launch-summary/7",
+        "review_digest": "sha256:b5f73e4db412d15aa126ebd19df153ca39ae12ef5890a58bade6966e926b3abb",
+        "naming_base": "release-smoke-issue15"
+      },
+      {
+        "command": "start",
+        "schema_version": "project-start/7",
+        "run_id": "run:ff45002f77687732734675030830f12cac8538a1bdc796bdf5417b764218912b",
+        "claim_id": "claim:6929f83935a6a66e71f9d0885fd8d8fba1e54756196aaeaf2ee018fab571e67a",
+        "actual_branch": "prifly/release-smoke-issue15",
+        "actual_directory_name": "release-smoke-issue15"
+      }
+    ],
+    "result": {
+      "case": "parallel",
+      "run": "run:ff45002f77687732734675030830f12cac8538a1bdc796bdf5417b764218912b",
+      "status": "completed",
+      "outcome": "succeeded",
+      "seen": [
+        "produce",
+        "audit",
+        "measure",
+        "read",
+        "commit"
+      ],
+      "nested_ref": {
+        "artifact_id": "artifact:6b8c946fd9b4f946241d31ca8bc19de205ed0f778380ea203273326c77bd335b",
+        "revision": 1,
+        "digest": "sha256:609e521821a2901d5121a2181d85c4f8858d8c499907adf630f674feb6cec64d"
+      },
+      "summary_schema": "project-launch-summary/7",
+      "start_schema": "project-start/7"
+    }
+  },
+  "managed_update": {
+    "version": {
+      "arch": "amd64",
+      "go": "go1.27.3",
+      "os": "linux",
+      "schema_version": "foundation-version/1",
+      "semantics_profile": "foundation-sequence/1",
+      "version": "0.13.86"
+    },
+    "binary_sha256": "f46270b8046a95a03b39ce2c67bcee7212e944d68db74db8cc0e2852f90e0d13",
+    "update_result": {
+      "schema_version": "prifly-update/1",
+      "previous_version": "0.13.85",
+      "version": "0.13.86",
+      "updated": true,
+      "source": "https://github.com/StenHigh/prifly/releases/latest/download"
+    }
+  },
+  "verify": "https://github.com/StenHigh/prifly/actions/runs/41472125704",
+  "qualify": "https://github.com/StenHigh/prifly/actions/runs/41472173497",
+  "release_workflow": "https://github.com/StenHigh/prifly/actions/runs/41476277110"
+}

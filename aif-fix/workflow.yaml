@@ -1,7 +1,7 @@
-authoring: prifly-project-workflow/1
+authoring: prifly-project-workflow/3
 package:
   id: aif-fix:package/fix
-  version: 1.1.0
+  version: 2.0.0
   description: Fix a specific bug with regression evidence and one review; complex bugs use their own fix-plan executed by aif-fix, not feature implementation.
   requires_core_protocol: "1"
   profiles:
@@ -17,22 +17,30 @@ package:
           kind: exact_file
           path: .ai-factory/fix-plans/FIX_PLAN.md
         fix_path: .ai-factory/fix-plans/FIX_PLAN.md
+  dependencies: [aif:package/composition-contracts@1.2.0]
   references:
+    contract_schema_feature-enabled: aif:schema/feature-enabled@1.0.0
+    contract_schema_fix-result: aif-fix:schema/fix-result@1.0.0
+    contract_schema_gate-result: aif:schema/gate-result@1.2.0
+    contract_schema_implementation: aif:schema/implementation@1.2.0
+    contract_schema_round-limit: aif:schema/round-limit@1.1.0
+    contract_schema_task: aif:schema/task@1.1.0
+    contract_schema_warmup-handoff: aif:schema/warmup-handoff@1.0.0
     assisted_adapter: core:adapter/assisted-session@1.0.0
     local_policy: core:policy/local@4.0.0
     step_result_schema_v2: core:schema/step-result@2.0.0
     workspace_tree_manifest: core:schema/workspace-tree-manifest@1.0.0
 id: aif-fix:workflow/fix
 schema_version: "8"
-version: 1.1.0
+version: 2.0.0
 title: AI Factory bug fix workflow
 refs:
-  schema_task: "{{schema_task}}"
-  schema_implementation: "{{schema_implementation}}"
-  schema_fix-result: "{{schema_fix-result}}"
-  schema_gate-result: "{{schema_gate-result}}"
+  schema_task: "{{contract_schema_task}}"
+  schema_implementation: "{{contract_schema_implementation}}"
+  schema_fix-result: "{{contract_schema_fix-result}}"
+  schema_gate-result: "{{contract_schema_gate-result}}"
   schema_plan: "{{workspace_tree_manifest}}"
-  schema_feature-enabled: "{{schema_feature-enabled}}"
+  schema_feature-enabled: "{{contract_schema_feature-enabled}}"
   step_warmup: "{{step_warmup}}"
   workflow_build: "{{workflow_build}}"
   workflow_quality: "{{workflow_quality}}"
@@ -58,10 +66,10 @@ outputs:
     schema_ref: schema_plan
     required_for: []
 limits:
-  max_step_instances: 40
-  max_control_transitions: 300
+  max_step_instances: 160
+  max_control_transitions: 1024
   max_parallelism: 1
-  max_child_depth: 3
+  max_child_depth: 6
 policy_ref: local_policy
 resumable:
   from_outcomes: [partial, rejected]
@@ -148,3 +156,4 @@ stages:
   abandoned:
     kind: finish
     outcome: rejected
+exports: {"workflows": {"quality": "{{workflow_quality-round}}"}, "points": {"before-quality": {"workflow": "quality", "point": "before-quality"}}}

@@ -1,17 +1,17 @@
 authoring: prifly-workflow/1
 schema_version: "6"
 id: aif-fix:workflow/build
-version: 1.1.0
+version: 1.2.0
 title: build for aif-fix
 refs:
-  schema_task: "{{schema_task}}"
-  schema_warmup-handoff: "{{schema_warmup-handoff}}"
-  schema_implementation: "{{schema_implementation}}"
-  schema_fix-result: "{{schema_fix-result}}"
-  schema_gate-result: "{{schema_gate-result}}"
+  schema_task: "{{contract_schema_task}}"
+  schema_warmup-handoff: "{{contract_schema_warmup-handoff}}"
+  schema_implementation: "{{contract_schema_implementation}}"
+  schema_fix-result: "{{contract_schema_fix-result}}"
+  schema_gate-result: "{{contract_schema_gate-result}}"
   schema_plan: "{{workspace_tree_manifest}}"
-  schema_feature-enabled: "{{schema_feature-enabled}}"
-  schema_round-limit: "{{schema_round-limit}}"
+  schema_feature-enabled: "{{contract_schema_feature-enabled}}"
+  schema_round-limit: "{{contract_schema_round-limit}}"
   local_policy: "{{local_policy}}"
   step_fix-task: "{{step_fix-task}}"
   step_fix-plan: "{{step_fix-plan}}"

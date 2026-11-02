@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compile unpublished parallel UI/UX fixture; retain shipping W2 bytes."""
+"""Compile unpublished parallel UI/UX fixture; retain shipping UI/UX worker bytes."""
 import argparse
 import hashlib
 import json

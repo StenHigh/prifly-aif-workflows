@@ -1,5 +1,19 @@
 # AI Factory classic workflow
 
+## Unified composition 2.0.0
+
+Requires Pri-Fly >=0.13.86 and explicit installation of the
+[pinned shared schema dependency](https://github.com/StenHigh/prifly-aif-workflows/blob/v1.57.0/contracts/README.md). New templates use
+`prifly-extension/5`; folders use `/3`. Existing installed project files and
+sealed Runs are never rewritten automatically. Review the migration before a
+new Run. [Complete examples and native checks](https://github.com/StenHigh/prifly-aif-workflows/blob/v1.57.0/examples/unified-composition/README.md).
+
+
+Catalog installation copies this package folder only. Obtain the exact v1.57.0
+source checkout separately. Run its `tools/install_composition_contracts.py`
+against the selected authority before compilation. The package installer does
+not install this dependency or copy the repository tools automatically.
+
 ## Быстрый поиск исходников
 
 Основной путь читается в [workflow.yaml](workflow.yaml). Эта схема показывает

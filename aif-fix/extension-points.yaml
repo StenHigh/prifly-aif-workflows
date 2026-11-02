@@ -1,0 +1,152 @@
+{
+  "authoring": "prifly-extension-points/1",
+  "points": {
+    "before-quality": {
+      "workflow": "aif-fix:workflow/quality-round",
+      "entry": "check",
+      "input_bindings": {
+        "implementation": "$inputs.implementation",
+        "task": "$inputs.task"
+      },
+      "consumers": {
+        "check-implementation": {
+          "stage": "check",
+          "input": "implementation"
+        },
+        "repair-check-implementation": {
+          "stage": "repair-check",
+          "input": "implementation"
+        },
+        "standing-check-implementation": {
+          "stage": "standing-check",
+          "output": "implementation"
+        },
+        "blocked-check-implementation": {
+          "stage": "blocked-check",
+          "output": "implementation"
+        },
+        "security-implementation": {
+          "stage": "security",
+          "input": "implementation"
+        },
+        "repair-security-implementation": {
+          "stage": "repair-security",
+          "input": "implementation"
+        },
+        "standing-security-implementation": {
+          "stage": "standing-security",
+          "output": "implementation"
+        },
+        "blocked-security-implementation": {
+          "stage": "blocked-security",
+          "output": "implementation"
+        },
+        "review-implementation": {
+          "stage": "review",
+          "input": "implementation"
+        },
+        "repair-review-implementation": {
+          "stage": "repair-review",
+          "input": "implementation"
+        },
+        "standing-review-implementation": {
+          "stage": "standing-review",
+          "output": "implementation"
+        },
+        "blocked-review-implementation": {
+          "stage": "blocked-review",
+          "output": "implementation"
+        },
+        "clean-implementation": {
+          "stage": "clean",
+          "output": "implementation"
+        }
+      },
+      "routes": {
+        "step": {
+          "on": {
+            "pass": "check",
+            "needs_revision": "stopped",
+            "blocked": "stopped",
+            "fail": "stopped",
+            "no_work": "stopped"
+          },
+          "on_error": "stopped"
+        },
+        "call": {
+          "on": {
+            "succeeded": "check",
+            "partial": "stopped",
+            "rejected": "stopped"
+          },
+          "on_error": "stopped"
+        }
+      }
+    },
+    "after-commit": {
+      "workflow": "aif-fix:workflow/fix",
+      "between": {
+        "from": "commit",
+        "to": "done"
+      },
+      "input_bindings": {},
+      "consumers": {},
+      "routes": {
+        "step": {
+          "on": {
+            "pass": "done",
+            "needs_revision": "abandoned",
+            "blocked": "abandoned",
+            "fail": "abandoned",
+            "no_work": "abandoned"
+          },
+          "on_error": "abandoned"
+        },
+        "call": {
+          "on": {
+            "succeeded": "done",
+            "rejected": "abandoned"
+          },
+          "on_error": "abandoned"
+        }
+      }
+    },
+    "before-build": {
+      "workflow": "aif-fix:workflow/fix",
+      "between": {
+        "from": "warmup",
+        "to": "build"
+      },
+      "input_bindings": {
+        "implementation": "$stages.warmup.implementation",
+        "task": "$inputs.task"
+      },
+      "consumers": {
+        "build-implementation": {
+          "stage": "build",
+          "input": "implementation"
+        }
+      },
+      "routes": {
+        "step": {
+          "on": {
+            "pass": "build",
+            "needs_revision": "abandoned",
+            "blocked": "abandoned",
+            "fail": "abandoned",
+            "no_work": "abandoned"
+          },
+          "on_error": "abandoned"
+        },
+        "call": {
+          "on": {
+            "succeeded": "build",
+            "partial": "abandoned",
+            "rejected": "abandoned"
+          },
+          "on_error": "abandoned"
+        }
+      }
+    }
+  }
+}

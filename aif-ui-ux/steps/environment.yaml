@@ -1,16 +1,16 @@
 authoring: prifly-step/2
 id: aif-product:step/environment
-version: 1.1.0
+version: 1.2.0
 title: Product review environment
 kind: worker
 inputs:
   configuration:
-    schema_ref: '{{schema_configuration}}'
+    schema_ref: '{{contract_schema_configuration}}'
   candidate:
-    schema_ref: '{{schema_candidate}}'
+    schema_ref: '{{contract_schema_candidate}}'
 outputs:
   environment:
-    schema_ref: '{{schema_environment}}'
+    schema_ref: '{{contract_schema_environment}}'
     required_for:
     - pass
 executor:

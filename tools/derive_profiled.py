@@ -141,6 +141,8 @@ def transform(relative, text):
         marker = "# `extensions` adds a step of your own"
         assert text.count(marker) == 1, "classic's extend.yaml no longer introduces `extensions` where this expects it"
         return text.replace(marker, MODEL_PROFILES_BLOCK + marker)
+    if parts[0] == "extension-points.yaml":
+        return text.replace("aif:workflow/", "aif-profiled:workflow/")
     if parts[0] == "workflow.yaml":
         text = text.replace("id: aif:package/classic\n", "id: aif-profiled:package/classic\n")
         text = text.replace("id: aif:workflow/classic\n", "id: aif-profiled:workflow/classic\n")
@@ -191,7 +193,7 @@ def derive():
     # names moved (shared ones move with the source), or — for the root — when
     # anything in the package changed at all. Propagation runs to a fixpoint,
     # so the order in which files are visited does not matter.
-    versioned = {relative for relative in derived if relative.parts[0] != "extend.yaml"}
+    versioned = {relative for relative, text in derived.items() if VERSION_LINE.search(text)}
     moved = {relative for relative, text in shared.items() if committed.get(relative) not in (None, text)}
     moved |= {relative for relative in versioned if relative in committed and normalised(derived[relative]) != normalised(committed[relative])}
     root = Path("workflow.yaml")
@@ -215,6 +217,10 @@ def derive():
             version = bump_minor(declared_version(committed[relative]))
         else:
             version = declared_version(committed[relative])
+        if relative == root:
+            source_version = declared_version((SOURCE / relative).read_text())
+            if int(source_version.split('.')[0]) > int(version.split('.')[0]):
+                version = source_version
         derived[relative] = with_version(derived[relative], version)
     files = {relative: text for relative, text in shared.items()}
     files.update(derived)
@@ -240,6 +246,9 @@ def dependencies(text):
     out = set()
     for kind, name in PLACEHOLDER.findall(text):
         out.add(Path({"step": "steps", "workflow": "workflows", "context": "contexts", "schema": "schemas"}[kind]) / f"{name}.yaml")
+    source = re.search(r"^source: .prifly/workflows/aif-profiled/([^\n]+)", text, re.MULTILINE)
+    if source:
+        out.add(Path(source.group(1)))
     return out
 
 

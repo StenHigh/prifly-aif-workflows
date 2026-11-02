@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","id":"aif:schema/round-limit","maximum":8,"minimum":1,"type":"integer","version":"1.1.0"}

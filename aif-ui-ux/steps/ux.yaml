@@ -1,20 +1,20 @@
 authoring: prifly-step/2
 id: aif-product:step/ux
-version: 1.1.0
+version: 1.2.0
 title: Product review ux
 kind: worker
 inputs:
   configuration:
-    schema_ref: '{{schema_configuration}}'
+    schema_ref: '{{contract_schema_configuration}}'
   request:
-    schema_ref: '{{schema_request}}'
+    schema_ref: '{{contract_schema_request}}'
   candidate:
-    schema_ref: '{{schema_candidate}}'
+    schema_ref: '{{contract_schema_candidate}}'
   environment:
-    schema_ref: '{{schema_environment}}'
+    schema_ref: '{{contract_schema_environment}}'
 outputs:
   report:
-    schema_ref: '{{schema_report}}'
+    schema_ref: '{{contract_schema_report}}'
     required_for:
     - pass
     - needs_revision

@@ -1,0 +1,6 @@
+{
+  "id": "aif-product:context/applicability-bridge",
+  "version": "1.0.0",
+  "media_type": "text/plain",
+  "text": "Determine UI/UX applicability from the original task and the actual claimed candidate. Read task, implementation and candidate; inspect relevant code, diff and callers. PHP-rendered UI also counts. File extensions or paths alone do not decide applicability. Use a fresh session if the host supports one, with only this delivered task and sealed inputs, without the author's conversation. Do not repair, commit, provision/release environments, run browser checks or drive Pri-Fly. The repository is read-only.\nReturn exactly status (required, not-required, unknown), reason, task_digest and candidate. Required means this task/candidate needs UI/UX browser acceptance. Not-required needs a concrete task-and-code explanation; it does not mean browser checks passed. Unknown means evidence or requirements do not support a decision and blocks acceptance. Copy candidate unchanged and use context.inputs.task.ref.digest as task_digest. Do not add source_report; the guard attaches its own derivation. Write only the reserved applicability output and native submission. Never turn unavailable into not-required. Model identity is unavailable unless the host actually established it."
+}

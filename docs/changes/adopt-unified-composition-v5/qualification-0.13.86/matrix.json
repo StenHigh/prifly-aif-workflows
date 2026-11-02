@@ -1,0 +1,114 @@
+{
+  "binary_version": "0.13.86",
+  "binary_sha256": "f46270b8046a95a03b39ce2c67bcee7212e944d68db74db8cc0e2852f90e0d13",
+  "source_head": "dd5fed212b16d0e7f7f39a79d00845db49f25789",
+  "inputs_sha256_before": "38a0b1cc811f027913bb521e17a3e3023ac4db229657aa10b35fec0a8e312da3",
+  "inputs_sha256_after": "38a0b1cc811f027913bb521e17a3e3023ac4db229657aa10b35fec0a8e312da3",
+  "cases": [
+    {
+      "package": "aif-classic",
+      "case": "clean",
+      "exit": 0,
+      "seconds": 59.44,
+      "report": "aif-classic-clean.json",
+      "log": "aif-classic-clean.log"
+    },
+    {
+      "package": "aif-classic",
+      "case": "repair",
+      "exit": 0,
+      "seconds": 76.955,
+      "report": "aif-classic-repair.json",
+      "log": "aif-classic-repair.log"
+    },
+    {
+      "package": "aif-classic",
+      "case": "disabled",
+      "exit": 0,
+      "seconds": 52.597,
+      "report": "aif-classic-disabled.json",
+      "log": "aif-classic-disabled.log"
+    },
+    {
+      "package": "aif-classic",
+      "case": "continue",
+      "exit": 0,
+      "seconds": 75.45,
+      "report": "aif-classic-continue.json",
+      "log": "aif-classic-continue.log"
+    },
+    {
+      "package": "aif-classic",
+      "case": "permissions",
+      "exit": 0,
+      "seconds": 52.642,
+      "report": "aif-classic-permissions.json",
+      "log": "aif-classic-permissions.log"
+    },
+    {
+      "package": "aif-profiled",
+      "case": "clean",
+      "exit": 0,
+      "seconds": 47.515,
+      "report": "aif-profiled-clean.json",
+      "log": "aif-profiled-clean.log"
+    },
+    {
+      "package": "aif-profiled",
+      "case": "repair",
+      "exit": 0,
+      "seconds": 55.537,
+      "report": "aif-profiled-repair.json",
+      "log": "aif-profiled-repair.log"
+    },
+    {
+      "package": "aif-profiled",
+      "case": "disabled",
+      "exit": 0,
+      "seconds": 32.821,
+      "report": "aif-profiled-disabled.json",
+      "log": "aif-profiled-disabled.log"
+    },
+    {
+      "package": "aif-profiled",
+      "case": "continue",
+      "exit": 0,
+      "seconds": 63.218,
+      "report": "aif-profiled-continue.json",
+      "log": "aif-profiled-continue.log"
+    },
+    {
+      "package": "aif-profiled",
+      "case": "permissions",
+      "exit": 0,
+      "seconds": 39.563,
+      "report": "aif-profiled-permissions.json",
+      "log": "aif-profiled-permissions.log"
+    },
+    {
+      "package": "aif-fix",
+      "case": "clean",
+      "exit": 0,
+      "seconds": 37.484,
+      "report": "aif-fix-clean.json",
+      "log": "aif-fix-clean.log"
+    },
+    {
+      "package": "aif-fix",
+      "case": "repair",
+      "exit": 0,
+      "seconds": 50.134,
+      "report": "aif-fix-repair.json",
+      "log": "aif-fix-repair.log"
+    },
+    {
+      "package": "aif-fix",
+      "case": "disabled",
+      "exit": 0,
+      "seconds": 31.527,
+      "report": "aif-fix-disabled.json",
+      "log": "aif-fix-disabled.log"
+    }
+  ],
+  "boundary": "Actual shipping native measurement/carrier routes with scripted assessments; no live LLM or private application acceptance inferred."
+}

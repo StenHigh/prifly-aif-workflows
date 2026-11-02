@@ -7,7 +7,7 @@
   "refs": {
     "prepare": "{{step_w6-uiux-prepare}}",
     "seal": "{{step_w6-uiux-seal}}",
-    "implementation": "{{schema_implementation}}",
+    "implementation": "{{contract_schema_implementation}}",
     "candidate": "{{schema_w6-candidate}}",
     "receipt": "{{schema_w6-receipt}}",
     "assessment": "{{schema_w6-assessment}}",

@@ -10,7 +10,7 @@
 <p align="center">
   <a href="https://github.com/StenHigh/prifly-aif-workflows/actions/workflows/verify.yml"><img src="https://github.com/StenHigh/prifly-aif-workflows/actions/workflows/verify.yml/badge.svg" alt="verify"></a>
   <a href="https://github.com/StenHigh/prifly-aif-workflows/tags"><img src="https://img.shields.io/github/v/tag/StenHigh/prifly-aif-workflows?label=release&amp;color=1f6feb" alt="latest tag"></a>
-  <img src="https://img.shields.io/badge/pri--fly-%E2%89%A5%200.13.77-00ADD8" alt="Pri-Fly ≥ 0.13.77">
+  <img src="https://img.shields.io/badge/pri--fly-%E2%89%A5%200.13.86-00ADD8" alt="Pri-Fly ≥ 0.13.86">
   <img src="https://img.shields.io/badge/hosts-codex--cli%20%C2%B7%20codex--app%20%C2%B7%20claude--code-4b5563" alt="hosts">
 </p>
 
@@ -64,13 +64,23 @@ Run с повтором writer и проверок. Для partial-плана т
 входные JSON, команды и изолированную проверку на released Pri-Fly; новый
 workflow или отдельная очередь не добавляются.
 
-**Для приёмки внутри своего workflow** есть [review/UI/UX через `extend`](examples/review-uiux-extensions/README.md): три opt-in варианта проверяют candidate текущего Run перед commit, с gate и отчётами. Нужен Pri-Fly ≥0.13.78; подключение проектное, canonical classic/profiled не меняются.
+**Для приёмки внутри своего workflow** есть [review/UI/UX через `extend`](examples/review-uiux-extensions/README.md): три opt-in варианта проверяют candidate текущего Run перед commit, с gate и отчётами. Текущий compatibility bundle2.0.0 требует Core ≥0.13.86, classic/profiled2.0.0 и явную установку общих схем. Подключение проектное; шаблоны canonical classic/profiled не переписываются.
 
 **Для проверки готовых изменений** `aif-review-evidence` и `aif-ui-ux`
 возвращают отчёты и итог приёмки; исправление кода и commit остаются отдельным
 действием. Их компоненты уже используются внутри `aif-feature`, где проверка
 связана с реализацией и повторяется после исправлений. Для браузерных проверок
 понадобится [контракт тестовой среды проекта](docs/product-review-environment.md).
+
+**Кандидат unified composition `/5`.** Classic/profiled/fix/UIUX2.0.0
+используют public imports, scoped points и общую exact schema dependency.
+Нужны Pri-Fly **0.13.86** и явная установка пакета общих схем.
+[Примеры](examples/unified-composition/README.md),
+[границы приёмки](docs/changes/adopt-unified-composition-v5/design.md),
+[draft release guide](docs/changes/adopt-unified-composition-v5/release-guide.md).
+Кандидат готовится к выпуску v1.57.0. Каталог сохраняет прежние pins до публикации.
+[Core #15](https://github.com/StenHigh/prifly/issues/15) исправлен в v0.13.86;
+опубликованный бинарник прошёл именованный native запуск.
 
 **Выпуск v1.56.0, issue #7.** Verify `fail/no_work` завершает classic/profiled
 как `completed/rejected` без обязательного gate. Continue повторяет verify на сохранённом дереве.
@@ -127,19 +137,19 @@ AI Factory развиваются здесь.
 
 ## Установка в проект
 
-Для всех пакетов текущего выпуска используйте Pri-Fly **0.13.77** и новее
+Для набора v1.57.0 используйте Pri-Fly **0.13.86** и новее
 (официальный бинарник из GitHub Releases):
 
 ```sh
 prifly project workflows add aif-classic          # запись официального каталога
 prifly project workflows add aif-fanout
-prifly project workflows add aif-fix              # Pri-Fly >= 0.13.76
+prifly project workflows add aif-fix              # 2.0.0: общие схемы устанавливаются отдельно
 prifly project workflows add aif-review-evidence  # проверка готового кода; >= 0.13.76
-prifly project workflows add aif-ui-ux            # проверка интерфейса; >= 0.13.76
+prifly project workflows add aif-ui-ux            # 2.0.0: общие схемы устанавливаются отдельно
 prifly project workflows add aif-feature          # небольшая новая фича; >= 0.13.77
 prifly project workflows add openclaw-test-audit  # аудит тестов; без AI Factory skills
 # или напрямую из этого репозитория
-prifly project workflows add StenHigh/prifly-aif-workflows --path aif-feature --ref v1.53.0
+prifly project workflows add StenHigh/prifly-aif-workflows --path aif-feature --ref v1.57.0
 ```
 
 Команда копирует папку в `.prifly/workflows/aif-classic/`, объявляет package и
@@ -147,13 +157,31 @@ launch в `.prifly/project.yaml` и записывает `origin` с exact commi
 исполняется и не становится trusted: доверие package решается при
 `prifly project start`.
 
+Для classic/profiled/fix/UIUX2.0.0 до compile/prepare явно установите общий пакет
+схем. `WORKFLOW_SOURCE` — отдельный точный checkout v1.57.0.
+`PRIFLY_AUTHORITY` — существующая authority целевого проекта из его local settings.
+
+```sh
+WORKFLOW_SOURCE=/absolute/prifly-aif-workflows-v1.57.0
+PRIFLY_AUTHORITY=/absolute/project-authority
+git clone --branch v1.57.0 --depth 1 \
+  https://github.com/StenHigh/prifly-aif-workflows.git "$WORKFLOW_SOURCE"
+python3 "$WORKFLOW_SOURCE/tools/install_composition_contracts.py" \
+  --binary "$(command -v prifly)" --project "$PRIFLY_AUTHORITY"
+```
+
+Каталог копирует только выбранную папку workflow. Он не копирует `contracts/`
+и `tools/`, не импортирует зависимость и не меняет старые Runs.
+[Руководство миграции](docs/releases/v1.57.0.md) описывает обновление owner extensions.
+
 В Pri-Fly 0.13.76 runner `prifly-run` может предложить workflow по описанию
 задачи и установленным сценариям. Пользователь выбирает workflow и просматривает
 подготовленный запуск. После обновления бинаря выполните
 `prifly project runners update --repository .`; соседний `PROJECT.md`
 с критериями проекта сохраняется.
 
-Для Pri-Fly `v0.5.0` и старше — вручную:
+Для исторических клиентов используйте совместимый старый tag, а не папки2.0.0.
+Исторический способ для Pri-Fly `v0.5.0` и старше — вручную:
 
 ```sh
 cp -R aif-classic <repo>/.prifly/workflows/aif-classic

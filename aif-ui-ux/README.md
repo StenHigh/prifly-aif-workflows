@@ -1,9 +1,21 @@
 # UI/UX review on an owned test environment
 
-Отдельный пакет `aif-product:package/ui-ux@1.1.0`, подготовленный для W3.
-Требует выпущенный Pri-Fly **0.13.76**, Python 3 stdlib для programs и host
-skills `aif-review/SKILL.md`, `aif-review/references/SEVERITY.md`.
-Каталог публикует прежний пакет1.0.0 в v1.54.0. Кандидат1.1.0 готовится для v1.55.0.
+## Unified composition 2.0.0
+
+Requires Pri-Fly >=0.13.86 and explicit installation of the
+[pinned shared schema dependency](https://github.com/StenHigh/prifly-aif-workflows/blob/v1.57.0/contracts/README.md). New templates use
+`prifly-extension/5`; folders use `/3`. Existing installed project files and
+sealed Runs are never rewritten automatically. Review the migration before a
+new Run. [Complete examples and native checks](https://github.com/StenHigh/prifly-aif-workflows/blob/v1.57.0/examples/unified-composition/README.md).
+
+
+Пакет `aif-product:package/ui-ux@2.0.0` требует Pri-Fly **0.13.86**,
+Python 3 stdlib для programs и host skills `aif-review/SKILL.md`,
+`aif-review/references/SEVERITY.md`. Старые catalog pins не обозначают этот
+кандидат. Public exports: `configure`, `quality`, `review-for-change` и
+`before-applicability`. Последний Call принимает исходную задачу и фактический
+candidate; только статус `required` создаёт browser Attempts.
+[Контракт и подключение](../examples/unified-composition/README.md#task-aware-acceptance-call).
 
 ```text
 configure → quality {
@@ -20,6 +32,11 @@ Read-only readers могут менять ephemeral browser state; submit_test �
 пакете относится к локальному состоянию test страницы. Сценарий, пишущий в
 backend/API/database, требует отдельного declared effect исполнителя/графа;
 одного allowed_operations в configuration для такой записи недостаточно.
+
+Catalog installation copies this package folder only. Obtain the exact v1.57.0
+source checkout separately. Run its `tools/install_composition_contracts.py`
+against the selected authority before compilation. The package installer does
+not install this dependency or copy the repository tools automatically.
 
 ## Установка и просмотр запуска
 

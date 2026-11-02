@@ -21,12 +21,16 @@ from test_review_evidence import report
 from evidence_check import read
 from run_check import clean,git_out
 from product_environment import OwnedEnvironment
+from unified_measurement import owned_fixture
 
 CASES=('pass','backend','excluded','missing-browser','optional-ignore','optional-stop','missing-server','false-browser',
        'wrong-viewport','missing-scenario','stale-candidate','stale-environment','wrong-cleanup-owner','cleanup-interrupted',
        'defect-repair','cancel-resume','blocked-resume','shared-resource')
+APPLICABILITY_CASES=('unknown','wrong-task','missing-configuration')
 BROWSER_CASES=('pass','defect-repair','cancel-resume','missing-server')
 LIVE_SKILLS=None
+COMPOSED=False
+APPLICABILITY=False
 MANUAL_DIRECTORY=None
 AUTO_REVIEW=False
 
@@ -92,9 +96,15 @@ No expected result is supplied. Finish with paths of files you wrote."""
 
 
 def run_case(binary,case,host='codex-cli',library=None,artifacts=None):
-    with tempfile.TemporaryDirectory(prefix='w2-run-') as directory:
-        root=Path(directory);repository,authority=verify.prepare_repository(binary,root);runs=[];envs=[];observed=[];snapshots=[];claims=set();trees=[];other=None
+    with owned_fixture(prefix='w2-run-') as directory:
+        root=Path(directory);repository,authority=verify.prepare_repository(binary,root);runs=[];envs=[];observed=[];snapshots=[];claims=set();trees=[];other=None;applicability_reports=[];roles=[]
         browser=library is not None
+        launch='ui-ux-composed' if COMPOSED else 'aif-ui-ux'
+        if COMPOSED:
+            import importlib.util
+            spec=importlib.util.spec_from_file_location('composed_setup',verify.ROOT/'examples/unified-composition/setup.py')
+            module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);module.setup(repository,applicability=APPLICABILITY)
+
         try:
             if LIVE_SKILLS:
                 for host_root in verify.HOSTS.values():
@@ -116,7 +126,13 @@ def run_case(binary,case,host='codex-cli',library=None,artifacts=None):
                 for lens in p.LENSES:cfg[lens]['base_commit']=base
             config_path=root/'configuration.json';config_path.write_text(json.dumps(cfg))
             verify.run(binary,'--project',authority,'project','local','set','--repository',repository,'--allow-executable','python='+str(Path(sys.executable).resolve()))
-            args=('--project',authority,'project','start','--repository',repository,'--launch','aif-ui-ux','--host',host,'--workspace','worktree','--input','configuration='+str(config_path),'--allow-execution')
+            args=('--project',authority,'project','start','--repository',repository,'--launch',launch,'--host',host,'--workspace','worktree','--input','configuration='+str(config_path),'--allow-execution')
+            if APPLICABILITY:
+                task_path=root/'task.json';task_path.write_text(json.dumps({'title':'Isolated UI flow change' if case!='backend' else 'Backend arithmetic regression','description':'Bounded fixture task, not an application acceptance result.'}))
+                implementation_path=root/'implementation.json';implementation_path.write_text(json.dumps({'base_commit':base,'head_commit':base,'changed_files':[]}))
+                args+=('--input','task='+str(task_path),'--input','implementation='+str(implementation_path))
+                if case=='missing-configuration':
+                    pos=args.index('configuration='+str(config_path));args=args[:pos-1]+args[pos+1:]
             prepared=verify.run(binary,*args[:3],'questionnaire',*args[4:],'--prepare')
             # User-reviewed input remains exact; prepare exposes its identity,
             # not a speculative per-field questionnaire renderer.
@@ -130,8 +146,18 @@ def run_case(binary,case,host='codex-cli',library=None,artifacts=None):
                     tasks=verify.run(binary,'--project',authority,'session','task','--run',rid,'--all')['tasks']
                     if not tasks:return verify.run(binary,'--project',authority,'run','status',rid)['run']
                     for task in tasks:
-                        name=task['skill_refs'][0]['id'].rsplit('/',1)[-1].removesuffix('-bridge');tree=Path(task['repository_workspace']);trees.append(tree);claims.add(task['claim_id'])
-                        config=read(task,'configuration');before=p.w1.snapshot(tree,base)
+                        name=task['skill_refs'][0]['id'].rsplit('/',1)[-1].removesuffix('-bridge');roles.append(name);tree=Path(task['repository_workspace']);trees.append(tree);claims.add(task['claim_id'])
+                        before=p.w1.snapshot(tree,base)
+                        if name=='applicability':
+                            basis=read(task,'candidate');snapshots.append(basis['digest'])
+                            status='not-required' if case=='backend' else 'unknown' if case=='unknown' else 'required'
+                            value={'status':status,'reason':'Fixture semantic decision; backend arithmetic has no interface' if case=='backend' else 'Fixture requires interface acceptance' if status=='required' else 'Fixture cannot determine affected surface','task_digest':task['context']['inputs']['task']['ref']['digest'],'candidate':basis}
+                            if case=='wrong-task':value['task_digest']='sha256:'+'a'*64
+                            raw=json.dumps(value).encode();slot=task['context']['outputs']['applicability'];applicability_reports.append(({'artifact_id':slot['artifact_id'],'revision':slot['revision'],'digest':p.w1.digest(raw)},value))
+                            submit(binary,authority,rid,task,'applicability',value,'Scripted applicability wiring test; no independent judgement claimed')
+                            assert p.w1.snapshot(tree,base)==before
+                            continue
+                        config=read(task,'configuration')
                         if name=='environment':
                             basis=read(task,'candidate');snapshots.append(basis['digest']);need=p.needed(config)
                             missing=case in ('missing-browser','missing-server','optional-ignore','optional-stop') or case=='blocked-resume' and iteration==0
@@ -211,12 +237,28 @@ def run_case(binary,case,host='codex-cli',library=None,artifacts=None):
                 tree=trees[-1]
                 if case=='defect-repair':(tree/'index.html').write_text((verify.ROOT/'tests/fixtures/product/index.html').read_text())
                 (tree/'owner.txt').write_text('Preserved owner edit across review continuation\n')
-                args_continue=('--project',authority,'project','continue','--repository',repository,'--launch','aif-ui-ux','--source-run',rid,'--host',host,'--allow-execution')
+                args_continue=('--project',authority,'project','continue','--repository',repository,'--launch',launch,'--source-run',rid,'--host',host,'--allow-execution')
                 prep=verify.run(binary,*args_continue,'--prepare');rid=verify.run(binary,*args_continue,'--expected-launch-digest',prep['review_digest'])['run']['run']['id'];runs.append(rid);state=drive(rid,1)
                 assert (tree/'owner.txt').read_text()=='Preserved owner edit across review continuation\n';assert snapshots[0]!=snapshots[-1]
             expected='succeeded' if case in ('pass','backend','excluded','optional-ignore','defect-repair','cancel-resume','blocked-resume','shared-resource') else 'partial'
             assert state.get('outcome')==expected,{k:state.get(k) for k in ('outcome','status','diagnostics')}
-            assert {'gate','ui_report','ux_report','environment','release'}<=state['output_artifacts'].keys()
+            if APPLICABILITY:
+                assert {'implementation','applicability','gate'}<=state['output_artifacts'].keys()
+                def exported(reference):
+                    f=root/'reference.json';f.write_text(json.dumps(reference));out=root/'exported.json';out.unlink(missing_ok=True)
+                    verify.run(binary,'--project',authority,'artifact','export','--ref',f,'--output',out)
+                    assert p.w1.digest(out.read_bytes())==reference['digest']
+                    return json.loads(out.read_text())
+                for reference,original in applicability_reports:assert exported(reference)==original
+                carrier=exported(state['output_artifacts']['implementation'])
+                assert applicability_reports[-1][0] in carrier['reports']
+                assessment=exported(state['output_artifacts']['applicability'])
+                assert assessment['source_report']==applicability_reports[-1][0]
+                assert assessment['status']==('unknown' if case in ('unknown','wrong-task') else 'not-required' if case=='backend' else 'required')
+                if case in ('backend','unknown','wrong-task','missing-configuration'):
+                    assert not envs and not observed and not set(roles)&{'environment','ui','ux','release'},'Skipped or blocked applicability created browser Attempts'
+                    assert not {'ui_report','ux_report','environment','release'} & state['output_artifacts'].keys()
+            else:assert {'gate','ui_report','ux_report','environment','release'}<=state['output_artifacts'].keys()
             assert len(claims)==1
             if LIVE_SKILLS and not MANUAL_DIRECTORY:
                 assert len({item['session_id'] for item in observed})==len(observed),'Host reused reader session'
@@ -233,9 +275,11 @@ def run_case(binary,case,host='codex-cli',library=None,artifacts=None):
 
 def main():
     if not __debug__:raise RuntimeError('Verification requires assertions')
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--binary',type=Path,required=True);parser.add_argument('--case',choices=CASES);parser.add_argument('--browser-library',type=Path);parser.add_argument('--artifacts',type=Path);parser.add_argument('--report',type=Path);parser.add_argument('--live-skills',type=Path);parser.add_argument('--manual-directory',type=Path);parser.add_argument('--auto-review',action='store_true');args=parser.parse_args()
-    global LIVE_SKILLS,MANUAL_DIRECTORY,AUTO_REVIEW
-    LIVE_SKILLS=args.live_skills;MANUAL_DIRECTORY=args.manual_directory;AUTO_REVIEW=args.auto_review
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--binary',type=Path,required=True);parser.add_argument('--case',choices=CASES+APPLICABILITY_CASES);parser.add_argument('--browser-library',type=Path);parser.add_argument('--artifacts',type=Path);parser.add_argument('--report',type=Path);parser.add_argument('--live-skills',type=Path);parser.add_argument('--manual-directory',type=Path);parser.add_argument('--auto-review',action='store_true');parser.add_argument('--composed',action='store_true');parser.add_argument('--applicability',action='store_true');args=parser.parse_args()
+    global LIVE_SKILLS,MANUAL_DIRECTORY,AUTO_REVIEW,COMPOSED,APPLICABILITY
+    LIVE_SKILLS=args.live_skills;MANUAL_DIRECTORY=args.manual_directory;AUTO_REVIEW=args.auto_review;COMPOSED=args.composed or args.applicability;APPLICABILITY=args.applicability
+    if not APPLICABILITY and args.case in APPLICABILITY_CASES:parser.error('This case requires --applicability')
+    if APPLICABILITY and args.case not in ('pass','backend','unknown','wrong-task','missing-configuration','missing-browser'):parser.error('Applicability probe supports one bounded pass/scope/config/browser-availability case; root resume needs a consumer with an accepted prefix')
     if AUTO_REVIEW and (not LIVE_SKILLS or MANUAL_DIRECTORY):parser.error('Automatic approval review is only for explicitly selected live CLI fixture sessions')
     if MANUAL_DIRECTORY and not LIVE_SKILLS:parser.error("Manual host requires exact live skills")
     if LIVE_SKILLS and (not args.browser_library or not args.artifacts or not args.case):parser.error('Live readers require --browser-library, --artifacts and one --case')

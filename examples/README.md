@@ -17,3 +17,10 @@
 - [Самостоятельные fanout/fix](fanout-fix/README.md): JSON-входы, preview/start и поддерживаемый fix continue.
 
 - [Самостоятельные review/UI/UX](review-ui-ux/README.md): request/configuration, preview/start/continue и отдельный opt-in.
+
+## Unified composition `/5` candidate
+
+[Public imports и scoped points](unified-composition/README.md) показывают
+classic/profiled/fix/UIUX2.0.0 на выпущенном Core0.13.86. Общие схемы требуют
+явной установки. Пример task-aware Call содержит task, implementation,
+applicability и optional configuration. Это кандидат, не текущий catalog pin.

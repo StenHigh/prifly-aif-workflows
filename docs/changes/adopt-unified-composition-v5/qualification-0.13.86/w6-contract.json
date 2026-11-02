@@ -1,0 +1,167 @@
+{
+  "prifly": "0.13.86",
+  "binary_sha256": "f46270b8046a95a03b39ce2c67bcee7212e944d68db74db8cc0e2852f90e0d13",
+  "compiles": [
+    {
+      "mode": "review",
+      "consumer": "classic",
+      "host": "codex-cli",
+      "definitions": 30,
+      "build_key": "sha256:cb1785974a1b4224e0b735279eae04fc6001fd116141315ac9915fec08cfacb1"
+    },
+    {
+      "mode": "review",
+      "consumer": "classic",
+      "host": "codex-app",
+      "definitions": 30,
+      "build_key": "sha256:cb1785974a1b4224e0b735279eae04fc6001fd116141315ac9915fec08cfacb1"
+    },
+    {
+      "mode": "review",
+      "consumer": "classic",
+      "host": "claude-code",
+      "definitions": 30,
+      "build_key": "sha256:cb1785974a1b4224e0b735279eae04fc6001fd116141315ac9915fec08cfacb1"
+    },
+    {
+      "mode": "uiux",
+      "consumer": "classic",
+      "host": "codex-cli",
+      "definitions": 34,
+      "build_key": "sha256:1e8e5def13f8fa97389217f178222c5f9e0bbb8a1d9cad447a0922e2599c7a03"
+    },
+    {
+      "mode": "uiux",
+      "consumer": "classic",
+      "host": "codex-app",
+      "definitions": 34,
+      "build_key": "sha256:1e8e5def13f8fa97389217f178222c5f9e0bbb8a1d9cad447a0922e2599c7a03"
+    },
+    {
+      "mode": "uiux",
+      "consumer": "classic",
+      "host": "claude-code",
+      "definitions": 34,
+      "build_key": "sha256:1e8e5def13f8fa97389217f178222c5f9e0bbb8a1d9cad447a0922e2599c7a03"
+    },
+    {
+      "mode": "combined",
+      "consumer": "classic",
+      "host": "codex-cli",
+      "definitions": 39,
+      "build_key": "sha256:29a2226b1f24c722b13b88b10e9405710844fc8669ca353972bb782b1621324f"
+    },
+    {
+      "mode": "combined",
+      "consumer": "classic",
+      "host": "codex-app",
+      "definitions": 39,
+      "build_key": "sha256:29a2226b1f24c722b13b88b10e9405710844fc8669ca353972bb782b1621324f"
+    },
+    {
+      "mode": "combined",
+      "consumer": "classic",
+      "host": "claude-code",
+      "definitions": 39,
+      "build_key": "sha256:29a2226b1f24c722b13b88b10e9405710844fc8669ca353972bb782b1621324f"
+    },
+    {
+      "mode": "review",
+      "consumer": "minimal",
+      "host": "codex-cli",
+      "definitions": 13,
+      "build_key": "sha256:3e586618ab6225c5eed9c1d86f5da11a4b755e3a3b3315550dc1b048094f0960"
+    },
+    {
+      "mode": "review",
+      "consumer": "minimal",
+      "host": "codex-app",
+      "definitions": 13,
+      "build_key": "sha256:3e586618ab6225c5eed9c1d86f5da11a4b755e3a3b3315550dc1b048094f0960"
+    },
+    {
+      "mode": "review",
+      "consumer": "minimal",
+      "host": "claude-code",
+      "definitions": 13,
+      "build_key": "sha256:3e586618ab6225c5eed9c1d86f5da11a4b755e3a3b3315550dc1b048094f0960"
+    },
+    {
+      "mode": "uiux",
+      "consumer": "minimal",
+      "host": "codex-cli",
+      "definitions": 17,
+      "build_key": "sha256:1d6a08341511db3dfb74a587e0224cb5c48e94140eca31a9de207ad119b1e6e5"
+    },
+    {
+      "mode": "uiux",
+      "consumer": "minimal",
+      "host": "codex-app",
+      "definitions": 17,
+      "build_key": "sha256:1d6a08341511db3dfb74a587e0224cb5c48e94140eca31a9de207ad119b1e6e5"
+    },
+    {
+      "mode": "uiux",
+      "consumer": "minimal",
+      "host": "claude-code",
+      "definitions": 17,
+      "build_key": "sha256:1d6a08341511db3dfb74a587e0224cb5c48e94140eca31a9de207ad119b1e6e5"
+    },
+    {
+      "mode": "combined",
+      "consumer": "minimal",
+      "host": "codex-cli",
+      "definitions": 22,
+      "build_key": "sha256:17bf4a9a24bad070b18be7f7787de5a8e37d57c7c0a422c4647204b48cc3437d"
+    },
+    {
+      "mode": "combined",
+      "consumer": "minimal",
+      "host": "codex-app",
+      "definitions": 22,
+      "build_key": "sha256:17bf4a9a24bad070b18be7f7787de5a8e37d57c7c0a422c4647204b48cc3437d"
+    },
+    {
+      "mode": "combined",
+      "consumer": "minimal",
+      "host": "claude-code",
+      "definitions": 22,
+      "build_key": "sha256:17bf4a9a24bad070b18be7f7787de5a8e37d57c7c0a422c4647204b48cc3437d"
+    }
+  ],
+  "refusals": [
+    {
+      "case": "missing-callee",
+      "code": "project_composition_unknown_component"
+    },
+    {
+      "case": "wrong-kind",
+      "code": "project_composition_unknown_component"
+    },
+    {
+      "case": "missing-input",
+      "code": "missing_binding"
+    },
+    {
+      "case": "late-producer",
+      "code": "unavailable_output"
+    },
+    {
+      "case": "unsupported-input-source",
+      "code": "project_composition_invalid_layer"
+    },
+    {
+      "case": "missing-outcome",
+      "code": "project_extension_call_outcome_unmapped"
+    },
+    {
+      "case": "missing-export",
+      "code": "unknown_port"
+    },
+    {
+      "case": "wrong-schema",
+      "code": "port_type_mismatch"
+    }
+  ],
+  "scope": "compile only; no host execution"
+}

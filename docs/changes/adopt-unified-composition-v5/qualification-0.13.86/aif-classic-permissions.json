@@ -1,0 +1,73 @@
+{
+  "package": "aif-classic",
+  "case": "permissions",
+  "runs": [
+    "run:0b46afd14ef349e018d749f4125717a67d6b38531b7a0ac28eb66e1bda5ccb48"
+  ],
+  "measurement_count": 1,
+  "reader_count": 1,
+  "repair_count": 0,
+  "refusals": [
+    "effect_not_permitted",
+    "integrity_failure",
+    "not_found",
+    "integrity_failure"
+  ],
+  "measurements": [
+    {
+      "ref": {
+        "artifact_id": "artifact:78bd3ac751734071cdeaf63ff7d8fc5e82260abda447ae3a0d517aa5dddb94f5",
+        "digest": "sha256:cf3e25a4612f57b73f7f3c16e288749d8388edc20bb629cd4cc3f822f5b90dc5",
+        "revision": 1
+      },
+      "report": {
+        "subject": {
+          "head": "7b5264afbf8f64bd6fc0d0d4afe46e0fbdcc23fe",
+          "content_sha256": "sha256:5891b5b522d5df086d0ff0b110fbd9d21bb4fc7163af34d08286a2e846f6be03"
+        },
+        "basis": "acceptance:greeting-v1",
+        "method": "python startswith assertion",
+        "exit": 0,
+        "status": "passed",
+        "logs": [
+          {
+            "artifact_id": "artifact:04f0249fe3f67d74bef7908ee2db92cfb93c166637393c479fddad93039c66e4",
+            "digest": "sha256:24ed0e6378444216c8c75ee95b0c5847584893dcbc516703c7f2e5ae63b56e3b",
+            "revision": 1
+          }
+        ]
+      },
+      "tree": "/tmp/unified-aif-piovbuxp/authority/.prifly/work/claims/beff936ced28f7cb65dc0c58e3644ab7d02e9e37b9a75f2260ea3124d9c8c5ab",
+      "attempt": "attempt:304d7a02c2d55206f81f38b23161545a",
+      "run": "run:0b46afd14ef349e018d749f4125717a67d6b38531b7a0ac28eb66e1bda5ccb48",
+      "effects": [
+        "write_inside_declared_output_slot",
+        "change_declared_external_target"
+      ]
+    }
+  ],
+  "readers": [
+    {
+      "attempt": "attempt:c974c3362069cba7f5a2503aaea99217",
+      "run": "run:0b46afd14ef349e018d749f4125717a67d6b38531b7a0ac28eb66e1bda5ccb48",
+      "implementation": {
+        "base_commit": "1d301e97994daf295797228ccc2d3f17dd9032f4",
+        "head_commit": "7b5264afbf8f64bd6fc0d0d4afe46e0fbdcc23fe",
+        "changed_files": [
+          "hello.txt"
+        ],
+        "reports": [
+          {
+            "artifact_id": "artifact:78bd3ac751734071cdeaf63ff7d8fc5e82260abda447ae3a0d517aa5dddb94f5",
+            "digest": "sha256:cf3e25a4612f57b73f7f3c16e288749d8388edc20bb629cd4cc3f822f5b90dc5",
+            "revision": 1
+          }
+        ]
+      }
+    }
+  ],
+  "boundary": "Reached real downstream security reader with exact latest carrier; synthetic assessments, no commit or live LLM claimed.",
+  "binary_sha256": "sha256:f46270b8046a95a03b39ce2c67bcee7212e944d68db74db8cc0e2852f90e0d13",
+  "prifly": "0.13.86",
+  "cleaned": true
+}

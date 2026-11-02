@@ -1,7 +1,7 @@
 authoring: prifly-workflow/1
 schema_version: '6'
 id: aif-product:workflow/quality
-version: 1.1.0
+version: 1.2.0
 title: Owned environment, sequential UI/UX review and cleanup
 refs:
   step_capture: '{{step_capture}}'
@@ -11,13 +11,13 @@ refs:
   step_evaluate: '{{step_evaluate}}'
   step_release: '{{step_release}}'
   step_finalize: '{{step_finalize}}'
-  schema_configuration: '{{schema_configuration}}'
-  schema_request: '{{schema_request}}'
-  schema_report: '{{schema_report}}'
-  schema_candidate: '{{schema_candidate}}'
-  schema_gate: '{{schema_gate}}'
-  schema_environment: '{{schema_environment}}'
-  schema_release: '{{schema_release}}'
+  schema_configuration: '{{contract_schema_configuration}}'
+  schema_request: '{{contract_schema_request}}'
+  schema_report: '{{contract_schema_report}}'
+  schema_candidate: '{{contract_schema_candidate}}'
+  schema_gate: '{{contract_schema_gate}}'
+  schema_environment: '{{contract_schema_environment}}'
+  schema_release: '{{contract_schema_release}}'
   policy: '{{policy}}'
 inputs:
   configuration: schema_configuration

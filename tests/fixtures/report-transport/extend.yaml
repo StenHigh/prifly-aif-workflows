@@ -1,0 +1,13 @@
+extensions:
+  - id: before-readers
+    workflow: transport
+    step: measure
+    between: {from: produce, to: cycle}
+    input_bindings: {carrier: $stages.produce.carrier}
+    on: {pass: cycle, needs_revision: abandoned, fail: abandoned, no_work: abandoned, blocked: abandoned}
+  - id: final-consumer
+    workflow: transport
+    step: consume
+    between: {from: cycle, to: done}
+    input_bindings: {carrier: $stages.cycle.carrier}
+    on: {pass: done, needs_revision: abandoned, fail: abandoned, no_work: abandoned, blocked: abandoned}

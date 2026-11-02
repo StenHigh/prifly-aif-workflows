@@ -1,0 +1,39 @@
+{
+  "authoring": "prifly-step/1",
+  "version": "1.0.0",
+  "kind": "worker",
+  "effects": {
+    "class": "none",
+    "retry_class": "never"
+  },
+  "result_schema_ref": "{{result_v2}}",
+  "id": "aif-product:step/bundle-change",
+  "title": "bundle-change",
+  "inputs": {
+    "implementation": {
+      "schema_ref": "{{contract_schema_implementation}}"
+    },
+    "ui_report": {
+      "schema_ref": "{{contract_schema_report}}"
+    },
+    "ux_report": {
+      "schema_ref": "{{contract_schema_report}}"
+    },
+    "gate": {
+      "schema_ref": "{{contract_schema_gate}}"
+    }
+  },
+  "outputs": {
+    "implementation": {
+      "schema_ref": "{{contract_schema_implementation}}",
+      "required_for": [
+        "pass"
+      ]
+    }
+  },
+  "executor": {
+    "adapter_ref": "{{process}}",
+    "operation": "process"
+  },
+  "instructions_ref": "{{context_review-change-program}}"
+}

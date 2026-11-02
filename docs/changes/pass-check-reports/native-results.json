@@ -1,0 +1,246 @@
+{
+  "prifly": "0.13.82",
+  "binary_sha256": "3b073126921bca3e9d78b7649b51bd20527fd70cf4de44e0d440b5428b7712e5",
+  "boundary": "Generic wiring with synthetic assisted replies; no AIF or LLM acceptance.",
+  "cases": [
+    {
+      "case": "success",
+      "root_extension_compiled": true,
+      "status": "completed",
+      "outcome": "succeeded",
+      "handoffs": [
+        "produce",
+        "measure",
+        "read",
+        "consume"
+      ],
+      "producer_count": 1,
+      "project_measurement_handoffs": 1,
+      "report_ref": {
+        "artifact_id": "artifact:8ad66d4c4efee546a38adae1abc335720ded5318e39d68ca01639b48b18eeeeb",
+        "digest": "sha256:78a4fed8cb8d02ce2c54af1b9b2b34da87131f681bdeb3e9a7cf5d8f65bbe394",
+        "revision": 1
+      },
+      "report_sha256": "sha256:78a4fed8cb8d02ce2c54af1b9b2b34da87131f681bdeb3e9a7cf5d8f65bbe394",
+      "original_report": {
+        "subject": "dataset:original",
+        "basis": "fixture-contract:1",
+        "method": "synthetic check",
+        "exit": 0,
+        "status": "passed",
+        "logs": [
+          {
+            "artifact_id": "artifact:b77deb26d43587dbaf7575b1796a230fe13536af9addfb956eb371dfdd03405d",
+            "digest": "sha256:f27a365321e830bd15a9186e2b29bdb7b8a840cf382855c83925861236746583",
+            "revision": 1
+          }
+        ]
+      },
+      "producer_directory_removed": true,
+      "nested_log_exported": true,
+      "runs": 1,
+      "invalid_refs": {
+        "unknown": "not_found",
+        "missing_revision": "integrity_failure",
+        "substituted_digest": "integrity_failure"
+      },
+      "nested_extension_refusal": {
+        "schema_version": "1",
+        "code": "project_extension_unknown_workflow",
+        "message": "round (known: transport)",
+        "retryable": false,
+        "correlation_id": "correlation:6ae9eee6bbba5a3f4760155138b53a0e",
+        "violations": [],
+        "safe_next_actions": [
+          "help"
+        ]
+      },
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1
+      }
+    },
+    {
+      "case": "repair",
+      "root_extension_compiled": true,
+      "status": "completed",
+      "outcome": "succeeded",
+      "handoffs": [
+        "produce",
+        "measure",
+        "read",
+        "repair",
+        "read",
+        "consume"
+      ],
+      "producer_count": 1,
+      "project_measurement_handoffs": 1,
+      "report_ref": {
+        "artifact_id": "artifact:2882455e5bdd962b39b4d263ad1e592d23599b9cb1440c867ff3ffae515c3326",
+        "digest": "sha256:f45c6fe37d928c6c654df517164e5f6b32e1d71602d62c0b0fff184f159967db",
+        "revision": 1
+      },
+      "report_sha256": "sha256:f45c6fe37d928c6c654df517164e5f6b32e1d71602d62c0b0fff184f159967db",
+      "original_report": {
+        "subject": "dataset:original",
+        "basis": "fixture-contract:1",
+        "method": "synthetic check",
+        "exit": 0,
+        "status": "passed",
+        "logs": [
+          {
+            "artifact_id": "artifact:149f0bcb358cd2a60503e26e55addd74ac736b3a7cf155bbbaa232c0299699d0",
+            "digest": "sha256:f27a365321e830bd15a9186e2b29bdb7b8a840cf382855c83925861236746583",
+            "revision": 1
+          }
+        ]
+      },
+      "producer_directory_removed": true,
+      "nested_log_exported": true,
+      "runs": 1,
+      "invalid_refs": {
+        "unknown": "not_found",
+        "missing_revision": "integrity_failure",
+        "substituted_digest": "integrity_failure"
+      },
+      "nested_extension_refusal": {
+        "schema_version": "1",
+        "code": "project_extension_unknown_workflow",
+        "message": "round (known: transport)",
+        "retryable": false,
+        "correlation_id": "correlation:06f95bd0fbacc5691591857327583748",
+        "violations": [],
+        "safe_next_actions": [
+          "help"
+        ]
+      },
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1
+      }
+    },
+    {
+      "case": "failed",
+      "root_extension_compiled": true,
+      "status": "completed",
+      "outcome": "partial",
+      "handoffs": [
+        "produce",
+        "measure",
+        "read"
+      ],
+      "producer_count": 1,
+      "project_measurement_handoffs": 1,
+      "report_ref": {
+        "artifact_id": "artifact:7ea8026b057c5594ed0a329ba401a4ea4be136f0a3cf1282e55a2a6eb50bdb45",
+        "digest": "sha256:77f6fa128c4d7bf5e13dad406c8fca090ee826f5bab089bd9302937c0e67e436",
+        "revision": 1
+      },
+      "report_sha256": "sha256:77f6fa128c4d7bf5e13dad406c8fca090ee826f5bab089bd9302937c0e67e436",
+      "original_report": {
+        "subject": "dataset:original",
+        "basis": "fixture-contract:1",
+        "method": "synthetic check",
+        "exit": 1,
+        "status": "failed",
+        "logs": [
+          {
+            "artifact_id": "artifact:fe4cba3c0bbb0bab4952aec588033e5465d737d895e2242aa966191a8ccc4616",
+            "digest": "sha256:8a73de1966110f8bd6f7722fef55f4c80a567659f1cde9d40d3655a72b7e0636",
+            "revision": 1
+          }
+        ]
+      },
+      "producer_directory_removed": true,
+      "nested_log_exported": true,
+      "runs": 1,
+      "invalid_refs": {
+        "unknown": "not_found",
+        "missing_revision": "integrity_failure",
+        "substituted_digest": "integrity_failure"
+      },
+      "nested_extension_refusal": {
+        "schema_version": "1",
+        "code": "project_extension_unknown_workflow",
+        "message": "round (known: transport)",
+        "retryable": false,
+        "correlation_id": "correlation:9de25118bc28d12ad4dd13ddcb462a27",
+        "violations": [],
+        "safe_next_actions": [
+          "help"
+        ]
+      },
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1
+      }
+    },
+    {
+      "case": "continue",
+      "root_extension_compiled": true,
+      "continue": {
+        "frontier": "cycle",
+        "reused": [
+          "measure",
+          "produce"
+        ],
+        "source_unchanged": true
+      },
+      "status": "completed",
+      "outcome": "succeeded",
+      "handoffs": [
+        "produce",
+        "measure",
+        "read",
+        "read",
+        "consume"
+      ],
+      "producer_count": 1,
+      "project_measurement_handoffs": 1,
+      "report_ref": {
+        "artifact_id": "artifact:30567ddf07742a6c7f1ce2b866d2b93b5449d9931448050a3d0d5e0d1169a746",
+        "digest": "sha256:6a9b983c4e7dc885dc2f7a2f56b3b6f0a2f0b2116cdbe46e371c15c051402734",
+        "revision": 1
+      },
+      "report_sha256": "sha256:6a9b983c4e7dc885dc2f7a2f56b3b6f0a2f0b2116cdbe46e371c15c051402734",
+      "original_report": {
+        "subject": "dataset:original",
+        "basis": "fixture-contract:1",
+        "method": "synthetic check",
+        "exit": 0,
+        "status": "passed",
+        "logs": [
+          {
+            "artifact_id": "artifact:f689d9aa8ce0c76247aee1a42e417c09592758839b465f60403ec06e0659ee45",
+            "digest": "sha256:f27a365321e830bd15a9186e2b29bdb7b8a840cf382855c83925861236746583",
+            "revision": 1
+          }
+        ]
+      },
+      "producer_directory_removed": true,
+      "nested_log_exported": true,
+      "runs": 2,
+      "invalid_refs": {
+        "unknown": "not_found",
+        "missing_revision": "integrity_failure",
+        "substituted_digest": "integrity_failure"
+      },
+      "nested_extension_refusal": {
+        "schema_version": "1",
+        "code": "project_extension_unknown_workflow",
+        "message": "round (known: transport)",
+        "retryable": false,
+        "correlation_id": "correlation:b2ce22eca343fd9025e6c88d289b91f1",
+        "violations": [],
+        "safe_next_actions": [
+          "help"
+        ]
+      },
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1
+      }
+    }
+  ],
+  "complete": true
+}

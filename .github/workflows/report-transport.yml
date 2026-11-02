@@ -1,0 +1,40 @@
+name: report-transport
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - .github/workflows/report-transport.yml
+      - tests/probes/report_transport.py
+      - tests/fixtures/report-transport/**
+      - docs/changes/pass-check-reports/**
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/report-transport.yml
+      - tests/probes/report_transport.py
+      - tests/fixtures/report-transport/**
+
+jobs:
+  native-reproducer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install latest stable Pri-Fly
+        run: |
+          prifly_installer="$(mktemp)"
+          curl --fail --location --silent --show-error \
+            https://github.com/StenHigh/prifly/releases/latest/download/install.sh \
+            -o "$prifly_installer"
+          sh "$prifly_installer"
+          rm -f "$prifly_installer"
+      - name: Generic report transport and nested extension boundary
+        run: |
+          python3 -B tests/probes/report_transport.py --binary "$HOME/.local/bin/prifly" \
+            --output /tmp/report-transport-results.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: report-transport-results
+          path: /tmp/report-transport-results.json

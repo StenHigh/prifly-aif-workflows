@@ -1,0 +1,47 @@
+{
+  "authoring": "prifly-extension-points/1",
+  "points": {
+    "before-applicability": {
+      "workflow": "aif-product:workflow/review-for-change",
+      "entry": "capture",
+      "input_bindings": {
+        "task": "$inputs.task",
+        "implementation": "$inputs.implementation"
+      },
+      "consumers": {
+        "capture-implementation": {
+          "stage": "capture",
+          "input": "implementation"
+        },
+        "applicability-implementation": {
+          "stage": "applicability",
+          "input": "implementation"
+        },
+        "guard-implementation": {
+          "stage": "guard",
+          "input": "implementation"
+        }
+      },
+      "routes": {
+        "step": {
+          "on": {
+            "pass": "capture",
+            "needs_revision": "technical-stop",
+            "blocked": "technical-stop",
+            "fail": "technical-stop",
+            "no_work": "technical-stop"
+          },
+          "on_error": "technical-stop"
+        },
+        "call": {
+          "on": {
+            "succeeded": "capture",
+            "partial": "technical-stop",
+            "rejected": "technical-stop"
+          },
+          "on_error": "technical-stop"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "authoring": "prifly-step/1",
+  "version": "1.0.0",
+  "kind": "worker",
+  "effects": {
+    "class": "none",
+    "retry_class": "never"
+  },
+  "result_schema_ref": "{{w6-result_v2}}",
+  "id": "w6:step/w6-product-guard-applicability",
+  "title": "guard-applicability",
+  "inputs": {
+    "implementation": {
+      "schema_ref": "{{contract_schema_implementation}}"
+    },
+    "task": {
+      "schema_ref": "{{contract_schema_task}}"
+    },
+    "candidate": {
+      "schema_ref": "{{schema_w6-product-candidate}}"
+    },
+    "applicability": {
+      "schema_ref": "{{schema_w6-product-applicability}}"
+    }
+  },
+  "outputs": {
+    "implementation": {
+      "schema_ref": "{{contract_schema_implementation}}",
+      "required_for": [
+        "pass"
+      ]
+    },
+    "applicability": {
+      "schema_ref": "{{schema_w6-product-applicability}}",
+      "required_for": [
+        "pass"
+      ]
+    },
+    "gate": {
+      "schema_ref": "{{schema_w6-product-gate}}",
+      "required_for": [
+        "pass"
+      ]
+    }
+  },
+  "executor": {
+    "adapter_ref": "{{w6-process}}",
+    "operation": "process"
+  },
+  "instructions_ref": "{{context_w6-product-review-change-program}}"
+}

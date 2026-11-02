@@ -1,6 +1,6 @@
 authoring: prifly-step/1
 id: aif-feature:step/aggregate-uiux
-version: 1.0.0
+version: 1.1.0
 title: Aggregate feature and validated parallel product evidence
 kind: worker
 inputs:

@@ -1,5 +1,5 @@
 {
-  "authoring": "prifly-project-workflow/1",
+  "authoring": "prifly-project-workflow/3",
   "package": {
     "id": "w6-example:package/consumer",
     "version": "1.0.0",
@@ -8,8 +8,12 @@
     "references": {
       "session": "core:adapter/assisted-session@1.0.0",
       "policy": "core:policy/local@4.0.0",
-      "result": "core:schema/step-result@1.0.0"
-    }
+      "result": "core:schema/step-result@1.0.0",
+      "contract_schema_implementation": "aif:schema/implementation@1.2.0"
+    },
+    "dependencies": [
+      "aif:package/composition-contracts@1.2.0"
+    ]
   },
   "id": "w6-example:workflow/consumer",
   "schema_version": "8",
@@ -17,7 +21,7 @@
   "title": "Project feature and optional acceptance",
   "refs": {
     "task": "{{schema_task}}",
-    "implementation": "{{schema_implementation}}",
+    "implementation": "{{contract_schema_implementation}}",
     "write": "{{step_write}}",
     "commit": "{{step_commit}}",
     "policy": "{{policy}}"

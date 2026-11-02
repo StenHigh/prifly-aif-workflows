@@ -41,6 +41,8 @@ def build(target):
                 name = "w6-" + group + "-" + path.stem
                 alias = kind.rstrip("s") + "_" + path.stem
                 aliases[alias] = kind.rstrip("s") + "_" + name
+                if kind == "schemas":
+                    aliases["contract_" + alias] = aliases[alias]
                 docs.append((kind, path, name))
         paths = []
         for kind, source, name in docs:
@@ -185,7 +187,7 @@ def build(target):
             "max_output_bytes": 1048576,
         }
 
-    impl = "{{schema_implementation}}"
+    impl = "{{contract_schema_implementation}}"
     cand = "{{schema_w6-candidate}}"
     rec = "{{schema_w6-receipt}}"
     assessment_ref = "{{schema_w6-assessment}}"
@@ -241,9 +243,10 @@ def build(target):
     common.append(put("project/workflows/w6-committed.yaml", post))
     manifest = {
         "protocol": "w6-project-bundle/1",
-        "version": "1.0.1",
+        "version": "2.0.0",
         "sources": sources,
-        "references": {"w6-" + k: v for k, v in CORE.items()},
+        "dependencies": ["aif:package/composition-contracts@1.2.0"],
+            "references": {**{"w6-" + k: v for k, v in CORE.items()}, "contract_schema_implementation": "aif:schema/implementation@1.2.0"},
         "modes": {},
     }
     for mode in MODES:

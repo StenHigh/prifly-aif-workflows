@@ -1,0 +1,30 @@
+{
+  "authoring": "prifly-step/1",
+  "version": "1.0.0",
+  "kind": "worker",
+  "effects": {
+    "class": "none",
+    "retry_class": "never"
+  },
+  "result_schema_ref": "{{result_v2}}",
+  "id": "aif-product:step/capture-change",
+  "title": "capture-change",
+  "inputs": {
+    "implementation": {
+      "schema_ref": "{{contract_schema_implementation}}"
+    }
+  },
+  "outputs": {
+    "candidate": {
+      "schema_ref": "{{contract_schema_candidate}}",
+      "required_for": [
+        "pass"
+      ]
+    }
+  },
+  "executor": {
+    "adapter_ref": "{{process}}",
+    "operation": "process"
+  },
+  "instructions_ref": "{{context_review-change-program}}"
+}

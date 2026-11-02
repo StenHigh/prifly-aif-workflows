@@ -74,10 +74,12 @@ def check_feature(binary, authority, repository, root):
         assert capture['capture']=={'kind':'exact_file','path':'.ai-factory/PLAN.md'}
     assert documents['aif-feature:step/implement']['workspace_trees'][0]['input_port']=='plan'
     assert 'plan' not in documents['aif-feature:step/repair']['inputs']
+    # The new task-aware composition module belongs to the UI/UX provider only.
+    # Feature retains the previously embedded W2 worker/context contracts.
     for path in (ROOT/'aif-ui-ux/files').glob('*.py'):
-        if path.name!='preview.py':assert (ROOT/'aif-feature/files'/path.name).read_bytes()==path.read_bytes(),path
+        if path.name not in ('preview.py','review_change.py'):assert (ROOT/'aif-feature/files'/path.name).read_bytes()==path.read_bytes(),path
     for path in (ROOT/'aif-ui-ux/contexts').glob('*.yaml'):
-        assert_same_context(path,ROOT/'aif-feature/contexts'/path.name)
+        if path.name not in ('applicability-bridge.yaml','review-change-program.yaml'):assert_same_context(path,ROOT/'aif-feature/contexts'/path.name)
     for host in HOSTS:
         for profile in ('backend','frontend'):
             _,compiled=compile_package(binary,authority,repository,'aif-feature',root/('feature-'+host+'-'+profile),host=host,profile=profile)

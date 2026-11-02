@@ -1,0 +1,11 @@
+{
+  "case": "pass",
+  "host": "codex-app",
+  "mode": "actual browser / deterministic test adapter",
+  "source_outcome": "succeeded",
+  "outcome": "succeeded",
+  "runs": 1,
+  "candidate_changed": false,
+  "browser_readers": 2,
+  "cleaned": true
+}
