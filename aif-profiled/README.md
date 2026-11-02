@@ -1,5 +1,14 @@
 # AI Factory profiled workflow
 
+## Unified composition candidate 2.0.0
+
+Requires Pri-Fly >=0.13.85 and explicit installation of the
+[pinned shared schema dependency](../contracts/README.md). New templates use
+`prifly-extension/5`; folders use `/3`. Existing installed project files and
+sealed Runs are never rewritten automatically. Review the migration before a
+new Run. [Complete examples and native checks](../examples/unified-composition/README.md).
+
+
 `aif-profiled` — это `aif-classic`, у которого **каждый шаг объявляет, чего он
 хочет от модели**, а `warmup`, `plan`, `implement` и второй читатель review
 просят исполнять себя в отдельной сессии. Маршрут, мосты, схемы и каталог решений те же самые: папка не пишется

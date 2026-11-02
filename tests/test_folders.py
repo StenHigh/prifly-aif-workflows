@@ -21,7 +21,8 @@ class WorkflowFolderTest(unittest.TestCase):
     def test_folders_are_marked_workflow_folders(self):
         for folder in (CLASSIC, FANOUT, FIX, PROFILED, EVIDENCE, PRODUCT, FEATURE, TEST_AUDIT):
             workflow = (folder / "workflow.yaml").read_text()
-            self.assertTrue(workflow.startswith("authoring: prifly-project-workflow/1\n"), folder)
+            contract = "3" if folder in (CLASSIC, FIX, PROFILED, PRODUCT) else "1"
+            self.assertTrue(workflow.startswith(f"authoring: prifly-project-workflow/{contract}\n"), folder)
             self.assertTrue((folder / "extend.yaml").is_file(), folder)
             # Since Pri-Fly 0.13.24 `project/` inside a package folder is the
             # project's own subtree, carried across `workflows update` like

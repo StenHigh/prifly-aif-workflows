@@ -1,22 +1,22 @@
 authoring: prifly-step/1
 id: aif-product:step/finalize
-version: 1.0.0
+version: 1.1.0
 title: Product review finalize
 kind: worker
 inputs:
   configuration:
-    schema_ref: '{{schema_configuration}}'
+    schema_ref: '{{contract_schema_configuration}}'
   environment:
-    schema_ref: '{{schema_environment}}'
+    schema_ref: '{{contract_schema_environment}}'
   release:
-    schema_ref: '{{schema_release}}'
+    schema_ref: '{{contract_schema_release}}'
   gate:
-    schema_ref: '{{schema_gate}}'
+    schema_ref: '{{contract_schema_gate}}'
   candidate:
-    schema_ref: '{{schema_candidate}}'
+    schema_ref: '{{contract_schema_candidate}}'
 outputs:
   gate:
-    schema_ref: '{{schema_gate}}'
+    schema_ref: '{{contract_schema_gate}}'
     required_for:
     - pass
 executor:

@@ -1,0 +1,55 @@
+{
+  "authoring": "prifly-step/1",
+  "version": "1.0.0",
+  "kind": "worker",
+  "effects": {
+    "class": "none",
+    "retry_class": "never"
+  },
+  "result_schema_ref": "{{w6-result_v2}}",
+  "id": "w6:step/w6-product-configure-change",
+  "title": "configure-change",
+  "inputs": {
+    "implementation": {
+      "schema_ref": "{{contract_schema_implementation}}"
+    },
+    "candidate": {
+      "schema_ref": "{{schema_w6-product-candidate}}"
+    },
+    "configuration": {
+      "schema_ref": "{{schema_w6-product-configuration}}",
+      "required": false
+    }
+  },
+  "outputs": {
+    "configuration": {
+      "schema_ref": "{{schema_w6-product-configuration}}",
+      "required_for": [
+        "pass"
+      ]
+    },
+    "ui": {
+      "schema_ref": "{{schema_w6-product-request}}",
+      "required_for": [
+        "pass"
+      ]
+    },
+    "ux": {
+      "schema_ref": "{{schema_w6-product-request}}",
+      "required_for": [
+        "pass"
+      ]
+    },
+    "gate": {
+      "schema_ref": "{{schema_w6-product-gate}}",
+      "required_for": [
+        "blocked"
+      ]
+    }
+  },
+  "executor": {
+    "adapter_ref": "{{w6-process}}",
+    "operation": "process"
+  },
+  "instructions_ref": "{{context_w6-product-review-change-program}}"
+}

@@ -1,0 +1,51 @@
+{
+  "authoring": "prifly-step/1",
+  "version": "1.0.0",
+  "kind": "worker",
+  "effects": {
+    "class": "none",
+    "retry_class": "never"
+  },
+  "result_schema_ref": "{{result_v2}}",
+  "id": "aif-product:step/guard-applicability",
+  "title": "guard-applicability",
+  "inputs": {
+    "implementation": {
+      "schema_ref": "{{contract_schema_implementation}}"
+    },
+    "task": {
+      "schema_ref": "{{contract_schema_task}}"
+    },
+    "candidate": {
+      "schema_ref": "{{contract_schema_candidate}}"
+    },
+    "applicability": {
+      "schema_ref": "{{contract_schema_applicability}}"
+    }
+  },
+  "outputs": {
+    "implementation": {
+      "schema_ref": "{{contract_schema_implementation}}",
+      "required_for": [
+        "pass"
+      ]
+    },
+    "applicability": {
+      "schema_ref": "{{contract_schema_applicability}}",
+      "required_for": [
+        "pass"
+      ]
+    },
+    "gate": {
+      "schema_ref": "{{contract_schema_gate}}",
+      "required_for": [
+        "pass"
+      ]
+    }
+  },
+  "executor": {
+    "adapter_ref": "{{process}}",
+    "operation": "process"
+  },
+  "instructions_ref": "{{context_review-change-program}}"
+}

@@ -24,6 +24,12 @@ jobs:
           "$HOME/.local/bin/prifly" version
       - name: Released versions moved with the bytes
         run: python3 -B tests/test_versions.py
+      - name: Pinned shared composition contracts
+        run: |
+          python3 -m pip install PyYAML==6.0.1
+          python3 -B tools/build_composition_contracts.py --check
+          python3 -B tests/test_composition_contracts.py
+          python3 -B -m unittest discover -s tests -p test_change_applicability.py
       - name: Static folder contract
         run: python3 -B tests/test_folders.py
       - name: Explicit review coverage and dirty candidate identity
@@ -42,6 +48,11 @@ jobs:
         run: python3 -B tests/verify.py --binary "$HOME/.local/bin/prifly"
       - name: One authority carries Classic across every plan profile
         run: python3 -B tests/compatibility.py --binary "$HOME/.local/bin/prifly"
+      - name: Public task-aware applicability and exact report preservation
+        run: |
+          for case in pass backend unknown wrong-task missing-configuration; do
+            python3 -B tests/probes/product_check.py --binary "$HOME/.local/bin/prifly" --applicability --case "$case"
+          done
       - name: Standalone integration graph and one-input extension contracts
         run: python3 -B tests/integration_contract.py --binary "$HOME/.local/bin/prifly"
       - name: Parallel review qualification contracts on three hosts
@@ -105,6 +116,11 @@ jobs:
         run: |
           npm ci --ignore-scripts --no-audit --no-fund --prefix tests/fixtures/product
           tests/fixtures/product/node_modules/.bin/playwright install --with-deps chromium
+      - name: Public /5 imports use shared exact schemas and the actual browser
+        run: |
+          python3 -B tests/probes/product_check.py --binary "$HOME/.local/bin/prifly" \
+            --composed --case pass --browser-library "$PWD/tests/fixtures/product/node_modules/playwright" \
+            --report /tmp/aif-unified-import-browser.json
       - name: Real browser scenarios, defects, repair and cancellation
         run: |
           python3 -B tests/probes/product_check.py --binary "$HOME/.local/bin/prifly" \

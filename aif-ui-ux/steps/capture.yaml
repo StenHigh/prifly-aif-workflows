@@ -1,14 +1,14 @@
 authoring: prifly-step/1
 id: aif-product:step/capture
-version: 1.0.0
+version: 1.1.0
 title: Product review capture
 kind: worker
 inputs:
   configuration:
-    schema_ref: '{{schema_configuration}}'
+    schema_ref: '{{contract_schema_configuration}}'
 outputs:
   candidate:
-    schema_ref: '{{schema_candidate}}'
+    schema_ref: '{{contract_schema_candidate}}'
     required_for:
     - pass
 executor:

@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","additionalProperties":false,"id":"aif:schema/continue","properties":{"continue":{"type":"boolean"}},"required":["continue"],"type":"object","version":"1.0.0"}

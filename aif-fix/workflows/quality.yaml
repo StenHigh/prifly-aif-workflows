@@ -1,17 +1,17 @@
 authoring: prifly-workflow/1
 schema_version: "6"
 id: aif-fix:workflow/quality
-version: 1.1.0
+version: 1.2.0
 title: quality for aif-fix
 refs:
-  schema_task: "{{schema_task}}"
-  schema_warmup-handoff: "{{schema_warmup-handoff}}"
-  schema_implementation: "{{schema_implementation}}"
-  schema_fix-result: "{{schema_fix-result}}"
-  schema_gate-result: "{{schema_gate-result}}"
+  schema_task: "{{contract_schema_task}}"
+  schema_warmup-handoff: "{{contract_schema_warmup-handoff}}"
+  schema_implementation: "{{contract_schema_implementation}}"
+  schema_fix-result: "{{contract_schema_fix-result}}"
+  schema_gate-result: "{{contract_schema_gate-result}}"
   schema_plan: "{{workspace_tree_manifest}}"
-  schema_feature-enabled: "{{schema_feature-enabled}}"
-  schema_round-limit: "{{schema_round-limit}}"
+  schema_feature-enabled: "{{contract_schema_feature-enabled}}"
+  schema_round-limit: "{{contract_schema_round-limit}}"
   local_policy: "{{local_policy}}"
   workflow_quality-round: "{{workflow_quality-round}}"
 inputs:
@@ -36,10 +36,10 @@ outputs:
     schema_ref: schema_gate-result
     required_for: [succeeded, partial]
 limits:
-  max_step_instances: 32
-  max_control_transitions: 224
+  max_step_instances: 136
+  max_control_transitions: 1024
   max_parallelism: 1
-  max_child_depth: 2
+  max_child_depth: 5
 policy_ref: local_policy
 entry: round
 stages:

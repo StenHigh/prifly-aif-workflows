@@ -1,0 +1,268 @@
+{
+  "authoring": "prifly-workflow/1",
+  "schema_version": "8",
+  "id": "aif-product:workflow/review-for-change",
+  "version": "1.0.0",
+  "title": "Task/candidate applicability before optional UI/UX browser acceptance",
+  "inputs": {
+    "task": {
+      "schema_ref": "{{contract_schema_task}}"
+    },
+    "implementation": {
+      "schema_ref": "{{contract_schema_implementation}}"
+    },
+    "configuration": {
+      "schema_ref": "{{contract_schema_configuration}}",
+      "required": false
+    }
+  },
+  "outputs": {
+    "implementation": {
+      "schema_ref": "{{contract_schema_implementation}}",
+      "required_for": [
+        "succeeded",
+        "partial"
+      ]
+    },
+    "applicability": {
+      "schema_ref": "{{contract_schema_applicability}}",
+      "required_for": [
+        "succeeded",
+        "partial"
+      ]
+    },
+    "gate": {
+      "schema_ref": "{{contract_schema_gate}}",
+      "required_for": [
+        "succeeded",
+        "partial"
+      ]
+    },
+    "ui_report": {
+      "schema_ref": "{{contract_schema_report}}",
+      "required_for": []
+    },
+    "ux_report": {
+      "schema_ref": "{{contract_schema_report}}",
+      "required_for": []
+    },
+    "environment": {
+      "schema_ref": "{{contract_schema_environment}}",
+      "required_for": []
+    },
+    "release": {
+      "schema_ref": "{{contract_schema_release}}",
+      "required_for": []
+    }
+  },
+  "policy_ref": "{{policy}}",
+  "limits": {
+    "max_step_instances": 13,
+    "max_control_transitions": 64,
+    "max_child_depth": 3,
+    "max_parallelism": 1
+  },
+  "entry": "capture",
+  "stages": {
+    "capture": {
+      "kind": "step",
+      "step_ref": "{{step_capture-change}}",
+      "input_bindings": {
+        "implementation": "$inputs.implementation"
+      },
+      "on": {
+        "pass": "applicability",
+        "needs_revision": "technical-stop",
+        "blocked": "technical-stop",
+        "fail": "technical-stop",
+        "no_work": "technical-stop"
+      },
+      "on_error": "technical-stop"
+    },
+    "applicability": {
+      "kind": "step",
+      "step_ref": "{{step_applicability}}",
+      "input_bindings": {
+        "task": "$inputs.task",
+        "implementation": "$inputs.implementation",
+        "candidate": "$stages.capture.candidate"
+      },
+      "on": {
+        "pass": "guard",
+        "needs_revision": "guard",
+        "blocked": "guard",
+        "fail": "technical-stop",
+        "no_work": "technical-stop"
+      },
+      "on_error": "technical-stop"
+    },
+    "guard": {
+      "kind": "step",
+      "step_ref": "{{step_guard-applicability}}",
+      "input_bindings": {
+        "task": "$inputs.task",
+        "implementation": "$inputs.implementation",
+        "candidate": "$stages.capture.candidate",
+        "applicability": "$stages.applicability.applicability"
+      },
+      "on": {
+        "pass": "choose",
+        "needs_revision": "technical-stop",
+        "blocked": "technical-stop",
+        "fail": "technical-stop",
+        "no_work": "technical-stop"
+      },
+      "on_error": "technical-stop"
+    },
+    "choose": {
+      "kind": "choice",
+      "selection": "exclusive",
+      "branches": [
+        {
+          "id": "required",
+          "predicate": {
+            "op": "eq",
+            "left": "$stages.guard.applicability#/status",
+            "right": "required"
+          },
+          "next": "configure"
+        },
+        {
+          "id": "not-required",
+          "predicate": {
+            "op": "eq",
+            "left": "$stages.guard.applicability#/status",
+            "right": "not-required"
+          },
+          "next": "skipped"
+        }
+      ],
+      "default": "unknown"
+    },
+    "configure": {
+      "kind": "step",
+      "step_ref": "{{step_configure-change}}",
+      "input_bindings": {
+        "implementation": "$stages.guard.implementation",
+        "candidate": "$stages.capture.candidate",
+        "configuration": "$inputs.configuration"
+      },
+      "on": {
+        "pass": "quality",
+        "needs_revision": "technical-stop",
+        "blocked": "configuration-blocked",
+        "fail": "technical-stop",
+        "no_work": "technical-stop"
+      },
+      "on_error": "technical-stop"
+    },
+    "quality": {
+      "kind": "call",
+      "workflow_ref": "{{workflow_quality}}",
+      "input_bindings": {
+        "configuration": "$stages.configure.configuration",
+        "ui": "$stages.configure.ui",
+        "ux": "$stages.configure.ux"
+      },
+      "on": {
+        "succeeded": "accepted-bundle",
+        "partial": "blocked-bundle",
+        "rejected": "technical-stop"
+      },
+      "on_error": "technical-stop"
+    },
+    "accepted-bundle": {
+      "kind": "step",
+      "step_ref": "{{step_bundle-change}}",
+      "input_bindings": {
+        "implementation": "$stages.guard.implementation",
+        "ui_report": "$stages.quality.ui_report",
+        "ux_report": "$stages.quality.ux_report",
+        "gate": "$stages.quality.gate"
+      },
+      "on": {
+        "pass": "accepted",
+        "needs_revision": "technical-stop",
+        "blocked": "technical-stop",
+        "fail": "technical-stop",
+        "no_work": "technical-stop"
+      },
+      "on_error": "technical-stop"
+    },
+    "blocked-bundle": {
+      "kind": "step",
+      "step_ref": "{{step_bundle-change}}",
+      "input_bindings": {
+        "implementation": "$stages.guard.implementation",
+        "ui_report": "$stages.quality.ui_report",
+        "ux_report": "$stages.quality.ux_report",
+        "gate": "$stages.quality.gate"
+      },
+      "on": {
+        "pass": "standing",
+        "needs_revision": "technical-stop",
+        "blocked": "technical-stop",
+        "fail": "technical-stop",
+        "no_work": "technical-stop"
+      },
+      "on_error": "technical-stop"
+    },
+    "technical-stop": {
+      "kind": "finish",
+      "outcome": "rejected"
+    },
+    "skipped": {
+      "kind": "finish",
+      "outcome": "succeeded",
+      "output_bindings": {
+        "implementation": "$stages.guard.implementation",
+        "applicability": "$stages.guard.applicability",
+        "gate": "$stages.guard.gate"
+      }
+    },
+    "unknown": {
+      "kind": "finish",
+      "outcome": "partial",
+      "output_bindings": {
+        "implementation": "$stages.guard.implementation",
+        "applicability": "$stages.guard.applicability",
+        "gate": "$stages.guard.gate"
+      }
+    },
+    "configuration-blocked": {
+      "kind": "finish",
+      "outcome": "partial",
+      "output_bindings": {
+        "implementation": "$stages.guard.implementation",
+        "applicability": "$stages.guard.applicability",
+        "gate": "$stages.configure.gate"
+      }
+    },
+    "accepted": {
+      "kind": "finish",
+      "outcome": "succeeded",
+      "output_bindings": {
+        "implementation": "$stages.accepted-bundle.implementation",
+        "applicability": "$stages.guard.applicability",
+        "gate": "$stages.quality.gate",
+        "ui_report": "$stages.quality.ui_report",
+        "ux_report": "$stages.quality.ux_report",
+        "environment": "$stages.quality.environment",
+        "release": "$stages.quality.release"
+      }
+    },
+    "standing": {
+      "kind": "finish",
+      "outcome": "partial",
+      "output_bindings": {
+        "implementation": "$stages.blocked-bundle.implementation",
+        "applicability": "$stages.guard.applicability",
+        "gate": "$stages.quality.gate",
+        "ui_report": "$stages.quality.ui_report",
+        "ux_report": "$stages.quality.ux_report",
+        "environment": "$stages.quality.environment",
+        "release": "$stages.quality.release"
+      }
+    }
+  }
+}

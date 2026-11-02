@@ -1,18 +1,20 @@
 authoring: prifly-workflow/1
 schema_version: "4"
 id: aif-profiled:workflow/verify-batch
-version: 1.11.0
+version: 1.12.0
 title: Verify and fix until nothing blocks or the declared limit is reached
 refs:
-  schema_implementation: "{{schema_implementation}}"
-  schema_gate-result: "{{schema_gate-result}}"
-  schema_warmup-handoff: "{{schema_warmup-handoff}}"
+  schema_task: "{{contract_schema_task}}"
+  schema_implementation: "{{contract_schema_implementation}}"
+  schema_gate-result: "{{contract_schema_gate-result}}"
+  schema_warmup-handoff: "{{contract_schema_warmup-handoff}}"
   schema_plan_manifest: "{{workspace_tree_manifest}}"
-  schema_round-limit: "{{schema_round-limit}}"
-  schema_feature-enabled: "{{schema_feature-enabled}}"
+  schema_round-limit: "{{contract_schema_round-limit}}"
+  schema_feature-enabled: "{{contract_schema_feature-enabled}}"
   workflow_verify-once: "{{workflow_verify-once}}"
   local_policy: "{{local_policy}}"
 inputs:
+  task: schema_task
   implementation: schema_implementation
   handoff: schema_warmup-handoff
   plan: schema_plan_manifest
@@ -36,10 +38,10 @@ outputs:
     schema_ref: schema_gate-result
     required_for: [partial]
 limits:
-  max_step_instances: 20
-  max_control_transitions: 160
+  max_step_instances: 120
+  max_control_transitions: 1024
   max_parallelism: 1
-  max_child_depth: 2
+  max_child_depth: 5
 policy_ref: local_policy
 features:
   verify:
@@ -75,10 +77,12 @@ stages:
     kind: repeat
     body_workflow_ref: workflow_verify-once
     initial_bindings:
+      task: $inputs.task
       implementation: $inputs.implementation
       handoff: $inputs.handoff
       plan: $inputs.plan
     next_bindings:
+      task: $inputs.task
       implementation: $iteration.implementation
       handoff: $inputs.handoff
       plan: $inputs.plan

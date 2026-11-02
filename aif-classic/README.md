@@ -1,5 +1,14 @@
 # AI Factory classic workflow
 
+## Unified composition candidate 2.0.0
+
+Requires Pri-Fly >=0.13.85 and explicit installation of the
+[pinned shared schema dependency](../contracts/README.md). New templates use
+`prifly-extension/5`; folders use `/3`. Existing installed project files and
+sealed Runs are never rewritten automatically. Review the migration before a
+new Run. [Complete examples and native checks](../examples/unified-composition/README.md).
+
+
 ## Быстрый поиск исходников
 
 Основной путь читается в [workflow.yaml](workflow.yaml). Эта схема показывает

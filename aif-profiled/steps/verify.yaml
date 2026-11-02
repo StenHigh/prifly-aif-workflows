@@ -1,16 +1,16 @@
 authoring: prifly-step/2
 id: aif-profiled:step/verify
-version: 1.17.0
+version: 1.18.0
 title: Run read-only aif-verify over the implementation
 kind: worker
 inputs:
   implementation:
-    schema_ref: '{{schema_implementation}}'
+    schema_ref: '{{contract_schema_implementation}}'
   plan:
     schema_ref: '{{workspace_tree_manifest}}'
 outputs:
   gate:
-    schema_ref: '{{schema_gate-result}}'
+    schema_ref: '{{contract_schema_gate-result}}'
     required_for: [pass, needs_revision, blocked]
 executor:
   adapter_ref: '{{assisted_adapter}}'

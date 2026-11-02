@@ -1,13 +1,13 @@
 authoring: prifly-step/2
 id: aif-fix:step/security
-version: 1.1.0
+version: 1.2.0
 title: Run read-only aif-security-checklist over the implementation
 kind: worker
 inputs:
-  implementation: {schema_ref: "{{schema_implementation}}"}
+  implementation: {schema_ref: "{{contract_schema_implementation}}"}
 outputs:
   gate:
-    schema_ref: "{{schema_gate-result}}"
+    schema_ref: "{{contract_schema_gate-result}}"
     required_for: [pass, needs_revision, blocked]
 executor:
   adapter_ref: "{{assisted_adapter}}"

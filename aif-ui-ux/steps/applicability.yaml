@@ -1,0 +1,49 @@
+{
+  "authoring": "prifly-step/2",
+  "version": "1.0.0",
+  "kind": "worker",
+  "repository_workspace": "read_only",
+  "effects": {
+    "class": "none",
+    "retry_class": "pure"
+  },
+  "result_schema_ref": "{{result_v2}}",
+  "id": "aif-product:step/applicability",
+  "title": "Judge UI/UX applicability for the task and actual candidate",
+  "inputs": {
+    "task": {
+      "schema_ref": "{{contract_schema_task}}"
+    },
+    "implementation": {
+      "schema_ref": "{{contract_schema_implementation}}"
+    },
+    "candidate": {
+      "schema_ref": "{{contract_schema_candidate}}"
+    }
+  },
+  "outputs": {
+    "applicability": {
+      "schema_ref": "{{contract_schema_applicability}}",
+      "required_for": [
+        "pass",
+        "needs_revision",
+        "blocked"
+      ]
+    }
+  },
+  "executor": {
+    "adapter_ref": "{{session}}",
+    "operation": "session"
+  },
+  "instructions_ref": "{{context_applicability-bridge}}",
+  "context_refs": [
+    "{{context_aif-review}}"
+  ],
+  "session_limits": {
+    "active_timeout_ms": null
+  },
+  "model_profile": {
+    "requested": "independent-review",
+    "reason": "Task/candidate applicability in a fresh session without author history."
+  }
+}

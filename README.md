@@ -72,6 +72,15 @@ workflow или отдельная очередь не добавляются.
 связана с реализацией и повторяется после исправлений. Для браузерных проверок
 понадобится [контракт тестовой среды проекта](docs/product-review-environment.md).
 
+**Кандидат unified composition `/5`.** Classic/profiled/fix/UIUX2.0.0
+используют public imports, scoped points и общую exact schema dependency.
+Нужны Pri-Fly **0.13.85** и её явная установка.
+[Примеры](examples/unified-composition/README.md),
+[границы приёмки](docs/changes/adopt-unified-composition-v5/design.md),
+[draft release guide](docs/changes/adopt-unified-composition-v5/release-guide.md).
+Кандидат пока не опубликован в каталоге. Сочетание с worktree_naming имеет
+известный отказ [Core #15](https://github.com/StenHigh/prifly/issues/15).
+
 **Выпуск v1.56.0, issue #7.** Verify `fail/no_work` завершает classic/profiled
 как `completed/rejected` без обязательного gate. Continue повторяет verify на сохранённом дереве.
 [Контракт и приёмка](docs/changes/handle-verify-no-work/acceptance.md),

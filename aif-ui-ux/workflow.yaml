@@ -1,10 +1,21 @@
-authoring: prifly-project-workflow/1
+authoring: prifly-project-workflow/3
 package:
   id: aif-product:package/ui-ux
-  version: 1.1.0
+  version: 2.0.0
   description: Sequential UI and UX evidence on an explicitly owned test environment.
   requires_core_protocol: '1'
+  dependencies: [aif:package/composition-contracts@1.2.0]
   references:
+    contract_schema_task: aif:schema/task@1.1.0
+    contract_schema_implementation: aif:schema/implementation@1.2.0
+    contract_schema_applicability: aif-product:schema/applicability@1.0.0
+    contract_schema_candidate: aif-evidence:schema/candidate@1.0.0
+    contract_schema_configuration: aif-product:schema/configuration@1.0.0
+    contract_schema_environment: aif-product:schema/environment@1.0.0
+    contract_schema_gate: aif-evidence:schema/gate@1.0.0
+    contract_schema_release: aif-product:schema/release@1.0.0
+    contract_schema_report: aif-evidence:schema/report@1.0.0
+    contract_schema_request: aif-evidence:schema/request@1.0.0
     process: core:adapter/local-process@2.0.0
     session: core:adapter/assisted-session@1.0.0
     policy: core:policy/local@4.0.0
@@ -12,14 +23,14 @@ package:
     result_v2: core:schema/step-result@2.0.0
 id: aif-product:workflow/ui-ux
 schema_version: '8'
-version: 1.1.0
+version: 2.0.0
 title: AI Factory product UI/UX review
 refs:
-  schema_configuration: '{{schema_configuration}}'
-  schema_report: '{{schema_report}}'
-  schema_gate: '{{schema_gate}}'
-  schema_environment: '{{schema_environment}}'
-  schema_release: '{{schema_release}}'
+  schema_configuration: '{{contract_schema_configuration}}'
+  schema_report: '{{contract_schema_report}}'
+  schema_gate: '{{contract_schema_gate}}'
+  schema_environment: '{{contract_schema_environment}}'
+  schema_release: '{{contract_schema_release}}'
   step_configure: '{{step_configure}}'
   workflow_quality: '{{workflow_quality}}'
   policy: '{{policy}}'
@@ -159,3 +170,32 @@ execution_bindings:
       timeout_ms: 120000
       grace_ms: 100
       max_output_bytes: 1048576
+    aif-product:step/capture-change:
+      executable: python
+      args: [-B, review_change.py, capture]
+      files: {review_change.py: files/review_change.py, product.py: files/product.py, evidence.py: files/evidence.py}
+      timeout_ms: 120000
+      grace_ms: 100
+      max_output_bytes: 1048576
+    aif-product:step/guard-applicability:
+      executable: python
+      args: [-B, review_change.py, guard]
+      files: {review_change.py: files/review_change.py, product.py: files/product.py, evidence.py: files/evidence.py}
+      timeout_ms: 120000
+      grace_ms: 100
+      max_output_bytes: 1048576
+    aif-product:step/configure-change:
+      executable: python
+      args: [-B, review_change.py, configure]
+      files: {review_change.py: files/review_change.py, product.py: files/product.py, evidence.py: files/evidence.py}
+      timeout_ms: 120000
+      grace_ms: 100
+      max_output_bytes: 1048576
+    aif-product:step/bundle-change:
+      executable: python
+      args: [-B, review_change.py, bundle]
+      files: {review_change.py: files/review_change.py, product.py: files/product.py, evidence.py: files/evidence.py}
+      timeout_ms: 120000
+      grace_ms: 100
+      max_output_bytes: 1048576
+exports: {"workflows": {"quality": "{{workflow_quality}}", "review-for-change": "{{workflow_review-for-change}}"}, "steps": {"configure": "{{step_configure}}"}, "points": {"before-applicability": {"workflow": "review-for-change", "point": "before-applicability"}}}

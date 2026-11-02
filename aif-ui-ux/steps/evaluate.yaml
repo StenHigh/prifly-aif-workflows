@@ -1,26 +1,26 @@
 authoring: prifly-step/1
 id: aif-product:step/evaluate
-version: 1.0.0
+version: 1.1.0
 title: Product review evaluate
 kind: worker
 inputs:
   configuration:
-    schema_ref: '{{schema_configuration}}'
+    schema_ref: '{{contract_schema_configuration}}'
   ui:
-    schema_ref: '{{schema_request}}'
+    schema_ref: '{{contract_schema_request}}'
   ux:
-    schema_ref: '{{schema_request}}'
+    schema_ref: '{{contract_schema_request}}'
   candidate:
-    schema_ref: '{{schema_candidate}}'
+    schema_ref: '{{contract_schema_candidate}}'
   environment:
-    schema_ref: '{{schema_environment}}'
+    schema_ref: '{{contract_schema_environment}}'
   ui_report:
-    schema_ref: '{{schema_report}}'
+    schema_ref: '{{contract_schema_report}}'
   ux_report:
-    schema_ref: '{{schema_report}}'
+    schema_ref: '{{contract_schema_report}}'
 outputs:
   gate:
-    schema_ref: '{{schema_gate}}'
+    schema_ref: '{{contract_schema_gate}}'
     required_for:
     - pass
 executor:

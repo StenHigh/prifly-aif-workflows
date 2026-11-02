@@ -1,9 +1,9 @@
 # Read-only verification of this bug fix
 Read task, implementation and result. Judge actual HEAD and working tree with
  git -c core.quotepath=off diff <base_commit> plus untracked files; the old
-head/path list is not the scope. Read callers as needed. Run the result's
-regression check against this tree; missing or invalid before/after evidence
-is a finding, never proof that checks passed. decision_context.short_checks
+head/path list is not the scope. Read callers as needed. Use sufficient applicable original regression evidence for this tree.
+Run only missing measurements that this read-only step may execute; otherwise
+report blocked. Missing or invalid evidence never proves that checks passed. decision_context.short_checks
 is the project composition (one command per line); empty means no additional
 checks configured, not no regression verification. Do not invoke aif-verify
 or require PLAN. No edits, commits or new report files; output only gate.
@@ -30,3 +30,20 @@ relabel a required blocked check as passed or warnings to continue.
 Optional out-of-scope external acceptance left for later is a warning finding,
 governed by gate_warnings. Distinguish it from a required check and never
 claim it ran.
+
+## Original report references
+
+`implementation.reports`, when present, contains ordinary ArtifactRefs.
+Preserve every original ref, its basis and its failed/unavailable/unknown state.
+Read each declared ref through Pri-Fly artifact export; use declared report/log
+refs only. Never scan arbitrary JSON or depend on an earlier Attempt directory.
+A digest or schema does not establish success or applicability. Compare the
+actual candidate, behavior, settings, selection, methods and environment with
+what the original report measured. A changed SHA alone is not an instruction
+to repeat all checks. Reuse sufficient applicable evidence without rerunning
+its measurement. Missing, stale, corrupt or unavailable required evidence
+requires the missing measurement or an honest blocked assessment. Do not run
+an implicit full suite. A read-only reader cannot provision an external runtime;
+a project-owned /5 measurement with declared effects runs before this reader.
+Writers preserve inherited reports and append declared new report refs when
+available. Never relabel old counts, subject, basis, exits or status for new work.

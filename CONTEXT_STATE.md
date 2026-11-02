@@ -6,9 +6,22 @@
 движка 0.10–0.13.54, переход на AI Factory 2.19.0, WorkflowRevision v4) —
 в git: `git show d388b92:CONTEXT_STATE.md` (2330 строк, оглавление — `mdq tree`).
 
-## Состояние на 2026-11-01
+## Состояние на 2026-11-02
 
-Ворота выверены против выпущенного Pri-Fly `v0.13.82`.
+Ворота verify/compatibility выверены против выпущенного Pri-Fly `v0.13.85`.
+
+Unified `/5` candidate: отдельный worktree, shared schema closure1.2.0 → frozen1.0.0,
+classic/profiled/fix/UIUX2.0.0. Public-import Chromium и две свежие UI/UX-сессии PASS. 122 unit checks,
+native verify8 packages/132 components/88 Steps/3 hosts и compatibility PASS.
+Classic/profiled/fix repair сохраняют исходные report refs. Private consumer
+подтвердил BusyBox BEFORE2 failed/10 assertions и AFTER2 passed/18 assertions;
+обычный procps также PASS. Private native Run завершился succeeded: server-confirmed Draft delivery
+в согласованную staging, свежий scoped receipt123 paths,33 validator self-checks
+и обе адресные PHP-проверки PASS. Private env/claim освобождены.
+Core #15 ограничивает rollout: composition + worktree_naming не стартует
+на0.13.85; обычное выделение worktree прошло. Именованный путь не принят.
+Evidence и границы: docs/changes/adopt-unified-composition-v5/acceptance.md.
+Изменения Core83/85 и границы совместимости: docs/changes/adopt-unified-composition-v5/.
 
 - **Issue #9 — начато исследование transport (2026-10-31):**
   2026-11-01 владелец согласовал полный автоматический цикл и отдельный Core issue.

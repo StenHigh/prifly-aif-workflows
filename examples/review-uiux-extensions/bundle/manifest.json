@@ -1,6 +1,6 @@
 {
   "protocol": "w6-project-bundle/1",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "sources": {
     "aif-review-evidence/contexts/aif-review.yaml": "sha256:f5dea1cb9bb89b170dea3ac2437b7bde9f01b9a28bf9546ff84d876ed41ce925",
     "aif-review-evidence/contexts/review-bridge.yaml": "sha256:8d7510a675899b1d0ac4f9743d4e5dfacd76bfcbf594a7a48e8227066f7458e0",
@@ -16,17 +16,20 @@
     "aif-review-evidence/workflows/quality.yaml": "sha256:34e5b3540d5999776d875411d0f24dcd30c08d9b475ba3f3633619620f9912cf",
     "aif-review-evidence/workflow.yaml": "sha256:e4afc3de4b5d8c09fc0f6ce8a2d080102ca5409eb742bd92b007e3433f7e1179",
     "aif-ui-ux/contexts/aif-review.yaml": "sha256:f5dea1cb9bb89b170dea3ac2437b7bde9f01b9a28bf9546ff84d876ed41ce925",
+    "aif-ui-ux/contexts/applicability-bridge.yaml": "sha256:0ec0fbba142842a403fb3c02488ee1d10f31fc32d85158b7bd7b2238656818b3",
     "aif-ui-ux/contexts/environment-bridge.yaml": "sha256:dea7536728ece9a6877b5f1606d077297fc7d95291e4ae099ddcfd5b2209512b",
     "aif-ui-ux/instructions/environment-bridge.md": "sha256:f4fee614a9a368d4483ffe05a82654d9cd955133f300f9f5125c3fb2707ff13e",
     "aif-ui-ux/contexts/release-bridge.yaml": "sha256:bc00ebcb5d7218608598660ae9d9df9d91c7b821b41989edeab4c4f5e3f6eb2a",
     "aif-ui-ux/instructions/release-bridge.md": "sha256:08278950b8ab2a777c9f95339a003a645fa1f0897616a86d716b57794666b7b4",
     "aif-ui-ux/contexts/review-bridge.yaml": "sha256:49fbeb171f9621ba78bafab9c7061be524d2cdc110c744e54ff49b1e3428e4f8",
     "aif-ui-ux/instructions/review-bridge.md": "sha256:8b6d7d83fb1904b40f83c3a3a91d3c93bffc97af55ab33b2ef0b8562a290874f",
+    "aif-ui-ux/contexts/review-change-program.yaml": "sha256:fe1da244316af9d2b4398f63e91cdd2dc09c3a04ba54dff266db80fdc64c7173",
     "aif-ui-ux/contexts/review-severity.yaml": "sha256:7ecb8352d8b145511056024110efd7b4dd21dafe2bc095daade35966438fb5f5",
     "aif-ui-ux/contexts/ui-bridge.yaml": "sha256:c86b651bd39ee3a2619b5edb14c300f50d5354588f057cf3b65ed099607a3eac",
     "aif-ui-ux/instructions/ui-bridge.md": "sha256:55aae29135a2e19cc3f84564a6f88922d47b14984a523f9cac1d1bfad255ca21",
     "aif-ui-ux/contexts/ux-bridge.yaml": "sha256:e2981c977a82ffad6530bdda41eff77267ec752009c4aecc40df2258889f2bfb",
     "aif-ui-ux/instructions/ux-bridge.md": "sha256:1d6f7c251dad473b396f4df60c7da56a452081af81499e968da26f794082cdfc",
+    "aif-ui-ux/schemas/applicability.yaml": "sha256:09ef729751a0512f728cf4a7a62ff29905c5cf1a24ac623e36af76621a117b08",
     "aif-ui-ux/schemas/candidate.yaml": "sha256:c812384692da6013da2e92e469377228797a5117f4067b57958a993bf341b2ba",
     "aif-ui-ux/schemas/configuration.yaml": "sha256:0d34c9b0d701e3e07aaad0c692c65ae79915cfe4f8f4caea07b13f9a26099208",
     "aif-ui-ux/schemas/environment.yaml": "sha256:68c84c1fd90d7770b2d0f9b754cb6b0329c219caf05b5446821821661f352cb1",
@@ -34,25 +37,35 @@
     "aif-ui-ux/schemas/release.yaml": "sha256:b674186c4ddc627f7c61e007645402446c03cd38b8f7fbca639c27fdab5347e5",
     "aif-ui-ux/schemas/report.yaml": "sha256:d852feb79b6205d4fb0fe162819833c1682c088485c7167a64b39b7bad043d74",
     "aif-ui-ux/schemas/request.yaml": "sha256:f6b6d0be4333291bca0f9a9e2f7c6295dbf9ec0f72e12b0fa39427e7aa9cec36",
-    "aif-ui-ux/steps/capture.yaml": "sha256:7e6436ebce21a5dd24a82ca41f676ab3857194ccaa586d61c31196770b1f7c2e",
-    "aif-ui-ux/steps/environment.yaml": "sha256:0d1c169994227375ff3a3f40e4e72e9b1c1bcaa74a68b06bc75987a4ea94ed12",
-    "aif-ui-ux/steps/evaluate.yaml": "sha256:8559ddd5638ec07d86d87608c9a765adeebe3705f553544ca0f19ac6ab8136cb",
-    "aif-ui-ux/steps/finalize.yaml": "sha256:0e3df1df28a85b61160dfb03c8dcd65d057c885786de2c081263feb4ad260834",
-    "aif-ui-ux/steps/release.yaml": "sha256:77d5ab6c21cebeff243971f0dcde78b9f2937fd65ce0baa6ab51bfe8409be56a",
-    "aif-ui-ux/steps/ui.yaml": "sha256:88064e5597df6238ff4c907dcd0b3a84844301b5a708114b0e6d3d904278be78",
-    "aif-ui-ux/steps/ux.yaml": "sha256:dbf20d97be4841365f71492d3b2f2c6a7257146453446073a008846c8f8eda4b",
-    "aif-ui-ux/workflows/quality.yaml": "sha256:53f0ace85de5b5df78cb1f47cba4f18306c7614e5bdce7612bfdc3a537245680",
-    "aif-ui-ux/workflow.yaml": "sha256:fee4dd31e13a34e9990976f521b64e93f777927cea58953e2bb53cbdd47302c6",
+    "aif-ui-ux/steps/applicability.yaml": "sha256:2777df3940454ab8f57343ab425eaf1a7d43af5f3e423a499ca0cd458b0f96ba",
+    "aif-ui-ux/steps/bundle-change.yaml": "sha256:c8a91cce6f83f69f9ac1dcf73856cc55cce5c80431edf7c8fde9494f20808b25",
+    "aif-ui-ux/steps/capture-change.yaml": "sha256:b2e72c7eb748caad1333a9c1bcf6da9ee8c691ac519f072efafa5a07c98b9d07",
+    "aif-ui-ux/steps/capture.yaml": "sha256:cfd4e27ff296f2d236435f94285157625a0930ca576a164eb32b8bef1f1f8f08",
+    "aif-ui-ux/steps/configure-change.yaml": "sha256:ce54149928958e7cb25a8f3d5a342f8f02a90ecc20f78980df26e8dc8e31ab54",
+    "aif-ui-ux/steps/environment.yaml": "sha256:70aa710f97442cbb8cbd05fd64217b4820f74d3becab28083fb1fb0f34a6d005",
+    "aif-ui-ux/steps/evaluate.yaml": "sha256:bd183348acb807a406dd1c2cd4f48c36a53d98c7903e44be164af36daebfa0cc",
+    "aif-ui-ux/steps/finalize.yaml": "sha256:8018436080859bcd93d735cf07b123f9072ec59a9533849938a59debe472f487",
+    "aif-ui-ux/steps/guard-applicability.yaml": "sha256:7417632a7731e03714e7b2b42fdf2abca63455e8727bee2e725a55fb511782aa",
+    "aif-ui-ux/steps/release.yaml": "sha256:939e3d0b296957ea017c19d040bfcfeb118832170bca78a6e085390a965c7b64",
+    "aif-ui-ux/steps/ui.yaml": "sha256:809ed504b6c0c5a1879de3e8d42325015566b0028441baffd92bd97c456f7b3b",
+    "aif-ui-ux/steps/ux.yaml": "sha256:82ae934e42b3e41667755dec8104be4c2384bcd3fe75486c17849afc5eb8981b",
+    "aif-ui-ux/workflows/quality.yaml": "sha256:19873d541a74a86186c3a39f7c1214e52904f51332ba153eff7323b89bee95a8",
+    "aif-ui-ux/workflows/review-for-change.yaml": "sha256:a4b7c27008e908e40424b79b9305a084eaf53d5f4d283839a15d699dd4946618",
+    "aif-ui-ux/workflow.yaml": "sha256:bea01cd40b0b93d6b58028fa359a37f7129e2ee25152f566239bd2d0b8dd31aa",
     "aif-review-evidence/files/evidence.py": "sha256:0ac845481c7fb4dd3a57d7e80726e42f67c1075ff2407916c7607ddc1a450c76",
     "aif-ui-ux/files/product.py": "sha256:4dfc3de4ec56c1f481389093f284d525586b0163553d66ff8a212375124a4f16",
     "examples/review-uiux-extensions/acceptance.py": "sha256:b22c5d0ff25d46adbdb65754ff7a13783d50f4f39efc0a3fdf7c2c0e0bb479a8"
   },
+  "dependencies": [
+    "aif:package/composition-contracts@1.2.0"
+  ],
   "references": {
     "w6-process": "core:adapter/local-process@2.0.0",
     "w6-session": "core:adapter/assisted-session@1.0.0",
     "w6-policy": "core:policy/local@4.0.0",
     "w6-result": "core:schema/step-result@1.0.0",
-    "w6-result_v2": "core:schema/step-result@2.0.0"
+    "w6-result_v2": "core:schema/step-result@2.0.0",
+    "contract_schema_implementation": "aif:schema/implementation@1.2.0"
   },
   "modes": {
     "review": {
@@ -188,9 +201,11 @@
     "uiux": {
       "files": [
         "project/contexts/w6-product-aif-review.yaml",
+        "project/contexts/w6-product-applicability-bridge.yaml",
         "project/contexts/w6-product-environment-bridge.yaml",
         "project/contexts/w6-product-release-bridge.yaml",
         "project/contexts/w6-product-review-bridge.yaml",
+        "project/contexts/w6-product-review-change-program.yaml",
         "project/contexts/w6-product-review-severity.yaml",
         "project/contexts/w6-product-ui-bridge.yaml",
         "project/contexts/w6-product-ux-bridge.yaml",
@@ -199,6 +214,7 @@
         "project/files/w6-product.py",
         "project/schemas/w6-assessment.yaml",
         "project/schemas/w6-candidate.yaml",
+        "project/schemas/w6-product-applicability.yaml",
         "project/schemas/w6-product-candidate.yaml",
         "project/schemas/w6-product-configuration.yaml",
         "project/schemas/w6-product-environment.yaml",
@@ -208,10 +224,15 @@
         "project/schemas/w6-product-request.yaml",
         "project/schemas/w6-receipt.yaml",
         "project/steps/w6-committed-check.yaml",
+        "project/steps/w6-product-applicability.yaml",
+        "project/steps/w6-product-bundle-change.yaml",
+        "project/steps/w6-product-capture-change.yaml",
         "project/steps/w6-product-capture.yaml",
+        "project/steps/w6-product-configure-change.yaml",
         "project/steps/w6-product-environment.yaml",
         "project/steps/w6-product-evaluate.yaml",
         "project/steps/w6-product-finalize.yaml",
+        "project/steps/w6-product-guard-applicability.yaml",
         "project/steps/w6-product-release.yaml",
         "project/steps/w6-product-ui.yaml",
         "project/steps/w6-product-ux.yaml",
@@ -220,6 +241,7 @@
         "project/steps/w6-uiux-seal.yaml",
         "project/workflows/w6-committed.yaml",
         "project/workflows/w6-product-quality.yaml",
+        "project/workflows/w6-product-review-for-change.yaml",
         "project/workflows/w6-uiux.yaml"
       ],
       "bindings": {
@@ -261,6 +283,70 @@
             "finalize"
           ],
           "files": {
+            "product.py": "project/files/w6-product.py",
+            "evidence.py": "project/files/w6-evidence.py"
+          },
+          "timeout_ms": 120000,
+          "grace_ms": 100,
+          "max_output_bytes": 1048576
+        },
+        "w6-product-capture-change": {
+          "executable": "python",
+          "args": [
+            "-B",
+            "review_change.py",
+            "capture"
+          ],
+          "files": {
+            "review_change.py": "project/files/w6-review_change.py",
+            "product.py": "project/files/w6-product.py",
+            "evidence.py": "project/files/w6-evidence.py"
+          },
+          "timeout_ms": 120000,
+          "grace_ms": 100,
+          "max_output_bytes": 1048576
+        },
+        "w6-product-guard-applicability": {
+          "executable": "python",
+          "args": [
+            "-B",
+            "review_change.py",
+            "guard"
+          ],
+          "files": {
+            "review_change.py": "project/files/w6-review_change.py",
+            "product.py": "project/files/w6-product.py",
+            "evidence.py": "project/files/w6-evidence.py"
+          },
+          "timeout_ms": 120000,
+          "grace_ms": 100,
+          "max_output_bytes": 1048576
+        },
+        "w6-product-configure-change": {
+          "executable": "python",
+          "args": [
+            "-B",
+            "review_change.py",
+            "configure"
+          ],
+          "files": {
+            "review_change.py": "project/files/w6-review_change.py",
+            "product.py": "project/files/w6-product.py",
+            "evidence.py": "project/files/w6-evidence.py"
+          },
+          "timeout_ms": 120000,
+          "grace_ms": 100,
+          "max_output_bytes": 1048576
+        },
+        "w6-product-bundle-change": {
+          "executable": "python",
+          "args": [
+            "-B",
+            "review_change.py",
+            "bundle"
+          ],
+          "files": {
+            "review_change.py": "project/files/w6-review_change.py",
             "product.py": "project/files/w6-product.py",
             "evidence.py": "project/files/w6-evidence.py"
           },
@@ -346,9 +432,11 @@
     "combined": {
       "files": [
         "project/contexts/w6-product-aif-review.yaml",
+        "project/contexts/w6-product-applicability-bridge.yaml",
         "project/contexts/w6-product-environment-bridge.yaml",
         "project/contexts/w6-product-release-bridge.yaml",
         "project/contexts/w6-product-review-bridge.yaml",
+        "project/contexts/w6-product-review-change-program.yaml",
         "project/contexts/w6-product-review-severity.yaml",
         "project/contexts/w6-product-ui-bridge.yaml",
         "project/contexts/w6-product-ux-bridge.yaml",
@@ -360,6 +448,7 @@
         "project/files/w6-product.py",
         "project/schemas/w6-assessment.yaml",
         "project/schemas/w6-candidate.yaml",
+        "project/schemas/w6-product-applicability.yaml",
         "project/schemas/w6-product-candidate.yaml",
         "project/schemas/w6-product-configuration.yaml",
         "project/schemas/w6-product-environment.yaml",
@@ -377,10 +466,15 @@
         "project/steps/w6-combined-review-diagnostic.yaml",
         "project/steps/w6-combined-seal.yaml",
         "project/steps/w6-committed-check.yaml",
+        "project/steps/w6-product-applicability.yaml",
+        "project/steps/w6-product-bundle-change.yaml",
+        "project/steps/w6-product-capture-change.yaml",
         "project/steps/w6-product-capture.yaml",
+        "project/steps/w6-product-configure-change.yaml",
         "project/steps/w6-product-environment.yaml",
         "project/steps/w6-product-evaluate.yaml",
         "project/steps/w6-product-finalize.yaml",
+        "project/steps/w6-product-guard-applicability.yaml",
         "project/steps/w6-product-release.yaml",
         "project/steps/w6-product-ui.yaml",
         "project/steps/w6-product-ux.yaml",
@@ -390,6 +484,7 @@
         "project/workflows/w6-combined.yaml",
         "project/workflows/w6-committed.yaml",
         "project/workflows/w6-product-quality.yaml",
+        "project/workflows/w6-product-review-for-change.yaml",
         "project/workflows/w6-review-quality.yaml"
       ],
       "bindings": {
@@ -459,6 +554,70 @@
             "finalize"
           ],
           "files": {
+            "product.py": "project/files/w6-product.py",
+            "evidence.py": "project/files/w6-evidence.py"
+          },
+          "timeout_ms": 120000,
+          "grace_ms": 100,
+          "max_output_bytes": 1048576
+        },
+        "w6-product-capture-change": {
+          "executable": "python",
+          "args": [
+            "-B",
+            "review_change.py",
+            "capture"
+          ],
+          "files": {
+            "review_change.py": "project/files/w6-review_change.py",
+            "product.py": "project/files/w6-product.py",
+            "evidence.py": "project/files/w6-evidence.py"
+          },
+          "timeout_ms": 120000,
+          "grace_ms": 100,
+          "max_output_bytes": 1048576
+        },
+        "w6-product-guard-applicability": {
+          "executable": "python",
+          "args": [
+            "-B",
+            "review_change.py",
+            "guard"
+          ],
+          "files": {
+            "review_change.py": "project/files/w6-review_change.py",
+            "product.py": "project/files/w6-product.py",
+            "evidence.py": "project/files/w6-evidence.py"
+          },
+          "timeout_ms": 120000,
+          "grace_ms": 100,
+          "max_output_bytes": 1048576
+        },
+        "w6-product-configure-change": {
+          "executable": "python",
+          "args": [
+            "-B",
+            "review_change.py",
+            "configure"
+          ],
+          "files": {
+            "review_change.py": "project/files/w6-review_change.py",
+            "product.py": "project/files/w6-product.py",
+            "evidence.py": "project/files/w6-evidence.py"
+          },
+          "timeout_ms": 120000,
+          "grace_ms": 100,
+          "max_output_bytes": 1048576
+        },
+        "w6-product-bundle-change": {
+          "executable": "python",
+          "args": [
+            "-B",
+            "review_change.py",
+            "bundle"
+          ],
+          "files": {
+            "review_change.py": "project/files/w6-review_change.py",
             "product.py": "project/files/w6-product.py",
             "evidence.py": "project/files/w6-evidence.py"
           },
@@ -562,9 +721,11 @@
   },
   "files": {
     "project/contexts/w6-product-aif-review.yaml": "sha256:fc379342d792ccf0acaa389decebca75468177f41c22b21d1aa0a2027a68b24a",
+    "project/contexts/w6-product-applicability-bridge.yaml": "sha256:7fa4e82c4dc6e87c8c154e507fbd0e463007add13c5d61d77b3ff7cd97e50563",
     "project/contexts/w6-product-environment-bridge.yaml": "sha256:bfa61556b3e1e1c60220dc80d7bd0b240f83acafd3be8d1fdc44af8d47c63bf5",
     "project/contexts/w6-product-release-bridge.yaml": "sha256:fbae734e2e7d3991dcb924ab2f878263e9e787914ea599360146254405410aed",
     "project/contexts/w6-product-review-bridge.yaml": "sha256:d20e400840fd166b3ae062bcbe53f08278dcfea8b24d380cc563cefa07569355",
+    "project/contexts/w6-product-review-change-program.yaml": "sha256:dff67dd07ffa5482b3de94d73d4cde058a115f43a45b377b9143947cc6c5d77d",
     "project/contexts/w6-product-review-severity.yaml": "sha256:778f0b164a293e4db39327be6b63c51d20234a39c6cfe0930525d4d77c821b37",
     "project/contexts/w6-product-ui-bridge.yaml": "sha256:5d948d6cd06f5b0054d87205080c3fe89d990dd7b0adec32a9a2f8239f616653",
     "project/contexts/w6-product-ux-bridge.yaml": "sha256:254e84b660288eebc39c03bc308aafacb4399ffe5b85042d718775ebf7a10e8a",
@@ -576,6 +737,7 @@
     "project/files/w6-product.py": "sha256:4dfc3de4ec56c1f481389093f284d525586b0163553d66ff8a212375124a4f16",
     "project/schemas/w6-assessment.yaml": "sha256:566c9a15d99c3f6b71c63dbfb4a12e17055e9d7075369adc121a2312d5c5841f",
     "project/schemas/w6-candidate.yaml": "sha256:69f469fd0be649ef915dfd52865d3722a01e653415bc70b5bfeb3a9490746608",
+    "project/schemas/w6-product-applicability.yaml": "sha256:3a925dbed8ed470fc3cfa91e07c6036c1caf186a42c191777e7a940e197fb297",
     "project/schemas/w6-product-candidate.yaml": "sha256:7ac30dcafa3c8c141a9e85c45bea75e2def1ef906512c5ca68ef691e822b53a3",
     "project/schemas/w6-product-configuration.yaml": "sha256:835b0f001d7062fe04636984830b5aca53da181351f7b594366c7d82e25f3af9",
     "project/schemas/w6-product-environment.yaml": "sha256:4c7414e74a82d6be74cd7b3f244ad68ecf2b47db04aced61aeb94e01a44d88c9",
@@ -588,32 +750,38 @@
     "project/schemas/w6-review-gate.yaml": "sha256:49300ae98cc804b3ab0ad3b14ef7af55cb64d5e1e0e03332de270ddb98420638",
     "project/schemas/w6-review-report.yaml": "sha256:d763f54a1ce7163260b9c27f50d5cf711f55248a715a88ab6b2883bfd894d6e5",
     "project/schemas/w6-review-request.yaml": "sha256:fe3cb07b530689744731f933130fd88039c3cfddd7c43c16af49635a31dd0e5e",
-    "project/steps/w6-combined-prepare.yaml": "sha256:13ac7612be865e1faf62b5f70d7b7f04429588fc9c924d560cefa8bb300ba518",
+    "project/steps/w6-combined-prepare.yaml": "sha256:08ec58c79d64957e96e5e2d4d64572cff4979e646c7c7f16ddad8fc9eb754eaa",
     "project/steps/w6-combined-product-diagnostic.yaml": "sha256:6b015c68cc83861af764505ad0e8dbbb4acc08e50a31dc9d058a1992aa62fd3d",
     "project/steps/w6-combined-review-diagnostic.yaml": "sha256:039cef92c7ce70d9b35bce9f30014e3141df384cffeaf277302d5f2789d9a1f0",
-    "project/steps/w6-combined-seal.yaml": "sha256:288575ed6c0e70c27e3b149eb4fd625f4237d1c67dac6844a1addb812b784a77",
-    "project/steps/w6-committed-check.yaml": "sha256:ed39fda73fea3660e87de44ef99a5010dcd125b91b676b7a09f45aff9371b445",
+    "project/steps/w6-combined-seal.yaml": "sha256:de5a14ff08b0dc37a7b6585a1a39e5a900602d9b84a7d31e7298e6ad2c906e07",
+    "project/steps/w6-committed-check.yaml": "sha256:a8593878c97c6448a31228314689cd8fdbb95b7d5b2c468cd87128b6d6380483",
+    "project/steps/w6-product-applicability.yaml": "sha256:1c01004ff48900e6247b8711a146e618b09ceb6a158762b9857565d4f8efb558",
+    "project/steps/w6-product-bundle-change.yaml": "sha256:2ac5764d8cb394989522618253af5555c0ddecdb1798f3323d2f5b2357640d0c",
+    "project/steps/w6-product-capture-change.yaml": "sha256:b9a00c9a86306630d1de935fe2b22a722f7622a9cf795c5989ee67e19b0d294d",
     "project/steps/w6-product-capture.yaml": "sha256:2f27b2c79d5a2fb565597c4f0d7139bdeec5f55fdbb5b7f717ec85fc60848166",
+    "project/steps/w6-product-configure-change.yaml": "sha256:44723f473e149ea9efe84577cf8244a8f5d4a7eb65be8517454a5d3f4ad37273",
     "project/steps/w6-product-environment.yaml": "sha256:e4fa40a0d4ccf4efd56506bbfdbbc6f2ca4f9b8e8210bf188f0a5aa5f6e6a75c",
     "project/steps/w6-product-evaluate.yaml": "sha256:313a5eaed6174831b64aee4b92bd7d5a6bfe63d71a2535d3d03cc70615e9cdc1",
     "project/steps/w6-product-finalize.yaml": "sha256:6ef4fa09a4fcf6bd639f85c5678d57cea8c4c56d19410cd52f5f32f09a0c6fa5",
+    "project/steps/w6-product-guard-applicability.yaml": "sha256:76dfe51413d1eb5af11958ccdcda9a652c20ed72d9558b787f16af15ea12fe38",
     "project/steps/w6-product-release.yaml": "sha256:1e6da0bf8c5d3f74c303f943806ebfd8c2878caa6b67b7c77c2a74bc801d7754",
     "project/steps/w6-product-ui.yaml": "sha256:7126b47ebe91386ebaed3f35c7dad286b38f7ec2ed0cb367a3b255cbc8f96e4e",
     "project/steps/w6-product-ux.yaml": "sha256:cfc27fdeefc5b2b8c1af9ce256ad0eb8d9a96a6203b3d1d9b2e256d44ce3c61a",
     "project/steps/w6-review-capture.yaml": "sha256:1b2a429968a0b60c896021f1deb9b22c6b9107b767895a6479347625d8513eaf",
     "project/steps/w6-review-evaluate.yaml": "sha256:fd6a3aba33ee26d3c124010cfb4f58b559c89acdad28fb0ca8d23c9594d217fd",
-    "project/steps/w6-review-prepare.yaml": "sha256:8abfaebd770c77533db7a6dd21b10b487878b19c277420659f47c66c5962ac1f",
+    "project/steps/w6-review-prepare.yaml": "sha256:6a2fd276da7cb663f2b81d49fa369f4df3e87a57ed78de2174af567d3f661a33",
     "project/steps/w6-review-review-diagnostic.yaml": "sha256:72ff4336251fdc0dd6dbd43b939aaaa2bd67eeb1e9d30656d100a5d710f86726",
     "project/steps/w6-review-review.yaml": "sha256:4a462037a6cf5071f0e860d51729f8fc632ee32b2bdc992a8b96cf7e5475d523",
-    "project/steps/w6-review-seal.yaml": "sha256:8d30da39fc397dcce8ecd4d548a142aa581464b2eb8398f24fbb16f839d21367",
-    "project/steps/w6-uiux-prepare.yaml": "sha256:329418e0531107b322775ce9cec42470918166bc05653b8aa97aae952c41e148",
+    "project/steps/w6-review-seal.yaml": "sha256:e06da01c86e61062ca3a9e0cbbf4f2c811890db076efd1f84ed2662a694c86bd",
+    "project/steps/w6-uiux-prepare.yaml": "sha256:7bd6e7e2bc433f8b8f7a8e31e76fe334b4bd3162a6d68b4eb4b2b9daf729cedc",
     "project/steps/w6-uiux-product-diagnostic.yaml": "sha256:1bc2c81a5cf3b276d64e4e0baa58728b3c3ef502e90440d9a3b239fedc3edf85",
-    "project/steps/w6-uiux-seal.yaml": "sha256:a124e4f9af2d5f52812c8665e8b2c99fa570710df266d13a698884c4ecf22ea0",
-    "project/workflows/w6-combined.yaml": "sha256:d279d774cb4236e48ce718b45ae252e841ebd6cf656452c5993a0ac65440da7f",
-    "project/workflows/w6-committed.yaml": "sha256:1beeae679fd7685be5ba766813916688f322daaf1175e05abe49e34699fa20cf",
+    "project/steps/w6-uiux-seal.yaml": "sha256:082ee02bbeeb541c6c37300439f9c020d784001fd521ad30ff152c67a7e2e7b5",
+    "project/workflows/w6-combined.yaml": "sha256:4e1da44ec78659b7ecb625a72b4d23285376ca785abfb80a517a2a9c9e81dd82",
+    "project/workflows/w6-committed.yaml": "sha256:eaa269ead64d3b5d8c5342ce81de4989c1f460cfb914e07b82580e2aecf13acc",
     "project/workflows/w6-product-quality.yaml": "sha256:05c465647eab5b5012b4d6d810d47b8429a353a7705cc036ef6e473855d88607",
+    "project/workflows/w6-product-review-for-change.yaml": "sha256:80e78f39b17c8ea4ee1cc0487b19d0b01d833742d0fa6bd26858656441527bff",
     "project/workflows/w6-review-quality.yaml": "sha256:e0f6057e15444f604d158e235e13ee968b96533f6a00687ea744e7dd39a601ff",
-    "project/workflows/w6-review.yaml": "sha256:faaf7a9841a4a5602997001a37a18fbde5ccb24fcbc1b13f3ccf30710435026e",
-    "project/workflows/w6-uiux.yaml": "sha256:cd5fc293049673d2887663bdd65a389abff5e9f4403d2568d70337877e2b677d"
+    "project/workflows/w6-review.yaml": "sha256:784c81a882c2228545ff004f396cc0a2677321533b3f5c96386f5707a75f23d5",
+    "project/workflows/w6-uiux.yaml": "sha256:dbe8c2c5fd7d28f8b4aad5085fea33a5e361c42542d9447f42a69b678983eacd"
   }
 }

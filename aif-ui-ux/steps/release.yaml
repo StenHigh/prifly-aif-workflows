@@ -1,16 +1,16 @@
 authoring: prifly-step/2
 id: aif-product:step/release
-version: 1.1.0
+version: 1.2.0
 title: Product review release
 kind: worker
 inputs:
   configuration:
-    schema_ref: '{{schema_configuration}}'
+    schema_ref: '{{contract_schema_configuration}}'
   environment:
-    schema_ref: '{{schema_environment}}'
+    schema_ref: '{{contract_schema_environment}}'
 outputs:
   release:
-    schema_ref: '{{schema_release}}'
+    schema_ref: '{{contract_schema_release}}'
     required_for:
     - pass
 executor:

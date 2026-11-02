@@ -1,5 +1,14 @@
 # AI Factory bug fix workflow
 
+## Unified composition candidate 2.0.0
+
+Requires Pri-Fly >=0.13.85 and explicit installation of the
+[pinned shared schema dependency](../contracts/README.md). New templates use
+`prifly-extension/5`; folders use `/3`. Existing installed project files and
+sealed Runs are never rewritten automatically. Review the migration before a
+new Run. [Complete examples and native checks](../examples/unified-composition/README.md).
+
+
 `aif-fix` is a separate package/launch. The user chooses it in `prifly-run` for
 a concrete wrong behavior; classic/profiled keep their development graphs.
 Pri-Fly 0.13.76 adds optional advice from launch title/description. After a

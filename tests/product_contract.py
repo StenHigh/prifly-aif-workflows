@@ -13,7 +13,7 @@ def check_product(binary, authority, repository, root):
         else:assert left.read_bytes()==right.read_bytes(),relative
     result,documents=compile_package(binary,authority,repository,'aif-ui-ux',root/'product')
     assert result['package']['id']=='aif-product:package/ui-ux'
-    assert len(documents)==10
+    assert len(documents)==16
     for lens in ('ui','ux'):
         step=documents['aif-product:step/'+lens]
         assert step['repository_workspace']=='read_only' and step['effects']['class']=='none'

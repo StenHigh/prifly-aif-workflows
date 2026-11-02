@@ -134,8 +134,12 @@ def plan(
         )
     manifest = json.loads((HERE / "bundle/manifest.json").read_text())
     selected = manifest["modes"][mode]
-    for name in manifest["references"]:
-        if name in refs or name in upstream["package"].get("references", {}):
+    for name, value in manifest["references"].items():
+        inherited = upstream["package"].get("references", {})
+        if name.startswith("contract_schema_"):
+            if any(mapping[name] != value for mapping in (refs, inherited) if name in mapping):
+                raise ValueError("Reference alias conflict: " + name)
+        elif name in refs or name in inherited:
             raise ValueError("Reference alias conflict: " + name)
     if set(programs) & set(selected["bindings"]):
         raise ValueError("Execution binding conflict")
@@ -164,7 +168,8 @@ def plan(
     changes[folder / "project/files/w6-settings.json"] = encoded(settings)
     short = upstream["id"].rsplit("/", 1)[-1]
     existing["authoring"] = "prifly-extension/2"
-    refs.update(manifest["references"])
+    refs.update({name: value for name, value in manifest["references"].items()
+                 if name not in upstream["package"].get("references", {})})
     programs.update(selected["bindings"])
     existing["extensions"] += [
         {
