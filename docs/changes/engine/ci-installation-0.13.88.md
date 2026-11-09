@@ -73,8 +73,28 @@ source hashes, локальные observations и финальный CI.
 Feature-набор содержит 35 cases с очисткой; очередь содержит три cases.
 Обязательные ворота, параллельные reviewers, UI/UX browser и measurement-матрицы прошли.
 
-[PR #15](https://github.com/StenHigh/prifly-aif-workflows/pull/15) готовит это исправление.
+[PR #15](https://github.com/StenHigh/prifly-aif-workflows/pull/15) влит в main.
 Финальная фиксация evidence меняет только документы. Код теста, оба CI workflows,
 shipping packages, contracts и каталоги остаются прежними относительно проверенного commit.
 Изменение не требует релиза пакетов. Приёмка Light и Core migration issue21
 остаются отдельными задачами.
+
+## Приёмка main после слияния
+
+PR #15 влит squash-коммитом `432327656582521f1d428189a1f663a35a94c86c`.
+Его Git-дерево точно совпадает с проверенным итоговым содержимым PR.
+
+[CI main42661120199](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/42661120199)
+завершился SUCCESS во всех шести заданиях.
+[Report transport main42661120682](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/42661120682)
+также получил SUCCESS. Это новые push-прогоны ветки main после слияния.
+
+Скачаны 10 артефактов с 21 JSON-отчётом; digests и merge SHA проверены.
+Версия Core —0.13.88, SHA-256 бинаря совпадает с official release.
+Наборы fix28, feature35 и queue3 прошли, включая исправленную установку.
+[Отдельные результаты main](ci-installation-0.13.88-main-results.json) сохраняют
+эти доказательства отдельно от исторической приёмки PR.
+
+Готовность CI main подтверждена. Финальный коммит записывает только результат
+проверки; все исполняемые файлы, CI workflows и опубликованные пакеты прежние.
+Приёмка production Light и миграция исторического revoke остаются отдельными задачами.

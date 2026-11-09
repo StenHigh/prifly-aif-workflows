@@ -8,6 +8,13 @@
 
 ## Исправление CI на 2026-11-09
 
+PR #15 влит в main `4323276` 2026-11-09.
+CI main42661120199 завершился SUCCESS во всех 6 заданиях.
+Отдельный report transport42661120682 также получил SUCCESS.
+Проверены 10 ZIP digests и 21 JSON-отчёт именно для merge commit.
+Готовность CI main подтверждена. Приёмка PR и main сохранены отдельно.
+Результаты main: docs/changes/engine/ci-installation-0.13.88-main-results.json.
+
 Ветка `codex/fix-ci-install-pins` основана на main `76e7b8b`.
 Ворота verify/compatibility выверены против выпущенного Pri-Fly `v0.13.88`.
 Прочитаны заметки версий 0.13.87 и 0.13.88.
@@ -28,13 +35,13 @@ Focused CI42648113860 также получил SUCCESS. Проверены 10 Z
 Все отчёты с версией указывают 0.13.88; SHA-256 бинаря совпадает с official release.
 
 Наборы fix (28 cases), feature (35 cases) и native queue (3 cases) прошли.
-PR #15 содержит исправление. Финальная фиксация меняет только документацию и evidence.
+PR #15 влит; финальная фиксация результата main меняет только документацию и evidence.
 Код тестов и оба CI workflows совпадают с проверенным source.
 Все восемь shipping packages, contracts и каталоги совпадают с main `76e7b8b`.
 Движок, classic/profiled и рабочая ветка отдельного расследования не менялись.
 Evidence: docs/changes/engine/ci-installation-0.13.88.md и JSON рядом.
 
-Слияние PR, production Light и Core migration issue #21 остаются отдельными действиями.
+Roadmap в PR #14, production Light и Core migration issue #21 остаются отдельными работами.
 
 ## Состояние на 2026-11-02
 
