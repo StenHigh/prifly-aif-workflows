@@ -8,23 +8,33 @@
 
 ## Исправление CI на 2026-11-09
 
-Проверяется отдельная ветка codex/fix-ci-install-pins от main76e7b8b.
+Ветка `codex/fix-ci-install-pins` основана на main `76e7b8b`.
 Ворота verify/compatibility выверены против выпущенного Pri-Fly `v0.13.88`.
-Пропущенные87/88 прочитаны:
-87 поставляет runner handbook, 88 добавляет optional typed naming inputs.
-Эта задача не включает naming inputs и не обновляет установленные project runners.
+Прочитаны заметки версий 0.13.87 и 0.13.88.
+Версия 0.13.87 поставляет справочник runner; 0.13.88 добавляет необязательные входные данные именования.
+Эта задача не включает именование и не обновляет установленные project runners.
 
-На official88 исходный fix_check/install воспроизвёл project_workflow_commit_mismatch.
-Исправленный fixture сначала публикует пакет, затем каталог с точным commit пакета.
-Проверка origin и всех установленных файлов прошла; native Run завершился succeeded.
-Во всех пяти CI downloads добавлены ограниченные curl retries и timeouts.
-Локальный HTTP-стенд подтвердил 504→200, один запрос при404 и шесть запросов при постоянном503.
-Verify8/132/88 и compatibility5/4/6trusted/core-state41 PASS.
-Versions4/folders7/derive, YAML и shell обоих workflows PASS.
-Полный новый CI ещё не запущен; его результат будет записан отдельно.
-Evidence: docs/changes/engine/ci-installation-0.13.88.md и JSON рядом.
-Все восемь shipping packages, contracts и каталоги совпадают с main76e7b8b.
+Исходный fix_check/install воспроизвёл `project_workflow_commit_mismatch` на official 0.13.88.
+Исправленный тест сначала публикует пакет, затем каталог с точным commit пакета.
+Проверка origin и всех установленных файлов прошла; новый Run завершился `succeeded`.
+Все пять скачиваний установщика CI получили ограниченные повторы и timeouts.
+HTTP-стенд подтвердил 504→200, один запрос при 404 и шесть запросов при постоянном 503.
+
+Verify прошёл для 8 пакетов, 132 компонентов и 88 шагов.
+Compatibility прошёл для 5 launches, 4 builds и 6 trusted packages; seal — core-state/41.
+Проверки версий (4 теста), структуры папок (7 тестов), derive_profiled, YAML и shell прошли.
+Full CI42648113238 на source `5a6fc5e` завершился SUCCESS во всех 6 заданиях.
+Focused CI42648113860 также получил SUCCESS. Проверены 10 ZIP digests и 21 JSON-отчёт.
+Все отчёты с версией указывают 0.13.88; SHA-256 бинаря совпадает с official release.
+
+Наборы fix (28 cases), feature (35 cases) и native queue (3 cases) прошли.
+PR #15 содержит исправление. Финальная фиксация меняет только документацию и evidence.
+Код тестов и оба CI workflows совпадают с проверенным source.
+Все восемь shipping packages, contracts и каталоги совпадают с main `76e7b8b`.
 Движок, classic/profiled и рабочая ветка отдельного расследования не менялись.
+Evidence: docs/changes/engine/ci-installation-0.13.88.md и JSON рядом.
+
+Слияние PR, production Light и Core migration issue #21 остаются отдельными действиями.
 
 ## Состояние на 2026-11-02
 

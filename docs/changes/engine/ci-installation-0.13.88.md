@@ -22,6 +22,10 @@ Fixture сначала создаёт commit пакета. Второй commit �
 Проверка сравнивает recorded origin и каждый файл установленного пакета.
 Публичный каталог и проверки целостности Core сохраняются.
 
+```text
+Пакет -> commit A -> каталог(ref=commit=A) -> установка -> Run
+```
+
 Все пять установок CI используют одинаковые ограниченные retries.
 `curl` повторяет временные ошибки до пяти раз после первого запроса.
 Connect timeout — 20 секунд, transfer timeout — 90 секунд,
@@ -53,6 +57,24 @@ python3 -B tests/compatibility.py --binary /absolute/released/prifly
 ```
 
 [Машиночитаемые результаты](ci-installation-0.13.88-results.json) закрепляют
-source hashes и локальные observations. Полный CI ещё не запущен.
+source hashes, локальные observations и финальный CI.
+
+## Итог CI
+
+[Полный CI42648113238](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/42648113238)
+завершился SUCCESS во всех шести заданиях. Проверен точный commit
+`5a6fc5e0d537b790091a07275ebc14160918d7b3`.
+[Report transport42648113860](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/42648113860)
+также получил SUCCESS.
+
+Скачаны 10 артефактов; все ZIP digests и привязки к commit проверены.
+Они содержат 21 JSON-отчёт. Reported версия —0.13.88; recorded binary SHA-256
+совпадает с указанным выше. Полный fix-набор содержит 28 cases, включая install.
+Feature-набор содержит 35 cases с очисткой; очередь содержит три cases.
+Обязательные ворота, параллельные reviewers, UI/UX browser и measurement-матрицы прошли.
+
+[PR #15](https://github.com/StenHigh/prifly-aif-workflows/pull/15) готовит это исправление.
+Финальная фиксация evidence меняет только документы. Код теста, оба CI workflows,
+shipping packages, contracts и каталоги остаются прежними относительно проверенного commit.
 Изменение не требует релиза пакетов. Приёмка Light и Core migration issue21
 остаются отдельными задачами.
