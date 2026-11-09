@@ -59,6 +59,7 @@ Prepare и проверенные отказы сохранили файлы п�
 
 Точный отчёт: [native-0.13.89-results.json](native-0.13.89-results.json).
 Он содержит compiled definitions, actual Problem envelopes, digests fixture и driver.
+Pinned source: [ea80f473](https://github.com/StenHigh/prifly-aif-workflows/commit/ea80f4730deb0e4ec4d166d68b2fb3d189491c6a).
 Versions — 4 теста PASS; folders — 7 тестов PASS; derive `--check` — PASS.
 Shipping packages и Core в этой проверке не менялись.
 
@@ -90,6 +91,7 @@ Driver самостоятельно готовит profile, inputs, prepare и r
 Новая capability должна по возможности использовать этот механизм с объявленным типом, default и owner-конфигурацией.
 Точный синтаксис и безопасная область подстановки остаются решением Core.
 Запрос Core не должен утверждать, что существующие схемы нельзя параметризовать.
+Создана [Pri-Fly #22](https://github.com/StenHigh/prifly/issues/22) с этим примером и критериями C1–C8.
 
 Приёмка shipping classic/profiled, обновление установленных пакетов и continue остаются следующими этапами.
 Успех synthetic worker не доказывает работу живой модели с увеличенным контекстом.

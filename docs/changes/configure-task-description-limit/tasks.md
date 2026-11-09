@@ -18,8 +18,8 @@
 - [x] Проверить profiles/settings/composition и compile values: presets работают, проектное число не достигает prepare/start.
 - [x] Получить 8 length cases / 3 succeeded Runs; проверить exact refs, полные task bytes, неизменность прежних Runs и cleanup.
 - [x] Сохранить native JSON с checksum binary, fixture и driver; versions/folders/derive PASS.
-- [ ] При нехватке механизма опубликовать связанную Core issue из core-request.md с pinned reproducer и точными отказами.
-- [ ] Связать Core issue с consumer issue #3; не закрывать consumer по одной поставке Core.
+- [x] Опубликовать Pri-Fly #22 из core-request.md с pinned source ea80f473, native evidence и точными отказами.
+- [x] Связать Core #22 с consumer #3 через исходный комментарий; consumer остаётся открытым до пакетной приёмки.
 - [ ] Проверить опубликованный механизм Core и зафиксировать точный YAML-синтаксис и поддерживаемые версии.
 
 ## Пакетная реализация

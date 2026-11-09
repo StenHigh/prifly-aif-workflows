@@ -1,8 +1,10 @@
 # Связанная задача Core: проектные compile values для prepare/start
 
-Статус: подготовлена к публикации после native-проверки released v0.13.89.
+Статус: опубликована [Pri-Fly #22](https://github.com/StenHigh/prifly/issues/22) после native-проверки released v0.13.89.
 Подтверждённая граница — передача проектного числового значения в сборку штатного запуска.
 Package profiles и standalone compile уже умеют параметризовать схему.
+Pinned reproducer: [ea80f473](https://github.com/StenHigh/prifly-aif-workflows/commit/ea80f4730deb0e4ec4d166d68b2fb3d189491c6a).
+Issue содержит команды clone/checkout, скачивания binary, проверки SHA-256 и запуска driver.
 
 Заголовок: `Project-owned compile values for task schema limits in prepare/start`.
 
