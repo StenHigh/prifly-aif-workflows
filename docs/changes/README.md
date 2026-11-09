@@ -23,6 +23,15 @@ Classic и штатный derived profiled опубликованы в v1.54.0; 
 
 ## Реестр
 
+Issue #3: [проектный предел task.description](configure-task-description-limit/proposal.md).
+Native-пример на released 0.13.89 подтвердил settings/profile/composition границы и standalone compile values.
+Нужен проектный параметр до валидации task: prepare/start не передают compile values.
+Авторские presets работают; default change остаётся 12 000.
+[Design](configure-task-description-limit/design.md) и [tasks](configure-task-description-limit/tasks.md)
+задают проверку механизма Core, update preservation и неизменность существующих Run.
+Пакетная реализация и её приёмка открыты; [Core issue](configure-task-description-limit/core-request.md) подготовлена к публикации.
+Восемь length cases / три успешных Run: [результаты](configure-task-description-limit/native.md).
+
 Issue #7: владелец согласовал completed/rejected без обязательного gate для verify fail/no_work.
 Отдельный [change](handle-verify-no-work/proposal.md) добавляет handler и штатный derive profiled.
 [Приёмка](handle-verify-no-work/acceptance.md) проверяет terminal outcome и continue от verify.

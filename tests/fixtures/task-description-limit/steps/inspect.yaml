@@ -1,0 +1,11 @@
+authoring: prifly-step/2
+id: limit-probe:step/inspect
+version: 1.0.0
+title: Echo the complete synthetic task
+kind: worker
+inputs: {task: {schema_ref: "{{schema_task}}"}}
+outputs: {task: {schema_ref: "{{schema_task}}", required_for: [pass]}}
+executor: {adapter_ref: "{{adapter}}", operation: session}
+instructions_ref: "{{context_inspect}}"
+effects: {class: none, retry_class: pure}
+result_schema_ref: "{{result}}"
