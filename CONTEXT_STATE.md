@@ -6,7 +6,44 @@
 движка 0.10–0.13.54, переход на AI Factory 2.19.0, WorkflowRevision v4) —
 в git: `git show d388b92:CONTEXT_STATE.md` (2330 строк, оглавление — `mdq tree`).
 
-## Состояние на 2026-11-09
+## Исправление CI на 2026-11-09
+
+PR #15 влит в main `4323276` 2026-11-09.
+CI main42661120199 завершился SUCCESS во всех 6 заданиях.
+Отдельный report transport42661120682 также получил SUCCESS.
+Проверены 10 ZIP digests и 21 JSON-отчёт именно для merge commit.
+Готовность CI main подтверждена. Приёмка PR и main сохранены отдельно.
+Результаты main: docs/changes/engine/ci-installation-0.13.88-main-results.json.
+
+Ветка `codex/fix-ci-install-pins` основана на main `76e7b8b`.
+Ворота verify/compatibility выверены против выпущенного Pri-Fly `v0.13.88`.
+Прочитаны заметки версий 0.13.87 и 0.13.88.
+Версия 0.13.87 поставляет справочник runner; 0.13.88 добавляет необязательные входные данные именования.
+Эта задача не включает именование и не обновляет установленные project runners.
+
+Исходный fix_check/install воспроизвёл `project_workflow_commit_mismatch` на official 0.13.88.
+Исправленный тест сначала публикует пакет, затем каталог с точным commit пакета.
+Проверка origin и всех установленных файлов прошла; новый Run завершился `succeeded`.
+Все пять скачиваний установщика CI получили ограниченные повторы и timeouts.
+HTTP-стенд подтвердил 504→200, один запрос при 404 и шесть запросов при постоянном 503.
+
+Verify прошёл для 8 пакетов, 132 компонентов и 88 шагов.
+Compatibility прошёл для 5 launches, 4 builds и 6 trusted packages; seal — core-state/41.
+Проверки версий (4 теста), структуры папок (7 тестов), derive_profiled, YAML и shell прошли.
+Full CI42648113238 на source `5a6fc5e` завершился SUCCESS во всех 6 заданиях.
+Focused CI42648113860 также получил SUCCESS. Проверены 10 ZIP digests и 21 JSON-отчёт.
+Все отчёты с версией указывают 0.13.88; SHA-256 бинаря совпадает с official release.
+
+Наборы fix (28 cases), feature (35 cases) и native queue (3 cases) прошли.
+PR #15 влит; финальная фиксация результата main меняет только документацию и evidence.
+Код тестов и оба CI workflows совпадают с проверенным source.
+Все восемь shipping packages, contracts и каталоги совпадают с main `76e7b8b`.
+Движок, classic/profiled и рабочая ветка отдельного расследования не менялись.
+Evidence: docs/changes/engine/ci-installation-0.13.88.md и JSON рядом.
+
+Roadmap в PR #14, production Light и Core migration issue #21 остаются отдельными работами.
+
+## Диагностика shared schemas на 2026-11-09
 
 Ворота verify/compatibility выверены против выпущенного Pri-Fly `v0.13.88`.
 
@@ -21,9 +58,9 @@ versioned runner handbook; Core88 — project-owned naming inputs/profile5,
 На official88/SHA25643bb756b локальные verify8/132/88 и compatibility5/4/6trusted/
 core-state41 PASS, оба временных monitor registrations удалены.
 Полная историческая приёмка issue#9 на86 ниже сохраняет исходную версию.
-Новая полная матрица88 не заявлена: отдельный docs CI42571423001 красный;
+Исторический docs CI42571423001 был красным;
 fix_check install получил project_workflow_commit_mismatch (catalog ee76702,
-temporary source main be9e92f). Это отдельный test-install follow-up.
+temporary source main be9e92f). PR#15 исправил этот дефект; main CI теперь зелёный, см. выше.
 Сверка и точные результаты: docs/changes/engine/release-0.13.88.md и JSON рядом.
 
 2026-11-09: расследован реальный package_not_resolvable при aif-fix после
