@@ -6,9 +6,43 @@
 движка 0.10–0.13.54, переход на AI Factory 2.19.0, WorkflowRevision v4) —
 в git: `git show d388b92:CONTEXT_STATE.md` (2330 строк, оглавление — `mdq tree`).
 
-## Состояние на 2026-11-02
+## Состояние на 2026-11-09
 
-Ворота verify/compatibility выверены против выпущенного Pri-Fly `v0.13.86`.
+Ворота verify/compatibility выверены против выпущенного Pri-Fly `v0.13.88`.
+
+2026-11-09: GitHub main88bdc92 подтянут fast-forward. Core#14 CLOSED:
+capability опубликована в0.13.85; consumer#9 также CLOSED и выпущен в1.57.0.
+Повторная реализация не нужна. Прочитаны пропущенные stable83/85/86/87/88;
+опубликованного stable84 в списке нет. Пакеты уже внедрили scoped /5 points,
+typed consumers и optional report refs в release1.57.0. Core87 добавляет
+versioned runner handbook; Core88 — project-owned naming inputs/profile5,
+--naming-input и snapshot metadata. Новые опции именования остаются opt-in
+проектной настройкой; shipping workflow bytes менять для них не требуется.
+На official88/SHA25643bb756b локальные verify8/132/88 и compatibility5/4/6trusted/
+core-state41 PASS, оба временных monitor registrations удалены.
+Полная историческая приёмка issue#9 на86 ниже сохраняет исходную версию.
+Новая полная матрица88 не заявлена: отдельный docs CI42571423001 красный;
+fix_check install получил project_workflow_commit_mismatch (catalog ee76702,
+temporary source main be9e92f). Это отдельный test-install follow-up.
+Сверка и точные результаты: docs/changes/engine/release-0.13.88.md и JSON рядом.
+
+2026-11-09: расследован реальный package_not_resolvable при aif-fix после
+исторического revoke classic1.15.1. Shared feature-enabled1.0.0 имеет exact
+digest29bce348 и в revoked classic, и в trusted composition-contracts1.0.0.
+Core gate немедленно запрещает такой ref независимо от нового trusted supplier.
+Native reproducer на official86 и88: clean/remove succeeded, revoke даёт тот же
+package_not_resolvable после успешных import/prepare, Run не создан. По2 Runs/
+3authorities на binary; claims/monitor registrations/temp roots очищены.
+Владелец подтвердил: revoke использовали только для удаления старой версии при
+обновлении, а не из-за небезопасного содержимого. Это уточнение владельца не
+переписывает исторический audit record. Нужна явная миграция безопасных общих
+schemas при сохранённом revoked status старого пакета; не глобальное снятие gate.
+Рабочая authority и Trucker не изменялись. Нужен отдельный lifecycle/migration
+контракт Core или новые проверенные ревизии affected schemas; нельзя просто
+игнорировать revoked supplier. Это не CI commit mismatch и не отсутствие schemas.
+Доказательства: docs/changes/engine/shared-schema-revocation.md и два JSON рядом;
+reproducer tests/probes/shared_schema_revocation.py. Fresh install acceptance
+не квалифицировала authority с таким историческим revoke.
 
 Опубликован v1.57.0 / sourceee76702, PR#13 MERGED. Unified `/5`: classic/profiled/fix/UIUX2.0.0, feature1.4.0,
 shared schema closure1.2.0 → frozen1.0.0. Историческая приёмка85 сохранена

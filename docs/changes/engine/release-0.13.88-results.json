@@ -1,0 +1,59 @@
+{
+  "checked_on": "2026-11-09",
+  "source_commit": "88bdc92f57c092e5f9121a64207844430aa95343",
+  "core_release": "v0.13.88",
+  "release_url": "https://github.com/StenHigh/prifly/releases/tag/v0.13.88",
+  "binary_sha256": "43bb756b7c44fe4c858496678d67b9eac48fb420bc99920f7a59a9209f7a3e85",
+  "verify": {
+    "outcome": "passed",
+    "prifly": "0.13.88",
+    "binary_sha256": "sha256:43bb756b7c44fe4c858496678d67b9eac48fb420bc99920f7a59a9209f7a3e85",
+    "platform": "linux/x86_64",
+    "packages": [
+      "aif-classic",
+      "aif-fanout",
+      "aif-feature",
+      "aif-fix",
+      "aif-profiled",
+      "aif-review-evidence",
+      "aif-ui-ux",
+      "openclaw-test-audit"
+    ],
+    "components_read": 132,
+    "steps_read": 88,
+    "registry_entries_removed": 1
+  },
+  "compatibility": {
+    "outcome": "passed",
+    "prifly": "0.13.88",
+    "binary_sha256": "sha256:43bb756b7c44fe4c858496678d67b9eac48fb420bc99920f7a59a9209f7a3e85",
+    "platform": "linux/x86_64",
+    "launches": 5,
+    "distinct_builds": 4,
+    "trusted_packages": 6,
+    "profiled_sealed_as": "core-state/41",
+    "boundary": "assisted handoff dispatched; no AI host answers it here",
+    "registry_entries_removed": 1
+  },
+  "core_issue_14": {
+    "state": "closed",
+    "released_in": "v0.13.85",
+    "url": "https://github.com/StenHigh/prifly/issues/14"
+  },
+  "consumer_issue_9": {
+    "state": "closed",
+    "released_in": "v1.57.0",
+    "url": "https://github.com/StenHigh/prifly-aif-workflows/issues/9#issuecomment-6584207674"
+  },
+  "boundary": "Compile and compatibility against released Core88 only. Historical full consumer acceptance on Core86 is unchanged.",
+  "separate_ci_observation": {
+    "run": 42571423001,
+    "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/42571423001",
+    "conclusion": "failure",
+    "step": "Bug workflow finishes direct, planned, repaired and resumed Runs",
+    "code": "project_workflow_commit_mismatch",
+    "catalog_commit": "ee76702dec0d8e0958ef068ef58074ecf2db37e9",
+    "resolved_main": "be9e92f19c0a091df1e6dd2dc293a6e3a08c1563",
+    "full_latest_matrix_qualified": false
+  }
+}
