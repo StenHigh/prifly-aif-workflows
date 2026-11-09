@@ -6,7 +6,27 @@
 движка 0.10–0.13.54, переход на AI Factory 2.19.0, WorkflowRevision v4) —
 в git: `git show d388b92:CONTEXT_STATE.md` (2330 строк, оглавление — `mdq tree`).
 
-## Состояние на 2026-11-02
+## Сверка roadmap на 2026-11-08
+
+Текущий релиз пакетов — v1.57.0; подтверждённая полная пакетная база остаётся
+Pri-Fly v0.13.86. Latest stable Core — [v0.13.88](https://github.com/StenHigh/prifly/releases/tag/v0.13.88).
+Заметки пропущенных87/88 прочитаны:87 содержит versioned runner operations
+handbook (release notes краткие; состав подтверждён commits тега),88 добавляет
+project-owned typed naming inputs и сохранение naming metadata при продолжении.
+Core88 release evidence включает generic probe и aif-classic v1.57.0 journey
+на Linux без LLM, но это не полные verify/compatibility всех пакетов.
+Последний пакетный CI предшествует88; новая переквалификация в этой
+документационной сверке не запускалась. Следующий шаг — verify/compatibility
+на official88 и применимые examples; потребность в адаптации оценить по ним,
+не объявлять автоматически ни совместимость, ни обязательный package bump.
+
+Issue #9 CLOSED: пакетная реализация и public install/update приняты в v1.57.0.
+Текущий обзор — docs/changes/README.md; pass-check-reports хранит раннее
+исследование, его старые unchecked пункты не образуют второй backlog.
+E3 CI39284492475/source6378833 завершился SUCCESS; старый queued-снимок
+исторический. Artifact/binary сверка этого старого CI здесь не повторялась.
+
+## Подтверждённая пакетная квалификация на 2026-11-02
 
 Ворота verify/compatibility выверены против выпущенного Pri-Fly `v0.13.86`.
 
