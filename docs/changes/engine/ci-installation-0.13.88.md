@@ -1,0 +1,58 @@
+# Исправление установки в CI
+
+Дата: 2026-11-09. База: main `76e7b8b` и released Pri-Fly `v0.13.88`.
+Изменения затрагивают тест и два workflow GitHub Actions.
+Все опубликованные пакеты, contracts и каталоги сохраняют исходные bytes.
+
+## Причины отказа
+
+[CI42571423001](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/42571423001)
+остановился по двум независимым причинам.
+
+1. `fix_check --case install` создавал новый локальный Git-источник, но сохранял
+   поле `commit` из опубликованного каталога. Поле `ref` указывало на локальный
+   `main`. Core правильно отклонял несовпадение через `project_workflow_commit_mismatch`.
+2. Скачивание official installer получило HTTP504. Команда `curl` завершила
+   задание после первого запроса.
+
+## Изменения
+
+Fixture сначала создаёт commit пакета. Второй commit публикует каталог,
+который закрепляет первый commit в полях `ref` и `commit`.
+Проверка сравнивает recorded origin и каждый файл установленного пакета.
+Публичный каталог и проверки целостности Core сохраняются.
+
+Все пять установок CI используют одинаковые ограниченные retries.
+`curl` повторяет временные ошибки до пяти раз после первого запроса.
+Connect timeout — 20 секунд, transfer timeout — 90 секунд,
+retry budget — 180 секунд. Установщик по-прежнему выполняет штатную установку.
+CI сохраняет полный `aif-fix-results.json` в артефакте `fix-workflow-results`.
+
+## Проверки
+
+Использован отдельный official Linux AMD64 binary.
+SHA-256: `43bb756b7c44fe4c858496678d67b9eac48fb420bc99920f7a59a9209f7a3e85`.
+Архив совпал с release manifest. Пользовательский CLI не обновлялся.
+
+Исходный native case воспроизвёл named refusal; исправленный case завершился
+`succeeded` с одним Run. Все созданные claims и registry entries очищены.
+HTTP-стенд использовал фактические curl flags из обоих workflow:
+504→200 дал два запроса; 404 — один; постоянный503 — шесть и ненулевой exit.
+YAML, shell, versions4, folders7 и derive_profiled прошли.
+Verify прошёл для 8 пакетов, 132 компонентов и 88 шагов.
+Compatibility прошёл для 5 launches, 4 builds и 6 trusted packages.
+Это проверка scripted fixture, без LLM и production deployment.
+
+Команды выполняются из checkout этой ветки. Замените путь к binary на свой
+абсолютный путь к official v0.13.88.
+
+```sh
+python3 -B tests/probes/fix_check.py --binary /absolute/released/prifly --case install --report /tmp/fix-install.json
+python3 -B tests/verify.py --binary /absolute/released/prifly
+python3 -B tests/compatibility.py --binary /absolute/released/prifly
+```
+
+[Машиночитаемые результаты](ci-installation-0.13.88-results.json) закрепляют
+source hashes и локальные observations. Полный CI ещё не запущен.
+Изменение не требует релиза пакетов. Приёмка Light и Core migration issue21
+остаются отдельными задачами.

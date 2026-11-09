@@ -6,6 +6,26 @@
 движка 0.10–0.13.54, переход на AI Factory 2.19.0, WorkflowRevision v4) —
 в git: `git show d388b92:CONTEXT_STATE.md` (2330 строк, оглавление — `mdq tree`).
 
+## Исправление CI на 2026-11-09
+
+Проверяется отдельная ветка codex/fix-ci-install-pins от main76e7b8b.
+Ворота verify/compatibility выверены против выпущенного Pri-Fly `v0.13.88`.
+Пропущенные87/88 прочитаны:
+87 поставляет runner handbook, 88 добавляет optional typed naming inputs.
+Эта задача не включает naming inputs и не обновляет установленные project runners.
+
+На official88 исходный fix_check/install воспроизвёл project_workflow_commit_mismatch.
+Исправленный fixture сначала публикует пакет, затем каталог с точным commit пакета.
+Проверка origin и всех установленных файлов прошла; native Run завершился succeeded.
+Во всех пяти CI downloads добавлены ограниченные curl retries и timeouts.
+Локальный HTTP-стенд подтвердил 504→200, один запрос при404 и шесть запросов при постоянном503.
+Verify8/132/88 и compatibility5/4/6trusted/core-state41 PASS.
+Versions4/folders7/derive, YAML и shell обоих workflows PASS.
+Полный новый CI ещё не запущен; его результат будет записан отдельно.
+Evidence: docs/changes/engine/ci-installation-0.13.88.md и JSON рядом.
+Все восемь shipping packages, contracts и каталоги совпадают с main76e7b8b.
+Движок, classic/profiled и рабочая ветка отдельного расследования не менялись.
+
 ## Состояние на 2026-11-02
 
 Ворота verify/compatibility выверены против выпущенного Pri-Fly `v0.13.86`.

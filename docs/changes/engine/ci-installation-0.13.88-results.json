@@ -1,0 +1,111 @@
+{
+  "schema_version": "ci-installation-qualification/1",
+  "checked_on": "2026-11-09",
+  "base_commit": "76e7b8b72295ec069838a719c719f3f3ceb5f646",
+  "prifly": "0.13.88",
+  "binary_sha256": "43bb756b7c44fe4c858496678d67b9eac48fb420bc99920f7a59a9209f7a3e85",
+  "original_ci": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/42571423001",
+  "baseline": {
+    "case": "install",
+    "exit": 1,
+    "code": "project_workflow_commit_mismatch",
+    "log_sha256": "a2369ff850e67e8a0660a094c89561feb39f4720f043306e26a33fdadb0df40f"
+  },
+  "install_after": {
+    "outcome": "passed",
+    "prifly": "0.13.88",
+    "binary_sha256": "sha256:43bb756b7c44fe4c858496678d67b9eac48fb420bc99920f7a59a9209f7a3e85",
+    "boundary": "Synthetic host, real runtime/Git/captures; no LLM or independent reviewer session claimed.",
+    "cases": [
+      {
+        "case": "install",
+        "host": "codex-cli",
+        "outcome": "succeeded",
+        "status": "completed",
+        "steps": [
+          "warmup",
+          "fix-task",
+          "check-change",
+          "aif-security",
+          "review-task",
+          "commit"
+        ],
+        "runs": 1,
+        "claim_generations": [
+          1
+        ],
+        "captures": [],
+        "refusals": []
+      }
+    ]
+  },
+  "download_retries": {
+    "outcome": "passed",
+    "tested_ci_install_steps": 5,
+    "cases": [
+      {
+        "case": "/recover",
+        "exit": 0,
+        "requests": 2
+      },
+      {
+        "case": "/permanent",
+        "exit": 22,
+        "requests": 1
+      },
+      {
+        "case": "/bounded",
+        "exit": 22,
+        "requests": 6
+      }
+    ]
+  },
+  "static_gates": {
+    "versions": "PASS (4 tests)",
+    "folders": "PASS (7 tests)",
+    "derive_profiled": "PASS",
+    "workflow_yaml_and_shell": "PASS (both workflows)"
+  },
+  "source_sha256": {
+    ".github/workflows/verify.yml": "b455268491c582419b879cbf8f536995f11711402b95f90a085b616080f1d3eb",
+    ".github/workflows/report-transport.yml": "8b3dd3b20ad2af14c5f1654a532dc08a0646d56e434907bf87f996a9d4b33703",
+    "tests/probes/fix_check.py": "cda0c08dd4472dc1a20b39b5ef5ee70676344beb69df18d88c3981d1ba39b1d9"
+  },
+  "ci": {
+    "status": "not_started"
+  },
+  "scope": "Tests, CI download configuration, documentation only. No shipping bytes, engine, monitor, catalog or tags changed.",
+  "gates": {
+    "verify": {
+      "outcome": "passed",
+      "prifly": "0.13.88",
+      "binary_sha256": "sha256:43bb756b7c44fe4c858496678d67b9eac48fb420bc99920f7a59a9209f7a3e85",
+      "platform": "linux/x86_64",
+      "packages": [
+        "aif-classic",
+        "aif-fanout",
+        "aif-feature",
+        "aif-fix",
+        "aif-profiled",
+        "aif-review-evidence",
+        "aif-ui-ux",
+        "openclaw-test-audit"
+      ],
+      "components_read": 132,
+      "steps_read": 88,
+      "registry_entries_removed": 1
+    },
+    "compatibility": {
+      "outcome": "passed",
+      "prifly": "0.13.88",
+      "binary_sha256": "sha256:43bb756b7c44fe4c858496678d67b9eac48fb420bc99920f7a59a9209f7a3e85",
+      "platform": "linux/x86_64",
+      "launches": 5,
+      "distinct_builds": 4,
+      "trusted_packages": 6,
+      "profiled_sealed_as": "core-state/41",
+      "boundary": "assisted handoff dispatched; no AI host answers it here",
+      "registry_entries_removed": 1
+    }
+  }
+}
