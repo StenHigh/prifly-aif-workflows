@@ -6,6 +6,36 @@
 движка 0.10–0.13.54, переход на AI Factory 2.19.0, WorkflowRevision v4) —
 в git: `git show d388b92:CONTEXT_STATE.md` (2330 строк, оглавление — `mdq tree`).
 
+## Исправление CI на 2026-11-09
+
+Ветка `codex/fix-ci-install-pins` основана на main `76e7b8b`.
+Ворота verify/compatibility выверены против выпущенного Pri-Fly `v0.13.88`.
+Прочитаны заметки версий 0.13.87 и 0.13.88.
+Версия 0.13.87 поставляет справочник runner; 0.13.88 добавляет необязательные входные данные именования.
+Эта задача не включает именование и не обновляет установленные project runners.
+
+Исходный fix_check/install воспроизвёл `project_workflow_commit_mismatch` на official 0.13.88.
+Исправленный тест сначала публикует пакет, затем каталог с точным commit пакета.
+Проверка origin и всех установленных файлов прошла; новый Run завершился `succeeded`.
+Все пять скачиваний установщика CI получили ограниченные повторы и timeouts.
+HTTP-стенд подтвердил 504→200, один запрос при 404 и шесть запросов при постоянном 503.
+
+Verify прошёл для 8 пакетов, 132 компонентов и 88 шагов.
+Compatibility прошёл для 5 launches, 4 builds и 6 trusted packages; seal — core-state/41.
+Проверки версий (4 теста), структуры папок (7 тестов), derive_profiled, YAML и shell прошли.
+Full CI42648113238 на source `5a6fc5e` завершился SUCCESS во всех 6 заданиях.
+Focused CI42648113860 также получил SUCCESS. Проверены 10 ZIP digests и 21 JSON-отчёт.
+Все отчёты с версией указывают 0.13.88; SHA-256 бинаря совпадает с official release.
+
+Наборы fix (28 cases), feature (35 cases) и native queue (3 cases) прошли.
+PR #15 содержит исправление. Финальная фиксация меняет только документацию и evidence.
+Код тестов и оба CI workflows совпадают с проверенным source.
+Все восемь shipping packages, contracts и каталоги совпадают с main `76e7b8b`.
+Движок, classic/profiled и рабочая ветка отдельного расследования не менялись.
+Evidence: docs/changes/engine/ci-installation-0.13.88.md и JSON рядом.
+
+Слияние PR, production Light и Core migration issue #21 остаются отдельными действиями.
+
 ## Состояние на 2026-11-02
 
 Ворота verify/compatibility выверены против выпущенного Pri-Fly `v0.13.86`.

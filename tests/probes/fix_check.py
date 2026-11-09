@@ -290,16 +290,27 @@ def run_case(binary, case, host='codex-cli'):
                 source = root / 'workflow-source'
                 source.mkdir()
                 shutil.copytree(package, source / 'aif-fix')
-                catalog = (verify.ROOT / 'catalog/aif-fix.yaml').read_text().replace('https://github.com/StenHigh/prifly-aif-workflows.git', source.as_uri())
-                catalog = re.sub(r'(?m)^    ref: .+$', '    ref: main', catalog)
-                (source / 'catalog.yaml').write_text(catalog)
                 verify.git('-C', source, 'init', '-q', '-b', 'main')
                 verify.git('-C', source, 'add', '-A')
                 verify.git('-C', source, 'commit', '-q', '-m', 'Publish fixture package')
+                package_commit = git_out(source, 'rev-parse', 'HEAD')
+                # Publish the catalog separately so its exact pin names the package commit,
+                # rather than inheriting the unrelated public release pin or pinning itself.
+                catalog = (verify.ROOT / 'catalog/aif-fix.yaml').read_text().replace('https://github.com/StenHigh/prifly-aif-workflows.git', source.as_uri())
+                catalog, refs = re.subn(r'(?m)^    ref: .+$', '    ref: ' + package_commit, catalog)
+                catalog, commits = re.subn(r'(?m)^    commit: .+$', '    commit: ' + package_commit, catalog)
+                assert (refs, commits) == (1, 1)
+                (source / 'catalog.yaml').write_text(catalog)
+                verify.git('-C', source, 'add', 'catalog.yaml')
+                verify.git('-C', source, 'commit', '-q', '-m', 'Publish fixture catalog')
                 probe.call('project', 'workflows', 'remove', 'aif-fix', '--repository', repository)
                 discovered = probe.call('project', 'workflows', 'search', '--catalog', source.as_uri())
                 assert 'aif-fix' in json.dumps(discovered)
-                probe.call('project', 'workflows', 'add', 'aif-fix', '--catalog', source.as_uri(), '--repository', repository)
+                installed = probe.call('project', 'workflows', 'add', 'aif-fix', '--catalog', source.as_uri(), '--repository', repository)
+                assert installed['origin']['ref'] == installed['origin']['commit'] == package_commit, installed['origin']
+                for path in (source / 'aif-fix').rglob('*'):
+                    if path.is_file():
+                        assert (package / path.relative_to(source / 'aif-fix')).read_bytes() == path.read_bytes(), path
                 launches = probe.call('project', 'workflows', '--repository', repository)['launches']
                 fix = next(launch for launch in launches if launch['id'] == 'aif-fix')
                 assert 'bug' in fix['description'] and 'fix-plan' in fix['description']
