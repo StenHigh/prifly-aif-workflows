@@ -1,0 +1,4 @@
+id: limit-probe:context/inspect
+version: 1.0.0
+media_type: text/plain
+text: Echo the synthetic task unchanged. The probe supplies the response without an LLM.

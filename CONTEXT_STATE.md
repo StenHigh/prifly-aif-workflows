@@ -6,6 +6,33 @@
 движка 0.10–0.13.54, переход на AI Factory 2.19.0, WorkflowRevision v4) —
 в git: `git show d388b92:CONTEXT_STATE.md` (2330 строк, оглавление — `mdq tree`).
 
+## Change для issue #3 на 2026-11-10
+
+Ворота verify/compatibility выверены против выпущенного Pri-Fly `v0.13.89`.
+Перед подготовкой и native-проверкой change latest stable проверен: новых выпусков нет.
+По issue #3/comment 6751418651 подготовлен docs/changes/configure-task-description-limit/:
+proposal, design, tasks, baseline, native evidence и связанная задача Core к публикации.
+Проект выбирает предел task.description; default сохраняется 12 000, пример настройки 32 000.
+Нужен единый эффективный контракт до prepare/start для всех потребителей task.
+Update сохраняет owner-настройку; существующие Run не меняются, continue не подменяет контракт молча.
+Released 0.13.89 projectSetWorkflowSetting меняет только configuration.default объявленного input.
+Native generic fixture подтверждает эту границу и наследование схемы в derived root.
+Авторские package profiles собирают согласованный task 32 000 и пропускают его через root/child/worker.
+Это finite presets; проект не может объявить своё число через profile selection.
+Standalone compile --value также собирает task 40 000 в source без profiles.
+Но prepare/start не принимают --value; без него source компилируется заново с unresolved values даже после import.
+Core gap относится к owner-конфигурации compile values для project launch, а не отсутствию подстановки схем.
+Probe tests/probes/task_description_limit.py: 8 length cases / 3 succeeded Runs на official 0.13.89.
+Default 12 000 и expanded 32 000 boundaries PASS, Unicode diagnostics точные, все 6 schema refs совпадают.
+Полные task bytes и состояние прежних Runs сохранены; prepare/refusals read-only по files/packages/Runs/claims.
+Временный root/одна monitor registration удалены; active claims 0.
+Evidence: docs/changes/configure-task-description-limit/native-0.13.89-results.json.
+Python JSON Schema проверил 12 000 valid и 12 001/16 557 maxLength refusal по /description
+для трёх одинаковых task 1.1.0 schemas classic/profiled/fix; derive --check PASS.
+Versions 4 / folders 7 / derive PASS. Пакетная реализация, update и continue остаются отдельной приёмкой.
+Shipping bytes/версии, рабочая authority и Core не менялись; issue #3 остаётся открытым.
+Следующий этап — связанная Core issue с pinned reproducer, затем released capability и пакетная приёмка A1–A10.
+
 ## Исправление CI на 2026-11-09
 
 PR #15 влит в main `4323276` 2026-11-09.
