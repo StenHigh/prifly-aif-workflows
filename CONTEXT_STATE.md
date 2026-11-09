@@ -36,6 +36,10 @@ registrations удалены, active claims0. Versions4 и diff/shipping guards 
 Команды: docs/changes/engine/release-0.13.89.md.
 Evidence: release-0.13.89-results.json и shared-schema-migration-0.13.89.json рядом.
 Reproducer: tests/probes/shared_schema_revocation.py --exercise-migration.
+По явному поручению владельца опубликован подробный usage/acceptance comment
+https://github.com/StenHigh/prifly/issues/21#issuecomment-6750933747.
+Core#21 закрыт как completed 2026-11-09 после released89 consumer проверки.
+Закрытие Core issue не означает миграцию рабочей/private authority.
 
 ## Исправление CI на 2026-11-09
 
