@@ -417,13 +417,15 @@
     }
   },
   "ci": {
-    "status": "queued",
-    "conclusion": null,
+    "status": "completed",
+    "conclusion": "success",
     "head_sha": "63788337e9c1d375f73424b4d71c47bdc7339e4c",
     "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/39284492475",
     "evidence": "release-0.13.81-ci-results.json",
-    "final_acceptance": "pending",
-    "note": "All three jobs await runners during an official GitHub Actions incident; no CI tests executed. Historical CI39250210672 on0.13.80 is not evidence for this adaptation."
+    "final_acceptance": "passed",
+    "artifact": "release-0.13.81-feature-ci-report.json",
+    "artifact_verified_on": "2026-11-09",
+    "note": "All3 jobs SUCCESS; downloaded artifact digest, report version/hash and35 cases checked. Local and original queued observations remain historical."
   },
   "adoption": {
     "immediate": "Update obsolete negative E3 assertions to positive recovery; authoring YAML and package bytes unchanged.",

@@ -1,10 +1,9 @@
 # План изменений workflow после сравнения с Software Factory
 
-Сверено 2026-11-08 по текущим main, release evidence и GitHub; исторические проверки сохраняют свои даты. W1–W3: **committed/pushed, CI PASS**, с отдельными live observations;
+Сверено 2026-11-09 после слияния PR #15 по текущим main, release evidence и GitHub; исторические проверки сохраняют свои даты. W1–W3: **committed/pushed, CI PASS**, с отдельными live observations;
 W4: **committed/pushed, pilot qualified, CI PASS**; W5: **пакетная часть завершена, scoped qualification и final CI PASS; v1.52.0**.
 Пакеты включены в [выпуск v1.52.0](../releases/v1.52.0.md). Актуальная база совместимости: released Pri-Fly
-**0.13.86**, выпуск репозитория **v1.57.0**. Latest stable Core — **0.13.88**; полная пакетная переквалификация на нём пока не заявлена. Прежние CI/live evidence на
-0.13.76 остаются историческими; пакетная квалификация на0.13.86 записана отдельно.
+**0.13.88**, выпуск репозитория **v1.57.0**. Verify/compatibility и полный CI на0.13.88 прошли: [evidence](engine/ci-installation-0.13.88.md). PR #15 объединён в main4323276. Прежние CI/live evidence на0.13.76 и release qualification на0.13.86 сохраняют свои версии и границы; новые scripted/browser checks не означают production или LLM acceptance.
 
 В этом репозитории нет инициализированного OpenSpec-проекта. Change хранятся
 как репозиторная документация: `proposal.md` задаёт объём и критерии приёмки,
@@ -51,7 +50,7 @@ evidence сохраняют исходную версию. [Результаты
 |---|---|---|---|---|
 | W1 | P1, первым | [Явные доказательства ревью](add-explicit-review-evidence/proposal.md) | Нет; безопасный baseline обязателен там, где используется | committed/pushed, CI PASS / v1.52.0 |
 | W2 | P1 | [UI/UX-компоненты](add-ui-ux-review-components/proposal.md) | W1; standalone контракт среды из #2 | committed/pushed, CI + fresh CLI PASS; model/consumer limits / v1.52.0 |
-| W3 | P1 | [Короткий workflow для фич](add-bounded-feature-workflow/proposal.md) | W1; W2 для интерфейсного профиля | committed/pushed, CI + live PASS / v1.52.0; E3 writer recovery: local PASS на0.13.81; CI39284492475 SUCCESS на source6378833; повторная проверка старого artifact не заявлена; package прежний |
+| W3 | P1 | [Короткий workflow для фич](add-bounded-feature-workflow/proposal.md) | W1; W2 для интерфейсного профиля | committed/pushed, CI + live PASS / v1.52.0; E3 writer recovery: local PASS на0.13.81; CI39284492475 SUCCESS на source6378833; artifact/version/hash и 35 cases сверены 2026-11-09; E3 CI-приёмка закрыта; package прежний |
 | W4 | P1/P2 | [Приёмка перед интеграцией](document-verified-integration-handoff/proposal.md) | W1; проектный интегратор, #1 при GitLab | committed/pushed, pilot qualified, CI PASS; real provider limits / v1.52.0 |
 | W5 | P2 | [Квалификация параллельного ревью](qualify-parallel-implementation-review/proposal.md) | W1, W2, W3; сначала последовательная приёмка | backend opt-in/adapter d515a85; UI/UX qualification0bdc632: local17/CI job PASS для isolated stand, shared limit1 sequential; frontend1.2.3: CLI4 sessions PASS; native1–3 rounds qualified,4–8 refused before writers; final UI/UX35/unit16 и полный exact-SHA CI38848759987 PASS; пакетная часть завершена в указанном scope; App/Claude unqualified / v1.52.0 |
 | W6 | P1 после E5 | [Review/UI/UX через call extensions](add-review-uiux-call-extensions/proposal.md) | E5 stable0.13.78+ (probes51 PASS на0.13.79); W1, W2; W3 regression boundary | project recipes/installer PASS на0.13.80: native27/compile18/refusals8, Core51, direct cancel/timeout/limits/storage/capacity; scoped CLI3 sessions; full exact-SHA CI39038596555 SUCCESS; classic/profiled и shipping8 прежние |
@@ -132,11 +131,10 @@ W1–W4 не зависят от E1/E2. Не добавляем обязател
   [recheck/evidence](add-bounded-feature-workflow/engine-followup.md): CLOSED,
   исправлен в stable0.13.81 и независимо проверен consumer локально2026-10-19.
   Адаптация pushed6378833; [CI39284492475](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/39284492475)
-  завершился SUCCESS на том же source6378833 (статус перепроверен 2026-11-08).
-  Исторический queued-снимок сохраняется. Повторное получение artifact
-  `feature-recovery-results` и сверка его binary/version в этой актуализации
-  не выполнялись; успешный статус CI сам по себе не закрывает эту сверку.
-  [Исторический снимок и требования к сверке artifact](engine/release-0.13.81.md).
+  завершился SUCCESS на том же source6378833. Сверка 2026-11-09 в main76e7b8b
+  подтвердила artifact digest, binary version/hash и 35 cases, включая пять
+  E3/control cases; финальная E3-приёмка закрыта. Старый queued-снимок сохранён
+  в истории. [Итог и исходный отчёт](engine/release-0.13.81.md).
   Implement/not_applied→succeeded; plan/applied→occupied-path guard→explicit
   owner move→succeeded. Source cancellation facts/bytes/claim сохраняются,
   writer и quality повторяются; read-only control succeeded. Старый отказ

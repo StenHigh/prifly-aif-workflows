@@ -1,0 +1,77 @@
+{
+  "schema_version": "workflow-chat-closeout/1",
+  "checked_at": "2026-11-09T14:32:51.750781+00:00",
+  "main_before_audit": "88bdc92f57c092e5f9121a64207844430aa95343",
+  "latest_stable_prifly": "0.13.88",
+  "released_packages": "v1.57.0",
+  "full_release_qualification_prifly": "0.13.86",
+  "e3_status": "passed",
+  "e3_evidence": "release-0.13.81-ci-results.json",
+  "latest_ci": {
+    "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/42571423001",
+    "head_sha": "b7d717a98e65eb2a8690a4921521ead4b8caceb2",
+    "branch": "docs/refresh-roadmap-2026-11-09",
+    "event": "pull_request",
+    "run_attempt": 2,
+    "conclusion": "failure",
+    "code_equal_to_main": true,
+    "changes_from_main": [
+      "CONTEXT_STATE.md",
+      "docs/changes/README.md",
+      "docs/changes/adopt-unified-composition-v5/tasks.md",
+      "docs/changes/pass-check-reports/tasks.md"
+    ]
+  },
+  "gates_on_latest_stable": [
+    {
+      "outcome": "passed",
+      "prifly": "0.13.88",
+      "binary_sha256": "sha256:43bb756b7c44fe4c858496678d67b9eac48fb420bc99920f7a59a9209f7a3e85",
+      "platform": "linux/x86_64",
+      "packages": [
+        "aif-classic",
+        "aif-fanout",
+        "aif-feature",
+        "aif-fix",
+        "aif-profiled",
+        "aif-review-evidence",
+        "aif-ui-ux",
+        "openclaw-test-audit"
+      ],
+      "components_read": 132,
+      "steps_read": 88,
+      "registry_entries_removed": 1
+    },
+    {
+      "outcome": "passed",
+      "prifly": "0.13.88",
+      "binary_sha256": "sha256:43bb756b7c44fe4c858496678d67b9eac48fb420bc99920f7a59a9209f7a3e85",
+      "platform": "linux/x86_64",
+      "launches": 5,
+      "distinct_builds": 4,
+      "trusted_packages": 6,
+      "profiled_sealed_as": "core-state/41",
+      "boundary": "assisted handoff dispatched; no AI host answers it here",
+      "registry_entries_removed": 1
+    }
+  ],
+  "failure_evidence": {
+    "verify_log_sha256": "68ffdab322bee2723c68dc3e63405554c6271b25067fa920d19251b6440c5690",
+    "install_log_sha256": "7e3556e2ef8dd8d1fbfef38cc668d1adeea04157c0ca07ca4338df1a89fb9962",
+    "verify_problem_code": "project_workflow_commit_mismatch",
+    "catalog_pinned_commit": "ee76702dec0d8e0958ef068ef58074ecf2db37e9",
+    "main_resolved_commit": "be9e92f19c0a091df1e6dd2dc293a6e3a08c1563",
+    "installation_http_status": 504
+  },
+  "release_changes_reviewed": {
+    "0.13.87": "Versioned runner operations handbook; released refs compared because release notes were minimal. No package schema/runtime adoption required for this audit. Updating installed project runners remains a separate action.",
+    "0.13.88": "Optional project-owned typed worktree naming inputs; snapshots retained for continuation. Compile/compatibility PASS; no naming-input adoption in this audit."
+  },
+  "remaining": {
+    "light": "Pri-Fly issue11 OPEN. Consumer mapping and production browser/domain acceptance are not confirmed by recorded evidence.",
+    "documentation": "Draft PR14 is OPEN; this audit does not merge or edit it.",
+    "latest_full_ci": "Full package CI on0.13.88 is not green. Resolve installer availability and fixture catalog/ref mismatch, then repeat the affected CI."
+  },
+  "all_original_work_complete": false,
+  "scope": "Read-only inspection plus documentation/evidence. No engine, service, published package, canonical classic/profiled, catalog, tag or PR mutation."
+}

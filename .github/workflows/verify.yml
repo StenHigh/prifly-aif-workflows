@@ -16,7 +16,8 @@ jobs:
       - name: Install Pri-Fly from the latest stable release
         run: |
           install_file="$(mktemp)"
-          curl --fail --location --silent --show-error \
+          curl --retry 5 --retry-delay 2 --retry-max-time 180 \
+            --connect-timeout 20 --max-time 90 --fail --location --silent --show-error \
             https://github.com/StenHigh/prifly/releases/latest/download/install.sh \
             -o "$install_file"
           sh "$install_file"
@@ -134,6 +135,11 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
+          name: fix-workflow-results
+          path: /tmp/aif-fix-results.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
           name: feature-recovery-results
           path: /tmp/aif-feature-results.json
       - uses: actions/upload-artifact@v4
@@ -149,7 +155,8 @@ jobs:
       - name: Install Pri-Fly from the latest stable release
         run: |
           prifly_installer="$(mktemp)"
-          curl --fail --location --silent --show-error \
+          curl --retry 5 --retry-delay 2 --retry-max-time 180 \
+            --connect-timeout 20 --max-time 90 --fail --location --silent --show-error \
             https://github.com/StenHigh/prifly/releases/latest/download/install.sh \
             -o "$prifly_installer"
           sh "$prifly_installer"
@@ -185,7 +192,8 @@ jobs:
       - name: Install latest stable Pri-Fly
         run: |
           prifly_installer="$(mktemp)"
-          curl --fail --location --silent --show-error https://github.com/StenHigh/prifly/releases/latest/download/install.sh -o "$prifly_installer"
+          curl --retry 5 --retry-delay 2 --retry-max-time 180 \
+            --connect-timeout 20 --max-time 90 --fail --location --silent --show-error https://github.com/StenHigh/prifly/releases/latest/download/install.sh -o "$prifly_installer"
           sh "$prifly_installer"
           rm -f "$prifly_installer"
           "$HOME/.local/bin/prifly" version
@@ -236,7 +244,8 @@ jobs:
       - name: Install latest stable Pri-Fly
         run: |
           prifly_installer="$(mktemp)"
-          curl --fail --location --silent --show-error https://github.com/StenHigh/prifly/releases/latest/download/install.sh -o "$prifly_installer"
+          curl --retry 5 --retry-delay 2 --retry-max-time 180 \
+            --connect-timeout 20 --max-time 90 --fail --location --silent --show-error https://github.com/StenHigh/prifly/releases/latest/download/install.sh -o "$prifly_installer"
           sh "$prifly_installer"
           rm -f "$prifly_installer"
           "$HOME/.local/bin/prifly" version

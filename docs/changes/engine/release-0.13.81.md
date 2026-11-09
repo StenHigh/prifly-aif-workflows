@@ -62,12 +62,18 @@ Verify126 components /83 steps /8 packages PASS; compatibility5 launches /
 hashes, точную адаптацию probe, исходные observations и gate outputs.
 Адаптация опубликована в `63788337e9c1d375f73424b4d71c47bdc7339e4c`.
 [CI39284492475](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/39284492475)
-пока **queued**: все3 jobs ожидают runner, проверки ещё не стартовали.
-GitHub сообщает о [сбое Actions](https://stspg.io/nrv2k8s68bwn).
-[Снимок состояния CI](release-0.13.81-ci-results.json) закрепляет commit и время
-проверки. Локальная квалификация PASS; финальная CI-приёмка E3 остаётся открытой.
-После зелёного полного прогона нужно сохранить artifact `feature-recovery-results`,
-подтвердить released binary/version и обновить этот статус.
+завершился успешно: все три задания получили **SUCCESS**.
+
+Сверка 2026-11-09 закрывает финальную приёмку E3. Скачанный артефакт
+`feature-recovery-results` содержит 35 сценариев на released Pri-Fly 0.13.81.
+SHA-256 бинаря совпадает с указанным выше. Проверены digest ZIP, hash отчёта
+и связь артефакта с точным коммитом. Пять сценариев E3 и контроля завершились
+успешно. Они сохранили один claim; все 35 сценариев выполнили очистку.
+
+[Итоговый снимок CI](release-0.13.81-ci-results.json) содержит прежний queued-снимок
+как историю сбоя GitHub. [Полный исходный отчёт](release-0.13.81-feature-ci-report.json)
+сохранён без изменения bytes. Shipping-деревья проверенного коммита совпадают
+с v1.53.0. Это историческая приёмка E3, а не приёмка последующих релизов.
 Прежний CI39250210672 на0.13.80 сохраняется как исторический результат.
 Новый package tag/catalog release не требуется.
 
