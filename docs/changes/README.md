@@ -29,7 +29,8 @@ Native-пример на released 0.13.89 подтвердил settings/profile/
 Авторские presets работают; default change остаётся 12 000.
 [Design](configure-task-description-limit/design.md) и [tasks](configure-task-description-limit/tasks.md)
 задают проверку механизма Core, update preservation и неизменность существующих Run.
-Пакетная реализация и её приёмка открыты; [Core issue](configure-task-description-limit/core-request.md) подготовлена к публикации.
+Пакетная реализация и её приёмка открыты; создана [Pri-Fly #22](https://github.com/StenHigh/prifly/issues/22).
+Pinned reproducer: source `ea80f473`; [запрос Core](configure-task-description-limit/core-request.md).
 Восемь length cases / три успешных Run: [результаты](configure-task-description-limit/native.md).
 
 Issue #7: владелец согласовал completed/rejected без обязательного gate для verify fail/no_work.

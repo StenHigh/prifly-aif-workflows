@@ -11,7 +11,7 @@
 Ворота verify/compatibility выверены против выпущенного Pri-Fly `v0.13.89`.
 Перед подготовкой и native-проверкой change latest stable проверен: новых выпусков нет.
 По issue #3/comment 6751418651 подготовлен docs/changes/configure-task-description-limit/:
-proposal, design, tasks, baseline, native evidence и связанная задача Core к публикации.
+proposal, design, tasks, baseline, native evidence и опубликованная задача Pri-Fly #22.
 Проект выбирает предел task.description; default сохраняется 12 000, пример настройки 32 000.
 Нужен единый эффективный контракт до prepare/start для всех потребителей task.
 Update сохраняет owner-настройку; существующие Run не меняются, continue не подменяет контракт молча.
@@ -31,7 +31,9 @@ Python JSON Schema проверил 12 000 valid и 12 001/16 557 maxLength refu
 для трёх одинаковых task 1.1.0 schemas classic/profiled/fix; derive --check PASS.
 Versions 4 / folders 7 / derive PASS. Пакетная реализация, update и continue остаются отдельной приёмкой.
 Shipping bytes/версии, рабочая authority и Core не менялись; issue #3 остаётся открытым.
-Следующий этап — связанная Core issue с pinned reproducer, затем released capability и пакетная приёмка A1–A10.
+Создана https://github.com/StenHigh/prifly/issues/22 с исходным consumer #3, C1–C8 и полными командами.
+Pinned reproducer ea80f473 опубликован в codex/issue-3-task-description-limit.
+Следующий этап — released capability Core #22, затем пакетная приёмка A1–A10; #3 не закрыт.
 
 ## Исправление CI на 2026-11-09
 
