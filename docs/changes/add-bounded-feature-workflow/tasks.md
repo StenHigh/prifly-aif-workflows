@@ -31,9 +31,11 @@ Consumer positive probes обновлены: inspected resolve→reviewed execut
 writer+quality replay; occupied partial PLAN сохраняется и явно перемещается
 fixture owner перед recovery от текущего владельца claim.
 [Текущие результаты](../engine/release-0.13.81.md). Адаптация pushed6378833;
-local PASS, но финальная CI-приёмка ещё открыта: CI39284492475 queued во время
-официального сбоя GitHub Actions. После зелёного полного прогона сохранить
-feature-recovery-results и обновить статус. Все shipping package bytes прежние.
+Финальная CI-приёмка E3 закрыта: все три задания CI39284492475 получили SUCCESS.
+Сверка 2026-11-09 подтвердила digest артефакта, версию и hash бинаря, а также
+35 сценариев. Исходный отчёт сохранён; пять сценариев E3 и контроля успешны.
+Shipping-деревья проверенного коммита совпадают с v1.53.0. Позднейшие релизы
+сохраняют собственные результаты квалификации.
 Backend actual direct/repair/graceful writer continuation наблюдены; final
 frontend scheduling/explicit-scope qualification и quality continuation PASS;
 final-live-observations.json содержит исходные unedited отчёты и 19 fresh sessions.

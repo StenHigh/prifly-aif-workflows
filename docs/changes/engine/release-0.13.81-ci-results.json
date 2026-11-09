@@ -1,56 +1,851 @@
 {
   "schema_version": "engine-release-consumer-ci/1",
-  "checked_at": "2026-10-19T16:26:45.931978+00:00",
+  "checked_at": "2026-11-09T14:32:51.750781+00:00",
   "run": {
-    "conclusion": "",
+    "conclusion": "success",
     "createdAt": "2026-10-19T16:19:06Z",
     "headSha": "63788337e9c1d375f73424b4d71c47bdc7339e4c",
     "jobs": [
       {
-        "completedAt": "0001-01-01T00:00:00Z",
-        "conclusion": "",
+        "completedAt": "2026-10-19T17:13:22Z",
+        "conclusion": "success",
         "databaseId": 118166472791,
         "name": "verify",
-        "startedAt": "2026-10-19T16:19:06Z",
-        "status": "queued",
-        "steps": [],
+        "startedAt": "2026-10-19T16:19:08Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install Pri-Fly from the latest stable release",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Released versions moved with the bytes",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Static folder contract",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Explicit review coverage and dirty candidate identity",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Test audit selection, evidence coverage and candidate freshness",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Product review coverage and owned environment lifecycle",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Feature admission, whole-round freshness and owner blockers",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Parallel report transport rejects substituted refs and bytes",
+            "number": 10,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Verified integration freshness, semantic regression and owned publication",
+            "number": 11,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Compile all packages with the installed Pri-Fly",
+            "number": 12,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "One authority carries Classic across every plan profile",
+            "number": 13,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Standalone integration graph and one-input extension contracts",
+            "number": 14,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Parallel review qualification contracts on three hosts",
+            "number": 15,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "A real Run is handed past the verify gate",
+            "number": 16,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "A gate that could not judge ends the Run partial with its gate",
+            "number": 17,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "A Run stopped blocked resumes with the same workflow at verify",
+            "number": 18,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "A Run cancelled at the gate resumes with the same workflow",
+            "number": 19,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Bug workflow finishes direct, planned, repaired and resumed Runs",
+            "number": 20,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Explicit review evidence finishes and resumes on the released runtime",
+            "number": 21,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Standalone test audit skips, reports, stops and replays",
+            "number": 22,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "OpenClaw test audit catalog install without AI Factory skills",
+            "number": 23,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "UI and UX components finish, block and resume with owned environments",
+            "number": 24,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Standalone feature catalog install and update preserve project ownership",
+            "number": 25,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Small feature direct, repaired, stopped and resumed Runs",
+            "number": 26,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Native task queue carries feature review and continuation history",
+            "number": 27,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Whole feature parallel review, sealed reports and full-round replay",
+            "number": 28,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Exact merged acceptance, explicit local integration and offline publication",
+            "number": 29,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Parallel readers, all-join barriers and whole-round recovery",
+            "number": 30,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-node@v4",
+            "number": 31,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install the exact browser fixture tool",
+            "number": 32,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Real browser scenarios, defects, repair and cancellation",
+            "number": 33,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Small frontend feature with real browser and full quality replay",
+            "number": 34,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 35,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 36,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/setup-node@v4",
+            "number": 71,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 72,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 73,
+            "status": "completed"
+          }
+        ],
         "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/39284492475/job/118166472791"
       },
       {
-        "completedAt": "0001-01-01T00:00:00Z",
-        "conclusion": "",
+        "completedAt": "2026-10-19T16:31:40Z",
+        "conclusion": "success",
         "databaseId": 118166473065,
         "name": "parallel-ui-ux",
-        "startedAt": "2026-10-19T16:19:06Z",
-        "status": "queued",
-        "steps": [],
+        "startedAt": "2026-10-19T16:19:08Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install Pri-Fly from the latest stable release",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Parallel UI and UX qualification retains the W2 contracts on three hosts",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-node@v4",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install the exact browser fixture tool",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Parallel UI and UX browser isolation, owned cleanup and whole-round recovery",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Sealed frontend grants, provenance and cleanup boundaries",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Whole feature UI and UX sessions, admission and lifecycle",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/setup-node@v4",
+            "number": 17,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 18,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 19,
+            "status": "completed"
+          }
+        ],
         "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/39284492475/job/118166473065"
       },
       {
-        "completedAt": "0001-01-01T00:00:00Z",
-        "conclusion": "",
+        "completedAt": "2026-10-19T16:24:38Z",
+        "conclusion": "success",
         "databaseId": 118166473247,
         "name": "call-review-uiux",
-        "startedAt": "2026-10-19T16:19:06Z",
-        "status": "queued",
-        "steps": [],
+        "startedAt": "2026-10-19T16:19:08Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install latest stable Pri-Fly",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Prepare project example tools",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Project install, original source and freshness contracts",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-node@v4",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install sealed browser fixture",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Native calls, original artifacts, browser and continuation",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/setup-node@v4",
+            "number": 17,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 18,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 19,
+            "status": "completed"
+          }
+        ],
         "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/39284492475/job/118166473247"
       }
     ],
-    "status": "queued",
-    "updatedAt": "2026-10-19T16:19:06Z",
+    "status": "completed",
+    "updatedAt": "2026-10-19T17:13:22Z",
     "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/39284492475"
   },
-  "qualification_status": "pending_ci",
+  "qualification_status": "passed",
   "local_qualification": "PASS; see release-0.13.81-results.json",
-  "ci_tests_executed": false,
-  "external_service": {
-    "source": "https://www.githubstatus.com/api/v2/summary.json",
-    "observed_updated_at": "2026-10-19T16:21:22.658Z",
-    "actions_status": "degraded_performance",
-    "incident_url": "https://stspg.io/nrv2k8s68bwn",
-    "incident_name": "Degraded availability for GitHub Actions, GitHub Pages and Webhooks",
-    "incident_status": "investigating"
+  "ci_tests_executed": true,
+  "artifact": {
+    "id": 12206061416,
+    "node_id": "MDg6QXJ0aWZhY3QxMjIwNjA2MTQxNg==",
+    "name": "feature-recovery-results",
+    "size_in_bytes": 9361,
+    "url": "https://api.github.com/repos/StenHigh/prifly-aif-workflows/actions/artifacts/12206061416",
+    "archive_download_url": "https://api.github.com/repos/StenHigh/prifly-aif-workflows/actions/artifacts/12206061416/zip",
+    "expired": false,
+    "digest": "sha256:60a6701057b315a10e9c17154481361c628793b0b207ca35c83f26b36e89732d",
+    "created_at": "2026-10-19T17:13:18Z",
+    "updated_at": "2026-10-19T17:13:18Z",
+    "expires_at": "2027-01-17T16:19:06Z",
+    "workflow_run": {
+      "id": 39284492475,
+      "repository_id": 1355816755,
+      "head_repository_id": 1355816755,
+      "head_branch": "main",
+      "head_sha": "63788337e9c1d375f73424b4d71c47bdc7339e4c"
+    }
   },
-  "boundary": "No green CI result or artifact exists yet. E3 final CI acceptance remains open. Do not treat local qualification as remote CI."
+  "artifact_zip_digest_verified": true,
+  "report": {
+    "path": "release-0.13.81-feature-ci-report.json",
+    "sha256": "f5a734b09b62ef0a856caf8aae5785c6a7cb707b6ccc965a8b68a719c6f07b7c",
+    "prifly": "0.13.81",
+    "binary_sha256": "b2e02b36b2e062aacb4acf2b5cd3a35c0c8aee19379b77c6ff4d5714a22e6f50",
+    "cases": 35,
+    "all_cases_cleaned": true
+  },
+  "e3_and_controls": [
+    {
+      "case": "blocked-resume",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "partial",
+      "outcome": "succeeded",
+      "runs": 2,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "checks",
+        "security",
+        "review",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:68f0acf58d31099fb4b5562d33e2ea147a2dad5c8be3ac0f3e6c5b8ae9fff7b2",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:8b296b4b42cbfd882897bc2120d69b487021795d1d202e0aa6364fcf43aa95cb",
+          "base": "42c66dbb65890addae34939f22e33ecbef133e0c"
+        },
+        {
+          "run": "run:68f0acf58d31099fb4b5562d33e2ea147a2dad5c8be3ac0f3e6c5b8ae9fff7b2",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:8b296b4b42cbfd882897bc2120d69b487021795d1d202e0aa6364fcf43aa95cb",
+          "base": "42c66dbb65890addae34939f22e33ecbef133e0c"
+        },
+        {
+          "run": "run:68f0acf58d31099fb4b5562d33e2ea147a2dad5c8be3ac0f3e6c5b8ae9fff7b2",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:8b296b4b42cbfd882897bc2120d69b487021795d1d202e0aa6364fcf43aa95cb",
+          "base": "42c66dbb65890addae34939f22e33ecbef133e0c"
+        },
+        {
+          "run": "run:f6b53377963a0bac39112dc095fbced128c826c7736a3d3e23343a5e8e62edb5",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:5c6871391fb6fe9eec3cf4315b4f88e706283a3853e819e68583b0421db7b224",
+          "base": "42c66dbb65890addae34939f22e33ecbef133e0c"
+        },
+        {
+          "run": "run:f6b53377963a0bac39112dc095fbced128c826c7736a3d3e23343a5e8e62edb5",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:5c6871391fb6fe9eec3cf4315b4f88e706283a3853e819e68583b0421db7b224",
+          "base": "42c66dbb65890addae34939f22e33ecbef133e0c"
+        },
+        {
+          "run": "run:f6b53377963a0bac39112dc095fbced128c826c7736a3d3e23343a5e8e62edb5",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:5c6871391fb6fe9eec3cf4315b4f88e706283a3853e819e68583b0421db7b224",
+          "base": "42c66dbb65890addae34939f22e33ecbef133e0c"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "e904693414cd5494a6e8b70f37b102dd9f7060a70a3826faab4d004050eab953"
+        },
+        {
+          "stage": "implement",
+          "sha256": "e0ff80933fba4d37d2adf73f8a7dc35664e2c71cd6b836f717cb7ea01ff03561"
+        }
+      ],
+      "elapsed_seconds": 32.516,
+      "cleaned": true,
+      "review_mode": "sequential",
+      "parallel_fault": null,
+      "parallel_batches": [],
+      "writer_recovery": [],
+      "same_claim": true,
+      "parallel_observations": []
+    },
+    {
+      "case": "cancel-resume",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "cancelled",
+      "outcome": "succeeded",
+      "runs": 2,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "checks",
+        "checks",
+        "security",
+        "review",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:addd1033fa4ada99b1c5e9ee7e111571ad570b64365a01cebc72e60770a6d96f",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:aee7ae109c3202bf846f32347f70c38baed5da1d28b7aaaf8709bf2f8ef1ce17",
+          "base": "fa9036fd95d6620f566183fa14fe291cba45b3dd"
+        },
+        {
+          "run": "run:addd1033fa4ada99b1c5e9ee7e111571ad570b64365a01cebc72e60770a6d96f",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:aee7ae109c3202bf846f32347f70c38baed5da1d28b7aaaf8709bf2f8ef1ce17",
+          "base": "fa9036fd95d6620f566183fa14fe291cba45b3dd"
+        },
+        {
+          "run": "run:addd1033fa4ada99b1c5e9ee7e111571ad570b64365a01cebc72e60770a6d96f",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:aee7ae109c3202bf846f32347f70c38baed5da1d28b7aaaf8709bf2f8ef1ce17",
+          "base": "fa9036fd95d6620f566183fa14fe291cba45b3dd"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "be05703def78f1d1898ec60489b20d13ecc49d34de6f5e9a46d26fa02c4d39fd"
+        },
+        {
+          "stage": "implement",
+          "sha256": "0f0f9cccb9f1598a37ebe14122ae43233df56d3db43283d62976960ae16bd0ce"
+        }
+      ],
+      "elapsed_seconds": 24.549,
+      "cleaned": true,
+      "review_mode": "sequential",
+      "parallel_fault": null,
+      "parallel_batches": [],
+      "writer_recovery": [],
+      "same_claim": true,
+      "parallel_observations": []
+    },
+    {
+      "case": "plan-cancel",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "failed",
+      "outcome": "succeeded",
+      "runs": 3,
+      "steps": [
+        "warmup",
+        "plan",
+        "plan",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:c96cb87e898b77bfd1025bc78aee0d5942ef9496a2ee4a9d3c7585b8350f8932",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:0205fb1663d006cce7764aaa6889860c34ef84454acf06ba53cd773e906f732e",
+          "base": "11c3dcabc21a9732157010ba5810021767c15348"
+        },
+        {
+          "run": "run:c96cb87e898b77bfd1025bc78aee0d5942ef9496a2ee4a9d3c7585b8350f8932",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:0205fb1663d006cce7764aaa6889860c34ef84454acf06ba53cd773e906f732e",
+          "base": "11c3dcabc21a9732157010ba5810021767c15348"
+        },
+        {
+          "run": "run:c96cb87e898b77bfd1025bc78aee0d5942ef9496a2ee4a9d3c7585b8350f8932",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:0205fb1663d006cce7764aaa6889860c34ef84454acf06ba53cd773e906f732e",
+          "base": "11c3dcabc21a9732157010ba5810021767c15348"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "57bacadc9935ba9732f7332e074851870baba42fc7e057b00f70e18b54302140"
+        },
+        {
+          "stage": "implement",
+          "sha256": "9d3d30b829153ab538c5aec551e9d8d06c0e26557f65c78e46ee56e1fb55f797"
+        }
+      ],
+      "elapsed_seconds": 31.778,
+      "cleaned": true,
+      "review_mode": "sequential",
+      "parallel_fault": null,
+      "parallel_batches": [],
+      "writer_recovery": [
+        {
+          "check": "unresolved_writer_refused",
+          "code": "recover_source_unsettled",
+          "attempt_id": "attempt:dd3e49db0bec656a30950fac01d6b74b"
+        },
+        {
+          "check": "resolved_writer_prepare",
+          "resolution": "applied",
+          "source_run_id": "run:a8385b223d9bcb9db58e4399b2d513ba94135a0407a47a8d79dc4d32c7c75630",
+          "source_status": "failed",
+          "cancel_requested": true,
+          "source_unchanged": true,
+          "work_unchanged": true,
+          "claim_unchanged": true,
+          "inventory_unchanged": true,
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "11c3dcabc21a9732157010ba5810021767c15348",
+            "head_commit": "11c3dcabc21a9732157010ba5810021767c15348",
+            "index_digest": "sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729",
+            "files_digest": "sha256:5e75389bad3e0d9549fc5a4d59e40ff160beaeca2fc7fa37e35ea45057340e15",
+            "digest": "sha256:a690c29b336541fd75177ff3d71f54e1134511c1557526072ef5e58d0886d254"
+          },
+          "frontier_action": "execute"
+        },
+        {
+          "check": "occupied_producer_then_owner_move",
+          "blocked_run": "run:637df7b1e08d8f895cf3a72ad2ba3049487e910ddc85e98dd9ec24e92512d6c2",
+          "refusal": "workspace_tree_output_exists",
+          "partial_preserved": true,
+          "saved_sha256": "4db71bca3f65b350eda81f729532abfb6ecca6c16d1df077ea78d1c1bb356da6",
+          "explicit_fixture_owner_move": true,
+          "recovery_source_is_current_owner": true,
+          "prepare_read_only": true,
+          "outcome": "succeeded"
+        }
+      ],
+      "same_claim": true,
+      "parallel_observations": []
+    },
+    {
+      "case": "implement-cancel",
+      "host": "codex-cli",
+      "mode": "synthetic host, real programs/Git",
+      "source_outcome": "failed",
+      "outcome": "succeeded",
+      "runs": 2,
+      "steps": [
+        "warmup",
+        "plan",
+        "implement",
+        "implement",
+        "checks",
+        "security",
+        "review",
+        "commit"
+      ],
+      "rounds": [
+        {
+          "run": "run:07fccbf8b2d15281769dea32867db6eba2385c04d49839567c88cf083eaee472",
+          "lens": "checks",
+          "round": 1,
+          "digest": "sha256:284fae3074be375e414314e0a491990823ab6b16e8a362cc4bb14a64ab08e4a0",
+          "base": "973f433b5fbdd187ab91c6736f72dc5a5c63c040"
+        },
+        {
+          "run": "run:07fccbf8b2d15281769dea32867db6eba2385c04d49839567c88cf083eaee472",
+          "lens": "security",
+          "round": 1,
+          "digest": "sha256:284fae3074be375e414314e0a491990823ab6b16e8a362cc4bb14a64ab08e4a0",
+          "base": "973f433b5fbdd187ab91c6736f72dc5a5c63c040"
+        },
+        {
+          "run": "run:07fccbf8b2d15281769dea32867db6eba2385c04d49839567c88cf083eaee472",
+          "lens": "review",
+          "round": 1,
+          "digest": "sha256:284fae3074be375e414314e0a491990823ab6b16e8a362cc4bb14a64ab08e4a0",
+          "base": "973f433b5fbdd187ab91c6736f72dc5a5c63c040"
+        }
+      ],
+      "plan_captures": [
+        {
+          "stage": "plan",
+          "sha256": "4ccf41eab28f76984b2bb8908a1c30f7c0e239b8fb2db2070541aaf223ab08f2"
+        },
+        {
+          "stage": "implement",
+          "sha256": "eab3b551e3fa64b288c6f4e356c1740a0fe6bd87667763d5ad2ec934f2f8b242"
+        }
+      ],
+      "elapsed_seconds": 26.805,
+      "cleaned": true,
+      "review_mode": "sequential",
+      "parallel_fault": null,
+      "parallel_batches": [],
+      "writer_recovery": [
+        {
+          "check": "unresolved_writer_refused",
+          "code": "recover_source_unsettled",
+          "attempt_id": "attempt:9a0bee668d0453c8da2e228489db16a6"
+        },
+        {
+          "check": "resolved_writer_prepare",
+          "resolution": "not_applied",
+          "source_run_id": "run:d51f51d2dc2f92cbc28bac97c6ca7c5d316513bb731fb6c36ffe26f5d49206ae",
+          "source_status": "failed",
+          "cancel_requested": true,
+          "source_unchanged": true,
+          "work_unchanged": true,
+          "claim_unchanged": true,
+          "inventory_unchanged": true,
+          "candidate": {
+            "algorithm": "git-candidate/1",
+            "base_commit": "973f433b5fbdd187ab91c6736f72dc5a5c63c040",
+            "head_commit": "973f433b5fbdd187ab91c6736f72dc5a5c63c040",
+            "index_digest": "sha256:3ff7c267c09607e1c6540e04359f091b4c71ba071a171e3fe170b9abd3284729",
+            "files_digest": "sha256:7156d14c950675e1add9fc6d9ee0e89237ec06218f3c9340b0dc153a90062945",
+            "digest": "sha256:ce99609990ea73e01e4e5f533286bf40d2aafc7cd2056a8b04a4b42564fe2280"
+          },
+          "frontier_action": "execute"
+        }
+      ],
+      "same_claim": true,
+      "parallel_observations": []
+    },
+    {
+      "case": "upgrade-refusal",
+      "host": "codex-cli",
+      "source_outcome": "partial",
+      "default_prepare_refusal": "recover_prefix_changed",
+      "reviewed_replay": "configure (warmup prefix retained)",
+      "outcome": "succeeded",
+      "same_claim": true,
+      "work_preserved": true,
+      "cleaned": true
+    }
+  ],
+  "tested_source_fingerprints_verified": true,
+  "historical_shipping_trees_equal_v1_53_0": true,
+  "previous_queued_observation": {
+    "schema_version": "engine-release-consumer-ci/1",
+    "checked_at": "2026-10-19T16:26:45.931978+00:00",
+    "run": {
+      "conclusion": "",
+      "createdAt": "2026-10-19T16:19:06Z",
+      "headSha": "63788337e9c1d375f73424b4d71c47bdc7339e4c",
+      "jobs": [
+        {
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "databaseId": 118166472791,
+          "name": "verify",
+          "startedAt": "2026-10-19T16:19:06Z",
+          "status": "queued",
+          "steps": [],
+          "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/39284492475/job/118166472791"
+        },
+        {
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "databaseId": 118166473065,
+          "name": "parallel-ui-ux",
+          "startedAt": "2026-10-19T16:19:06Z",
+          "status": "queued",
+          "steps": [],
+          "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/39284492475/job/118166473065"
+        },
+        {
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "databaseId": 118166473247,
+          "name": "call-review-uiux",
+          "startedAt": "2026-10-19T16:19:06Z",
+          "status": "queued",
+          "steps": [],
+          "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/39284492475/job/118166473247"
+        }
+      ],
+      "status": "queued",
+      "updatedAt": "2026-10-19T16:19:06Z",
+      "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/39284492475"
+    },
+    "qualification_status": "pending_ci",
+    "local_qualification": "PASS; see release-0.13.81-results.json",
+    "ci_tests_executed": false,
+    "external_service": {
+      "source": "https://www.githubstatus.com/api/v2/summary.json",
+      "observed_updated_at": "2026-10-19T16:21:22.658Z",
+      "actions_status": "degraded_performance",
+      "incident_url": "https://stspg.io/nrv2k8s68bwn",
+      "incident_name": "Degraded availability for GitHub Actions, GitHub Pages and Webhooks",
+      "incident_status": "investigating"
+    },
+    "boundary": "No green CI result or artifact exists yet. E3 final CI acceptance remains open. Do not treat local qualification as remote CI."
+  },
+  "boundary": "E3 accepted for the recorded synthetic-host CLI/program/Git scope on exact source6378833 and released0.13.81. This does not qualify production Light, other live models, or the later full package suite on0.13.88."
 }
