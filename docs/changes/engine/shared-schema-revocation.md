@@ -97,6 +97,13 @@ Historical evidence release1.57.0 остаётся ограниченным св
 Такого пути этот driver не реализует. Простая замена условия gate на «нашёл любой
 trusted supplier» изменила бы существующий security contract.
 
+Создан [Core #21](https://github.com/StenHigh/prifly/issues/21).
+Он закрепляет подтверждённое намерение владельца, pinned reproducer и критерии R1–R7.
+Цель — явная миграция проверенных shared schemas к конкретному trusted supplier
+в той же authority с сохранённым отзывом старого пакета и историей Runs.
+Обычный import не должен автоматически отменять genuine security revocation.
+Создание issue не исправляет рабочую установку; её приёмка остаётся отдельным шагом.
+
 При разработке Core решения проверить весь dependency closure, а не только первую
 feature-enabled schema. Старый classic может совпадать с несколькими shared refs.
 Смена одного ref может лишь перенести отказ на следующую схему.

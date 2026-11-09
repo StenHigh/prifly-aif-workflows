@@ -37,6 +37,9 @@ package_not_resolvable после успешных import/prepare, Run не со
 обновлении, а не из-за небезопасного содержимого. Это уточнение владельца не
 переписывает исторический audit record. Нужна явная миграция безопасных общих
 schemas при сохранённом revoked status старого пакета; не глобальное снятие gate.
+Создан StenHigh/prifly#21 с pinned reproducer8809214, owner intent и R1–R7.
+Core решает явную scoped migration в той же authority; старый revoked package,
+historical Runs и genuine security revocations не должны получать общий bypass.
 Рабочая authority и Trucker не изменялись. Нужен отдельный lifecycle/migration
 контракт Core или новые проверенные ревизии affected schemas; нельзя просто
 игнорировать revoked supplier. Это не CI commit mismatch и не отсутствие schemas.
