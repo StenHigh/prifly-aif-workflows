@@ -6,6 +6,37 @@
 движка 0.10–0.13.54, переход на AI Factory 2.19.0, WorkflowRevision v4) —
 в git: `git show d388b92:CONTEXT_STATE.md` (2330 строк, оглавление — `mdq tree`).
 
+## Приёмка Core #21 на 2026-11-09
+
+Ворота verify/compatibility выверены против выпущенного Pri-Fly `v0.13.89`.
+Main6097152 подтянут в рабочую ветку расследования; исправление CI PR#15 сохранено.
+Official89/source30c36350: обе подписи manifest и SHA-256 архива проверены.
+Binary SHA25690e3e37c79a88ae0279a2542e40e34d75afa524b2b3cf7188900830ea7fe2985.
+Verify8packages/132components/88steps PASS; compatibility5launches/4builds/6trusted PASS.
+Прежний профиль без миграции сохраняет core-state/41. Оба registrations удалены.
+
+Новая capability shared_schema_migration требует явного prepare/review/apply и выбора
+решения в project questionnaire/start. Request/plan/decision/binding имеют версию /1.
+Первый apply обновляет package authority до /2; migrated Run использует state/read45.
+Project profile /3+; выбранный ID включён в launch review и summary/start /9.
+Внешние процессы одной authority должны поддерживать новое состояние.
+Shipping packages, contracts и каталоги не менялись; package bump не нужен.
+
+Native probe на official89: clean/remove succeeded, revoke без миграции refused.
+Четвёртая временная authority проверяет feature-enabled1.0.0 и round-limit1.1.0.
+После явного решения новый finish-only Run succeeded; binding сохраняет оба refs.
+Новый consumer после rollback неудачного Start оказался removed: проверен exact
+compiled Ref и восстановлен только этот новый consumer, не revoked legacy package.
+Read-only diagnostic, incomplete/stale plan refusals, changed launch digest,
+обычный Start без выбора по-прежнему refused, idempotent apply и invalidation
+после нового revoke PASS. Legacy package остаётся revoked. Четыре roots и их
+registrations удалены, active claims0. Versions4 и diff/shipping guards PASS.
+Рабочая/private authority и прикладные задачи не менялись. Полная consumer матрица89
+не заявлена. Следующий этап — отдельный проверенный план для рабочей authority.
+Команды: docs/changes/engine/release-0.13.89.md.
+Evidence: release-0.13.89-results.json и shared-schema-migration-0.13.89.json рядом.
+Reproducer: tests/probes/shared_schema_revocation.py --exercise-migration.
+
 ## Исправление CI на 2026-11-09
 
 PR #15 влит в main `4323276` 2026-11-09.

@@ -1,0 +1,270 @@
+{
+  "prifly": "0.13.89",
+  "binary_sha256": "90e3e37c79a88ae0279a2542e40e34d75afa524b2b3cf7188900830ea7fe2985",
+  "boundary": "Synthetic schema-only legacy package; no application or live authority modified.",
+  "cases": [
+    {
+      "mode": "clean",
+      "schema_ref": {
+        "digest": "sha256:29bce348352ac8e11f65737dc77e990bc8f7687ad896e8757802ab1cd52557ee",
+        "id": "aif:schema/feature-enabled",
+        "version": "1.0.0"
+      },
+      "suppliers": [
+        {
+          "ref": {
+            "id": "aif:package/composition-contracts",
+            "version": "1.0.0",
+            "digest": "sha256:977cf8944d6a5b16312e77086b89b8df9acf7097bb65997906197ee1aa680d88"
+          },
+          "status": "trusted",
+          "resolvable": true
+        }
+      ],
+      "trusted_schema_inspect_passed": true,
+      "prepare_passed": true,
+      "start_outcome": "succeeded",
+      "runs_created": 1,
+      "registry_entries_removed": 1,
+      "temporary_authority_removed": true
+    },
+    {
+      "mode": "remove",
+      "schema_ref": {
+        "digest": "sha256:29bce348352ac8e11f65737dc77e990bc8f7687ad896e8757802ab1cd52557ee",
+        "id": "aif:schema/feature-enabled",
+        "version": "1.0.0"
+      },
+      "suppliers": [
+        {
+          "ref": {
+            "id": "aif:package/classic",
+            "version": "1.15.1",
+            "digest": "sha256:22531de498c58c19aede85330ddb00f30c3775a4f7bcef89dbcad08f77449026"
+          },
+          "status": "removed",
+          "resolvable": false
+        },
+        {
+          "ref": {
+            "id": "aif:package/composition-contracts",
+            "version": "1.0.0",
+            "digest": "sha256:977cf8944d6a5b16312e77086b89b8df9acf7097bb65997906197ee1aa680d88"
+          },
+          "status": "trusted",
+          "resolvable": true
+        }
+      ],
+      "trusted_schema_inspect_passed": true,
+      "prepare_passed": true,
+      "start_outcome": "succeeded",
+      "runs_created": 1,
+      "registry_entries_removed": 1,
+      "temporary_authority_removed": true
+    },
+    {
+      "mode": "revoke",
+      "schema_ref": {
+        "digest": "sha256:29bce348352ac8e11f65737dc77e990bc8f7687ad896e8757802ab1cd52557ee",
+        "id": "aif:schema/feature-enabled",
+        "version": "1.0.0"
+      },
+      "suppliers": [
+        {
+          "ref": {
+            "id": "aif:package/classic",
+            "version": "1.15.1",
+            "digest": "sha256:22531de498c58c19aede85330ddb00f30c3775a4f7bcef89dbcad08f77449026"
+          },
+          "status": "revoked",
+          "resolvable": false
+        },
+        {
+          "ref": {
+            "id": "aif:package/composition-contracts",
+            "version": "1.0.0",
+            "digest": "sha256:977cf8944d6a5b16312e77086b89b8df9acf7097bb65997906197ee1aa680d88"
+          },
+          "status": "trusted",
+          "resolvable": true
+        }
+      ],
+      "trusted_schema_inspect_passed": true,
+      "prepare_passed": true,
+      "start_refusal": {
+        "schema_version": "1",
+        "code": "package_not_resolvable",
+        "message": "a package no longer trusted supplied aif:schema/feature-enabled from aif:package/classic; start failed before Run admission",
+        "retryable": false,
+        "correlation_id": "correlation:7ca82e59e496177d921f8c374339e44e",
+        "violations": [],
+        "safe_next_actions": [
+          "doctor"
+        ]
+      },
+      "runs_created": 0,
+      "registry_entries_removed": 1,
+      "temporary_authority_removed": true
+    },
+    {
+      "mode": "revoke",
+      "schema_ref": {
+        "digest": "sha256:29bce348352ac8e11f65737dc77e990bc8f7687ad896e8757802ab1cd52557ee",
+        "id": "aif:schema/feature-enabled",
+        "version": "1.0.0"
+      },
+      "suppliers": [
+        {
+          "ref": {
+            "id": "aif:package/classic",
+            "version": "1.15.1",
+            "digest": "sha256:780b1e07a62a830bbc8e047ec9ff62048a9e61efbce1c7d923ee17439948805a"
+          },
+          "status": "revoked",
+          "resolvable": false
+        },
+        {
+          "ref": {
+            "id": "aif:package/composition-contracts",
+            "version": "1.0.0",
+            "digest": "sha256:977cf8944d6a5b16312e77086b89b8df9acf7097bb65997906197ee1aa680d88"
+          },
+          "status": "trusted",
+          "resolvable": true
+        }
+      ],
+      "trusted_schema_inspect_passed": true,
+      "prepare_passed": true,
+      "start_refusal": {
+        "schema_version": "1",
+        "code": "package_not_resolvable",
+        "message": "a package no longer trusted supplied aif:schema/feature-enabled from aif:package/classic; start failed before Run admission",
+        "retryable": false,
+        "correlation_id": "correlation:b2aa1767fb0effdcbdd1c6d2789efd80",
+        "violations": [],
+        "safe_next_actions": [
+          "doctor"
+        ]
+      },
+      "runs_created": 1,
+      "migration": {
+        "consumer_ref": {
+          "id": "schema-probe:package/consumer",
+          "version": "0.0.0-b2.akgcbsd6efdg3rhbfxakyc72qbfgoejwrwjvgre4w5qnyiabah5q",
+          "digest": "sha256:d86df39cd880e2f6f4472d78dd85ff5d22ee9946c851f9bf18ce159837959afb"
+        },
+        "supplier_ref": {
+          "id": "aif:package/composition-contracts",
+          "version": "1.0.0",
+          "digest": "sha256:977cf8944d6a5b16312e77086b89b8df9acf7097bb65997906197ee1aa680d88"
+        },
+        "consumer_cleanup_restored": true,
+        "diagnostic_prepare_read_only": true,
+        "diagnostic_schemas": [
+          {
+            "schema_ref": {
+              "id": "aif:schema/feature-enabled",
+              "version": "1.0.0",
+              "digest": "sha256:29bce348352ac8e11f65737dc77e990bc8f7687ad896e8757802ab1cd52557ee"
+            },
+            "candidates": [
+              {
+                "id": "aif:package/composition-contracts",
+                "version": "1.0.0",
+                "digest": "sha256:977cf8944d6a5b16312e77086b89b8df9acf7097bb65997906197ee1aa680d88"
+              }
+            ],
+            "revocations": [
+              {
+                "ref": {
+                  "id": "aif:package/classic",
+                  "version": "1.15.1",
+                  "digest": "sha256:780b1e07a62a830bbc8e047ec9ff62048a9e61efbce1c7d923ee17439948805a"
+                },
+                "generation": 1,
+                "status": "revoked",
+                "status_reason": "Isolated lifecycle comparison, no real package decision",
+                "trust_reason": "Isolated legacy supplier fixture"
+              }
+            ]
+          },
+          {
+            "schema_ref": {
+              "id": "aif:schema/round-limit",
+              "version": "1.1.0",
+              "digest": "sha256:cb86f78b6ab948303b7fbd1cd65138ac887dc428468b129ed8b81ea8b5008eaa"
+            },
+            "candidates": [
+              {
+                "id": "aif:package/composition-contracts",
+                "version": "1.0.0",
+                "digest": "sha256:977cf8944d6a5b16312e77086b89b8df9acf7097bb65997906197ee1aa680d88"
+              }
+            ],
+            "revocations": [
+              {
+                "ref": {
+                  "id": "aif:package/classic",
+                  "version": "1.15.1",
+                  "digest": "sha256:780b1e07a62a830bbc8e047ec9ff62048a9e61efbce1c7d923ee17439948805a"
+                },
+                "generation": 1,
+                "status": "revoked",
+                "status_reason": "Isolated lifecycle comparison, no real package decision",
+                "trust_reason": "Isolated legacy supplier fixture"
+              }
+            ]
+          }
+        ],
+        "incomplete_apply": "schema_migration_incomplete",
+        "stale_apply": "schema_migration_plan_stale",
+        "review_selection_changed_digest": true,
+        "outdated_launch_review": "project_start_stale_launch",
+        "explicit_start_outcome": "succeeded",
+        "run_binding": {
+          "decision_id": "schema-migration:9bf68707fdc9bf16f260fe0ae9e27e3f74bbab71fe02c9c9386db3faadcd6f42",
+          "review_digest": "sha256:42c87aad751e4a2d876ea062daa960e8d64038c57f69803c7bc8e44aa65d9ca3",
+          "consumer_ref": {
+            "id": "schema-probe:package/consumer",
+            "version": "0.0.0-b2.akgcbsd6efdg3rhbfxakyc72qbfgoejwrwjvgre4w5qnyiabah5q",
+            "digest": "sha256:d86df39cd880e2f6f4472d78dd85ff5d22ee9946c851f9bf18ce159837959afb"
+          },
+          "selections": [
+            {
+              "schema_ref": {
+                "id": "aif:schema/feature-enabled",
+                "version": "1.0.0",
+                "digest": "sha256:29bce348352ac8e11f65737dc77e990bc8f7687ad896e8757802ab1cd52557ee"
+              },
+              "supplier_ref": {
+                "id": "aif:package/composition-contracts",
+                "version": "1.0.0",
+                "digest": "sha256:977cf8944d6a5b16312e77086b89b8df9acf7097bb65997906197ee1aa680d88"
+              }
+            },
+            {
+              "schema_ref": {
+                "id": "aif:schema/round-limit",
+                "version": "1.1.0",
+                "digest": "sha256:cb86f78b6ab948303b7fbd1cd65138ac887dc428468b129ed8b81ea8b5008eaa"
+              },
+              "supplier_ref": {
+                "id": "aif:package/composition-contracts",
+                "version": "1.0.0",
+                "digest": "sha256:977cf8944d6a5b16312e77086b89b8df9acf7097bb65997906197ee1aa680d88"
+              }
+            }
+          ]
+        },
+        "unselected_start_refusal": "package_not_resolvable",
+        "apply_replay_duplicate": true,
+        "subsequent_revoke_invalidates_decision": true,
+        "invalid_decision_start_refusal": "schema_migration_decision_invalid",
+        "legacy_status": "revoked"
+      },
+      "registry_entries_removed": 1,
+      "temporary_authority_removed": true
+    }
+  ],
+  "complete": true
+}
