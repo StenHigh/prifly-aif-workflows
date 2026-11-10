@@ -6,6 +6,20 @@
 движка 0.10–0.13.54, переход на AI Factory 2.19.0, WorkflowRevision v4) —
 в git: `git show d388b92:CONTEXT_STATE.md` (2330 строк, оглавление — `mdq tree`).
 
+## Сверка roadmap на 2026-11-10
+
+Roadmap PR #14 согласован с mainc5781bc после слияния PR #18.
+Текущий выпуск пакетов — v1.57.0; verify/compatibility и полный CI на
+released Pri-Fly v0.13.90 подтверждены в evidence ниже. Это не production
+Light, не новая LLM-приёмка и не изменение shipping bytes.
+Issue #9 CLOSED: передача исходных отчётов и public install/update приняты
+в v1.57.0. Ранний pass-check-reports checklist не образует второй backlog.
+E3 CI-приёмка закрыта в main76e7b8b со сверкой artifact/version/hash и 35 cases;
+сводка docs/changes/README.md теперь ссылается на эти результаты.
+
+PR #16 и task-limit classic/profiled/fix3.0.0 находятся в main; tag v1.58.0
+и новый catalog ещё не опубликованы. Публичный выпуск остаётся v1.57.0.
+
 ## Issue #17 — проверка собранных версий на 2026-11-10
 
 Ворота verify/compatibility выверены против выпущенного Pri-Fly `v0.13.90`.
@@ -32,7 +46,9 @@ Evidence: docs/changes/guard-compiled-component-versions/acceptance.md и result
 Создан PR #18 с Closes #17; первый полный CI42826908688 проверяет source eb1ae8b.
 Сравнение CI/local обнаружило Python-cache только в агрегированном source digest; compiled records совпали.
 Source digest теперь исключает __pycache__/.pyc/.pyo; отдельный unit test покрывает cache и YAML change.
-Полный CI повторяется на исправленном source; merge и закрытие следуют после его успешной приёмки.
+Полный CI42828130200 на исправленном source5e5d5f8 завершился SUCCESS.
+PR #18 влит в mainc5781bc; issue #17 CLOSED/completed.
+Прежний CI42826908688 остаётся историческим прогоном до cache-исправления.
 Tag и каталог не публикуются.
 
 ## Документация и примеры на 2026-11-10
@@ -149,7 +165,7 @@ Evidence: docs/changes/engine/ci-installation-0.13.88.md и JSON рядом.
 
 Roadmap в PR #14, production Light и Core migration issue #21 остаются отдельными работами.
 
-## Состояние на 2026-11-02
+## Историческая release qualification на 2026-11-02
 
 Ворота verify/compatibility выверены против выпущенного Pri-Fly `v0.13.86`.
 

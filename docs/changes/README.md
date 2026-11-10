@@ -1,13 +1,13 @@
 # План изменений workflow после сравнения с Software Factory
 
+PR #18 MERGED, issue #17 CLOSED/completed; exact-source [CI42828130200](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/42828130200) SUCCESS.
 Проверка выпуска по issue #17 описана в [приёмке собранных версий](guard-compiled-component-versions/acceptance.md).
 [Готовый пример](../../examples/compiled-versions/README.md) показывает проверку ID/version/SHA-256 и штатный `package remove`.
 
-Дата: 2026-10-31. W1–W3: **committed/pushed, CI PASS**, с отдельными live observations;
+Сверено 2026-11-10 после слияния PR #18 по текущим main, release evidence и GitHub; исторические проверки сохраняют свои даты. W1–W3: **committed/pushed, CI PASS**, с отдельными live observations;
 W4: **committed/pushed, pilot qualified, CI PASS**; W5: **пакетная часть завершена, scoped qualification и final CI PASS; v1.52.0**.
 Пакеты включены в [выпуск v1.52.0](../releases/v1.52.0.md). Актуальная база совместимости: released Pri-Fly
-**0.13.90**, опубликованный выпуск репозитория **v1.57.0**; task-limit candidate3.0.0 пока не выпущен. Прежние CI/live evidence на
-0.13.76 остаются историческими; повторная проверка нового stable записана отдельно.
+**0.13.90**, опубликованный выпуск репозитория **v1.57.0**; task-limit classic/profiled/fix3.0.0 принят в main, но tag v1.58.0 и новый catalog не опубликованы. Verify/compatibility и полный CI на0.13.88 прошли: [evidence](engine/ci-installation-0.13.88.md). PR #15 объединён в main4323276. Прежние CI/live evidence на0.13.76 и release qualification на0.13.86 сохраняют свои версии и границы; новые scripted/browser checks не означают production или LLM acceptance.
 
 В этом репозитории нет инициализированного OpenSpec-проекта. Change хранятся
 как репозиторная документация: `proposal.md` задаёт объём и критерии приёмки,
@@ -22,7 +22,9 @@ Classic и штатный derived profiled опубликованы в v1.54.0; 
 Обе порции прошли local gates и все3 jobs exact-source CI; каталог обновлён.
 [Первая приёмка](improve-workflow-authoring-readability/acceptance.md),
 [оставшиеся пакеты](improve-workflow-authoring-readability/remaining-acceptance.md),
-[версии и update](../releases/v1.55.0.md). Прежний verify fail/no_work остаётся отдельным issue#7.
+[версии и update](../releases/v1.55.0.md). Прежний verify fail/no_work исправлен отдельно в v1.56.0; readability evidence сохраняет исходное поведение.
+
+Актуальная приёмка на Core0.13.90: [task-limit acceptance](configure-task-description-limit/acceptance.md) и [точный CI](configure-task-description-limit/ci-0.13.90-results.json).
 
 ## Реестр
 
@@ -32,7 +34,7 @@ Candidate classic/profiled/fix3.0.0 использует объявленный 
 Default12 000 сохранён; task1.2.0 становится owned, project consumers используют schema_task.
 [Design](configure-task-description-limit/design.md), [приёмка A1–A10](configure-task-description-limit/acceptance.md),
 [release guide](configure-task-description-limit/release-guide.md) и [готовые inputs](../../examples/task-description-limit/README.md).
-Локальная native matrix16 cases /31 Runs PASS; exact-source CI/PR завершаются. Tag и Release не опубликованы.
+Локальная native matrix16 cases /31 Runs PASS; exact-source CI42726891572 SUCCESS (6 jobs); PR #16 MERGED в main b5c7be9. Tag и Release не опубликованы.
 Исторический reproducer0.13.89/source ea80f473: [исследование](configure-task-description-limit/native.md).
 
 Issue #7: владелец согласовал completed/rejected без обязательного gate для verify fail/no_work.
@@ -42,8 +44,14 @@ PR#11 MERGED, выпуск v1.56.0/source1985ae1 опубликован; кат�
 
 Issue #9: [исследование передачи исходных отчётов](pass-check-reports/proposal.md).
 Generic native fixture подтверждает transport через ordinary ArtifactRef и воспроизводит root-only extension boundary.
-Пакетная реализация и порядок project measurement после repair ещё не приняты.
-Этот change не закрывает issue #9.
+Это историческая transport-проверка, а не текущий незавершённый backlog.
+Пакетная реализация принята и опубликована в **v1.57.0**, issue #9 CLOSED:
+[unified composition](adopt-unified-composition-v5/tasks.md),
+[приёмка на Core0.13.86](adopt-unified-composition-v5/qualification-0.13.86.md),
+[релиз и migration guide](../releases/v1.57.0.md). Проверены 13 native measurement
+cases и 30 public install/update builds; исходные refs передаются до reader,
+в том числе после repair/continue. Scripted transport checks не доказывают
+качество LLM-суждения или полную приёмку приватного приложения.
 
 Отдельно от W1–W6 выпускается
 [OpenClaw test audit](add-standalone-test-audit/proposal.md) — самостоятельный
@@ -57,7 +65,7 @@ evidence сохраняют исходную версию. [Результаты
 |---|---|---|---|---|
 | W1 | P1, первым | [Явные доказательства ревью](add-explicit-review-evidence/proposal.md) | Нет; безопасный baseline обязателен там, где используется | committed/pushed, CI PASS / v1.52.0 |
 | W2 | P1 | [UI/UX-компоненты](add-ui-ux-review-components/proposal.md) | W1; standalone контракт среды из #2 | committed/pushed, CI + fresh CLI PASS; model/consumer limits / v1.52.0 |
-| W3 | P1 | [Короткий workflow для фич](add-bounded-feature-workflow/proposal.md) | W1; W2 для интерфейсного профиля | committed/pushed, CI + live PASS / v1.52.0; E3 writer recovery: local PASS на0.13.81; финальный CI39284492475 queued; package прежний |
+| W3 | P1 | [Короткий workflow для фич](add-bounded-feature-workflow/proposal.md) | W1; W2 для интерфейсного профиля | committed/pushed, CI + live PASS / v1.52.0; E3 writer recovery: local PASS на0.13.81; CI39284492475 SUCCESS на source6378833; artifact/version/hash и 35 cases сверены 2026-11-09; E3 CI-приёмка закрыта; package прежний |
 | W4 | P1/P2 | [Приёмка перед интеграцией](document-verified-integration-handoff/proposal.md) | W1; проектный интегратор, #1 при GitLab | committed/pushed, pilot qualified, CI PASS; real provider limits / v1.52.0 |
 | W5 | P2 | [Квалификация параллельного ревью](qualify-parallel-implementation-review/proposal.md) | W1, W2, W3; сначала последовательная приёмка | backend opt-in/adapter d515a85; UI/UX qualification0bdc632: local17/CI job PASS для isolated stand, shared limit1 sequential; frontend1.2.3: CLI4 sessions PASS; native1–3 rounds qualified,4–8 refused before writers; final UI/UX35/unit16 и полный exact-SHA CI38848759987 PASS; пакетная часть завершена в указанном scope; App/Claude unqualified / v1.52.0 |
 | W6 | P1 после E5 | [Review/UI/UX через call extensions](add-review-uiux-call-extensions/proposal.md) | E5 stable0.13.78+ (probes51 PASS на0.13.79); W1, W2; W3 regression boundary | project recipes/installer PASS на0.13.80: native27/compile18/refusals8, Core51, direct cancel/timeout/limits/storage/capacity; scoped CLI3 sessions; full exact-SHA CI39038596555 SUCCESS; classic/profiled и shipping8 прежние |
@@ -138,8 +146,10 @@ W1–W4 не зависят от E1/E2. Не добавляем обязател
   [recheck/evidence](add-bounded-feature-workflow/engine-followup.md): CLOSED,
   исправлен в stable0.13.81 и независимо проверен consumer локально2026-10-19.
   Адаптация pushed6378833; [CI39284492475](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/39284492475)
-  queued во время официального сбоя GitHub Actions; финальная CI-приёмка открыта.
-  [Точный статус и оставшийся шаг](engine/release-0.13.81.md).
+  завершился SUCCESS на том же source6378833. Сверка 2026-11-09 в main76e7b8b
+  подтвердила artifact digest, binary version/hash и 35 cases, включая пять
+  E3/control cases; финальная E3-приёмка закрыта. Старый queued-снимок сохранён
+  в истории. [Итог и исходный отчёт](engine/release-0.13.81.md).
   Implement/not_applied→succeeded; plan/applied→occupied-path guard→explicit
   owner move→succeeded. Source cancellation facts/bytes/claim сохраняются,
   writer и quality повторяются; read-only control succeeded. Старый отказ
