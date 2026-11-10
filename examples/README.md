@@ -25,3 +25,9 @@ classic/profiled/fix/UIUX2.0.0 на выпущенном Core0.13.86. Общие
 явной установки. Пример task-aware Call содержит task, implementation,
 applicability и optional configuration. Пакеты опубликованы в v1.57.0;
 общая зависимость устанавливается отдельно из точного checkout.
+
+## Проектный предел task.description
+
+[Task description limit](task-description-limit/README.md) даёт owner config32000, Unicode task16557,
+полные candidate install/prepare/start и поддерживаемый continue для classic/profiled/fix3.0.0 на Core0.13.90.
+Opt-in project consumers подключаются отдельно через schema_task.

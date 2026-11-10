@@ -123,8 +123,9 @@ def plan(
         "prifly-project-profile/2",
         "prifly-project-profile/3",
         "prifly-project-profile/4",
+        "prifly-project-profile/5",
     ):
-        raise ValueError("Project profile/2, /3 or /4 required")
+        raise ValueError("Project profile/2, /3, /4 or /5 required")
     existing.setdefault("extensions", [])
     refs = existing.setdefault("references", {})
     programs = existing.setdefault("execution_bindings", {}).setdefault("steps", {})

@@ -3,7 +3,7 @@
 Дата: 2026-10-31. W1–W3: **committed/pushed, CI PASS**, с отдельными live observations;
 W4: **committed/pushed, pilot qualified, CI PASS**; W5: **пакетная часть завершена, scoped qualification и final CI PASS; v1.52.0**.
 Пакеты включены в [выпуск v1.52.0](../releases/v1.52.0.md). Актуальная база совместимости: released Pri-Fly
-**0.13.82**, выпуск репозитория **v1.56.0**. Прежние CI/live evidence на
+**0.13.90**, опубликованный выпуск репозитория **v1.57.0**; task-limit candidate3.0.0 пока не выпущен. Прежние CI/live evidence на
 0.13.76 остаются историческими; повторная проверка нового stable записана отдельно.
 
 В этом репозитории нет инициализированного OpenSpec-проекта. Change хранятся
@@ -22,6 +22,15 @@ Classic и штатный derived profiled опубликованы в v1.54.0; 
 [версии и update](../releases/v1.55.0.md). Прежний verify fail/no_work остаётся отдельным issue#7.
 
 ## Реестр
+
+Issue #3: [проектный предел task.description](configure-task-description-limit/proposal.md).
+Core [#22](https://github.com/StenHigh/prifly/issues/22) CLOSED/completed, released0.13.90.
+Candidate classic/profiled/fix3.0.0 использует объявленный compile parameter и owner values.
+Default12 000 сохранён; task1.2.0 становится owned, project consumers используют schema_task.
+[Design](configure-task-description-limit/design.md), [приёмка A1–A10](configure-task-description-limit/acceptance.md),
+[release guide](configure-task-description-limit/release-guide.md) и [готовые inputs](../../examples/task-description-limit/README.md).
+Локальная native matrix16 cases /31 Runs PASS; exact-source CI/PR завершаются. Tag и Release не опубликованы.
+Исторический reproducer0.13.89/source ea80f473: [исследование](configure-task-description-limit/native.md).
 
 Issue #7: владелец согласовал completed/rejected без обязательного gate для verify fail/no_work.
 Отдельный [change](handle-verify-no-work/proposal.md) добавляет handler и штатный derive profiled.

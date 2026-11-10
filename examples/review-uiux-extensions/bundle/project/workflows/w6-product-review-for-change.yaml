@@ -6,7 +6,7 @@
   "title": "Task/candidate applicability before optional UI/UX browser acceptance",
   "inputs": {
     "task": {
-      "schema_ref": "{{contract_schema_task}}"
+      "schema_ref": "{{schema_task}}"
     },
     "implementation": {
       "schema_ref": "{{contract_schema_implementation}}"

@@ -14,7 +14,7 @@
       "schema_ref": "{{contract_schema_implementation}}"
     },
     "task": {
-      "schema_ref": "{{contract_schema_task}}"
+      "schema_ref": "{{schema_task}}"
     },
     "candidate": {
       "schema_ref": "{{schema_w6-product-candidate}}"
