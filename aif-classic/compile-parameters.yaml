@@ -1,0 +1,11 @@
+authoring: prifly-compile-parameters/1
+parameters:
+  task_description_limit:
+    type: integer
+    minimum: 1
+    # Core accepts safe JSON integers; this is the numeric representation limit.
+    maximum: 9007199254740991
+    default: 12000
+    bindings:
+      - schema: schema_task
+        pointer: /properties/description/maxLength

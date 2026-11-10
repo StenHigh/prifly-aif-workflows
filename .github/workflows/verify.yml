@@ -90,6 +90,19 @@ jobs:
         run: python3 -B tests/probes/run_check.py --binary "$HOME/.local/bin/prifly" --check --resume --verdict cancelled
       - name: Bug workflow finishes direct, planned, repaired and resumed Runs
         run: python3 -B tests/probes/fix_check.py --binary "$HOME/.local/bin/prifly" --report /tmp/aif-fix-results.json
+      - name: Project task limit survives repair continuation and package update
+        run: |
+          python3 -B tests/probes/shipping_task_limit.py --binary "$HOME/.local/bin/prifly" \
+            --jobs 3 --output /tmp/aif-task-limit-results.json
+          python3 -B tests/probes/task_limit_examples.py --binary "$HOME/.local/bin/prifly" \
+            --output /tmp/aif-task-limit-examples.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: shipping-task-limit-results
+          path: |
+            /tmp/aif-task-limit-results.json
+            /tmp/aif-task-limit-examples.json
       - name: Explicit review evidence finishes and resumes on the released runtime
         run: python3 -B tests/probes/evidence_check.py --binary "$HOME/.local/bin/prifly" --report /tmp/aif-evidence-results.json
       - name: Standalone test audit skips, reports, stops and replays

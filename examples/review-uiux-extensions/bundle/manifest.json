@@ -1,6 +1,6 @@
 {
   "protocol": "w6-project-bundle/1",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "sources": {
     "aif-review-evidence/contexts/aif-review.yaml": "sha256:f5dea1cb9bb89b170dea3ac2437b7bde9f01b9a28bf9546ff84d876ed41ce925",
     "aif-review-evidence/contexts/review-bridge.yaml": "sha256:8d7510a675899b1d0ac4f9743d4e5dfacd76bfcbf594a7a48e8227066f7458e0",
@@ -755,7 +755,7 @@
     "project/steps/w6-combined-review-diagnostic.yaml": "sha256:039cef92c7ce70d9b35bce9f30014e3141df384cffeaf277302d5f2789d9a1f0",
     "project/steps/w6-combined-seal.yaml": "sha256:de5a14ff08b0dc37a7b6585a1a39e5a900602d9b84a7d31e7298e6ad2c906e07",
     "project/steps/w6-committed-check.yaml": "sha256:a8593878c97c6448a31228314689cd8fdbb95b7d5b2c468cd87128b6d6380483",
-    "project/steps/w6-product-applicability.yaml": "sha256:1c01004ff48900e6247b8711a146e618b09ceb6a158762b9857565d4f8efb558",
+    "project/steps/w6-product-applicability.yaml": "sha256:d72bfd43be2dd5e55b3ab6775873859190a7e3ecf3c821ac4cd7ec0981f5558a",
     "project/steps/w6-product-bundle-change.yaml": "sha256:2ac5764d8cb394989522618253af5555c0ddecdb1798f3323d2f5b2357640d0c",
     "project/steps/w6-product-capture-change.yaml": "sha256:b9a00c9a86306630d1de935fe2b22a722f7622a9cf795c5989ee67e19b0d294d",
     "project/steps/w6-product-capture.yaml": "sha256:2f27b2c79d5a2fb565597c4f0d7139bdeec5f55fdbb5b7f717ec85fc60848166",
@@ -763,7 +763,7 @@
     "project/steps/w6-product-environment.yaml": "sha256:e4fa40a0d4ccf4efd56506bbfdbbc6f2ca4f9b8e8210bf188f0a5aa5f6e6a75c",
     "project/steps/w6-product-evaluate.yaml": "sha256:313a5eaed6174831b64aee4b92bd7d5a6bfe63d71a2535d3d03cc70615e9cdc1",
     "project/steps/w6-product-finalize.yaml": "sha256:6ef4fa09a4fcf6bd639f85c5678d57cea8c4c56d19410cd52f5f32f09a0c6fa5",
-    "project/steps/w6-product-guard-applicability.yaml": "sha256:76dfe51413d1eb5af11958ccdcda9a652c20ed72d9558b787f16af15ea12fe38",
+    "project/steps/w6-product-guard-applicability.yaml": "sha256:98400e68defd08d3bfd3bf7bb6a523ba8afeca6666f932699f93eada3545e8f3",
     "project/steps/w6-product-release.yaml": "sha256:1e6da0bf8c5d3f74c303f943806ebfd8c2878caa6b67b7c77c2a74bc801d7754",
     "project/steps/w6-product-ui.yaml": "sha256:7126b47ebe91386ebaed3f35c7dad286b38f7ec2ed0cb367a3b255cbc8f96e4e",
     "project/steps/w6-product-ux.yaml": "sha256:cfc27fdeefc5b2b8c1af9ce256ad0eb8d9a96a6203b3d1d9b2e256d44ce3c61a",
@@ -779,7 +779,7 @@
     "project/workflows/w6-combined.yaml": "sha256:4e1da44ec78659b7ecb625a72b4d23285376ca785abfb80a517a2a9c9e81dd82",
     "project/workflows/w6-committed.yaml": "sha256:eaa269ead64d3b5d8c5342ce81de4989c1f460cfb914e07b82580e2aecf13acc",
     "project/workflows/w6-product-quality.yaml": "sha256:05c465647eab5b5012b4d6d810d47b8429a353a7705cc036ef6e473855d88607",
-    "project/workflows/w6-product-review-for-change.yaml": "sha256:80e78f39b17c8ea4ee1cc0487b19d0b01d833742d0fa6bd26858656441527bff",
+    "project/workflows/w6-product-review-for-change.yaml": "sha256:e3f1699cac9d29b2bce366d35a2343cdde0f60c33a002365bc77b618c338b261",
     "project/workflows/w6-review-quality.yaml": "sha256:e0f6057e15444f604d158e235e13ee968b96533f6a00687ea744e7dd39a601ff",
     "project/workflows/w6-review.yaml": "sha256:784c81a882c2228545ff004f396cc0a2677321533b3f5c96386f5707a75f23d5",
     "project/workflows/w6-uiux.yaml": "sha256:dbe8c2c5fd7d28f8b4aad5085fea33a5e361c42542d9447f42a69b678983eacd"

@@ -62,6 +62,9 @@ def build(target):
             data["id"] = "w6:" + kind.rstrip("s") + "/" + name
             data["version"] = "1.0.0"
             text = json.dumps(data)
+            # The installing classic/profiled owns its parameterised task.
+            # Project-owned copies bind to that exact local compiled schema.
+            text = text.replace("{{contract_schema_task}}", "{{schema_task}}")
             for old, new in {**aliases, **{k: "w6-" + k for k in CORE}}.items():
                 text = text.replace("{{" + old + "}}", "{{" + new + "}}")
             paths.append(
@@ -243,7 +246,7 @@ def build(target):
     common.append(put("project/workflows/w6-committed.yaml", post))
     manifest = {
         "protocol": "w6-project-bundle/1",
-        "version": "2.0.0",
+        "version": "3.0.0",
         "sources": sources,
         "dependencies": ["aif:package/composition-contracts@1.2.0"],
             "references": {**{"w6-" + k: v for k, v in CORE.items()}, "contract_schema_implementation": "aif:schema/implementation@1.2.0"},

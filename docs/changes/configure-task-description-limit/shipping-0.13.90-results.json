@@ -1,0 +1,4673 @@
+{
+  "prifly": "0.13.90",
+  "binary_sha256": "sha256:db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+  "probe_sha256": "sha256:0b80e702b755c16115408cc1399509e0355b9bbaf8abe40b31bfb0ad83b7b0b0",
+  "package_sources": {
+    "aif-classic": {
+      "README.md": "sha256:bf0b2bc912c6ad16f33213e452e07c6a008c7e7ebdd8efee9c12262a44ab287e",
+      "compile-parameters.yaml": "sha256:1abe0a82889b9ed0d10d6044915cb9a48f00e52963b2e7c7652c727a14cd5de2",
+      "contexts/aif-commit-bridge.yaml": "sha256:cc3eb573ad28b7be1a4ca2bc4de37953e2ed1a86e554e8d51d7a530dcbb86d4e",
+      "contexts/aif-commit.yaml": "sha256:0f602e81a858d055520b512e4ba920a9678ec0115e190d90c113b5b26f6c0b8e",
+      "contexts/aif-fix-bridge.yaml": "sha256:5bcbe6d36c235a125355048bacd0db85765279b3a91c2bcaabe137907f726880",
+      "contexts/aif-fix.yaml": "sha256:d88ac9e5ff6edd684b749de77b6dfc2e13eb5c7fb94ad52ce1d44856648768d2",
+      "contexts/aif-implement-bridge.yaml": "sha256:35d70c790eb5e8f9a7898af0188e79b90f87334362e865f39216b6d94aa5b7cf",
+      "contexts/aif-implement.yaml": "sha256:4321e319d9e688fc5e9993ac8b53fd97484a07448474dd3efcef2570ccba24f5",
+      "contexts/aif-improve-bridge.yaml": "sha256:dafeafc14947421ecc2e939b1b1343525c1dfc8f337f49c8732e95b26272d3fd",
+      "contexts/aif-improve-check-mode.yaml": "sha256:22b6724ce6738433170b15760a9048e203ac17e781f33240698ca410411aca23",
+      "contexts/aif-improve-examples.yaml": "sha256:78e0027eb28034fa9c5f76e64a20a45a7a2e0ba64a695b4a4422db9baa34410a",
+      "contexts/aif-improve-list-mode.yaml": "sha256:b8d7d0eaa13134945ddbc820dfbd918f35f2d99961a879324e463b23adff7ded",
+      "contexts/aif-improve-validator.yaml": "sha256:65aba50dd47d0736dfc8f201560bc0c2329a811c07657459f514f755976a7f37",
+      "contexts/aif-improve.yaml": "sha256:c7ba7f388572469ad6fa2d6efec103fae2aaa5e2065e030d34202963e3d4e8f6",
+      "contexts/aif-plan-bridge.yaml": "sha256:8c93b2f2f767f4e527b7d899a4a62e8162828deaeb9e974bdef40ba4efc86579",
+      "contexts/aif-plan.yaml": "sha256:4578ebc759a62082806e5736d0ebc9b1d8752439939b6ef03de426deae33d92d",
+      "contexts/aif-review-bridge.yaml": "sha256:3aa3c153af9f392d193095d293fbd30c0f9f131f426abe8fb2f365d3104fda4b",
+      "contexts/aif-review-challenge-bridge.yaml": "sha256:e850bd5ecb1eb17f135d14c70707eaa7f73fb8b981cd79c44720b1c701ddc957",
+      "contexts/aif-review.yaml": "sha256:4628fbfa310990c2521b0cedcef1826a0dd022a3edd221046580dfe7a1c2b6e1",
+      "contexts/aif-security-bridge.yaml": "sha256:97311cb41178eaa3a21905802b560b3754b7329cacfe32ad0a843c63c5b36c0b",
+      "contexts/aif-security.yaml": "sha256:ccb6e296c8ad16dce429914e6e71d0f3b804962c3cc6fca56704770a2a2ffb40",
+      "contexts/aif-verify-bridge.yaml": "sha256:e9f4f30253a43d01bc1ed86b3e4698e2b1adc20229d431368049347f058ef930",
+      "contexts/aif-verify.yaml": "sha256:959b6666c7a9746ca4d10588e88050fce70dab0a0a76b3d2cf64ea837f6dd03b",
+      "contexts/aif-warmup-bridge.yaml": "sha256:e96c09ebbf8fdfee5326a3da52cc49257d4cd776d7458006415893229d1e7705",
+      "contexts/aif-warmup.yaml": "sha256:9342a86b2bbbd5c2fb0f9fa74f7804c1c826952616699efe71023f271b5c11b8",
+      "contexts/continue-improve.yaml": "sha256:0cf2b911ea5a5715250dc479388dfc396a8ba505587ff85962a671485f99dcee",
+      "decisions/INVENTORY.md": "sha256:57475cc860e4ac6df846ebf5b92bc1261132d0ba8cb080de311c7c878c3fbfd8",
+      "decisions/gates/checks.yaml": "sha256:c0166074a41edb650af05e51e7a070437ddfd9aa071f9d018d5bce62074ac2c3",
+      "decisions/gates/warnings.yaml": "sha256:50afae11b81e4af353e24efa4c09162d1b696dea62b81662eb85a647b5ab2dec",
+      "decisions/improve/apply.yaml": "sha256:2b7c740c8c181e522ddff58ceb34c091834aa686171c6d5385ddf5e6cb14d03d",
+      "decisions/plan/constraints.yaml": "sha256:ebd78992eaba6bc66d5089a60ae1a830f1adf1a662fef9142f9f589945a86694",
+      "decisions/plan/docs.yaml": "sha256:a4a929dfd1710a7a247039ab05e6fda9e28906df682459dc4da33eafc94752db",
+      "decisions/plan/logging.yaml": "sha256:ee190623e4d3494dc991d25bb44730ea6a3f5c020022636bb15dc6faef1e25f3",
+      "decisions/plan/profile.yaml": "sha256:c7ea4dac956bfa1572c68e28ca9298cf5951637e22e922ec762dfc438de9a74e",
+      "decisions/plan/roadmap-linkage.yaml": "sha256:110738e925a857cc5da58ef438cdc4df38b32bb9bef616722e875e7c89ca4990",
+      "decisions/plan/roadmap-milestone.yaml": "sha256:ed09173df961834534ac07d93239462428a44822de9122564447a0645e2f549f",
+      "decisions/plan/tests.yaml": "sha256:e9d7035db4c14fa0be8958654a837ba76300f9dbaed2b369db476d16b5d383f5",
+      "extend.yaml": "sha256:1be5524d6f36b3c17085bdaa38140e90dd3d0f9d6d23b06556c129e9992694b7",
+      "extension-points.yaml": "sha256:b3c1e9d5341d7bbc5485748017232d2eadceecdf5b49aee168511b2373995473",
+      "instructions/aif-verify-bridge.md": "sha256:84d5042917144d42e304759a9be6c1188990d9eadb10fc2d0b57e61a84abf061",
+      "schemas/challenge-findings.yaml": "sha256:6fb370f0eed1b829742c62e17a93730b6a5f92cbb840fa221d77fbe8c74e2b05",
+      "schemas/continue.yaml": "sha256:2eb7710bd01b4c10f45d85d8730763f1f2ba15d826ba47c88f0c906b966db9f0",
+      "schemas/feature-enabled.yaml": "sha256:1ed5844b870208cb8786322ce60571314551cb5d787b1191fd8ff6e7dc1f9ff6",
+      "schemas/gate-result.yaml": "sha256:cc4df6b79b230b3b73fcd4c44e4a9a78617b033fc13b2f47d730871a10269795",
+      "schemas/implementation.yaml": "sha256:54505dbc84b71f7877ca277fd0525360ef56f8cda1edb07b6ef0bfc302b095a2",
+      "schemas/round-limit.yaml": "sha256:0ae70898492967329cbe8709a3e910634e4d04b96cfcd9879fa7c2dca3e342ed",
+      "schemas/task.yaml": "sha256:85bf498c6dc028b03d9546bd242fed72e593722814da8f550aa7c9bb99f5e10c",
+      "schemas/warmup-handoff.yaml": "sha256:0b61ec978ff8dd481742cb03fb15b45ae22e8275cbbe76b3559768fef9a90fad",
+      "steps/commit.yaml": "sha256:144b4f151102f45e08fec148edf466018e725b2ef0909c6dec5d31e00ecb99de",
+      "steps/continue-improve.yaml": "sha256:32a1eee386fe5b8dd249446240b9244e1eb270ccae9401b91bee2350e4a17b7b",
+      "steps/fix.yaml": "sha256:2090f0c345a3da00e94ebf599c7dcd5d703022f2453384bfe8d5ea1b489d7479",
+      "steps/implement.yaml": "sha256:571560aa9c0c5b68529b75695c0524f29041f278c527d8b88dbc5bd51bf29794",
+      "steps/improve.yaml": "sha256:c2a41e3e49b34e49768c5bacca1ee74ae1c2b38e5f5ad69b1fa345f3a602ccfb",
+      "steps/plan.yaml": "sha256:d37693895eca2da3179776fa5a9fc5c84d58801a64fdf2815c9fffd2a3afe1d1",
+      "steps/review-challenge.yaml": "sha256:7e7f44b5c00220d40ffe5ebebfc278f28935a6098f2265b83bd7d1a3eaa212e1",
+      "steps/review.yaml": "sha256:42f055b6b15d4cafdaf50c97edef4f4cad7c43d6468d661bffe11431e13ccce6",
+      "steps/security.yaml": "sha256:9c9899b6d393139719371c512d9a1e6afe0ab837adf332620413a7050413263b",
+      "steps/verify.yaml": "sha256:509887404f90fcc2a0ecbe476178ed0dc0d4744ec681ff8a98b5c2404c1fdc96",
+      "steps/warmup.yaml": "sha256:b54acc28f77c94dfb4933ce0010fcc4040ccee081441c4b4d47eca9759215693",
+      "workflow.yaml": "sha256:06b5f7daa4b6844995567b1aa87884d92f1fc336798e3ea675f94d86ad359dc3",
+      "workflows/improve-batch.yaml": "sha256:4049657860d592760e9df533718b0fecca4b14539204df16b84321a153105138",
+      "workflows/improve-once.yaml": "sha256:0f57324ac8a959be2a877cd10beeebe4b0be0634b9bf630737b62e546f647540",
+      "workflows/improve-or-pass.yaml": "sha256:d3bfd0df4c57283171fe60913c57b59b55ad60e95ee578a56306e565738ae062",
+      "workflows/improve-series.yaml": "sha256:36e42d77667ca1ecea705ba629c078d1cf9763f55f53168f7315356f26ae0ecf",
+      "workflows/review-batch.yaml": "sha256:f4409fd1da3979f29bfc07067e3a55aa8b48fad430fed21d36736d7b72f91a62",
+      "workflows/review-once.yaml": "sha256:18835cfc9ecb2badf0e3c58c4189810fa4b55d36d1ebcffd2307064bea8c1ff7",
+      "workflows/verify-batch.yaml": "sha256:2c513145f55599df623edc3968b533b5e48a09463663535f13d70857e9a02690",
+      "workflows/verify-once.yaml": "sha256:bf3514024971412fd4a793a703d2ff1a3d87803b064e688462209f87857d64a0"
+    },
+    "aif-profiled": {
+      "README.md": "sha256:1f78e4e1f70e51832fdb7bfd99fd42f0a931a93c3153711e13b19a64a1231361",
+      "compile-parameters.yaml": "sha256:1abe0a82889b9ed0d10d6044915cb9a48f00e52963b2e7c7652c727a14cd5de2",
+      "contexts/aif-commit-bridge.yaml": "sha256:cc3eb573ad28b7be1a4ca2bc4de37953e2ed1a86e554e8d51d7a530dcbb86d4e",
+      "contexts/aif-commit.yaml": "sha256:0f602e81a858d055520b512e4ba920a9678ec0115e190d90c113b5b26f6c0b8e",
+      "contexts/aif-fix-bridge.yaml": "sha256:5bcbe6d36c235a125355048bacd0db85765279b3a91c2bcaabe137907f726880",
+      "contexts/aif-fix.yaml": "sha256:d88ac9e5ff6edd684b749de77b6dfc2e13eb5c7fb94ad52ce1d44856648768d2",
+      "contexts/aif-implement-bridge.yaml": "sha256:90c4e1a413becc9dcdc306bfec379f3b8475907439f9f1ebdcf9e2b8b39db7a1",
+      "contexts/aif-implement.yaml": "sha256:4321e319d9e688fc5e9993ac8b53fd97484a07448474dd3efcef2570ccba24f5",
+      "contexts/aif-improve-bridge.yaml": "sha256:dafeafc14947421ecc2e939b1b1343525c1dfc8f337f49c8732e95b26272d3fd",
+      "contexts/aif-improve-check-mode.yaml": "sha256:22b6724ce6738433170b15760a9048e203ac17e781f33240698ca410411aca23",
+      "contexts/aif-improve-examples.yaml": "sha256:78e0027eb28034fa9c5f76e64a20a45a7a2e0ba64a695b4a4422db9baa34410a",
+      "contexts/aif-improve-list-mode.yaml": "sha256:b8d7d0eaa13134945ddbc820dfbd918f35f2d99961a879324e463b23adff7ded",
+      "contexts/aif-improve-validator.yaml": "sha256:65aba50dd47d0736dfc8f201560bc0c2329a811c07657459f514f755976a7f37",
+      "contexts/aif-improve.yaml": "sha256:c7ba7f388572469ad6fa2d6efec103fae2aaa5e2065e030d34202963e3d4e8f6",
+      "contexts/aif-plan-bridge.yaml": "sha256:5e354e2a16aa90ba71e2c65554db9f9e9c7504d184e824b355ee5a3856478216",
+      "contexts/aif-plan.yaml": "sha256:4578ebc759a62082806e5736d0ebc9b1d8752439939b6ef03de426deae33d92d",
+      "contexts/aif-review-bridge.yaml": "sha256:3aa3c153af9f392d193095d293fbd30c0f9f131f426abe8fb2f365d3104fda4b",
+      "contexts/aif-review-challenge-bridge.yaml": "sha256:e850bd5ecb1eb17f135d14c70707eaa7f73fb8b981cd79c44720b1c701ddc957",
+      "contexts/aif-review.yaml": "sha256:4628fbfa310990c2521b0cedcef1826a0dd022a3edd221046580dfe7a1c2b6e1",
+      "contexts/aif-security-bridge.yaml": "sha256:97311cb41178eaa3a21905802b560b3754b7329cacfe32ad0a843c63c5b36c0b",
+      "contexts/aif-security.yaml": "sha256:ccb6e296c8ad16dce429914e6e71d0f3b804962c3cc6fca56704770a2a2ffb40",
+      "contexts/aif-verify-bridge.yaml": "sha256:3c362dfffcec64c08c5b361325ce2a0741edd5ff67ca1c53f2a82c15aa621cc1",
+      "contexts/aif-verify.yaml": "sha256:959b6666c7a9746ca4d10588e88050fce70dab0a0a76b3d2cf64ea837f6dd03b",
+      "contexts/aif-warmup-bridge.yaml": "sha256:c9554921d15f9edf18a33a4bf189e6f72a237e66376d114cbcbdd3dffc69281b",
+      "contexts/aif-warmup.yaml": "sha256:9342a86b2bbbd5c2fb0f9fa74f7804c1c826952616699efe71023f271b5c11b8",
+      "contexts/continue-improve.yaml": "sha256:0cf2b911ea5a5715250dc479388dfc396a8ba505587ff85962a671485f99dcee",
+      "decisions/INVENTORY.md": "sha256:57475cc860e4ac6df846ebf5b92bc1261132d0ba8cb080de311c7c878c3fbfd8",
+      "decisions/gates/checks.yaml": "sha256:c0166074a41edb650af05e51e7a070437ddfd9aa071f9d018d5bce62074ac2c3",
+      "decisions/gates/warnings.yaml": "sha256:50afae11b81e4af353e24efa4c09162d1b696dea62b81662eb85a647b5ab2dec",
+      "decisions/improve/apply.yaml": "sha256:2b7c740c8c181e522ddff58ceb34c091834aa686171c6d5385ddf5e6cb14d03d",
+      "decisions/plan/constraints.yaml": "sha256:ebd78992eaba6bc66d5089a60ae1a830f1adf1a662fef9142f9f589945a86694",
+      "decisions/plan/docs.yaml": "sha256:a4a929dfd1710a7a247039ab05e6fda9e28906df682459dc4da33eafc94752db",
+      "decisions/plan/logging.yaml": "sha256:ee190623e4d3494dc991d25bb44730ea6a3f5c020022636bb15dc6faef1e25f3",
+      "decisions/plan/profile.yaml": "sha256:c7ea4dac956bfa1572c68e28ca9298cf5951637e22e922ec762dfc438de9a74e",
+      "decisions/plan/roadmap-linkage.yaml": "sha256:110738e925a857cc5da58ef438cdc4df38b32bb9bef616722e875e7c89ca4990",
+      "decisions/plan/roadmap-milestone.yaml": "sha256:ed09173df961834534ac07d93239462428a44822de9122564447a0645e2f549f",
+      "decisions/plan/tests.yaml": "sha256:e9d7035db4c14fa0be8958654a837ba76300f9dbaed2b369db476d16b5d383f5",
+      "extend.yaml": "sha256:ddc0a0e6c4ec4f6de7fb95a637d3decb39c472be7cb10342dde021317b948695",
+      "extension-points.yaml": "sha256:14ce084857d5de3e03d7a485a078f22ce7046479e46e0a8b6463827367f4bc74",
+      "instructions/aif-verify-bridge.md": "sha256:84d5042917144d42e304759a9be6c1188990d9eadb10fc2d0b57e61a84abf061",
+      "schemas/challenge-findings.yaml": "sha256:6fb370f0eed1b829742c62e17a93730b6a5f92cbb840fa221d77fbe8c74e2b05",
+      "schemas/continue.yaml": "sha256:2eb7710bd01b4c10f45d85d8730763f1f2ba15d826ba47c88f0c906b966db9f0",
+      "schemas/feature-enabled.yaml": "sha256:1ed5844b870208cb8786322ce60571314551cb5d787b1191fd8ff6e7dc1f9ff6",
+      "schemas/gate-result.yaml": "sha256:cc4df6b79b230b3b73fcd4c44e4a9a78617b033fc13b2f47d730871a10269795",
+      "schemas/implementation.yaml": "sha256:54505dbc84b71f7877ca277fd0525360ef56f8cda1edb07b6ef0bfc302b095a2",
+      "schemas/round-limit.yaml": "sha256:0ae70898492967329cbe8709a3e910634e4d04b96cfcd9879fa7c2dca3e342ed",
+      "schemas/task.yaml": "sha256:85bf498c6dc028b03d9546bd242fed72e593722814da8f550aa7c9bb99f5e10c",
+      "schemas/warmup-handoff.yaml": "sha256:0b61ec978ff8dd481742cb03fb15b45ae22e8275cbbe76b3559768fef9a90fad",
+      "steps/commit.yaml": "sha256:bcfd023ff442ed3c9c616fb7e5c90f5ddb01c9d84b194781ec30d3a390716cda",
+      "steps/continue-improve.yaml": "sha256:7cec1990ea9996b752cb92fa65ff26c26589e33b388ee0a268a8173f029bb38c",
+      "steps/fix.yaml": "sha256:39d23c770d034222b79896350588121e5f1f8f0b37d864c509f59a287130ffd2",
+      "steps/implement.yaml": "sha256:e67b63c72fa1b080a8e8e7174edd5c7706ae6a6319e0ee7866e5b9a260c6423f",
+      "steps/improve.yaml": "sha256:2788434a8040a51de49a36539e7112e9524f871cafb310daf491b16f1c9eb584",
+      "steps/plan.yaml": "sha256:33de434781f06f3b46a85da68c1aa5a9816ebd952cfb08f79cc2a2d0b44d2f8f",
+      "steps/review-challenge.yaml": "sha256:f32fc5a62c7a666b7733a52065542da21085fe9d4559016cad564f4ac26e4d92",
+      "steps/review.yaml": "sha256:9c97474bf1f34d4a244269d13588fa43bd0c989e4305b29c9a6ea405000b584f",
+      "steps/security.yaml": "sha256:1aa7b59eafe93b3f05c5eddfb908ad82109618d4096afd008af263d0314c6c78",
+      "steps/verify.yaml": "sha256:78ce035ad86359091aa0d718692f41cd8f2c399c1f09abcd598ea88caf032bab",
+      "steps/warmup.yaml": "sha256:640fbde66a7dae8c7b15f789294199cf2e1a11319c7abf0f446e1f5fca98d0e4",
+      "workflow.yaml": "sha256:e18f7fdd8c097188823c35f83186203ded444d2cf52850b9b557a54b93361f27",
+      "workflows/improve-batch.yaml": "sha256:e5ac1508e0e94cad205d517fe857fcdc161024f2f33b3fbba54361f9c8a63daf",
+      "workflows/improve-once.yaml": "sha256:622c6956e72681739489bcaf7749a81a3e21ac7509f29d5d7cb37b867ba67580",
+      "workflows/improve-or-pass.yaml": "sha256:b5fae13ed2c9af6d481c9fc469cbff0c4a9a98aed7accaea6c4250007b847154",
+      "workflows/improve-series.yaml": "sha256:911b6fd2b2665b15f17354c2df25832a0aed5f436587827872ab92d2db38e2bd",
+      "workflows/review-batch.yaml": "sha256:2b2edb00bf22a8b6bb49a685186e696a437fb2406e778236aa1e447dd9f207ab",
+      "workflows/review-once.yaml": "sha256:3d8562567ed8626739c4fb73200db60379e24cbcbffe01303a3455843f2d4b76",
+      "workflows/verify-batch.yaml": "sha256:c09f2ccad88a24dbd6f515821378ed8ebbde33f32544183a7d7f09f4b0acb28a",
+      "workflows/verify-once.yaml": "sha256:93b09f36ca96685e0b678a767c570d44f72e06a88413b2763e89ed7592a23846"
+    },
+    "aif-fix": {
+      "README.md": "sha256:6d86d324e720a95f58a7f5e699db2f600b19b174aecc50471f59bd7ad61c493b",
+      "compile-parameters.yaml": "sha256:1abe0a82889b9ed0d10d6044915cb9a48f00e52963b2e7c7652c727a14cd5de2",
+      "contexts/aif-commit.yaml": "sha256:0f602e81a858d055520b512e4ba920a9678ec0115e190d90c113b5b26f6c0b8e",
+      "contexts/aif-fix.yaml": "sha256:d88ac9e5ff6edd684b749de77b6dfc2e13eb5c7fb94ad52ce1d44856648768d2",
+      "contexts/aif-review.yaml": "sha256:4628fbfa310990c2521b0cedcef1826a0dd022a3edd221046580dfe7a1c2b6e1",
+      "contexts/aif-security-bridge.yaml": "sha256:297d94824470eca503042e6a5ec2d7bd0ba738113d418c5f27ba89fefa65570e",
+      "contexts/aif-security.yaml": "sha256:ccb6e296c8ad16dce429914e6e71d0f3b804962c3cc6fca56704770a2a2ffb40",
+      "contexts/aif-warmup.yaml": "sha256:9342a86b2bbbd5c2fb0f9fa74f7804c1c826952616699efe71023f271b5c11b8",
+      "contexts/check-change-bridge.yaml": "sha256:08437435535b978a0029a8f84f594061494413ea2a560149a98d76e540b7c787",
+      "contexts/commit-bridge.yaml": "sha256:2a09f50c2ec07b447a76c1498b413a3bd544c05ae270be2b80f7496f9d846496",
+      "contexts/fix-from-plan-bridge.yaml": "sha256:58ac26cdc858565b73cb5cf9f0c78ab53a1878fe0a1ac7feb4df83d45bcaf261",
+      "contexts/fix-path.yaml": "sha256:0d7fb2523e180b179ade1455e35c55ff9b3dc7dee7ff479a3e8457865c28fc86",
+      "contexts/fix-plan-bridge.yaml": "sha256:f362f9ed2708ab3f31fcbe25c2686122c6648801ab79e18837babe88e15e8d39",
+      "contexts/fix-protocol.yaml": "sha256:5ed0a02c665759d04d65a480d3025c4c3875a472d98360e1e42af402328fed4a",
+      "contexts/fix-task-bridge.yaml": "sha256:3d3bcbd80581fc158ce4f83cf720978de61309661442edc03ddbc14c1a53c039",
+      "contexts/repair-bridge.yaml": "sha256:eb74d210144fdaf3d67fa95c5742d3e6a54703e674c71bac0d257959158ca7f9",
+      "contexts/review-task-bridge.yaml": "sha256:da7fcbecf520cbfcade2e1fb4ab6faba1e74889065bbaeb93897b06b96a8f400",
+      "contexts/session-report.yaml": "sha256:b7fe0e6c845b33b170a896291927dee5622202217a614eee0787b3bfddc0d6f4",
+      "contexts/warmup-bridge.yaml": "sha256:0c01839e98170122d71663c4720ac2d79e42badba140e1bae9ebb5959ab079bc",
+      "decisions/INVENTORY.md": "sha256:69f5b8debc47a74551bb867f99ef299ef3ca214c7934a7ca74986d5995fab7a1",
+      "decisions/checks.yaml": "sha256:793dfc1c42722addf10e9cc680ef2a30181a98e3af0adf32a6b46d51d5c9a4c0",
+      "decisions/plan-execution.yaml": "sha256:f2defe860a862f55f00fa612fbf2ad3b41ea8d996d6d9547792855c8c5a80046",
+      "decisions/warnings.yaml": "sha256:4986be2e718ed6704f72ee7595c117ba3ad646e14a3e972ba9739d387da3f3f5",
+      "extend.yaml": "sha256:06711a15996c0a8bca78815d690e9cc77153d43661bb839f4dff75dc17548b96",
+      "extension-points.yaml": "sha256:3e5d2c1dc6381761d4071b6ac73fea534d09ea1c622120fe1c6d2d92ee970212",
+      "instructions/aif-security-bridge.md": "sha256:02701bae639f977c726e3c10e118dc557ad15b62298b99eaf7e6ec03891b1036",
+      "instructions/check-change-bridge.md": "sha256:99c3796c6013c099e996a1a7eba4edc383a197f38f952b50f73888c1148e5201",
+      "instructions/commit-bridge.md": "sha256:bf50a8c505d130e6d73d5aa9228a3fc2d4ad62e4703604fa5289a74957cbb8dc",
+      "instructions/fix-from-plan-bridge.md": "sha256:9e7d377fb4c26fc7f345bd17a5636dbbfcff77c4d627c29cdd34e4c9724bce8a",
+      "instructions/fix-plan-bridge.md": "sha256:26e0b5ad5af21bbe83dd6ae10eeda460f422d48a957712691880cd524740e85c",
+      "instructions/fix-protocol.md": "sha256:9947c435d549e44d45ba06857697f2aa40d5a85f9a99181c18330548c9f8af36",
+      "instructions/fix-task-bridge.md": "sha256:a6b9e9ebb31c8d8b518588deedd8c70b09e99335b658e00b37de8f17c3238138",
+      "instructions/repair-bridge.md": "sha256:cb4bed8e47f763eda51485de39a5b66156d7c168d6f1d8c8bee64402e578c65e",
+      "instructions/review-task-bridge.md": "sha256:d0899569d3b1f55c67ec9b5bb83c59232e4ce6df70353458922aedba5b7fe19b",
+      "instructions/session-report.md": "sha256:fd406282075cb43e3ae0256f60599c41a6218d58c672be60afcb1ccdd1f8941b",
+      "instructions/warmup-bridge.md": "sha256:9a92aa8400b84d61074fb6f612497c7f6b2445509392231696aaddc9dc845686",
+      "schemas/feature-enabled.yaml": "sha256:1ed5844b870208cb8786322ce60571314551cb5d787b1191fd8ff6e7dc1f9ff6",
+      "schemas/fix-result.yaml": "sha256:f3a0a8aa92abc0673d55fad23ff59f5ec61da80b360c06893468c235cacd4f98",
+      "schemas/gate-result.yaml": "sha256:cc4df6b79b230b3b73fcd4c44e4a9a78617b033fc13b2f47d730871a10269795",
+      "schemas/implementation.yaml": "sha256:54505dbc84b71f7877ca277fd0525360ef56f8cda1edb07b6ef0bfc302b095a2",
+      "schemas/round-limit.yaml": "sha256:0ae70898492967329cbe8709a3e910634e4d04b96cfcd9879fa7c2dca3e342ed",
+      "schemas/task.yaml": "sha256:85bf498c6dc028b03d9546bd242fed72e593722814da8f550aa7c9bb99f5e10c",
+      "schemas/warmup-handoff.yaml": "sha256:0b61ec978ff8dd481742cb03fb15b45ae22e8275cbbe76b3559768fef9a90fad",
+      "steps/check-change.yaml": "sha256:b7de204424e32f44768e40758eeee92de037b6d16089c82f66cdfb0dd4d676b9",
+      "steps/commit.yaml": "sha256:3e17aa6e3127101c0154b45f4f5845d346c3eebcb5cc21942a689961d763d5be",
+      "steps/fix-from-plan.yaml": "sha256:8058eb6a8ee7292817c3e10bfae5ac63461081051437c8f30b4f369a1264cec5",
+      "steps/fix-plan.yaml": "sha256:6d3eb5388461417370ff70b67513c00388ed42ca495a8017f9a898456d2f10bf",
+      "steps/fix-task.yaml": "sha256:66a275d4495f303fb90461933960205ed089bf44706a30a0e0a8eb9f68d9d726",
+      "steps/repair.yaml": "sha256:70e8f6b7cc26233bf070ded1f7a0172ad6f4504317892508c35bc491a6b81bcd",
+      "steps/review-task.yaml": "sha256:229ffeaa76a6f333980ced84095354f0b50c086c31d3546eec7cbb6dfce1df48",
+      "steps/security.yaml": "sha256:524207b323fbfea13e271c6e834eabc08703575c2ebdb2393208763f497625ff",
+      "steps/warmup.yaml": "sha256:cf0d21eae7f1d1c9803bd66857df866c2d6695ff5be9f921ca5c82b0d32325f0",
+      "workflow.yaml": "sha256:6c46a960217efacae9635d926d96b129ca8b7e1bd288ef8569760b301743220d",
+      "workflows/build.yaml": "sha256:eede0ae57ed89a640616853fae2b87195dd3d3fe111156493c4300390d06ac16",
+      "workflows/quality-round.yaml": "sha256:98e30aa04799faa772f78035c2166e15218a753afd6520a71ba925c46c6e4ea2",
+      "workflows/quality.yaml": "sha256:0f302d53b4f285ed55fe92fc63e872d8207c14a2d43912104a2c9440f026a38a"
+    }
+  },
+  "cases": [
+    {
+      "package": "aif-fix",
+      "case": "boundaries",
+      "builds": [
+        {
+          "build_key": "sha256:7070802ef2184440907510f0432160c94fd96f5432c8e5b4692e6fd1ab6f6971",
+          "package": {
+            "id": "aif-fix:package/fix",
+            "version": "0.0.0-b2.obyialxsdbcebedvcdyegilazfh5s32ugleolndjfzx5dk3pnfyq",
+            "digest": "sha256:7d2b8eb09d7e84517ed2aaa528ab5f44f6a9174f6d681094c8715096a07b58f0"
+          },
+          "profile": "default",
+          "host": "codex-cli",
+          "limit": 12000,
+          "task_ref": {
+            "digest": "sha256:c6a5499a81d72b52ab70427ca6a0a2a6b3d6a03c12fab5844da1f588ba754a72",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.yylwk3dgqwbuxynibj7qjhqmo4rdwcyyio7hnvw7rw7sn4twyjpq"
+          },
+          "consumer_count": 11
+        },
+        {
+          "build_key": "sha256:1574ef4c0eb81bc5d96efa0611546f33642932cc93e544f3a9d5eef587fda5de",
+          "package": {
+            "id": "aif-fix:package/fix",
+            "version": "0.0.0-b2.cv2o6taoxan4lwlo7idbcvdpgnscsmwmspsuj45j2xxplb75uxpa",
+            "digest": "sha256:572a6ed6bbb9349e318fe7dd1dff3d1b26875549b1899c7c2a718dddeb9aeddf"
+          },
+          "profile": "default",
+          "host": "codex-cli",
+          "limit": 32000,
+          "task_ref": {
+            "digest": "sha256:60a6c2c36c9f8da3bdfdf61fa8a86597688df5393b67a5c6846aea475ec3d5e3",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.gsqhjqxpznihuevgt6cree3uaoa5la2ivugicix2tgbqrqcnegca"
+          },
+          "consumer_count": 11
+        },
+        {
+          "build_key": "sha256:1574ef4c0eb81bc5d96efa0611546f33642932cc93e544f3a9d5eef587fda5de",
+          "package": {
+            "id": "aif-fix:package/fix",
+            "version": "0.0.0-b2.cv2o6taoxan4lwlo7idbcvdpgnscsmwmspsuj45j2xxplb75uxpa",
+            "digest": "sha256:572a6ed6bbb9349e318fe7dd1dff3d1b26875549b1899c7c2a718dddeb9aeddf"
+          },
+          "profile": "default",
+          "host": "codex-app",
+          "limit": 32000,
+          "task_ref": {
+            "digest": "sha256:60a6c2c36c9f8da3bdfdf61fa8a86597688df5393b67a5c6846aea475ec3d5e3",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.gsqhjqxpznihuevgt6cree3uaoa5la2ivugicix2tgbqrqcnegca"
+          },
+          "consumer_count": 11
+        },
+        {
+          "build_key": "sha256:1574ef4c0eb81bc5d96efa0611546f33642932cc93e544f3a9d5eef587fda5de",
+          "package": {
+            "id": "aif-fix:package/fix",
+            "version": "0.0.0-b2.cv2o6taoxan4lwlo7idbcvdpgnscsmwmspsuj45j2xxplb75uxpa",
+            "digest": "sha256:572a6ed6bbb9349e318fe7dd1dff3d1b26875549b1899c7c2a718dddeb9aeddf"
+          },
+          "profile": "default",
+          "host": "claude-code",
+          "limit": 32000,
+          "task_ref": {
+            "digest": "sha256:60a6c2c36c9f8da3bdfdf61fa8a86597688df5393b67a5c6846aea475ec3d5e3",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.gsqhjqxpznihuevgt6cree3uaoa5la2ivugicix2tgbqrqcnegca"
+          },
+          "consumer_count": 11
+        },
+        {
+          "build_key": "sha256:16b4ae007415947b4c9f77bbe4ace25b075e28ce1cd798d4da5c3a328aa426e4",
+          "package": {
+            "id": "aif-fix:package/fix",
+            "version": "0.0.0-b2.c22k4aducwkhwte7o656jlhclmdv4kgodtlzrvg2lq5dfcvee3sa",
+            "digest": "sha256:4a3276c69fe02a0c97b6890262d0caa356936060df4ee0f544197a71f5e34481"
+          },
+          "profile": "custom",
+          "host": "codex-cli",
+          "limit": 32000,
+          "task_ref": {
+            "digest": "sha256:112c3cd9eb8ffdaa58e88d42de0fd81fcf4d08d02dfefceb8924bdbf633f0978",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.nmvxro2tzfqhmlkb6xxoxm6wqfeilmbhgrnml3eapfmphdlr5m6q"
+          },
+          "consumer_count": 11
+        },
+        {
+          "build_key": "sha256:16b4ae007415947b4c9f77bbe4ace25b075e28ce1cd798d4da5c3a328aa426e4",
+          "package": {
+            "id": "aif-fix:package/fix",
+            "version": "0.0.0-b2.c22k4aducwkhwte7o656jlhclmdv4kgodtlzrvg2lq5dfcvee3sa",
+            "digest": "sha256:4a3276c69fe02a0c97b6890262d0caa356936060df4ee0f544197a71f5e34481"
+          },
+          "profile": "custom",
+          "host": "codex-app",
+          "limit": 32000,
+          "task_ref": {
+            "digest": "sha256:112c3cd9eb8ffdaa58e88d42de0fd81fcf4d08d02dfefceb8924bdbf633f0978",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.nmvxro2tzfqhmlkb6xxoxm6wqfeilmbhgrnml3eapfmphdlr5m6q"
+          },
+          "consumer_count": 11
+        },
+        {
+          "build_key": "sha256:16b4ae007415947b4c9f77bbe4ace25b075e28ce1cd798d4da5c3a328aa426e4",
+          "package": {
+            "id": "aif-fix:package/fix",
+            "version": "0.0.0-b2.c22k4aducwkhwte7o656jlhclmdv4kgodtlzrvg2lq5dfcvee3sa",
+            "digest": "sha256:4a3276c69fe02a0c97b6890262d0caa356936060df4ee0f544197a71f5e34481"
+          },
+          "profile": "custom",
+          "host": "claude-code",
+          "limit": 32000,
+          "task_ref": {
+            "digest": "sha256:112c3cd9eb8ffdaa58e88d42de0fd81fcf4d08d02dfefceb8924bdbf633f0978",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.nmvxro2tzfqhmlkb6xxoxm6wqfeilmbhgrnml3eapfmphdlr5m6q"
+          },
+          "consumer_count": 11
+        }
+      ],
+      "refusals": [
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-46555vce/repository",
+            "--launch",
+            "aif-fix",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-46555vce/task-12001.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "default",
+            "--preflight-answer",
+            "short_checks=\"\"",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--runtime-answer",
+            "fix_plan_execution=true",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "schema_invalid",
+            "message": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 12001",
+            "retryable": false,
+            "correlation_id": "correlation:8f46e6166e6a41b1a3aa9044ab094581",
+            "violations": [
+              {
+                "pointer": "/description",
+                "reason": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 12001"
+              }
+            ],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-46555vce/repository",
+            "--launch",
+            "aif-fix",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-46555vce/task-12001.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "default",
+            "--preflight-answer",
+            "short_checks=\"\"",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--runtime-answer",
+            "fix_plan_execution=true"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "schema_invalid",
+            "message": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 12001",
+            "retryable": false,
+            "correlation_id": "correlation:8f257281f5adc99f71df3176f3f49524",
+            "violations": [
+              {
+                "pointer": "/description",
+                "reason": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 12001"
+              }
+            ],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-46555vce/repository",
+            "--launch",
+            "aif-fix",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-46555vce/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "default",
+            "--preflight-answer",
+            "short_checks=\"\"",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--runtime-answer",
+            "fix_plan_execution=true",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "schema_invalid",
+            "message": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 16557",
+            "retryable": false,
+            "correlation_id": "correlation:f47e367ce88163e49edf1dbf4e92ce07",
+            "violations": [
+              {
+                "pointer": "/description",
+                "reason": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 16557"
+              }
+            ],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-46555vce/repository",
+            "--launch",
+            "aif-fix",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-46555vce/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "default",
+            "--preflight-answer",
+            "short_checks=\"\"",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--runtime-answer",
+            "fix_plan_execution=true"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "schema_invalid",
+            "message": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 16557",
+            "retryable": false,
+            "correlation_id": "correlation:1a4b90cc8f7d6b85af7309830011c3b1",
+            "violations": [
+              {
+                "pointer": "/description",
+                "reason": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 16557"
+              }
+            ],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-46555vce/repository",
+            "--launch",
+            "aif-fix",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-46555vce/task-32001.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "default",
+            "--preflight-answer",
+            "short_checks=\"\"",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--runtime-answer",
+            "fix_plan_execution=true",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "schema_invalid",
+            "message": "value does not satisfy the declared contract; the contract allows at most 32000 characters, this value has 32001",
+            "retryable": false,
+            "correlation_id": "correlation:487f28e33ae566e2561f3007c1bc558c",
+            "violations": [
+              {
+                "pointer": "/description",
+                "reason": "value does not satisfy the declared contract; the contract allows at most 32000 characters, this value has 32001"
+              }
+            ],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-46555vce/repository",
+            "--launch",
+            "aif-fix",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-46555vce/task-32001.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "default",
+            "--preflight-answer",
+            "short_checks=\"\"",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--runtime-answer",
+            "fix_plan_execution=true"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "schema_invalid",
+            "message": "value does not satisfy the declared contract; the contract allows at most 32000 characters, this value has 32001",
+            "retryable": false,
+            "correlation_id": "correlation:6ec0a31636197a2c66675dc9c41278af",
+            "violations": [
+              {
+                "pointer": "/description",
+                "reason": "value does not satisfy the declared contract; the contract allows at most 32000 characters, this value has 32001"
+              }
+            ],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-46555vce/repository",
+            "--launch",
+            "aif-fix",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-46555vce/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "default",
+            "--preflight-answer",
+            "short_checks=\"\"",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--runtime-answer",
+            "fix_plan_execution=true",
+            "--expected-launch-digest",
+            "sha256:e04096d2e677ee3647a4bf00bc2719cc5f128aaf1cfb80dcdd8a690c2facf3f4"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_start_stale_launch",
+            "message": "sources, inputs, bindings, decisions or the registry plan (a Run or a package changed since the review) changed; repeat project questionnaire --prepare and review the new summary",
+            "retryable": false,
+            "correlation_id": "correlation:00cdf8a8a1b5dbfccef477afab5299db",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-46555vce/repository",
+            "--launch",
+            "aif-fix",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-46555vce/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "default",
+            "--preflight-answer",
+            "short_checks=\"\"",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--runtime-answer",
+            "fix_plan_execution=true",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:cb9c0fb299d160021fdf986a1cf5e5c3",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-46555vce/repository",
+            "--launch",
+            "aif-fix",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-46555vce/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "default",
+            "--preflight-answer",
+            "short_checks=\"\"",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--runtime-answer",
+            "fix_plan_execution=true"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:d09ff8eaeeeea0c4c8f135843558b999",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-46555vce/repository",
+            "--launch",
+            "aif-fix",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-46555vce/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "default",
+            "--preflight-answer",
+            "short_checks=\"\"",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--runtime-answer",
+            "fix_plan_execution=true",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:9dba7edc3fc80582d5c4107b6ecf8615",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-46555vce/repository",
+            "--launch",
+            "aif-fix",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-46555vce/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "default",
+            "--preflight-answer",
+            "short_checks=\"\"",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--runtime-answer",
+            "fix_plan_execution=true"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:a2323e9bd65360545021b891a50194b5",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-46555vce/repository",
+            "--launch",
+            "aif-fix",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-46555vce/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "default",
+            "--preflight-answer",
+            "short_checks=\"\"",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--runtime-answer",
+            "fix_plan_execution=true",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:7a945b60201d192e92db8b10251eb1ca",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-46555vce/repository",
+            "--launch",
+            "aif-fix",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-46555vce/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "default",
+            "--preflight-answer",
+            "short_checks=\"\"",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--runtime-answer",
+            "fix_plan_execution=true"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:13612c564f4484993cc5b0b37c49c194",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-46555vce/repository",
+            "--launch",
+            "aif-fix",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-46555vce/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "default",
+            "--preflight-answer",
+            "short_checks=\"\"",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--runtime-answer",
+            "fix_plan_execution=true",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:1f27eb880657a3b05ae63fdfb3da4fcd",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-46555vce/repository",
+            "--launch",
+            "aif-fix",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-46555vce/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "default",
+            "--preflight-answer",
+            "short_checks=\"\"",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--runtime-answer",
+            "fix_plan_execution=true"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:229a6dce0ca42eaee3a597afedbe01aa",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-46555vce/repository",
+            "--launch",
+            "aif-fix",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-46555vce/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "default",
+            "--preflight-answer",
+            "short_checks=\"\"",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--runtime-answer",
+            "fix_plan_execution=true",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:0d255013fbe2c1d8144d8661252ea731",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-46555vce/repository",
+            "--launch",
+            "aif-fix",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-46555vce/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "default",
+            "--preflight-answer",
+            "short_checks=\"\"",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--runtime-answer",
+            "fix_plan_execution=true"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:c232c89636fc33e0276cb14e34453272",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-46555vce/repository",
+            "--launch",
+            "aif-fix",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-46555vce/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "default",
+            "--preflight-answer",
+            "short_checks=\"\"",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--runtime-answer",
+            "fix_plan_execution=true",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:3481537684b4725a5e873d0680469885",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-46555vce/repository",
+            "--launch",
+            "aif-fix",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-46555vce/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "default",
+            "--preflight-answer",
+            "short_checks=\"\"",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--runtime-answer",
+            "fix_plan_execution=true"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:51c80d231e7681f05b82e1bcdbb83150",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-46555vce/repository",
+            "--launch",
+            "aif-fix",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-46555vce/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "default",
+            "--preflight-answer",
+            "short_checks=\"\"",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--runtime-answer",
+            "fix_plan_execution=true",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": ".prifly/workflows/aif-fix/project/compile-values.yaml: unsafe_integer at /values/task_description_limit: exact large integers must be encoded as strings",
+            "retryable": false,
+            "correlation_id": "correlation:13f21b922bae7c44964d607e2b501c72",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-46555vce/repository",
+            "--launch",
+            "aif-fix",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-46555vce/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "default",
+            "--preflight-answer",
+            "short_checks=\"\"",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--runtime-answer",
+            "fix_plan_execution=true"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": ".prifly/workflows/aif-fix/project/compile-values.yaml: unsafe_integer at /values/task_description_limit: exact large integers must be encoded as strings",
+            "retryable": false,
+            "correlation_id": "correlation:78a10e10de217f89eaf0aab3e19b5bd9",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-46555vce/repository",
+            "--launch",
+            "aif-fix",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-46555vce/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "default",
+            "--preflight-answer",
+            "short_checks=\"\"",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--runtime-answer",
+            "fix_plan_execution=true",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:83c889bbcbb9069fbb11abace6e55bfb",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-46555vce/repository",
+            "--launch",
+            "aif-fix",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-46555vce/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "default",
+            "--preflight-answer",
+            "short_checks=\"\"",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--runtime-answer",
+            "fix_plan_execution=true"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:57eb4d1b24df1e333eecfffef1ad62c3",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-46555vce/repository",
+            "--launch",
+            "aif-fix",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-46555vce/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "default",
+            "--preflight-answer",
+            "short_checks=\"\"",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--runtime-answer",
+            "fix_plan_execution=true",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:c98b43e45f2384e8650f8d3c4c1fc07d",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-46555vce/repository",
+            "--launch",
+            "aif-fix",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-46555vce/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "default",
+            "--preflight-answer",
+            "short_checks=\"\"",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--runtime-answer",
+            "fix_plan_execution=true"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:c4bad02dd1869b49e55ae90b2a874178",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        }
+      ],
+      "accepted_starts": 3,
+      "unicode_diagnostics": true,
+      "previous_runs_unchanged": true,
+      "prepare_and_refusals_read_only": true,
+      "stale_review_refused": true,
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1,
+        "root_removed": true
+      }
+    },
+    {
+      "package": "aif-classic",
+      "case": "boundaries",
+      "builds": [
+        {
+          "build_key": "sha256:96f5332825fd2b6efea7ffa4101934999a0315fb8223328f4973b3456813be1b",
+          "package": {
+            "id": "aif:package/classic",
+            "version": "0.0.0-b2.s32tgkbf7uvw57vh76sbagjutgnagfp3qirtfd2joozuk2atxynq",
+            "digest": "sha256:7a6be521e27997ad196792406b44db06d0153df6d45f7fc2509c356e19ed6aa2"
+          },
+          "profile": "fast",
+          "host": "codex-cli",
+          "limit": 12000,
+          "task_ref": {
+            "digest": "sha256:10aca8b5b24a6dd896dcb6fc2993f01a0cc12fbdd774ddc2465839918cb4a811",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.jzwtz4hmku2etgvzmuaclr7xbu32qvvbsooisqt6nwgbls4sck7q"
+          },
+          "consumer_count": 6
+        },
+        {
+          "build_key": "sha256:8d6401a3b8db10421bc5f80cc6394b0313f4de00cacd3336629ce71b65da9ea6",
+          "package": {
+            "id": "aif:package/classic",
+            "version": "0.0.0-b2.rvsadi5y3mieeg6f7agmmoklamj7jxqazlgtgntctttrwzo2t2ta",
+            "digest": "sha256:d74ea948423d4865019230381d6980873d8ab7933ab4d8925ddb0ef44762e59d"
+          },
+          "profile": "fast",
+          "host": "codex-cli",
+          "limit": 32000,
+          "task_ref": {
+            "digest": "sha256:51b8843e962498e959a6678d33f844dadd18b2c4396299454cb7fb72f87fcb7c",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.cuxcoxa7btc7wha5c7fw3pew34qbleloq3ii32ekki4uxqt7tl7q"
+          },
+          "consumer_count": 6
+        },
+        {
+          "build_key": "sha256:8d6401a3b8db10421bc5f80cc6394b0313f4de00cacd3336629ce71b65da9ea6",
+          "package": {
+            "id": "aif:package/classic",
+            "version": "0.0.0-b2.rvsadi5y3mieeg6f7agmmoklamj7jxqazlgtgntctttrwzo2t2ta",
+            "digest": "sha256:d74ea948423d4865019230381d6980873d8ab7933ab4d8925ddb0ef44762e59d"
+          },
+          "profile": "fast",
+          "host": "codex-app",
+          "limit": 32000,
+          "task_ref": {
+            "digest": "sha256:51b8843e962498e959a6678d33f844dadd18b2c4396299454cb7fb72f87fcb7c",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.cuxcoxa7btc7wha5c7fw3pew34qbleloq3ii32ekki4uxqt7tl7q"
+          },
+          "consumer_count": 6
+        },
+        {
+          "build_key": "sha256:8d6401a3b8db10421bc5f80cc6394b0313f4de00cacd3336629ce71b65da9ea6",
+          "package": {
+            "id": "aif:package/classic",
+            "version": "0.0.0-b2.rvsadi5y3mieeg6f7agmmoklamj7jxqazlgtgntctttrwzo2t2ta",
+            "digest": "sha256:d74ea948423d4865019230381d6980873d8ab7933ab4d8925ddb0ef44762e59d"
+          },
+          "profile": "fast",
+          "host": "claude-code",
+          "limit": 32000,
+          "task_ref": {
+            "digest": "sha256:51b8843e962498e959a6678d33f844dadd18b2c4396299454cb7fb72f87fcb7c",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.cuxcoxa7btc7wha5c7fw3pew34qbleloq3ii32ekki4uxqt7tl7q"
+          },
+          "consumer_count": 6
+        },
+        {
+          "build_key": "sha256:66b929298d86abfa5374ffe66822a0c46ae47b1db05b9b3525440b145640841f",
+          "package": {
+            "id": "aif:package/classic",
+            "version": "0.0.0-b2.m24sskmnq2v7uu3u77tgqivayrvoi6y5wbnzwnjfiqfrivsaqqpq",
+            "digest": "sha256:39bf8a4af4c9ced4c89d2b700b65b597a9927c205828fd412c191ff807d9470c"
+          },
+          "profile": "full",
+          "host": "codex-cli",
+          "limit": 32000,
+          "task_ref": {
+            "digest": "sha256:0c593616c865da507ab61eaab73f82d0b00b1616a01d1771bc0da8feddda1cc8",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.bryfzmevolfvzun6iuzinpbm4y6mzcxck2t3eflf2md7eyphgg2q"
+          },
+          "consumer_count": 6
+        },
+        {
+          "build_key": "sha256:66b929298d86abfa5374ffe66822a0c46ae47b1db05b9b3525440b145640841f",
+          "package": {
+            "id": "aif:package/classic",
+            "version": "0.0.0-b2.m24sskmnq2v7uu3u77tgqivayrvoi6y5wbnzwnjfiqfrivsaqqpq",
+            "digest": "sha256:39bf8a4af4c9ced4c89d2b700b65b597a9927c205828fd412c191ff807d9470c"
+          },
+          "profile": "full",
+          "host": "codex-app",
+          "limit": 32000,
+          "task_ref": {
+            "digest": "sha256:0c593616c865da507ab61eaab73f82d0b00b1616a01d1771bc0da8feddda1cc8",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.bryfzmevolfvzun6iuzinpbm4y6mzcxck2t3eflf2md7eyphgg2q"
+          },
+          "consumer_count": 6
+        },
+        {
+          "build_key": "sha256:66b929298d86abfa5374ffe66822a0c46ae47b1db05b9b3525440b145640841f",
+          "package": {
+            "id": "aif:package/classic",
+            "version": "0.0.0-b2.m24sskmnq2v7uu3u77tgqivayrvoi6y5wbnzwnjfiqfrivsaqqpq",
+            "digest": "sha256:39bf8a4af4c9ced4c89d2b700b65b597a9927c205828fd412c191ff807d9470c"
+          },
+          "profile": "full",
+          "host": "claude-code",
+          "limit": 32000,
+          "task_ref": {
+            "digest": "sha256:0c593616c865da507ab61eaab73f82d0b00b1616a01d1771bc0da8feddda1cc8",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.bryfzmevolfvzun6iuzinpbm4y6mzcxck2t3eflf2md7eyphgg2q"
+          },
+          "consumer_count": 6
+        },
+        {
+          "build_key": "sha256:38e1ddbf0876a08c9ee3068a602448a58f5b592d2ce50bb90f2ec60808e281da",
+          "package": {
+            "id": "aif:package/classic",
+            "version": "0.0.0-b2.hdq53pyio2qizhxda2fgajciuwhvwwjnftsqxoipf3daqchcqhna",
+            "digest": "sha256:0b7eedb87ddfc8a188d4c1d0ee3eb897e396df8a973c96372e648c47c876a19c"
+          },
+          "profile": "ultra",
+          "host": "codex-cli",
+          "limit": 32000,
+          "task_ref": {
+            "digest": "sha256:924988ee2f9ddbda4344e0c07babcaac38e731f9bc708ec6db8aea431b4bd730",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.amvu56bpq6cfo5non37wtpeavkketv5sxhzq7pjseyiyxzzohyya"
+          },
+          "consumer_count": 6
+        },
+        {
+          "build_key": "sha256:38e1ddbf0876a08c9ee3068a602448a58f5b592d2ce50bb90f2ec60808e281da",
+          "package": {
+            "id": "aif:package/classic",
+            "version": "0.0.0-b2.hdq53pyio2qizhxda2fgajciuwhvwwjnftsqxoipf3daqchcqhna",
+            "digest": "sha256:0b7eedb87ddfc8a188d4c1d0ee3eb897e396df8a973c96372e648c47c876a19c"
+          },
+          "profile": "ultra",
+          "host": "codex-app",
+          "limit": 32000,
+          "task_ref": {
+            "digest": "sha256:924988ee2f9ddbda4344e0c07babcaac38e731f9bc708ec6db8aea431b4bd730",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.amvu56bpq6cfo5non37wtpeavkketv5sxhzq7pjseyiyxzzohyya"
+          },
+          "consumer_count": 6
+        },
+        {
+          "build_key": "sha256:38e1ddbf0876a08c9ee3068a602448a58f5b592d2ce50bb90f2ec60808e281da",
+          "package": {
+            "id": "aif:package/classic",
+            "version": "0.0.0-b2.hdq53pyio2qizhxda2fgajciuwhvwwjnftsqxoipf3daqchcqhna",
+            "digest": "sha256:0b7eedb87ddfc8a188d4c1d0ee3eb897e396df8a973c96372e648c47c876a19c"
+          },
+          "profile": "ultra",
+          "host": "claude-code",
+          "limit": 32000,
+          "task_ref": {
+            "digest": "sha256:924988ee2f9ddbda4344e0c07babcaac38e731f9bc708ec6db8aea431b4bd730",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.amvu56bpq6cfo5non37wtpeavkketv5sxhzq7pjseyiyxzzohyya"
+          },
+          "consumer_count": 6
+        }
+      ],
+      "refusals": [
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-3u4xopa1/repository",
+            "--launch",
+            "aif-classic",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-3u4xopa1/task-12001.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\"",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "schema_invalid",
+            "message": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 12001",
+            "retryable": false,
+            "correlation_id": "correlation:26a5138b011098dd2a3e5f86457f650c",
+            "violations": [
+              {
+                "pointer": "/description",
+                "reason": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 12001"
+              }
+            ],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-3u4xopa1/repository",
+            "--launch",
+            "aif-classic",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-3u4xopa1/task-12001.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\""
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "schema_invalid",
+            "message": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 12001",
+            "retryable": false,
+            "correlation_id": "correlation:01842c82b81e96e014eaddfba7db481e",
+            "violations": [
+              {
+                "pointer": "/description",
+                "reason": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 12001"
+              }
+            ],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-3u4xopa1/repository",
+            "--launch",
+            "aif-classic",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-3u4xopa1/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\"",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "schema_invalid",
+            "message": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 16557",
+            "retryable": false,
+            "correlation_id": "correlation:61d1039e739e7dc69e7969adab26e55b",
+            "violations": [
+              {
+                "pointer": "/description",
+                "reason": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 16557"
+              }
+            ],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-3u4xopa1/repository",
+            "--launch",
+            "aif-classic",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-3u4xopa1/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\""
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "schema_invalid",
+            "message": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 16557",
+            "retryable": false,
+            "correlation_id": "correlation:e7eada04d1e1a61944a080c72aab4048",
+            "violations": [
+              {
+                "pointer": "/description",
+                "reason": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 16557"
+              }
+            ],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-3u4xopa1/repository",
+            "--launch",
+            "aif-classic",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-3u4xopa1/task-32001.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\"",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "schema_invalid",
+            "message": "value does not satisfy the declared contract; the contract allows at most 32000 characters, this value has 32001",
+            "retryable": false,
+            "correlation_id": "correlation:b80958301a20ca4866fd9359fb34a68c",
+            "violations": [
+              {
+                "pointer": "/description",
+                "reason": "value does not satisfy the declared contract; the contract allows at most 32000 characters, this value has 32001"
+              }
+            ],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-3u4xopa1/repository",
+            "--launch",
+            "aif-classic",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-3u4xopa1/task-32001.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\""
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "schema_invalid",
+            "message": "value does not satisfy the declared contract; the contract allows at most 32000 characters, this value has 32001",
+            "retryable": false,
+            "correlation_id": "correlation:502674bec880cdf51b52be3d490dacc2",
+            "violations": [
+              {
+                "pointer": "/description",
+                "reason": "value does not satisfy the declared contract; the contract allows at most 32000 characters, this value has 32001"
+              }
+            ],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-3u4xopa1/repository",
+            "--launch",
+            "aif-classic",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-3u4xopa1/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\"",
+            "--expected-launch-digest",
+            "sha256:be745c8e52e3481b5e4e4eef56cd8659e72a0461055dac7dbc2f47ab04a1510d"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_start_stale_launch",
+            "message": "sources, inputs, bindings, decisions or the registry plan (a Run or a package changed since the review) changed; repeat project questionnaire --prepare and review the new summary",
+            "retryable": false,
+            "correlation_id": "correlation:bdeaa6ec4935a7e657e78e3f2b24d38d",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-3u4xopa1/repository",
+            "--launch",
+            "aif-classic",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-3u4xopa1/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\"",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:49b7ada35e301ec0d17693aca3571dc7",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-3u4xopa1/repository",
+            "--launch",
+            "aif-classic",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-3u4xopa1/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\""
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:eff0a6f7bfa92cea5425689a81e07924",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-3u4xopa1/repository",
+            "--launch",
+            "aif-classic",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-3u4xopa1/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\"",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:a37325d9448c571ae595303bbbb9877f",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-3u4xopa1/repository",
+            "--launch",
+            "aif-classic",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-3u4xopa1/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\""
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:4574011a3b7baabb1eeaae02c850bbe1",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-3u4xopa1/repository",
+            "--launch",
+            "aif-classic",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-3u4xopa1/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\"",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:516061d9b33d5923f02fdeee99ab3b77",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-3u4xopa1/repository",
+            "--launch",
+            "aif-classic",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-3u4xopa1/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\""
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:26abbc49de1fca58c9051c82bdfde407",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-3u4xopa1/repository",
+            "--launch",
+            "aif-classic",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-3u4xopa1/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\"",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:07f09a1d1316bf8510c1f8dfda779538",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-3u4xopa1/repository",
+            "--launch",
+            "aif-classic",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-3u4xopa1/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\""
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:995f83d14744435609c2842f37f49113",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-3u4xopa1/repository",
+            "--launch",
+            "aif-classic",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-3u4xopa1/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\"",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:ccf71000153be35c4da6d229b415a43a",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-3u4xopa1/repository",
+            "--launch",
+            "aif-classic",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-3u4xopa1/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\""
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:c74d76ccc852e0c5afae2b27d4ce2e5e",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-3u4xopa1/repository",
+            "--launch",
+            "aif-classic",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-3u4xopa1/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\"",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:44c77dcfa1c3909b2efb2087648040a3",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-3u4xopa1/repository",
+            "--launch",
+            "aif-classic",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-3u4xopa1/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\""
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:92b3e72aa72c6f38b209e0edf4a9e6b6",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-3u4xopa1/repository",
+            "--launch",
+            "aif-classic",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-3u4xopa1/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\"",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": ".prifly/workflows/aif-classic/project/compile-values.yaml: unsafe_integer at /values/task_description_limit: exact large integers must be encoded as strings",
+            "retryable": false,
+            "correlation_id": "correlation:0896da61b4c02dbce0804b67a9547895",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-3u4xopa1/repository",
+            "--launch",
+            "aif-classic",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-3u4xopa1/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\""
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": ".prifly/workflows/aif-classic/project/compile-values.yaml: unsafe_integer at /values/task_description_limit: exact large integers must be encoded as strings",
+            "retryable": false,
+            "correlation_id": "correlation:2a2288ce55fc0082bfc2bdf14eee636e",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-3u4xopa1/repository",
+            "--launch",
+            "aif-classic",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-3u4xopa1/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\"",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:62205a0cc3ff383db8590f28dff70d9f",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-3u4xopa1/repository",
+            "--launch",
+            "aif-classic",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-3u4xopa1/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\""
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:fc4e756a57296969fed56b704a315084",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-3u4xopa1/repository",
+            "--launch",
+            "aif-classic",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-3u4xopa1/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\"",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:d4382bf514f180e8103988119d6135b3",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-3u4xopa1/repository",
+            "--launch",
+            "aif-classic",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-3u4xopa1/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\""
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:2139ff1c1e7c402072e5a7a448e04687",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "compile",
+            "--repository",
+            "/tmp/shipping-task-limit-3u4xopa1/repository",
+            "--package",
+            "aif-classic",
+            "--host",
+            "codex-cli",
+            "--package-profile",
+            "fast",
+            "--output",
+            "/tmp/shipping-task-limit-3u4xopa1/incompatible-consumer"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "port_type_mismatch",
+            "message": "JSON ports require the same exact schema reference",
+            "retryable": false,
+            "correlation_id": "correlation:3de725b47ea42079463d191624d41673",
+            "violations": [
+              {
+                "pointer": "/definition/stages/task-before-review/input_bindings/task",
+                "reason": "JSON ports require the same exact schema reference"
+              }
+            ],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          }
+        }
+      ],
+      "incompatible_consumer": {
+        "schema_version": "1",
+        "code": "port_type_mismatch",
+        "message": "JSON ports require the same exact schema reference",
+        "retryable": false,
+        "correlation_id": "correlation:3de725b47ea42079463d191624d41673",
+        "violations": [
+          {
+            "pointer": "/definition/stages/task-before-review/input_bindings/task",
+            "reason": "JSON ports require the same exact schema reference"
+          }
+        ],
+        "safe_next_actions": [
+          "doctor",
+          "run.status"
+        ]
+      },
+      "accepted_starts": 3,
+      "unicode_diagnostics": true,
+      "previous_runs_unchanged": true,
+      "prepare_and_refusals_read_only": true,
+      "stale_review_refused": true,
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1,
+        "root_removed": true
+      }
+    },
+    {
+      "package": "aif-profiled",
+      "case": "boundaries",
+      "builds": [
+        {
+          "build_key": "sha256:94c2caeec3007a7377b6bf6afd441870cbe5436afe342140870e0ef06cfe6ca6",
+          "package": {
+            "id": "aif-profiled:package/classic",
+            "version": "0.0.0-b2.stbmv3wdab5hg55wx5vp2rayodf6kq3k7y2ccqehbyhpa3h6nsta",
+            "digest": "sha256:911e7d966db623f827c3833631cfe068d89999a27f09d8b9540401693d448085"
+          },
+          "profile": "fast",
+          "host": "codex-cli",
+          "limit": 12000,
+          "task_ref": {
+            "digest": "sha256:dc5c146319f2a58d35bb818fade93b17748cbf5a0bfbe7d7e1242e119346bb30",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.o5mr4sqpbqozrn7jmkuiweh5ygmhrxjvyx2pjzcqgyycrlr5qxvq"
+          },
+          "consumer_count": 6
+        },
+        {
+          "build_key": "sha256:74f21de0c7bd01427af712016861ef205dbcf3df1500a7463e3e6bfc5e0d7f4f",
+          "package": {
+            "id": "aif-profiled:package/classic",
+            "version": "0.0.0-b2.otzb3yghxuaue6xxciawqyppebo3z467cuakorr6hzv7yxqnp5hq",
+            "digest": "sha256:2a98df44bf6da1f296ff6d18320970856a5e74aa87f6bfd65f7a77dff9e61b3b"
+          },
+          "profile": "fast",
+          "host": "codex-cli",
+          "limit": 32000,
+          "task_ref": {
+            "digest": "sha256:52c25a307f22fc841b4f665754f41fb8ca7f65724d242a9a9cf477d51d9f7848",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.gooywh2iyuf76mnc3sk6ms2n3q4c5atgdqir2jbrngbs3prddima"
+          },
+          "consumer_count": 6
+        },
+        {
+          "build_key": "sha256:74f21de0c7bd01427af712016861ef205dbcf3df1500a7463e3e6bfc5e0d7f4f",
+          "package": {
+            "id": "aif-profiled:package/classic",
+            "version": "0.0.0-b2.otzb3yghxuaue6xxciawqyppebo3z467cuakorr6hzv7yxqnp5hq",
+            "digest": "sha256:2a98df44bf6da1f296ff6d18320970856a5e74aa87f6bfd65f7a77dff9e61b3b"
+          },
+          "profile": "fast",
+          "host": "codex-app",
+          "limit": 32000,
+          "task_ref": {
+            "digest": "sha256:52c25a307f22fc841b4f665754f41fb8ca7f65724d242a9a9cf477d51d9f7848",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.gooywh2iyuf76mnc3sk6ms2n3q4c5atgdqir2jbrngbs3prddima"
+          },
+          "consumer_count": 6
+        },
+        {
+          "build_key": "sha256:74f21de0c7bd01427af712016861ef205dbcf3df1500a7463e3e6bfc5e0d7f4f",
+          "package": {
+            "id": "aif-profiled:package/classic",
+            "version": "0.0.0-b2.otzb3yghxuaue6xxciawqyppebo3z467cuakorr6hzv7yxqnp5hq",
+            "digest": "sha256:2a98df44bf6da1f296ff6d18320970856a5e74aa87f6bfd65f7a77dff9e61b3b"
+          },
+          "profile": "fast",
+          "host": "claude-code",
+          "limit": 32000,
+          "task_ref": {
+            "digest": "sha256:52c25a307f22fc841b4f665754f41fb8ca7f65724d242a9a9cf477d51d9f7848",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.gooywh2iyuf76mnc3sk6ms2n3q4c5atgdqir2jbrngbs3prddima"
+          },
+          "consumer_count": 6
+        },
+        {
+          "build_key": "sha256:d62636fb42733cd0df7bc00fcba53c9bf365c3dfd2dd1815e52979f593ea1191",
+          "package": {
+            "id": "aif-profiled:package/classic",
+            "version": "0.0.0-b2.2ytdn62com6nbx33yah4xjj4tpzwlq672lorqfpfff47le7kcgiq",
+            "digest": "sha256:a93b68c98e389986efd0ac34b440c63113671c1234675295bf5dbf67e7d159db"
+          },
+          "profile": "full",
+          "host": "codex-cli",
+          "limit": 32000,
+          "task_ref": {
+            "digest": "sha256:348067f3e8abaa9f90a7caffbb8ecc9f8bc33db4871c241acaf5615d4e9bc482",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.dzq6vttv2g5icrra4bcfoelsvy65ky6uvv7m6wpvcwmc4bdwotqa"
+          },
+          "consumer_count": 6
+        },
+        {
+          "build_key": "sha256:d62636fb42733cd0df7bc00fcba53c9bf365c3dfd2dd1815e52979f593ea1191",
+          "package": {
+            "id": "aif-profiled:package/classic",
+            "version": "0.0.0-b2.2ytdn62com6nbx33yah4xjj4tpzwlq672lorqfpfff47le7kcgiq",
+            "digest": "sha256:a93b68c98e389986efd0ac34b440c63113671c1234675295bf5dbf67e7d159db"
+          },
+          "profile": "full",
+          "host": "codex-app",
+          "limit": 32000,
+          "task_ref": {
+            "digest": "sha256:348067f3e8abaa9f90a7caffbb8ecc9f8bc33db4871c241acaf5615d4e9bc482",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.dzq6vttv2g5icrra4bcfoelsvy65ky6uvv7m6wpvcwmc4bdwotqa"
+          },
+          "consumer_count": 6
+        },
+        {
+          "build_key": "sha256:d62636fb42733cd0df7bc00fcba53c9bf365c3dfd2dd1815e52979f593ea1191",
+          "package": {
+            "id": "aif-profiled:package/classic",
+            "version": "0.0.0-b2.2ytdn62com6nbx33yah4xjj4tpzwlq672lorqfpfff47le7kcgiq",
+            "digest": "sha256:a93b68c98e389986efd0ac34b440c63113671c1234675295bf5dbf67e7d159db"
+          },
+          "profile": "full",
+          "host": "claude-code",
+          "limit": 32000,
+          "task_ref": {
+            "digest": "sha256:348067f3e8abaa9f90a7caffbb8ecc9f8bc33db4871c241acaf5615d4e9bc482",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.dzq6vttv2g5icrra4bcfoelsvy65ky6uvv7m6wpvcwmc4bdwotqa"
+          },
+          "consumer_count": 6
+        },
+        {
+          "build_key": "sha256:ce68f0b11116aa332f6448a89e6beedd3c66803bfe3cad6ab85a85dc6c72ddda",
+          "package": {
+            "id": "aif-profiled:package/classic",
+            "version": "0.0.0-b2.zzupbmirc2vdgl3ejcuj427o3u6gnab37y6k22vylkc5y3ds3xna",
+            "digest": "sha256:219edfa06239d2b7f2a8df4b94f2cff86ba26e91753cfd41d7689910a0b9fb69"
+          },
+          "profile": "ultra",
+          "host": "codex-cli",
+          "limit": 32000,
+          "task_ref": {
+            "digest": "sha256:ec97a588ff2d116bd722c6ed345772af9da3a24e3c2fdf713c8598c7559d35d1",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.jzazomjd2fkmn5ox3iybv2waxzwgp6joxtdmsu2ef74aqkl33zkq"
+          },
+          "consumer_count": 6
+        },
+        {
+          "build_key": "sha256:ce68f0b11116aa332f6448a89e6beedd3c66803bfe3cad6ab85a85dc6c72ddda",
+          "package": {
+            "id": "aif-profiled:package/classic",
+            "version": "0.0.0-b2.zzupbmirc2vdgl3ejcuj427o3u6gnab37y6k22vylkc5y3ds3xna",
+            "digest": "sha256:219edfa06239d2b7f2a8df4b94f2cff86ba26e91753cfd41d7689910a0b9fb69"
+          },
+          "profile": "ultra",
+          "host": "codex-app",
+          "limit": 32000,
+          "task_ref": {
+            "digest": "sha256:ec97a588ff2d116bd722c6ed345772af9da3a24e3c2fdf713c8598c7559d35d1",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.jzazomjd2fkmn5ox3iybv2waxzwgp6joxtdmsu2ef74aqkl33zkq"
+          },
+          "consumer_count": 6
+        },
+        {
+          "build_key": "sha256:ce68f0b11116aa332f6448a89e6beedd3c66803bfe3cad6ab85a85dc6c72ddda",
+          "package": {
+            "id": "aif-profiled:package/classic",
+            "version": "0.0.0-b2.zzupbmirc2vdgl3ejcuj427o3u6gnab37y6k22vylkc5y3ds3xna",
+            "digest": "sha256:219edfa06239d2b7f2a8df4b94f2cff86ba26e91753cfd41d7689910a0b9fb69"
+          },
+          "profile": "ultra",
+          "host": "claude-code",
+          "limit": 32000,
+          "task_ref": {
+            "digest": "sha256:ec97a588ff2d116bd722c6ed345772af9da3a24e3c2fdf713c8598c7559d35d1",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.jzazomjd2fkmn5ox3iybv2waxzwgp6joxtdmsu2ef74aqkl33zkq"
+          },
+          "consumer_count": 6
+        }
+      ],
+      "refusals": [
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-4zd_lodv/repository",
+            "--launch",
+            "aif-profiled",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-4zd_lodv/task-12001.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\"",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "schema_invalid",
+            "message": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 12001",
+            "retryable": false,
+            "correlation_id": "correlation:de223f904b1e6e6b6b3c9f52c6130884",
+            "violations": [
+              {
+                "pointer": "/description",
+                "reason": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 12001"
+              }
+            ],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-4zd_lodv/repository",
+            "--launch",
+            "aif-profiled",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-4zd_lodv/task-12001.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\""
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "schema_invalid",
+            "message": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 12001",
+            "retryable": false,
+            "correlation_id": "correlation:eae0967b9649f7e253ce00abcbc294e5",
+            "violations": [
+              {
+                "pointer": "/description",
+                "reason": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 12001"
+              }
+            ],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-4zd_lodv/repository",
+            "--launch",
+            "aif-profiled",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-4zd_lodv/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\"",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "schema_invalid",
+            "message": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 16557",
+            "retryable": false,
+            "correlation_id": "correlation:73f2633cee840cce1c32277146e1ddc5",
+            "violations": [
+              {
+                "pointer": "/description",
+                "reason": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 16557"
+              }
+            ],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-4zd_lodv/repository",
+            "--launch",
+            "aif-profiled",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-4zd_lodv/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\""
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "schema_invalid",
+            "message": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 16557",
+            "retryable": false,
+            "correlation_id": "correlation:c749e2cc382bb821636574c2d1f74979",
+            "violations": [
+              {
+                "pointer": "/description",
+                "reason": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 16557"
+              }
+            ],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-4zd_lodv/repository",
+            "--launch",
+            "aif-profiled",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-4zd_lodv/task-32001.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\"",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "schema_invalid",
+            "message": "value does not satisfy the declared contract; the contract allows at most 32000 characters, this value has 32001",
+            "retryable": false,
+            "correlation_id": "correlation:24d0c35b2aa05454099d7f0a84851120",
+            "violations": [
+              {
+                "pointer": "/description",
+                "reason": "value does not satisfy the declared contract; the contract allows at most 32000 characters, this value has 32001"
+              }
+            ],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-4zd_lodv/repository",
+            "--launch",
+            "aif-profiled",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-4zd_lodv/task-32001.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\""
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "schema_invalid",
+            "message": "value does not satisfy the declared contract; the contract allows at most 32000 characters, this value has 32001",
+            "retryable": false,
+            "correlation_id": "correlation:4dcfe0ac23f9ceff2069b506f3747562",
+            "violations": [
+              {
+                "pointer": "/description",
+                "reason": "value does not satisfy the declared contract; the contract allows at most 32000 characters, this value has 32001"
+              }
+            ],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-4zd_lodv/repository",
+            "--launch",
+            "aif-profiled",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-4zd_lodv/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\"",
+            "--expected-launch-digest",
+            "sha256:238ec3daf4a51616dca8d0502b617339104fd12148b85b08d3b41d6f730fa6b3"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_start_stale_launch",
+            "message": "sources, inputs, bindings, decisions or the registry plan (a Run or a package changed since the review) changed; repeat project questionnaire --prepare and review the new summary",
+            "retryable": false,
+            "correlation_id": "correlation:95f765b4d8a4296252814cea36d2d74c",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-4zd_lodv/repository",
+            "--launch",
+            "aif-profiled",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-4zd_lodv/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\"",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:d3b517536afa17bbd37871125f11fc64",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-4zd_lodv/repository",
+            "--launch",
+            "aif-profiled",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-4zd_lodv/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\""
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:57f63980800975ede3d7bba44c472885",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-4zd_lodv/repository",
+            "--launch",
+            "aif-profiled",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-4zd_lodv/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\"",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:69e1f46ad67b253e8ea801ac86aa0731",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-4zd_lodv/repository",
+            "--launch",
+            "aif-profiled",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-4zd_lodv/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\""
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:5f900a431b61fe94be35be77b8201821",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-4zd_lodv/repository",
+            "--launch",
+            "aif-profiled",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-4zd_lodv/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\"",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:70c17913bbcfe9b04994fadceffa26a0",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-4zd_lodv/repository",
+            "--launch",
+            "aif-profiled",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-4zd_lodv/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\""
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:ce1849fb1bf00e559ce2f844f8436bd2",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-4zd_lodv/repository",
+            "--launch",
+            "aif-profiled",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-4zd_lodv/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\"",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:9df526981e0f033e2815544750f5c58e",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-4zd_lodv/repository",
+            "--launch",
+            "aif-profiled",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-4zd_lodv/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\""
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:f13246cf71218a2a504c15c4e9fb7daf",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-4zd_lodv/repository",
+            "--launch",
+            "aif-profiled",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-4zd_lodv/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\"",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:34328f6ee0bec451142c04bd655c238e",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-4zd_lodv/repository",
+            "--launch",
+            "aif-profiled",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-4zd_lodv/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\""
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:aa2e74de331785d6ae83efd6ee875f0c",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-4zd_lodv/repository",
+            "--launch",
+            "aif-profiled",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-4zd_lodv/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\"",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:4850ee8843f9caa0e36ed2411f2365b8",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-4zd_lodv/repository",
+            "--launch",
+            "aif-profiled",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-4zd_lodv/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\""
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:8466c98fd5bf22225c42b64ca2b7634d",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-4zd_lodv/repository",
+            "--launch",
+            "aif-profiled",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-4zd_lodv/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\"",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": ".prifly/workflows/aif-profiled/project/compile-values.yaml: unsafe_integer at /values/task_description_limit: exact large integers must be encoded as strings",
+            "retryable": false,
+            "correlation_id": "correlation:15fb0e8130435d2194c37e3295ff3e88",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-4zd_lodv/repository",
+            "--launch",
+            "aif-profiled",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-4zd_lodv/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\""
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": ".prifly/workflows/aif-profiled/project/compile-values.yaml: unsafe_integer at /values/task_description_limit: exact large integers must be encoded as strings",
+            "retryable": false,
+            "correlation_id": "correlation:afbb682a5f64f584dd233213cf7375b1",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-4zd_lodv/repository",
+            "--launch",
+            "aif-profiled",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-4zd_lodv/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\"",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:fd2266f4ffeb0882a931a84eba3061b9",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-4zd_lodv/repository",
+            "--launch",
+            "aif-profiled",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-4zd_lodv/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\""
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:efc6b898e23481b6b5f6c6d96deb6ebc",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "questionnaire",
+            "--repository",
+            "/tmp/shipping-task-limit-4zd_lodv/repository",
+            "--launch",
+            "aif-profiled",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-4zd_lodv/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\"",
+            "--prepare"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:4ff0455b6ae0509107e11a569297e742",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "start",
+            "--repository",
+            "/tmp/shipping-task-limit-4zd_lodv/repository",
+            "--launch",
+            "aif-profiled",
+            "--host",
+            "codex-cli",
+            "--input",
+            "task=/tmp/shipping-task-limit-4zd_lodv/task-16557.json",
+            "--workspace",
+            "worktree",
+            "--package-profile",
+            "fast",
+            "--decision-policy",
+            "attended",
+            "--preflight-answer",
+            "plan_tests=true",
+            "--preflight-answer",
+            "gate_warnings=\"ignore\"",
+            "--preflight-answer",
+            "gate_checks=\"python3 -m unittest discover -s tests\"",
+            "--preflight-answer",
+            "plan_constraints=\"\"",
+            "--preflight-answer",
+            "roadmap_linkage=\"skip\""
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "project_compile_parameter_invalid",
+            "message": "project/compile-values.yaml: task_description_limit requires integer in [1, 9007199254740991]",
+            "retryable": false,
+            "correlation_id": "correlation:235ee53cf3d0b0646fe30f4bd80e2507",
+            "violations": [],
+            "safe_next_actions": [
+              "help"
+            ]
+          }
+        },
+        {
+          "args": [
+            "project",
+            "compile",
+            "--repository",
+            "/tmp/shipping-task-limit-4zd_lodv/repository",
+            "--package",
+            "aif-profiled",
+            "--host",
+            "codex-cli",
+            "--package-profile",
+            "fast",
+            "--output",
+            "/tmp/shipping-task-limit-4zd_lodv/incompatible-consumer"
+          ],
+          "problem": {
+            "schema_version": "1",
+            "code": "port_type_mismatch",
+            "message": "JSON ports require the same exact schema reference",
+            "retryable": false,
+            "correlation_id": "correlation:952472b8f1ecd5f6bb6aa5017a247340",
+            "violations": [
+              {
+                "pointer": "/definition/stages/task-before-review/input_bindings/task",
+                "reason": "JSON ports require the same exact schema reference"
+              }
+            ],
+            "safe_next_actions": [
+              "doctor",
+              "run.status"
+            ]
+          }
+        }
+      ],
+      "incompatible_consumer": {
+        "schema_version": "1",
+        "code": "port_type_mismatch",
+        "message": "JSON ports require the same exact schema reference",
+        "retryable": false,
+        "correlation_id": "correlation:952472b8f1ecd5f6bb6aa5017a247340",
+        "violations": [
+          {
+            "pointer": "/definition/stages/task-before-review/input_bindings/task",
+            "reason": "JSON ports require the same exact schema reference"
+          }
+        ],
+        "safe_next_actions": [
+          "doctor",
+          "run.status"
+        ]
+      },
+      "accepted_starts": 3,
+      "unicode_diagnostics": true,
+      "previous_runs_unchanged": true,
+      "prepare_and_refusals_read_only": true,
+      "stale_review_refused": true,
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1,
+        "root_removed": true
+      }
+    },
+    {
+      "package": "aif-classic",
+      "case": "route",
+      "profile": "fast",
+      "seen": [
+        "aif-warmup-bridge",
+        "aif-plan-bridge",
+        "aif-implement-bridge",
+        "task-reader",
+        "aif-verify-bridge",
+        "task-reader",
+        "aif-verify-bridge",
+        "aif-fix-bridge",
+        "task-reader",
+        "aif-verify-bridge",
+        "aif-security-bridge",
+        "task-reader",
+        "aif-review-challenge-bridge",
+        "aif-review-bridge",
+        "aif-fix-bridge",
+        "task-reader",
+        "aif-review-challenge-bridge",
+        "aif-review-bridge",
+        "aif-commit-bridge"
+      ],
+      "task_reads": 6,
+      "build": {
+        "build_key": "sha256:5882ecc00f0d34990f420d3492e610a561ed6d28489b7d4ac4c7b2185d38c5df",
+        "package": {
+          "id": "aif:package/classic",
+          "version": "0.0.0-b2.lcbozqapbu2jsd2cbu2jfzqquvq623jijcnx2swey6zbqxjyyxpq",
+          "digest": "sha256:c12f895f4db46de4dd938acd44c5d6f2253c9509a33ce683b65c368110614752"
+        },
+        "profile": "fast",
+        "host": "codex-cli",
+        "limit": 32000,
+        "task_ref": {
+          "digest": "sha256:be3ee8ab2d4ce64e10596cd084521e5f162b91604adf49f97e1089b6157cdab1",
+          "id": "aif:schema/task",
+          "version": "0.0.0-b2.r2dek7qfpzkq2wmzhobtnwg35jbvjrcdm2w424engzcfgb7r7deq"
+        },
+        "consumer_count": 7
+      },
+      "changed_limit_continue_refusal": {
+        "schema_version": "1",
+        "code": "schema_invalid",
+        "message": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 16557",
+        "retryable": false,
+        "correlation_id": "correlation:a75c85d42409ef022bd35a5b5e16ea26",
+        "violations": [
+          {
+            "pointer": "/description",
+            "reason": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 16557"
+          }
+        ],
+        "safe_next_actions": [
+          "doctor",
+          "run.status"
+        ]
+      },
+      "outcome": "succeeded",
+      "runs": [
+        "run:1b065f4dbe56ae20b45d52bbbd5ef092776533893586cd5a9702792a75e4c1f7",
+        "run:747e1e1325654eb0b0462967a0b85234de4b8a9452451a002b26c4f5fbfa6eb8"
+      ],
+      "counts": {
+        "verify": 3,
+        "review": 2,
+        "fix": 2
+      },
+      "continued_with_original_limit": true,
+      "source_unchanged": true,
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1,
+        "root_removed": true
+      }
+    },
+    {
+      "package": "aif-classic",
+      "case": "route",
+      "profile": "full",
+      "seen": [
+        "aif-warmup-bridge",
+        "aif-plan-bridge",
+        "aif-implement-bridge",
+        "task-reader",
+        "aif-verify-bridge",
+        "task-reader",
+        "aif-verify-bridge",
+        "aif-fix-bridge",
+        "task-reader",
+        "aif-verify-bridge",
+        "aif-security-bridge",
+        "task-reader",
+        "aif-review-challenge-bridge",
+        "aif-review-bridge",
+        "aif-fix-bridge",
+        "task-reader",
+        "aif-review-challenge-bridge",
+        "aif-review-bridge",
+        "aif-commit-bridge"
+      ],
+      "task_reads": 6,
+      "build": {
+        "build_key": "sha256:70275cd734708be96ddc3e5e7b56c2c7308628842d139df7cf19720d46619fb9",
+        "package": {
+          "id": "aif:package/classic",
+          "version": "0.0.0-b2.oatvzvzuocf6s3o4hzphwvwcy4yimkeefujz356pdfza2rtbt64q",
+          "digest": "sha256:4a5e57715ca4097d1a6bf08f6a7b0658d7a97f92b8fd3fbad7cd0b6b20844263"
+        },
+        "profile": "full",
+        "host": "codex-cli",
+        "limit": 32000,
+        "task_ref": {
+          "digest": "sha256:485af06066d72681cb2fbf79af824aacbf8244c81a09f5cd49e506dbcbb58d32",
+          "id": "aif:schema/task",
+          "version": "0.0.0-b2.6dvrjnr3umj5javygf37s6kjxt76arebo54zw27jx3sui2loq6dq"
+        },
+        "consumer_count": 7
+      },
+      "changed_limit_continue_refusal": {
+        "schema_version": "1",
+        "code": "schema_invalid",
+        "message": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 16557",
+        "retryable": false,
+        "correlation_id": "correlation:b9a2e358a777014e18a72aff3a6e290a",
+        "violations": [
+          {
+            "pointer": "/description",
+            "reason": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 16557"
+          }
+        ],
+        "safe_next_actions": [
+          "doctor",
+          "run.status"
+        ]
+      },
+      "outcome": "succeeded",
+      "runs": [
+        "run:0792190649f0e78f6ac20f9324b9fa3eb09a36277baf07be314f76f4c0a25868",
+        "run:60d10f8d335afc333672038df51c1b8902914d1b514ad759b332716119404c32"
+      ],
+      "counts": {
+        "verify": 3,
+        "review": 2,
+        "fix": 2
+      },
+      "continued_with_original_limit": true,
+      "source_unchanged": true,
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1,
+        "root_removed": true
+      }
+    },
+    {
+      "package": "aif-classic",
+      "case": "route",
+      "profile": "ultra",
+      "seen": [
+        "aif-warmup-bridge",
+        "aif-plan-bridge",
+        "aif-implement-bridge",
+        "task-reader",
+        "aif-verify-bridge",
+        "task-reader",
+        "aif-verify-bridge",
+        "aif-fix-bridge",
+        "task-reader",
+        "aif-verify-bridge",
+        "aif-security-bridge",
+        "task-reader",
+        "aif-review-challenge-bridge",
+        "aif-review-bridge",
+        "aif-fix-bridge",
+        "task-reader",
+        "aif-review-challenge-bridge",
+        "aif-review-bridge",
+        "aif-commit-bridge"
+      ],
+      "task_reads": 6,
+      "build": {
+        "build_key": "sha256:ca986c317cea6a83ae45a94a014682e81c2da5e188a8df748dedf2738ad5249e",
+        "package": {
+          "id": "aif:package/classic",
+          "version": "0.0.0-b2.zkmgyml45jvihlsfvffacruc5aoc3jpbrcun65en5xzhhcwvespa",
+          "digest": "sha256:327db5c8cbb4e0a3f5946e4aa3ed48f119a63fea7a0b858db4624e3c70926ffd"
+        },
+        "profile": "ultra",
+        "host": "codex-cli",
+        "limit": 32000,
+        "task_ref": {
+          "digest": "sha256:2bfb3ac6d420cb9384260d0009a2d9e3a17023ed0f1197c056c81e79ed001fec",
+          "id": "aif:schema/task",
+          "version": "0.0.0-b2.22e2jf7de7jkugd322iuz74xqqhbqb3eoo4zzy6hnaqbjvh2y5gq"
+        },
+        "consumer_count": 7
+      },
+      "changed_limit_continue_refusal": {
+        "schema_version": "1",
+        "code": "schema_invalid",
+        "message": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 16557",
+        "retryable": false,
+        "correlation_id": "correlation:639b3822ff08fbd04bc49cae80928252",
+        "violations": [
+          {
+            "pointer": "/description",
+            "reason": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 16557"
+          }
+        ],
+        "safe_next_actions": [
+          "doctor",
+          "run.status"
+        ]
+      },
+      "outcome": "succeeded",
+      "runs": [
+        "run:544c4cb999d19fd5c29be56619bad875433242cbe67155bc993cf7d7e8410b44",
+        "run:2f99f21cd19914eb16684bb7bcb9c9f297b004c117f097d42df5b5d599d8cdd8"
+      ],
+      "counts": {
+        "verify": 3,
+        "review": 2,
+        "fix": 2
+      },
+      "continued_with_original_limit": true,
+      "source_unchanged": true,
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1,
+        "root_removed": true
+      }
+    },
+    {
+      "package": "aif-profiled",
+      "case": "route",
+      "profile": "fast",
+      "seen": [
+        "aif-warmup-bridge",
+        "aif-plan-bridge",
+        "aif-implement-bridge",
+        "task-reader",
+        "aif-verify-bridge",
+        "task-reader",
+        "aif-verify-bridge",
+        "aif-fix-bridge",
+        "task-reader",
+        "aif-verify-bridge",
+        "aif-security-bridge",
+        "task-reader",
+        "aif-review-challenge-bridge",
+        "aif-review-bridge",
+        "aif-fix-bridge",
+        "task-reader",
+        "aif-review-challenge-bridge",
+        "aif-review-bridge",
+        "aif-commit-bridge"
+      ],
+      "task_reads": 6,
+      "build": {
+        "build_key": "sha256:05af334d5812654a30cad941d080e55003774804af272ee66449c7e8d6b7a872",
+        "package": {
+          "id": "aif-profiled:package/classic",
+          "version": "0.0.0-b2.awxtgtkycjsuumgk3fa5bahfkabxosaev4ts5ztejhd6rvvxvbza",
+          "digest": "sha256:bd76be30728926f0cc235ff123af04475a9d519a545ac6fafd20f918f934669e"
+        },
+        "profile": "fast",
+        "host": "codex-cli",
+        "limit": 32000,
+        "task_ref": {
+          "digest": "sha256:6c61d29511c27d5c2a5bea202052f45ebeaafff64577ce32b815e0b4b89e1d37",
+          "id": "aif:schema/task",
+          "version": "0.0.0-b2.p4esieppdhl5czpsgxlvzmtvx4mozs7taj3ssw6x5a3urxrqzm3q"
+        },
+        "consumer_count": 7
+      },
+      "changed_limit_continue_refusal": {
+        "schema_version": "1",
+        "code": "schema_invalid",
+        "message": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 16557",
+        "retryable": false,
+        "correlation_id": "correlation:3b46d93810dfd665b4e3e993423695e4",
+        "violations": [
+          {
+            "pointer": "/description",
+            "reason": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 16557"
+          }
+        ],
+        "safe_next_actions": [
+          "doctor",
+          "run.status"
+        ]
+      },
+      "outcome": "succeeded",
+      "runs": [
+        "run:de2e40870e67fdecdf0517f93e1cfde7f5e924ea0b8fee81eb87e14aef0ef490",
+        "run:786e01c5881f75d3849e734b1de83b8ca65e99b8226338a153acf429ec3736b8"
+      ],
+      "counts": {
+        "verify": 3,
+        "review": 2,
+        "fix": 2
+      },
+      "continued_with_original_limit": true,
+      "source_unchanged": true,
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1,
+        "root_removed": true
+      }
+    },
+    {
+      "package": "aif-profiled",
+      "case": "route",
+      "profile": "full",
+      "seen": [
+        "aif-warmup-bridge",
+        "aif-plan-bridge",
+        "aif-implement-bridge",
+        "task-reader",
+        "aif-verify-bridge",
+        "task-reader",
+        "aif-verify-bridge",
+        "aif-fix-bridge",
+        "task-reader",
+        "aif-verify-bridge",
+        "aif-security-bridge",
+        "task-reader",
+        "aif-review-challenge-bridge",
+        "aif-review-bridge",
+        "aif-fix-bridge",
+        "task-reader",
+        "aif-review-challenge-bridge",
+        "aif-review-bridge",
+        "aif-commit-bridge"
+      ],
+      "task_reads": 6,
+      "build": {
+        "build_key": "sha256:5bd135a70786f7e4d1ce94ab9fc3b9097c9b426179f2a806bc98d0fda30bec65",
+        "package": {
+          "id": "aif-profiled:package/classic",
+          "version": "0.0.0-b2.lpitljyhq336juoossvz7q5zbf6jwqtbphzkqbv4tdip3iyl5rsq",
+          "digest": "sha256:59a39d64baa8c82fd65ad2296cf15180d8fb7c363fde8a6b0a34133ffb6b9d7f"
+        },
+        "profile": "full",
+        "host": "codex-cli",
+        "limit": 32000,
+        "task_ref": {
+          "digest": "sha256:52bbb688e3a53a99a427435eeefc897c440bd628a843010d8cef5723e928e3ef",
+          "id": "aif:schema/task",
+          "version": "0.0.0-b2.hj7ehdq72bxokqdsab6vxedkxaanmhng3pfwefcflcdubmognira"
+        },
+        "consumer_count": 7
+      },
+      "changed_limit_continue_refusal": {
+        "schema_version": "1",
+        "code": "schema_invalid",
+        "message": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 16557",
+        "retryable": false,
+        "correlation_id": "correlation:74308933106d969daab2d6c2deb9c946",
+        "violations": [
+          {
+            "pointer": "/description",
+            "reason": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 16557"
+          }
+        ],
+        "safe_next_actions": [
+          "doctor",
+          "run.status"
+        ]
+      },
+      "outcome": "succeeded",
+      "runs": [
+        "run:c58cd6710f17666af7808cf05f98f35e06a2f84b344d6baa53c5a9d8b86b9cb2",
+        "run:0bf1d0947662015bffe1529313c7bbb6a7edff221301b27ee331b4164acbcd57"
+      ],
+      "counts": {
+        "verify": 3,
+        "review": 2,
+        "fix": 2
+      },
+      "continued_with_original_limit": true,
+      "source_unchanged": true,
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1,
+        "root_removed": true
+      }
+    },
+    {
+      "package": "aif-profiled",
+      "case": "route",
+      "profile": "ultra",
+      "seen": [
+        "aif-warmup-bridge",
+        "aif-plan-bridge",
+        "aif-implement-bridge",
+        "task-reader",
+        "aif-verify-bridge",
+        "task-reader",
+        "aif-verify-bridge",
+        "aif-fix-bridge",
+        "task-reader",
+        "aif-verify-bridge",
+        "aif-security-bridge",
+        "task-reader",
+        "aif-review-challenge-bridge",
+        "aif-review-bridge",
+        "aif-fix-bridge",
+        "task-reader",
+        "aif-review-challenge-bridge",
+        "aif-review-bridge",
+        "aif-commit-bridge"
+      ],
+      "task_reads": 6,
+      "build": {
+        "build_key": "sha256:528bd6001856f300cebc16dad95757b94593d957869e80b95f3aceffb45fd0e0",
+        "package": {
+          "id": "aif-profiled:package/classic",
+          "version": "0.0.0-b2.kkf5maayk3zqbtv4c3nnsv2xxfczhwkxq2pibok7hlhp7nc72dqa",
+          "digest": "sha256:ca2f4b2f8f21bd8b4bdc94bdce07a535fba51ac255eb4c0ce368481e235e97ba"
+        },
+        "profile": "ultra",
+        "host": "codex-cli",
+        "limit": 32000,
+        "task_ref": {
+          "digest": "sha256:084d3ab0ef4f005530867dbf936bdada4254e37b2915f59f36ea2dcb9ee52b09",
+          "id": "aif:schema/task",
+          "version": "0.0.0-b2.o3iybnw4hyflow3uum2hi2jdo3chh5cm472n4zhzfgavuhhtyjwq"
+        },
+        "consumer_count": 7
+      },
+      "changed_limit_continue_refusal": {
+        "schema_version": "1",
+        "code": "schema_invalid",
+        "message": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 16557",
+        "retryable": false,
+        "correlation_id": "correlation:5c001d4cd33b7e152a9c670be77758d5",
+        "violations": [
+          {
+            "pointer": "/description",
+            "reason": "value does not satisfy the declared contract; the contract allows at most 12000 characters, this value has 16557"
+          }
+        ],
+        "safe_next_actions": [
+          "doctor",
+          "run.status"
+        ]
+      },
+      "outcome": "succeeded",
+      "runs": [
+        "run:dfb11428a3e10f9e48b434d058efbc43ee8ec41e824fd9e64fef0484dca78300",
+        "run:6b690ca8ff5e902de070683e180e297bf2d8a0c0eb3bf968a15600cf59590a15"
+      ],
+      "counts": {
+        "verify": 3,
+        "review": 2,
+        "fix": 2
+      },
+      "continued_with_original_limit": true,
+      "source_unchanged": true,
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1,
+        "root_removed": true
+      }
+    },
+    {
+      "package": "aif-fix",
+      "case": "repair-route",
+      "task_reads": 6,
+      "seen": [
+        "warmup",
+        "fix-task",
+        "check-change",
+        "repair",
+        "check-change",
+        "aif-security",
+        "review-task",
+        "commit"
+      ],
+      "outcome": "succeeded",
+      "runs": [
+        "run:71f57181db87a635e8338f5fb3d51a002de00644d462218a8a5615cd483e08b1"
+      ],
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1,
+        "root_removed": true
+      }
+    },
+    {
+      "case": "shared-authority",
+      "package": "aif-classic",
+      "builds": [
+        {
+          "build_key": "sha256:8d6401a3b8db10421bc5f80cc6394b0313f4de00cacd3336629ce71b65da9ea6",
+          "package": {
+            "id": "aif:package/classic",
+            "version": "0.0.0-b2.rvsadi5y3mieeg6f7agmmoklamj7jxqazlgtgntctttrwzo2t2ta",
+            "digest": "sha256:d74ea948423d4865019230381d6980873d8ab7933ab4d8925ddb0ef44762e59d"
+          },
+          "profile": "fast",
+          "host": "codex-cli",
+          "limit": 32000,
+          "task_ref": {
+            "digest": "sha256:51b8843e962498e959a6678d33f844dadd18b2c4396299454cb7fb72f87fcb7c",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.cuxcoxa7btc7wha5c7fw3pew34qbleloq3ii32ekki4uxqt7tl7q"
+          },
+          "consumer_count": 6
+        },
+        {
+          "build_key": "sha256:cc87971c335ac022ce0182eab7e35d500ce05a50617297f7f3d9f87b96717d9a",
+          "package": {
+            "id": "aif:package/classic",
+            "version": "0.0.0-b2.zsdzohbtllacftqbqlvlpy25kagoawsqmfzjp57t3h4hxftrpwna",
+            "digest": "sha256:5fbbae3071c104dbd619ec095720af2f2d0f638c4171832321c540ba572ac76d"
+          },
+          "profile": "fast",
+          "host": "codex-cli",
+          "limit": 40000,
+          "task_ref": {
+            "digest": "sha256:771807399742d7d3ddc96491ae950ff9969e8251e6f36de9101b785a35c52743",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.pcxhzzwf4iqwvmnznbz4pjqbshdczzj2xtm2l2xiigog62blho2a"
+          },
+          "consumer_count": 6
+        }
+      ],
+      "runs": [
+        "run:e27c857e325926b2df371da3278a7e6fe58d30ab8eaec7d6a7340d1a6fc5602e",
+        "run:982f83ae71c2c5b1581f786eacf236ba9c4fe73e0c355a075195da495be4cb2d"
+      ],
+      "same_authority": true,
+      "different_task_refs": true,
+      "previous_run_unchanged": true,
+      "cleanup": [
+        {
+          "active_claims": 0,
+          "registry_entries_removed": 1,
+          "root_removed": true
+        },
+        {
+          "active_claims": 0,
+          "registry_entries_removed": 1,
+          "root_removed": true
+        }
+      ]
+    },
+    {
+      "case": "shared-authority",
+      "package": "aif-profiled",
+      "builds": [
+        {
+          "build_key": "sha256:74f21de0c7bd01427af712016861ef205dbcf3df1500a7463e3e6bfc5e0d7f4f",
+          "package": {
+            "id": "aif-profiled:package/classic",
+            "version": "0.0.0-b2.otzb3yghxuaue6xxciawqyppebo3z467cuakorr6hzv7yxqnp5hq",
+            "digest": "sha256:2a98df44bf6da1f296ff6d18320970856a5e74aa87f6bfd65f7a77dff9e61b3b"
+          },
+          "profile": "fast",
+          "host": "codex-cli",
+          "limit": 32000,
+          "task_ref": {
+            "digest": "sha256:52c25a307f22fc841b4f665754f41fb8ca7f65724d242a9a9cf477d51d9f7848",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.gooywh2iyuf76mnc3sk6ms2n3q4c5atgdqir2jbrngbs3prddima"
+          },
+          "consumer_count": 6
+        },
+        {
+          "build_key": "sha256:491ba4fe31be3a5ed23104dbc69741249f5cfc0fcb26227d0425d894cc0f12c8",
+          "package": {
+            "id": "aif-profiled:package/classic",
+            "version": "0.0.0-b2.jen2j7rrxy5f5urratn4nf2bespvz7apzmtce7ieexmjjtapclea",
+            "digest": "sha256:01290b399bfe100ed68b588ca08a5e5682b17e56a822b79c96cf4e73abf11a39"
+          },
+          "profile": "fast",
+          "host": "codex-cli",
+          "limit": 40000,
+          "task_ref": {
+            "digest": "sha256:9d131f0d8656ab5091ee4c99e44ffd212844bca8b2818e532094ef1fa627edf5",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.wzjiql7tsskouydydrdd22idfijxjwex4lcwjrcoubvyykminoiq"
+          },
+          "consumer_count": 6
+        }
+      ],
+      "runs": [
+        "run:441dffd36a342837ebc685030f714c27e1e93d42a4c0ccba6ef99a6465bf3378",
+        "run:8b9e34612e08c71b626ceb57797c4c1729816053b5110c12fdac2f5b8b2fa190"
+      ],
+      "same_authority": true,
+      "different_task_refs": true,
+      "previous_run_unchanged": true,
+      "cleanup": [
+        {
+          "active_claims": 0,
+          "registry_entries_removed": 1,
+          "root_removed": true
+        },
+        {
+          "active_claims": 0,
+          "registry_entries_removed": 1,
+          "root_removed": true
+        }
+      ]
+    },
+    {
+      "case": "shared-authority",
+      "package": "aif-fix",
+      "builds": [
+        {
+          "build_key": "sha256:1574ef4c0eb81bc5d96efa0611546f33642932cc93e544f3a9d5eef587fda5de",
+          "package": {
+            "id": "aif-fix:package/fix",
+            "version": "0.0.0-b2.cv2o6taoxan4lwlo7idbcvdpgnscsmwmspsuj45j2xxplb75uxpa",
+            "digest": "sha256:572a6ed6bbb9349e318fe7dd1dff3d1b26875549b1899c7c2a718dddeb9aeddf"
+          },
+          "profile": "default",
+          "host": "codex-cli",
+          "limit": 32000,
+          "task_ref": {
+            "digest": "sha256:60a6c2c36c9f8da3bdfdf61fa8a86597688df5393b67a5c6846aea475ec3d5e3",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.gsqhjqxpznihuevgt6cree3uaoa5la2ivugicix2tgbqrqcnegca"
+          },
+          "consumer_count": 11
+        },
+        {
+          "build_key": "sha256:f442bcf38a320bfe7ef205252c5fe30c2b73744bd8c9f5cf36905c10f3dcca3b",
+          "package": {
+            "id": "aif-fix:package/fix",
+            "version": "0.0.0-b2.6rblz44kgif747xsaussyx7dbqvxg5cl3de7ltzwsbobb464zi5q",
+            "digest": "sha256:7a7647e90c4554a2bdbafffb89e680c3f499c5acff6b35d2435ee4a7642a8ed4"
+          },
+          "profile": "default",
+          "host": "codex-cli",
+          "limit": 40000,
+          "task_ref": {
+            "digest": "sha256:465006357ef8177726cd2de147ad8652b9e7a91ee0b9a941c169c5d6bee74fd6",
+            "id": "aif:schema/task",
+            "version": "0.0.0-b2.vb3kxeugtratdrctkrujfbllqlgr4awzdg4nohv5hznsxdzf7tda"
+          },
+          "consumer_count": 11
+        }
+      ],
+      "runs": [
+        "run:6089a4b276004f569b813bd483657b0cc2e85b0e205e85ecf7dd1a9ec156c3e2",
+        "run:59e7208cbc9b0dc3546623930bb25bbd9b48ea3fb318818b6a9f685052331b99"
+      ],
+      "same_authority": true,
+      "different_task_refs": true,
+      "previous_run_unchanged": true,
+      "cleanup": [
+        {
+          "active_claims": 0,
+          "registry_entries_removed": 1,
+          "root_removed": true
+        },
+        {
+          "active_claims": 0,
+          "registry_entries_removed": 1,
+          "root_removed": true
+        }
+      ]
+    },
+    {
+      "case": "update",
+      "package": "aif-classic",
+      "source_commits": [
+        "e2e59f21247318799db5b70aef962d576c3df878",
+        "25482a7d3dc2d7c670f8cf1266897f5f417a2624",
+        "117e5dc8b34a8718770bb67683f437a911f3d7a6"
+      ],
+      "old_release": "v1.57.0",
+      "owner_values_preserved": true,
+      "extend_preserved": true,
+      "project_files_preserved": true,
+      "long_task_start_accepted": true,
+      "build": {
+        "build_key": "sha256:b77368aa97f89cf3b7c7f1b766aa4b61a825b319aa379e08303671db573ff43c",
+        "package": {
+          "id": "aif:package/classic",
+          "version": "0.0.0-b2.w5zwrkux7cophn6h6g3wnkslmguclmyzvi3z4cbqgzy5wvz76q6a",
+          "digest": "sha256:aa0c5810f4c06b08873aba0a98c253c5e542f001b62c68ae5bb023a30fe956f2"
+        },
+        "profile": "fast",
+        "host": "codex-cli",
+        "limit": 32000,
+        "task_ref": {
+          "digest": "sha256:6ada023f4582e96288334cad840d4f8392074d1e89066fc9fd06eacd1707da9f",
+          "id": "aif:schema/task",
+          "version": "0.0.0-b2.ewassod42tuinqz5fvh3fagstepuhyhvux65m4yf7mqs66uqry6a"
+        },
+        "consumer_count": 6
+      },
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1,
+        "root_removed": true
+      }
+    },
+    {
+      "case": "update",
+      "package": "aif-profiled",
+      "source_commits": [
+        "5e5e90d192ce781182bcddbdbcdccf8ee93e23d5",
+        "72afc2b8c757b08238c1c483813206a8b2939b66",
+        "d99b500b99c192c51a5d3254fe50aef2bc6be59c"
+      ],
+      "old_release": "v1.57.0",
+      "owner_values_preserved": true,
+      "extend_preserved": true,
+      "project_files_preserved": true,
+      "long_task_start_accepted": true,
+      "build": {
+        "build_key": "sha256:d304b2e251e479bab25ac0214dc65bb0efe8100c5b2a6ca52944119c93a48427",
+        "package": {
+          "id": "aif-profiled:package/classic",
+          "version": "0.0.0-b2.2mclfysr4r43vms2yaqu3rs3wdx6qeamlmvgzjjjiqizze5eqqtq",
+          "digest": "sha256:5e22f040afa676dde2b035e6ba0d5dc8f990846dbe95245a073418754e87ab1f"
+        },
+        "profile": "fast",
+        "host": "codex-cli",
+        "limit": 32000,
+        "task_ref": {
+          "digest": "sha256:428d71bbfb317e915e9b4277b929b76c2c84b8749b2b0f2c1bed3253e697e1fa",
+          "id": "aif:schema/task",
+          "version": "0.0.0-b2.y3v4zk4htqoxf3uugp6iwsezh6okrzibkv2mak34ekyyitnzm2da"
+        },
+        "consumer_count": 6
+      },
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1,
+        "root_removed": true
+      }
+    },
+    {
+      "case": "update",
+      "package": "aif-fix",
+      "source_commits": [
+        "7bbba17c29797b4487daad2d3d66232abd3e7859",
+        "84a8e38d70252876a13fbf5ba57d5d35624c8ad2",
+        "fb1907adb81b6a8179e25b9ef21733dcff6cd3b6"
+      ],
+      "old_release": "v1.57.0",
+      "owner_values_preserved": true,
+      "extend_preserved": true,
+      "project_files_preserved": true,
+      "long_task_start_accepted": true,
+      "build": {
+        "build_key": "sha256:0c6590b489f5b9301c77f266dd51b6fce927fe7b26e117a573d8d6f0e77f4670",
+        "package": {
+          "id": "aif-fix:package/fix",
+          "version": "0.0.0-b2.brszbnej6w4tahdx6jtn2unw7tusp7t3e3qrpjlt3dlpbz37izya",
+          "digest": "sha256:3c0145d980d988e1d10efbdecf785631a706ea2b822a2892c7d6b226aa6bc2e7"
+        },
+        "profile": "default",
+        "host": "codex-cli",
+        "limit": 32000,
+        "task_ref": {
+          "digest": "sha256:f46ce7083f814412b3d1ac1af740c6f08f2e2fd1da8310f139fb7926b4da9ea6",
+          "id": "aif:schema/task",
+          "version": "0.0.0-b2.tdcrosup772cpbxuf5u73a2b4sjrcrozukoaeelsamim3s5fo2za"
+        },
+        "consumer_count": 11
+      },
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1,
+        "root_removed": true
+      }
+    }
+  ],
+  "complete": true
+}

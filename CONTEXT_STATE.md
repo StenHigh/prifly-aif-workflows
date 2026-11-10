@@ -6,7 +6,36 @@
 движка 0.10–0.13.54, переход на AI Factory 2.19.0, WorkflowRevision v4) —
 в git: `git show d388b92:CONTEXT_STATE.md` (2330 строк, оглавление — `mdq tree`).
 
-## Change для issue #3 на 2026-11-10
+## Реализация issue #3 на 2026-11-10 — candidate, CI pending
+
+Ворота verify/compatibility выверены против выпущенного Pri-Fly `v0.13.90`.
+Core #22 CLOSED/completed, capability опубликована в90. Обе подписи manifest и SHA-256 official binary проверены.
+Binary /tmp/aif-core22-v0.13.90-6ekqrzte/prifly, SHA256 db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984.
+Владелец явно выбрал продолжить пакетную реализацию после released qualification.
+Candidate classic/profiled/fix3.0.0: compile-parameters.yaml, owner project/compile-values.yaml,
+task_description_limit integer1..9007199254740991, default12 000, owned task1.2.0.
+Удалён external contract_schema_task; все потребители трёх пакетов используют schema_task.
+Это major type change. Frozen native contracts и остальные5 shipping packages не менялись.
+Profiled получен штатным derive. Генератор contracts пропускает parameterised owned schema;
+manifest1.2.0/SHA25636c5f25d прежний, current bindings lock исключает task classic/fix.
+W6 project-copy bundle3.0.0 использует schema_task; installer поддерживает profile5.
+Baseline90 и candidate verify8/132/88, compatibility5/4/6trusted/core-state41 PASS.
+Unit122, versions4/folders7/derive, generators --check, W6 compiles18/refusals8 PASS.
+Пилоты native classic fast route: full task16557 через6 readers, partial→continue,
+verify3/review2/fix2, succeeded; narrow12000 refusal schema_invalid, restore32000 continue PASS.
+Standalone fix16557 repair/check succeeded. Boundary/shared-authority/update classic pilots PASS.
+Финальная matrix16 cases /31 Runs /42 full task reads с --jobs3 PASS;19 roots/registrations удалены:
+docs/changes/configure-task-description-limit/shipping-0.13.90-results.json.
+Новый driver tests/probes/shipping_task_limit.py; все fixtures disposable и чистят собственные claims/registry.
+Engine evidence: docs/changes/engine/release-0.13.90.md и JSON рядом.
+Ready examples отдельно:3 prepare/start/export PASS; ещё3 очищенных authority,22 всего.
+README трёх пакетов, examples/task-description-limit, W6, release guide и draft v1.58/catalog подготовлены.
+Published catalog pins остаются v1.57.0; tag/Release/merge не выполнялись. Local native acceptance PASS; exact-source CI/PR ещё открыты.
+Рабочая ветка codex/issue-3-task-description-limit содержит прежние Core21 commits в ancestry;
+для чистого PR на main нужно перенести только issue3 commits ea80f473/dd157f1 и новую реализацию.
+Исходная codex/diagnose-revoked-shared-schemas сохранена; pinned reproducer ea80f473 должен оставаться доступным.
+
+## Подготовка change для issue #3 на 2026-11-10
 
 Ворота verify/compatibility выверены против выпущенного Pri-Fly `v0.13.89`.
 Перед подготовкой и native-проверкой change latest stable проверен: новых выпусков нет.

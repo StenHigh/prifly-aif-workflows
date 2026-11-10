@@ -8,6 +8,13 @@ Issue содержит команды clone/checkout, скачивания binar
 
 Заголовок: `Project-owned compile values for task schema limits in prepare/start`.
 
+## Released решение
+
+Core #22 CLOSED/completed. Решение выпущено в [v0.13.90](https://github.com/StenHigh/prifly/releases/tag/v0.13.90).
+Пакет объявляет `compile-parameters.yaml`; проект задаёт `project/compile-values.yaml`.
+Compile, prepare и start используют общий resolver. [Независимая сверка binary и gates](../engine/release-0.13.90.md).
+Исходный запрос ниже сохраняет историческую границу0.13.89.
+
 ## Проблема consumer
 
 Источник: [workflows #3, уточнение владельца](https://github.com/StenHigh/prifly-aif-workflows/issues/3#issuecomment-6751418651).

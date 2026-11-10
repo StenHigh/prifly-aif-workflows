@@ -20,45 +20,46 @@
 - [x] Сохранить native JSON с checksum binary, fixture и driver; versions/folders/derive PASS.
 - [x] Опубликовать Pri-Fly #22 из core-request.md с pinned source ea80f473, native evidence и точными отказами.
 - [x] Связать Core #22 с consumer #3 через исходный комментарий; consumer остаётся открытым до пакетной приёмки.
-- [ ] Проверить опубликованный механизм Core и зафиксировать точный YAML-синтаксис и поддерживаемые версии.
+- [x] Проверить published v0.13.90: signatures/binary/gates, sidecars /1 и Project profile3–5.
 
 ## Пакетная реализация
 
-- [ ] Объявить параметр с default 12 000, типом integer и проверкой диапазона.
-- [ ] Применить эффективный контракт ко всем task refs classic и его выбранной композиции.
-- [ ] Согласовать shared schema bytes/версии с aif-fix, если меняется общий авторский контракт.
-- [ ] Получить profiled штатной генерацией и проверить fast/full/ultra.
-- [ ] Повысить версии изменённых компонентов, пакетов и зависимых workflow по фактическому диффу.
-- [ ] Проверить явный отказ несовместимой project extension при сборке.
+- [x] Объявить task_description_limit с default12 000 и safe integer range1..9007199254740991.
+- [x] Перевести все task refs classic и применимые project consumers на owned schema_task.
+- [x] Получить одинаковый owned task1.2.0 и parameter sidecar в classic/profiled/fix; frozen contracts сохранить.
+- [x] Получить profiled штатной генерацией; все три профиля компилируются на трёх hosts.
+- [x] Повысить classic/profiled/fix до3.0.0 и версии изменённых steps/workflows.
+- [x] Проверить port_type_mismatch для несовместимого frozen task consumer.
 
 ## Приёмка на released Pri-Fly
 
-- [ ] A1: установить прежний пакет, сохранить owner-настройку, обновить пакет и сравнить owner-файлы.
-- [ ] A2: без настройки проверить 12 000 pass и 12 001 refuse через prepare/start.
-- [ ] A3: при 32 000 проверить 16 557 pass, 32 000 pass и 32 001 refuse через prepare/start.
-- [ ] A4: проверить 0, -1, 1.5, строку, boolean, null и неподдерживаемое большое целое число.
-- [ ] A5: проверить точный pointer, effective limit и actual length; включить кириллицу и emoji.
-- [ ] A6: сменить только настройку между prepare/start; прежний digest должен получить отказ.
-- [ ] A7: передать полный task через plan, nested verify/review и repair/repeat в classic/profiled.
-- [ ] A7: проверить совместимое opt-in расширение, которое получает task.
-- [ ] A8: запустить два проекта с разными пределами в одной authority без definition drift.
-- [ ] A8: сравнить refs, сохранённый контракт, task bytes и историю существующего Run после смены настройки.
-- [ ] A9: проверить поддерживаемый continue после смены настройки либо документированный ранний отказ совместимости.
-- [ ] Проверить отсутствие новых Run, claims и изменений дерева после отказов и read-only prepare.
-- [ ] Проверить standalone fix, если изменён его task-контракт; независимый feature остаётся вне scope.
-- [ ] Сохранить machine-readable результаты, binary provenance, source commit и границы synthetic/live приёмки.
-- [ ] Удалить временные roots, claims и monitor registrations.
+- [x] A1: установить прежний пакет, сохранить owner-настройку, обновить пакет и сравнить owner-файлы.
+- [x] A2: без настройки проверить12 000 pass и12 001 refuse через prepare/start для всех трёх пакетов.
+- [x] A3: при32 000 проверить16 557/32 000 pass и32 001 refuse для всех трёх пакетов.
+- [x] A4: проверить0, -1,1.5, строку, boolean, null, unsafe integer, object и array.
+- [x] A5: проверить /description, effective limit, actual length, кириллицу и emoji.
+- [x] A6: сменить только32000→40000 между prepare/start; прежний digest получает project_start_stale_launch.
+- [x] A7: передать полный task через plan, nested verify/review и repair/repeat в classic/profiled.
+- [x] A7: проверить совместимое opt-in расширение, которое получает task.
+- [x] A8: запустить два проекта с разными пределами в одной authority без definition drift.
+- [x] A8: сравнить refs, сохранённый контракт, task bytes и историю существующего Run после смены настройки.
+- [x] A9: проверить поддерживаемый continue после смены настройки либо документированный ранний отказ совместимости.
+- [x] Проверить отсутствие новых Run, claims и изменений дерева после отказов и read-only prepare.
+- [x] Проверить standalone fix, если изменён его task-контракт; независимый feature остаётся вне scope.
+- [x] Сохранить machine-readable результаты, binary provenance, source commit и границы synthetic/live приёмки.
+- [x] Удалить временные roots, claims и monitor registrations.
 
 ## Документация и выпуск
 
-- [ ] A10: обновить package README, release guide, каталог и готовые examples на реальном синтаксисе.
-- [ ] Дать полные команды установки, настройки, preview/start и поддерживаемого continue с явными placeholders.
-- [ ] Разделить самостоятельный запуск и opt-in composition; проверить оба заявленных сценария.
-- [ ] Выполнить versions/folders/derive и требуемые unit/contract/native checks.
-- [ ] Выполнить verify.py и compatibility.py с `--binary` на latest stable.
+- [x] A10: обновить package README, release guide, draft catalog и готовые examples на released синтаксисе.
+- [x] Дать полные команды установки, настройки, prepare/start и continue с явными placeholders и profile answers.
+- [x] Разделить самостоятельный запуск и opt-in composition; проверить оба заявленных сценария.
+- [x] Выполнить versions/folders/derive и требуемые unit/contract/native checks.
+- [x] Выполнить verify.py/compatibility.py на official v0.13.90:8/132/88 и5/4/6trusted PASS.
 - [ ] Получить CI на точном source commit и проверить артефакты приёмки.
 - [ ] Записать реализацию, ограничения и результаты в CONTEXT_STATE.md.
 - [ ] Подготовить reviewable PR; публикация выпуска и обновление каталога идут отдельным этапом.
 
-Подготовка change не означает прохождение runtime-критериев A1–A10.
-Проверка схем через Python не заменяет native prepare/start/continue.
+Локальная native-приёмка A1–A9 завершена:16 cases /31 Runs.
+Документация A10 готова; exact-source CI и PR завершаются отдельно.
+Живые модели и приватная инфраструктура в эту приёмку не входят.
