@@ -31,9 +31,10 @@ Engine evidence: docs/changes/engine/release-0.13.90.md и JSON рядом.
 Ready examples отдельно:3 prepare/start/export PASS; ещё3 очищенных authority,22 всего.
 README трёх пакетов, examples/task-description-limit, W6, release guide и draft v1.58/catalog подготовлены.
 Published catalog pins остаются v1.57.0; tag/Release/merge не выполнялись. Local native acceptance PASS; exact-source CI/PR ещё открыты.
-Рабочая ветка codex/issue-3-task-description-limit содержит прежние Core21 commits в ancestry;
-для чистого PR на main нужно перенести только issue3 commits ea80f473/dd157f1 и новую реализацию.
-Исходная codex/diagnose-revoked-shared-schemas сохранена; pinned reproducer ea80f473 должен оставаться доступным.
+Чистая ветка codex/task-description-limit-implementation основана на origin/main.
+В неё перенесены только issue3 commits; Core21 изменения остались в своей ветке.
+Local implementation source b598b5d; исходная codex/issue-3-task-description-limit/d87e211 сохранена.
+Pinned reproducer ea80f473 доступен через исходную публичную ветку.
 
 ## Подготовка change для issue #3 на 2026-11-10
 
