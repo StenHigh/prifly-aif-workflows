@@ -1,6 +1,10 @@
 # План изменений workflow после сравнения с Software Factory
 
-Сверено 2026-11-10 после слияния PR #16 по текущим main, release evidence и GitHub; исторические проверки сохраняют свои даты. W1–W3: **committed/pushed, CI PASS**, с отдельными live observations;
+PR #18 MERGED, issue #17 CLOSED/completed; exact-source [CI42828130200](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/42828130200) SUCCESS.
+Проверка выпуска по issue #17 описана в [приёмке собранных версий](guard-compiled-component-versions/acceptance.md).
+[Готовый пример](../../examples/compiled-versions/README.md) показывает проверку ID/version/SHA-256 и штатный `package remove`.
+
+Сверено 2026-11-10 после слияния PR #18 по текущим main, release evidence и GitHub; исторические проверки сохраняют свои даты. W1–W3: **committed/pushed, CI PASS**, с отдельными live observations;
 W4: **committed/pushed, pilot qualified, CI PASS**; W5: **пакетная часть завершена, scoped qualification и final CI PASS; v1.52.0**.
 Пакеты включены в [выпуск v1.52.0](../releases/v1.52.0.md). Актуальная база совместимости: released Pri-Fly
 **0.13.90**, опубликованный выпуск репозитория **v1.57.0**; task-limit classic/profiled/fix3.0.0 принят в main, но tag v1.58.0 и новый catalog не опубликованы. Verify/compatibility и полный CI на0.13.88 прошли: [evidence](engine/ci-installation-0.13.88.md). PR #15 объединён в main4323276. Прежние CI/live evidence на0.13.76 и release qualification на0.13.86 сохраняют свои версии и границы; новые scripted/browser checks не означают production или LLM acceptance.

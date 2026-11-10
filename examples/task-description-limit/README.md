@@ -4,6 +4,8 @@
 [PR #16](https://github.com/StenHigh/prifly-aif-workflows/pull/16) смёржен; tag v1.58.0 ещё не опубликован.
 Проверенный source: `72eb8861263d15079d767c6c6106e8c240f738d0`. Обычный каталог пока устанавливает прежний v1.57.0.
 Project profile должен иметь версию `/3`, `/4` или `/5`.
+Для вывода старой сборки после зависимых Run используйте [package remove](../compiled-versions/README.md#вывод-старой-сборки-после-обновления).
+`package revoke` предназначен для необратимого отзыва доверия.
 Рабочий проект должен содержать начальный Git commit и реальные AI Factory skills выбранного host.
 
 Готовый [task.json](task.json) содержит 16 557 Unicode-символов в description.

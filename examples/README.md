@@ -2,6 +2,7 @@
 
 | Задача | Пример | Что нужно настроить |
 | --- | --- | --- |
+| Проверить версии перед выпуском и вывести старую сборку | [Compiled versions](compiled-versions/README.md) | Official Core0.13.90, полный checkout и PyYAML; сравнение compiled ID/version/SHA-256 и отдельный `package remove`. |
 | Настроить предел длинного task | [Task description limit](task-description-limit/README.md) | Classic/profiled/fix3.0.0 из exact source, Core0.13.90, owner config; compile/prepare/start/continue. |
 | Пройти полный цикл разработки | [Classic и profiled](classic/README.md) | Task, AI Factory skills, project checks; prepare/start/continue и отдельное opt-in review/UI/UX. |
 | Проверить качество изменённых тестов | [OpenClaw test audit](test-audit/README.md) | Исходная база, patterns для Python/Node/monorepo; preview/start/continue. AI Factory skills не нужны. |
