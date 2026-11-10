@@ -1,0 +1,58 @@
+{
+  "prifly": "0.13.90",
+  "binary_sha256": "sha256:db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+  "cases": [
+    {
+      "package": "aif-classic",
+      "input": "examples/task-description-limit/task.json",
+      "input_sha256": "sha256:c65ec9e55f82fdbf7c26acf57fbf8c6617d8b1d1abe7274e0f78656b582f76cb",
+      "owner_sha256": "sha256:0342fb80b73c5b66998ea4445f65788dd140a8b5ab7f5cc17f360db3f2261203",
+      "length": 16557,
+      "run_id": "run:54667a348676c66ea4bd2dc69862cddc6ffce777c1dbd32525c522a7df7c8e3e",
+      "prepare_passed": true,
+      "start_passed": true,
+      "full_saved_input": true,
+      "boundary": "Accepted root input and dispatched read-only warmup; no live skills or application acceptance.",
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1,
+        "root_removed": true
+      }
+    },
+    {
+      "package": "aif-profiled",
+      "input": "examples/task-description-limit/task.json",
+      "input_sha256": "sha256:c65ec9e55f82fdbf7c26acf57fbf8c6617d8b1d1abe7274e0f78656b582f76cb",
+      "owner_sha256": "sha256:0342fb80b73c5b66998ea4445f65788dd140a8b5ab7f5cc17f360db3f2261203",
+      "length": 16557,
+      "run_id": "run:9cc958f378947e721239df3398d1f99daf91e4ceb3e41f14c1867b7742e48405",
+      "prepare_passed": true,
+      "start_passed": true,
+      "full_saved_input": true,
+      "boundary": "Accepted root input and dispatched read-only warmup; no live skills or application acceptance.",
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1,
+        "root_removed": true
+      }
+    },
+    {
+      "package": "aif-fix",
+      "input": "examples/task-description-limit/fix-task.json",
+      "input_sha256": "sha256:1202f53073aa9536f18cb684ba891063501f18eb55b1c8618751cc0aee04ecac",
+      "owner_sha256": "sha256:0342fb80b73c5b66998ea4445f65788dd140a8b5ab7f5cc17f360db3f2261203",
+      "length": 16557,
+      "run_id": "run:9189e1cfc5992dbd0e0e2f13aa222fc1a9cd8fe1eb1dffdd316168466d7593c0",
+      "prepare_passed": true,
+      "start_passed": true,
+      "full_saved_input": true,
+      "boundary": "Accepted root input and dispatched read-only warmup; no live skills or application acceptance.",
+      "cleanup": {
+        "active_claims": 0,
+        "registry_entries_removed": 1,
+        "root_removed": true
+      }
+    }
+  ],
+  "complete": true
+}

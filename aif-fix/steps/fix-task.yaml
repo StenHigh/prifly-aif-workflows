@@ -1,10 +1,10 @@
 authoring: prifly-step/2
 id: aif-fix:step/fix-task
-version: 1.2.0
+version: 1.3.0
 title: fix-task for the bug workflow
 kind: worker
 inputs:
-  task: {schema_ref: "{{contract_schema_task}}"}
+  task: {schema_ref: "{{schema_task}}"}
   handoff: {schema_ref: "{{contract_schema_warmup-handoff}}"}
   implementation: {schema_ref: "{{contract_schema_implementation}}"}
 outputs:

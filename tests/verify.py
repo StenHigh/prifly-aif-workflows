@@ -230,7 +230,9 @@ def check_classic(binary, authority, repository, root):
     output = root / "classic"
     result, documents = compile_package(binary, authority, repository, "aif-classic", output)
     # 49 until 1.41.0; the second reviewer added a step, its findings schema and its bridge.
-    assert result["package"]["id"] == "aif:package/classic" and len(result["components"]) == 44, (result["package"], len(result["components"]))
+    # The parameterised task is now an owned reachable schema, beside the
+    # exact shared contracts that remain external.
+    assert result["package"]["id"] == "aif:package/classic" and len(result["components"]) == 45, (result["package"], len(result["components"]))
     catalog = by_id(json.loads((output / "decisions.json").read_text())["decisions"])
     assert {name: entry["phase"] for name, entry in catalog.items()} == CLASSIC_DECISIONS, sorted(catalog)
     assert catalog["plan_profile"]["destination"]["kind"] == "package_profile", catalog["plan_profile"]

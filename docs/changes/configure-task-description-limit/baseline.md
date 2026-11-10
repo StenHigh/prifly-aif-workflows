@@ -10,7 +10,7 @@ Shipping packages в этой задаче не меняются.
 `gh release list -R StenHigh/prifly --exclude-pre-releases -L 5` вернул latest stable `v0.13.89`.
 Шапка `CONTEXT_STATE.md` уже указывает ворота на той же версии.
 Новых stable нет; повторный запуск verify/compatibility для документации не выполнялся.
-Прежняя проверка восьми пакетов: [released 0.13.89 evidence](../engine/release-0.13.89-results.json).
+Прежняя проверка восьми пакетов: [released 0.13.89 evidence](https://github.com/StenHigh/prifly-aif-workflows/blob/ea80f4730deb0e4ec4d166d68b2fb3d189491c6a/docs/changes/engine/release-0.13.89-results.json).
 
 Проверен исходник тега `v0.13.89`, а не рабочее дерево Core после этого тега:
 

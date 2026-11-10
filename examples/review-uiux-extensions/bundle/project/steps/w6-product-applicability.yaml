@@ -12,7 +12,7 @@
   "title": "Judge UI/UX applicability for the task and actual candidate",
   "inputs": {
     "task": {
-      "schema_ref": "{{contract_schema_task}}"
+      "schema_ref": "{{schema_task}}"
     },
     "implementation": {
       "schema_ref": "{{contract_schema_implementation}}"

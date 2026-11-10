@@ -1,0 +1,92 @@
+{
+  "checked_on": "2026-11-10",
+  "core_release": "v0.13.90",
+  "release_url": "https://github.com/StenHigh/prifly/releases/tag/v0.13.90",
+  "provenance": {
+    "status": "passed",
+    "release_tag": "v0.13.90",
+    "release_sha": "5e7f81cf5e6b53b72b86a937584e18f699f90ff9",
+    "checked_at": "2026-11-09T23:30:20.836671+00:00",
+    "public_key_hex": "521250b29cb38544a7ec7fc1a2ee12b738cbcc3aca78d3bdc860ea438b5435b4",
+    "public_key_source": "https://api.github.com/repos/StenHigh/prifly/actions/variables/PRIFLY_RELEASE_PUBLIC_KEY",
+    "signatures": [
+      "release-manifest.jcs.sig",
+      "release-manifest.sig"
+    ],
+    "manifest_sha256": "071b45442d28342e628ba9ca9592e18b78fb05520db932775b8fa3adcbabf535",
+    "archive": "prifly-linux-amd64.tar.gz",
+    "archive_sha256": "1a755a7a1134b71a484bedfc347686908eaccd25a81d85d808beddff5da03546",
+    "binary_sha256": "db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+    "binary_version": {
+      "arch": "amd64",
+      "go": "go1.27.3",
+      "os": "linux",
+      "schema_version": "foundation-version/1",
+      "semantics_profile": "foundation-sequence/1",
+      "version": "0.13.90"
+    },
+    "asset_url": "https://github.com/StenHigh/prifly/releases/download/v0.13.90/prifly-linux-amd64.tar.gz"
+  },
+  "baseline_verify": {
+    "outcome": "passed",
+    "prifly": "0.13.90",
+    "binary_sha256": "sha256:db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+    "platform": "linux/x86_64",
+    "packages": [
+      "aif-classic",
+      "aif-fanout",
+      "aif-feature",
+      "aif-fix",
+      "aif-profiled",
+      "aif-review-evidence",
+      "aif-ui-ux",
+      "openclaw-test-audit"
+    ],
+    "components_read": 132,
+    "steps_read": 88,
+    "registry_entries_removed": 1
+  },
+  "baseline_compatibility": {
+    "outcome": "passed",
+    "prifly": "0.13.90",
+    "binary_sha256": "sha256:db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+    "platform": "linux/x86_64",
+    "launches": 5,
+    "distinct_builds": 4,
+    "trusted_packages": 6,
+    "profiled_sealed_as": "core-state/41",
+    "boundary": "assisted handoff dispatched; no AI host answers it here",
+    "registry_entries_removed": 1
+  },
+  "candidate_verify": {
+    "outcome": "passed",
+    "prifly": "0.13.90",
+    "binary_sha256": "sha256:db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+    "platform": "linux/x86_64",
+    "packages": [
+      "aif-classic",
+      "aif-fanout",
+      "aif-feature",
+      "aif-fix",
+      "aif-profiled",
+      "aif-review-evidence",
+      "aif-ui-ux",
+      "openclaw-test-audit"
+    ],
+    "components_read": 132,
+    "steps_read": 88,
+    "registry_entries_removed": 1
+  },
+  "candidate_compatibility": {
+    "outcome": "passed",
+    "prifly": "0.13.90",
+    "binary_sha256": "sha256:db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+    "platform": "linux/x86_64",
+    "launches": 5,
+    "distinct_builds": 4,
+    "trusted_packages": 6,
+    "profiled_sealed_as": "core-state/41",
+    "boundary": "assisted handoff dispatched; no AI host answers it here",
+    "registry_entries_removed": 1
+  }
+}

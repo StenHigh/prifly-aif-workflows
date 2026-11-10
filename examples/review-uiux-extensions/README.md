@@ -17,18 +17,24 @@ native вложенный workflow через проектный `extend.yaml`. 
 rejected. Локальный commit к этому моменту **может существовать**: вставка не
 даёт атомарную блокировку файлов и ничего не откатывает.
 
-Текущий bundle2.0.0 требует **Pri-Fly ≥0.13.86**, classic/profiled2.0.0,
+Текущий candidate bundle3.0.0 требует **Pri-Fly ≥0.13.90**, classic/profiled3.0.0,
 общий пакет схем1.2.0, Python3.10+ и
 AI Factory2.19.0 skills выбранного host, включая `aif-review`. Для установки
 примеров нужен PyYAML6; runtime workers используют stdlib. Первый scope —
 последовательная приёмка и изолированная среда (`shared_resource: null`).
 Параллельные W5 grants и автоматический repair не подключаются.
 
+Task-aware project copies теперь используют `{{schema_task}}` установленного consumer.
+Настройка `project/compile-values.yaml` применяется и к этим потребителям.
+Старые установленные copies с `{{contract_schema_task}}` требуют явного обновления.
+Frozen public imports сохраняют прежний task1.1.0; новая настройка их не меняет.
+Полный самостоятельный [пример task limit](../task-description-limit/README.md) показывает подготовку owner value и запуск.
+
 ## Настроить критерии
 
 Дальнейшие команды выполняются из корня целевого Git-проекта с существующей
 `.prifly/project.yaml`. Подставьте абсолютный путь к checkout этого репозитория
-вместо `/absolute/path/to/aif-workflows`. Используйте точный checkout v1.57.0. Старые примеры для v1.53–v1.56
+вместо `/absolute/path/to/aif-workflows`. Используйте проверенный candidate commit этой ветки; repository tag ещё не опубликован. Старые примеры для v1.53–v1.56
 остаются на своих tags. Этот compatibility recipe сохраняет корневую вставку
 `prifly-extension/2`; новые public imports и scoped points показаны в
 [основном примере /5](../unified-composition/README.md).
@@ -72,15 +78,15 @@ claimed repository_workspace; внешний старый deployment не под
 Если classic ещё не установлен:
 
 ```sh
-prifly project workflows add StenHigh/prifly-aif-workflows --path aif-classic --ref v1.57.0 --repository .
+prifly project workflows add StenHigh/prifly-aif-workflows --path aif-classic --ref codex/issue-3-task-description-limit --repository .
 ```
 
 До preview явно установите схемы в существующую authority проекта. Укажите
-действующие абсолютные пути к бинарнику86 и authority:
+действующие абсолютные пути к бинарнику90 и authority:
 
 ```sh
 python3 /absolute/path/to/aif-workflows/tools/install_composition_contracts.py \
-  --binary /absolute/path/to/prifly-v0.13.86 --project /absolute/path/to/authority
+  --binary /absolute/path/to/prifly-v0.13.90 --project /absolute/path/to/authority
 ```
 
 Preview плана установки (без записи):

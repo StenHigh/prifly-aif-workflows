@@ -10,7 +10,7 @@ Core уже умеет подставлять число в схему при с
 Использован официальный Linux amd64 binary из ранее проверенного выпуска.
 SHA-256: `90e3e37c79a88ae0279a2542e40e34d75afa524b2b3cf7188900830ea7fe2985`.
 Source выпуска: `30c3635081f8f012aef3953072dcd45d0807d618`.
-Подписи manifest и архив проверены в [приёмке выпуска](../engine/release-0.13.89.md).
+Подписи manifest и архив проверены в [приёмке выпуска](https://github.com/StenHigh/prifly-aif-workflows/blob/ea80f4730deb0e4ec4d166d68b2fb3d189491c6a/docs/changes/engine/release-0.13.89.md).
 В этой проверке версия и checksum binary сверены повторно.
 
 [Fixture](../../../tests/fixtures/task-description-limit/README.md) содержит root, child workflow и один worker.

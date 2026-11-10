@@ -51,6 +51,13 @@ model_profile; it does not select a verdict or change submitted reports.
 
 # Probes
 
+`shipping_task_limit.py` qualifies the implemented parameter on classic/profiled/fix3.0.0.
+The native matrix covers Unicode boundaries, bad values, all package profiles/hosts,
+project consumers, verify/review repair, reviewed continue, shared authority and package update.
+Actors are scripted. No live model judgement or private application acceptance is claimed.
+
+    python3 -B tests/probes/shipping_task_limit.py --binary /path/to/released/prifly --jobs 3 --output /tmp/aif-task-limit-results.json
+
 `task_description_limit.py` checks workflow issue #3 on a released binary.
 Its isolated root/child/worker fixture measures settings, package profiles,
 composition and standalone compile values before native prepare/start validation.

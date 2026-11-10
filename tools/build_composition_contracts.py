@@ -16,7 +16,15 @@ def build():
  sources={};bindings={}
  for package in PACKAGES:
   bindings[package]={}
+  # A schema with a compile parameter belongs to each compiled source owner.
+  # It cannot be exported as an inert exact schema with an unresolved scalar.
+  declaration=ROOT/package/'compile-parameters.yaml'
+  owned=set()
+  if declaration.is_file():
+   parameters=yaml.safe_load(declaration.read_text())['parameters']
+   owned={b['schema'] for p in parameters.values() for b in p['bindings']}
   for path in sorted((ROOT/package/'schemas').glob('*.yaml')):
+   if 'schema_'+path.stem in owned:continue
    value=yaml.safe_load(path.read_text());ref=value['id']+'@'+value['version'];raw=canonical(value)
    if ref in sources and sources[ref]!=raw:raise ValueError('Conflicting schema identity: '+ref)
    sources[ref]=raw;bindings[package]['contract_schema_'+path.stem]=ref

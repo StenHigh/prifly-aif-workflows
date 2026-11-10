@@ -10,7 +10,7 @@
 <p align="center">
   <a href="https://github.com/StenHigh/prifly-aif-workflows/actions/workflows/verify.yml"><img src="https://github.com/StenHigh/prifly-aif-workflows/actions/workflows/verify.yml/badge.svg" alt="verify"></a>
   <a href="https://github.com/StenHigh/prifly-aif-workflows/tags"><img src="https://img.shields.io/github/v/tag/StenHigh/prifly-aif-workflows?label=release&amp;color=1f6feb" alt="latest tag"></a>
-  <img src="https://img.shields.io/badge/pri--fly-%E2%89%A5%200.13.86-00ADD8" alt="Pri-Fly ≥ 0.13.86">
+  <img src="https://img.shields.io/badge/pri--fly-%E2%89%A5%200.13.90-00ADD8" alt="Pri-Fly ≥ 0.13.90">
   <img src="https://img.shields.io/badge/hosts-codex--cli%20%C2%B7%20codex--app%20%C2%B7%20claude--code-4b5563" alt="hosts">
 </p>
 
@@ -71,6 +71,14 @@ workflow или отдельная очередь не добавляются.
 действием. Их компоненты уже используются внутри `aif-feature`, где проверка
 связана с реализацией и повторяется после исправлений. Для браузерных проверок
 понадобится [контракт тестовой среды проекта](docs/product-review-environment.md).
+
+**Candidate classic/profiled/fix3.0.0: проектный предел task.description.**
+Требуется Pri-Fly **0.13.90+**. Пакет объявляет compile parameter; проект задаёт число в
+`project/compile-values.yaml` установленного workflow. Default12 000 сохраняется.
+Task становится owned schema1.2.0; project consumers используют `{{schema_task}}`.
+[Готовый task16557 и config32000](examples/task-description-limit/README.md),
+[миграция и совместимость](docs/changes/configure-task-description-limit/release-guide.md).
+Candidate пока не опубликован; опубликованные catalog pins ниже относятся к v1.57.0.
 
 **Выпуск v1.57.0: unified composition `/5`.** Classic/profiled/fix/UIUX2.0.0
 используют public imports, scoped points и общую exact schema dependency.
