@@ -33,6 +33,16 @@ jobs:
           python3 -B -m unittest discover -s tests -p test_change_applicability.py
       - name: Static folder contract
         run: python3 -B tests/test_folders.py
+      - name: Compiled identities stay immutable across releases and dependency changes
+        run: |
+          python3 -B tests/test_compiled_versions.py
+          python3 -B tests/compiled_versions.py --binary "$HOME/.local/bin/prifly" \
+            --report /tmp/aif-compiled-versions.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: compiled-version-results
+          path: /tmp/aif-compiled-versions.json
       - name: Explicit review coverage and dirty candidate identity
         run: python3 -B tests/test_review_evidence.py
       - name: Test audit selection, evidence coverage and candidate freshness

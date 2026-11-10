@@ -1,5 +1,8 @@
 # План изменений workflow после сравнения с Software Factory
 
+Проверка выпуска по issue #17 описана в [приёмке собранных версий](guard-compiled-component-versions/acceptance.md).
+[Готовый пример](../../examples/compiled-versions/README.md) показывает проверку ID/version/SHA-256 и штатный `package remove`.
+
 Дата: 2026-10-31. W1–W3: **committed/pushed, CI PASS**, с отдельными live observations;
 W4: **committed/pushed, pilot qualified, CI PASS**; W5: **пакетная часть завершена, scoped qualification и final CI PASS; v1.52.0**.
 Пакеты включены в [выпуск v1.52.0](../releases/v1.52.0.md). Актуальная база совместимости: released Pri-Fly

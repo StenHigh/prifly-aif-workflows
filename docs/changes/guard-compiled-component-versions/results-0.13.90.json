@@ -1,0 +1,655 @@
+{
+  "outcome": "passed",
+  "prifly": "0.13.90",
+  "binary_sha256": "sha256:db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+  "baseline": {
+    "tag": "v1.57.0",
+    "commit": "ee76702dec0d8e0958ef068ef58074ecf2db37e9",
+    "source_digest": "sha256:00745cf792a0b18a54a216ca8f7178bac343f2971a87881196f54b5713ebc5ac",
+    "builds": [
+      {
+        "package": "aif-classic",
+        "host": "codex-cli",
+        "profile": "fast",
+        "build_key": "sha256:4ad465cfff963f03a08f8f5f1048e5b52322793e0bd7db35eab4d3752d0a4032",
+        "components": 44
+      },
+      {
+        "package": "aif-classic",
+        "host": "codex-cli",
+        "profile": "full",
+        "build_key": "sha256:c4ee52dab569cf80d80aafa664b999193c319cd3d3e75817c03d5bbb82f17088",
+        "components": 44
+      },
+      {
+        "package": "aif-classic",
+        "host": "codex-cli",
+        "profile": "ultra",
+        "build_key": "sha256:3377a207a725fb87d0d1b1236ab25ce3d8ce8e0b92ccb6f693bf17a11ac37b80",
+        "components": 44
+      },
+      {
+        "package": "aif-classic",
+        "host": "codex-app",
+        "profile": "fast",
+        "build_key": "sha256:4ad465cfff963f03a08f8f5f1048e5b52322793e0bd7db35eab4d3752d0a4032",
+        "components": 44
+      },
+      {
+        "package": "aif-classic",
+        "host": "codex-app",
+        "profile": "full",
+        "build_key": "sha256:c4ee52dab569cf80d80aafa664b999193c319cd3d3e75817c03d5bbb82f17088",
+        "components": 44
+      },
+      {
+        "package": "aif-classic",
+        "host": "codex-app",
+        "profile": "ultra",
+        "build_key": "sha256:3377a207a725fb87d0d1b1236ab25ce3d8ce8e0b92ccb6f693bf17a11ac37b80",
+        "components": 44
+      },
+      {
+        "package": "aif-classic",
+        "host": "claude-code",
+        "profile": "fast",
+        "build_key": "sha256:4ad465cfff963f03a08f8f5f1048e5b52322793e0bd7db35eab4d3752d0a4032",
+        "components": 44
+      },
+      {
+        "package": "aif-classic",
+        "host": "claude-code",
+        "profile": "full",
+        "build_key": "sha256:c4ee52dab569cf80d80aafa664b999193c319cd3d3e75817c03d5bbb82f17088",
+        "components": 44
+      },
+      {
+        "package": "aif-classic",
+        "host": "claude-code",
+        "profile": "ultra",
+        "build_key": "sha256:3377a207a725fb87d0d1b1236ab25ce3d8ce8e0b92ccb6f693bf17a11ac37b80",
+        "components": 44
+      },
+      {
+        "package": "aif-fanout",
+        "host": "codex-cli",
+        "profile": null,
+        "build_key": "sha256:8400525440e3827125914fda3bcf608b93a492c508edc7ee5a5697763e3e62ec",
+        "components": 12
+      },
+      {
+        "package": "aif-fanout",
+        "host": "codex-app",
+        "profile": null,
+        "build_key": "sha256:8400525440e3827125914fda3bcf608b93a492c508edc7ee5a5697763e3e62ec",
+        "components": 12
+      },
+      {
+        "package": "aif-fanout",
+        "host": "claude-code",
+        "profile": null,
+        "build_key": "sha256:8400525440e3827125914fda3bcf608b93a492c508edc7ee5a5697763e3e62ec",
+        "components": 12
+      },
+      {
+        "package": "aif-feature",
+        "host": "codex-cli",
+        "profile": "backend",
+        "build_key": "sha256:dfff1c114f76aac532be628c47199890bb206a8674454e686bb5d7875cc98a24",
+        "components": 100
+      },
+      {
+        "package": "aif-feature",
+        "host": "codex-cli",
+        "profile": "frontend",
+        "build_key": "sha256:cccfee5ff6dea367df1064722ee115bf0dc5b23bd59fec8d882de030efe872ba",
+        "components": 100
+      },
+      {
+        "package": "aif-feature",
+        "host": "codex-app",
+        "profile": "backend",
+        "build_key": "sha256:dfff1c114f76aac532be628c47199890bb206a8674454e686bb5d7875cc98a24",
+        "components": 100
+      },
+      {
+        "package": "aif-feature",
+        "host": "codex-app",
+        "profile": "frontend",
+        "build_key": "sha256:cccfee5ff6dea367df1064722ee115bf0dc5b23bd59fec8d882de030efe872ba",
+        "components": 100
+      },
+      {
+        "package": "aif-feature",
+        "host": "claude-code",
+        "profile": "backend",
+        "build_key": "sha256:dfff1c114f76aac532be628c47199890bb206a8674454e686bb5d7875cc98a24",
+        "components": 100
+      },
+      {
+        "package": "aif-feature",
+        "host": "claude-code",
+        "profile": "frontend",
+        "build_key": "sha256:cccfee5ff6dea367df1064722ee115bf0dc5b23bd59fec8d882de030efe872ba",
+        "components": 100
+      },
+      {
+        "package": "aif-fix",
+        "host": "codex-cli",
+        "profile": "default",
+        "build_key": "sha256:1b16a4e10ffc8e9aa90f81c42c6297626f45301557edb81b9d2cfabd54922126",
+        "components": 30
+      },
+      {
+        "package": "aif-fix",
+        "host": "codex-cli",
+        "profile": "custom",
+        "build_key": "sha256:b3806a37e7b2e1066181990c0474201a1bddb8d05d9191f70bc970badb10be82",
+        "components": 30
+      },
+      {
+        "package": "aif-fix",
+        "host": "codex-app",
+        "profile": "default",
+        "build_key": "sha256:1b16a4e10ffc8e9aa90f81c42c6297626f45301557edb81b9d2cfabd54922126",
+        "components": 30
+      },
+      {
+        "package": "aif-fix",
+        "host": "codex-app",
+        "profile": "custom",
+        "build_key": "sha256:b3806a37e7b2e1066181990c0474201a1bddb8d05d9191f70bc970badb10be82",
+        "components": 30
+      },
+      {
+        "package": "aif-fix",
+        "host": "claude-code",
+        "profile": "default",
+        "build_key": "sha256:1b16a4e10ffc8e9aa90f81c42c6297626f45301557edb81b9d2cfabd54922126",
+        "components": 30
+      },
+      {
+        "package": "aif-fix",
+        "host": "claude-code",
+        "profile": "custom",
+        "build_key": "sha256:b3806a37e7b2e1066181990c0474201a1bddb8d05d9191f70bc970badb10be82",
+        "components": 30
+      },
+      {
+        "package": "aif-profiled",
+        "host": "codex-cli",
+        "profile": "fast",
+        "build_key": "sha256:1850f9ffb43d8470dc9971ca7910c68ce8df068ecbb52e14ce89255b2feb3174",
+        "components": 44
+      },
+      {
+        "package": "aif-profiled",
+        "host": "codex-cli",
+        "profile": "full",
+        "build_key": "sha256:5cd0437ba8dbf8bd2cea12a0b612fc52f8e79778d94c377bf7a627b47e8563d5",
+        "components": 44
+      },
+      {
+        "package": "aif-profiled",
+        "host": "codex-cli",
+        "profile": "ultra",
+        "build_key": "sha256:8dbc25327485e1c3e97db0728a5b2d87c543ac1b56302be07f24bb79bfae8e7a",
+        "components": 44
+      },
+      {
+        "package": "aif-profiled",
+        "host": "codex-app",
+        "profile": "fast",
+        "build_key": "sha256:1850f9ffb43d8470dc9971ca7910c68ce8df068ecbb52e14ce89255b2feb3174",
+        "components": 44
+      },
+      {
+        "package": "aif-profiled",
+        "host": "codex-app",
+        "profile": "full",
+        "build_key": "sha256:5cd0437ba8dbf8bd2cea12a0b612fc52f8e79778d94c377bf7a627b47e8563d5",
+        "components": 44
+      },
+      {
+        "package": "aif-profiled",
+        "host": "codex-app",
+        "profile": "ultra",
+        "build_key": "sha256:8dbc25327485e1c3e97db0728a5b2d87c543ac1b56302be07f24bb79bfae8e7a",
+        "components": 44
+      },
+      {
+        "package": "aif-profiled",
+        "host": "claude-code",
+        "profile": "fast",
+        "build_key": "sha256:1850f9ffb43d8470dc9971ca7910c68ce8df068ecbb52e14ce89255b2feb3174",
+        "components": 44
+      },
+      {
+        "package": "aif-profiled",
+        "host": "claude-code",
+        "profile": "full",
+        "build_key": "sha256:5cd0437ba8dbf8bd2cea12a0b612fc52f8e79778d94c377bf7a627b47e8563d5",
+        "components": 44
+      },
+      {
+        "package": "aif-profiled",
+        "host": "claude-code",
+        "profile": "ultra",
+        "build_key": "sha256:8dbc25327485e1c3e97db0728a5b2d87c543ac1b56302be07f24bb79bfae8e7a",
+        "components": 44
+      },
+      {
+        "package": "aif-review-evidence",
+        "host": "codex-cli",
+        "profile": null,
+        "build_key": "sha256:6a1398b6bb1c91ace5d94d7d791d492dca525c2087f3cc1268537980d749dddb",
+        "components": 13
+      },
+      {
+        "package": "aif-review-evidence",
+        "host": "codex-app",
+        "profile": null,
+        "build_key": "sha256:6a1398b6bb1c91ace5d94d7d791d492dca525c2087f3cc1268537980d749dddb",
+        "components": 13
+      },
+      {
+        "package": "aif-review-evidence",
+        "host": "claude-code",
+        "profile": null,
+        "build_key": "sha256:6a1398b6bb1c91ace5d94d7d791d492dca525c2087f3cc1268537980d749dddb",
+        "components": 13
+      },
+      {
+        "package": "aif-ui-ux",
+        "host": "codex-cli",
+        "profile": null,
+        "build_key": "sha256:e726b44aecb6c184f709966964186fb6709dfe2f7333597960b47d9bf6527371",
+        "components": 25
+      },
+      {
+        "package": "aif-ui-ux",
+        "host": "codex-app",
+        "profile": null,
+        "build_key": "sha256:e726b44aecb6c184f709966964186fb6709dfe2f7333597960b47d9bf6527371",
+        "components": 25
+      },
+      {
+        "package": "aif-ui-ux",
+        "host": "claude-code",
+        "profile": null,
+        "build_key": "sha256:e726b44aecb6c184f709966964186fb6709dfe2f7333597960b47d9bf6527371",
+        "components": 25
+      },
+      {
+        "package": "openclaw-test-audit",
+        "host": "codex-cli",
+        "profile": null,
+        "build_key": "sha256:34654f2fa10dd4aafc165e4dc1fee49f8ef0d515af9d8866b9b8ef569ece3da4",
+        "components": 12
+      },
+      {
+        "package": "openclaw-test-audit",
+        "host": "codex-app",
+        "profile": null,
+        "build_key": "sha256:34654f2fa10dd4aafc165e4dc1fee49f8ef0d515af9d8866b9b8ef569ece3da4",
+        "components": 12
+      },
+      {
+        "package": "openclaw-test-audit",
+        "host": "claude-code",
+        "profile": null,
+        "build_key": "sha256:34654f2fa10dd4aafc165e4dc1fee49f8ef0d515af9d8866b9b8ef569ece3da4",
+        "components": 12
+      }
+    ]
+  },
+  "candidate": {
+    "head": "eb1ae8b2866398f8e2c5f67048c383360babd458",
+    "source_digest": "sha256:570c6aca612d80354c243a1075343ad86287cfd6a193b4aae1c56732c44944af",
+    "builds": [
+      {
+        "package": "aif-classic",
+        "host": "codex-cli",
+        "profile": "fast",
+        "build_key": "sha256:96f5332825fd2b6efea7ffa4101934999a0315fb8223328f4973b3456813be1b",
+        "components": 45
+      },
+      {
+        "package": "aif-classic",
+        "host": "codex-cli",
+        "profile": "full",
+        "build_key": "sha256:260317d5f1023800e37d7540203e980292a85df637a9dd199243c103176a3cf1",
+        "components": 45
+      },
+      {
+        "package": "aif-classic",
+        "host": "codex-cli",
+        "profile": "ultra",
+        "build_key": "sha256:a1730b849b39b89e444b4e1a12df47af840fe0a9fa69a02d0365f094550ad25a",
+        "components": 45
+      },
+      {
+        "package": "aif-classic",
+        "host": "codex-app",
+        "profile": "fast",
+        "build_key": "sha256:96f5332825fd2b6efea7ffa4101934999a0315fb8223328f4973b3456813be1b",
+        "components": 45
+      },
+      {
+        "package": "aif-classic",
+        "host": "codex-app",
+        "profile": "full",
+        "build_key": "sha256:260317d5f1023800e37d7540203e980292a85df637a9dd199243c103176a3cf1",
+        "components": 45
+      },
+      {
+        "package": "aif-classic",
+        "host": "codex-app",
+        "profile": "ultra",
+        "build_key": "sha256:a1730b849b39b89e444b4e1a12df47af840fe0a9fa69a02d0365f094550ad25a",
+        "components": 45
+      },
+      {
+        "package": "aif-classic",
+        "host": "claude-code",
+        "profile": "fast",
+        "build_key": "sha256:96f5332825fd2b6efea7ffa4101934999a0315fb8223328f4973b3456813be1b",
+        "components": 45
+      },
+      {
+        "package": "aif-classic",
+        "host": "claude-code",
+        "profile": "full",
+        "build_key": "sha256:260317d5f1023800e37d7540203e980292a85df637a9dd199243c103176a3cf1",
+        "components": 45
+      },
+      {
+        "package": "aif-classic",
+        "host": "claude-code",
+        "profile": "ultra",
+        "build_key": "sha256:a1730b849b39b89e444b4e1a12df47af840fe0a9fa69a02d0365f094550ad25a",
+        "components": 45
+      },
+      {
+        "package": "aif-fanout",
+        "host": "codex-cli",
+        "profile": null,
+        "build_key": "sha256:8400525440e3827125914fda3bcf608b93a492c508edc7ee5a5697763e3e62ec",
+        "components": 12
+      },
+      {
+        "package": "aif-fanout",
+        "host": "codex-app",
+        "profile": null,
+        "build_key": "sha256:8400525440e3827125914fda3bcf608b93a492c508edc7ee5a5697763e3e62ec",
+        "components": 12
+      },
+      {
+        "package": "aif-fanout",
+        "host": "claude-code",
+        "profile": null,
+        "build_key": "sha256:8400525440e3827125914fda3bcf608b93a492c508edc7ee5a5697763e3e62ec",
+        "components": 12
+      },
+      {
+        "package": "aif-feature",
+        "host": "codex-cli",
+        "profile": "backend",
+        "build_key": "sha256:dfff1c114f76aac532be628c47199890bb206a8674454e686bb5d7875cc98a24",
+        "components": 100
+      },
+      {
+        "package": "aif-feature",
+        "host": "codex-cli",
+        "profile": "frontend",
+        "build_key": "sha256:cccfee5ff6dea367df1064722ee115bf0dc5b23bd59fec8d882de030efe872ba",
+        "components": 100
+      },
+      {
+        "package": "aif-feature",
+        "host": "codex-app",
+        "profile": "backend",
+        "build_key": "sha256:dfff1c114f76aac532be628c47199890bb206a8674454e686bb5d7875cc98a24",
+        "components": 100
+      },
+      {
+        "package": "aif-feature",
+        "host": "codex-app",
+        "profile": "frontend",
+        "build_key": "sha256:cccfee5ff6dea367df1064722ee115bf0dc5b23bd59fec8d882de030efe872ba",
+        "components": 100
+      },
+      {
+        "package": "aif-feature",
+        "host": "claude-code",
+        "profile": "backend",
+        "build_key": "sha256:dfff1c114f76aac532be628c47199890bb206a8674454e686bb5d7875cc98a24",
+        "components": 100
+      },
+      {
+        "package": "aif-feature",
+        "host": "claude-code",
+        "profile": "frontend",
+        "build_key": "sha256:cccfee5ff6dea367df1064722ee115bf0dc5b23bd59fec8d882de030efe872ba",
+        "components": 100
+      },
+      {
+        "package": "aif-fix",
+        "host": "codex-cli",
+        "profile": "default",
+        "build_key": "sha256:7070802ef2184440907510f0432160c94fd96f5432c8e5b4692e6fd1ab6f6971",
+        "components": 31
+      },
+      {
+        "package": "aif-fix",
+        "host": "codex-cli",
+        "profile": "custom",
+        "build_key": "sha256:fbb980dfcf2445ae57156f287f06a20e7d1d1e19b1dd5c7de2ce3567fd2c9153",
+        "components": 31
+      },
+      {
+        "package": "aif-fix",
+        "host": "codex-app",
+        "profile": "default",
+        "build_key": "sha256:7070802ef2184440907510f0432160c94fd96f5432c8e5b4692e6fd1ab6f6971",
+        "components": 31
+      },
+      {
+        "package": "aif-fix",
+        "host": "codex-app",
+        "profile": "custom",
+        "build_key": "sha256:fbb980dfcf2445ae57156f287f06a20e7d1d1e19b1dd5c7de2ce3567fd2c9153",
+        "components": 31
+      },
+      {
+        "package": "aif-fix",
+        "host": "claude-code",
+        "profile": "default",
+        "build_key": "sha256:7070802ef2184440907510f0432160c94fd96f5432c8e5b4692e6fd1ab6f6971",
+        "components": 31
+      },
+      {
+        "package": "aif-fix",
+        "host": "claude-code",
+        "profile": "custom",
+        "build_key": "sha256:fbb980dfcf2445ae57156f287f06a20e7d1d1e19b1dd5c7de2ce3567fd2c9153",
+        "components": 31
+      },
+      {
+        "package": "aif-profiled",
+        "host": "codex-cli",
+        "profile": "fast",
+        "build_key": "sha256:94c2caeec3007a7377b6bf6afd441870cbe5436afe342140870e0ef06cfe6ca6",
+        "components": 45
+      },
+      {
+        "package": "aif-profiled",
+        "host": "codex-cli",
+        "profile": "full",
+        "build_key": "sha256:be81b6630d23344e7831f623b0ed57e9598fb944496364e9f233122e42493fd4",
+        "components": 45
+      },
+      {
+        "package": "aif-profiled",
+        "host": "codex-cli",
+        "profile": "ultra",
+        "build_key": "sha256:1213e6f3f4a2e9010f046f12276cd330dfd3d29288b91bb8dc9cb89ba992a776",
+        "components": 45
+      },
+      {
+        "package": "aif-profiled",
+        "host": "codex-app",
+        "profile": "fast",
+        "build_key": "sha256:94c2caeec3007a7377b6bf6afd441870cbe5436afe342140870e0ef06cfe6ca6",
+        "components": 45
+      },
+      {
+        "package": "aif-profiled",
+        "host": "codex-app",
+        "profile": "full",
+        "build_key": "sha256:be81b6630d23344e7831f623b0ed57e9598fb944496364e9f233122e42493fd4",
+        "components": 45
+      },
+      {
+        "package": "aif-profiled",
+        "host": "codex-app",
+        "profile": "ultra",
+        "build_key": "sha256:1213e6f3f4a2e9010f046f12276cd330dfd3d29288b91bb8dc9cb89ba992a776",
+        "components": 45
+      },
+      {
+        "package": "aif-profiled",
+        "host": "claude-code",
+        "profile": "fast",
+        "build_key": "sha256:94c2caeec3007a7377b6bf6afd441870cbe5436afe342140870e0ef06cfe6ca6",
+        "components": 45
+      },
+      {
+        "package": "aif-profiled",
+        "host": "claude-code",
+        "profile": "full",
+        "build_key": "sha256:be81b6630d23344e7831f623b0ed57e9598fb944496364e9f233122e42493fd4",
+        "components": 45
+      },
+      {
+        "package": "aif-profiled",
+        "host": "claude-code",
+        "profile": "ultra",
+        "build_key": "sha256:1213e6f3f4a2e9010f046f12276cd330dfd3d29288b91bb8dc9cb89ba992a776",
+        "components": 45
+      },
+      {
+        "package": "aif-review-evidence",
+        "host": "codex-cli",
+        "profile": null,
+        "build_key": "sha256:6a1398b6bb1c91ace5d94d7d791d492dca525c2087f3cc1268537980d749dddb",
+        "components": 13
+      },
+      {
+        "package": "aif-review-evidence",
+        "host": "codex-app",
+        "profile": null,
+        "build_key": "sha256:6a1398b6bb1c91ace5d94d7d791d492dca525c2087f3cc1268537980d749dddb",
+        "components": 13
+      },
+      {
+        "package": "aif-review-evidence",
+        "host": "claude-code",
+        "profile": null,
+        "build_key": "sha256:6a1398b6bb1c91ace5d94d7d791d492dca525c2087f3cc1268537980d749dddb",
+        "components": 13
+      },
+      {
+        "package": "aif-ui-ux",
+        "host": "codex-cli",
+        "profile": null,
+        "build_key": "sha256:e726b44aecb6c184f709966964186fb6709dfe2f7333597960b47d9bf6527371",
+        "components": 25
+      },
+      {
+        "package": "aif-ui-ux",
+        "host": "codex-app",
+        "profile": null,
+        "build_key": "sha256:e726b44aecb6c184f709966964186fb6709dfe2f7333597960b47d9bf6527371",
+        "components": 25
+      },
+      {
+        "package": "aif-ui-ux",
+        "host": "claude-code",
+        "profile": null,
+        "build_key": "sha256:e726b44aecb6c184f709966964186fb6709dfe2f7333597960b47d9bf6527371",
+        "components": 25
+      },
+      {
+        "package": "openclaw-test-audit",
+        "host": "codex-cli",
+        "profile": null,
+        "build_key": "sha256:34654f2fa10dd4aafc165e4dc1fee49f8ef0d515af9d8866b9b8ef569ece3da4",
+        "components": 12
+      },
+      {
+        "package": "openclaw-test-audit",
+        "host": "codex-app",
+        "profile": null,
+        "build_key": "sha256:34654f2fa10dd4aafc165e4dc1fee49f8ef0d515af9d8866b9b8ef569ece3da4",
+        "components": 12
+      },
+      {
+        "package": "openclaw-test-audit",
+        "host": "claude-code",
+        "profile": null,
+        "build_key": "sha256:34654f2fa10dd4aafc165e4dc1fee49f8ef0d515af9d8866b9b8ef569ece3da4",
+        "components": 12
+      }
+    ]
+  },
+  "components_read": 3540,
+  "unique_identities": 918,
+  "dependency_regression": {
+    "step_source_sha256": "sha256:d37693895eca2da3179776fa5a9fc5c84d58801a64fdf2815c9fffd2a3afe1d1",
+    "author_step_version": "1.7.0",
+    "cases": [
+      {
+        "case": "unchanged",
+        "step": {
+          "kind": "step",
+          "id": "aif:step/plan",
+          "version": "0.0.0-b2.6lp2g4je2b7zsbxl52qk3yfroou3oogk32g2ji6nuorwmbrujbca",
+          "digest": "sha256:055898fd153725e7e63312e6e9e5ce3ed2ebc9b6691606b207ff1fb70aeab036",
+          "source": "dependency/unchanged"
+        }
+      },
+      {
+        "case": "repeat",
+        "step": {
+          "kind": "step",
+          "id": "aif:step/plan",
+          "version": "0.0.0-b2.6lp2g4je2b7zsbxl52qk3yfroou3oogk32g2ji6nuorwmbrujbca",
+          "digest": "sha256:055898fd153725e7e63312e6e9e5ce3ed2ebc9b6691606b207ff1fb70aeab036",
+          "source": "dependency/repeat"
+        }
+      },
+      {
+        "case": "instructions",
+        "step": {
+          "kind": "step",
+          "id": "aif:step/plan",
+          "version": "0.0.0-b2.qox7pd3yvny2lncjwchvwtqguabmud27fhcmcy53nkji5qbhf3aq",
+          "digest": "sha256:3502faf492cad219bfd778b6bdcded9de6dfdffe16b64e6ebdec38a07b665127",
+          "source": "dependency/instructions"
+        }
+      },
+      {
+        "case": "schema",
+        "step": {
+          "kind": "step",
+          "id": "aif:step/plan",
+          "version": "0.0.0-b2.kcljxo4jigbkft75ivkovvse5qy3mrtth7bz7e5qkw7bwlqfjnua",
+          "digest": "sha256:84e5fe7d385ecc4b68db97f96b162864e69552a969f27442f30ec8f785a3d055",
+          "source": "dependency/schema"
+        }
+      }
+    ]
+  },
+  "registry_entries_removed": 3
+}

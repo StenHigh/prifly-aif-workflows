@@ -263,6 +263,31 @@ launches:
 отказывает `project_workflow_modified`, если вы накладываете на папку свои
 файлы, и тогда единственный путь обновления — `remove` + `add`. **Сохраняйте
 `extend.yaml` до `remove`**, копию делают только те, кто знает.
+
+Для вывода старой **собранной версии из authority** используйте `package remove`.
+Authority — каталог состояния Pri-Fly, заданный через `--project`.
+Это другая команда: она не удаляет установленную папку workflow.
+Дождитесь завершения зависимых Run. Сохраните исходники и настройки для нужного continue.
+Выберите точную старую версию из `package list`; авторская версия не заменяет версию сборки.
+
+```sh
+AUTHORITY=/absolute/path/to/prifly-state
+OLD_PACKAGE_ID='aif:package/classic'
+OLD_BUILD_VERSION='REPLACE_WITH_EXACT_OLD_VERSION_FROM_PACKAGE_LIST'
+"$RELEASED_PRIFLY" --project "$AUTHORITY" run list --limit 100
+"$RELEASED_PRIFLY" --project "$AUTHORITY" package list
+"$RELEASED_PRIFLY" --project "$AUTHORITY" package remove \
+  --id "$OLD_PACKAGE_ID" --version "$OLD_BUILD_VERSION" \
+  --reason 'Retire the old edition after dependent Runs finish'
+```
+
+Подставьте реальные `AUTHORITY`, `OLD_PACKAGE_ID` и `OLD_BUILD_VERSION` перед удалением.
+`RELEASED_PRIFLY` указывает на официальный бинарник Pri-Fly.
+Если Run удерживает пакет, команда отказывает; сохраните пакет до разрешения зависимости.
+`package remove` освобождает записи пакета в реестре; `package restore` возвращает ту же версию.
+`package revoke` предназначен для отзыва доверия: он блокирует старые pins и необратим.
+Не используйте `revoke` для штатного обновления или устранения конфликта версий.
+
 В `aif-classic` доступны `profile: fast|full|ultra` (reviewed default),
 `settings` для лимитов improve и `exclude: [improve, verify, security, review]`.
 
@@ -497,13 +522,35 @@ Continue повторяет verify целиком с сохранённым де
 `tests/test_versions.py` проверяет это правило и называет и ссылающийся файл, и
 ссылку, чья версия ушла вперёд.
 
+`tests/compiled_versions.py` дополнительно сравнивает собранные компоненты предыдущего выпуска и рабочего дерева.
+Обе стороны используют один официальный бинарник, одинаковые stub skills и настройки по умолчанию.
+Проверка читает ID, итоговую версию и SHA-256 каждого собранного документа.
+Вид компонента (`kind`), ID и итоговая версия вместе задают его идентичность.
+Одинаковые kind/ID/версия при разных отпечатках останавливают выпуск, включая разные hosts и package profiles.
+Новая итоговая версия допустима, если компилятор назначил её при изменении зависимости.
+
+```text
+Предыдущий tag -> сборка -> ID + версия + SHA-256 --+
+                                                 +-> проверка неизменности
+Рабочее дерево -> сборка -> ID + версия + SHA-256 --+
+```
+
+Отдельный регрессионный сценарий меняет только инструкцию или схему, сохраняя YAML и авторскую версию шага.
+На текущем Project profile `/3` компилятор должен назначить разные итоговые версии шага.
+Отрицательные unit tests требуют отказа, если версия осталась прежней, а отпечаток изменился.
+Проверка не заявляет приёмку исторических установок `/2` или миграцию уже отозванных пакетов.
+
 ## Проверки
 
 Путь `RELEASED_PRIFLY` ниже должен указывать на официальный бинарник latest
 stable из GitHub Releases; установленный локально бинарник может быть dev-сборкой.
+Для проверки собранных версий нужен `PyYAML==6.0.1`, который также устанавливает CI.
+[Готовый пример](examples/compiled-versions/README.md) содержит подготовку окружения, команды проверки и штатный вывод старой сборки.
 
 ```sh
 python3 -B tests/test_versions.py
+python3 -B tests/test_compiled_versions.py
+python3 -B tests/compiled_versions.py --binary "$RELEASED_PRIFLY" --report /tmp/aif-compiled-versions.json
 python3 -B tests/test_folders.py
 python3 -B tools/derive_profiled.py --check
 python3 -B tests/verify.py --binary "$RELEASED_PRIFLY"
