@@ -89,7 +89,8 @@ def git(*arguments):
     )
 
 
-def prepare_repository(binary, root):
+def prepare_repository(binary, root, *, source_root=None):
+    source_root = ROOT if source_root is None else source_root
     repository = root / "repository"
     authority = root / "authority"
     repository.mkdir()
@@ -99,12 +100,12 @@ def prepare_repository(binary, root):
     hosts = [argument for host in HOSTS for argument in ("--host", host)]
     run(binary, "project", "init", "--repository", repository, "--state-root", authority, *hosts)
     # This mutating setup is explicit; compile and prepare never install dependencies.
-    if (ROOT / "contracts/lock.json").is_file():
+    if (source_root / "contracts/lock.json").is_file():
         sys.path.insert(0, str(ROOT / "tools"))
         from install_composition_contracts import install
-        install(binary, authority, ROOT)
+        install(binary, authority, source_root)
     for name in PACKAGES:
-        shutil.copytree(ROOT / name, repository / ".prifly" / "workflows" / name)
+        shutil.copytree(source_root / name, repository / ".prifly" / "workflows" / name)
     for skills_root in HOSTS.values():
         for skill, names in (("aif-plan", ("TASK-FORMAT.md",)), ("aif-implement", ("IMPLEMENTATION-GUIDE.md", "LOGGING-GUIDE.md"))):
             for name in names:
