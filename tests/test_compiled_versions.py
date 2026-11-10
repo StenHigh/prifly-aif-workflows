@@ -6,7 +6,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from compiled_versions import check_collisions, fingerprint, previous_release, read_components
+from compiled_versions import check_collisions, fingerprint, previous_release, read_components, source_digest
 from verify import git
 
 
@@ -81,6 +81,22 @@ class CompiledVersionTest(unittest.TestCase):
             git("-C", repository, "commit", "--allow-empty", "-qm", "prerelease")
             git("-C", repository, "tag", "v1.2.0-rc1")
             self.assertEqual(previous_release(repository), "v1.1.0")
+
+    def test_source_digest_ignores_python_cache_but_tracks_source(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            source = Path(temporary)
+            package = source / "aif-classic"
+            package.mkdir()
+            definition = package / "workflow.yaml"
+            definition.write_text("version: 1.0.0\n")
+            before = source_digest(source)
+            cache = package / "__pycache__"
+            cache.mkdir()
+            (cache / "worker.cpython-312.pyc").write_bytes(b"runtime cache")
+            (package / "worker.pyc").write_bytes(b"legacy cache")
+            self.assertEqual(source_digest(source), before)
+            definition.write_text("version: 1.1.0\n")
+            self.assertNotEqual(source_digest(source), before)
 
 
 if __name__ == "__main__":

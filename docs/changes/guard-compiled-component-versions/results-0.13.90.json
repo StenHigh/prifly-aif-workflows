@@ -304,8 +304,8 @@
     ]
   },
   "candidate": {
-    "head": "15251f62473823d919dc57d6283a4b17628b3f34",
-    "source_digest": "sha256:e572ca63bf319f5c9407d728d3f737c472cad40e5bd70e8a614dac62383ad10a",
+    "head": "eb1ae8b2866398f8e2c5f67048c383360babd458",
+    "source_digest": "sha256:570c6aca612d80354c243a1075343ad86287cfd6a193b4aae1c56732c44944af",
     "builds": [
       {
         "package": "aif-classic",

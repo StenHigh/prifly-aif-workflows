@@ -84,7 +84,7 @@ def source_digest(source):
     entries = {}
     for directory in (*PACKAGES, "contracts"):
         for path in sorted((source / directory).rglob("*")):
-            if path.is_file():
+            if path.is_file() and "__pycache__" not in path.parts and path.suffix not in (".pyc", ".pyo"):
                 entries[str(path.relative_to(source))] = fingerprint(path.read_bytes())
     return fingerprint(json.dumps(entries, sort_keys=True).encode())
 

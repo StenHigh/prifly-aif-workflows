@@ -19,7 +19,7 @@ Same identity/different digest даёт `compiled_definition_drift`; derived ver
 Release-tag pipeline выбирает предыдущий stable tag, prerelease исключены; нет базы — отказ.
 Native plan dependency regression: unchanged/repeat/instructions-only/schema-only PASS.
 YAML шага и author version1.7.0 сохранены; обе зависимости меняют resolved ref, step digest и compiled version.
-Unit10, versions4, folders7, derive, CI YAML и diff-check PASS.
+Unit11, versions4, folders7, derive, CI YAML и diff-check PASS.
 Verify8/132/88 и compatibility5launches/4builds/6trusted/core-state41 PASS.
 README и current task-limit release guide различают package remove, project workflows remove и terminal revoke.
 Синтаксис remove сверён с official90; пользовательские authority не менялись.
@@ -28,8 +28,12 @@ Evidence: docs/changes/guard-compiled-component-versions/acceptance.md и result
 Исторический profile/2 и миграция уже revoked packages не квалифицировались.
 Владелец запросил PR, обновление документации/examples, полный CI и корректное закрытие issue после приёмки.
 Добавлен examples/compiled-versions/README.md; обновлены индекс examples и ссылки classic/task-limit.
-Команды Markdown-примера исполнены в venv/PyYAML6.0.1: unit10 и matrix84/3540 PASS, JSON совпал с local evidence.
-PR и remote CI готовятся; tag и каталог не публикуются.
+Команды Markdown-примера исполнены в venv/PyYAML6.0.1: unit11 и matrix84/3540 PASS, JSON сохранён в local evidence.
+Создан PR #18 с Closes #17; первый полный CI42826908688 проверяет source eb1ae8b.
+Сравнение CI/local обнаружило Python-cache только в агрегированном source digest; compiled records совпали.
+Source digest теперь исключает __pycache__/.pyc/.pyo; отдельный unit test покрывает cache и YAML change.
+Полный CI повторяется на исправленном source; merge и закрытие следуют после его успешной приёмки.
+Tag и каталог не публикуются.
 
 ## Документация и примеры на 2026-11-10
 
