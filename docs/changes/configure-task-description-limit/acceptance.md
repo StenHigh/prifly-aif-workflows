@@ -1,6 +1,6 @@
 # Приёмка candidate task limit на Core0.13.90
 
-Статус: локальная финальная native matrix PASS; exact-source CI ещё не завершён.
+Статус: локальная native matrix и exact-source CI PASS. PR #16 MERGED.
 Дата: 2026-11-10. Публикация repository release не выполнена.
 
 Official Linux binary проверен по обеим подписям manifest и SHA-256.
@@ -68,4 +68,9 @@ prepare/start и экспорт полного сохранённого task PAS
 
 Живые модели, приватная инфраструктура и размер фактического контекста модели не квалифицируются.
 Новые пределы не меняют contracts независимых public UI/UX imports.
-Exact-source CI и итоговый source commit записываются после завершения полной матрицы.
+[Полный CI42726891572](https://github.com/StenHigh/prifly-aif-workflows/actions/runs/42726891572) завершился SUCCESS во всех6 jobs.
+Проверенный source: `72eb8861263d15079d767c6c6106e8c240f738d0`.
+[CI evidence](ci-0.13.90-results.json) фиксирует10 ZIP digests и22 JSON reports.
+Binary provenance, package sources и probe SHA совпали с локальной приёмкой.
+[PR #16](https://github.com/StenHigh/prifly-aif-workflows/pull/16) влит: `b5c7be9c2953feefecddcce4739091b766ee0214`.
+Дерево merge commit совпадает с проверенным source. Tag/Release и каталог не публиковались.

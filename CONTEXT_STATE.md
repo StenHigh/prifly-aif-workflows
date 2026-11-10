@@ -6,13 +6,18 @@
 движка 0.10–0.13.54, переход на AI Factory 2.19.0, WorkflowRevision v4) —
 в git: `git show d388b92:CONTEXT_STATE.md` (2330 строк, оглавление — `mdq tree`).
 
-## Реализация issue #3 на 2026-11-10 — candidate, CI pending
+## Реализация issue #3 на 2026-11-10 — PR #16 MERGED, CI PASS
 
 Ворота verify/compatibility выверены против выпущенного Pri-Fly `v0.13.90`.
+PR #16 влит в main b5c7be9c2953feefecddcce4739091b766ee0214; проверенный source 72eb8861263d15079d767c6c6106e8c240f738d0.
+Full CI42726891572 завершился SUCCESS во всех6 jobs. Проверены10 ZIP digests и22 JSON reports.
+Shipping matrix CI16 cases/31 Runs и examples3 cases PASS; package sources/probe SHA совпали с локальной приёмкой.
+Дерево merge commit совпадает с проверенным source. Последующая запись итогов меняет только документацию и evidence.
+Evidence: docs/changes/configure-task-description-limit/ci-0.13.90-results.json.
 Core #22 CLOSED/completed, capability опубликована в90. Обе подписи manifest и SHA-256 official binary проверены.
 Binary /tmp/aif-core22-v0.13.90-6ekqrzte/prifly, SHA256 db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984.
 Владелец явно выбрал продолжить пакетную реализацию после released qualification.
-Candidate classic/profiled/fix3.0.0: compile-parameters.yaml, owner project/compile-values.yaml,
+Реализованы classic/profiled/fix3.0.0: compile-parameters.yaml, owner project/compile-values.yaml,
 task_description_limit integer1..9007199254740991, default12 000, owned task1.2.0.
 Удалён external contract_schema_task; все потребители трёх пакетов используют schema_task.
 Это major type change. Frozen native contracts и остальные5 shipping packages не менялись.
@@ -30,7 +35,7 @@ docs/changes/configure-task-description-limit/shipping-0.13.90-results.json.
 Engine evidence: docs/changes/engine/release-0.13.90.md и JSON рядом.
 Ready examples отдельно:3 prepare/start/export PASS; ещё3 очищенных authority,22 всего.
 README трёх пакетов, examples/task-description-limit, W6, release guide и draft v1.58/catalog подготовлены.
-Published catalog pins остаются v1.57.0; tag/Release/merge не выполнялись. Local native acceptance PASS; exact-source CI/PR ещё открыты.
+Published catalog pins остаются v1.57.0; tag/Release не публиковались. Local native acceptance и exact-source CI PASS; PR #16 MERGED.
 Чистая ветка codex/task-description-limit-implementation основана на origin/main.
 В неё перенесены только issue3 commits; Core21 изменения остались в своей ветке.
 Local implementation source b598b5d; исходная codex/issue-3-task-description-limit/d87e211 сохранена.

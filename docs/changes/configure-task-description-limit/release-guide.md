@@ -1,7 +1,8 @@
 # Обновление candidate classic/profiled/fix 3.0.0
 
-Статус: пакетный candidate; repository tag и новый каталог не опубликованы.
-Для проверки нужен released **Pri-Fly 0.13.90+**, Project profile `/3`–`/5` и точный candidate checkout.
+Статус: реализация в main; repository tag и новый каталог не опубликованы.
+Проверенный source: `72eb8861263d15079d767c6c6106e8c240f738d0`; PR #16 MERGED, полный CI6/6 SUCCESS.
+Для проверки нужен released **Pri-Fly 0.13.90+**, Project profile `/3`–`/5` и точный проверенный source checkout.
 Core #22 закрыт; пакетная приёмка проверяется отдельно.
 
 ## Новое поведение
@@ -41,9 +42,9 @@ values:
 ```sh
 PRIFLY_BIN=/absolute/path/to/prifly-v0.13.90
 REPOSITORY=/absolute/path/to/project
-CANDIDATE_COMMIT=REPLACE_WITH_REVIEWED_SOURCE_COMMIT
+SOURCE_COMMIT=72eb8861263d15079d767c6c6106e8c240f738d0
 "$PRIFLY_BIN" project workflows update aif-classic \
-  --repository "$REPOSITORY" --ref "$CANDIDATE_COMMIT"
+  --repository "$REPOSITORY" --ref "$SOURCE_COMMIT"
 ```
 
 Подставьте настоящий commit из origin этого workflow. Для profiled/fix замените имя workflow.

@@ -56,10 +56,10 @@
 - [x] Разделить самостоятельный запуск и opt-in composition; проверить оба заявленных сценария.
 - [x] Выполнить versions/folders/derive и требуемые unit/contract/native checks.
 - [x] Выполнить verify.py/compatibility.py на official v0.13.90:8/132/88 и5/4/6trusted PASS.
-- [ ] Получить CI на точном source commit и проверить артефакты приёмки.
-- [ ] Записать реализацию, ограничения и результаты в CONTEXT_STATE.md.
-- [ ] Подготовить reviewable PR; публикация выпуска и обновление каталога идут отдельным этапом.
+- [x] Получить CI на точном source commit и проверить артефакты приёмки:6 jobs SUCCESS,10 ZIP digests/22 JSON reports.
+- [x] Записать реализацию, ограничения и результаты в CONTEXT_STATE.md.
+- [x] Подготовить reviewable PR: #16 MERGED. Публикация выпуска и обновление каталога идут отдельным этапом.
 
 Локальная native-приёмка A1–A9 завершена:16 cases /31 Runs.
-Документация A10 готова; exact-source CI и PR завершаются отдельно.
+Документация A10 и exact-source CI PASS. PR #16 влит; repository release и каталог остаются отдельным этапом.
 Живые модели и приватная инфраструктура в эту приёмку не входят.
