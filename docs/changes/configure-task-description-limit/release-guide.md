@@ -1,9 +1,9 @@
-# Обновление candidate classic/profiled/fix 3.0.0
+# Обновление classic/profiled/fix 3.0.0
 
 Статус: реализация в main; repository tag и новый каталог не опубликованы.
 Проверенный source: `72eb8861263d15079d767c6c6106e8c240f738d0`; PR #16 MERGED, полный CI6/6 SUCCESS.
 Для проверки нужен released **Pri-Fly 0.13.90+**, Project profile `/3`–`/5` и точный проверенный source checkout.
-Core #22 закрыт; пакетная приёмка проверяется отдельно.
+Core #22 закрыт. [Пакетная приёмка](acceptance.md) и полный CI завершены на выпущенном0.13.90.
 
 ## Новое поведение
 
@@ -32,7 +32,7 @@ values:
 
 1. Установите официальный Pri-Fly 0.13.90+ и проверьте его версию.
 2. Сохраните исходный пакет и конфигурацию активных или остановленных Run.
-3. Обновите выбранный workflow до точного candidate commit.
+3. Обновите выбранный workflow до точного проверенного source commit.
 4. Создайте owner file с нужным пределом.
 5. Переведите task consumers проекта на `{{schema_task}}`.
 6. Выполните compile, prepare и reviewed start из [готового примера](../../../examples/task-description-limit/README.md).
@@ -48,7 +48,7 @@ SOURCE_COMMIT=72eb8861263d15079d767c6c6106e8c240f738d0
 ```
 
 Подставьте настоящий commit из origin этого workflow. Для profiled/fix замените имя workflow.
-Source checkout с contracts/tools должен соответствовать проверенному candidate.
+Source checkout с contracts/tools должен соответствовать проверенному source.
 Явная установка общих схем остаётся обязательной; native manifest composition-contracts1.2.0 и frozen1.0.0 не меняются.
 Update сохраняет `extend.yaml` и `project/`; он не переводит старые project worker definitions на новый alias.
 Не редактируйте upstream-owned `schemas/task.yaml` ради настройки проекта.
@@ -65,12 +65,21 @@ Project-owned consumers используют `{{schema_task}}` из своего
 W6 project-copy bundle3.0.0 использует этот alias. Старые copies требуют явного обновления по инструкции W6.
 UI/UX, feature и остальные независимые shipping packages сохраняют свои bytes и контракты.
 
+Прямой public Call `aif-ui-ux.review-for-change`2.0.0 принимает frozen task1.1.0.
+Такой Call нельзя связать с owned task3.0.0 даже при одинаковом пределе 12 000.
+Выберите один совместимый вариант до update:
+
+1. Сохраните consumer2.0.0 из v1.57.0 для существующего public import и предела12 000.
+2. Для classic/profiled3.0.0 установите [project-copy W6 bundle3.0.0](../../../examples/review-uiux-extensions/README.md) с локальным `schema_task`.
+3. Для standalone fix3.0.0 используйте его собственный graph. Task-aware public UI/UX2.0.0 в этот запуск не добавляйте.
+
 ## Continue
 
 Для поддерживаемого остановленного Run сохраните исходный package source, profile и owner value.
 Сначала выполните `project continue --prepare` с его реальным `--source-run`.
 Несовместимая сборка получает отказ до нового Run и эффектов.
-Верните исходный owner value и получите новую сводку продолжения.
+Для продолжения прежнего контракта нужны исходные package source, owner value и project consumers.
+Возврат числа не переводит Run из2.0.0 в3.0.0. Восстановите совместимые исходники и получите новую сводку продолжения.
 Новый start с другим пределом не изменяет старый Run и не мигрирует его.
 После отмены writer требуется штатное разрешение его эффектов.
 
@@ -80,4 +89,4 @@ UI/UX, feature и остальные независимые shipping packages с
 [catalog.draft.yaml](catalog.draft.yaml) описывает три candidate пакета для будущего v1.58.0.
 `REPLACE_WITH_RELEASE_SOURCE_COMMIT` — обязательный placeholder; такой каталог нельзя публиковать без подстановки проверенного commit.
 Перед тегом повторно проверьте latest stable, полный CI точного source и public install/update.
-Публикация тега, merge и центральный каталог требуют отдельного этапа.
+Тег, Release и обновление центрального каталога остаются отдельным этапом.

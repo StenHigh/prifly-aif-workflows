@@ -1,0 +1,395 @@
+{
+  "schema_version": "aif-documentation-qualification/1",
+  "prifly": "0.13.90",
+  "binary_sha256": "sha256:db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+  "code_base": "7577788edef0c1edb901c1ce37bcb6650e6e9fcc",
+  "package_source": "72eb8861263d15079d767c6c6106e8c240f738d0",
+  "ready_examples": {
+    "prifly": "0.13.90",
+    "binary_sha256": "sha256:db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+    "cases": [
+      {
+        "package": "aif-classic",
+        "input": "examples/task-description-limit/task.json",
+        "input_sha256": "sha256:c65ec9e55f82fdbf7c26acf57fbf8c6617d8b1d1abe7274e0f78656b582f76cb",
+        "owner_sha256": "sha256:0342fb80b73c5b66998ea4445f65788dd140a8b5ab7f5cc17f360db3f2261203",
+        "length": 16557,
+        "run_id": "run:40720d4b15ccdec9f203f32c3aa9107cb215a237de2c2e47e6cbd791f5dbb392",
+        "prepare_passed": true,
+        "start_passed": true,
+        "full_saved_input": true,
+        "boundary": "Accepted root input and dispatched read-only warmup; no live skills or application acceptance.",
+        "cleanup": {
+          "active_claims": 0,
+          "registry_entries_removed": 1,
+          "root_removed": true
+        }
+      },
+      {
+        "package": "aif-profiled",
+        "input": "examples/task-description-limit/task.json",
+        "input_sha256": "sha256:c65ec9e55f82fdbf7c26acf57fbf8c6617d8b1d1abe7274e0f78656b582f76cb",
+        "owner_sha256": "sha256:0342fb80b73c5b66998ea4445f65788dd140a8b5ab7f5cc17f360db3f2261203",
+        "length": 16557,
+        "run_id": "run:8bfc03cec9d3880d419b8afaea77313700caeabad9b83469b582a5a3a590f3b0",
+        "prepare_passed": true,
+        "start_passed": true,
+        "full_saved_input": true,
+        "boundary": "Accepted root input and dispatched read-only warmup; no live skills or application acceptance.",
+        "cleanup": {
+          "active_claims": 0,
+          "registry_entries_removed": 1,
+          "root_removed": true
+        }
+      },
+      {
+        "package": "aif-fix",
+        "input": "examples/task-description-limit/fix-task.json",
+        "input_sha256": "sha256:1202f53073aa9536f18cb684ba891063501f18eb55b1c8618751cc0aee04ecac",
+        "owner_sha256": "sha256:0342fb80b73c5b66998ea4445f65788dd140a8b5ab7f5cc17f360db3f2261203",
+        "length": 16557,
+        "run_id": "run:b3a16aa429d626c3adcc23b95f24c410016dc4fd09f1146b9757ad47b2372587",
+        "prepare_passed": true,
+        "start_passed": true,
+        "full_saved_input": true,
+        "boundary": "Accepted root input and dispatched read-only warmup; no live skills or application acceptance.",
+        "cleanup": {
+          "active_claims": 0,
+          "registry_entries_removed": 1,
+          "root_removed": true
+        }
+      }
+    ],
+    "complete": true
+  },
+  "documented_commands": {
+    "prifly": "0.13.90",
+    "binary_sha256": "sha256:db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+    "markdown_sha256": "sha256:c4c2b6442ee4525ac69109c12df4ab55a50d18ccbb70518f36e8601184fcbf44",
+    "cases": [
+      {
+        "package": "aif-classic",
+        "blocks": [
+          {
+            "name": "setup-compile-prepare",
+            "exit": 0,
+            "script_sha256": "sha256:1efa041e310e028c12bd9d277f429d1666e796c702adbafd131947c6c0b9920c"
+          },
+          {
+            "name": "reviewed-start",
+            "exit": 0,
+            "script_sha256": "sha256:87445b6d044049180bdf1f7c00b5ee57d5d4ff5206b4e8918623d7aea11c6186"
+          }
+        ],
+        "project_init": "Skipped as documented: fixture already initialized.",
+        "source_commit": "72eb8861263d15079d767c6c6106e8c240f738d0",
+        "length": 16557,
+        "full_saved_input": true,
+        "run_id": "run:836253d7395758fa64373480fc690750a11b6f39d088716820ea6a595b314587",
+        "compile": true,
+        "prepare": true,
+        "start": true,
+        "cleanup": {
+          "active_claims": 0,
+          "registry_entries_removed": 1,
+          "root_removed": true
+        }
+      },
+      {
+        "package": "aif-profiled",
+        "blocks": [
+          {
+            "name": "setup-compile-prepare",
+            "exit": 0,
+            "script_sha256": "sha256:835cd9b153f19044458f721eb0be4c38af24a8863543822d1faa3240536902f5"
+          },
+          {
+            "name": "reviewed-start",
+            "exit": 0,
+            "script_sha256": "sha256:ef54a96e2dcc177095263b9d07d375146792a463fc6cee18f4b04241934c7c00"
+          }
+        ],
+        "project_init": "Skipped as documented: fixture already initialized.",
+        "source_commit": "72eb8861263d15079d767c6c6106e8c240f738d0",
+        "length": 16557,
+        "full_saved_input": true,
+        "run_id": "run:eac0d8013a44f047be4fcb0ccc57dd0b9c797519b854130762168008e6718b46",
+        "compile": true,
+        "prepare": true,
+        "start": true,
+        "cleanup": {
+          "active_claims": 0,
+          "registry_entries_removed": 1,
+          "root_removed": true
+        }
+      },
+      {
+        "package": "aif-fix",
+        "blocks": [
+          {
+            "name": "setup-compile-prepare",
+            "exit": 0,
+            "script_sha256": "sha256:02b727219fdd638a728686c1e646c9f565151aef8f0332c9606f54d23b226eaf"
+          },
+          {
+            "name": "reviewed-start",
+            "exit": 0,
+            "script_sha256": "sha256:74704415e48706348907ff74459f5898ad61c9565af1b7c61fe7c066bff97ba2"
+          }
+        ],
+        "project_init": "Skipped as documented: fixture already initialized.",
+        "source_commit": "72eb8861263d15079d767c6c6106e8c240f738d0",
+        "length": 16557,
+        "full_saved_input": true,
+        "run_id": "run:1b0e4ac966b08b986f16130c05ac9a3fb0f8fbaaaf937c52b8733c22a269ddad",
+        "compile": true,
+        "prepare": true,
+        "start": true,
+        "cleanup": {
+          "active_claims": 0,
+          "registry_entries_removed": 1,
+          "root_removed": true
+        }
+      }
+    ],
+    "complete": true,
+    "boundary": "Executed Markdown blocks with substituted absolute paths and reviewed digest. Synthetic skills; read-only warmup only."
+  },
+  "w6_contract": {
+    "prifly": "0.13.90",
+    "binary_sha256": "db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+    "compiles": [
+      {
+        "mode": "review",
+        "consumer": "classic",
+        "host": "codex-cli",
+        "definitions": 30,
+        "build_key": "sha256:f46aae761f3fb817d52d0625a87d9423fc8cd39a8dcf313634b5dc82f9722236"
+      },
+      {
+        "mode": "review",
+        "consumer": "classic",
+        "host": "codex-app",
+        "definitions": 30,
+        "build_key": "sha256:f46aae761f3fb817d52d0625a87d9423fc8cd39a8dcf313634b5dc82f9722236"
+      },
+      {
+        "mode": "review",
+        "consumer": "classic",
+        "host": "claude-code",
+        "definitions": 30,
+        "build_key": "sha256:f46aae761f3fb817d52d0625a87d9423fc8cd39a8dcf313634b5dc82f9722236"
+      },
+      {
+        "mode": "uiux",
+        "consumer": "classic",
+        "host": "codex-cli",
+        "definitions": 34,
+        "build_key": "sha256:f55589b7b924e54e65905162c50470e60dd745579831b1c3b9ead3d12e50ae24"
+      },
+      {
+        "mode": "uiux",
+        "consumer": "classic",
+        "host": "codex-app",
+        "definitions": 34,
+        "build_key": "sha256:f55589b7b924e54e65905162c50470e60dd745579831b1c3b9ead3d12e50ae24"
+      },
+      {
+        "mode": "uiux",
+        "consumer": "classic",
+        "host": "claude-code",
+        "definitions": 34,
+        "build_key": "sha256:f55589b7b924e54e65905162c50470e60dd745579831b1c3b9ead3d12e50ae24"
+      },
+      {
+        "mode": "combined",
+        "consumer": "classic",
+        "host": "codex-cli",
+        "definitions": 39,
+        "build_key": "sha256:35244f17ced6d0e8d9a2beec33c34ef5e387eb2e0d691addb4f5404ea6846868"
+      },
+      {
+        "mode": "combined",
+        "consumer": "classic",
+        "host": "codex-app",
+        "definitions": 39,
+        "build_key": "sha256:35244f17ced6d0e8d9a2beec33c34ef5e387eb2e0d691addb4f5404ea6846868"
+      },
+      {
+        "mode": "combined",
+        "consumer": "classic",
+        "host": "claude-code",
+        "definitions": 39,
+        "build_key": "sha256:35244f17ced6d0e8d9a2beec33c34ef5e387eb2e0d691addb4f5404ea6846868"
+      },
+      {
+        "mode": "review",
+        "consumer": "minimal",
+        "host": "codex-cli",
+        "definitions": 13,
+        "build_key": "sha256:3e586618ab6225c5eed9c1d86f5da11a4b755e3a3b3315550dc1b048094f0960"
+      },
+      {
+        "mode": "review",
+        "consumer": "minimal",
+        "host": "codex-app",
+        "definitions": 13,
+        "build_key": "sha256:3e586618ab6225c5eed9c1d86f5da11a4b755e3a3b3315550dc1b048094f0960"
+      },
+      {
+        "mode": "review",
+        "consumer": "minimal",
+        "host": "claude-code",
+        "definitions": 13,
+        "build_key": "sha256:3e586618ab6225c5eed9c1d86f5da11a4b755e3a3b3315550dc1b048094f0960"
+      },
+      {
+        "mode": "uiux",
+        "consumer": "minimal",
+        "host": "codex-cli",
+        "definitions": 17,
+        "build_key": "sha256:cb70dd364c1fdc6c9434158f1e5ff844d0bd207e8f72e367d96a59b6cb7d2d27"
+      },
+      {
+        "mode": "uiux",
+        "consumer": "minimal",
+        "host": "codex-app",
+        "definitions": 17,
+        "build_key": "sha256:cb70dd364c1fdc6c9434158f1e5ff844d0bd207e8f72e367d96a59b6cb7d2d27"
+      },
+      {
+        "mode": "uiux",
+        "consumer": "minimal",
+        "host": "claude-code",
+        "definitions": 17,
+        "build_key": "sha256:cb70dd364c1fdc6c9434158f1e5ff844d0bd207e8f72e367d96a59b6cb7d2d27"
+      },
+      {
+        "mode": "combined",
+        "consumer": "minimal",
+        "host": "codex-cli",
+        "definitions": 22,
+        "build_key": "sha256:229e7de2c25f306ec36c4d11978c38f8895a9fa9dc880c28a33621bf393ac9c9"
+      },
+      {
+        "mode": "combined",
+        "consumer": "minimal",
+        "host": "codex-app",
+        "definitions": 22,
+        "build_key": "sha256:229e7de2c25f306ec36c4d11978c38f8895a9fa9dc880c28a33621bf393ac9c9"
+      },
+      {
+        "mode": "combined",
+        "consumer": "minimal",
+        "host": "claude-code",
+        "definitions": 22,
+        "build_key": "sha256:229e7de2c25f306ec36c4d11978c38f8895a9fa9dc880c28a33621bf393ac9c9"
+      }
+    ],
+    "refusals": [
+      {
+        "case": "missing-callee",
+        "code": "project_composition_unknown_component"
+      },
+      {
+        "case": "wrong-kind",
+        "code": "project_composition_unknown_component"
+      },
+      {
+        "case": "missing-input",
+        "code": "missing_binding"
+      },
+      {
+        "case": "late-producer",
+        "code": "unavailable_output"
+      },
+      {
+        "case": "unsupported-input-source",
+        "code": "project_composition_invalid_layer"
+      },
+      {
+        "case": "missing-outcome",
+        "code": "project_extension_call_outcome_unmapped"
+      },
+      {
+        "case": "missing-export",
+        "code": "unknown_port"
+      },
+      {
+        "case": "wrong-schema",
+        "code": "port_type_mismatch"
+      }
+    ],
+    "scope": "compile only; no host execution"
+  },
+  "scope": "Documentation/examples only; shipping packages, graphs, overlays, inputs and test drivers unchanged. Isolated CLI/compile/warmup; no live AI or application checks.",
+  "complete": true,
+  "static_checks": [
+    {
+      "file": "CONTEXT_STATE.md",
+      "shell_blocks": 0,
+      "sha256": "sha256:41a5f4392b91ee5243ddeaa6af3cbc309267d631e170eb071bbcc7f300216d68"
+    },
+    {
+      "file": "README.md",
+      "shell_blocks": 6,
+      "sha256": "sha256:39d563a5263ba606ab96acbab2a452806c05edc799fbae87075951a15dafe47c"
+    },
+    {
+      "file": "docs/changes/configure-task-description-limit/acceptance.md",
+      "shell_blocks": 1,
+      "sha256": "sha256:872b259e81fafd535b3955c9afc8fb69fbd84b5068613db75b395d0a13d2f948"
+    },
+    {
+      "file": "docs/changes/configure-task-description-limit/proposal.md",
+      "shell_blocks": 0,
+      "sha256": "sha256:96cb81f6bfedd0b9a60894ac62c81cf2f8d55be6733d1e548617c88f9bc86957"
+    },
+    {
+      "file": "docs/changes/configure-task-description-limit/release-guide.md",
+      "shell_blocks": 1,
+      "sha256": "sha256:bbaa03b0a212570840f731729ec1357af36fa271ec39e0498a490b2097cda7bf"
+    },
+    {
+      "file": "docs/releases/v1.58.0.md",
+      "shell_blocks": 0,
+      "sha256": "sha256:2f63631f18605d753d7423c5ea06f28e4f0ff50b97b3a16f453faca144fda1ec"
+    },
+    {
+      "file": "examples/README.md",
+      "shell_blocks": 0,
+      "sha256": "sha256:283d70bff7ff73eaa0a1473a03ea0ebb60333458c51ded096d5bf9870332b38f"
+    },
+    {
+      "file": "examples/classic/README.md",
+      "shell_blocks": 5,
+      "sha256": "sha256:779eb9fd5444d9838c622a850253452289d862ca31ffbffb23b8285d60a28518"
+    },
+    {
+      "file": "examples/fanout-fix/README.md",
+      "shell_blocks": 5,
+      "sha256": "sha256:e05f9ea7f5e6b0ecebc1d4e77bff403e94acecdc8b28dc67571df1b572036a5e"
+    },
+    {
+      "file": "examples/review-uiux-extensions/README.md",
+      "shell_blocks": 12,
+      "sha256": "sha256:124031c45e903416d2ff39f91a5ea8d8226ecef8bd881fd66496e52efc7c1f1d"
+    },
+    {
+      "file": "examples/task-description-limit/README.md",
+      "shell_blocks": 10,
+      "sha256": "sha256:c4c2b6442ee4525ac69109c12df4ab55a50d18ccbb70518f36e8601184fcbf44"
+    },
+    {
+      "file": "examples/unified-composition/README.md",
+      "shell_blocks": 6,
+      "sha256": "sha256:433adfd9b9970aa3899db24f7d70eb2eaaf8f5f551dcbc931aa2fd4421f1a990"
+    }
+  ],
+  "static_shell_blocks": 46,
+  "verification_commands": [
+    "python3 -B tests/probes/task_limit_examples.py --binary /home/dev/.local/bin/prifly --output /tmp/aif-docs-ready-examples.json",
+    "python3 -B tests/call_review_contract.py --binary /home/dev/.local/bin/prifly --report /tmp/aif-docs-w6-contract.json",
+    "Temporary runner extracted the task-limit Markdown blocks; replaced absolute paths and reviewed digests; skipped init for the already initialized fixture."
+  ]
+}

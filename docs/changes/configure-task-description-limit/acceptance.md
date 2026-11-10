@@ -74,3 +74,14 @@ prepare/start и экспорт полного сохранённого task PAS
 Binary provenance, package sources и probe SHA совпали с локальной приёмкой.
 [PR #16](https://github.com/StenHigh/prifly-aif-workflows/pull/16) влит: `b5c7be9c2953feefecddcce4739091b766ee0214`.
 Дерево merge commit совпадает с проверенным source. Tag/Release и каталог не публиковались.
+
+## Повторная проверка документации и примеров
+
+На released Pri-Fly0.13.90 исполнены обновлённые Markdown-команды для classic/profiled/fix:
+clone/checkout source72eb886, install, owner config, compile, prepare и reviewed start.
+Три изолированных Run сохранили полный task16557; exported JSON совпал с исходным значением.
+Стенды уже имели project profile, поэтому повторный init пропущен по инструкции существующего проекта.
+Готовые YAML/JSON отдельно прошли ещё три prepare/start/export. Все шесть Run и их временные roots очищены.
+W6 повторно прошёл18 compile checks на трёх hosts и8 ожидаемых отказов.
+[Машинные результаты](documentation-0.13.90-results.json) фиксируют binary, Markdown, source и границы проверки.
+Shipping bytes и версии пакетов сохранены; этот этап обновляет документацию и примеры.

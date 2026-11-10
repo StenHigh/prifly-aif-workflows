@@ -1,5 +1,8 @@
 # Самостоятельные fanout и fix
 
+Для standalone fix3.0.0 из main используйте [пример task limit](../task-description-limit/README.md#самостоятельный-fix).
+Он содержит exact source, owner config и команды для Pri-Fly0.13.90. Ниже сохранены исторические tags.
+
 Этот пример закрепляет прежние версии пакетов. Для пакетов2.0.0 и явной установки
 общих схем используйте [руководство v1.57.0](../../docs/releases/v1.57.0.md) и
 [основной пример /5](../unified-composition/README.md). Команды ниже сохраняют

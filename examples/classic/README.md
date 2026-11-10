@@ -1,6 +1,6 @@
 # Самостоятельный classic и profiled
 
-Для candidate3.0.0 и проектного предела описания используйте [новый пример](../task-description-limit/README.md).
+Для classic/profiled3.0.0 из main и проектного предела описания используйте [новый пример](../task-description-limit/README.md).
 Он содержит готовый task16557, owner config32000 и команды на released Core0.13.90.
 
 Этот пример закрепляет прежние версии пакетов. Для пакетов2.0.0 и явной установки

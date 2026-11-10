@@ -1,6 +1,7 @@
 # Issue #3: проектный предел task.description
 
-Статус: candidate classic/profiled/fix3.0.0 реализован на released Core0.13.90; локальная native-приёмка PASS, exact-source CI/PR завершаются.
+Статус: classic/profiled/fix3.0.0 реализованы на released Core0.13.90. Native-приёмка и полный CI PASS; PR #16 MERGED.
+Проверенный source: `72eb8861263d15079d767c6c6106e8c240f738d0`. Tag/Release и новый каталог ещё не опубликованы.
 Дата: 2026-11-10. Исходная база: пакеты v1.57.0. Реализация требует released Pri-Fly v0.13.90.
 Источник: [уточнение владельца](https://github.com/StenHigh/prifly-aif-workflows/issues/3#issuecomment-6751418651).
 
@@ -48,9 +49,9 @@ Project-scoped input — вход workflow с настройкой, общей �
 Native-пример на v0.13.89 подтвердил подстановку числа через авторский profile и `project compile --value`.
 Штатные prepare/start не принимают `--value`; settings и наследование не меняют схему.
 Авторский profile предлагает только заранее выпущенные значения.
-Для проектного числового параметра остаётся граница Core; [результаты](native.md) описывают её точно.
+На v0.13.89 проектное число не достигало prepare/start; [исторические результаты](native.md) фиксируют эту границу.
 Создана связанная [Pri-Fly #22](https://github.com/StenHigh/prifly/issues/22) с pinned reproducer и критериями C1–C8.
-Core #22 закрыт и выпущен в v0.13.90. Candidate внедряет его механизм; [пакетная приёмка](acceptance.md) остаётся самостоятельной.
+Core #22 закрыт и выпущен в v0.13.90. Реализация использует его механизм; [пакетная приёмка](acceptance.md) и полный CI завершены.
 
 ## Критерии приёмки
 

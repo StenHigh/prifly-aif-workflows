@@ -6,6 +6,19 @@
 движка 0.10–0.13.54, переход на AI Factory 2.19.0, WorkflowRevision v4) —
 в git: `git show d388b92:CONTEXT_STATE.md` (2330 строк, оглавление — `mdq tree`).
 
+## Документация и примеры на 2026-11-10
+
+Ворота verify/compatibility выверены против выпущенного Pri-Fly `v0.13.90`.
+Перед задачей latest stable проверен: новых выпусков нет.
+Root README, индекс examples, current task-limit/W6/unified guides и planned release guide актуализированы.
+Указан exact source72eb886; статус main/merged отделён от неопубликованного tag v1.58.0 и catalog v1.57.0.
+Task-aware public UIUX2.0.0/frozen task1.1.0 явно отделён от owned task3.0.0 и project-copy W6.
+Даны clone/install/update, owner file, compile, prepare/start JSON и поддерживаемый continue; naming input принадлежит профилю проекта.
+Прямое исполнение Markdown:3 packages × compile/prepare/start/export с task16557 PASS.
+Отдельный ready-input driver: ещё3 Run PASS; все6 roots/registrations очищены, active claims0.
+W6 contract18 compiles/8 refusals PASS. Документация/examples вне shipping folders; package bytes и версии прежние.
+Evidence: docs/changes/configure-task-description-limit/documentation-0.13.90-results.json.
+
 ## Реализация issue #3 на 2026-11-10 — PR #16 MERGED, CI PASS
 
 Ворота verify/compatibility выверены против выпущенного Pri-Fly `v0.13.90`.

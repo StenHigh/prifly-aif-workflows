@@ -1,9 +1,25 @@
-# Unified composition on Pri-Fly v0.13.86
+# Unified composition on released Pri-Fly v0.13.90
 
-The 2.0.0 packages require the explicit [shared schema dependency](../../contracts/README.md).
-Catalog installation copies only the selected package folder. Obtain the exact
-v1.57.0 repository checkout separately for `contracts/`, `tools/` and examples.
-Old installed extensions and sealed Runs are not migrated automatically.
+The public UI/UX provider remains 2.0.0. Its task-aware Call uses frozen task1.1.0.
+Classic/profiled/fix in main are 3.0.0 and use owned `schema_task` with a project limit.
+These task types have different exact references. A public task-aware UI/UX Call
+from 2.0.0 cannot receive the owned task of a 3.0.0 consumer.
+
+All examples require the explicit [shared schema dependency](../../contracts/README.md).
+Use checked source `72eb8861263d15079d767c6c6106e8c240f738d0` for `contracts/`, `tools/` and helpers.
+[Checkout commands](../task-description-limit/README.md#подготовка-и-самостоятельный-запуск) use that exact commit.
+Catalog installation copies only the selected package folder. Old installed extensions
+and sealed Runs are not migrated automatically.
+
+| Recipe | Task contract | Consumer |
+| --- | --- | --- |
+| Public configure → quality | Configuration input; no root task port | Generated UI/UX wrapper below |
+| Nested measurement on classic/profiled/fix3.0.0 | Owned `schema_task` | Current packages; Core0.13.90+ |
+| Public review-for-change | Frozen task1.1.0, limit12 000 | Compatible2.0.0 consumer from v1.57.0, or its own frozen wrapper |
+
+For task-aware review/UIUX inside classic/profiled3.0.0, use the separate
+[W6 project-copy recipe](../review-uiux-extensions/README.md). It binds copied
+definitions to the caller's `schema_task`.
 
 ## Public UI/UX components
 
@@ -13,20 +29,20 @@ through `/5`; it does not copy the provider's private stages or programs.
 
 Set the absolute paths below. `REPOSITORY` is an initialized Git project with
 its project profile and real host skills. `AUTHORITY` is its existing authority.
-`WORKFLOW_SOURCE` is a separate checkout of the exact release. Choose a fresh
+`WORKFLOW_SOURCE` is a separate checkout of the exact source above. Choose a fresh
 `SCRATCH` directory. Supply the project's real configuration and executable bindings.
 
 ```sh
-PRIFLY_BIN=/absolute/path/to/prifly-v0.13.86
+PRIFLY_BIN=/absolute/path/to/prifly-v0.13.90
 REPOSITORY=/absolute/project
 AUTHORITY=/absolute/authority
-WORKFLOW_SOURCE=/absolute/prifly-aif-workflows-v1.57.0
+WORKFLOW_SOURCE=/absolute/prifly-aif-workflows-source
 SCRATCH=/absolute/fresh-scratch
 CONFIGURATION=/absolute/configuration.json
 mkdir -p "$SCRATCH"
 
 "$PRIFLY_BIN" project workflows add StenHigh/prifly-aif-workflows \
-  --path aif-ui-ux --ref v1.57.0 --repository "$REPOSITORY"
+  --path aif-ui-ux --ref 72eb8861263d15079d767c6c6106e8c240f738d0 --repository "$REPOSITORY"
 python3 "$WORKFLOW_SOURCE/tools/install_composition_contracts.py" \
   --binary "$PRIFLY_BIN" --project "$AUTHORITY"
 python3 "$WORKFLOW_SOURCE/examples/unified-composition/setup.py" \
@@ -117,6 +133,7 @@ extensions:
       clean-implementation: implementation
 ```
 
+For these 3.0.0 packages, a project Step that consumes task binds it to `{{schema_task}}`.
 The project Step binds `implementation` to `{{contract_schema_implementation}}`
 and emits that same schema on every success path. It preserves original report
 refs and appends newly published report refs. Each ordinary ArtifactRef has
@@ -127,11 +144,11 @@ readers. Omit the implementation or set `enabled: false` for passthrough.
 Runnable bounded native checks against the actual shipping workflows:
 
 ```sh
-python3 -B tests/probes/unified_measurement.py --binary /absolute/prifly-v0.13.86 \
+python3 -B tests/probes/unified_measurement.py --binary "$PRIFLY_BIN" \
   --package aif-classic --case repair --report /absolute/scratch/classic.json
-python3 -B tests/probes/unified_measurement.py --binary /absolute/prifly-v0.13.86 \
+python3 -B tests/probes/unified_measurement.py --binary "$PRIFLY_BIN" \
   --package aif-profiled --case repair --report /absolute/scratch/profiled.json
-python3 -B tests/probes/unified_fix_measurement.py --binary /absolute/prifly-v0.13.86 \
+python3 -B tests/probes/unified_fix_measurement.py --binary "$PRIFLY_BIN" \
   --case repair --report /absolute/scratch/fix.json
 ```
 
@@ -160,7 +177,12 @@ An unavailable browser cannot become not-required. `implementation.reports`
 retains the original judgement, the guard assessment and any actual UI/UX reports.
 Not-required means browser acceptance does not apply; it never means a browser passed.
 
-A consumer selects the public Call at its own nested point:
+The following nested recipe requires a compatible **2.0.0 consumer from v1.57.0**
+with frozen task1.1.0. Install that pinned consumer explicitly if you use this recipe.
+It does not apply to classic/profiled/fix3.0.0 or inherit their task limit.
+The standalone `setup.py --applicability` wrapper also uses frozen task1.1.0.
+
+A compatible consumer selects the public Call at its own nested point:
 
 ```yaml
 authoring: prifly-extension/5
@@ -183,8 +205,9 @@ extensions:
       guard-implementation: implementation
 ```
 
-Both points bind task and implementation. The project measurement Step must
-accept both exact shared schemas. Provisioning belongs to an earlier declared
+Both points bind task and implementation. In this 2.0.0 recipe, the project Step
+binds task to `{{contract_schema_task}}` and implementation to `{{contract_schema_implementation}}`.
+Its task limit remains12 000. The 3.0.0 measurement recipe above uses `{{schema_task}}` instead. Provisioning belongs to an earlier declared
 external-write Step, or the measurement's own declared effects; readers remain read-only.
 The setup helper supports this mode with `--applicability`; its launch accepts
 typed task/implementation files and an optional configuration file.
