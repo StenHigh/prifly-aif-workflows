@@ -10,7 +10,7 @@
 <p align="center">
   <a href="https://github.com/StenHigh/prifly-aif-workflows/actions/workflows/verify.yml"><img src="https://github.com/StenHigh/prifly-aif-workflows/actions/workflows/verify.yml/badge.svg" alt="verify"></a>
   <a href="https://github.com/StenHigh/prifly-aif-workflows/tags"><img src="https://img.shields.io/github/v/tag/StenHigh/prifly-aif-workflows?label=release&amp;color=1f6feb" alt="latest tag"></a>
-  <img src="https://img.shields.io/badge/pri--fly-%E2%89%A5%200.13.86-00ADD8" alt="Pri-Fly ≥ 0.13.86">
+  <img src="https://img.shields.io/badge/pri--fly-%E2%89%A5%200.13.90-00ADD8" alt="Pri-Fly ≥ 0.13.90">
   <img src="https://img.shields.io/badge/hosts-codex--cli%20%C2%B7%20codex--app%20%C2%B7%20claude--code-4b5563" alt="hosts">
 </p>
 
@@ -64,13 +64,30 @@ Run с повтором writer и проверок. Для partial-плана т
 входные JSON, команды и изолированную проверку на released Pri-Fly; новый
 workflow или отдельная очередь не добавляются.
 
-**Для приёмки внутри своего workflow** есть [review/UI/UX через `extend`](examples/review-uiux-extensions/README.md): три opt-in варианта проверяют candidate текущего Run перед commit, с gate и отчётами. Текущий compatibility bundle2.0.0 требует Core ≥0.13.86, classic/profiled2.0.0 и явную установку общих схем. Подключение проектное; шаблоны canonical classic/profiled не переписываются.
+**Для приёмки внутри своего workflow** есть [review/UI/UX через `extend`](examples/review-uiux-extensions/README.md): три opt-in варианта проверяют candidate текущего Run перед commit, с gate и отчётами. Текущий project-copy bundle **3.0.0** требует Core **≥0.13.90**, classic/profiled **3.0.0** и явную установку общих схем. Подключение проектное; шаблоны canonical classic/profiled не переписываются.
 
 **Для проверки готовых изменений** `aif-review-evidence` и `aif-ui-ux`
 возвращают отчёты и итог приёмки; исправление кода и commit остаются отдельным
 действием. Их компоненты уже используются внутри `aif-feature`, где проверка
 связана с реализацией и повторяется после исправлений. Для браузерных проверок
 понадобится [контракт тестовой среды проекта](docs/product-review-environment.md).
+
+**Classic/profiled/fix 3.0.0 в main: проектный предел task.description.**
+Требуется Pri-Fly **0.13.90+**. Пакет объявляет compile parameter; проект задаёт число в
+`project/compile-values.yaml` установленного workflow. Default12 000 сохраняется.
+Task становится owned schema1.2.0; project consumers используют `{{schema_task}}`.
+[Готовый task16557 и config32000](examples/task-description-limit/README.md),
+[миграция и совместимость](docs/changes/configure-task-description-limit/release-guide.md).
+[PR #16](https://github.com/StenHigh/prifly-aif-workflows/pull/16) смёржен; полный CI прошёл все шесть заданий.
+Проверенный source: `72eb8861263d15079d767c6c6106e8c240f738d0`. Tag v1.58.0 ещё не опубликован.
+Обычный каталог ниже устанавливает пакеты v1.57.0 с прежним контрактом task.
+Для настройки предела используйте явный source из нового примера.
+
+| Вариант | Контракт описания задачи | Подключение |
+| --- | --- | --- |
+| Classic/profiled/fix 3.0.0 из проверенного source | Owned task1.2.0; default 12 000, значение задаёт проект | [Самостоятельный запуск и обновление](examples/task-description-limit/README.md) |
+| W6 project-copy bundle 3.0.0 | Использует `schema_task` своего classic/profiled 3.0.0 | [Отдельное opt-in подключение](examples/review-uiux-extensions/README.md) |
+| Public UI/UX 2.0.0 и consumer 2.0.0 из v1.57.0 | Frozen task1.1.0; предел 12 000 | [Public imports и их границы](examples/unified-composition/README.md) |
 
 **Выпуск v1.57.0: unified composition `/5`.** Classic/profiled/fix/UIUX2.0.0
 используют public imports, scoped points и общую exact schema dependency.
@@ -137,6 +154,9 @@ Pri-Fly сам не поставляет product workflows: он остаётс�
 AI Factory развиваются здесь.
 
 ## Установка в проект
+
+Для classic/profiled/fix **3.0.0** используйте [установку точного source](examples/task-description-limit/README.md#подготовка-и-самостоятельный-запуск).
+Команды каталога в этом разделе относятся к опубликованному **v1.57.0**.
 
 Для набора v1.57.0 используйте Pri-Fly **0.13.86** и новее
 (официальный бинарник из GitHub Releases):

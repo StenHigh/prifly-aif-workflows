@@ -1,9 +1,9 @@
 # План изменений workflow после сравнения с Software Factory
 
-Сверено 2026-11-09 после слияния PR #15 по текущим main, release evidence и GitHub; исторические проверки сохраняют свои даты. W1–W3: **committed/pushed, CI PASS**, с отдельными live observations;
+Сверено 2026-11-10 после слияния PR #16 по текущим main, release evidence и GitHub; исторические проверки сохраняют свои даты. W1–W3: **committed/pushed, CI PASS**, с отдельными live observations;
 W4: **committed/pushed, pilot qualified, CI PASS**; W5: **пакетная часть завершена, scoped qualification и final CI PASS; v1.52.0**.
 Пакеты включены в [выпуск v1.52.0](../releases/v1.52.0.md). Актуальная база совместимости: released Pri-Fly
-**0.13.88**, выпуск репозитория **v1.57.0**. Verify/compatibility и полный CI на0.13.88 прошли: [evidence](engine/ci-installation-0.13.88.md). PR #15 объединён в main4323276. Прежние CI/live evidence на0.13.76 и release qualification на0.13.86 сохраняют свои версии и границы; новые scripted/browser checks не означают production или LLM acceptance.
+**0.13.90**, опубликованный выпуск репозитория **v1.57.0**; task-limit classic/profiled/fix3.0.0 принят в main, но tag v1.58.0 и новый catalog не опубликованы. Verify/compatibility и полный CI на0.13.88 прошли: [evidence](engine/ci-installation-0.13.88.md). PR #15 объединён в main4323276. Прежние CI/live evidence на0.13.76 и release qualification на0.13.86 сохраняют свои версии и границы; новые scripted/browser checks не означают production или LLM acceptance.
 
 В этом репозитории нет инициализированного OpenSpec-проекта. Change хранятся
 как репозиторная документация: `proposal.md` задаёт объём и критерии приёмки,
@@ -20,7 +20,18 @@ Classic и штатный derived profiled опубликованы в v1.54.0; 
 [оставшиеся пакеты](improve-workflow-authoring-readability/remaining-acceptance.md),
 [версии и update](../releases/v1.55.0.md). Прежний verify fail/no_work исправлен отдельно в v1.56.0; readability evidence сохраняет исходное поведение.
 
+Актуальная приёмка на Core0.13.90: [task-limit acceptance](configure-task-description-limit/acceptance.md) и [точный CI](configure-task-description-limit/ci-0.13.90-results.json).
+
 ## Реестр
+
+Issue #3: [проектный предел task.description](configure-task-description-limit/proposal.md).
+Core [#22](https://github.com/StenHigh/prifly/issues/22) CLOSED/completed, released0.13.90.
+Candidate classic/profiled/fix3.0.0 использует объявленный compile parameter и owner values.
+Default12 000 сохранён; task1.2.0 становится owned, project consumers используют schema_task.
+[Design](configure-task-description-limit/design.md), [приёмка A1–A10](configure-task-description-limit/acceptance.md),
+[release guide](configure-task-description-limit/release-guide.md) и [готовые inputs](../../examples/task-description-limit/README.md).
+Локальная native matrix16 cases /31 Runs PASS; exact-source CI42726891572 SUCCESS (6 jobs); PR #16 MERGED в main b5c7be9. Tag и Release не опубликованы.
+Исторический reproducer0.13.89/source ea80f473: [исследование](configure-task-description-limit/native.md).
 
 Issue #7: владелец согласовал completed/rejected без обязательного gate для verify fail/no_work.
 Отдельный [change](handle-verify-no-work/proposal.md) добавляет handler и штатный derive profiled.

@@ -12,7 +12,7 @@ authority. They are frozen, not a claim of a public repository release. The
 additive package never re-exports an existing schema identity: native admission
 rejects overlapping exports, even when the bytes match. Both versions coexist.
 
-Classic, profiled, fix and UI/UX 2.0.0 explicitly depend on this package.
+Classic/profiled/fix 3.0.0 and UI/UX 2.0.0 explicitly depend on this package.
 Run the following command once for each authority before compiling these packages:
 
 ```sh
@@ -31,8 +31,8 @@ Identical schema text does not make these refs equal. Shared external refs give
 public component callers and providers one exact type. Copying private schemas
 into a consumer is not the supported migration.
 
-The YAML under each package's `schemas/` remains the editable source. Its unused
-local aliases do not define public ports in these four packages. The
+The YAML under each package's `schemas/` remains the editable source. Most unused
+local aliases do not define public ports in these packages. The
 `contract_schema_*` references bind those ports to the native dependency.
 `tools/build_composition_contracts.py` regenerates the bundle and lock from these
 sources; authoring requires PyYAML 6.0.1. CI checks reproducibility. A changed
@@ -41,3 +41,10 @@ never replace already published bytes under an existing version.
 
 Saved Runs keep their old sealed schemas. Updating the package source does not
 migrate a saved Run. New Run preparation exposes the new dependency and build.
+
+Classic/profiled/fix3.0.0 own their parameterised task1.2.0 schema.
+It is excluded from this inert export; `contract_schema_task` no longer binds their ports.
+Project-owned consumers use `{{schema_task}}` from the installing source owner.
+The frozen task1.1.0 export remains available for UI/UX and existing public imports.
+Its bytes, manifest digest and dependency closure remain unchanged.
+`lock.json.bindings` describes the current external aliases; baseline locks stay frozen.

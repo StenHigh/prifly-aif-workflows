@@ -17,18 +17,26 @@ native вложенный workflow через проектный `extend.yaml`. 
 rejected. Локальный commit к этому моменту **может существовать**: вставка не
 даёт атомарную блокировку файлов и ничего не откатывает.
 
-Текущий bundle2.0.0 требует **Pri-Fly ≥0.13.86**, classic/profiled2.0.0,
+Текущий project-copy bundle3.0.0 требует **Pri-Fly ≥0.13.90**, classic/profiled3.0.0,
 общий пакет схем1.2.0, Python3.10+ и
 AI Factory2.19.0 skills выбранного host, включая `aif-review`. Для установки
 примеров нужен PyYAML6; runtime workers используют stdlib. Первый scope —
 последовательная приёмка и изолированная среда (`shared_resource: null`).
 Параллельные W5 grants и автоматический repair не подключаются.
 
+Task-aware project copies теперь используют `{{schema_task}}` установленного consumer.
+Настройка `project/compile-values.yaml` применяется и к этим потребителям.
+Старые установленные copies с `{{contract_schema_task}}` требуют явного обновления.
+Frozen public imports сохраняют прежний task1.1.0; новая настройка их не меняет.
+Прямой `ui.review-for-change` версии 2.0.0 несовместим с owned task классического пакета 3.0.0.
+Этот пример копирует definitions в `project/` и связывает их с task своего consumer.
+Полный самостоятельный [пример task limit](../task-description-limit/README.md) показывает подготовку owner value и запуск.
+
 ## Настроить критерии
 
 Дальнейшие команды выполняются из корня целевого Git-проекта с существующей
 `.prifly/project.yaml`. Подставьте абсолютный путь к checkout этого репозитория
-вместо `/absolute/path/to/aif-workflows`. Используйте точный checkout v1.57.0. Старые примеры для v1.53–v1.56
+вместо `/absolute/path/to/aif-workflows`. Используйте проверенный source `72eb8861263d15079d767c6c6106e8c240f738d0` по [командам checkout](../task-description-limit/README.md#подготовка-и-самостоятельный-запуск); tag v1.58.0 ещё не опубликован. Старые примеры для v1.53–v1.56
 остаются на своих tags. Этот compatibility recipe сохраняет корневую вставку
 `prifly-extension/2`; новые public imports и scoped points показаны в
 [основном примере /5](../unified-composition/README.md).
@@ -72,15 +80,15 @@ claimed repository_workspace; внешний старый deployment не под
 Если classic ещё не установлен:
 
 ```sh
-prifly project workflows add StenHigh/prifly-aif-workflows --path aif-classic --ref v1.57.0 --repository .
+prifly project workflows add StenHigh/prifly-aif-workflows --path aif-classic --ref 72eb8861263d15079d767c6c6106e8c240f738d0 --repository .
 ```
 
 До preview явно установите схемы в существующую authority проекта. Укажите
-действующие абсолютные пути к бинарнику86 и authority:
+действующие абсолютные пути к бинарнику90 и authority:
 
 ```sh
 python3 /absolute/path/to/aif-workflows/tools/install_composition_contracts.py \
-  --binary /absolute/path/to/prifly-v0.13.86 --project /absolute/path/to/authority
+  --binary /absolute/path/to/prifly-v0.13.90 --project /absolute/path/to/authority
 ```
 
 Preview плана установки (без записи):
@@ -105,7 +113,7 @@ Installer добавляет `project/` с явно скопированными
 при exclusion review место вставки обрабатывает native compiler.
 `workflow.yaml`, shipped steps/contexts/schemas не переписываются. Existing
 extensions, profile/exclude сохраняются; конфликты и повторная установка
-отказывают. Project profile/2 поднимается до /3; /3 и /4 сохраняются.
+отказывают. Project profile/2 поднимается до /3; /3, /4 и /5 сохраняются.
 Installer сериализует изменённые YAML как JSON (допустимый YAML), поэтому
 комментарии в этих двух файлах теряются; исходные bytes сохраняются в выданном
 `backup_directory` вне проекта. Сохраните эту копию и preview в своём хранилище.
@@ -133,6 +141,8 @@ launches:
     kind: workflow
     workflow: .prifly/workflows/w6-consumer/workflow.yaml
 ```
+
+Минимальный `w6-consumer` имеет собственную схему task. Он не объявляет параметр `task_description_limit`.
 
 В обе команды installer из предыдущего раздела передайте
 `--package w6-consumer --after write`, сохранив mode/configuration. Для другого
@@ -217,8 +227,8 @@ post-commit guard всё равно проверяет актуальные фа
 копии. Новый bundle требует review и повторной квалификации вашего consumer.
 
 Сохраните весь project/overlay и project.yaml перед обновлением workflow.
-`project workflows update` может отказать из-за добавленных project files;
-`remove` удаляет их целиком. Для удаления W6 сверяйте сохранённый план: удалите
+Core0.13.90 сохраняет `extend.yaml` и `project/` при update. Он не обновляет старые W6 copies и их task aliases.
+`project workflows remove` удаляет папку вместе с проектными файлами. Для удаления W6 сверяйте сохранённый план: удалите
 только его две extensions, references, execution bindings и перечисленные
 project files, сохранив чужие additions. Восстановление всего backup допустимо
 только если после установки никто не менял эти файлы. Затем compile/preview.
@@ -266,3 +276,16 @@ Required fields зависят от profile и ваших decisions. `gate_warni
 Выпуск v1.55.0 обновляет source hashes bundle до1.0.1. Generated components сохраняют прежние bytes и версии1.0.0.
 Штатный builder разрешает package-local Markdown в inline text проектной копии и закрепляет hash исходного Markdown.
 Установленный W6 bundle не требует standalone folders; обновление пакета не обновляет проектные копии автоматически.
+
+## Проверка текущего bundle
+
+Из корня проверенного source выполните:
+
+```sh
+python3 -B tests/call_review_contract.py --binary /absolute/path/to/prifly-v0.13.90 \
+  --report /tmp/w6-contract-results.json
+```
+
+Проверка выполняет 18 компиляций на трёх hosts и восемь ожидаемых отказов.
+[Приёмка task limit](../../docs/changes/configure-task-description-limit/acceptance.md) содержит результаты bundle3.0.0 и полного CI.
+Компиляция не подтверждает прохождение сценариев вашей браузерной среды.

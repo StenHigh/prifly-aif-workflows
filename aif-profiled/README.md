@@ -1,5 +1,38 @@
 # AI Factory profiled workflow
 
+## Project task limit: 3.0.0 candidate
+
+Requires **Pri-Fly >=0.13.90** and Project profile `/3`, `/4` or `/5`.
+The package declares `task_description_limit` in `compile-parameters.yaml`.
+The default is **12000 Unicode characters**. The allowed range is
+`1..9007199254740991`, Core's safe JSON integer range. Other input/document
+and host context budgets still apply independently.
+
+Create `project/compile-values.yaml` inside the installed workflow folder:
+
+```yaml
+authoring: prifly-compile-values/1
+values:
+  task_description_limit: 32000
+```
+
+This file belongs to the project. Workflow update preserves it.
+Compile, questionnaire prepare and reviewed start resolve it before task validation.
+Changing the value requires a new launch review. Existing Runs keep their definitions.
+For continue, preserve the source build and value; an incompatible build may refuse
+before creating a Run. No saved Run migration is promised.
+
+Task now uses the package-owned `aif:schema/task@1.2.0` source.
+Project-owned consumers must use `{{schema_task}}` for the exact compiled type.
+The former external `{{contract_schema_task}}` alias is removed from these packages.
+Cross-owner consumers of the frozen task1.1.0 type require an explicit compatible design.
+Other shared schemas still require the explicit composition-contracts installation.
+
+[Complete candidate setup, prepare/start, continue and opt-in example](https://github.com/StenHigh/prifly-aif-workflows/blob/codex/issue-3-task-description-limit/examples/task-description-limit/README.md).
+The candidate is not a published repository tag. The published2.0.0 references below
+retain their historical installation and migration scope.
+
+
 ## Unified composition 2.0.0
 
 Requires Pri-Fly >=0.13.86 and explicit installation of the

@@ -6,16 +6,96 @@
 движка 0.10–0.13.54, переход на AI Factory 2.19.0, WorkflowRevision v4) —
 в git: `git show d388b92:CONTEXT_STATE.md` (2330 строк, оглавление — `mdq tree`).
 
-## Сверка roadmap на 2026-11-09
+## Сверка roadmap на 2026-11-10
 
-Roadmap PR #14 согласован с main6097152 после слияния PR #15.
+Roadmap PR #14 согласован с main15251f6 после слияния PR #16.
 Текущий выпуск пакетов — v1.57.0; verify/compatibility и полный CI на
-released Pri-Fly v0.13.88 подтверждены в evidence ниже. Это не production
+released Pri-Fly v0.13.90 подтверждены в evidence ниже. Это не production
 Light, не новая LLM-приёмка и не изменение shipping bytes.
 Issue #9 CLOSED: передача исходных отчётов и public install/update приняты
 в v1.57.0. Ранний pass-check-reports checklist не образует второй backlog.
 E3 CI-приёмка закрыта в main76e7b8b со сверкой artifact/version/hash и 35 cases;
 сводка docs/changes/README.md теперь ссылается на эти результаты.
+
+PR #16 и task-limit classic/profiled/fix3.0.0 находятся в main; tag v1.58.0
+и новый catalog ещё не опубликованы. Публичный выпуск остаётся v1.57.0.
+
+## Документация и примеры на 2026-11-10
+
+Ворота verify/compatibility выверены против выпущенного Pri-Fly `v0.13.90`.
+Перед задачей latest stable проверен: новых выпусков нет.
+Root README, индекс examples, current task-limit/W6/unified guides и planned release guide актуализированы.
+Указан exact source72eb886; статус main/merged отделён от неопубликованного tag v1.58.0 и catalog v1.57.0.
+Task-aware public UIUX2.0.0/frozen task1.1.0 явно отделён от owned task3.0.0 и project-copy W6.
+Даны clone/install/update, owner file, compile, prepare/start JSON и поддерживаемый continue; naming input принадлежит профилю проекта.
+Прямое исполнение Markdown:3 packages × compile/prepare/start/export с task16557 PASS.
+Отдельный ready-input driver: ещё3 Run PASS; все6 roots/registrations очищены, active claims0.
+W6 contract18 compiles/8 refusals PASS. Документация/examples вне shipping folders; package bytes и версии прежние.
+Evidence: docs/changes/configure-task-description-limit/documentation-0.13.90-results.json.
+
+## Реализация issue #3 на 2026-11-10 — PR #16 MERGED, CI PASS
+
+Ворота verify/compatibility выверены против выпущенного Pri-Fly `v0.13.90`.
+PR #16 влит в main b5c7be9c2953feefecddcce4739091b766ee0214; проверенный source 72eb8861263d15079d767c6c6106e8c240f738d0.
+Full CI42726891572 завершился SUCCESS во всех6 jobs. Проверены10 ZIP digests и22 JSON reports.
+Shipping matrix CI16 cases/31 Runs и examples3 cases PASS; package sources/probe SHA совпали с локальной приёмкой.
+Дерево merge commit совпадает с проверенным source. Последующая запись итогов меняет только документацию и evidence.
+Evidence: docs/changes/configure-task-description-limit/ci-0.13.90-results.json.
+Core #22 CLOSED/completed, capability опубликована в90. Обе подписи manifest и SHA-256 official binary проверены.
+Binary /tmp/aif-core22-v0.13.90-6ekqrzte/prifly, SHA256 db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984.
+Владелец явно выбрал продолжить пакетную реализацию после released qualification.
+Реализованы classic/profiled/fix3.0.0: compile-parameters.yaml, owner project/compile-values.yaml,
+task_description_limit integer1..9007199254740991, default12 000, owned task1.2.0.
+Удалён external contract_schema_task; все потребители трёх пакетов используют schema_task.
+Это major type change. Frozen native contracts и остальные5 shipping packages не менялись.
+Profiled получен штатным derive. Генератор contracts пропускает parameterised owned schema;
+manifest1.2.0/SHA25636c5f25d прежний, current bindings lock исключает task classic/fix.
+W6 project-copy bundle3.0.0 использует schema_task; installer поддерживает profile5.
+Baseline90 и candidate verify8/132/88, compatibility5/4/6trusted/core-state41 PASS.
+Unit122, versions4/folders7/derive, generators --check, W6 compiles18/refusals8 PASS.
+Пилоты native classic fast route: full task16557 через6 readers, partial→continue,
+verify3/review2/fix2, succeeded; narrow12000 refusal schema_invalid, restore32000 continue PASS.
+Standalone fix16557 repair/check succeeded. Boundary/shared-authority/update classic pilots PASS.
+Финальная matrix16 cases /31 Runs /42 full task reads с --jobs3 PASS;19 roots/registrations удалены:
+docs/changes/configure-task-description-limit/shipping-0.13.90-results.json.
+Новый driver tests/probes/shipping_task_limit.py; все fixtures disposable и чистят собственные claims/registry.
+Engine evidence: docs/changes/engine/release-0.13.90.md и JSON рядом.
+Ready examples отдельно:3 prepare/start/export PASS; ещё3 очищенных authority,22 всего.
+README трёх пакетов, examples/task-description-limit, W6, release guide и draft v1.58/catalog подготовлены.
+Published catalog pins остаются v1.57.0; tag/Release не публиковались. Local native acceptance и exact-source CI PASS; PR #16 MERGED.
+Чистая ветка codex/task-description-limit-implementation основана на origin/main.
+В неё перенесены только issue3 commits; Core21 изменения остались в своей ветке.
+Local implementation source b598b5d; исходная codex/issue-3-task-description-limit/d87e211 сохранена.
+Pinned reproducer ea80f473 доступен через исходную публичную ветку.
+
+## Подготовка change для issue #3 на 2026-11-10
+
+Ворота verify/compatibility выверены против выпущенного Pri-Fly `v0.13.89`.
+Перед подготовкой и native-проверкой change latest stable проверен: новых выпусков нет.
+По issue #3/comment 6751418651 подготовлен docs/changes/configure-task-description-limit/:
+proposal, design, tasks, baseline, native evidence и опубликованная задача Pri-Fly #22.
+Проект выбирает предел task.description; default сохраняется 12 000, пример настройки 32 000.
+Нужен единый эффективный контракт до prepare/start для всех потребителей task.
+Update сохраняет owner-настройку; существующие Run не меняются, continue не подменяет контракт молча.
+Released 0.13.89 projectSetWorkflowSetting меняет только configuration.default объявленного input.
+Native generic fixture подтверждает эту границу и наследование схемы в derived root.
+Авторские package profiles собирают согласованный task 32 000 и пропускают его через root/child/worker.
+Это finite presets; проект не может объявить своё число через profile selection.
+Standalone compile --value также собирает task 40 000 в source без profiles.
+Но prepare/start не принимают --value; без него source компилируется заново с unresolved values даже после import.
+Core gap относится к owner-конфигурации compile values для project launch, а не отсутствию подстановки схем.
+Probe tests/probes/task_description_limit.py: 8 length cases / 3 succeeded Runs на official 0.13.89.
+Default 12 000 и expanded 32 000 boundaries PASS, Unicode diagnostics точные, все 6 schema refs совпадают.
+Полные task bytes и состояние прежних Runs сохранены; prepare/refusals read-only по files/packages/Runs/claims.
+Временный root/одна monitor registration удалены; active claims 0.
+Evidence: docs/changes/configure-task-description-limit/native-0.13.89-results.json.
+Python JSON Schema проверил 12 000 valid и 12 001/16 557 maxLength refusal по /description
+для трёх одинаковых task 1.1.0 schemas classic/profiled/fix; derive --check PASS.
+Versions 4 / folders 7 / derive PASS. Пакетная реализация, update и continue остаются отдельной приёмкой.
+Shipping bytes/версии, рабочая authority и Core не менялись; issue #3 остаётся открытым.
+Создана https://github.com/StenHigh/prifly/issues/22 с исходным consumer #3, C1–C8 и полными командами.
+Pinned reproducer ea80f473 опубликован в codex/issue-3-task-description-limit.
+Следующий этап — released capability Core #22, затем пакетная приёмка A1–A10; #3 не закрыт.
 
 ## Исправление CI на 2026-11-09
 

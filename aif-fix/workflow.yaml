@@ -1,7 +1,7 @@
 authoring: prifly-project-workflow/3
 package:
   id: aif-fix:package/fix
-  version: 2.0.0
+  version: 3.0.0
   description: Fix a specific bug with regression evidence and one review; complex bugs use their own fix-plan executed by aif-fix, not feature implementation.
   requires_core_protocol: "1"
   profiles:
@@ -24,7 +24,6 @@ package:
     contract_schema_gate-result: aif:schema/gate-result@1.2.0
     contract_schema_implementation: aif:schema/implementation@1.2.0
     contract_schema_round-limit: aif:schema/round-limit@1.1.0
-    contract_schema_task: aif:schema/task@1.1.0
     contract_schema_warmup-handoff: aif:schema/warmup-handoff@1.0.0
     assisted_adapter: core:adapter/assisted-session@1.0.0
     local_policy: core:policy/local@4.0.0
@@ -32,10 +31,10 @@ package:
     workspace_tree_manifest: core:schema/workspace-tree-manifest@1.0.0
 id: aif-fix:workflow/fix
 schema_version: "8"
-version: 2.0.0
+version: 3.0.0
 title: AI Factory bug fix workflow
 refs:
-  schema_task: "{{contract_schema_task}}"
+  schema_task: "{{schema_task}}"
   schema_implementation: "{{contract_schema_implementation}}"
   schema_fix-result: "{{contract_schema_fix-result}}"
   schema_gate-result: "{{contract_schema_gate-result}}"

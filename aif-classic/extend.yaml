@@ -1,4 +1,7 @@
 authoring: prifly-extension/5
+# Task length: Core >=0.13.90 reads project/compile-values.yaml.
+# Use {authoring: prifly-compile-values/1, values: {task_description_limit: 32000}}.
+# Omit the owner file to keep 12000. This is a compile parameter, not settings.
 # Project controls are intentionally small. `exclude` selects a declared
 # bypass; it does not delete a graph stage or pretend that a skipped gate passed.
 profile: fast # `full` and `ultra` use their documented native AIF plan layouts.

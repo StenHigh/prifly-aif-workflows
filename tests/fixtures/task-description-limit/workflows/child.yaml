@@ -1,0 +1,26 @@
+authoring: prifly-workflow/1
+id: limit-probe:workflow/child
+version: 1.0.0
+schema_version: "6"
+title: Child receiving the same task schema
+refs:
+  task: "{{schema_task}}"
+  inspect: "{{step_inspect}}"
+  policy: "{{policy}}"
+inputs: {task: task}
+outputs:
+  task: {schema_ref: task, required_for: [succeeded]}
+policy_ref: policy
+limits: {max_step_instances: 1, max_control_transitions: 4}
+entry: inspect
+stages:
+  inspect:
+    kind: step
+    step_ref: inspect
+    input_bindings: {task: $inputs.task}
+    on: {pass: done, needs_revision: stopped, fail: stopped, no_work: stopped, blocked: stopped}
+  done:
+    kind: finish
+    outcome: succeeded
+    output_bindings: {task: $stages.inspect.task}
+  stopped: {kind: finish, outcome: rejected}

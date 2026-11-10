@@ -1,0 +1,1113 @@
+{
+  "schema_version": "aif-task-description-limit-ci/1",
+  "source_commit": "72eb8861263d15079d767c6c6106e8c240f738d0",
+  "pr": "https://github.com/StenHigh/prifly-aif-workflows/pull/16",
+  "workflow_run_id": 42726891572,
+  "workflow_run_url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/42726891572",
+  "prifly": "0.13.90",
+  "binary_sha256": "db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+  "complete": true,
+  "shipping_artifact": {
+    "artifact": {
+      "id": 13722659940,
+      "name": "shipping-task-limit-results",
+      "size_in_bytes": 20915,
+      "url": "https://api.github.com/repos/StenHigh/prifly-aif-workflows/actions/artifacts/13722659940",
+      "archive_download_url": "https://api.github.com/repos/StenHigh/prifly-aif-workflows/actions/artifacts/13722659940/zip",
+      "expired": false,
+      "created_at": "2026-11-10T00:30:57Z",
+      "expires_at": "2027-02-08T00:15:22Z",
+      "updated_at": "2026-11-10T00:30:57Z",
+      "digest": "sha256:f71212aa98d719d2c41c40f9c6508f2a8f8bff18a2ad0a00ee15e7367b84e321",
+      "workflow_run": {
+        "id": 42726891572,
+        "repository_id": 1355816755,
+        "head_repository_id": 1355816755,
+        "head_branch": "codex/task-description-limit-implementation",
+        "head_sha": "72eb8861263d15079d767c6c6106e8c240f738d0"
+      }
+    },
+    "zip_digest_verified": true,
+    "reports": [
+      {
+        "file": "aif-task-limit-results.json",
+        "sha256": "40dfec93b25f796651c8eae9fddc50e24fd42d9bb23da090d5c47af67a73902e",
+        "cases": 16,
+        "complete": true,
+        "prifly": "0.13.90",
+        "binary_sha256": "sha256:db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984"
+      },
+      {
+        "file": "aif-task-limit-examples.json",
+        "sha256": "9f266af6c794ac247b00d7f6e381c4c48c686020ac1a27c2b775e22ca1a59d12",
+        "cases": 3,
+        "complete": true,
+        "prifly": "0.13.90",
+        "binary_sha256": "sha256:db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984"
+      }
+    ]
+  },
+  "artifacts": [
+    {
+      "artifact": {
+        "id": 13723621325,
+        "name": "w6-call-review-results",
+        "size_in_bytes": 8199,
+        "url": "https://api.github.com/repos/StenHigh/prifly-aif-workflows/actions/artifacts/13723621325",
+        "archive_download_url": "https://api.github.com/repos/StenHigh/prifly-aif-workflows/actions/artifacts/13723621325/zip",
+        "expired": false,
+        "created_at": "2026-11-10T00:21:20Z",
+        "expires_at": "2027-02-08T00:15:22Z",
+        "updated_at": "2026-11-10T00:21:20Z",
+        "digest": "sha256:42d0160f83d59e9354ac9c70714f8cc99a5bf0c9e6eb4ff172f5bba27d2e52f1",
+        "workflow_run": {
+          "id": 42726891572,
+          "repository_id": 1355816755,
+          "head_repository_id": 1355816755,
+          "head_branch": "codex/task-description-limit-implementation",
+          "head_sha": "72eb8861263d15079d767c6c6106e8c240f738d0"
+        }
+      },
+      "zip_digest_verified": true,
+      "reports": [
+        {
+          "file": "w6-contract.json",
+          "sha256": "62383d32add309d7b3848735ae2b4642f720f45f785a6575ac5f152a507d6179",
+          "prifly": "0.13.90",
+          "binary_sha256": "db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+          "complete": null,
+          "cases": 0
+        },
+        {
+          "file": "w6-native.json",
+          "sha256": "bb81d6e698d314b31e7fd033064ff5c35e8efe153bc20e47d5dabf718ad7d4b5",
+          "prifly": null,
+          "binary_sha256": null,
+          "complete": null,
+          "cases": 27
+        }
+      ]
+    },
+    {
+      "artifact": {
+        "id": 13723565856,
+        "name": "unified-measurements-aif-fix",
+        "size_in_bytes": 2602,
+        "url": "https://api.github.com/repos/StenHigh/prifly-aif-workflows/actions/artifacts/13723565856",
+        "archive_download_url": "https://api.github.com/repos/StenHigh/prifly-aif-workflows/actions/artifacts/13723565856/zip",
+        "expired": false,
+        "created_at": "2026-11-10T00:16:02Z",
+        "expires_at": "2027-02-08T00:15:22Z",
+        "updated_at": "2026-11-10T00:16:02Z",
+        "digest": "sha256:efc515921536f67310389ef4902866891766e9c1f275a206d244d53391744211",
+        "workflow_run": {
+          "id": 42726891572,
+          "repository_id": 1355816755,
+          "head_repository_id": 1355816755,
+          "head_branch": "codex/task-description-limit-implementation",
+          "head_sha": "72eb8861263d15079d767c6c6106e8c240f738d0"
+        }
+      },
+      "zip_digest_verified": true,
+      "reports": [
+        {
+          "file": "aif-fix-clean.json",
+          "sha256": "269f16aa20f4db0fd839e39fc025460d7c98d216f263ca2316fc57cb140aa29a",
+          "prifly": "0.13.90",
+          "binary_sha256": "sha256:db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+          "complete": null,
+          "cases": 0
+        },
+        {
+          "file": "aif-fix-disabled.json",
+          "sha256": "1d40fd4b3a6769c52dbd9080c1ea8766e0f4e184e70e23fd1d04a834c61d8423",
+          "prifly": "0.13.90",
+          "binary_sha256": "sha256:db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+          "complete": null,
+          "cases": 0
+        },
+        {
+          "file": "aif-fix-repair.json",
+          "sha256": "6d9cec198aba3c1406ac078944112f9470875aa9fbf2a8adb75b3ffe98e4e3a0",
+          "prifly": "0.13.90",
+          "binary_sha256": "sha256:db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+          "complete": null,
+          "cases": 0
+        }
+      ]
+    },
+    {
+      "artifact": {
+        "id": 13723531848,
+        "name": "classic-verify-outcomes",
+        "size_in_bytes": 796,
+        "url": "https://api.github.com/repos/StenHigh/prifly-aif-workflows/actions/artifacts/13723531848",
+        "archive_download_url": "https://api.github.com/repos/StenHigh/prifly-aif-workflows/actions/artifacts/13723531848/zip",
+        "expired": false,
+        "created_at": "2026-11-10T00:21:05Z",
+        "expires_at": "2027-02-08T00:15:22Z",
+        "updated_at": "2026-11-10T00:21:05Z",
+        "digest": "sha256:a7e37875f75f8394f6140062db40c8f2f43d43afd7735420d18950196d39e3d9",
+        "workflow_run": {
+          "id": 42726891572,
+          "repository_id": 1355816755,
+          "head_repository_id": 1355816755,
+          "head_branch": "codex/task-description-limit-implementation",
+          "head_sha": "72eb8861263d15079d767c6c6106e8c240f738d0"
+        }
+      },
+      "zip_digest_verified": true,
+      "reports": [
+        {
+          "file": "aif-verify-outcomes.json",
+          "sha256": "a729779358f97e2baf6a6e0c0f94e8b4d417c37590dd9d3423de37975236b3a3",
+          "prifly": "0.13.90",
+          "binary_sha256": "db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+          "complete": true,
+          "cases": 12
+        }
+      ]
+    },
+    {
+      "artifact": {
+        "id": 13723152318,
+        "name": "classic-readability-results",
+        "size_in_bytes": 703,
+        "url": "https://api.github.com/repos/StenHigh/prifly-aif-workflows/actions/artifacts/13723152318",
+        "archive_download_url": "https://api.github.com/repos/StenHigh/prifly-aif-workflows/actions/artifacts/13723152318/zip",
+        "expired": false,
+        "created_at": "2026-11-10T00:19:01Z",
+        "expires_at": "2027-02-08T00:15:22Z",
+        "updated_at": "2026-11-10T00:19:01Z",
+        "digest": "sha256:0905979a2493cf817cab86c918a71640750e1c59259dc7f220ecbbee5c64e5ce",
+        "workflow_run": {
+          "id": 42726891572,
+          "repository_id": 1355816755,
+          "head_repository_id": 1355816755,
+          "head_branch": "codex/task-description-limit-implementation",
+          "head_sha": "72eb8861263d15079d767c6c6106e8c240f738d0"
+        }
+      },
+      "zip_digest_verified": true,
+      "reports": [
+        {
+          "file": "aif-readability-results.json",
+          "sha256": "1357cc88e2bc7addf6e0d577443af1bd2c1ddc3447fd8f9dbc9f8f4a25d83ab5",
+          "prifly": "0.13.90",
+          "binary_sha256": "db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+          "complete": true,
+          "cases": 6
+        }
+      ]
+    },
+    {
+      "artifact": {
+        "id": 13722841907,
+        "name": "unified-measurements-aif-profiled",
+        "size_in_bytes": 6027,
+        "url": "https://api.github.com/repos/StenHigh/prifly-aif-workflows/actions/artifacts/13722841907",
+        "archive_download_url": "https://api.github.com/repos/StenHigh/prifly-aif-workflows/actions/artifacts/13722841907/zip",
+        "expired": false,
+        "created_at": "2026-11-10T00:16:30Z",
+        "expires_at": "2027-02-08T00:15:22Z",
+        "updated_at": "2026-11-10T00:16:30Z",
+        "digest": "sha256:ae5a0726bd575200baf76064b346ca9458bd7f931f9beaf26e52c7534924725a",
+        "workflow_run": {
+          "id": 42726891572,
+          "repository_id": 1355816755,
+          "head_repository_id": 1355816755,
+          "head_branch": "codex/task-description-limit-implementation",
+          "head_sha": "72eb8861263d15079d767c6c6106e8c240f738d0"
+        }
+      },
+      "zip_digest_verified": true,
+      "reports": [
+        {
+          "file": "aif-profiled-clean.json",
+          "sha256": "bec15bfb42be9d0cce91b710cf9827ee0fb5645af6ec3aa7812f7e254c90a498",
+          "prifly": "0.13.90",
+          "binary_sha256": "sha256:db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+          "complete": null,
+          "cases": 0
+        },
+        {
+          "file": "aif-profiled-continue.json",
+          "sha256": "638ddff080166b0e83b2893198bfb8d7000f9e922217b4c3a4971989ade8b039",
+          "prifly": "0.13.90",
+          "binary_sha256": "sha256:db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+          "complete": null,
+          "cases": 0
+        },
+        {
+          "file": "aif-profiled-disabled.json",
+          "sha256": "2508652f86d74879c9d4147d94302a532e17dea2ce96d246cd929aa43bab6fdb",
+          "prifly": "0.13.90",
+          "binary_sha256": "sha256:db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+          "complete": null,
+          "cases": 0
+        },
+        {
+          "file": "aif-profiled-permissions.json",
+          "sha256": "fb9001193efd7fa3a71b028a8c8ee7c65c5a86bcb1b8bc1c108871e791134733",
+          "prifly": "0.13.90",
+          "binary_sha256": "sha256:db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+          "complete": null,
+          "cases": 0
+        },
+        {
+          "file": "aif-profiled-repair.json",
+          "sha256": "df2b780bdac568a4ee9830f6baa8f84ac8fc6693a55ef966598ff9c272bbce76",
+          "prifly": "0.13.90",
+          "binary_sha256": "sha256:db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+          "complete": null,
+          "cases": 0
+        }
+      ]
+    },
+    {
+      "artifact": {
+        "id": 13722659940,
+        "name": "shipping-task-limit-results",
+        "size_in_bytes": 20915,
+        "url": "https://api.github.com/repos/StenHigh/prifly-aif-workflows/actions/artifacts/13722659940",
+        "archive_download_url": "https://api.github.com/repos/StenHigh/prifly-aif-workflows/actions/artifacts/13722659940/zip",
+        "expired": false,
+        "created_at": "2026-11-10T00:30:57Z",
+        "expires_at": "2027-02-08T00:15:22Z",
+        "updated_at": "2026-11-10T00:30:57Z",
+        "digest": "sha256:f71212aa98d719d2c41c40f9c6508f2a8f8bff18a2ad0a00ee15e7367b84e321",
+        "workflow_run": {
+          "id": 42726891572,
+          "repository_id": 1355816755,
+          "head_repository_id": 1355816755,
+          "head_branch": "codex/task-description-limit-implementation",
+          "head_sha": "72eb8861263d15079d767c6c6106e8c240f738d0"
+        }
+      },
+      "zip_digest_verified": true,
+      "reports": [
+        {
+          "file": "aif-task-limit-results.json",
+          "sha256": "40dfec93b25f796651c8eae9fddc50e24fd42d9bb23da090d5c47af67a73902e",
+          "prifly": "0.13.90",
+          "binary_sha256": "sha256:db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+          "complete": true,
+          "cases": 16
+        },
+        {
+          "file": "aif-task-limit-examples.json",
+          "sha256": "9f266af6c794ac247b00d7f6e381c4c48c686020ac1a27c2b775e22ca1a59d12",
+          "prifly": "0.13.90",
+          "binary_sha256": "sha256:db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+          "complete": true,
+          "cases": 3
+        }
+      ]
+    },
+    {
+      "artifact": {
+        "id": 13722467474,
+        "name": "unified-measurements-aif-classic",
+        "size_in_bytes": 6007,
+        "url": "https://api.github.com/repos/StenHigh/prifly-aif-workflows/actions/artifacts/13722467474",
+        "archive_download_url": "https://api.github.com/repos/StenHigh/prifly-aif-workflows/actions/artifacts/13722467474/zip",
+        "expired": false,
+        "created_at": "2026-11-10T00:16:05Z",
+        "expires_at": "2027-02-08T00:15:22Z",
+        "updated_at": "2026-11-10T00:16:05Z",
+        "digest": "sha256:cfcc98faabe18988d36e10e868c518af33f86f894e1d2a1d52e494e2bfd9df36",
+        "workflow_run": {
+          "id": 42726891572,
+          "repository_id": 1355816755,
+          "head_repository_id": 1355816755,
+          "head_branch": "codex/task-description-limit-implementation",
+          "head_sha": "72eb8861263d15079d767c6c6106e8c240f738d0"
+        }
+      },
+      "zip_digest_verified": true,
+      "reports": [
+        {
+          "file": "aif-classic-clean.json",
+          "sha256": "37dcfdb76cfca0ac4a010df2d1e53338956364309ffebc280d60c1a5b84248e4",
+          "prifly": "0.13.90",
+          "binary_sha256": "sha256:db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+          "complete": null,
+          "cases": 0
+        },
+        {
+          "file": "aif-classic-continue.json",
+          "sha256": "f993b06deaec636f515ccf9588ff18901e3b55c709cc816c3213af401f287c99",
+          "prifly": "0.13.90",
+          "binary_sha256": "sha256:db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+          "complete": null,
+          "cases": 0
+        },
+        {
+          "file": "aif-classic-disabled.json",
+          "sha256": "ff1550fd958d7d937ae1a251d10836ab31c3816e510efb1b5e8e8f1760a371fe",
+          "prifly": "0.13.90",
+          "binary_sha256": "sha256:db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+          "complete": null,
+          "cases": 0
+        },
+        {
+          "file": "aif-classic-permissions.json",
+          "sha256": "04a536cb0eef61564da370fe3a18d495f19b457e51d6a5ff2b327d64c4073005",
+          "prifly": "0.13.90",
+          "binary_sha256": "sha256:db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+          "complete": null,
+          "cases": 0
+        },
+        {
+          "file": "aif-classic-repair.json",
+          "sha256": "7b317825b2c9f1ad3f545c680f7c3d15afd539414cbefe821abedfbf1ed68c26",
+          "prifly": "0.13.90",
+          "binary_sha256": "sha256:db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+          "complete": null,
+          "cases": 0
+        }
+      ]
+    },
+    {
+      "artifact": {
+        "id": 13727125445,
+        "name": "fix-workflow-results",
+        "size_in_bytes": 1575,
+        "url": "https://api.github.com/repos/StenHigh/prifly-aif-workflows/actions/artifacts/13727125445",
+        "archive_download_url": "https://api.github.com/repos/StenHigh/prifly-aif-workflows/actions/artifacts/13727125445/zip",
+        "expired": false,
+        "created_at": "2026-11-10T01:24:17Z",
+        "expires_at": "2027-02-08T00:15:22Z",
+        "updated_at": "2026-11-10T01:24:17Z",
+        "digest": "sha256:6f7925bb1903ca8a97aadff24ee28d03b801aa979c2896519ac240113280a218",
+        "workflow_run": {
+          "id": 42726891572,
+          "repository_id": 1355816755,
+          "head_repository_id": 1355816755,
+          "head_branch": "codex/task-description-limit-implementation",
+          "head_sha": "72eb8861263d15079d767c6c6106e8c240f738d0"
+        }
+      },
+      "zip_digest_verified": true,
+      "reports": [
+        {
+          "file": "aif-fix-results.json",
+          "sha256": "4ca6d29920cfea1971fbe77730eed3eceec9cb76b675ffc299bfef3e1ee36906",
+          "prifly": "0.13.90",
+          "binary_sha256": "sha256:db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+          "complete": null,
+          "cases": 28
+        }
+      ]
+    },
+    {
+      "artifact": {
+        "id": 13726965805,
+        "name": "native-feature-queue-results",
+        "size_in_bytes": 4633505,
+        "url": "https://api.github.com/repos/StenHigh/prifly-aif-workflows/actions/artifacts/13726965805",
+        "archive_download_url": "https://api.github.com/repos/StenHigh/prifly-aif-workflows/actions/artifacts/13726965805/zip",
+        "expired": false,
+        "created_at": "2026-11-10T01:24:20Z",
+        "expires_at": "2027-02-08T00:15:22Z",
+        "updated_at": "2026-11-10T01:24:20Z",
+        "digest": "sha256:379b70b5371d36a20d316df18a27bdd5763e145bd4f6d2d0de402ac7ec496e3f",
+        "workflow_run": {
+          "id": 42726891572,
+          "repository_id": 1355816755,
+          "head_repository_id": 1355816755,
+          "head_branch": "codex/task-description-limit-implementation",
+          "head_sha": "72eb8861263d15079d767c6c6106e8c240f738d0"
+        }
+      },
+      "zip_digest_verified": true,
+      "reports": [
+        {
+          "file": "aif-feature-queue-results.json",
+          "sha256": "375777cf4517d9397691ff39c6043b9922c9ee28050f6c0357f8d408fbf40122",
+          "prifly": "0.13.90",
+          "binary_sha256": "db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+          "complete": null,
+          "cases": 3
+        }
+      ]
+    },
+    {
+      "artifact": {
+        "id": 13726438313,
+        "name": "feature-recovery-results",
+        "size_in_bytes": 9349,
+        "url": "https://api.github.com/repos/StenHigh/prifly-aif-workflows/actions/artifacts/13726438313",
+        "archive_download_url": "https://api.github.com/repos/StenHigh/prifly-aif-workflows/actions/artifacts/13726438313/zip",
+        "expired": false,
+        "created_at": "2026-11-10T01:24:18Z",
+        "expires_at": "2027-02-08T00:15:22Z",
+        "updated_at": "2026-11-10T01:24:18Z",
+        "digest": "sha256:0d0eb3dc755f1fad2af0e58a15da025fd54f609149559e2e1305b657407b3417",
+        "workflow_run": {
+          "id": 42726891572,
+          "repository_id": 1355816755,
+          "head_repository_id": 1355816755,
+          "head_branch": "codex/task-description-limit-implementation",
+          "head_sha": "72eb8861263d15079d767c6c6106e8c240f738d0"
+        }
+      },
+      "zip_digest_verified": true,
+      "reports": [
+        {
+          "file": "aif-feature-results.json",
+          "sha256": "3348bc0376314fd464bc31ab492111b1fbd2d604f0ac25c601b4a49e777206a8",
+          "prifly": "0.13.90",
+          "binary_sha256": "db8a158149088e6f9bfb9df3ebe5fc97e1b57942a620c78b65841f5c996bd984",
+          "complete": null,
+          "cases": 35
+        }
+      ]
+    }
+  ],
+  "scope": "Native CLI/claims/artifact/continuation/update and deterministic actors. No live model judgement or private application acceptance.",
+  "conclusion": "success",
+  "workflow_run": {
+    "conclusion": "success",
+    "headSha": "72eb8861263d15079d767c6c6106e8c240f738d0",
+    "jobs": [
+      {
+        "completedAt": "2026-11-10T01:24:22Z",
+        "conclusion": "success",
+        "databaseId": 129534695207,
+        "name": "verify",
+        "startedAt": "2026-11-10T00:15:24Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install Pri-Fly from the latest stable release",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Released versions moved with the bytes",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Pinned shared composition contracts",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Static folder contract",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Explicit review coverage and dirty candidate identity",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Test audit selection, evidence coverage and candidate freshness",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Product review coverage and owned environment lifecycle",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Feature admission, whole-round freshness and owner blockers",
+            "number": 10,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Parallel report transport rejects substituted refs and bytes",
+            "number": 11,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Verified integration freshness, semantic regression and owned publication",
+            "number": 12,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Compile all packages with the installed Pri-Fly",
+            "number": 13,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "One authority carries Classic across every plan profile",
+            "number": 14,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Public task-aware applicability and exact report preservation",
+            "number": 15,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Standalone integration graph and one-input extension contracts",
+            "number": 16,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Parallel review qualification contracts on three hosts",
+            "number": 17,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Readability preserves the six unchanged Classic routes",
+            "number": 18,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 19,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Classic and profiled reject missing verify results and continue at verify",
+            "number": 20,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 21,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "A real Run is handed past the verify gate",
+            "number": 22,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "A gate that could not judge ends the Run partial with its gate",
+            "number": 23,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "A Run stopped blocked resumes with the same workflow at verify",
+            "number": 24,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "A Run cancelled at the gate resumes with the same workflow",
+            "number": 25,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Bug workflow finishes direct, planned, repaired and resumed Runs",
+            "number": 26,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Project task limit survives repair continuation and package update",
+            "number": 27,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 28,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Explicit review evidence finishes and resumes on the released runtime",
+            "number": 29,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Standalone test audit skips, reports, stops and replays",
+            "number": 30,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "OpenClaw test audit catalog install without AI Factory skills",
+            "number": 31,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "UI and UX components finish, block and resume with owned environments",
+            "number": 32,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Standalone feature catalog install and update preserve project ownership",
+            "number": 33,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Small feature direct, repaired, stopped and resumed Runs",
+            "number": 34,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Native task queue carries feature review and continuation history",
+            "number": 35,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Whole feature parallel review, sealed reports and full-round replay",
+            "number": 36,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Exact merged acceptance, explicit local integration and offline publication",
+            "number": 37,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Parallel readers, all-join barriers and whole-round recovery",
+            "number": 38,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-node@v4",
+            "number": 39,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install the exact browser fixture tool",
+            "number": 40,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Public /5 imports use shared exact schemas and the actual browser",
+            "number": 41,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Real browser scenarios, defects, repair and cancellation",
+            "number": 42,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Small frontend feature with real browser and full quality replay",
+            "number": 43,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 44,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 45,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 46,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/setup-node@v4",
+            "number": 91,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 92,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 93,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/42726891572/job/129534695207"
+      },
+      {
+        "completedAt": "2026-11-10T00:16:04Z",
+        "conclusion": "success",
+        "databaseId": 129534695455,
+        "name": "unified-measurements (aif-fix, clean repair disabled)",
+        "startedAt": "2026-11-10T00:15:24Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install latest stable Pri-Fly",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Shipping measurement and report carrier routes",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 10,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 11,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/42726891572/job/129534695455"
+      },
+      {
+        "completedAt": "2026-11-10T00:16:32Z",
+        "conclusion": "success",
+        "databaseId": 129534695510,
+        "name": "unified-measurements (aif-profiled, clean repair disabled continue permissions)",
+        "startedAt": "2026-11-10T00:15:26Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install latest stable Pri-Fly",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Shipping measurement and report carrier routes",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 10,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 11,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/42726891572/job/129534695510"
+      },
+      {
+        "completedAt": "2026-11-10T00:16:07Z",
+        "conclusion": "success",
+        "databaseId": 129534695634,
+        "name": "unified-measurements (aif-classic, clean repair disabled continue permissions)",
+        "startedAt": "2026-11-10T00:15:25Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install latest stable Pri-Fly",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Shipping measurement and report carrier routes",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 10,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 11,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/42726891572/job/129534695634"
+      },
+      {
+        "completedAt": "2026-11-10T00:32:06Z",
+        "conclusion": "success",
+        "databaseId": 129534695752,
+        "name": "parallel-ui-ux",
+        "startedAt": "2026-11-10T00:15:24Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install Pri-Fly from the latest stable release",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Parallel UI and UX qualification retains the W2 contracts on three hosts",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-node@v4",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install the exact browser fixture tool",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Parallel UI and UX browser isolation, owned cleanup and whole-round recovery",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Sealed frontend grants, provenance and cleanup boundaries",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Whole feature UI and UX sessions, admission and lifecycle",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/setup-node@v4",
+            "number": 17,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 18,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 19,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/42726891572/job/129534695752"
+      },
+      {
+        "completedAt": "2026-11-10T00:21:23Z",
+        "conclusion": "success",
+        "databaseId": 129534696165,
+        "name": "call-review-uiux",
+        "startedAt": "2026-11-10T00:15:24Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install latest stable Pri-Fly",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Prepare project example tools",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Project install, original source and freshness contracts",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-node@v4",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install sealed browser fixture",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Native calls, original artifacts, browser and continuation",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/setup-node@v4",
+            "number": 17,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 18,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 19,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/42726891572/job/129534696165"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/StenHigh/prifly-aif-workflows/actions/runs/42726891572"
+  },
+  "artifact_count": 10,
+  "report_count": 22,
+  "shipping_sources_match_local": true,
+  "merge_commit": "b5c7be9c2953feefecddcce4739091b766ee0214",
+  "merge_tree_equals_tested_source": true
+}

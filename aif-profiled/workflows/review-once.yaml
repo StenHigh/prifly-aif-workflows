@@ -1,10 +1,10 @@
 authoring: prifly-workflow/1
 schema_version: "6"
 id: aif-profiled:workflow/review-once
-version: 1.14.0
+version: 1.15.0
 title: Review the implementation once and fix what blocks it
 refs:
-  schema_task: "{{contract_schema_task}}"
+  schema_task: "{{schema_task}}"
   schema_implementation: "{{contract_schema_implementation}}"
   schema_gate-result: "{{contract_schema_gate-result}}"
   schema_warmup-handoff: "{{contract_schema_warmup-handoff}}"
